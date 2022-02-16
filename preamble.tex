@@ -1,0 +1,23 @@
+\usepackage{booktabs}
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+
+\newenvironment{blackbox}{
+  \definecolor{shadecolor}{rgb}{0, 0, 0}  % black
+  \color{white}
+  \begin{shaded}}
+ {\end{shaded}}
+
+\usepackage{tcolorbox}
+
+\newtcolorbox{blackbox}{
+  colback=black,
+  colframe=orange,
+  coltext=white,
+  boxsep=5pt,
+  arc=4pt}
