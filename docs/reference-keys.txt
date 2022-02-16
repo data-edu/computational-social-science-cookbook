@@ -1,8 +1,8 @@
 preamble
 possible-topics
 getting-started
-accessing-data
 preparing-data
+accessing-data-sources
 analyzing-data
 communicating-collaborating-and-sharing
-intro
+r-and-r-studio

@@ -26,7 +26,14 @@ Welcome!
 - Base R: assignment, equality, dollar-sign indexing, xx
 - R files  
 
-### Accessing Data
+### Preparing Data
+
+- Selecting and renaming variables
+- Creating new variables
+- Arranging variables
+- Joining data  
+
+### Accessing Data Sources  
 
 - Facebook  
 - Twitter  
@@ -41,13 +48,6 @@ Welcome!
 - Image data  
 - Video data  
 - Application Programming Interfaces (APIs)  
-
-### Preparing Data
-
-- Selecting and renaming variables
-- Creating new variables
-- Arranging variables
-- Joining data  
 
 ### Analyzing Data
 
