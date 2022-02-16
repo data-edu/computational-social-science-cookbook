@@ -1,7 +1,7 @@
 --- 
-title: "A Minimal Book Example"
-author: "Yihui Xie"
-date: "`r Sys.Date()`"
+title: "Computational Social Science Cookbook"
+author: "Mete Akcaoglu and Joshua Rosenberg"
+date: "Started: 2022-02-15; Updated: `r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
@@ -9,7 +9,7 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: rstudio/bookdown-demo
-description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+description: "This book provides tutorials on how to carry out common tasks as a part of newer, computational approaches to social science research."
 ---
 
 # Prerequisites
