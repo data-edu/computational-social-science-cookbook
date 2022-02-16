@@ -1,6 +1,8 @@
 preamble
 possible-topics
-foundations
+getting-started
 accessing-data
+preparing-data
 analyzing-data
+communicating-collaborating-and-sharing
 intro

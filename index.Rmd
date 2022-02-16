@@ -14,20 +14,19 @@ description: "This book provides tutorials on how to carry out common tasks as a
 
 # Preamble
 
+Welcome!
+
 ## Possible topics
 
-### 1. Foundations
+### Getting Started
 
 - R and RStudio  
-- git and GitHub  
+- Foundational skills: Data, packages, functions, projects
+- Reproducibility and R Markdown documents  
+- Base R: assignment, equality, dollar-sign indexing, xx
 - R files  
-- R Markdown documents  
-- Rpubs  
-- Blogdown  
-- Bookdown  
-- Application Programming Interfaces (APIs)  
 
-### 2. Accessing data
+### Accessing Data
 
 - Facebook  
 - Twitter  
@@ -41,7 +40,29 @@ description: "This book provides tutorials on how to carry out common tasks as a
 - Audio data  
 - Image data  
 - Video data  
+- Application Programming Interfaces (APIs)  
 
-### 3. Analyzing data
+### Preparing Data
 
-- 
+- Selecting and renaming variables
+- Creating new variables
+- Arranging variables
+- Joining data  
+
+### Analyzing Data
+
+- Exploratory data analysis: Summarizing data
+- Exploratory data analysis: Grouping and summarizing data
+- Visualizing data
+- Social network analysis  
+- Text analysis  
+- Machine learning  
+- Multi-level modeling  
+- Latent varible modeling  
+
+## Communicating, Collaborating, and Sharing  
+
+- git and GitHub  
+- Rpubs  
+- Blogdown  
+- Bookdown  
