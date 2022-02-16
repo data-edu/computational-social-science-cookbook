@@ -1,2 +1,6 @@
-prerequisites
+preamble
+possible-topics
+foundations
+accessing-data
+analyzing-data
 intro
