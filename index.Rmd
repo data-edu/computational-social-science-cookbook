@@ -1,4 +1,4 @@
---- 
+---
 title: "Computational Social Science Cookbook"
 author: "Mete Akcaoglu and Joshua Rosenberg"
 date: "Started: 2022-02-15; Updated: `r Sys.Date()`"
@@ -14,55 +14,57 @@ description: "This book provides tutorials on how to carry out common tasks as a
 
 # Preamble
 
+Hello, world!
+
 Welcome!
 
 ## Possible topics
 
 ### Getting Started
 
-- R and RStudio  
-- Foundational skills: Data, packages, functions, projects
-- Reproducibility and R Markdown documents  
-- Base R: assignment, equality, dollar-sign indexing, xx
-- R files  
+-   R and RStudio\
+-   Foundational skills: Data, packages, functions, projects
+-   Reproducibility and R Markdown documents\
+-   Base R: assignment, equality, dollar-sign indexing, xx
+-   R files
 
 ### Preparing Data
 
-- Selecting and renaming variables
-- Creating new variables
-- Arranging variables
-- Joining data  
+-   Selecting and renaming variables
+-   Creating new variables
+-   Arranging variables
+-   Joining data
 
-### Accessing Data Sources  
+### Accessing Data Sources
 
-- Facebook  
-- Twitter  
-- Reddit  
-- Learning management system  
-- Directory information  
-- Institutional records  
-- Survey data  
-- Web-scraping  
-- Log file data  
-- Audio data  
-- Image data  
-- Video data  
-- Application Programming Interfaces (APIs)  
+-   Facebook\
+-   Twitter\
+-   Reddit\
+-   Learning management system\
+-   Directory information\
+-   Institutional records\
+-   Survey data\
+-   Web-scraping\
+-   Log file data\
+-   Audio data\
+-   Image data\
+-   Video data\
+-   Application Programming Interfaces (APIs)
 
 ### Analyzing Data
 
-- Exploratory data analysis: Summarizing data
-- Exploratory data analysis: Grouping and summarizing data
-- Visualizing data
-- Social network analysis  
-- Text analysis  
-- Machine learning  
-- Multi-level modeling  
-- Latent varible modeling  
+-   Exploratory data analysis: Summarizing data
+-   Exploratory data analysis: Grouping and summarizing data
+-   Visualizing data
+-   Social network analysis\
+-   Text analysis\
+-   Machine learning\
+-   Multi-level modeling\
+-   Latent varible modeling
 
-## Communicating, Collaborating, and Sharing  
+## Communicating, Collaborating, and Sharing
 
-- git and GitHub  
-- Rpubs  
-- Blogdown  
-- Bookdown  
+-   git and GitHub\
+-   Rpubs\
+-   Blogdown\
+-   Bookdown
