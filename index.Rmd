@@ -1,6 +1,6 @@
 ---
 title: "Computational Social Science Cookbook"
-author: "Mete Akcaoglu, Joshua Rosenberg, Alex Lishinski, Sarah Narvaiz, Okan Bulut"
+author: "Mete Akcaoglu, Shaun Kellogg, Sarah Narvaiz, Joshua Rosenberg, Wei Wang, alphabethical"
 date: "Started: 2022-02-15; Updated: `r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
@@ -14,7 +14,7 @@ description: "This book provides tutorials on how to carry out common tasks as a
 
 # **Computational Social Science Toolkit**
 
-The book is organized around six sections. Within these six sections are specific chapters, which serve as toolkit \"entries\". While the section overviews (the first bullet point within each section) introduce the techniques or methodologies used in the section\'s chapters, the entries (the subsequent bullet points) are intended to address a specific, narrow problem, as well a to provide a sample for researchers in writing their research questions, methods, results (and discussions) sections based on the analyses.
+The book is organized around six sections. Within these six sections are specific chapters, which serve as toolkit "entries". While the section overviews (the first bullet point within each section) introduce the techniques or methodologies used in the section's chapters, the entries (the subsequent bullet points) are intended to address a specific, narrow problem, as well a to provide a sample for researchers in writing their research questions, methods, results (and discussions) sections based on the analyses.
 
 ## **Section 1 - Getting StaRted**
 
@@ -42,7 +42,7 @@ The book is organized around six sections. Within these six sections are specifi
 
     -   Joining data
 
-##  **Section 2 - Text Data**
+## **Section 2 - Text Data**
 
 **Abstract:** Text data is one of the data formats that social scientists use frequently in their research. Traditionally, text data can come from direct sources (e.g., open-ended survey responses, student reflections, discussion posts, Twitter data), it can also come from indirect sources, too (e.g., interview transcripts). Although, conventionally, qualitative data analysis approaches based in human-coding have been used commonly in social science research with text data, in this section, we will discuss how computational methods can be used with text data. More specifically, we will discuss ways to capture the data, and discuss different types of analysis approaches (e.g., dictionary-based, frequency-based, machine learning). Importantly, for each analysis type, we will introduce a sample study with research questions (that you can inspire from), and provide a step by step analysis, and how to write it all up for publication.
 
@@ -50,33 +50,39 @@ The book is organized around six sections. Within these six sections are specifi
 
 2.2. Accessing (Broadening the horizon)
 
-	2.2.1. Web scraping (unstructured or API)
+```         
+2.2.1. Web scraping (unstructured or API)
 
-	2.2.2. Audio transcripts (Zoom etc.)
+2.2.2. Audio transcripts (Zoom etc.)
 
-	2.2.3. PDF
+2.2.3. PDF
 
-	2.2.4. Survey, discussions etc.
+2.2.4. Survey, discussions etc.
+```
 
 2.3. Frequency-based analysis
 
-	2.3.1. Purpose + CASE
+```         
+2.3.1. Purpose + CASE
 
-	2.3.2. Sample RQs
+2.3.2. Sample RQs
 
-	2.3.3. Analysis
+2.3.3. Analysis
 
-	2.3.4. Results and Discussions
+2.3.4. Results and Discussions
+```
 
 2.4. Dictionary-based analysis
 
 2.4.1. Purpose + CASE
 
-	2.4.2. Sample RQs
+```         
+2.4.2. Sample RQs
 
-	2.4.3. Analysis
+2.4.3. Analysis
 
-	2.4.4. Results and Discussions
+2.4.4. Results and Discussions
+```
 
 2.5. Predictive Models using Test
 
@@ -84,21 +90,25 @@ The book is organized around six sections. Within these six sections are specifi
 
 2.5.1. Purpose + CASE
 
-	2.5.2. Sample RQs
+```         
+2.5.2. Sample RQs
 
-	2.5.3. Analysis
+2.5.3. Analysis
 
-	2.5.4. Results and Discussions
+2.5.4. Results and Discussions
+```
 
 2.5.2. Unsupervised ML Using Text
 
 2.5.1. Purpose + CASE
 
-	2.5.2. Sample RQs
+```         
+2.5.2. Sample RQs
 
-	2.5.3. Analysis
+2.5.3. Analysis
 
-	2.5.4. Results and Discussions
+2.5.4. Results and Discussions
+```
 
 ## **Section 3 - Multimodal Data (Images, Video, Audio)**
 
@@ -108,31 +118,37 @@ The book is organized around six sections. Within these six sections are specifi
 
 3.2. Accessing (Broadening the horizon)
 
-	3.2.1. Audio
+```         
+3.2.1. Audio
 
-	3.2.2. Video
+3.2.2. Video
 
-	3.2.3. Images
+3.2.3. Images
+```
 
 3.3. Descriptive Analyses
 
-	3.3.1. Purpose + CASE
+```         
+3.3.1. Purpose + CASE
 
-	3.3.2. Sample RQs
+3.3.2. Sample RQs
 
-	3.3.3. Analysis
+3.3.3. Analysis
 
-	3.3.4. Results and Discussions
+3.3.4. Results and Discussions
+```
 
 3.4. Predictive Models with Multimodel Data
 
 3.4.1. Purpose + CASE
 
-	3.4.2. Sample RQs
+```         
+3.4.2. Sample RQs
 
-	3.4.3. Analysis
+3.4.3. Analysis
 
-	3.4.4. Results and Discussions
+3.4.4. Results and Discussions
+```
 
 ## **Section 4 - Social Network Analyses**
 
@@ -150,41 +166,49 @@ The book is organized around six sections. Within these six sections are specifi
 
 4.3.1. Purpose + CASE
 
-	4.3.2. Sample RQs
+```         
+4.3.2. Sample RQs
 
-	4.3.3. Analysis
+4.3.3. Analysis
 
-	4.3.4. Results and Discussions
+4.3.4. Results and Discussions
+```
 
 4.4. Descriptive analyses
 
 4.4.1. Purpose + CASE
 
-	4.4.2. Sample RQs
+```         
+4.4.2. Sample RQs
 
-	4.4.3. Analysis
+4.4.3. Analysis
 
-	4.4.4. Results and Discussions
+4.4.4. Results and Discussions
+```
 
 4.5. Inferential analyses: selection processes
 
 4.5.1. Purpose + CASE
 
-	4.5.2. Sample RQs
+```         
+4.5.2. Sample RQs
 
-	4.5.3. Analysis
+4.5.3. Analysis
 
-	4.5.4. Results and Discussions
+4.5.4. Results and Discussions
+```
 
 4.6. Inferential analyses: influence processes
 
 4.6.1. Purpose + CASE
 
-	4.6.2. Sample RQs
+```         
+4.6.2. Sample RQs
 
-	4.6.3. Analysis
+4.6.3. Analysis
 
-	4.6.4. Results and Discussions
+4.6.4. Results and Discussions
+```
 
 ## **Section 5 - Secondary Analysis of Big Data (Numeric Data)**
 
@@ -194,53 +218,63 @@ The book is organized around six sections. Within these six sections are specifi
 
 5.2. Accessing (Broadening the horizon)
 
-	5.2.1. BIG DATA
+```         
+5.2.1. BIG DATA
 
-	5.2.2. Learning Analytics
+5.2.2. Learning Analytics
+```
 
 5.3. Supervised ML 
 
 5.3.1. Purpose + CASE
 
-	5.3.2. Sample RQs
+```         
+5.3.2. Sample RQs
 
-	5.3.3. Analysis
+5.3.3. Analysis
 
-	5.3.4. Results and Discussions
+5.3.4. Results and Discussions
+```
 
 5.4. Unsupervised ML
 
 5.4.1. Purpose + CASE
 
-	5.4.2. Sample RQs
+```         
+5.4.2. Sample RQs
 
-	5.4.3. Analysis
+5.4.3. Analysis
 
-	5.4.4. Results and Discussions
+5.4.4. Results and Discussions
+```
 
 5.5. Logistic Regression ML
 
 5.5.1. Purpose + CASE
 
-	5.5.2. Sample RQs
+```         
+5.5.2. Sample RQs
 
-	5.5.3. Analysis
+5.5.3. Analysis
 
-	5.5.4. Results and Discussions
+5.5.4. Results and Discussions
+```
 
 5.6. Regression and its Extensions
 
-	5.5.1. Purpose + CASE
+```         
+5.5.1. Purpose + CASE
 
-	5.5.2. Sample RQs
+5.5.2. Sample RQs
 
-	5.5.3. Analysis
+5.5.3. Analysis
 
-	5.5.4. Results and Discussions
+5.5.4. Results and Discussions
+```
 
 ## **Section 6 - Communication & Collaboration & Good Practices**
 
-**Abstract:** A key part of social science research (and, any analysis involving computational tools) is communicating about the output or findings. In this section, we describe how to communicate with colleagues or the wider world through the use of a variety of tools, especially R Markdown and git/GitHub. We also discuss how to collaborate on projects that involve computational methods and \"good\" (flexible yet principled) practices for doing so based on our experience and prior scholarship.
+**Abstract:** A key part of social science research (and, any analysis involving computational tools) is communicating about the output or findings. In this section, we describe how to communicate with colleagues or the wider world through the use of a variety of tools, especially R Markdown and git/GitHub. We also discuss how to collaborate on projects that involve computational methods and "good" (flexible yet principled) practices for doing so based on our experience and prior scholarship.
 
 -   Section Overview
 
