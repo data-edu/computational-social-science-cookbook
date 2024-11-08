@@ -7,11 +7,18 @@
     "text": "1 Preface\nWelcome to Computational Social Science Cookbook with R!\nThe book is organized around six sections. Within these six sections are specific chapters, which serve as cookbook “entries”. While the section overviews (the first bullet point within each section) introduce the techniques or methodologies used in the section’s chapters, the entries (the subsequent bullet points) are intended to address a specific, narrow problem, as well a to provide a sample for researchers in writing their research questions, methods, results (and discussions) sections based on the analyses."
   },
   {
-    "objectID": "section-1.html",
-    "href": "section-1.html",
+    "objectID": "section-1.html#section",
+    "href": "section-1.html#section",
     "title": "2  Section 1",
-    "section": "",
-    "text": "test"
+    "section": "2.1 1.1",
+    "text": "2.1 1.1\nWelcome!"
+  },
+  {
+    "objectID": "section-1.html#section-1",
+    "href": "section-1.html#section-1",
+    "title": "2  Section 1",
+    "section": "2.2 2.1",
+    "text": "2.2 2.1\n\n2 + 2\n\n[1] 4"
   },
   {
     "objectID": "section-2.html",
