@@ -1,0 +1,28 @@
+project:
+  type: book
+
+book:
+  title: "Computational Social Science Cookbook with R"
+  author: "Wei Wang, Mete Akcaoglu, Joshua Rosenberg, Shaun Kellogg"
+  date: "11/8/2024"
+  chapters:
+    - index.qmd
+    - section-1.qmd
+    - section-2.qmd
+    - section-3.qmd
+    - section-4.qmd
+    - section-5.qmd
+    - section-6.qmd
+    - conclusion.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: flatly
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+

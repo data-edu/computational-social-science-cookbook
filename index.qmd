@@ -1,0 +1,5 @@
+# Preface
+
+Welcome to *Computational Social Science Cookbook with R*!
+
+The book is organized around six sections. Within these six sections are specific chapters, which serve as cookbook “entries”. While the section overviews (the first bullet point within each section) introduce the techniques or methodologies used in the section’s chapters, the entries (the subsequent bullet points) are intended to address a specific, narrow problem, as well a to provide a sample for researchers in writing their research questions, methods, results (and discussions) sections based on the analyses.
