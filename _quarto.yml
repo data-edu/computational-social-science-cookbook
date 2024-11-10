@@ -24,6 +24,7 @@ format:
     theme: flatly
   pdf:
     documentclass: scrreprt
+    pdf-engine: xelatex
 
 editor: visual
 
