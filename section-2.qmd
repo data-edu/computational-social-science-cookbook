@@ -671,7 +671,7 @@ This section covers how to apply both supervised and unsupervised machine learni
     The Naive Bayes classifier achieves an accuracy of approximately X%, showing it can reasonably classify policy themes. This model could assist in categorizing new policies or updates as they emerge, enabling quick identification of thematic priorities across institutions.
 
 -   **RQ2**: What are the most influential words in predicting the theme of each policy?\
-    Feature importance analysis shows that terms such as "integrity," "plagiarism," and "ethics" strongly indicate the "Academic Integrity" theme. Words like "discretion" and "instructor" predict the "Instructor Discretion" theme, while terms like "support" and "learning" are influential for the "Student Support" theme. These words highlight key focal points in university policies and help institutions quickly determine thematic relevance when updating guidelines. ---
+    Feature importance analysis shows that terms such as "integrity," "plagiarism," and "ethics" strongly indicate the "Academic Integrity" theme. Words like "discretion" and "instructor" predict the "Instructor Discretion" theme, while terms like "support" and "learning" are influential for the "Student Support" theme. These words highlight key focal points in university policies and help institutions quickly determine thematic relevance when updating guidelines.
 
 ### 2.5.2 Unsupervised ML Using Text
 
@@ -761,4 +761,4 @@ This section covers how to apply both supervised and unsupervised machine learni
     The LDA model reveals three key topics: 1) academic integrity, 2) student support, and 3) instructor discretion. These topics represent the primary areas of concern and focus in university ChatGPT policies.
 
 -   **RQ2**: How do policies cluster based on their emphasis?\
-    The topic clusters suggest that universities tend to focus on specific aspects: some emphasize academic integrity, while others prioritize support for learning and flexibility for instructors. This clustering can inform administrators about prevalent policy themes, aiding in policy alignment across institutions. \`\`\`
+    The topic clusters suggest that universities tend to focus on specific aspects: some emphasize academic integrity, while others prioritize support for learning and flexibility for instructors. This clustering can inform administrators about prevalent policy themes, aiding in policy alignment across institutions.
