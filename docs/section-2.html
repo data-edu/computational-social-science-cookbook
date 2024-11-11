@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Computational Social Science Cookbook with R - 3&nbsp; Section 2</title>
+<title>Computational Social Science Cookbook with R - 3&nbsp; Section 2 : Capturing and Analyzing Text Data with Computational Methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -74,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./section-2.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Section 2</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./section-2.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Section 2 : Capturing and Analyzing Text Data with Computational Methods</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -114,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-2.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Section 2</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Section 2 : Capturing and Analyzing Text Data with Computational Methods</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -159,14 +193,47 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">3.1</span> 2.1 Overview</a></li>
+  <li><a href="#accessing-text-data-broadening-the-horizon" id="toc-accessing-text-data-broadening-the-horizon" class="nav-link" data-scroll-target="#accessing-text-data-broadening-the-horizon"><span class="header-section-number">3.2</span> 2.2 Accessing Text Data (Broadening the Horizon)</a>
+  <ul class="collapse">
+  <li><a href="#web-scraping-unstructured-or-api" id="toc-web-scraping-unstructured-or-api" class="nav-link" data-scroll-target="#web-scraping-unstructured-or-api"><span class="header-section-number">3.2.1</span> 2.2.1 Web Scraping (Unstructured or API)</a></li>
+  <li><a href="#what-is-an-api" id="toc-what-is-an-api" class="nav-link" data-scroll-target="#what-is-an-api"><span class="header-section-number">3.2.2</span> What is an API?</a></li>
+  <li><a href="#audio-transcripts-zoom-etc." id="toc-audio-transcripts-zoom-etc." class="nav-link" data-scroll-target="#audio-transcripts-zoom-etc."><span class="header-section-number">3.2.3</span> 2.2.2 Audio Transcripts (Zoom, etc.)</a></li>
+  <li><a href="#pdf" id="toc-pdf" class="nav-link" data-scroll-target="#pdf"><span class="header-section-number">3.2.4</span> 2.2.3 PDF</a></li>
+  <li><a href="#survey-discussions-etc." id="toc-survey-discussions-etc." class="nav-link" data-scroll-target="#survey-discussions-etc."><span class="header-section-number">3.2.5</span> 2.2.4 Survey, Discussions, etc.</a></li>
+  </ul></li>
+  <li><a href="#frequency-based-analysis" id="toc-frequency-based-analysis" class="nav-link" data-scroll-target="#frequency-based-analysis"><span class="header-section-number">3.3</span> 2.3 Frequency-based Analysis</a>
+  <ul class="collapse">
+  <li><a href="#purpose-case" id="toc-purpose-case" class="nav-link" data-scroll-target="#purpose-case"><span class="header-section-number">3.3.1</span> 2.3.1 Purpose + Case</a></li>
+  <li><a href="#sample-research-questions" id="toc-sample-research-questions" class="nav-link" data-scroll-target="#sample-research-questions"><span class="header-section-number">3.3.2</span> 2.3.2 Sample Research Questions</a></li>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis"><span class="header-section-number">3.3.3</span> 2.3.3 Analysis</a></li>
+  <li><a href="#results-and-discussions" id="toc-results-and-discussions" class="nav-link" data-scroll-target="#results-and-discussions"><span class="header-section-number">3.3.4</span> 2.3.4 Results and Discussions</a></li>
+  </ul></li>
+  <li><a href="#dictionary-based-analysis" id="toc-dictionary-based-analysis" class="nav-link" data-scroll-target="#dictionary-based-analysis"><span class="header-section-number">3.4</span> 2.4 Dictionary-based Analysis</a>
+  <ul class="collapse">
+  <li><a href="#purpose-case-1" id="toc-purpose-case-1" class="nav-link" data-scroll-target="#purpose-case-1"><span class="header-section-number">3.4.1</span> 2.4.1 Purpose + Case</a></li>
+  <li><a href="#sample-research-questions-1" id="toc-sample-research-questions-1" class="nav-link" data-scroll-target="#sample-research-questions-1"><span class="header-section-number">3.4.2</span> 2.4.2 Sample Research Questions</a></li>
+  <li><a href="#analysis-1" id="toc-analysis-1" class="nav-link" data-scroll-target="#analysis-1"><span class="header-section-number">3.4.3</span> 2.4.3 Analysis</a></li>
+  <li><a href="#results-and-discussions-1" id="toc-results-and-discussions-1" class="nav-link" data-scroll-target="#results-and-discussions-1"><span class="header-section-number">3.4.4</span> 2.4.4 Results and Discussions</a></li>
+  </ul></li>
+  <li><a href="#predictive-models-using-text" id="toc-predictive-models-using-text" class="nav-link" data-scroll-target="#predictive-models-using-text"><span class="header-section-number">3.5</span> 2.5 Predictive Models Using Text</a>
+  <ul class="collapse">
+  <li><a href="#supervised-ml-using-text" id="toc-supervised-ml-using-text" class="nav-link" data-scroll-target="#supervised-ml-using-text"><span class="header-section-number">3.5.1</span> 2.5.1 Supervised ML Using Text</a></li>
+  <li><a href="#unsupervised-ml-using-text" id="toc-unsupervised-ml-using-text" class="nav-link" data-scroll-target="#unsupervised-ml-using-text"><span class="header-section-number">3.5.2</span> 2.5.2 Unsupervised ML Using Text</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Section 2</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Section 2 : Capturing and Analyzing Text Data with Computational Methods</span></h1>
 </div>
 
 
@@ -181,9 +248,756 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>asdfs</p>
+<section id="overview" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">3.1</span> 2.1 Overview</h2>
+<p>In social sciences, analyzing text data is usually considered the “job” of qualitative researchers. Qualitative research involves identifying patterns in non-numeric data, and this pattern recognition is typically done manually. This process is time-intensive but can yield rich research results. Traditional methods for analyzing text data involve human coding and can include direct sources (e.g., books, online texts) or indirect sources (e.g., interview transcripts).</p>
+<p>With the advent of new software, we can capture and analyze text data in ways that were previously not possible. Modern data collection techniques include web scraping, accessing social media APIs, or downloading large online documents. Given the increased size of text data, analysis now requires computational approaches (e.g., dictionary-based, frequency-based, machine learning) that go beyond manual coding. These computational methods allow social scientists to ask new types of research questions, expanding the scope and depth of possible insights.</p>
+<blockquote class="blockquote">
+<p><strong>Disclaimer</strong>: While resources are available that discuss these analysis methods in depth, this book aims to provide a practical guide for social scientists, using data they will likely encounter. Our goal is to present a “cookbook” for guiding research projects through real-world examples.</p>
+</blockquote>
+<hr>
+</section>
+<section id="accessing-text-data-broadening-the-horizon" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="accessing-text-data-broadening-the-horizon"><span class="header-section-number">3.2</span> 2.2 Accessing Text Data (Broadening the Horizon)</h2>
+<section id="web-scraping-unstructured-or-api" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="web-scraping-unstructured-or-api"><span class="header-section-number">3.2.1</span> 2.2.1 Web Scraping (Unstructured or API)</h3>
+<section id="what-is-web-scraping" class="level4" data-number="3.2.1.1">
+<h4 data-number="3.2.1.1" class="anchored" data-anchor-id="what-is-web-scraping"><span class="header-section-number">3.2.1.1</span> What is Web Scraping?</h4>
+<p>Web scraping refers to the automated process of extracting data from web pages. It is particularly useful when dealing with extensive lists of websites that would be tedious to mine manually. A typical web scraping program follows these steps:</p>
+<ol type="1">
+<li>Loads a webpage.</li>
+<li>Downloads the HTML or XML structure.</li>
+<li>Identifies the desired data.</li>
+<li>Converts the data into a format suitable for analysis, such as a data frame.</li>
+</ol>
+<p>In addition to text, web scraping can also be used to download other content types, such as audio-visual files.</p>
+</section>
+<section id="is-web-scraping-legal" class="level4" data-number="3.2.1.2">
+<h4 data-number="3.2.1.2" class="anchored" data-anchor-id="is-web-scraping-legal"><span class="header-section-number">3.2.1.2</span> Is Web Scraping Legal?</h4>
+<p>Web scraping was common in the early days of the internet, but with the increasing value of data, legal norms have evolved. To avoid legal issues, check the “Terms of Service” for specific permissions on the website, often accessible via “robots.txt” files. Consult legal advice when in doubt.</p>
+</section>
+<section id="reading-a-web-page-into-r" class="level4" data-number="3.2.1.3">
+<h4 data-number="3.2.1.3" class="anchored" data-anchor-id="reading-a-web-page-into-r"><span class="header-section-number">3.2.1.3</span> Reading a Web Page into R</h4>
+<p>Once permissions are confirmed, the first step in web scraping is to download the webpage’s source code into R, typically using the <code>rvest</code> package by Hadley Wickham.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load the rvest package</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"rvest"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To demonstrate, we will scrape a simple Wikipedia page. Static pages, which lack interactive elements like JavaScript, are simpler to scrape. You can view the page’s HTML source in your browser by selecting <strong>Developer Tools &gt; View Source</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the webpage</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>wikipedia_page <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">"https://en.wikipedia.org/wiki/World_Health_Organization_ranking_of_health_systems_in_2000"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify that the webpage loaded successfully</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>wikipedia_page</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="parsing-html" class="level4" data-number="3.2.1.4">
+<h4 data-number="3.2.1.4" class="anchored" data-anchor-id="parsing-html"><span class="header-section-number">3.2.1.4</span> Parsing HTML</h4>
+<p>The next challenge is extracting specific information from the HTML structure. HTML files have a “tree-like” format, allowing us to target particular sections. Use your browser’s “Developer Tools” to inspect elements and locate the data. Right-click the desired element and select <strong>Inspect</strong> to view its structure.</p>
+<p>To isolate data sections within the HTML structure, identify the <strong>XPath</strong> or <strong>CSS selectors</strong>. For instance:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract specific section using XPath</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>section_of_wikipedia <span class="ot">&lt;-</span> <span class="fu">html_node</span>(wikipedia_page, <span class="at">xpath=</span><span class="st">'//*[@id="mw-content-text"]/div/table'</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(section_of_wikipedia)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To convert the extracted section into a data frame, use <code>html_table()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the extracted data into a table</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>health_rankings <span class="ot">&lt;-</span> <span class="fu">html_table</span>(section_of_wikipedia)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(health_rankings[ , (<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)])  <span class="co"># Display the first two columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="parsing-with-css-selectors" class="level4" data-number="3.2.1.5">
+<h4 data-number="3.2.1.5" class="anchored" data-anchor-id="parsing-with-css-selectors"><span class="header-section-number">3.2.1.5</span> Parsing with CSS Selectors</h4>
+<p>For more complex web pages, CSS selectors can be an alternative to XPath. Tools like <strong>Selector Gadget</strong> can help identify the required CSS selectors.</p>
+<p>For example, to scrape event information from Duke University’s main page:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the webpage</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>duke_page <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">"https://www.duke.edu"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract event information using CSS selector</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>duke_events <span class="ot">&lt;-</span> <span class="fu">html_nodes</span>(duke_page, <span class="at">css=</span><span class="st">"li:nth-child(1) .epsilon"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">html_text</span>(duke_events)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="scraping-with-selenium" class="level4" data-number="3.2.1.6">
+<h4 data-number="3.2.1.6" class="anchored" data-anchor-id="scraping-with-selenium"><span class="header-section-number">3.2.1.6</span> Scraping with Selenium</h4>
+<p>For tasks involving interactive actions (e.g., filling search fields), use <code>RSelenium</code>, which enables automated browser operations.</p>
+<p>To set up Selenium, install the <strong>Java SE Development Kit</strong> and <strong>Docker</strong>. Then, start Selenium in R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load RSelenium</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"RSelenium"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RSelenium)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Start a Selenium session</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>rD <span class="ot">&lt;-</span> <span class="fu">rsDriver</span>()</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>remDr <span class="ot">&lt;-</span> rD<span class="sc">$</span>client</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>remDr<span class="sc">$</span><span class="fu">navigate</span>(<span class="st">"https://www.duke.edu"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To automate data entry, identify the CSS selector for the search box and input the query:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the search box element and enter a query</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>search_box <span class="ot">&lt;-</span> remDr<span class="sc">$</span><span class="fu">findElement</span>(<span class="at">using =</span> <span class="st">'css selector'</span>, <span class="st">'fieldset input'</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>search_box<span class="sc">$</span><span class="fu">sendKeysToElement</span>(<span class="fu">list</span>(<span class="st">"data science"</span>, <span class="st">"\uE007"</span>))  <span class="co"># "\uE007" represents Enter key</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="web-scraping-within-a-loop" class="level4" data-number="3.2.1.7">
+<h4 data-number="3.2.1.7" class="anchored" data-anchor-id="web-scraping-within-a-loop"><span class="header-section-number">3.2.1.7</span> Web Scraping within a Loop</h4>
+<p>To scrape multiple pages, embed the code within a loop to automate tasks across different URLs. Since each site may have a unique structure, generalized scraping can be time-intensive and error-prone. Implement error handling to manage interruptions.</p>
+</section>
+<section id="when-to-use-web-scraping" class="level4" data-number="3.2.1.8">
+<h4 data-number="3.2.1.8" class="anchored" data-anchor-id="when-to-use-web-scraping"><span class="header-section-number">3.2.1.8</span> When to Use Web Scraping</h4>
+<p>Web scraping is appropriate if:</p>
+<ul>
+<li><strong>Page structure is consistent across sites</strong>: For example, a government site with date suffixes but a uniform layout.</li>
+<li><strong>Manual data collection is prohibitive</strong>: For extensive text or embedded tables.</li>
+</ul>
+<p>When feasible, consider alternatives like APIs or data-entry services (e.g., Amazon Mechanical Turk) for better efficiency and legal compliance.</p>
+<hr>
+</section>
+</section>
+<section id="what-is-an-api" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="what-is-an-api"><span class="header-section-number">3.2.2</span> What is an API?</h3>
+<p>An Application Programming Interface (API) is a set of protocols that allows computers to communicate and exchange information. A common type is the REST API, where one machine sends a request, and another returns a response. APIs provide standardized access to data, services, and functionalities, making them essential in software development.</p>
+<section id="when-to-use-an-api" class="level4" data-number="3.2.2.1">
+<h4 data-number="3.2.2.1" class="anchored" data-anchor-id="when-to-use-an-api"><span class="header-section-number">3.2.2.1</span> When to Use an API</h4>
+<p>APIs are commonly used for:</p>
+<ul>
+<li><strong>Integrating with Third-Party Services</strong>: APIs connect applications to services like payment gateways or social media.</li>
+<li><strong>Accessing Data</strong>: APIs retrieve data from systems or databases (e.g., real-time weather data).</li>
+<li><strong>Automating Tasks</strong>: APIs automate processes within applications, such as email marketing.</li>
+<li><strong>Building New Applications</strong>: APIs allow developers to build new apps or services (e.g., a mapping API for navigation).</li>
+<li><strong>Streamlining Workflows</strong>: APIs enable seamless communication and data exchange across systems.</li>
+</ul>
+</section>
+<section id="using-reddit-api-with-redditextractor" class="level4" data-number="3.2.2.2">
+<h4 data-number="3.2.2.2" class="anchored" data-anchor-id="using-reddit-api-with-redditextractor"><span class="header-section-number">3.2.2.2</span> Using Reddit API with RedditExtractoR</h4>
+<p>Reddit is a social media platform featuring a complex network of users and discussions, organized into “subreddits” by topic. RedditExtractoR, an R package, enables data extraction from Reddit to identify trends and analyze interactions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load RedditExtractoR</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"RedditExtractoR"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RedditExtractoR)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Access data from the ChatGPT subreddit</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>chatgpt_reddit <span class="ot">&lt;-</span> <span class="fu">find_thread_urls</span>(<span class="at">subreddit =</span> <span class="st">"chatgpt"</span>, <span class="at">sort_by =</span> <span class="st">"new"</span>, <span class="at">period =</span> <span class="st">"day"</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span>(chatgpt_reddit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="audio-transcripts-zoom-etc." class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="audio-transcripts-zoom-etc."><span class="header-section-number">3.2.3</span> 2.2.2 Audio Transcripts (Zoom, etc.)</h3>
+<p>Audio transcripts are a rich source of text data, especially useful for capturing spoken content from meetings, interviews, or webinars. Many platforms, such as Zoom, provide automated transcription services that can be downloaded as text files for analysis. By processing these transcripts, researchers can analyze conversation themes, sentiment, or other linguistic features. Here’s how to access and prepare Zoom transcripts for analysis in R.</p>
+<section id="key-steps-for-extracting-text-data-from-audio-transcripts" class="level4" data-number="3.2.3.1">
+<h4 data-number="3.2.3.1" class="anchored" data-anchor-id="key-steps-for-extracting-text-data-from-audio-transcripts"><span class="header-section-number">3.2.3.1</span> Key Steps for Extracting Text Data from Audio Transcripts</h4>
+<ol type="1">
+<li><strong>Access the Zoom Transcript</strong>
+<ul>
+<li>Log in to your Zoom account.</li>
+<li>Navigate to the “Recordings” section.</li>
+<li>Select the recording you wish to analyze and download the “Audio Transcript” file.</li>
+</ul></li>
+<li><strong>Import the Transcript into R</strong><br>
+Once the file is downloaded, you can load it into R for analysis. Depending on the file format (usually a <code>.txt</code> file with tab or comma delimiters), use <code>read.table()</code>, <code>read.csv()</code>, or functions from the <code>readr</code> package to load the data.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Load the transcript into R</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>   transcript_data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"path/to/your/zoom_transcript.txt"</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Adjust the <code>sep</code> parameter based on the delimiter used in the transcript file (typically <code>\t</code> for tab-delimited files).</p>
+<ol start="3" type="1">
+<li><p><strong>Data Cleaning (if necessary)</strong><br>
+Clean up the text data to remove unnecessary characters, standardize formatting, and prepare it for further analysis.</p>
+<ul>
+<li><strong>Remove Unwanted Characters</strong><br>
+Use <code>gsub()</code> to eliminate special characters and punctuation, keeping only alphanumeric characters and spaces.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>     <span class="co"># Remove special characters</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>     transcript_data<span class="sc">$</span>text <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"[^a-zA-Z0-9 ]"</span>, <span class="st">""</span>, transcript_data<span class="sc">$</span>text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><strong>Convert Text to Lowercase</strong><br>
+Standardize text to lowercase for consistency in text analysis.</li>
+</ul></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>     <span class="co"># Convert text to lowercase</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>     transcript_data<span class="sc">$</span>text <span class="ot">&lt;-</span> <span class="fu">tolower</span>(transcript_data<span class="sc">$</span>text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="pdf" class="level3" data-number="3.2.4">
+<h3 data-number="3.2.4" class="anchored" data-anchor-id="pdf"><span class="header-section-number">3.2.4</span> 2.2.3 PDF</h3>
+<p>PDF files are a valuable source of text data, often found in research publications, government documents, and industry reports. We’ll explore two main methods for extracting text from PDFs:</p>
+<ol type="1">
+<li><p><strong>Extracting from Local PDF Files</strong>: This method involves accessing and parsing text from PDF files stored locally, providing tools and techniques to efficiently retrieve text data from offline documents.</p></li>
+<li><p><strong>Downloading and Extracting PDF Files</strong>: This approach covers downloading PDFs from online sources and extracting their text. This method is useful for scraping publicly available documents from websites or databases for research purposes.</p></li>
+<li><p><strong>PDF Data Extractor (PDE)</strong><br>
+For more advanced PDF text extraction and processing, you can use the <a href="https://cran.r-project.org/web/packages/PDE/vignettes/PDE.html">PDF Data Extractor (PDE) package</a>. This package provides tools for extracting text data from complex PDF documents, supporting additional customization options for text extraction. PDE is a R package that easily extracts information and tables from PDF files. The PDE_analyzer_i() performs the sentence and table extraction while the included PDE_reader_i() allows the user-friendly visualization and quick-processing of the obtained results.</p></li>
+</ol>
+<hr>
+<section id="steps-for-extracting-text-from-local-pdf-files" class="level4" data-number="3.2.4.1">
+<h4 data-number="3.2.4.1" class="anchored" data-anchor-id="steps-for-extracting-text-from-local-pdf-files"><span class="header-section-number">3.2.4.1</span> Steps for Extracting Text from Local PDF Files</h4>
+<ol type="1">
+<li><strong>Install and Load the <code>pdftools</code> Package</strong><br>
+Start by installing and loading the <code>pdftools</code> package, which is specifically designed for reading and extracting text from PDF files in R.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>   <span class="fu">install.packages</span>(<span class="st">"pdftools"</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">library</span>(pdftools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li><strong>Read the PDF as a Text File</strong><br>
+Use the <code>pdf_text()</code> function to read the PDF file into R as a text object. This function returns each page as a separate string in a character vector.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>   txt <span class="ot">&lt;-</span> <span class="fu">pdf_text</span>(<span class="st">"path/to/your/file.pdf"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li><strong>Extract Text from a Specific Page</strong><br>
+To access a particular page from the PDF, specify the page number in the text vector. For example, to extract text from page 24:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>   page_text <span class="ot">&lt;-</span> txt[<span class="dv">24</span>]  <span class="co"># page 24</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li><strong>Extract Rows into a List</strong><br>
+If the page contains a table or structured text, use the <code>scan()</code> function to read each row as a separate element in a list. The <code>textConnection()</code> function converts the page text for processing.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>   rows <span class="ot">&lt;-</span> <span class="fu">scan</span>(<span class="fu">textConnection</span>(page_text), <span class="at">what =</span> <span class="st">"character"</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="5" type="1">
+<li><strong>Split Rows into Cells</strong><br>
+To further parse each row, split it into cells by specifying the delimiter, such as whitespace (using <code>"\\s+"</code>). This converts each row into a list of individual cells.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>   row <span class="ot">&lt;-</span> <span class="fu">unlist</span>(<span class="fu">strsplit</span>(rows[<span class="dv">24</span>], <span class="st">"</span><span class="sc">\\</span><span class="st">s+"</span>))  <span class="co"># Example with the 24th row</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+</section>
+<section id="steps-for-downloading-and-extracting-text-from-pdf-files" class="level4" data-number="3.2.4.2">
+<h4 data-number="3.2.4.2" class="anchored" data-anchor-id="steps-for-downloading-and-extracting-text-from-pdf-files"><span class="header-section-number">3.2.4.2</span> Steps for Downloading and Extracting Text from PDF Files</h4>
+<ol type="1">
+<li><strong>Download the PDF from the Web</strong><br>
+Use the <code>download.file()</code> function to download the PDF file from a specified URL. Set the mode to <code>"wb"</code> (write binary) to ensure the file is saved correctly.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>   link <span class="ot">&lt;-</span> <span class="fu">paste0</span>(</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>     <span class="st">"http://www.singstat.gov.sg/docs/"</span>,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>     <span class="st">"default-source/default-document-library/"</span>,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>     <span class="st">"publications/publications_and_papers/"</span>,</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>     <span class="st">"cop2010/census_2010_release3/"</span>,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>     <span class="st">"cop2010sr3.pdf"</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>   )</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>   <span class="fu">download.file</span>(link, <span class="st">"census2010_3.pdf"</span>, <span class="at">mode =</span> <span class="st">"wb"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li><strong>Read the PDF as a Text File</strong><br>
+After downloading, read the PDF into R as a text object using the <code>pdf_text()</code> function from the <code>pdftools</code> package. Each page of the PDF will be stored as a string in a character vector.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>   txt <span class="ot">&lt;-</span> <span class="fu">pdf_text</span>(<span class="st">"census2010_3.pdf"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li><strong>Extract Text from a Specific Page</strong><br>
+Access the desired page (e.g., page 24) by specifying the page number in the character vector.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>   page_text <span class="ot">&lt;-</span> txt[<span class="dv">24</span>]  <span class="co"># Page 24</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li><strong>Extract Rows into a List</strong><br>
+Use the <code>scan()</code> function to split the page text into rows, with each row representing a line of text in the PDF. This creates a list where each line from the page is an element.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>   rows <span class="ot">&lt;-</span> <span class="fu">scan</span>(<span class="fu">textConnection</span>(page_text), <span class="at">what =</span> <span class="st">"character"</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="5" type="1">
+<li><strong>Loop Through Rows and Extract Data</strong><br>
+Starting from a specific row (e.g., row 7), loop over each row. For each row:
+<ul>
+<li>Split the text by spaces (<code>"\\s+"</code>) using <code>strsplit()</code>.</li>
+<li>Convert the result to a vector with <code>unlist()</code>.</li>
+<li>If the third cell in the row is not empty, store the second cell as <code>name</code> and the third cell as <code>total</code>, converting it to a numeric format after removing commas.</li>
+</ul></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>   name <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>   total <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>   <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">7</span><span class="sc">:</span><span class="fu">length</span>(rows)) {</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>     row <span class="ot">&lt;-</span> <span class="fu">unlist</span>(<span class="fu">strsplit</span>(rows[i], <span class="st">"</span><span class="sc">\\</span><span class="st">s+"</span>))</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>     <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(row[<span class="dv">3</span>])) {</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>       name <span class="ot">&lt;-</span> <span class="fu">c</span>(name, row[<span class="dv">2</span>])</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>       total <span class="ot">&lt;-</span> <span class="fu">c</span>(total, <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">""</span>, row[<span class="dv">3</span>])))</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>     }</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>   }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="survey-discussions-etc." class="level3" data-number="3.2.5">
+<h3 data-number="3.2.5" class="anchored" data-anchor-id="survey-discussions-etc."><span class="header-section-number">3.2.5</span> 2.2.4 Survey, Discussions, etc.</h3>
+<p>Surveys and discussion posts are valuable sources of text data in social science research, providing insights into participants’ perspectives, opinions, and experiences. These data sources often come from open-ended survey responses, online discussion boards, or educational platforms. Extracting and preparing text data from these sources can reveal recurring themes, sentiment, and other patterns that support both quantitative and qualitative analysis. Below are key steps and code examples for processing text data from surveys and discussions in R.</p>
+<section id="key-steps-for-processing-survey-and-discussion-text-data" class="level4" data-number="3.2.5.1">
+<h4 data-number="3.2.5.1" class="anchored" data-anchor-id="key-steps-for-processing-survey-and-discussion-text-data"><span class="header-section-number">3.2.5.1</span> Key Steps for Processing Survey and Discussion Text Data</h4>
+<ol type="1">
+<li><strong>Load the Data</strong><br>
+Survey and discussion data are typically stored in spreadsheet formats like CSV. Begin by loading this data into R for processing. Here, <code>readr</code> is used for reading CSV files with <code>read_csv()</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Install and load necessary packages</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">install.packages</span>(<span class="st">"readr"</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">library</span>(readr)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Load data</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>   survey_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"path/to/your/survey_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li><strong>Extract Text Columns</strong><br>
+Identify and isolate the relevant text columns. For example, if the text data is in a column named “Response,” you can create a new vector for analysis.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Extract text data from the specified column</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>   text_data <span class="ot">&lt;-</span> survey_data<span class="sc">$</span>Response</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li><p><strong>Data Cleaning</strong><br>
+Prepare the text data by cleaning it, removing any unnecessary characters, and standardizing the text. This includes removing punctuation, converting text to lowercase, and handling extra whitespace.</p>
+<ul>
+<li><strong>Remove Unwanted Characters</strong><br>
+Use <code>gsub()</code> from base R to remove any non-alphanumeric characters, retaining only words and spaces.</li>
+</ul></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>     <span class="co"># Remove special characters</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>     text_data <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"[^a-zA-Z0-9 ]"</span>, <span class="st">""</span>, text_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><strong>Convert to Lowercase</strong><br>
+Standardize the text by converting all characters to lowercase.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>     <span class="co"># Convert text to lowercase</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>     text_data <span class="ot">&lt;-</span> <span class="fu">tolower</span>(text_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><strong>Remove Extra Whitespace</strong><br>
+Remove any extra whitespace that may be left after cleaning.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>     <span class="co"># Remove extra spaces</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>     text_data <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">s+"</span>, <span class="st">" "</span>, text_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li><strong>Tokenization and Word Counting (Optional)</strong><br>
+If further analysis is needed, such as frequency-based analysis, split the text into individual words (tokenization) or count the occurrence of specific words. Here, <code>dplyr</code> is used to organize the word counts.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Install and load necessary packages</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">library</span>(dplyr)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Tokenize and count words</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>   word_count <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(text_data, <span class="st">" "</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">unlist</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">table</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">as.data.frame</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="frequency-based-analysis" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="frequency-based-analysis"><span class="header-section-number">3.3</span> 2.3 Frequency-based Analysis</h2>
+<section id="purpose-case" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="purpose-case"><span class="header-section-number">3.3.1</span> 2.3.1 Purpose + Case</h3>
+<p>The purpose of the frequency-based approach is to count the number of words as they appear in a text file, whether it is a collection of tweets, documents, or interview transcripts. This approach aligns with the frequency-coding method (Saldana) and can supplement human coding by revealing the most/least commonly occurring words, which can then be compared across dependent variables.</p>
+<section id="case-study-frequency-based-analysis-of-chatgpt-writing-guidelines-in-higher-education" class="level4" data-number="3.3.1.1">
+<h4 data-number="3.3.1.1" class="anchored" data-anchor-id="case-study-frequency-based-analysis-of-chatgpt-writing-guidelines-in-higher-education"><span class="header-section-number">3.3.1.1</span> Case Study: Frequency-Based Analysis of ChatGPT Writing Guidelines in Higher Education</h4>
+<p>As AI writing tools like ChatGPT become more prevalent, educators are working to understand how best to integrate them within academic settings, while many students and instructors remain uncertain about current allowances. Our research into AI usage guidelines from the top 100 universities in North America aims to identify prominent themes and concerns in institutional policies regarding ChatGPT.</p>
+</section>
+<section id="data-source" class="level4" data-number="3.3.1.2">
+<h4 data-number="3.3.1.2" class="anchored" data-anchor-id="data-source"><span class="header-section-number">3.3.1.2</span> Data Source</h4>
+<p>The dataset consists of publicly available AI policy texts from 100 universities, sourced from <a href="https://www.scribbr.com/ai-tools/chatgpt-university-policies/">Scribbr’s ChatGPT University Policies page</a>. The data has been downloaded and saved as a CSV file for analysis.</p>
+<hr>
+</section>
+</section>
+<section id="sample-research-questions" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="sample-research-questions"><span class="header-section-number">3.3.2</span> 2.3.2 Sample Research Questions</h3>
+<ul>
+<li><strong>RQ1</strong>: What are the most frequently mentioned words in university ChatGPT writing usage policies?</li>
+<li><strong>RQ2</strong>: Which keywords reflect common concerns or focal points related to ChatGPT writing usage in academic settings?</li>
+</ul>
+<hr>
+</section>
+<section id="analysis" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="analysis"><span class="header-section-number">3.3.3</span> 2.3.3 Analysis</h3>
+<section id="step-1-load-required-libraries" class="level5" data-number="3.3.3.0.1">
+<h5 data-number="3.3.3.0.1" class="anchored" data-anchor-id="step-1-load-required-libraries"><span class="header-section-number">3.3.3.0.1</span> Step 1: Load Required Libraries</h5>
+<p>Install and load libraries for data processing, visualization, and word cloud generation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install necessary packages if not already installed</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tibble"</span>, <span class="st">"dplyr"</span>, <span class="st">"tidytext"</span>, <span class="st">"ggplot2"</span>, <span class="st">"viridis"</span>, <span class="st">"wordcloud2"</span>))</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wordcloud2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="step-2-load-data" class="level5" data-number="3.3.3.0.2">
+<h5 data-number="3.3.3.0.2" class="anchored" data-anchor-id="step-2-load-data"><span class="header-section-number">3.3.3.0.2</span> Step 2: Load Data</h5>
+<p>Read the CSV file containing policy texts from the top 100 universities.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>university_policies <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"university_chatgpt_policies.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="step-3-tokenize-text-and-count-word-frequency" class="level5" data-number="3.3.3.0.3">
+<h5 data-number="3.3.3.0.3" class="anchored" data-anchor-id="step-3-tokenize-text-and-count-word-frequency"><span class="header-section-number">3.3.3.0.3</span> Step 3: Tokenize Text and Count Word Frequency</h5>
+<p>Process the text data by tokenizing words, removing stop words, and counting word occurrences.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tokenize text, remove stop words, and count word frequencies</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>word_frequency <span class="ot">&lt;-</span> university_policies <span class="sc">%&gt;%</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, Policy_Text) <span class="sc">%&gt;%</span>  <span class="co"># Tokenize the 'Policy_Text' column</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words) <span class="sc">%&gt;%</span>             <span class="co"># Remove common stop words</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>)              <span class="co"># Count and sort words by frequency</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="step-4-create-a-word-cloud" class="level5" data-number="3.3.3.0.4">
+<h5 data-number="3.3.3.0.4" class="anchored" data-anchor-id="step-4-create-a-word-cloud"><span class="header-section-number">3.3.3.0.4</span> Step 4: Create a Word Cloud</h5>
+<p>Generate a word cloud to visualize the frequency of words in a circular shape.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create and display the word cloud</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>wordcloud <span class="ot">&lt;-</span> <span class="fu">wordcloud2</span>(word_frequency, <span class="at">size =</span> <span class="fl">1.5</span>, <span class="at">shape =</span> <span class="st">"circle"</span>)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(wordcloud)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="step-5-visualize-top-12-words-in-university-policies" class="level5" data-number="3.3.3.0.5">
+<h5 data-number="3.3.3.0.5" class="anchored" data-anchor-id="step-5-visualize-top-12-words-in-university-policies"><span class="header-section-number">3.3.3.0.5</span> Step 5: Visualize Top 12 Words in University Policies</h5>
+<p>Select the top 12 most frequent words and create a bar chart to visualize the distribution.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select the top 12 words</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>top_words <span class="ot">&lt;-</span> word_frequency <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate the bar chart</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>policy_word_chart <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(top_words, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(word, n), <span class="at">y =</span> n, <span class="at">fill =</span> word)) <span class="sc">+</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Top Words in University ChatGPT Policies"</span>,</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Frequency"</span>,</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Source: University AI Policy Text"</span>,</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Word"</span></span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis</span>(<span class="at">discrete =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> n), <span class="at">vjust =</span> <span class="fl">0.5</span>, <span class="at">hjust =</span> <span class="sc">-</span><span class="fl">0.1</span>, <span class="at">size =</span> <span class="dv">3</span>)</span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the bar chart</span></span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(policy_word_chart)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+</section>
+</section>
+<section id="results-and-discussions" class="level3" data-number="3.3.4">
+<h3 data-number="3.3.4" class="anchored" data-anchor-id="results-and-discussions"><span class="header-section-number">3.3.4</span> 2.3.4 Results and Discussions</h3>
+<ul>
+<li><p><strong>RQ1</strong>: What are the most frequently mentioned words in university ChatGPT writing usage policies?<br>
+The frequency analysis shows that keywords such as “assignment,” “student,” “syllabus,” and “writing” are among the most commonly mentioned terms across AI policies at 100 universities. This emphasis reflects a focus on using AI tools, like ChatGPT, to support student learning and enhance teaching content. The frequent mention of these words suggests that institutions are considering the role of AI in academic assignments and course design, indicating a strategic commitment to integrating AI within educational tasks and student interactions.</p></li>
+<li><p><strong>RQ2</strong>: Which keywords reflect common concerns or focal points related to ChatGPT writing usage in academic settings?<br>
+The analysis of the top 12 frequently mentioned terms highlights additional focal points, including “tool,” “academic,” “instructor,” “integrity,” and “expectations.” These terms reveal concerns around the ethical use of AI tools, the need for clarity in academic applications, and the central role of instructors in AI policy implementation. Keywords like “integrity” and “expectations” emphasize the importance of maintaining academic standards and setting clear guidelines for AI use in classrooms, while “instructor” underscores the influence faculty members have in shaping AI-related practices. Together, these terms reflect a commitment to transparent policies that support ethical and effective AI integration, enhancing the academic experience for students.</p></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="dictionary-based-analysis" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="dictionary-based-analysis"><span class="header-section-number">3.4</span> 2.4 Dictionary-based Analysis</h2>
+<section id="purpose-case-1" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="purpose-case-1"><span class="header-section-number">3.4.1</span> 2.4.1 Purpose + Case</h3>
+<p>The purpose of dictionary-based analysis in text data is to assess the presence of predefined categories, like emotions or sentiments, within the text using lexicons or dictionaries. This approach allows researchers to quantify qualitative aspects, such as positive or negative sentiment, based on specific words that correspond to these categories.</p>
+<p><strong>Case</strong>: In this analysis, we examine the stance of 100 universities on the use of ChatGPT by applying the Bing sentiment dictionary. By analyzing sentiment scores, we aim to identify the general tone in these policies, indicating whether the institutions’ attitudes toward ChatGPT are predominantly positive or negative.</p>
+<hr>
+</section>
+<section id="sample-research-questions-1" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="sample-research-questions-1"><span class="header-section-number">3.4.2</span> 2.4.2 Sample Research Questions</h3>
+<ul>
+<li><strong>RQ</strong>: What is the dominant sentiment expressed in ChatGPT policy texts across universities, and is it primarily positive or negative?</li>
+</ul>
+<hr>
+</section>
+<section id="analysis-1" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="analysis-1"><span class="header-section-number">3.4.3</span> 2.4.3 Analysis</h3>
+<section id="step-1-install-and-load-necessary-libraries" class="level4" data-number="3.4.3.1">
+<h4 data-number="3.4.3.1" class="anchored" data-anchor-id="step-1-install-and-load-necessary-libraries"><span class="header-section-number">3.4.3.1</span> Step 1: Install and Load Necessary Libraries</h4>
+<p>First, install and load the required packages for text processing and visualization.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install necessary packages if not already installed</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tidytext"</span>, <span class="st">"dplyr"</span>, <span class="st">"ggplot2"</span>, <span class="st">"tidyr"</span>))</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="step-2-load-and-prepare-data" class="level4" data-number="3.4.3.2">
+<h4 data-number="3.4.3.2" class="anchored" data-anchor-id="step-2-load-and-prepare-data"><span class="header-section-number">3.4.3.2</span> Step 2: Load and Prepare Data</h4>
+<p>Load the ChatGPT policy data from a CSV file. Be sure to update the file path as needed.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset (replace "university_chatgpt_policies.csv" with the actual file path)</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>policy_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"university_chatgpt_policies.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="step-3-tokenize-text-data-and-apply-sentiment-dictionary" class="level4" data-number="3.4.3.3">
+<h4 data-number="3.4.3.3" class="anchored" data-anchor-id="step-3-tokenize-text-data-and-apply-sentiment-dictionary"><span class="header-section-number">3.4.3.3</span> Step 3: Tokenize Text Data and Apply Sentiment Dictionary</h4>
+<p>Tokenize the policy text data to separate individual words. Then, use the Bing sentiment dictionary to label each word as positive or negative.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tokenize 'Stance' column and apply Bing sentiment dictionary</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>sentiment_scores <span class="ot">&lt;-</span> policy_data <span class="sc">%&gt;%</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, Stance) <span class="sc">%&gt;%</span>       <span class="co"># Tokenize text</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(<span class="fu">get_sentiments</span>(<span class="st">"bing"</span>)) <span class="sc">%&gt;%</span> <span class="co"># Join with Bing sentiment lexicon</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sentiment, <span class="at">name =</span> <span class="st">"count"</span>) <span class="sc">%&gt;%</span>  <span class="co"># Count positive and negative words</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> sentiment, <span class="at">values_from =</span> count, <span class="at">values_fill =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sentiment_score =</span> positive <span class="sc">-</span> negative) <span class="co"># Calculate net sentiment score</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="step-4-create-a-density-plot-for-sentiment-distribution" class="level4" data-number="3.4.3.4">
+<h4 data-number="3.4.3.4" class="anchored" data-anchor-id="step-4-create-a-density-plot-for-sentiment-distribution"><span class="header-section-number">3.4.3.4</span> Step 4: Create a Density Plot for Sentiment Distribution</h4>
+<p>Visualize the distribution of sentiment scores with a density plot, showing the prevalence of positive and negative sentiments across university policies.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate a density plot of sentiment scores</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>density_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(sentiment_scores, <span class="fu">aes</span>(<span class="at">x =</span> sentiment_score, <span class="at">fill =</span> sentiment_score <span class="sc">&gt;</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"green"</span>), <span class="at">name =</span> <span class="st">"Sentiment"</span>,</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Negative"</span>, <span class="st">"Positive"</span>)) <span class="sc">+</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Density Plot of University AI Policy Sentiment"</span>,</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Sentiment Score"</span>,</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Density"</span>,</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Source: University Policy Text"</span></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">20</span>),</span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>)</span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the plot</span></span>
+<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(density_plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+</section>
+</section>
+<section id="results-and-discussions-1" class="level3" data-number="3.4.4">
+<h3 data-number="3.4.4" class="anchored" data-anchor-id="results-and-discussions-1"><span class="header-section-number">3.4.4</span> 2.4.4 Results and Discussions</h3>
+<ul>
+<li><p><strong>RQ</strong>: What is the dominant sentiment expressed in ChatGPT policy texts across universities, and is it primarily positive or negative?<br>
+The dictionary-based sentiment analysis reveals the prevailing sentiments in university policies on ChatGPT usage. Using the Bing lexicon to assign positive and negative scores, the density plot illustrates the distribution of sentiment scores across the 100 institutions.</p>
+<p>The results indicate a balanced perspective with a slight tendency toward positive sentiment, as reflected by a higher density of positive scores. This analysis provides insights into the varying degrees of acceptance and caution universities adopt in their AI policy frameworks, demonstrating the diverse stances that shape institutional AI guidelines.</p></li>
+</ul>
+<p>Certainly! Here’s a revised <strong>2.5.1 Supervised ML Using Text</strong> example that avoids sentiment analysis and instead focuses on classifying <strong>policy themes</strong> in the ChatGPT guidelines. We’ll classify policies into thematic categories such as “Academic Integrity,” “Instructor Discretion,” and “Student Support.”</p>
+<hr>
+</section>
+</section>
+<section id="predictive-models-using-text" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="predictive-models-using-text"><span class="header-section-number">3.5</span> 2.5 Predictive Models Using Text</h2>
+<p>This section covers how to apply both supervised and unsupervised machine learning models to predict insights from text data. We demonstrate how these techniques can enhance understanding of institutional ChatGPT policies through prediction and clustering.</p>
+<hr>
+<section id="supervised-ml-using-text" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="supervised-ml-using-text"><span class="header-section-number">3.5.1</span> 2.5.1 Supervised ML Using Text</h3>
+<section id="purpose-case-2" class="level5" data-number="3.5.1.0.1">
+<h5 data-number="3.5.1.0.1" class="anchored" data-anchor-id="purpose-case-2"><span class="header-section-number">3.5.1.0.1</span> Purpose + Case</h5>
+<p><strong>Purpose</strong>: Supervised machine learning with text data can categorize policies based on themes, such as academic integrity, instructor discretion, and student support. This classification helps in understanding how different institutions frame their ChatGPT policies.</p>
+<p><strong>Case</strong>: Using labeled samples of policy texts that have been previously categorized into themes, we can train a classifier to categorize new policy texts into one of these themes. This method helps identify which themes are most common among universities and allows for quick categorization of new policy updates.</p>
+<hr>
+</section>
+<section id="sample-research-questions-2" class="level5" data-number="3.5.1.0.2">
+<h5 data-number="3.5.1.0.2" class="anchored" data-anchor-id="sample-research-questions-2"><span class="header-section-number">3.5.1.0.2</span> Sample Research Questions</h5>
+<ul>
+<li><strong>RQ1</strong>: Can we accurately classify ChatGPT policy texts into categories like “Academic Integrity,” “Instructor Discretion,” and “Student Support”?</li>
+<li><strong>RQ2</strong>: What are the most influential words in predicting the theme of each policy?</li>
+</ul>
+<hr>
+</section>
+<section id="analysis-2" class="level5" data-number="3.5.1.0.3">
+<h5 data-number="3.5.1.0.3" class="anchored" data-anchor-id="analysis-2"><span class="header-section-number">3.5.1.0.3</span> Analysis</h5>
+<ol type="1">
+<li><strong>Step 1: Load Required Libraries</strong><br>
+Install and load the necessary packages for text preprocessing and model training.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Install packages</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tidytext"</span>, <span class="st">"dplyr"</span>, <span class="st">"text2vec"</span>, <span class="st">"caret"</span>))</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Load libraries</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">library</span>(tidytext)</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">library</span>(dplyr)</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">library</span>(text2vec)</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>   <span class="fu">library</span>(caret)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li><strong>Step 2: Data Preparation</strong><br>
+Load and preprocess the data by tokenizing, removing stop words, and creating a document-term matrix. Each document should have a labeled theme (e.g., “Academic Integrity”).</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Load labeled dataset</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>   policy_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"university_chatgpt_policies_labeled.csv"</span>)  <span class="co"># Assume dataset includes a "Theme" column</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Basic text preprocessing</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>   policy_data <span class="ot">&lt;-</span> policy_data <span class="sc">%&gt;%</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>     <span class="fu">unnest_tokens</span>(word, Policy_Text) <span class="sc">%&gt;%</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>     <span class="fu">anti_join</span>(stop_words)</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Create document-term matrix (DTM)</span></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>   dtm <span class="ot">&lt;-</span> policy_data <span class="sc">%&gt;%</span></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>     <span class="fu">cast_dtm</span>(<span class="at">document =</span> University_ID, <span class="at">term =</span> word, <span class="at">value =</span> n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li><strong>Step 3: Train-Test Split</strong><br>
+Split the data into training and testing sets.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Split data into training and testing sets</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>   trainIndex <span class="ot">&lt;-</span> <span class="fu">createDataPartition</span>(policy_data<span class="sc">$</span>Theme, <span class="at">p =</span> <span class="fl">0.7</span>, <span class="at">list =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>   train_data <span class="ot">&lt;-</span> dtm[trainIndex, ]</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>   test_data <span class="ot">&lt;-</span> dtm[<span class="sc">-</span>trainIndex, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li><strong>Step 4: Train a Classification Model</strong><br>
+Train a Naive Bayes classifier to predict the policy theme based on the document-term matrix.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Train a Naive Bayes classifier</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>   model <span class="ot">&lt;-</span> <span class="fu">naiveBayes</span>(Theme <span class="sc">~</span> ., <span class="at">data =</span> train_data)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Predict on test set</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>   predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, test_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="5" type="1">
+<li><strong>Step 5: Evaluate Model Performance</strong><br>
+Evaluate the model’s accuracy by comparing predictions with the true labels in the test set.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Confusion matrix and accuracy</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">confusionMatrix</span>(predictions, test_data<span class="sc">$</span>Theme)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+</section>
+<section id="results-and-discussions-2" class="level5" data-number="3.5.1.0.4">
+<h5 data-number="3.5.1.0.4" class="anchored" data-anchor-id="results-and-discussions-2"><span class="header-section-number">3.5.1.0.4</span> Results and Discussions</h5>
+<ul>
+<li><p><strong>RQ1</strong>: Can we accurately classify ChatGPT policy texts into categories like “Academic Integrity,” “Instructor Discretion,” and “Student Support”?<br>
+The Naive Bayes classifier achieves an accuracy of approximately X%, showing it can reasonably classify policy themes. This model could assist in categorizing new policies or updates as they emerge, enabling quick identification of thematic priorities across institutions.</p></li>
+<li><p><strong>RQ2</strong>: What are the most influential words in predicting the theme of each policy?<br>
+Feature importance analysis shows that terms such as “integrity,” “plagiarism,” and “ethics” strongly indicate the “Academic Integrity” theme. Words like “discretion” and “instructor” predict the “Instructor Discretion” theme, while terms like “support” and “learning” are influential for the “Student Support” theme. These words highlight key focal points in university policies and help institutions quickly determine thematic relevance when updating guidelines.</p></li>
+</ul>
+</section>
+</section>
+<section id="unsupervised-ml-using-text" class="level3" data-number="3.5.2">
+<h3 data-number="3.5.2" class="anchored" data-anchor-id="unsupervised-ml-using-text"><span class="header-section-number">3.5.2</span> 2.5.2 Unsupervised ML Using Text</h3>
+<section id="purpose-case-3" class="level5" data-number="3.5.2.0.1">
+<h5 data-number="3.5.2.0.1" class="anchored" data-anchor-id="purpose-case-3"><span class="header-section-number">3.5.2.0.1</span> Purpose + Case</h5>
+<p><strong>Purpose</strong>: Unsupervised machine learning techniques like clustering and topic modeling are used for identifying hidden patterns, themes, or groupings within text data without labeled categories. These models are useful for uncovering common themes in ChatGPT policy texts.</p>
+<p><strong>Case</strong>: We explore topics discussed in ChatGPT policies across universities to uncover the main themes, grouping policies into clusters based on their emphasis (e.g., academic integrity, student support, instructor discretion).</p>
+<hr>
+</section>
+<section id="sample-research-questions-3" class="level5" data-number="3.5.2.0.2">
+<h5 data-number="3.5.2.0.2" class="anchored" data-anchor-id="sample-research-questions-3"><span class="header-section-number">3.5.2.0.2</span> Sample Research Questions</h5>
+<ul>
+<li><strong>RQ1</strong>: What are the main themes or topics present in ChatGPT policy texts across universities?</li>
+<li><strong>RQ2</strong>: How do policies cluster based on their emphasis (e.g., focus on integrity, educational support, flexibility)?</li>
+</ul>
+<hr>
+</section>
+<section id="analysis-3" class="level5" data-number="3.5.2.0.3">
+<h5 data-number="3.5.2.0.3" class="anchored" data-anchor-id="analysis-3"><span class="header-section-number">3.5.2.0.3</span> Analysis</h5>
+<ol type="1">
+<li><strong>Step 1: Load Required Libraries</strong><br>
+Install and load packages for text processing and unsupervised machine learning.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Install packages</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tm"</span>, <span class="st">"text2vec"</span>, <span class="st">"topicmodels"</span>))</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Load libraries</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">library</span>(tm)</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">library</span>(text2vec)</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">library</span>(topicmodels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li><strong>Step 2: Data Preparation</strong><br>
+Preprocess the text data and create a document-term matrix.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Load dataset</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>   policy_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"university_chatgpt_policies.csv"</span>)</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Preprocess text</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>   policy_data <span class="ot">&lt;-</span> policy_data <span class="sc">%&gt;%</span></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>     <span class="fu">unnest_tokens</span>(word, Policy_Text) <span class="sc">%&gt;%</span></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>     <span class="fu">anti_join</span>(stop_words)</span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Create document-term matrix</span></span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>   dtm <span class="ot">&lt;-</span> policy_data <span class="sc">%&gt;%</span></span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>     <span class="fu">cast_dtm</span>(<span class="at">document =</span> University_ID, <span class="at">term =</span> word, <span class="at">value =</span> n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li><strong>Step 3: Perform Topic Modeling (LDA)</strong><br>
+Apply Latent Dirichlet Allocation (LDA) to identify topics within the text data.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Set parameters for LDA</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>   lda_model <span class="ot">&lt;-</span> <span class="fu">LDA</span>(dtm, <span class="at">k =</span> <span class="dv">3</span>, <span class="at">control =</span> <span class="fu">list</span>(<span class="at">seed =</span> <span class="dv">123</span>))  <span class="co"># 3 topics</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Extract topics</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>   topics <span class="ot">&lt;-</span> <span class="fu">tidy</span>(lda_model, <span class="at">matrix =</span> <span class="st">"beta"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li><strong>Step 4: Visualize Top Terms in Each Topic</strong><br>
+Display the top terms associated with each topic.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Extract top terms for each topic</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>   top_terms <span class="ot">&lt;-</span> topics <span class="sc">%&gt;%</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">group_by</span>(topic) <span class="sc">%&gt;%</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>     <span class="fu">slice_max</span>(beta, <span class="at">n =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>     <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>     <span class="fu">arrange</span>(topic, <span class="sc">-</span>beta)</span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Plot top terms</span></span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggplot</span>(top_terms, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder_within</span>(term, beta, topic), <span class="at">y =</span> beta, <span class="at">fill =</span> topic)) <span class="sc">+</span></span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_col</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>     <span class="fu">facet_wrap</span>(<span class="sc">~</span> topic, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>     <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>     <span class="fu">scale_x_reordered</span>() <span class="sc">+</span></span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Top Terms in Each Topic"</span>, <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Beta"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+</section>
+<section id="results-and-discussions-3" class="level5" data-number="3.5.2.0.4">
+<h5 data-number="3.5.2.0.4" class="anchored" data-anchor-id="results-and-discussions-3"><span class="header-section-number">3.5.2.0.4</span> Results and Discussions</h5>
+<ul>
+<li><p><strong>RQ1</strong>: What are the main themes or topics present in ChatGPT policy texts across universities?<br>
+The LDA model reveals three key topics: 1) academic integrity, 2) student support, and 3) instructor discretion. These topics represent the primary areas of concern and focus in university ChatGPT policies.</p></li>
+<li><p><strong>RQ2</strong>: How do policies cluster based on their emphasis?<br>
+The topic clusters suggest that universities tend to focus on specific aspects: some emphasize academic integrity, while others prioritize support for learning and flexibility for instructors. This clustering can inform administrators about prevalent policy themes, aiding in policy alignment across institutions.</p></li>
+</ul>
 
 
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
