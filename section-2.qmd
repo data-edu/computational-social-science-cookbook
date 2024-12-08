@@ -399,7 +399,7 @@ Install and load libraries for data processing, visualization, and word cloud ge
 
 ```{r}
 # Install necessary packages if not already installed
-#install.packages(c("tibble", "dplyr", "tidytext", "ggplot2", "viridis", "wordcloud2"))
+#install.packages(c("tibble", "dplyr", "tidytext", "ggplot2", "viridis","tm",wordcloud" "wordcloud2","webshot"))
 
 # Load libraries
 library(readr)
@@ -408,7 +408,10 @@ library(dplyr)
 library(tidytext)
 library(ggplot2)
 library(viridis)
+library(tm)
+library(wordcloud)
 library(wordcloud2)
+library(webshot)
 ```
 
 ##### Step 2: Load Data
@@ -438,9 +441,10 @@ word_frequency
 Generate a word cloud to visualize the frequency of words in a circular shape.
 
 ```{r}
-# Create and display the word cloud
-wordcloud <- wordcloud2(word_frequency, size = 1.5, shape = "circle")
-print(wordcloud)
+# Create and display the GenAI usage Stance wordcloud
+
+wordcloud(words = word_frequency$word, freq = word_frequency$n, scale = c(4, 0.5), random.order = FALSE, min.freq = 10, colors = brewer.pal(8, "Dark2"), rot.per = 0.35)
+
 ```
 
 ##### Step 5: Visualize Top 12 Words in University Policies
@@ -504,31 +508,39 @@ The purpose of dictionary-based analysis in text data is to assess the presence 
 
 First, install and load the required packages for text processing and visualization.
 
-```{r, eval=FALSE}
+```{r}
 # Install necessary packages if not already installed
-install.packages(c("tidytext", "dplyr", "ggplot2", "tidyr"))
+#install.packages(c("tidytext","tidyverse" "dplyr", "ggplot2", "tidyr"))
 
 # Load libraries
 library(tidytext)
+library(tidyverse)
 library(dplyr)
 library(ggplot2)
 library(tidyr)
 ```
 
-#### Step 2: Load and Prepare Data
+#### Step 2: Load and Prepare Data(same as 2.3)
 
-Load the ChatGPT policy data from a CSV file. Be sure to update the file path as needed.
+Load the ChatGPT policy stance data from a CSV file. Be sure to update the file path as needed. we use the same data as 2.3.
 
 ```{r, eval=FALSE}
-# Load the dataset (replace "university_chatgpt_policies.csv" with the actual file path)
-policy_data <- read.csv("university_chatgpt_policies.csv")
+# Load the dataset (replace "University_GenAI_Policy_Stance.csv" with the actual file path)
+university_policies <- read_csv("University_GenAI_Policy_Stance.csv")
+# Tokenize text, remove stop words, and count word frequencies
+word_frequency <- university_policies %>%
+  unnest_tokens(word, Stance) %>%  # Tokenize the 'Policy_Text' column
+  anti_join(stop_words) %>%             # Remove common stop words
+  count(word, sort = TRUE)              # Count and sort words by frequency
+word_frequency
+
 ```
 
 #### Step 3: Tokenize Text Data and Apply Sentiment Dictionary
 
 Tokenize the policy text data to separate individual words. Then, use the Bing sentiment dictionary to label each word as positive or negative.
 
-```{r, eval=FALSE}
+```{r}
 # Tokenize 'Stance' column and apply Bing sentiment dictionary
 sentiment_scores <- word_frequency %>%
   inner_join(get_sentiments("bing")) %>% # Join with Bing sentiment lexicon
@@ -542,7 +554,7 @@ sentiment_scores
 
 Visualize the distribution of sentiment scores with a density plot, showing the prevalence of positive and negative sentiments across university policies.
 
-```{r, eval=FALSE}
+```{r}
 # Generate a density plot of sentiment scores
 density_plot <- ggplot(sentiment_scores, aes(x = sentiment_score, fill = sentiment_score > 0)) +
   geom_density(alpha = 0.5) +
