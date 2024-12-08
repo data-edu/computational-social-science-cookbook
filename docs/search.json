@@ -92,21 +92,31 @@
   {
     "objectID": "section-3.html",
     "href": "section-3.html",
-    "title": "4  Section 3",
+    "title": "4  Section 3 Social Network Analyses (Relational Data)",
     "section": "",
-    "text": "4.1 for git test change 2",
+    "text": "4.1 Abstract\nSocial network analysis (SNA) is the process of investigating social structures through the use of networks and graph theory. It is a technique used to map and measure relationships and flows between people, groups, organizations, computers, or other information/knowledge processing entities. SNA can be a useful tool for understanding the team structures, for example, in an online classroom. It can be an additional layer of understanding the outcomes (or predictors) of certain instructional interventions. Used this way SNA can be used to identify patterns and trends in social networks, as well as to understand how these networks operate. Additionally, SNA can be used to predict future behavior in social networks, and to design interventions that aim to improve the functioning of these networks.",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Section 3</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Section 3 Social Network Analyses (Relational Data)</span>"
     ]
   },
   {
     "objectID": "section-4.html",
     "href": "section-4.html",
-    "title": "5  Section 4",
+    "title": "5  Section 4 Secondary Analysis of Big Data (Numeric Data)",
     "section": "",
-    "text": "5.1 for git test 2",
+    "text": "5.1 Abstract\nThis section reviews how to access data that is primarily numeric/quantitative in nature, but from a different source and of a different nature than the data typically used by social scientists. Example data sets include international or national large-scale assessments (e.g., PISA, NAEP) and data from digital technologies (e.g., log-trace data from adaptive mathematics programs).",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Section 4</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Section 4 Secondary Analysis of Big Data (Numeric Data)</span>"
+    ]
+  },
+  {
+    "objectID": "section-5.html",
+    "href": "section-5.html",
+    "title": "6  Section 5 Communication & Collaboration & Good Practices",
+    "section": "",
+    "text": "6.1 Abstract\nA key part of social science research (and, any analysis involving computational tools) is communicating about the output or findings. In this section, we describe how to communicate with colleagues or the wider world through the use of a variety of tools, especially R Markdown and git/GitHub. We also discuss how to collaborate on projects that involve computational methods and “good” (flexible yet principled) practices for doing so based on our experience and prior scholarship.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Section 5 Communication & Collaboration & Good Practices</span>"
     ]
   }
 ]
