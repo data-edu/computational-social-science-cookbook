@@ -1,4 +1,4 @@
-# Section 2 : Capturing and Analyzing Text Data with Computational Methods
+# Section 2 : Capturing and Analyzing Text Data with Computational Methods 
 
 ## 2.1 Overview
 
@@ -397,11 +397,12 @@ The dataset consists of publicly available AI policy texts from 100 universities
 
 Install and load libraries for data processing, visualization, and word cloud generation.
 
-```{r, eval = FALSE}
+```{r}
 # Install necessary packages if not already installed
-install.packages(c("tibble", "dplyr", "tidytext", "ggplot2", "viridis", "wordcloud2"))
+#install.packages(c("tibble", "dplyr", "tidytext", "ggplot2", "viridis", "wordcloud2"))
 
 # Load libraries
+library(readr)
 library(tibble)
 library(dplyr)
 library(tidytext)
@@ -414,28 +415,29 @@ library(wordcloud2)
 
 Read the CSV file containing policy texts from the top 100 universities.
 
-```{r, eval = FALSE}
+```{r}
 # Load the dataset
-university_policies <- read.csv("university_chatgpt_policies.csv")
+university_policies <- read_csv("University_GenAI_Policy_Stance.csv")
 ```
 
 ##### Step 3: Tokenize Text and Count Word Frequency
 
 Process the text data by tokenizing words, removing stop words, and counting word occurrences.
 
-```{r, eval = FALSE}
+```{r}
 # Tokenize text, remove stop words, and count word frequencies
 word_frequency <- university_policies %>%
-  unnest_tokens(word, Policy_Text) %>%  # Tokenize the 'Policy_Text' column
+  unnest_tokens(word, Stance) %>%  # Tokenize the 'Policy_Text' column
   anti_join(stop_words) %>%             # Remove common stop words
   count(word, sort = TRUE)              # Count and sort words by frequency
+word_frequency
 ```
 
 ##### Step 4: Create a Word Cloud
 
 Generate a word cloud to visualize the frequency of words in a circular shape.
 
-```{r, eval = FALSE}
+```{r}
 # Create and display the word cloud
 wordcloud <- wordcloud2(word_frequency, size = 1.5, shape = "circle")
 print(wordcloud)
@@ -445,7 +447,7 @@ print(wordcloud)
 
 Select the top 12 most frequent words and create a bar chart to visualize the distribution.
 
-```{r, eval = FALSE}
+```{r}
 # Select the top 12 words
 top_words <- word_frequency %>% slice(1:12)
 
@@ -528,12 +530,12 @@ Tokenize the policy text data to separate individual words. Then, use the Bing s
 
 ```{r, eval=FALSE}
 # Tokenize 'Stance' column and apply Bing sentiment dictionary
-sentiment_scores <- policy_data %>%
-  unnest_tokens(word, Stance) %>%       # Tokenize text
+sentiment_scores <- word_frequency %>%
   inner_join(get_sentiments("bing")) %>% # Join with Bing sentiment lexicon
-  count(sentiment, name = "count") %>%  # Count positive and negative words
-  pivot_wider(names_from = sentiment, values_from = count, values_fill = 0) %>%
+  pivot_wider(names_from = sentiment, values_from = n, values_fill = 0) %>%
   mutate(sentiment_score = positive - negative) # Calculate net sentiment score
+
+sentiment_scores
 ```
 
 #### Step 4: Create a Density Plot for Sentiment Distribution
@@ -572,8 +574,6 @@ print(density_plot)
     The dictionary-based sentiment analysis reveals the prevailing sentiments in university policies on ChatGPT usage. Using the Bing lexicon to assign positive and negative scores, the density plot illustrates the distribution of sentiment scores across the 100 institutions.
 
     The results indicate a balanced perspective with a slight tendency toward positive sentiment, as reflected by a higher density of positive scores. This analysis provides insights into the varying degrees of acceptance and caution universities adopt in their AI policy frameworks, demonstrating the diverse stances that shape institutional AI guidelines.
-
-Certainly! Here’s a revised **2.5.1 Supervised ML Using Text** example that avoids sentiment analysis and instead focuses on classifying **policy themes** in the ChatGPT guidelines. We’ll classify policies into thematic categories such as "Academic Integrity," "Instructor Discretion," and "Student Support."
 
 ------------------------------------------------------------------------
 
