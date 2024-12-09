@@ -8,8 +8,6 @@ With the advent of new software, we can capture and analyze text data in ways th
 
 > **Disclaimer**: While resources are available that discuss these analysis methods in depth, this book aims to provide a practical guide for social scientists, using data they will likely encounter. Our goal is to present a "cookbook" for guiding research projects through real-world examples.
 
-------------------------------------------------------------------------
-
 ## 2.2 Accessing Text Data (Broadening the Horizon)
 
 ### 2.2.1 Web Scraping (Unstructured or API)
@@ -122,8 +120,6 @@ Web scraping is appropriate if:
 
 When feasible, consider alternatives like APIs or data-entry services (e.g., Amazon Mechanical Turk) for better efficiency and legal compliance.
 
-------------------------------------------------------------------------
-
 ### What is an API?
 
 An Application Programming Interface (API) is a set of protocols that allows computers to communicate and exchange information. A common type is the REST API, where one machine sends a request, and another returns a response. APIs provide standardized access to data, services, and functionalities, making them essential in software development.
@@ -202,8 +198,6 @@ PDF files are a valuable source of text data, often found in research publicatio
 3.  **PDF Data Extractor (PDE)**\
     For more advanced PDF text extraction and processing, you can use the [PDF Data Extractor (PDE) package](https://cran.r-project.org/web/packages/PDE/vignettes/PDE.html). This package provides tools for extracting text data from complex PDF documents, supporting additional customization options for text extraction. PDE is a R package that easily extracts information and tables from PDF files. The PDE_analyzer_i() performs the sentence and table extraction while the included PDE_reader_i() allows the user-friendly visualization and quick-processing of the obtained results.
 
-------------------------------------------------------------------------
-
 #### Steps for Extracting Text from Local PDF Files
 
 1.  **Install and Load the `pdftools` Package**\
@@ -241,8 +235,6 @@ PDF files are a valuable source of text data, often found in research publicatio
 ```{r, eval = FALSE}
    row <- unlist(strsplit(rows[24], "\\s+"))  # Example with the 24th row
 ```
-
-------------------------------------------------------------------------
 
 #### Steps for Downloading and Extracting Text from PDF Files
 
@@ -382,14 +374,10 @@ As AI writing tools like ChatGPT become more prevalent, educators are working to
 
 The dataset consists of publicly available AI policy texts from 100 universities, sourced from [Scribbr's ChatGPT University Policies page](https://www.scribbr.com/ai-tools/chatgpt-university-policies/). The data has been downloaded and saved as a CSV file for analysis.
 
-------------------------------------------------------------------------
-
 ### 2.3.2 Sample Research Questions
 
 -   **RQ1**: What are the most frequently mentioned words in university ChatGPT writing usage policies?
 -   **RQ2**: Which keywords reflect common concerns or focal points related to ChatGPT writing usage in academic settings?
-
-------------------------------------------------------------------------
 
 ### 2.3.3 Analysis
 
@@ -474,8 +462,6 @@ policy_word_chart <- ggplot(top_words, aes(x = reorder(word, n), y = n, fill = w
 print(policy_word_chart)
 ```
 
-------------------------------------------------------------------------
-
 ### 2.3.4 Results and Discussions
 
 -   **RQ1**: What are the most frequently mentioned words in university ChatGPT writing usage policies?\
@@ -483,8 +469,6 @@ print(policy_word_chart)
 
 -   **RQ2**: Which keywords reflect common concerns or focal points related to ChatGPT writing usage in academic settings?\
     The analysis of the top 12 frequently mentioned terms highlights additional focal points, including "tool," "academic," "instructor," "integrity," and "expectations." These terms reveal concerns around the ethical use of AI tools, the need for clarity in academic applications, and the central role of instructors in AI policy implementation. Keywords like "integrity" and "expectations" emphasize the importance of maintaining academic standards and setting clear guidelines for AI use in classrooms, while "instructor" underscores the influence faculty members have in shaping AI-related practices. Together, these terms reflect a commitment to transparent policies that support ethical and effective AI integration, enhancing the academic experience for students.
-
-------------------------------------------------------------------------
 
 ## 2.4 Dictionary-based Analysis
 
@@ -494,13 +478,9 @@ The purpose of dictionary-based analysis in text data is to assess the presence 
 
 **Case**: In this analysis, we examine the stance of 100 universities on the use of ChatGPT by applying the Bing sentiment dictionary. By analyzing sentiment scores, we aim to identify the general tone in these policies, indicating whether the institutions' attitudes toward ChatGPT are predominantly positive or negative.
 
-------------------------------------------------------------------------
-
 ### 2.4.2 Sample Research Questions
 
 -   **RQ**: What is the dominant sentiment expressed in ChatGPT policy texts across universities, and is it primarily positive or negative?
-
-------------------------------------------------------------------------
 
 ### 2.4.3 Analysis
 
@@ -578,16 +558,12 @@ density_plot <- ggplot(sentiment_scores, aes(x = sentiment_score, fill = sentime
 print(density_plot)
 ```
 
-------------------------------------------------------------------------
-
 ### 2.4.4 Results and Discussions
 
 -   **RQ**: What is the dominant sentiment expressed in ChatGPT policy texts across universities, and is it primarily positive or negative?\
     The dictionary-based sentiment analysis reveals the prevailing sentiments in university policies on ChatGPT usage. Using the Bing lexicon to assign positive and negative scores, the density plot illustrates the distribution of sentiment scores across the 100 institutions.
 
     The results indicate a balanced perspective with a slight tendency toward positive sentiment, as reflected by a higher density of positive scores. This analysis provides insights into the varying degrees of acceptance and caution universities adopt in their AI policy frameworks, demonstrating the diverse stances that shape institutional AI guidelines.
-
-------------------------------------------------------------------------
 
 ## 2.5 Predictive Models Using Text
 
@@ -774,3 +750,102 @@ This section covers how to apply both supervised and unsupervised machine learni
 
 -   **RQ2**: How do policies cluster based on their emphasis?\
     The topic clusters suggest that universities tend to focus on specific aspects: some emphasize academic integrity, while others prioritize support for learning and flexibility for instructors. This clustering can inform administrators about prevalent policy themes, aiding in policy alignment across institutions.
+
+## 2.6 Clustering-Based Analysis
+
+Clustering-based analysis involves grouping similar text documents or text segments into clusters based on their underlying topics or themes. This approach is particularly useful for identifying dominant themes in text data, such as university AI policy documents.
+
+### 2.6.1 Purpose + CASE
+
+**Purpose**: The goal of clustering-based analysis is to uncover latent themes in text data using unsupervised machine learning techniques. Topic modeling is one popular method for clustering documents into groups based on their content.
+
+**Case**: Using the ChatGPT policy texts from 100 universities, we apply Latent Dirichlet
+
+Allocation (LDA) to identify dominant themes in these policy documents. This analysis will help categorize policies into overarching themes, such as academic integrity, student support, and instructor discretion.
+
+### 2.6.2 Sample Research Questions
+
+-   **RQ1**: What are the main themes or topics present in university ChatGPT policy texts?
+-   **RQ2**: How are the identified topics distributed across the dataset?
+
+### 2.6.3 Analysis
+
+#### Step 1: Install and Load Necessary Libraries
+
+Install and load the required libraries for text processing and topic modeling.
+
+```{r}
+
+# Install necessary packages
+#install.packages(c("dplyr", "tidytext", "topicmodels", "ggplot2"))
+
+# Load libraries
+library(dplyr)
+library(tidytext)
+library(topicmodels)
+library(ggplot2)
+
+
+```
+
+#### Step 2: Prepare the Data
+
+Load the data and create a document-term matrix (DTM) for topic modeling.
+
+```{r}
+# Load the dataset
+university_policies <- read_csv("University_GenAI_Policy_Stance.csv")
+
+# Tokenize text data and count word frequencies
+word_frequency <- university_policies %>%
+  unnest_tokens(word, Stance) %>%  # same as section 2.3
+  anti_join(stop_words) %>%             # Remove common stop words
+  count(word, sort = TRUE)              # Count and sort words by frequency
+word_frequency
+
+# Creating Documents - Word Frequency Matrix
+gpt_dtm <- word_frequency %>%
+  group_by(word) %>%
+  mutate(id = row_number()) %>%
+  ungroup() %>%
+  cast_dtm(document = "id", term = "word", value = "n")
+
+```
+
+#### Step 3: Fit the LDA Model 
+
+Fit an LDA model with `k = 3` topics.
+
+```{r}
+
+# Converting document-word frequency matrices to sparse matrices
+gpt_dtm_sparse_k3 <- as(gpt_dtm, "matrix")
+
+# Fit the LDA model
+lda_model <- LDA(gpt_dtm_sparse_k3, k = 3, control = list(seed = 1234))
+
+# View model results
+gpt_policy_topics_k3 <- tidy(lda_model, matrix = "beta")
+
+print(gpt_policy_topics_k3)
+```
+
+#### Step 4:  Visualize Topics
+
+Extract the top terms for each topic and visualize them.
+
+```{r}
+# Visualizing top terms for each topic
+gpt_policy_ap_top_terms_k3 <- gpt_policy_topics_k3 %>%
+  group_by(topic) %>%
+  slice_max(beta, n = 10) %>% 
+  ungroup() %>%
+  arrange(topic, -beta)
+
+gpt_policy_ap_top_terms_k3 %>%
+  mutate(term = reorder_within(term, beta, topic)) %>%
+  ggplot(aes(beta, term, fill = factor(topic))) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~ topic, scales = "free") +
+  scale_y_reordered()
+```

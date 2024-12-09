@@ -232,6 +232,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#supervised-ml-using-text" id="toc-supervised-ml-using-text" class="nav-link" data-scroll-target="#supervised-ml-using-text"><span class="header-section-number">3.5.1</span> 2.5.1 Supervised ML Using Text</a></li>
   <li><a href="#unsupervised-ml-using-text" id="toc-unsupervised-ml-using-text" class="nav-link" data-scroll-target="#unsupervised-ml-using-text"><span class="header-section-number">3.5.2</span> 2.5.2 Unsupervised ML Using Text</a></li>
   </ul></li>
+  <li><a href="#clustering-based-analysis" id="toc-clustering-based-analysis" class="nav-link" data-scroll-target="#clustering-based-analysis"><span class="header-section-number">3.6</span> 2.6 Clustering-Based Analysis</a>
+  <ul class="collapse">
+  <li><a href="#purpose-case-4" id="toc-purpose-case-4" class="nav-link" data-scroll-target="#purpose-case-4"><span class="header-section-number">3.6.1</span> 2.6.1 Purpose + CASE</a></li>
+  <li><a href="#sample-research-questions-4" id="toc-sample-research-questions-4" class="nav-link" data-scroll-target="#sample-research-questions-4"><span class="header-section-number">3.6.2</span> 2.6.2 Sample Research Questions</a></li>
+  <li><a href="#analysis-4" id="toc-analysis-4" class="nav-link" data-scroll-target="#analysis-4"><span class="header-section-number">3.6.3</span> 2.6.3 Analysis</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -264,7 +270,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <blockquote class="blockquote">
 <p><strong>Disclaimer</strong>: While resources are available that discuss these analysis methods in depth, this book aims to provide a practical guide for social scientists, using data they will likely encounter. Our goal is to present a “cookbook” for guiding research projects through real-world examples.</p>
 </blockquote>
-<hr>
 </section>
 <section id="accessing-text-data-broadening-the-horizon" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="accessing-text-data-broadening-the-horizon"><span class="header-section-number">3.2</span> 2.2 Accessing Text Data (Broadening the Horizon)</h2>
@@ -364,7 +369,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Manual data collection is prohibitive</strong>: For extensive text or embedded tables.</li>
 </ul>
 <p>When feasible, consider alternatives like APIs or data-entry services (e.g., Amazon Mechanical Turk) for better efficiency and legal compliance.</p>
-<hr>
 </section>
 </section>
 <section id="what-is-an-api" class="level3" data-number="3.2.2">
@@ -446,7 +450,6 @@ Standardize text to lowercase for consistency in text analysis.</li>
 <li><p><strong>PDF Data Extractor (PDE)</strong><br>
 For more advanced PDF text extraction and processing, you can use the <a href="https://cran.r-project.org/web/packages/PDE/vignettes/PDE.html">PDF Data Extractor (PDE) package</a>. This package provides tools for extracting text data from complex PDF documents, supporting additional customization options for text extraction. PDE is a R package that easily extracts information and tables from PDF files. The PDE_analyzer_i() performs the sentence and table extraction while the included PDE_reader_i() allows the user-friendly visualization and quick-processing of the obtained results.</p></li>
 </ol>
-<hr>
 <section id="steps-for-extracting-text-from-local-pdf-files" class="level4" data-number="3.2.4.1">
 <h4 data-number="3.2.4.1" class="anchored" data-anchor-id="steps-for-extracting-text-from-local-pdf-files"><span class="header-section-number">3.2.4.1</span> Steps for Extracting Text from Local PDF Files</h4>
 <ol type="1">
@@ -485,7 +488,6 @@ To further parse each row, split it into cells by specifying the delimiter, such
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>   row <span class="ot">&lt;-</span> <span class="fu">unlist</span>(<span class="fu">strsplit</span>(rows[<span class="dv">24</span>], <span class="st">"</span><span class="sc">\\</span><span class="st">s+"</span>))  <span class="co"># Example with the 24th row</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<hr>
 </section>
 <section id="steps-for-downloading-and-extracting-text-from-pdf-files" class="level4" data-number="3.2.4.2">
 <h4 data-number="3.2.4.2" class="anchored" data-anchor-id="steps-for-downloading-and-extracting-text-from-pdf-files"><span class="header-section-number">3.2.4.2</span> Steps for Downloading and Extracting Text from PDF Files</h4>
@@ -630,7 +632,6 @@ If further analysis is needed, such as frequency-based analysis, split the text 
 <section id="data-source" class="level4" data-number="3.3.1.2">
 <h4 data-number="3.3.1.2" class="anchored" data-anchor-id="data-source"><span class="header-section-number">3.3.1.2</span> Data Source</h4>
 <p>The dataset consists of publicly available AI policy texts from 100 universities, sourced from <a href="https://www.scribbr.com/ai-tools/chatgpt-university-policies/">Scribbr’s ChatGPT University Policies page</a>. The data has been downloaded and saved as a CSV file for analysis.</p>
-<hr>
 </section>
 </section>
 <section id="sample-research-questions" class="level3" data-number="3.3.2">
@@ -639,7 +640,6 @@ If further analysis is needed, such as frequency-based analysis, split the text 
 <li><strong>RQ1</strong>: What are the most frequently mentioned words in university ChatGPT writing usage policies?</li>
 <li><strong>RQ2</strong>: Which keywords reflect common concerns or focal points related to ChatGPT writing usage in academic settings?</li>
 </ul>
-<hr>
 </section>
 <section id="analysis" class="level3" data-number="3.3.3">
 <h3 data-number="3.3.3" class="anchored" data-anchor-id="analysis"><span class="header-section-number">3.3.3</span> 2.3.3 Analysis</h3>
@@ -747,7 +747,6 @@ If further analysis is needed, such as frequency-based analysis, split the text 
 </div>
 </div>
 </div>
-<hr>
 </section>
 </section>
 <section id="results-and-discussions" class="level3" data-number="3.3.4">
@@ -758,7 +757,6 @@ The frequency analysis shows that keywords such as “assignment,” “student,
 <li><p><strong>RQ2</strong>: Which keywords reflect common concerns or focal points related to ChatGPT writing usage in academic settings?<br>
 The analysis of the top 12 frequently mentioned terms highlights additional focal points, including “tool,” “academic,” “instructor,” “integrity,” and “expectations.” These terms reveal concerns around the ethical use of AI tools, the need for clarity in academic applications, and the central role of instructors in AI policy implementation. Keywords like “integrity” and “expectations” emphasize the importance of maintaining academic standards and setting clear guidelines for AI use in classrooms, while “instructor” underscores the influence faculty members have in shaping AI-related practices. Together, these terms reflect a commitment to transparent policies that support ethical and effective AI integration, enhancing the academic experience for students.</p></li>
 </ul>
-<hr>
 </section>
 </section>
 <section id="dictionary-based-analysis" class="level2" data-number="3.4">
@@ -767,14 +765,12 @@ The analysis of the top 12 frequently mentioned terms highlights additional foca
 <h3 data-number="3.4.1" class="anchored" data-anchor-id="purpose-case-1"><span class="header-section-number">3.4.1</span> 2.4.1 Purpose + Case</h3>
 <p>The purpose of dictionary-based analysis in text data is to assess the presence of predefined categories, like emotions or sentiments, within the text using lexicons or dictionaries. This approach allows researchers to quantify qualitative aspects, such as positive or negative sentiment, based on specific words that correspond to these categories.</p>
 <p><strong>Case</strong>: In this analysis, we examine the stance of 100 universities on the use of ChatGPT by applying the Bing sentiment dictionary. By analyzing sentiment scores, we aim to identify the general tone in these policies, indicating whether the institutions’ attitudes toward ChatGPT are predominantly positive or negative.</p>
-<hr>
 </section>
 <section id="sample-research-questions-1" class="level3" data-number="3.4.2">
 <h3 data-number="3.4.2" class="anchored" data-anchor-id="sample-research-questions-1"><span class="header-section-number">3.4.2</span> 2.4.2 Sample Research Questions</h3>
 <ul>
 <li><strong>RQ</strong>: What is the dominant sentiment expressed in ChatGPT policy texts across universities, and is it primarily positive or negative?</li>
 </ul>
-<hr>
 </section>
 <section id="analysis-1" class="level3" data-number="3.4.3">
 <h3 data-number="3.4.3" class="anchored" data-anchor-id="analysis-1"><span class="header-section-number">3.4.3</span> 2.4.3 Analysis</h3>
@@ -869,7 +865,6 @@ The analysis of the top 12 frequently mentioned terms highlights additional foca
 </div>
 </div>
 </div>
-<hr>
 </section>
 </section>
 <section id="results-and-discussions-1" class="level3" data-number="3.4.4">
@@ -879,7 +874,6 @@ The analysis of the top 12 frequently mentioned terms highlights additional foca
 The dictionary-based sentiment analysis reveals the prevailing sentiments in university policies on ChatGPT usage. Using the Bing lexicon to assign positive and negative scores, the density plot illustrates the distribution of sentiment scores across the 100 institutions.</p>
 <p>The results indicate a balanced perspective with a slight tendency toward positive sentiment, as reflected by a higher density of positive scores. This analysis provides insights into the varying degrees of acceptance and caution universities adopt in their AI policy frameworks, demonstrating the diverse stances that shape institutional AI guidelines.</p></li>
 </ul>
-<hr>
 </section>
 </section>
 <section id="predictive-models-using-text" class="level2" data-number="3.5">
@@ -1066,6 +1060,135 @@ The LDA model reveals three key topics: 1) academic integrity, 2) student suppor
 <li><p><strong>RQ2</strong>: How do policies cluster based on their emphasis?<br>
 The topic clusters suggest that universities tend to focus on specific aspects: some emphasize academic integrity, while others prioritize support for learning and flexibility for instructors. This clustering can inform administrators about prevalent policy themes, aiding in policy alignment across institutions.</p></li>
 </ul>
+</section>
+</section>
+</section>
+<section id="clustering-based-analysis" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="clustering-based-analysis"><span class="header-section-number">3.6</span> 2.6 Clustering-Based Analysis</h2>
+<p>Clustering-based analysis involves grouping similar text documents or text segments into clusters based on their underlying topics or themes. This approach is particularly useful for identifying dominant themes in text data, such as university AI policy documents.</p>
+<section id="purpose-case-4" class="level3" data-number="3.6.1">
+<h3 data-number="3.6.1" class="anchored" data-anchor-id="purpose-case-4"><span class="header-section-number">3.6.1</span> 2.6.1 Purpose + CASE</h3>
+<p><strong>Purpose</strong>: The goal of clustering-based analysis is to uncover latent themes in text data using unsupervised machine learning techniques. Topic modeling is one popular method for clustering documents into groups based on their content.</p>
+<p><strong>Case</strong>: Using the ChatGPT policy texts from 100 universities, we apply Latent Dirichlet</p>
+<p>Allocation (LDA) to identify dominant themes in these policy documents. This analysis will help categorize policies into overarching themes, such as academic integrity, student support, and instructor discretion.</p>
+</section>
+<section id="sample-research-questions-4" class="level3" data-number="3.6.2">
+<h3 data-number="3.6.2" class="anchored" data-anchor-id="sample-research-questions-4"><span class="header-section-number">3.6.2</span> 2.6.2 Sample Research Questions</h3>
+<ul>
+<li><strong>RQ1</strong>: What are the main themes or topics present in university ChatGPT policy texts?</li>
+<li><strong>RQ2</strong>: How are the identified topics distributed across the dataset?</li>
+</ul>
+</section>
+<section id="analysis-4" class="level3" data-number="3.6.3">
+<h3 data-number="3.6.3" class="anchored" data-anchor-id="analysis-4"><span class="header-section-number">3.6.3</span> 2.6.3 Analysis</h3>
+<section id="step-1-install-and-load-necessary-libraries-1" class="level4" data-number="3.6.3.1">
+<h4 data-number="3.6.3.1" class="anchored" data-anchor-id="step-1-install-and-load-necessary-libraries-1"><span class="header-section-number">3.6.3.1</span> Step 1: Install and Load Necessary Libraries</h4>
+<p>Install and load the required libraries for text processing and topic modeling.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install necessary packages</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(c("dplyr", "tidytext", "topicmodels", "ggplot2"))</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(topicmodels)</span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="step-2-prepare-the-data" class="level4" data-number="3.6.3.2">
+<h4 data-number="3.6.3.2" class="anchored" data-anchor-id="step-2-prepare-the-data"><span class="header-section-number">3.6.3.2</span> Step 2: Prepare the Data</h4>
+<p>Load the data and create a document-term matrix (DTM) for topic modeling.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>university_policies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"University_GenAI_Policy_Stance.csv"</span>)</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tokenize text data and count word frequencies</span></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>word_frequency <span class="ot">&lt;-</span> university_policies <span class="sc">%&gt;%</span></span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, Stance) <span class="sc">%&gt;%</span>  <span class="co"># same as section 2.3</span></span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words) <span class="sc">%&gt;%</span>             <span class="co"># Remove common stop words</span></span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>)              <span class="co"># Count and sort words by frequency</span></span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>word_frequency</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,108 × 2
+   word            n
+   &lt;chr&gt;       &lt;int&gt;
+ 1 ai            124
+ 2 students      120
+ 3 chatgpt        80
+ 4 tools          73
+ 5 academic       68
+ 6 policy         35
+ 7 assignments    34
+ 8 instructors    34
+ 9 integrity      33
+10 student        32
+# ℹ 1,098 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating Documents - Word Frequency Matrix</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>gpt_dtm <span class="ot">&lt;-</span> word_frequency <span class="sc">%&gt;%</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(word) <span class="sc">%&gt;%</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">id =</span> <span class="fu">row_number</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cast_dtm</span>(<span class="at">document =</span> <span class="st">"id"</span>, <span class="at">term =</span> <span class="st">"word"</span>, <span class="at">value =</span> <span class="st">"n"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="step-3-fit-the-lda-model" class="level4" data-number="3.6.3.3">
+<h4 data-number="3.6.3.3" class="anchored" data-anchor-id="step-3-fit-the-lda-model"><span class="header-section-number">3.6.3.3</span> Step 3: Fit the LDA Model</h4>
+<p>Fit an LDA model with <code>k = 3</code> topics.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Converting document-word frequency matrices to sparse matrices</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>gpt_dtm_sparse_k3 <span class="ot">&lt;-</span> <span class="fu">as</span>(gpt_dtm, <span class="st">"matrix"</span>)</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the LDA model</span></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>lda_model <span class="ot">&lt;-</span> <span class="fu">LDA</span>(gpt_dtm_sparse_k3, <span class="at">k =</span> <span class="dv">3</span>, <span class="at">control =</span> <span class="fu">list</span>(<span class="at">seed =</span> <span class="dv">1234</span>))</span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="co"># View model results</span></span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>gpt_policy_topics_k3 <span class="ot">&lt;-</span> <span class="fu">tidy</span>(lda_model, <span class="at">matrix =</span> <span class="st">"beta"</span>)</span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(gpt_policy_topics_k3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3,324 × 3
+   topic term        beta
+   &lt;int&gt; &lt;chr&gt;      &lt;dbl&gt;
+ 1     1 ai       0.0408 
+ 2     2 ai       0.00593
+ 3     3 ai       0.0650 
+ 4     1 students 0.0435 
+ 5     2 students 0.0635 
+ 6     3 students 0.0151 
+ 7     1 chatgpt  0.0396 
+ 8     2 chatgpt  0.0248 
+ 9     3 chatgpt  0.0126 
+10     1 tools    0.0197 
+# ℹ 3,314 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="step-4-visualize-topics" class="level4" data-number="3.6.3.4">
+<h4 data-number="3.6.3.4" class="anchored" data-anchor-id="step-4-visualize-topics"><span class="header-section-number">3.6.3.4</span> Step 4: Visualize Topics</h4>
+<p>Extract the top terms for each topic and visualize them.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizing top terms for each topic</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>gpt_policy_ap_top_terms_k3 <span class="ot">&lt;-</span> gpt_policy_topics_k3 <span class="sc">%&gt;%</span></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(topic) <span class="sc">%&gt;%</span></span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(beta, <span class="at">n =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(topic, <span class="sc">-</span>beta)</span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a>gpt_policy_ap_top_terms_k3 <span class="sc">%&gt;%</span></span>
+<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">term =</span> <span class="fu">reorder_within</span>(term, beta, topic)) <span class="sc">%&gt;%</span></span>
+<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(beta, term, <span class="at">fill =</span> <span class="fu">factor</span>(topic))) <span class="sc">+</span></span>
+<span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb54-12"><a href="#cb54-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> topic, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
+<span id="cb54-13"><a href="#cb54-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reordered</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="section-2_files/figure-html/unnamed-chunk-49-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
 </section>
