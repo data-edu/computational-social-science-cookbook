@@ -143,9 +143,9 @@ Reddit is a social media platform featuring a complex network of users and discu
 install.packages("RedditExtractoR")
 library(RedditExtractoR)
 
-# Access data from the ChatGPT subreddit
-chatgpt_reddit <- find_thread_urls(subreddit = "chatgpt", sort_by = "new", period = "day")
-view(chatgpt_reddit)
+# Access data from the GenAI subreddit
+GenAI_reddit <- find_thread_urls(subreddit = "GenAI", sort_by = "new", period = "day")
+view(GenAI_reddit)
 ```
 
 ### 2.2.2 Audio Transcripts (Zoom, etc.)
@@ -366,18 +366,18 @@ Surveys and discussion posts are valuable sources of text data in social science
 
 The purpose of the frequency-based approach is to count the number of words as they appear in a text file, whether it is a collection of tweets, documents, or interview transcripts. This approach aligns with the frequency-coding method (Saldana) and can supplement human coding by revealing the most/least commonly occurring words, which can then be compared across dependent variables.
 
-#### Case Study: Frequency-Based Analysis of ChatGPT Writing Guidelines in Higher Education
+#### Case Study: Frequency-Based Analysis of GenAI USage Guidelines in Higher Education
 
-As AI writing tools like ChatGPT become more prevalent, educators are working to understand how best to integrate them within academic settings, while many students and instructors remain uncertain about current allowances. Our research into AI usage guidelines from the top 100 universities in North America aims to identify prominent themes and concerns in institutional policies regarding ChatGPT.
+As AI writing tools like ChatGPT become more prevalent, educators are working to understand how best to integrate them within academic settings, while many students and instructors remain uncertain about current allowances. Our research into AI usage guidelines from the top 100 universities in North America aims to identify prominent themes and concerns in institutional policies regarding GenAI.
 
 #### Data Source
 
-The dataset consists of publicly available AI policy texts from 100 universities, sourced from [Scribbr's ChatGPT University Policies page](https://www.scribbr.com/ai-tools/chatgpt-university-policies/). The data has been downloaded and saved as a CSV file for analysis.
+The dataset consists of publicly available AI policy texts from 100 universities, sourced from [Scribbr's GenAI University Policies page](https://www.scribbr.com/ai-tools/chatgpt-university-policies/). The data has been downloaded and saved as a CSV file for analysis.
 
 ### 2.3.2 Sample Research Questions
 
--   **RQ1**: What are the most frequently mentioned words in university ChatGPT writing usage policies?
--   **RQ2**: Which keywords reflect common concerns or focal points related to ChatGPT writing usage in academic settings?
+-   **RQ1**: What are the most frequently mentioned words in university GenAI writing usage policies?
+-   **RQ2**: Which keywords reflect common concerns or focal points related to GenAI writing usage in academic settings?
 
 ### 2.3.3 Analysis
 
@@ -449,7 +449,7 @@ policy_word_chart <- ggplot(top_words, aes(x = reorder(word, n), y = n, fill = w
   coord_flip() +
   theme_minimal() +
   labs(
-    title = "Top Words in University ChatGPT Policies",
+    title = "Top Words in University GenAI Policies",
     x = NULL,
     y = "Frequency",
     caption = "Source: University AI Policy Text",
@@ -464,10 +464,10 @@ print(policy_word_chart)
 
 ### 2.3.4 Results and Discussions
 
--   **RQ1**: What are the most frequently mentioned words in university ChatGPT writing usage policies?\
-    The frequency analysis shows that keywords such as "assignment," "student," "syllabus," and "writing" are among the most commonly mentioned terms across AI policies at 100 universities. This emphasis reflects a focus on using AI tools, like ChatGPT, to support student learning and enhance teaching content. The frequent mention of these words suggests that institutions are considering the role of AI in academic assignments and course design, indicating a strategic commitment to integrating AI within educational tasks and student interactions.
+-   **RQ1**: What are the most frequently mentioned words in university GenAI writing usage policies?\
+    The frequency analysis shows that keywords such as "assignment," "student," "syllabus," and "writing" are among the most commonly mentioned terms across AI policies at 100 universities. This emphasis reflects a focus on using AI tools, like GenAI, to support student learning and enhance teaching content. The frequent mention of these words suggests that institutions are considering the role of AI in academic assignments and course design, indicating a strategic commitment to integrating AI within educational tasks and student interactions.
 
--   **RQ2**: Which keywords reflect common concerns or focal points related to ChatGPT writing usage in academic settings?\
+-   **RQ2**: Which keywords reflect common concerns or focal points related to GenAI writing usage in academic settings?\
     The analysis of the top 12 frequently mentioned terms highlights additional focal points, including "tool," "academic," "instructor," "integrity," and "expectations." These terms reveal concerns around the ethical use of AI tools, the need for clarity in academic applications, and the central role of instructors in AI policy implementation. Keywords like "integrity" and "expectations" emphasize the importance of maintaining academic standards and setting clear guidelines for AI use in classrooms, while "instructor" underscores the influence faculty members have in shaping AI-related practices. Together, these terms reflect a commitment to transparent policies that support ethical and effective AI integration, enhancing the academic experience for students.
 
 ## 2.4 Dictionary-based Analysis
@@ -476,11 +476,11 @@ print(policy_word_chart)
 
 The purpose of dictionary-based analysis in text data is to assess the presence of predefined categories, like emotions or sentiments, within the text using lexicons or dictionaries. This approach allows researchers to quantify qualitative aspects, such as positive or negative sentiment, based on specific words that correspond to these categories.
 
-**Case**: In this analysis, we examine the stance of 100 universities on the use of ChatGPT by applying the Bing sentiment dictionary. By analyzing sentiment scores, we aim to identify the general tone in these policies, indicating whether the institutions' attitudes toward ChatGPT are predominantly positive or negative.
+**Case**: In this analysis, we examine the stance of 100 universities on the use of GenAI by applying the Bing sentiment dictionary. By analyzing sentiment scores, we aim to identify the general tone in these policies, indicating whether the institutions' attitudes toward GenAI are predominantly positive or negative.
 
 ### 2.4.2 Sample Research Questions
 
--   **RQ**: What is the dominant sentiment expressed in ChatGPT policy texts across universities, and is it primarily positive or negative?
+-   **RQ**: What is the dominant sentiment expressed in GenAI policy texts across universities, and is it primarily positive or negative?
 
 ### 2.4.3 Analysis
 
@@ -502,7 +502,7 @@ library(tidyr)
 
 #### Step 2: Load and Prepare Data(same as 2.3)
 
-Load the ChatGPT policy stance data from a CSV file. Be sure to update the file path as needed. we use the same data as 2.3.
+Load the GenAI policy stance data from a CSV file. Be sure to update the file path as needed. we use the same data as 2.3.
 
 ```{r, eval=FALSE}
 # Load the dataset (replace "University_GenAI_Policy_Stance.csv" with the actual file path)
@@ -560,14 +560,14 @@ print(density_plot)
 
 ### 2.4.4 Results and Discussions
 
--   **RQ**: What is the dominant sentiment expressed in ChatGPT policy texts across universities, and is it primarily positive or negative?\
-    The dictionary-based sentiment analysis reveals the prevailing sentiments in university policies on ChatGPT usage. Using the Bing lexicon to assign positive and negative scores, the density plot illustrates the distribution of sentiment scores across the 100 institutions.
+-   **RQ**: What is the dominant sentiment expressed in GenAI policy texts across universities, and is it primarily positive or negative?\
+    The dictionary-based sentiment analysis reveals the prevailing sentiments in university policies on GenAI usage. Using the Bing lexicon to assign positive and negative scores, the density plot illustrates the distribution of sentiment scores across the 100 institutions.
 
     The results indicate a balanced perspective with a slight tendency toward positive sentiment, as reflected by a higher density of positive scores. This analysis provides insights into the varying degrees of acceptance and caution universities adopt in their AI policy frameworks, demonstrating the diverse stances that shape institutional AI guidelines.
 
 ## 2.5 Predictive Models Using Text
 
-This section covers how to apply both supervised and unsupervised machine learning models to predict insights from text data. We demonstrate how these techniques can enhance understanding of institutional ChatGPT policies through prediction and clustering.
+This section covers how to apply both supervised and unsupervised machine learning models to predict insights from text data. We demonstrate how these techniques can enhance understanding of institutional GenAI policies through prediction and clustering.
 
 ------------------------------------------------------------------------
 
@@ -575,7 +575,7 @@ This section covers how to apply both supervised and unsupervised machine learni
 
 ##### Purpose + Case
 
-**Purpose**: Supervised machine learning with text data can categorize policies based on themes, such as academic integrity, instructor discretion, and student support. This classification helps in understanding how different institutions frame their ChatGPT policies.
+**Purpose**: Supervised machine learning with text data can categorize policies based on themes, such as academic integrity, instructor discretion, and student support. This classification helps in understanding how different institutions frame their GenAI policies.
 
 **Case**: Using labeled samples of policy texts that have been previously categorized into themes, we can train a classifier to categorize new policy texts into one of these themes. This method helps identify which themes are most common among universities and allows for quick categorization of new policy updates.
 
@@ -583,7 +583,7 @@ This section covers how to apply both supervised and unsupervised machine learni
 
 ##### Sample Research Questions
 
--   **RQ1**: Can we accurately classify ChatGPT policy texts into categories like "Academic Integrity," "Instructor Discretion," and "Student Support"?
+-   **RQ1**: Can we accurately classify GenAI policy texts into categories like "Academic Integrity," "Instructor Discretion," and "Student Support"?
 -   **RQ2**: What are the most influential words in predicting the theme of each policy?
 
 ------------------------------------------------------------------------
@@ -609,7 +609,7 @@ This section covers how to apply both supervised and unsupervised machine learni
 
 ```{r, eval = FALSE}
    # Load labeled dataset
-   policy_data <- read.csv("university_chatgpt_policies_labeled.csv")  # Assume dataset includes a "Theme" column
+   policy_data <- read.csv("university_GenAI_policies_labeled.csv")  # Assume dataset includes a "Theme" column
 
    # Basic text preprocessing
    policy_data <- policy_data %>%
@@ -655,7 +655,7 @@ This section covers how to apply both supervised and unsupervised machine learni
 
 ##### Results and Discussions
 
--   **RQ1**: Can we accurately classify ChatGPT policy texts into categories like "Academic Integrity," "Instructor Discretion," and "Student Support"?\
+-   **RQ1**: Can we accurately classify GenAI policy texts into categories like "Academic Integrity," "Instructor Discretion," and "Student Support"?\
     The Naive Bayes classifier achieves an accuracy of approximately X%, showing it can reasonably classify policy themes. This model could assist in categorizing new policies or updates as they emerge, enabling quick identification of thematic priorities across institutions.
 
 -   **RQ2**: What are the most influential words in predicting the theme of each policy?\
@@ -665,15 +665,15 @@ This section covers how to apply both supervised and unsupervised machine learni
 
 ##### Purpose + Case
 
-**Purpose**: Unsupervised machine learning techniques like clustering and topic modeling are used for identifying hidden patterns, themes, or groupings within text data without labeled categories. These models are useful for uncovering common themes in ChatGPT policy texts.
+**Purpose**: Unsupervised machine learning techniques like clustering and topic modeling are used for identifying hidden patterns, themes, or groupings within text data without labeled categories. These models are useful for uncovering common themes in GenAI policy texts.
 
-**Case**: We explore topics discussed in ChatGPT policies across universities to uncover the main themes, grouping policies into clusters based on their emphasis (e.g., academic integrity, student support, instructor discretion).
+**Case**: We explore topics discussed in GenAI policies across universities to uncover the main themes, grouping policies into clusters based on their emphasis (e.g., academic integrity, student support, instructor discretion).
 
 ------------------------------------------------------------------------
 
 ##### Sample Research Questions
 
--   **RQ1**: What are the main themes or topics present in ChatGPT policy texts across universities?
+-   **RQ1**: What are the main themes or topics present in GenAI policy texts across universities?
 -   **RQ2**: How do policies cluster based on their emphasis (e.g., focus on integrity, educational support, flexibility)?
 
 ------------------------------------------------------------------------
@@ -698,7 +698,7 @@ This section covers how to apply both supervised and unsupervised machine learni
 
 ```{r, eval = FALSE}
    # Load dataset
-   policy_data <- read.csv("university_chatgpt_policies.csv")
+   policy_data <- read.csv("university_GenAI_policies.csv")
 
    # Preprocess text
    policy_data <- policy_data %>%
@@ -745,8 +745,8 @@ This section covers how to apply both supervised and unsupervised machine learni
 
 ##### Results and Discussions
 
--   **RQ1**: What are the main themes or topics present in ChatGPT policy texts across universities?\
-    The LDA model reveals three key topics: 1) academic integrity, 2) student support, and 3) instructor discretion. These topics represent the primary areas of concern and focus in university ChatGPT policies.
+-   **RQ1**: What are the main themes or topics present in GenAI policy texts across universities?\
+    The LDA model reveals three key topics: 1) academic integrity, 2) student support, and 3) instructor discretion. These topics represent the primary areas of concern and focus in university GenAI policies.
 
 -   **RQ2**: How do policies cluster based on their emphasis?\
     The topic clusters suggest that universities tend to focus on specific aspects: some emphasize academic integrity, while others prioritize support for learning and flexibility for instructors. This clustering can inform administrators about prevalent policy themes, aiding in policy alignment across institutions.
@@ -759,14 +759,14 @@ Clustering-based analysis involves grouping similar text documents or text segme
 
 **Purpose**: The goal of clustering-based analysis is to uncover latent themes in text data using unsupervised machine learning techniques. Topic modeling is one popular method for clustering documents into groups based on their content.
 
-**Case**: Using the ChatGPT policy texts from 100 universities, we apply Latent Dirichlet
+**Case**: Using the GenAI policy texts from 100 universities, we apply Latent Dirichlet
 
 Allocation (LDA) to identify dominant themes in these policy documents. This analysis will help categorize policies into overarching themes, such as academic integrity, student support, and instructor discretion.
 
 ### 2.6.2 Sample Research Questions
 
--   **RQ1**: What are the main themes or topics present in university ChatGPT policy texts?
--   **RQ2**: How are the identified topics distributed across the dataset?
+-   **RQ1**: What are the prominent themes present in university policies regarding GenAI usage Stance?
+-   **RQ2**: How do these themes reflect the key concerns or opportunities for intergrating GenAI in higher education?
 
 ### 2.6.3 Analysis
 
@@ -812,6 +812,37 @@ gpt_dtm <- word_frequency %>%
 
 ```
 
+```{r, eval = FALSE}
+library(topicmodels)
+library(ggplot2)
+
+# Define range of k values
+k_values <- c(2, 3, 4, 5)
+
+# Initialize a data frame to store perplexities
+perplexities <- data.frame(k = integer(), perplexity = numeric())
+
+# Calculate perplexity for each k
+for (k in k_values) {
+  lda_model <- LDA(gpt_dtm, k = k, control = list(seed = 1234))  # Fit LDA model
+  perplexity_score <- perplexity(lda_model, gpt_dtm)            # Calculate perplexity
+  perplexities <- rbind(perplexities, data.frame(k = k, perplexity = perplexity_score))
+}
+
+# Plot perplexity vs number of topics
+ggplot(perplexities, aes(x = k, y = perplexity)) +
+  geom_line() +
+  geom_point() +
+  labs(
+    title = "Perplexity vs Number of Topics",
+    x = "Number of Topics (k)",
+    y = "Perplexity"
+  ) +
+  theme_minimal()
+
+
+```
+
 #### Step 3: Fit the LDA Model 
 
 Fit an LDA model with `k = 3` topics.
@@ -819,10 +850,10 @@ Fit an LDA model with `k = 3` topics.
 ```{r}
 
 # Converting document-word frequency matrices to sparse matrices
-gpt_dtm_sparse_k3 <- as(gpt_dtm, "matrix")
+gpt_dtm_sparse<- as(gpt_dtm, "matrix")
 
 # Fit the LDA model
-lda_model <- LDA(gpt_dtm_sparse_k3, k = 3, control = list(seed = 1234))
+lda_model <- LDA(gpt_dtm_sparse, k = 3, control = list(seed = 1234))
 
 # View model results
 gpt_policy_topics_k3 <- tidy(lda_model, matrix = "beta")
@@ -849,3 +880,57 @@ gpt_policy_ap_top_terms_k3 %>%
   facet_wrap(~ topic, scales = "free") +
   scale_y_reordered()
 ```
+
+### 2.6.4 Results and Discussions
+
+#### **Research Question 1:**
+
+What are the prominent themes present in university policies regarding GenAI usage?
+
+**Answer:**\
+The topic modeling analysis revealed three distinct themes in the university GenAI policies:
+
+1.  **Theme 1: Student-Centric Guidelines and Ethical Considerations**
+
+    -   Key terms: `students`, `integrity`, `tools`, `instructors`, `assignment`
+
+    -   This theme emphasizes student usage of GenAI in academic settings, with a focus on ethics (`integrity`) and guidelines for instructors to manage assignments involving AI tools.
+
+2.  **Theme 2: Academic Standards and Faculty Expectations**
+
+    -   Key terms: `students`, `academic`, `faculty`, `honor`, `expectations`
+
+    -   This theme focuses on maintaining academic integrity and clarifying expectations for faculty and students regarding GenAI usage in assignments and assessments.
+
+3.  **Theme 3: Policy-Level Governance and Technology Integration**
+
+    -   Key terms: `ai`, `tools`, `policy`, `learning`, `generative`
+
+    -   This theme revolves around institutional policies on AI integration, highlighting broader governance strategies and how generative AI (like GenAI) fits into learning environments.
+
+#### **Research Question 2:**
+
+How do these themes reflect the key concerns or opportunities for integrating GenAI in higher education?
+
+**Answer:**\
+The identified themes reflect both concerns and opportunities:
+
+1.  **Concerns:**
+
+    **Theme 1:** Highlights the ethical challenges, such as ensuring academic integrity when students use AI tools in their coursework. Institutions are keen on setting clear guidelines for both students and instructors to avoid misuse.
+
+    **Theme 2:** Underlines the potential for conflict between maintaining academic standards (`honor`, `expectations`) and leveraging AI to support learning. This shows a cautious approach to integrating AI while upholding traditional values.
+
+    **Theme 3:** Raises policy-level questions on AI governance, such as whether existing institutional frameworks are adequate to regulate emerging generative AI technologies.
+
+2.  **Opportunities:**
+
+    **Theme 1:** Presents a chance to redefine how students interact with AI tools to foster responsible and innovative usage, particularly for assignments and creative tasks.
+
+    **Theme 2:** Encourages collaboration between faculty and administration to develop robust expectations and support systems for integrating AI in the classroom.
+
+    **Theme 3:** Offers a strategic opportunity for universities to lead in AI adoption by establishing comprehensive policies that guide AI’s role in education and research.
+
+#### **Discussion:**
+
+The topic modeling results suggest that universities are navigating a complex landscape of opportunities and challenges as they incorporate GenAI into academic contexts. While student-centric policies aim to balance innovation with ethical considerations, institutional-level themes signal the need for governance frameworks to ensure responsible AI use. These findings indicate that higher education institutions are positioned to play a pivotal role in shaping the future of generative AI in learning, provided they address the ethical, pedagogical, and policy challenges identified in this analysis.

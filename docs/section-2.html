@@ -237,6 +237,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#purpose-case-4" id="toc-purpose-case-4" class="nav-link" data-scroll-target="#purpose-case-4"><span class="header-section-number">3.6.1</span> 2.6.1 Purpose + CASE</a></li>
   <li><a href="#sample-research-questions-4" id="toc-sample-research-questions-4" class="nav-link" data-scroll-target="#sample-research-questions-4"><span class="header-section-number">3.6.2</span> 2.6.2 Sample Research Questions</a></li>
   <li><a href="#analysis-4" id="toc-analysis-4" class="nav-link" data-scroll-target="#analysis-4"><span class="header-section-number">3.6.3</span> 2.6.3 Analysis</a></li>
+  <li><a href="#results-and-discussions-4" id="toc-results-and-discussions-4" class="nav-link" data-scroll-target="#results-and-discussions-4"><span class="header-section-number">3.6.4</span> 2.6.4 Results and Discussions</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -393,9 +394,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"RedditExtractoR"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RedditExtractoR)</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Access data from the ChatGPT subreddit</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>chatgpt_reddit <span class="ot">&lt;-</span> <span class="fu">find_thread_urls</span>(<span class="at">subreddit =</span> <span class="st">"chatgpt"</span>, <span class="at">sort_by =</span> <span class="st">"new"</span>, <span class="at">period =</span> <span class="st">"day"</span>)</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span>(chatgpt_reddit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Access data from the GenAI subreddit</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>GenAI_reddit <span class="ot">&lt;-</span> <span class="fu">find_thread_urls</span>(<span class="at">subreddit =</span> <span class="st">"GenAI"</span>, <span class="at">sort_by =</span> <span class="st">"new"</span>, <span class="at">period =</span> <span class="st">"day"</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span>(GenAI_reddit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -625,20 +626,20 @@ If further analysis is needed, such as frequency-based analysis, split the text 
 <section id="purpose-case" class="level3" data-number="3.3.1">
 <h3 data-number="3.3.1" class="anchored" data-anchor-id="purpose-case"><span class="header-section-number">3.3.1</span> 2.3.1 Purpose + Case</h3>
 <p>The purpose of the frequency-based approach is to count the number of words as they appear in a text file, whether it is a collection of tweets, documents, or interview transcripts. This approach aligns with the frequency-coding method (Saldana) and can supplement human coding by revealing the most/least commonly occurring words, which can then be compared across dependent variables.</p>
-<section id="case-study-frequency-based-analysis-of-chatgpt-writing-guidelines-in-higher-education" class="level4" data-number="3.3.1.1">
-<h4 data-number="3.3.1.1" class="anchored" data-anchor-id="case-study-frequency-based-analysis-of-chatgpt-writing-guidelines-in-higher-education"><span class="header-section-number">3.3.1.1</span> Case Study: Frequency-Based Analysis of ChatGPT Writing Guidelines in Higher Education</h4>
-<p>As AI writing tools like ChatGPT become more prevalent, educators are working to understand how best to integrate them within academic settings, while many students and instructors remain uncertain about current allowances. Our research into AI usage guidelines from the top 100 universities in North America aims to identify prominent themes and concerns in institutional policies regarding ChatGPT.</p>
+<section id="case-study-frequency-based-analysis-of-genai-usage-guidelines-in-higher-education" class="level4" data-number="3.3.1.1">
+<h4 data-number="3.3.1.1" class="anchored" data-anchor-id="case-study-frequency-based-analysis-of-genai-usage-guidelines-in-higher-education"><span class="header-section-number">3.3.1.1</span> Case Study: Frequency-Based Analysis of GenAI USage Guidelines in Higher Education</h4>
+<p>As AI writing tools like ChatGPT become more prevalent, educators are working to understand how best to integrate them within academic settings, while many students and instructors remain uncertain about current allowances. Our research into AI usage guidelines from the top 100 universities in North America aims to identify prominent themes and concerns in institutional policies regarding GenAI.</p>
 </section>
 <section id="data-source" class="level4" data-number="3.3.1.2">
 <h4 data-number="3.3.1.2" class="anchored" data-anchor-id="data-source"><span class="header-section-number">3.3.1.2</span> Data Source</h4>
-<p>The dataset consists of publicly available AI policy texts from 100 universities, sourced from <a href="https://www.scribbr.com/ai-tools/chatgpt-university-policies/">Scribbr’s ChatGPT University Policies page</a>. The data has been downloaded and saved as a CSV file for analysis.</p>
+<p>The dataset consists of publicly available AI policy texts from 100 universities, sourced from <a href="https://www.scribbr.com/ai-tools/chatgpt-university-policies/">Scribbr’s GenAI University Policies page</a>. The data has been downloaded and saved as a CSV file for analysis.</p>
 </section>
 </section>
 <section id="sample-research-questions" class="level3" data-number="3.3.2">
 <h3 data-number="3.3.2" class="anchored" data-anchor-id="sample-research-questions"><span class="header-section-number">3.3.2</span> 2.3.2 Sample Research Questions</h3>
 <ul>
-<li><strong>RQ1</strong>: What are the most frequently mentioned words in university ChatGPT writing usage policies?</li>
-<li><strong>RQ2</strong>: Which keywords reflect common concerns or focal points related to ChatGPT writing usage in academic settings?</li>
+<li><strong>RQ1</strong>: What are the most frequently mentioned words in university GenAI writing usage policies?</li>
+<li><strong>RQ2</strong>: Which keywords reflect common concerns or focal points related to GenAI writing usage in academic settings?</li>
 </ul>
 </section>
 <section id="analysis" class="level3" data-number="3.3.3">
@@ -728,7 +729,7 @@ If further analysis is needed, such as frequency-based analysis, split the text 
 <span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
 <span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Top Words in University ChatGPT Policies"</span>,</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Top Words in University GenAI Policies"</span>,</span>
 <span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>,</span>
 <span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Frequency"</span>,</span>
 <span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Source: University AI Policy Text"</span>,</span>
@@ -752,9 +753,9 @@ If further analysis is needed, such as frequency-based analysis, split the text 
 <section id="results-and-discussions" class="level3" data-number="3.3.4">
 <h3 data-number="3.3.4" class="anchored" data-anchor-id="results-and-discussions"><span class="header-section-number">3.3.4</span> 2.3.4 Results and Discussions</h3>
 <ul>
-<li><p><strong>RQ1</strong>: What are the most frequently mentioned words in university ChatGPT writing usage policies?<br>
-The frequency analysis shows that keywords such as “assignment,” “student,” “syllabus,” and “writing” are among the most commonly mentioned terms across AI policies at 100 universities. This emphasis reflects a focus on using AI tools, like ChatGPT, to support student learning and enhance teaching content. The frequent mention of these words suggests that institutions are considering the role of AI in academic assignments and course design, indicating a strategic commitment to integrating AI within educational tasks and student interactions.</p></li>
-<li><p><strong>RQ2</strong>: Which keywords reflect common concerns or focal points related to ChatGPT writing usage in academic settings?<br>
+<li><p><strong>RQ1</strong>: What are the most frequently mentioned words in university GenAI writing usage policies?<br>
+The frequency analysis shows that keywords such as “assignment,” “student,” “syllabus,” and “writing” are among the most commonly mentioned terms across AI policies at 100 universities. This emphasis reflects a focus on using AI tools, like GenAI, to support student learning and enhance teaching content. The frequent mention of these words suggests that institutions are considering the role of AI in academic assignments and course design, indicating a strategic commitment to integrating AI within educational tasks and student interactions.</p></li>
+<li><p><strong>RQ2</strong>: Which keywords reflect common concerns or focal points related to GenAI writing usage in academic settings?<br>
 The analysis of the top 12 frequently mentioned terms highlights additional focal points, including “tool,” “academic,” “instructor,” “integrity,” and “expectations.” These terms reveal concerns around the ethical use of AI tools, the need for clarity in academic applications, and the central role of instructors in AI policy implementation. Keywords like “integrity” and “expectations” emphasize the importance of maintaining academic standards and setting clear guidelines for AI use in classrooms, while “instructor” underscores the influence faculty members have in shaping AI-related practices. Together, these terms reflect a commitment to transparent policies that support ethical and effective AI integration, enhancing the academic experience for students.</p></li>
 </ul>
 </section>
@@ -764,12 +765,12 @@ The analysis of the top 12 frequently mentioned terms highlights additional foca
 <section id="purpose-case-1" class="level3" data-number="3.4.1">
 <h3 data-number="3.4.1" class="anchored" data-anchor-id="purpose-case-1"><span class="header-section-number">3.4.1</span> 2.4.1 Purpose + Case</h3>
 <p>The purpose of dictionary-based analysis in text data is to assess the presence of predefined categories, like emotions or sentiments, within the text using lexicons or dictionaries. This approach allows researchers to quantify qualitative aspects, such as positive or negative sentiment, based on specific words that correspond to these categories.</p>
-<p><strong>Case</strong>: In this analysis, we examine the stance of 100 universities on the use of ChatGPT by applying the Bing sentiment dictionary. By analyzing sentiment scores, we aim to identify the general tone in these policies, indicating whether the institutions’ attitudes toward ChatGPT are predominantly positive or negative.</p>
+<p><strong>Case</strong>: In this analysis, we examine the stance of 100 universities on the use of GenAI by applying the Bing sentiment dictionary. By analyzing sentiment scores, we aim to identify the general tone in these policies, indicating whether the institutions’ attitudes toward GenAI are predominantly positive or negative.</p>
 </section>
 <section id="sample-research-questions-1" class="level3" data-number="3.4.2">
 <h3 data-number="3.4.2" class="anchored" data-anchor-id="sample-research-questions-1"><span class="header-section-number">3.4.2</span> 2.4.2 Sample Research Questions</h3>
 <ul>
-<li><strong>RQ</strong>: What is the dominant sentiment expressed in ChatGPT policy texts across universities, and is it primarily positive or negative?</li>
+<li><strong>RQ</strong>: What is the dominant sentiment expressed in GenAI policy texts across universities, and is it primarily positive or negative?</li>
 </ul>
 </section>
 <section id="analysis-1" class="level3" data-number="3.4.3">
@@ -791,7 +792,7 @@ The analysis of the top 12 frequently mentioned terms highlights additional foca
 </section>
 <section id="step-2-load-and-prepare-datasame-as-2.3" class="level4" data-number="3.4.3.2">
 <h4 data-number="3.4.3.2" class="anchored" data-anchor-id="step-2-load-and-prepare-datasame-as-2.3"><span class="header-section-number">3.4.3.2</span> Step 2: Load and Prepare Data(same as 2.3)</h4>
-<p>Load the ChatGPT policy stance data from a CSV file. Be sure to update the file path as needed. we use the same data as 2.3.</p>
+<p>Load the GenAI policy stance data from a CSV file. Be sure to update the file path as needed. we use the same data as 2.3.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset (replace "University_GenAI_Policy_Stance.csv" with the actual file path)</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>university_policies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"University_GenAI_Policy_Stance.csv"</span>)</span>
@@ -870,28 +871,28 @@ The analysis of the top 12 frequently mentioned terms highlights additional foca
 <section id="results-and-discussions-1" class="level3" data-number="3.4.4">
 <h3 data-number="3.4.4" class="anchored" data-anchor-id="results-and-discussions-1"><span class="header-section-number">3.4.4</span> 2.4.4 Results and Discussions</h3>
 <ul>
-<li><p><strong>RQ</strong>: What is the dominant sentiment expressed in ChatGPT policy texts across universities, and is it primarily positive or negative?<br>
-The dictionary-based sentiment analysis reveals the prevailing sentiments in university policies on ChatGPT usage. Using the Bing lexicon to assign positive and negative scores, the density plot illustrates the distribution of sentiment scores across the 100 institutions.</p>
+<li><p><strong>RQ</strong>: What is the dominant sentiment expressed in GenAI policy texts across universities, and is it primarily positive or negative?<br>
+The dictionary-based sentiment analysis reveals the prevailing sentiments in university policies on GenAI usage. Using the Bing lexicon to assign positive and negative scores, the density plot illustrates the distribution of sentiment scores across the 100 institutions.</p>
 <p>The results indicate a balanced perspective with a slight tendency toward positive sentiment, as reflected by a higher density of positive scores. This analysis provides insights into the varying degrees of acceptance and caution universities adopt in their AI policy frameworks, demonstrating the diverse stances that shape institutional AI guidelines.</p></li>
 </ul>
 </section>
 </section>
 <section id="predictive-models-using-text" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="predictive-models-using-text"><span class="header-section-number">3.5</span> 2.5 Predictive Models Using Text</h2>
-<p>This section covers how to apply both supervised and unsupervised machine learning models to predict insights from text data. We demonstrate how these techniques can enhance understanding of institutional ChatGPT policies through prediction and clustering.</p>
+<p>This section covers how to apply both supervised and unsupervised machine learning models to predict insights from text data. We demonstrate how these techniques can enhance understanding of institutional GenAI policies through prediction and clustering.</p>
 <hr>
 <section id="supervised-ml-using-text" class="level3" data-number="3.5.1">
 <h3 data-number="3.5.1" class="anchored" data-anchor-id="supervised-ml-using-text"><span class="header-section-number">3.5.1</span> 2.5.1 Supervised ML Using Text</h3>
 <section id="purpose-case-2" class="level5" data-number="3.5.1.0.1">
 <h5 data-number="3.5.1.0.1" class="anchored" data-anchor-id="purpose-case-2"><span class="header-section-number">3.5.1.0.1</span> Purpose + Case</h5>
-<p><strong>Purpose</strong>: Supervised machine learning with text data can categorize policies based on themes, such as academic integrity, instructor discretion, and student support. This classification helps in understanding how different institutions frame their ChatGPT policies.</p>
+<p><strong>Purpose</strong>: Supervised machine learning with text data can categorize policies based on themes, such as academic integrity, instructor discretion, and student support. This classification helps in understanding how different institutions frame their GenAI policies.</p>
 <p><strong>Case</strong>: Using labeled samples of policy texts that have been previously categorized into themes, we can train a classifier to categorize new policy texts into one of these themes. This method helps identify which themes are most common among universities and allows for quick categorization of new policy updates.</p>
 <hr>
 </section>
 <section id="sample-research-questions-2" class="level5" data-number="3.5.1.0.2">
 <h5 data-number="3.5.1.0.2" class="anchored" data-anchor-id="sample-research-questions-2"><span class="header-section-number">3.5.1.0.2</span> Sample Research Questions</h5>
 <ul>
-<li><strong>RQ1</strong>: Can we accurately classify ChatGPT policy texts into categories like “Academic Integrity,” “Instructor Discretion,” and “Student Support”?</li>
+<li><strong>RQ1</strong>: Can we accurately classify GenAI policy texts into categories like “Academic Integrity,” “Instructor Discretion,” and “Student Support”?</li>
 <li><strong>RQ2</strong>: What are the most influential words in predicting the theme of each policy?</li>
 </ul>
 <hr>
@@ -918,7 +919,7 @@ Load and preprocess the data by tokenizing, removing stop words, and creating a 
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Load labeled dataset</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>   policy_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"university_chatgpt_policies_labeled.csv"</span>)  <span class="co"># Assume dataset includes a "Theme" column</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>   policy_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"university_GenAI_policies_labeled.csv"</span>)  <span class="co"># Assume dataset includes a "Theme" column</span></span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Basic text preprocessing</span></span>
 <span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>   policy_data <span class="ot">&lt;-</span> policy_data <span class="sc">%&gt;%</span></span>
@@ -964,7 +965,7 @@ Evaluate the model’s accuracy by comparing predictions with the true labels in
 <section id="results-and-discussions-2" class="level5" data-number="3.5.1.0.4">
 <h5 data-number="3.5.1.0.4" class="anchored" data-anchor-id="results-and-discussions-2"><span class="header-section-number">3.5.1.0.4</span> Results and Discussions</h5>
 <ul>
-<li><p><strong>RQ1</strong>: Can we accurately classify ChatGPT policy texts into categories like “Academic Integrity,” “Instructor Discretion,” and “Student Support”?<br>
+<li><p><strong>RQ1</strong>: Can we accurately classify GenAI policy texts into categories like “Academic Integrity,” “Instructor Discretion,” and “Student Support”?<br>
 The Naive Bayes classifier achieves an accuracy of approximately X%, showing it can reasonably classify policy themes. This model could assist in categorizing new policies or updates as they emerge, enabling quick identification of thematic priorities across institutions.</p></li>
 <li><p><strong>RQ2</strong>: What are the most influential words in predicting the theme of each policy?<br>
 Feature importance analysis shows that terms such as “integrity,” “plagiarism,” and “ethics” strongly indicate the “Academic Integrity” theme. Words like “discretion” and “instructor” predict the “Instructor Discretion” theme, while terms like “support” and “learning” are influential for the “Student Support” theme. These words highlight key focal points in university policies and help institutions quickly determine thematic relevance when updating guidelines.</p></li>
@@ -975,14 +976,14 @@ Feature importance analysis shows that terms such as “integrity,” “plagiar
 <h3 data-number="3.5.2" class="anchored" data-anchor-id="unsupervised-ml-using-text"><span class="header-section-number">3.5.2</span> 2.5.2 Unsupervised ML Using Text</h3>
 <section id="purpose-case-3" class="level5" data-number="3.5.2.0.1">
 <h5 data-number="3.5.2.0.1" class="anchored" data-anchor-id="purpose-case-3"><span class="header-section-number">3.5.2.0.1</span> Purpose + Case</h5>
-<p><strong>Purpose</strong>: Unsupervised machine learning techniques like clustering and topic modeling are used for identifying hidden patterns, themes, or groupings within text data without labeled categories. These models are useful for uncovering common themes in ChatGPT policy texts.</p>
-<p><strong>Case</strong>: We explore topics discussed in ChatGPT policies across universities to uncover the main themes, grouping policies into clusters based on their emphasis (e.g., academic integrity, student support, instructor discretion).</p>
+<p><strong>Purpose</strong>: Unsupervised machine learning techniques like clustering and topic modeling are used for identifying hidden patterns, themes, or groupings within text data without labeled categories. These models are useful for uncovering common themes in GenAI policy texts.</p>
+<p><strong>Case</strong>: We explore topics discussed in GenAI policies across universities to uncover the main themes, grouping policies into clusters based on their emphasis (e.g., academic integrity, student support, instructor discretion).</p>
 <hr>
 </section>
 <section id="sample-research-questions-3" class="level5" data-number="3.5.2.0.2">
 <h5 data-number="3.5.2.0.2" class="anchored" data-anchor-id="sample-research-questions-3"><span class="header-section-number">3.5.2.0.2</span> Sample Research Questions</h5>
 <ul>
-<li><strong>RQ1</strong>: What are the main themes or topics present in ChatGPT policy texts across universities?</li>
+<li><strong>RQ1</strong>: What are the main themes or topics present in GenAI policy texts across universities?</li>
 <li><strong>RQ2</strong>: How do policies cluster based on their emphasis (e.g., focus on integrity, educational support, flexibility)?</li>
 </ul>
 <hr>
@@ -1008,7 +1009,7 @@ Preprocess the text data and create a document-term matrix.</li>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Load dataset</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>   policy_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"university_chatgpt_policies.csv"</span>)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>   policy_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"university_GenAI_policies.csv"</span>)</span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Preprocess text</span></span>
 <span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>   policy_data <span class="ot">&lt;-</span> policy_data <span class="sc">%&gt;%</span></span>
@@ -1055,8 +1056,8 @@ Display the top terms associated with each topic.</li>
 <section id="results-and-discussions-3" class="level5" data-number="3.5.2.0.4">
 <h5 data-number="3.5.2.0.4" class="anchored" data-anchor-id="results-and-discussions-3"><span class="header-section-number">3.5.2.0.4</span> Results and Discussions</h5>
 <ul>
-<li><p><strong>RQ1</strong>: What are the main themes or topics present in ChatGPT policy texts across universities?<br>
-The LDA model reveals three key topics: 1) academic integrity, 2) student support, and 3) instructor discretion. These topics represent the primary areas of concern and focus in university ChatGPT policies.</p></li>
+<li><p><strong>RQ1</strong>: What are the main themes or topics present in GenAI policy texts across universities?<br>
+The LDA model reveals three key topics: 1) academic integrity, 2) student support, and 3) instructor discretion. These topics represent the primary areas of concern and focus in university GenAI policies.</p></li>
 <li><p><strong>RQ2</strong>: How do policies cluster based on their emphasis?<br>
 The topic clusters suggest that universities tend to focus on specific aspects: some emphasize academic integrity, while others prioritize support for learning and flexibility for instructors. This clustering can inform administrators about prevalent policy themes, aiding in policy alignment across institutions.</p></li>
 </ul>
@@ -1069,14 +1070,14 @@ The topic clusters suggest that universities tend to focus on specific aspects: 
 <section id="purpose-case-4" class="level3" data-number="3.6.1">
 <h3 data-number="3.6.1" class="anchored" data-anchor-id="purpose-case-4"><span class="header-section-number">3.6.1</span> 2.6.1 Purpose + CASE</h3>
 <p><strong>Purpose</strong>: The goal of clustering-based analysis is to uncover latent themes in text data using unsupervised machine learning techniques. Topic modeling is one popular method for clustering documents into groups based on their content.</p>
-<p><strong>Case</strong>: Using the ChatGPT policy texts from 100 universities, we apply Latent Dirichlet</p>
+<p><strong>Case</strong>: Using the GenAI policy texts from 100 universities, we apply Latent Dirichlet</p>
 <p>Allocation (LDA) to identify dominant themes in these policy documents. This analysis will help categorize policies into overarching themes, such as academic integrity, student support, and instructor discretion.</p>
 </section>
 <section id="sample-research-questions-4" class="level3" data-number="3.6.2">
 <h3 data-number="3.6.2" class="anchored" data-anchor-id="sample-research-questions-4"><span class="header-section-number">3.6.2</span> 2.6.2 Sample Research Questions</h3>
 <ul>
-<li><strong>RQ1</strong>: What are the main themes or topics present in university ChatGPT policy texts?</li>
-<li><strong>RQ2</strong>: How are the identified topics distributed across the dataset?</li>
+<li><strong>RQ1</strong>: What are the prominent themes present in university policies regarding GenAI usage Stance?</li>
+<li><strong>RQ2</strong>: How do these themes reflect the key concerns or opportunities for intergrating GenAI in higher education?</li>
 </ul>
 </section>
 <section id="analysis-4" class="level3" data-number="3.6.3">
@@ -1131,21 +1132,49 @@ The topic clusters suggest that universities tend to focus on specific aspects: 
 <span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cast_dtm</span>(<span class="at">document =</span> <span class="st">"id"</span>, <span class="at">term =</span> <span class="st">"word"</span>, <span class="at">value =</span> <span class="st">"n"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(topicmodels)</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Define range of k values</span></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>k_values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize a data frame to store perplexities</span></span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>perplexities <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">k =</span> <span class="fu">integer</span>(), <span class="at">perplexity =</span> <span class="fu">numeric</span>())</span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate perplexity for each k</span></span>
+<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (k <span class="cf">in</span> k_values) {</span>
+<span id="cb52-12"><a href="#cb52-12" aria-hidden="true" tabindex="-1"></a>  lda_model <span class="ot">&lt;-</span> <span class="fu">LDA</span>(gpt_dtm, <span class="at">k =</span> k, <span class="at">control =</span> <span class="fu">list</span>(<span class="at">seed =</span> <span class="dv">1234</span>))  <span class="co"># Fit LDA model</span></span>
+<span id="cb52-13"><a href="#cb52-13" aria-hidden="true" tabindex="-1"></a>  perplexity_score <span class="ot">&lt;-</span> <span class="fu">perplexity</span>(lda_model, gpt_dtm)            <span class="co"># Calculate perplexity</span></span>
+<span id="cb52-14"><a href="#cb52-14" aria-hidden="true" tabindex="-1"></a>  perplexities <span class="ot">&lt;-</span> <span class="fu">rbind</span>(perplexities, <span class="fu">data.frame</span>(<span class="at">k =</span> k, <span class="at">perplexity =</span> perplexity_score))</span>
+<span id="cb52-15"><a href="#cb52-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb52-16"><a href="#cb52-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-17"><a href="#cb52-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot perplexity vs number of topics</span></span>
+<span id="cb52-18"><a href="#cb52-18" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(perplexities, <span class="fu">aes</span>(<span class="at">x =</span> k, <span class="at">y =</span> perplexity)) <span class="sc">+</span></span>
+<span id="cb52-19"><a href="#cb52-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb52-20"><a href="#cb52-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb52-21"><a href="#cb52-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb52-22"><a href="#cb52-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Perplexity vs Number of Topics"</span>,</span>
+<span id="cb52-23"><a href="#cb52-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Number of Topics (k)"</span>,</span>
+<span id="cb52-24"><a href="#cb52-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Perplexity"</span></span>
+<span id="cb52-25"><a href="#cb52-25" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb52-26"><a href="#cb52-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="step-3-fit-the-lda-model" class="level4" data-number="3.6.3.3">
 <h4 data-number="3.6.3.3" class="anchored" data-anchor-id="step-3-fit-the-lda-model"><span class="header-section-number">3.6.3.3</span> Step 3: Fit the LDA Model</h4>
 <p>Fit an LDA model with <code>k = 3</code> topics.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Converting document-word frequency matrices to sparse matrices</span></span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>gpt_dtm_sparse_k3 <span class="ot">&lt;-</span> <span class="fu">as</span>(gpt_dtm, <span class="st">"matrix"</span>)</span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the LDA model</span></span>
-<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>lda_model <span class="ot">&lt;-</span> <span class="fu">LDA</span>(gpt_dtm_sparse_k3, <span class="at">k =</span> <span class="dv">3</span>, <span class="at">control =</span> <span class="fu">list</span>(<span class="at">seed =</span> <span class="dv">1234</span>))</span>
-<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="co"># View model results</span></span>
-<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>gpt_policy_topics_k3 <span class="ot">&lt;-</span> <span class="fu">tidy</span>(lda_model, <span class="at">matrix =</span> <span class="st">"beta"</span>)</span>
-<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(gpt_policy_topics_k3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Converting document-word frequency matrices to sparse matrices</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>gpt_dtm_sparse<span class="ot">&lt;-</span> <span class="fu">as</span>(gpt_dtm, <span class="st">"matrix"</span>)</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the LDA model</span></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>lda_model <span class="ot">&lt;-</span> <span class="fu">LDA</span>(gpt_dtm_sparse, <span class="at">k =</span> <span class="dv">3</span>, <span class="at">control =</span> <span class="fu">list</span>(<span class="at">seed =</span> <span class="dv">1234</span>))</span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="co"># View model results</span></span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a>gpt_policy_topics_k3 <span class="ot">&lt;-</span> <span class="fu">tidy</span>(lda_model, <span class="at">matrix =</span> <span class="st">"beta"</span>)</span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(gpt_policy_topics_k3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3,324 × 3
    topic term        beta
@@ -1168,27 +1197,73 @@ The topic clusters suggest that universities tend to focus on specific aspects: 
 <h4 data-number="3.6.3.4" class="anchored" data-anchor-id="step-4-visualize-topics"><span class="header-section-number">3.6.3.4</span> Step 4: Visualize Topics</h4>
 <p>Extract the top terms for each topic and visualize them.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizing top terms for each topic</span></span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>gpt_policy_ap_top_terms_k3 <span class="ot">&lt;-</span> gpt_policy_topics_k3 <span class="sc">%&gt;%</span></span>
-<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(topic) <span class="sc">%&gt;%</span></span>
-<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(beta, <span class="at">n =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(topic, <span class="sc">-</span>beta)</span>
-<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a>gpt_policy_ap_top_terms_k3 <span class="sc">%&gt;%</span></span>
-<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">term =</span> <span class="fu">reorder_within</span>(term, beta, topic)) <span class="sc">%&gt;%</span></span>
-<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(beta, term, <span class="at">fill =</span> <span class="fu">factor</span>(topic))) <span class="sc">+</span></span>
-<span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb54-12"><a href="#cb54-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> topic, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
-<span id="cb54-13"><a href="#cb54-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reordered</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizing top terms for each topic</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>gpt_policy_ap_top_terms_k3 <span class="ot">&lt;-</span> gpt_policy_topics_k3 <span class="sc">%&gt;%</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(topic) <span class="sc">%&gt;%</span></span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(beta, <span class="at">n =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(topic, <span class="sc">-</span>beta)</span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a>gpt_policy_ap_top_terms_k3 <span class="sc">%&gt;%</span></span>
+<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">term =</span> <span class="fu">reorder_within</span>(term, beta, topic)) <span class="sc">%&gt;%</span></span>
+<span id="cb55-10"><a href="#cb55-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(beta, term, <span class="at">fill =</span> <span class="fu">factor</span>(topic))) <span class="sc">+</span></span>
+<span id="cb55-11"><a href="#cb55-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb55-12"><a href="#cb55-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> topic, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
+<span id="cb55-13"><a href="#cb55-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reordered</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="section-2_files/figure-html/unnamed-chunk-49-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="section-2_files/figure-html/unnamed-chunk-50-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="results-and-discussions-4" class="level3" data-number="3.6.4">
+<h3 data-number="3.6.4" class="anchored" data-anchor-id="results-and-discussions-4"><span class="header-section-number">3.6.4</span> 2.6.4 Results and Discussions</h3>
+<section id="research-question-1" class="level4" data-number="3.6.4.1">
+<h4 data-number="3.6.4.1" class="anchored" data-anchor-id="research-question-1"><span class="header-section-number">3.6.4.1</span> <strong>Research Question 1:</strong></h4>
+<p>What are the prominent themes present in university policies regarding GenAI usage?</p>
+<p><strong>Answer:</strong><br>
+The topic modeling analysis revealed three distinct themes in the university GenAI policies:</p>
+<ol type="1">
+<li><p><strong>Theme 1: Student-Centric Guidelines and Ethical Considerations</strong></p>
+<ul>
+<li><p>Key terms: <code>students</code>, <code>integrity</code>, <code>tools</code>, <code>instructors</code>, <code>assignment</code></p></li>
+<li><p>This theme emphasizes student usage of GenAI in academic settings, with a focus on ethics (<code>integrity</code>) and guidelines for instructors to manage assignments involving AI tools.</p></li>
+</ul></li>
+<li><p><strong>Theme 2: Academic Standards and Faculty Expectations</strong></p>
+<ul>
+<li><p>Key terms: <code>students</code>, <code>academic</code>, <code>faculty</code>, <code>honor</code>, <code>expectations</code></p></li>
+<li><p>This theme focuses on maintaining academic integrity and clarifying expectations for faculty and students regarding GenAI usage in assignments and assessments.</p></li>
+</ul></li>
+<li><p><strong>Theme 3: Policy-Level Governance and Technology Integration</strong></p>
+<ul>
+<li><p>Key terms: <code>ai</code>, <code>tools</code>, <code>policy</code>, <code>learning</code>, <code>generative</code></p></li>
+<li><p>This theme revolves around institutional policies on AI integration, highlighting broader governance strategies and how generative AI (like GenAI) fits into learning environments.</p></li>
+</ul></li>
+</ol>
+</section>
+<section id="research-question-2" class="level4" data-number="3.6.4.2">
+<h4 data-number="3.6.4.2" class="anchored" data-anchor-id="research-question-2"><span class="header-section-number">3.6.4.2</span> <strong>Research Question 2:</strong></h4>
+<p>How do these themes reflect the key concerns or opportunities for integrating GenAI in higher education?</p>
+<p><strong>Answer:</strong><br>
+The identified themes reflect both concerns and opportunities:</p>
+<ol type="1">
+<li><p><strong>Concerns:</strong></p>
+<p><strong>Theme 1:</strong> Highlights the ethical challenges, such as ensuring academic integrity when students use AI tools in their coursework. Institutions are keen on setting clear guidelines for both students and instructors to avoid misuse.</p>
+<p><strong>Theme 2:</strong> Underlines the potential for conflict between maintaining academic standards (<code>honor</code>, <code>expectations</code>) and leveraging AI to support learning. This shows a cautious approach to integrating AI while upholding traditional values.</p>
+<p><strong>Theme 3:</strong> Raises policy-level questions on AI governance, such as whether existing institutional frameworks are adequate to regulate emerging generative AI technologies.</p></li>
+<li><p><strong>Opportunities:</strong></p>
+<p><strong>Theme 1:</strong> Presents a chance to redefine how students interact with AI tools to foster responsible and innovative usage, particularly for assignments and creative tasks.</p>
+<p><strong>Theme 2:</strong> Encourages collaboration between faculty and administration to develop robust expectations and support systems for integrating AI in the classroom.</p>
+<p><strong>Theme 3:</strong> Offers a strategic opportunity for universities to lead in AI adoption by establishing comprehensive policies that guide AI’s role in education and research.</p></li>
+</ol>
+</section>
+<section id="discussion" class="level4" data-number="3.6.4.3">
+<h4 data-number="3.6.4.3" class="anchored" data-anchor-id="discussion"><span class="header-section-number">3.6.4.3</span> <strong>Discussion:</strong></h4>
+<p>The topic modeling results suggest that universities are navigating a complex landscape of opportunities and challenges as they incorporate GenAI into academic contexts. While student-centric policies aim to balance innovation with ethical considerations, institutional-level themes signal the need for governance frameworks to ensure responsible AI use. These findings indicate that higher education institutions are positioned to play a pivotal role in shaping the future of generative AI in learning, provided they address the ethical, pedagogical, and policy challenges identified in this analysis.</p>
 
 
 </section>
