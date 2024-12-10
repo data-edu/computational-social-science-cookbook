@@ -1,5 +1,3 @@
-# Section 5 Communication & Collaboration & Good Practices
+# Section 5 **Secondary Analysis of Big Data (Numeric Data)**
 
-## Abstract
-
-A key part of social science research (and, any analysis involving computational tools) is communicating about the output or findings. In this section, we describe how to communicate with colleagues or the wider world through the use of a variety of tools, especially R Markdown and git/GitHub. We also discuss how to collaborate on projects that involve computational methods and “good” (flexible yet principled) practices for doing so based on our experience and prior scholarship.
+**Abstract:** This section reviews how to access data that is primarily numeric/quantitative in nature, but from a different source and of a different nature than the data typically used by social scientists. Example data sets include international or national large-scale assessments (e.g., PISA, NAEP) and data from digital technologies (e.g., log-trace data from adaptive mathematics programs). 

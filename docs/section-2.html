@@ -161,25 +161,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Section 3 Social Network Analyses (Relational Data)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Section 3 <strong>Multimodal Data (Images, Video, Audio)</strong></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Section 4 Secondary Analysis of Big Data (Numeric Data)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Section 4 <strong>Social Network Analyses (Relational Data)</strong></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Section 5 Communication &amp; Collaboration &amp; Good Practices</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Section 5 <strong>Secondary Analysis of Big Data (Numeric Data)</strong></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Section 6</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Section 6 Communication &amp; Collaboration &amp; Good Practices</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -227,17 +227,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#analysis-1" id="toc-analysis-1" class="nav-link" data-scroll-target="#analysis-1"><span class="header-section-number">3.4.3</span> 2.4.3 Analysis</a></li>
   <li><a href="#results-and-discussions-1" id="toc-results-and-discussions-1" class="nav-link" data-scroll-target="#results-and-discussions-1"><span class="header-section-number">3.4.4</span> 2.4.4 Results and Discussions</a></li>
   </ul></li>
-  <li><a href="#predictive-models-using-text" id="toc-predictive-models-using-text" class="nav-link" data-scroll-target="#predictive-models-using-text"><span class="header-section-number">3.5</span> 2.5 Predictive Models Using Text</a>
+  <li><a href="#clustering-based-analysis" id="toc-clustering-based-analysis" class="nav-link" data-scroll-target="#clustering-based-analysis"><span class="header-section-number">3.5</span> 2.5 Clustering-Based Analysis</a>
   <ul class="collapse">
-  <li><a href="#supervised-ml-using-text" id="toc-supervised-ml-using-text" class="nav-link" data-scroll-target="#supervised-ml-using-text"><span class="header-section-number">3.5.1</span> 2.5.1 Supervised ML Using Text</a></li>
-  <li><a href="#unsupervised-ml-using-text" id="toc-unsupervised-ml-using-text" class="nav-link" data-scroll-target="#unsupervised-ml-using-text"><span class="header-section-number">3.5.2</span> 2.5.2 Unsupervised ML Using Text</a></li>
-  </ul></li>
-  <li><a href="#clustering-based-analysis" id="toc-clustering-based-analysis" class="nav-link" data-scroll-target="#clustering-based-analysis"><span class="header-section-number">3.6</span> 2.6 Clustering-Based Analysis</a>
-  <ul class="collapse">
-  <li><a href="#purpose-case-4" id="toc-purpose-case-4" class="nav-link" data-scroll-target="#purpose-case-4"><span class="header-section-number">3.6.1</span> 2.6.1 Purpose + CASE</a></li>
-  <li><a href="#sample-research-questions-4" id="toc-sample-research-questions-4" class="nav-link" data-scroll-target="#sample-research-questions-4"><span class="header-section-number">3.6.2</span> 2.6.2 Sample Research Questions</a></li>
-  <li><a href="#analysis-4" id="toc-analysis-4" class="nav-link" data-scroll-target="#analysis-4"><span class="header-section-number">3.6.3</span> 2.6.3 Analysis</a></li>
-  <li><a href="#results-and-discussions-4" id="toc-results-and-discussions-4" class="nav-link" data-scroll-target="#results-and-discussions-4"><span class="header-section-number">3.6.4</span> 2.6.4 Results and Discussions</a></li>
+  <li><a href="#purpose-case-2" id="toc-purpose-case-2" class="nav-link" data-scroll-target="#purpose-case-2"><span class="header-section-number">3.5.1</span> 2.5.1 Purpose + CASE</a></li>
+  <li><a href="#sample-research-questions-2" id="toc-sample-research-questions-2" class="nav-link" data-scroll-target="#sample-research-questions-2"><span class="header-section-number">3.5.2</span> 2.5.2 Sample Research Questions</a></li>
+  <li><a href="#analysis-2" id="toc-analysis-2" class="nav-link" data-scroll-target="#analysis-2"><span class="header-section-number">3.5.3</span> 2.5.3 Analysis</a></li>
+  <li><a href="#results-and-discussions-2" id="toc-results-and-discussions-2" class="nav-link" data-scroll-target="#results-and-discussions-2"><span class="header-section-number">3.5.4</span> 2.5.4 Results and Discussions</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -632,7 +627,7 @@ If further analysis is needed, such as frequency-based analysis, split the text 
 </section>
 <section id="data-source" class="level4" data-number="3.3.1.2">
 <h4 data-number="3.3.1.2" class="anchored" data-anchor-id="data-source"><span class="header-section-number">3.3.1.2</span> Data Source</h4>
-<p>The dataset consists of publicly available AI policy texts from 100 universities, sourced from <a href="https://www.scribbr.com/ai-tools/chatgpt-university-policies/">Scribbr’s GenAI University Policies page</a>. The data has been downloaded and saved as a CSV file for analysis.</p>
+<p>The dataset consists of publicly available AI policy texts from 100 universities(USA), the data has been downloaded and saved as a CSV file for analysis.</p>
 </section>
 </section>
 <section id="sample-research-questions" class="level3" data-number="3.3.2">
@@ -754,7 +749,7 @@ If further analysis is needed, such as frequency-based analysis, split the text 
 <h3 data-number="3.3.4" class="anchored" data-anchor-id="results-and-discussions"><span class="header-section-number">3.3.4</span> 2.3.4 Results and Discussions</h3>
 <ul>
 <li><p><strong>RQ1</strong>: What are the most frequently mentioned words in university GenAI writing usage policies?<br>
-The frequency analysis shows that keywords such as “assignment,” “student,” “syllabus,” and “writing” are among the most commonly mentioned terms across AI policies at 100 universities. This emphasis reflects a focus on using AI tools, like GenAI, to support student learning and enhance teaching content. The frequent mention of these words suggests that institutions are considering the role of AI in academic assignments and course design, indicating a strategic commitment to integrating AI within educational tasks and student interactions.</p></li>
+The frequency analysis shows that keywords such as “assignment,” “student,” and “writing” are among the most commonly mentioned terms across AI policies at 100 universities. This emphasis reflects a focus on using AI tools to support student learning and enhance teaching content. The frequent mention of these words suggests that institutions are considering the role of AI in academic assignments and course design, indicating a strategic commitment to integrating AI within educational tasks and student interactions.</p></li>
 <li><p><strong>RQ2</strong>: Which keywords reflect common concerns or focal points related to GenAI writing usage in academic settings?<br>
 The analysis of the top 12 frequently mentioned terms highlights additional focal points, including “tool,” “academic,” “instructor,” “integrity,” and “expectations.” These terms reveal concerns around the ethical use of AI tools, the need for clarity in academic applications, and the central role of instructors in AI policy implementation. Keywords like “integrity” and “expectations” emphasize the importance of maintaining academic standards and setting clear guidelines for AI use in classrooms, while “instructor” underscores the influence faculty members have in shaping AI-related practices. Together, these terms reflect a commitment to transparent policies that support ethical and effective AI integration, enhancing the academic experience for students.</p></li>
 </ul>
@@ -877,238 +872,51 @@ The dictionary-based sentiment analysis reveals the prevailing sentiments in uni
 </ul>
 </section>
 </section>
-<section id="predictive-models-using-text" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="predictive-models-using-text"><span class="header-section-number">3.5</span> 2.5 Predictive Models Using Text</h2>
-<p>This section covers how to apply both supervised and unsupervised machine learning models to predict insights from text data. We demonstrate how these techniques can enhance understanding of institutional GenAI policies through prediction and clustering.</p>
-<hr>
-<section id="supervised-ml-using-text" class="level3" data-number="3.5.1">
-<h3 data-number="3.5.1" class="anchored" data-anchor-id="supervised-ml-using-text"><span class="header-section-number">3.5.1</span> 2.5.1 Supervised ML Using Text</h3>
-<section id="purpose-case-2" class="level5" data-number="3.5.1.0.1">
-<h5 data-number="3.5.1.0.1" class="anchored" data-anchor-id="purpose-case-2"><span class="header-section-number">3.5.1.0.1</span> Purpose + Case</h5>
-<p><strong>Purpose</strong>: Supervised machine learning with text data can categorize policies based on themes, such as academic integrity, instructor discretion, and student support. This classification helps in understanding how different institutions frame their GenAI policies.</p>
-<p><strong>Case</strong>: Using labeled samples of policy texts that have been previously categorized into themes, we can train a classifier to categorize new policy texts into one of these themes. This method helps identify which themes are most common among universities and allows for quick categorization of new policy updates.</p>
-<hr>
-</section>
-<section id="sample-research-questions-2" class="level5" data-number="3.5.1.0.2">
-<h5 data-number="3.5.1.0.2" class="anchored" data-anchor-id="sample-research-questions-2"><span class="header-section-number">3.5.1.0.2</span> Sample Research Questions</h5>
-<ul>
-<li><strong>RQ1</strong>: Can we accurately classify GenAI policy texts into categories like “Academic Integrity,” “Instructor Discretion,” and “Student Support”?</li>
-<li><strong>RQ2</strong>: What are the most influential words in predicting the theme of each policy?</li>
-</ul>
-<hr>
-</section>
-<section id="analysis-2" class="level5" data-number="3.5.1.0.3">
-<h5 data-number="3.5.1.0.3" class="anchored" data-anchor-id="analysis-2"><span class="header-section-number">3.5.1.0.3</span> Analysis</h5>
-<ol type="1">
-<li><strong>Step 1: Load Required Libraries</strong><br>
-Install and load the necessary packages for text preprocessing and model training.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Install packages</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tidytext"</span>, <span class="st">"dplyr"</span>, <span class="st">"text2vec"</span>, <span class="st">"caret"</span>))</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Load libraries</span></span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">library</span>(tidytext)</span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">library</span>(dplyr)</span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">library</span>(text2vec)</span>
-<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>   <span class="fu">library</span>(caret)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="2" type="1">
-<li><strong>Step 2: Data Preparation</strong><br>
-Load and preprocess the data by tokenizing, removing stop words, and creating a document-term matrix. Each document should have a labeled theme (e.g., “Academic Integrity”).</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Load labeled dataset</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>   policy_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"university_GenAI_policies_labeled.csv"</span>)  <span class="co"># Assume dataset includes a "Theme" column</span></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Basic text preprocessing</span></span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>   policy_data <span class="ot">&lt;-</span> policy_data <span class="sc">%&gt;%</span></span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>     <span class="fu">unnest_tokens</span>(word, Policy_Text) <span class="sc">%&gt;%</span></span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>     <span class="fu">anti_join</span>(stop_words)</span>
-<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Create document-term matrix (DTM)</span></span>
-<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>   dtm <span class="ot">&lt;-</span> policy_data <span class="sc">%&gt;%</span></span>
-<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>     <span class="fu">cast_dtm</span>(<span class="at">document =</span> University_ID, <span class="at">term =</span> word, <span class="at">value =</span> n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="3" type="1">
-<li><strong>Step 3: Train-Test Split</strong><br>
-Split the data into training and testing sets.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Split data into training and testing sets</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>   trainIndex <span class="ot">&lt;-</span> <span class="fu">createDataPartition</span>(policy_data<span class="sc">$</span>Theme, <span class="at">p =</span> <span class="fl">0.7</span>, <span class="at">list =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>   train_data <span class="ot">&lt;-</span> dtm[trainIndex, ]</span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>   test_data <span class="ot">&lt;-</span> dtm[<span class="sc">-</span>trainIndex, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="4" type="1">
-<li><strong>Step 4: Train a Classification Model</strong><br>
-Train a Naive Bayes classifier to predict the policy theme based on the document-term matrix.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Train a Naive Bayes classifier</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>   model <span class="ot">&lt;-</span> <span class="fu">naiveBayes</span>(Theme <span class="sc">~</span> ., <span class="at">data =</span> train_data)</span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Predict on test set</span></span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>   predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, test_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="5" type="1">
-<li><strong>Step 5: Evaluate Model Performance</strong><br>
-Evaluate the model’s accuracy by comparing predictions with the true labels in the test set.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Confusion matrix and accuracy</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">confusionMatrix</span>(predictions, test_data<span class="sc">$</span>Theme)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<hr>
-</section>
-<section id="results-and-discussions-2" class="level5" data-number="3.5.1.0.4">
-<h5 data-number="3.5.1.0.4" class="anchored" data-anchor-id="results-and-discussions-2"><span class="header-section-number">3.5.1.0.4</span> Results and Discussions</h5>
-<ul>
-<li><p><strong>RQ1</strong>: Can we accurately classify GenAI policy texts into categories like “Academic Integrity,” “Instructor Discretion,” and “Student Support”?<br>
-The Naive Bayes classifier achieves an accuracy of approximately X%, showing it can reasonably classify policy themes. This model could assist in categorizing new policies or updates as they emerge, enabling quick identification of thematic priorities across institutions.</p></li>
-<li><p><strong>RQ2</strong>: What are the most influential words in predicting the theme of each policy?<br>
-Feature importance analysis shows that terms such as “integrity,” “plagiarism,” and “ethics” strongly indicate the “Academic Integrity” theme. Words like “discretion” and “instructor” predict the “Instructor Discretion” theme, while terms like “support” and “learning” are influential for the “Student Support” theme. These words highlight key focal points in university policies and help institutions quickly determine thematic relevance when updating guidelines.</p></li>
-</ul>
-</section>
-</section>
-<section id="unsupervised-ml-using-text" class="level3" data-number="3.5.2">
-<h3 data-number="3.5.2" class="anchored" data-anchor-id="unsupervised-ml-using-text"><span class="header-section-number">3.5.2</span> 2.5.2 Unsupervised ML Using Text</h3>
-<section id="purpose-case-3" class="level5" data-number="3.5.2.0.1">
-<h5 data-number="3.5.2.0.1" class="anchored" data-anchor-id="purpose-case-3"><span class="header-section-number">3.5.2.0.1</span> Purpose + Case</h5>
-<p><strong>Purpose</strong>: Unsupervised machine learning techniques like clustering and topic modeling are used for identifying hidden patterns, themes, or groupings within text data without labeled categories. These models are useful for uncovering common themes in GenAI policy texts.</p>
-<p><strong>Case</strong>: We explore topics discussed in GenAI policies across universities to uncover the main themes, grouping policies into clusters based on their emphasis (e.g., academic integrity, student support, instructor discretion).</p>
-<hr>
-</section>
-<section id="sample-research-questions-3" class="level5" data-number="3.5.2.0.2">
-<h5 data-number="3.5.2.0.2" class="anchored" data-anchor-id="sample-research-questions-3"><span class="header-section-number">3.5.2.0.2</span> Sample Research Questions</h5>
-<ul>
-<li><strong>RQ1</strong>: What are the main themes or topics present in GenAI policy texts across universities?</li>
-<li><strong>RQ2</strong>: How do policies cluster based on their emphasis (e.g., focus on integrity, educational support, flexibility)?</li>
-</ul>
-<hr>
-</section>
-<section id="analysis-3" class="level5" data-number="3.5.2.0.3">
-<h5 data-number="3.5.2.0.3" class="anchored" data-anchor-id="analysis-3"><span class="header-section-number">3.5.2.0.3</span> Analysis</h5>
-<ol type="1">
-<li><strong>Step 1: Load Required Libraries</strong><br>
-Install and load packages for text processing and unsupervised machine learning.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Install packages</span></span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tm"</span>, <span class="st">"text2vec"</span>, <span class="st">"topicmodels"</span>))</span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Load libraries</span></span>
-<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">library</span>(tm)</span>
-<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">library</span>(text2vec)</span>
-<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">library</span>(topicmodels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="2" type="1">
-<li><strong>Step 2: Data Preparation</strong><br>
-Preprocess the text data and create a document-term matrix.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Load dataset</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>   policy_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"university_GenAI_policies.csv"</span>)</span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Preprocess text</span></span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>   policy_data <span class="ot">&lt;-</span> policy_data <span class="sc">%&gt;%</span></span>
-<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>     <span class="fu">unnest_tokens</span>(word, Policy_Text) <span class="sc">%&gt;%</span></span>
-<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>     <span class="fu">anti_join</span>(stop_words)</span>
-<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Create document-term matrix</span></span>
-<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>   dtm <span class="ot">&lt;-</span> policy_data <span class="sc">%&gt;%</span></span>
-<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>     <span class="fu">cast_dtm</span>(<span class="at">document =</span> University_ID, <span class="at">term =</span> word, <span class="at">value =</span> n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="3" type="1">
-<li><strong>Step 3: Perform Topic Modeling (LDA)</strong><br>
-Apply Latent Dirichlet Allocation (LDA) to identify topics within the text data.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Set parameters for LDA</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>   lda_model <span class="ot">&lt;-</span> <span class="fu">LDA</span>(dtm, <span class="at">k =</span> <span class="dv">3</span>, <span class="at">control =</span> <span class="fu">list</span>(<span class="at">seed =</span> <span class="dv">123</span>))  <span class="co"># 3 topics</span></span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Extract topics</span></span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>   topics <span class="ot">&lt;-</span> <span class="fu">tidy</span>(lda_model, <span class="at">matrix =</span> <span class="st">"beta"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="4" type="1">
-<li><strong>Step 4: Visualize Top Terms in Each Topic</strong><br>
-Display the top terms associated with each topic.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Extract top terms for each topic</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>   top_terms <span class="ot">&lt;-</span> topics <span class="sc">%&gt;%</span></span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">group_by</span>(topic) <span class="sc">%&gt;%</span></span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>     <span class="fu">slice_max</span>(beta, <span class="at">n =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>     <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>     <span class="fu">arrange</span>(topic, <span class="sc">-</span>beta)</span>
-<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Plot top terms</span></span>
-<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggplot</span>(top_terms, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder_within</span>(term, beta, topic), <span class="at">y =</span> beta, <span class="at">fill =</span> topic)) <span class="sc">+</span></span>
-<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_col</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a>     <span class="fu">facet_wrap</span>(<span class="sc">~</span> topic, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
-<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a>     <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a>     <span class="fu">scale_x_reordered</span>() <span class="sc">+</span></span>
-<span id="cb47-14"><a href="#cb47-14" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Top Terms in Each Topic"</span>, <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Beta"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<hr>
-</section>
-<section id="results-and-discussions-3" class="level5" data-number="3.5.2.0.4">
-<h5 data-number="3.5.2.0.4" class="anchored" data-anchor-id="results-and-discussions-3"><span class="header-section-number">3.5.2.0.4</span> Results and Discussions</h5>
-<ul>
-<li><p><strong>RQ1</strong>: What are the main themes or topics present in GenAI policy texts across universities?<br>
-The LDA model reveals three key topics: 1) academic integrity, 2) student support, and 3) instructor discretion. These topics represent the primary areas of concern and focus in university GenAI policies.</p></li>
-<li><p><strong>RQ2</strong>: How do policies cluster based on their emphasis?<br>
-The topic clusters suggest that universities tend to focus on specific aspects: some emphasize academic integrity, while others prioritize support for learning and flexibility for instructors. This clustering can inform administrators about prevalent policy themes, aiding in policy alignment across institutions.</p></li>
-</ul>
-</section>
-</section>
-</section>
-<section id="clustering-based-analysis" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="clustering-based-analysis"><span class="header-section-number">3.6</span> 2.6 Clustering-Based Analysis</h2>
+<section id="clustering-based-analysis" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="clustering-based-analysis"><span class="header-section-number">3.5</span> 2.5 Clustering-Based Analysis</h2>
 <p>Clustering-based analysis involves grouping similar text documents or text segments into clusters based on their underlying topics or themes. This approach is particularly useful for identifying dominant themes in text data, such as university AI policy documents.</p>
-<section id="purpose-case-4" class="level3" data-number="3.6.1">
-<h3 data-number="3.6.1" class="anchored" data-anchor-id="purpose-case-4"><span class="header-section-number">3.6.1</span> 2.6.1 Purpose + CASE</h3>
+<section id="purpose-case-2" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="purpose-case-2"><span class="header-section-number">3.5.1</span> 2.5.1 Purpose + CASE</h3>
 <p><strong>Purpose</strong>: The goal of clustering-based analysis is to uncover latent themes in text data using unsupervised machine learning techniques. Topic modeling is one popular method for clustering documents into groups based on their content.</p>
 <p><strong>Case</strong>: Using the GenAI policy texts from 100 universities, we apply Latent Dirichlet</p>
 <p>Allocation (LDA) to identify dominant themes in these policy documents. This analysis will help categorize policies into overarching themes, such as academic integrity, student support, and instructor discretion.</p>
 </section>
-<section id="sample-research-questions-4" class="level3" data-number="3.6.2">
-<h3 data-number="3.6.2" class="anchored" data-anchor-id="sample-research-questions-4"><span class="header-section-number">3.6.2</span> 2.6.2 Sample Research Questions</h3>
+<section id="sample-research-questions-2" class="level3" data-number="3.5.2">
+<h3 data-number="3.5.2" class="anchored" data-anchor-id="sample-research-questions-2"><span class="header-section-number">3.5.2</span> 2.5.2 Sample Research Questions</h3>
 <ul>
 <li><strong>RQ1</strong>: What are the prominent themes present in university policies regarding GenAI usage Stance?</li>
 <li><strong>RQ2</strong>: How do these themes reflect the key concerns or opportunities for intergrating GenAI in higher education?</li>
 </ul>
 </section>
-<section id="analysis-4" class="level3" data-number="3.6.3">
-<h3 data-number="3.6.3" class="anchored" data-anchor-id="analysis-4"><span class="header-section-number">3.6.3</span> 2.6.3 Analysis</h3>
-<section id="step-1-install-and-load-necessary-libraries-1" class="level4" data-number="3.6.3.1">
-<h4 data-number="3.6.3.1" class="anchored" data-anchor-id="step-1-install-and-load-necessary-libraries-1"><span class="header-section-number">3.6.3.1</span> Step 1: Install and Load Necessary Libraries</h4>
+<section id="analysis-2" class="level3" data-number="3.5.3">
+<h3 data-number="3.5.3" class="anchored" data-anchor-id="analysis-2"><span class="header-section-number">3.5.3</span> 2.5.3 Analysis</h3>
+<section id="step-1-install-and-load-necessary-libraries-1" class="level4" data-number="3.5.3.1">
+<h4 data-number="3.5.3.1" class="anchored" data-anchor-id="step-1-install-and-load-necessary-libraries-1"><span class="header-section-number">3.5.3.1</span> Step 1: Install and Load Necessary Libraries</h4>
 <p>Install and load the required libraries for text processing and topic modeling.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install necessary packages</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(c("dplyr", "tidytext", "topicmodels", "ggplot2"))</span></span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
-<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
-<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(topicmodels)</span>
-<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install necessary packages</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(c("dplyr", "tidytext", "topicmodels", "ggplot2"))</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(topicmodels)</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="step-2-prepare-the-data" class="level4" data-number="3.6.3.2">
-<h4 data-number="3.6.3.2" class="anchored" data-anchor-id="step-2-prepare-the-data"><span class="header-section-number">3.6.3.2</span> Step 2: Prepare the Data</h4>
+<section id="step-2-prepare-the-data" class="level4" data-number="3.5.3.2">
+<h4 data-number="3.5.3.2" class="anchored" data-anchor-id="step-2-prepare-the-data"><span class="header-section-number">3.5.3.2</span> Step 2: Prepare the Data</h4>
 <p>Load the data and create a document-term matrix (DTM) for topic modeling.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>university_policies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"University_GenAI_Policy_Stance.csv"</span>)</span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tokenize text data and count word frequencies</span></span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>word_frequency <span class="ot">&lt;-</span> university_policies <span class="sc">%&gt;%</span></span>
-<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, Stance) <span class="sc">%&gt;%</span>  <span class="co"># same as section 2.3</span></span>
-<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words) <span class="sc">%&gt;%</span>             <span class="co"># Remove common stop words</span></span>
-<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>)              <span class="co"># Count and sort words by frequency</span></span>
-<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>word_frequency</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>university_policies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"University_GenAI_Policy_Stance.csv"</span>)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tokenize text data and count word frequencies</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>word_frequency <span class="ot">&lt;-</span> university_policies <span class="sc">%&gt;%</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, Stance) <span class="sc">%&gt;%</span>  <span class="co"># same as section 2.3</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words) <span class="sc">%&gt;%</span>             <span class="co"># Remove common stop words</span></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>)              <span class="co"># Count and sort words by frequency</span></span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>word_frequency</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,108 × 2
    word            n
@@ -1125,56 +933,56 @@ The topic clusters suggest that universities tend to focus on specific aspects: 
 10 student        32
 # ℹ 1,098 more rows</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating Documents - Word Frequency Matrix</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>gpt_dtm <span class="ot">&lt;-</span> word_frequency <span class="sc">%&gt;%</span></span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(word) <span class="sc">%&gt;%</span></span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">id =</span> <span class="fu">row_number</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cast_dtm</span>(<span class="at">document =</span> <span class="st">"id"</span>, <span class="at">term =</span> <span class="st">"word"</span>, <span class="at">value =</span> <span class="st">"n"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating Documents - Word Frequency Matrix</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>gpt_dtm <span class="ot">&lt;-</span> word_frequency <span class="sc">%&gt;%</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(word) <span class="sc">%&gt;%</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">id =</span> <span class="fu">row_number</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cast_dtm</span>(<span class="at">document =</span> <span class="st">"id"</span>, <span class="at">term =</span> <span class="st">"word"</span>, <span class="at">value =</span> <span class="st">"n"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(topicmodels)</span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Define range of k values</span></span>
-<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>k_values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
-<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize a data frame to store perplexities</span></span>
-<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>perplexities <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">k =</span> <span class="fu">integer</span>(), <span class="at">perplexity =</span> <span class="fu">numeric</span>())</span>
-<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate perplexity for each k</span></span>
-<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (k <span class="cf">in</span> k_values) {</span>
-<span id="cb52-12"><a href="#cb52-12" aria-hidden="true" tabindex="-1"></a>  lda_model <span class="ot">&lt;-</span> <span class="fu">LDA</span>(gpt_dtm, <span class="at">k =</span> k, <span class="at">control =</span> <span class="fu">list</span>(<span class="at">seed =</span> <span class="dv">1234</span>))  <span class="co"># Fit LDA model</span></span>
-<span id="cb52-13"><a href="#cb52-13" aria-hidden="true" tabindex="-1"></a>  perplexity_score <span class="ot">&lt;-</span> <span class="fu">perplexity</span>(lda_model, gpt_dtm)            <span class="co"># Calculate perplexity</span></span>
-<span id="cb52-14"><a href="#cb52-14" aria-hidden="true" tabindex="-1"></a>  perplexities <span class="ot">&lt;-</span> <span class="fu">rbind</span>(perplexities, <span class="fu">data.frame</span>(<span class="at">k =</span> k, <span class="at">perplexity =</span> perplexity_score))</span>
-<span id="cb52-15"><a href="#cb52-15" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb52-16"><a href="#cb52-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-17"><a href="#cb52-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot perplexity vs number of topics</span></span>
-<span id="cb52-18"><a href="#cb52-18" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(perplexities, <span class="fu">aes</span>(<span class="at">x =</span> k, <span class="at">y =</span> perplexity)) <span class="sc">+</span></span>
-<span id="cb52-19"><a href="#cb52-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb52-20"><a href="#cb52-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb52-21"><a href="#cb52-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb52-22"><a href="#cb52-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Perplexity vs Number of Topics"</span>,</span>
-<span id="cb52-23"><a href="#cb52-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Number of Topics (k)"</span>,</span>
-<span id="cb52-24"><a href="#cb52-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Perplexity"</span></span>
-<span id="cb52-25"><a href="#cb52-25" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb52-26"><a href="#cb52-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(topicmodels)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Define range of k values</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>k_values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize a data frame to store perplexities</span></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>perplexities <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">k =</span> <span class="fu">integer</span>(), <span class="at">perplexity =</span> <span class="fu">numeric</span>())</span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate perplexity for each k</span></span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (k <span class="cf">in</span> k_values) {</span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>  lda_model <span class="ot">&lt;-</span> <span class="fu">LDA</span>(gpt_dtm, <span class="at">k =</span> k, <span class="at">control =</span> <span class="fu">list</span>(<span class="at">seed =</span> <span class="dv">1234</span>))  <span class="co"># Fit LDA model</span></span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>  perplexity_score <span class="ot">&lt;-</span> <span class="fu">perplexity</span>(lda_model, gpt_dtm)            <span class="co"># Calculate perplexity</span></span>
+<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a>  perplexities <span class="ot">&lt;-</span> <span class="fu">rbind</span>(perplexities, <span class="fu">data.frame</span>(<span class="at">k =</span> k, <span class="at">perplexity =</span> perplexity_score))</span>
+<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb43-16"><a href="#cb43-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-17"><a href="#cb43-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot perplexity vs number of topics</span></span>
+<span id="cb43-18"><a href="#cb43-18" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(perplexities, <span class="fu">aes</span>(<span class="at">x =</span> k, <span class="at">y =</span> perplexity)) <span class="sc">+</span></span>
+<span id="cb43-19"><a href="#cb43-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb43-20"><a href="#cb43-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb43-21"><a href="#cb43-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb43-22"><a href="#cb43-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Perplexity vs Number of Topics"</span>,</span>
+<span id="cb43-23"><a href="#cb43-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Number of Topics (k)"</span>,</span>
+<span id="cb43-24"><a href="#cb43-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Perplexity"</span></span>
+<span id="cb43-25"><a href="#cb43-25" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb43-26"><a href="#cb43-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="step-3-fit-the-lda-model" class="level4" data-number="3.6.3.3">
-<h4 data-number="3.6.3.3" class="anchored" data-anchor-id="step-3-fit-the-lda-model"><span class="header-section-number">3.6.3.3</span> Step 3: Fit the LDA Model</h4>
+<section id="step-3-fit-the-lda-model" class="level4" data-number="3.5.3.3">
+<h4 data-number="3.5.3.3" class="anchored" data-anchor-id="step-3-fit-the-lda-model"><span class="header-section-number">3.5.3.3</span> Step 3: Fit the LDA Model</h4>
 <p>Fit an LDA model with <code>k = 3</code> topics.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Converting document-word frequency matrices to sparse matrices</span></span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>gpt_dtm_sparse<span class="ot">&lt;-</span> <span class="fu">as</span>(gpt_dtm, <span class="st">"matrix"</span>)</span>
-<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the LDA model</span></span>
-<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>lda_model <span class="ot">&lt;-</span> <span class="fu">LDA</span>(gpt_dtm_sparse, <span class="at">k =</span> <span class="dv">3</span>, <span class="at">control =</span> <span class="fu">list</span>(<span class="at">seed =</span> <span class="dv">1234</span>))</span>
-<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="co"># View model results</span></span>
-<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a>gpt_policy_topics_k3 <span class="ot">&lt;-</span> <span class="fu">tidy</span>(lda_model, <span class="at">matrix =</span> <span class="st">"beta"</span>)</span>
-<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(gpt_policy_topics_k3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Converting document-word frequency matrices to sparse matrices</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>gpt_dtm_sparse<span class="ot">&lt;-</span> <span class="fu">as</span>(gpt_dtm, <span class="st">"matrix"</span>)</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the LDA model</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>lda_model <span class="ot">&lt;-</span> <span class="fu">LDA</span>(gpt_dtm_sparse, <span class="at">k =</span> <span class="dv">3</span>, <span class="at">control =</span> <span class="fu">list</span>(<span class="at">seed =</span> <span class="dv">1234</span>))</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="co"># View model results</span></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>gpt_policy_topics_k3 <span class="ot">&lt;-</span> <span class="fu">tidy</span>(lda_model, <span class="at">matrix =</span> <span class="st">"beta"</span>)</span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(gpt_policy_topics_k3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3,324 × 3
    topic term        beta
@@ -1193,37 +1001,37 @@ The topic clusters suggest that universities tend to focus on specific aspects: 
 </div>
 </div>
 </section>
-<section id="step-4-visualize-topics" class="level4" data-number="3.6.3.4">
-<h4 data-number="3.6.3.4" class="anchored" data-anchor-id="step-4-visualize-topics"><span class="header-section-number">3.6.3.4</span> Step 4: Visualize Topics</h4>
+<section id="step-4-visualize-topics" class="level4" data-number="3.5.3.4">
+<h4 data-number="3.5.3.4" class="anchored" data-anchor-id="step-4-visualize-topics"><span class="header-section-number">3.5.3.4</span> Step 4: Visualize Topics</h4>
 <p>Extract the top terms for each topic and visualize them.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizing top terms for each topic</span></span>
-<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>gpt_policy_ap_top_terms_k3 <span class="ot">&lt;-</span> gpt_policy_topics_k3 <span class="sc">%&gt;%</span></span>
-<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(topic) <span class="sc">%&gt;%</span></span>
-<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(beta, <span class="at">n =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(topic, <span class="sc">-</span>beta)</span>
-<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a>gpt_policy_ap_top_terms_k3 <span class="sc">%&gt;%</span></span>
-<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">term =</span> <span class="fu">reorder_within</span>(term, beta, topic)) <span class="sc">%&gt;%</span></span>
-<span id="cb55-10"><a href="#cb55-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(beta, term, <span class="at">fill =</span> <span class="fu">factor</span>(topic))) <span class="sc">+</span></span>
-<span id="cb55-11"><a href="#cb55-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb55-12"><a href="#cb55-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> topic, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
-<span id="cb55-13"><a href="#cb55-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reordered</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizing top terms for each topic</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>gpt_policy_ap_top_terms_k3 <span class="ot">&lt;-</span> gpt_policy_topics_k3 <span class="sc">%&gt;%</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(topic) <span class="sc">%&gt;%</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(beta, <span class="at">n =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(topic, <span class="sc">-</span>beta)</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>gpt_policy_ap_top_terms_k3 <span class="sc">%&gt;%</span></span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">term =</span> <span class="fu">reorder_within</span>(term, beta, topic)) <span class="sc">%&gt;%</span></span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(beta, term, <span class="at">fill =</span> <span class="fu">factor</span>(topic))) <span class="sc">+</span></span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> topic, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
+<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reordered</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="section-2_files/figure-html/unnamed-chunk-50-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="section-2_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="results-and-discussions-4" class="level3" data-number="3.6.4">
-<h3 data-number="3.6.4" class="anchored" data-anchor-id="results-and-discussions-4"><span class="header-section-number">3.6.4</span> 2.6.4 Results and Discussions</h3>
-<section id="research-question-1" class="level4" data-number="3.6.4.1">
-<h4 data-number="3.6.4.1" class="anchored" data-anchor-id="research-question-1"><span class="header-section-number">3.6.4.1</span> <strong>Research Question 1:</strong></h4>
+<section id="results-and-discussions-2" class="level3" data-number="3.5.4">
+<h3 data-number="3.5.4" class="anchored" data-anchor-id="results-and-discussions-2"><span class="header-section-number">3.5.4</span> 2.5.4 Results and Discussions</h3>
+<section id="research-question-1" class="level4" data-number="3.5.4.1">
+<h4 data-number="3.5.4.1" class="anchored" data-anchor-id="research-question-1"><span class="header-section-number">3.5.4.1</span> <strong>Research Question 1:</strong></h4>
 <p>What are the prominent themes present in university policies regarding GenAI usage?</p>
 <p><strong>Answer:</strong><br>
 The topic modeling analysis revealed three distinct themes in the university GenAI policies:</p>
@@ -1245,8 +1053,8 @@ The topic modeling analysis revealed three distinct themes in the university Gen
 </ul></li>
 </ol>
 </section>
-<section id="research-question-2" class="level4" data-number="3.6.4.2">
-<h4 data-number="3.6.4.2" class="anchored" data-anchor-id="research-question-2"><span class="header-section-number">3.6.4.2</span> <strong>Research Question 2:</strong></h4>
+<section id="research-question-2" class="level4" data-number="3.5.4.2">
+<h4 data-number="3.5.4.2" class="anchored" data-anchor-id="research-question-2"><span class="header-section-number">3.5.4.2</span> <strong>Research Question 2:</strong></h4>
 <p>How do these themes reflect the key concerns or opportunities for integrating GenAI in higher education?</p>
 <p><strong>Answer:</strong><br>
 The identified themes reflect both concerns and opportunities:</p>
@@ -1261,8 +1069,8 @@ The identified themes reflect both concerns and opportunities:</p>
 <p><strong>Theme 3:</strong> Offers a strategic opportunity for universities to lead in AI adoption by establishing comprehensive policies that guide AI’s role in education and research.</p></li>
 </ol>
 </section>
-<section id="discussion" class="level4" data-number="3.6.4.3">
-<h4 data-number="3.6.4.3" class="anchored" data-anchor-id="discussion"><span class="header-section-number">3.6.4.3</span> <strong>Discussion:</strong></h4>
+<section id="discussion" class="level4" data-number="3.5.4.3">
+<h4 data-number="3.5.4.3" class="anchored" data-anchor-id="discussion"><span class="header-section-number">3.5.4.3</span> <strong>Discussion:</strong></h4>
 <p>The topic modeling results suggest that universities are navigating a complex landscape of opportunities and challenges as they incorporate GenAI into academic contexts. While student-centric policies aim to balance innovation with ethical considerations, institutional-level themes signal the need for governance frameworks to ensure responsible AI use. These findings indicate that higher education institutions are positioned to play a pivotal role in shaping the future of generative AI in learning, provided they address the ethical, pedagogical, and policy challenges identified in this analysis.</p>
 
 
@@ -1698,8 +1506,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./section-3.html" class="pagination-link" aria-label="Section 3 Social Network Analyses (Relational Data)">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Section 3 Social Network Analyses (Relational Data)</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./section-3.html" class="pagination-link" aria-label="Section 3 **Multimodal Data (Images, Video, Audio)**">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Section 3 <strong>Multimodal Data (Images, Video, Audio)</strong></span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

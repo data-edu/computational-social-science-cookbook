@@ -372,7 +372,7 @@ As AI writing tools like ChatGPT become more prevalent, educators are working to
 
 #### Data Source
 
-The dataset consists of publicly available AI policy texts from 100 universities, sourced from [Scribbr's GenAI University Policies page](https://www.scribbr.com/ai-tools/chatgpt-university-policies/). The data has been downloaded and saved as a CSV file for analysis.
+The dataset consists of publicly available AI policy texts from 100 universities(USA), the data has been downloaded and saved as a CSV file for analysis.
 
 ### 2.3.2 Sample Research Questions
 
@@ -465,7 +465,7 @@ print(policy_word_chart)
 ### 2.3.4 Results and Discussions
 
 -   **RQ1**: What are the most frequently mentioned words in university GenAI writing usage policies?\
-    The frequency analysis shows that keywords such as "assignment," "student," "syllabus," and "writing" are among the most commonly mentioned terms across AI policies at 100 universities. This emphasis reflects a focus on using AI tools, like GenAI, to support student learning and enhance teaching content. The frequent mention of these words suggests that institutions are considering the role of AI in academic assignments and course design, indicating a strategic commitment to integrating AI within educational tasks and student interactions.
+    The frequency analysis shows that keywords such as "assignment," "student," and "writing" are among the most commonly mentioned terms across AI policies at 100 universities. This emphasis reflects a focus on using AI tools to support student learning and enhance teaching content. The frequent mention of these words suggests that institutions are considering the role of AI in academic assignments and course design, indicating a strategic commitment to integrating AI within educational tasks and student interactions.
 
 -   **RQ2**: Which keywords reflect common concerns or focal points related to GenAI writing usage in academic settings?\
     The analysis of the top 12 frequently mentioned terms highlights additional focal points, including "tool," "academic," "instructor," "integrity," and "expectations." These terms reveal concerns around the ethical use of AI tools, the need for clarity in academic applications, and the central role of instructors in AI policy implementation. Keywords like "integrity" and "expectations" emphasize the importance of maintaining academic standards and setting clear guidelines for AI use in classrooms, while "instructor" underscores the influence faculty members have in shaping AI-related practices. Together, these terms reflect a commitment to transparent policies that support ethical and effective AI integration, enhancing the academic experience for students.
@@ -565,197 +565,11 @@ print(density_plot)
 
     The results indicate a balanced perspective with a slight tendency toward positive sentiment, as reflected by a higher density of positive scores. This analysis provides insights into the varying degrees of acceptance and caution universities adopt in their AI policy frameworks, demonstrating the diverse stances that shape institutional AI guidelines.
 
-## 2.5 Predictive Models Using Text
-
-This section covers how to apply both supervised and unsupervised machine learning models to predict insights from text data. We demonstrate how these techniques can enhance understanding of institutional GenAI policies through prediction and clustering.
-
-------------------------------------------------------------------------
-
-### 2.5.1 Supervised ML Using Text
-
-##### Purpose + Case
-
-**Purpose**: Supervised machine learning with text data can categorize policies based on themes, such as academic integrity, instructor discretion, and student support. This classification helps in understanding how different institutions frame their GenAI policies.
-
-**Case**: Using labeled samples of policy texts that have been previously categorized into themes, we can train a classifier to categorize new policy texts into one of these themes. This method helps identify which themes are most common among universities and allows for quick categorization of new policy updates.
-
-------------------------------------------------------------------------
-
-##### Sample Research Questions
-
--   **RQ1**: Can we accurately classify GenAI policy texts into categories like "Academic Integrity," "Instructor Discretion," and "Student Support"?
--   **RQ2**: What are the most influential words in predicting the theme of each policy?
-
-------------------------------------------------------------------------
-
-##### Analysis
-
-1.  **Step 1: Load Required Libraries**\
-    Install and load the necessary packages for text preprocessing and model training.
-
-```{r, eval = FALSE}
-   # Install packages
-   install.packages(c("tidytext", "dplyr", "text2vec", "caret"))
-
-   # Load libraries
-   library(tidytext)
-   library(dplyr)
-   library(text2vec)
-   library(caret)
-```
-
-2.  **Step 2: Data Preparation**\
-    Load and preprocess the data by tokenizing, removing stop words, and creating a document-term matrix. Each document should have a labeled theme (e.g., "Academic Integrity").
-
-```{r, eval = FALSE}
-   # Load labeled dataset
-   policy_data <- read.csv("university_GenAI_policies_labeled.csv")  # Assume dataset includes a "Theme" column
-
-   # Basic text preprocessing
-   policy_data <- policy_data %>%
-     unnest_tokens(word, Policy_Text) %>%
-     anti_join(stop_words)
-
-   # Create document-term matrix (DTM)
-   dtm <- policy_data %>%
-     cast_dtm(document = University_ID, term = word, value = n)
-```
-
-3.  **Step 3: Train-Test Split**\
-    Split the data into training and testing sets.
-
-```{r, eval = FALSE}
-   # Split data into training and testing sets
-   set.seed(123)
-   trainIndex <- createDataPartition(policy_data$Theme, p = 0.7, list = FALSE)
-   train_data <- dtm[trainIndex, ]
-   test_data <- dtm[-trainIndex, ]
-```
-
-4.  **Step 4: Train a Classification Model**\
-    Train a Naive Bayes classifier to predict the policy theme based on the document-term matrix.
-
-```{r, eval = FALSE}
-   # Train a Naive Bayes classifier
-   model <- naiveBayes(Theme ~ ., data = train_data)
-
-   # Predict on test set
-   predictions <- predict(model, test_data)
-```
-
-5.  **Step 5: Evaluate Model Performance**\
-    Evaluate the model's accuracy by comparing predictions with the true labels in the test set.
-
-```{r, eval = FALSE}
-   # Confusion matrix and accuracy
-   confusionMatrix(predictions, test_data$Theme)
-```
-
-------------------------------------------------------------------------
-
-##### Results and Discussions
-
--   **RQ1**: Can we accurately classify GenAI policy texts into categories like "Academic Integrity," "Instructor Discretion," and "Student Support"?\
-    The Naive Bayes classifier achieves an accuracy of approximately X%, showing it can reasonably classify policy themes. This model could assist in categorizing new policies or updates as they emerge, enabling quick identification of thematic priorities across institutions.
-
--   **RQ2**: What are the most influential words in predicting the theme of each policy?\
-    Feature importance analysis shows that terms such as "integrity," "plagiarism," and "ethics" strongly indicate the "Academic Integrity" theme. Words like "discretion" and "instructor" predict the "Instructor Discretion" theme, while terms like "support" and "learning" are influential for the "Student Support" theme. These words highlight key focal points in university policies and help institutions quickly determine thematic relevance when updating guidelines.
-
-### 2.5.2 Unsupervised ML Using Text
-
-##### Purpose + Case
-
-**Purpose**: Unsupervised machine learning techniques like clustering and topic modeling are used for identifying hidden patterns, themes, or groupings within text data without labeled categories. These models are useful for uncovering common themes in GenAI policy texts.
-
-**Case**: We explore topics discussed in GenAI policies across universities to uncover the main themes, grouping policies into clusters based on their emphasis (e.g., academic integrity, student support, instructor discretion).
-
-------------------------------------------------------------------------
-
-##### Sample Research Questions
-
--   **RQ1**: What are the main themes or topics present in GenAI policy texts across universities?
--   **RQ2**: How do policies cluster based on their emphasis (e.g., focus on integrity, educational support, flexibility)?
-
-------------------------------------------------------------------------
-
-##### Analysis
-
-1.  **Step 1: Load Required Libraries**\
-    Install and load packages for text processing and unsupervised machine learning.
-
-```{r, eval = FALSE}
-   # Install packages
-   install.packages(c("tm", "text2vec", "topicmodels"))
-
-   # Load libraries
-   library(tm)
-   library(text2vec)
-   library(topicmodels)
-```
-
-2.  **Step 2: Data Preparation**\
-    Preprocess the text data and create a document-term matrix.
-
-```{r, eval = FALSE}
-   # Load dataset
-   policy_data <- read.csv("university_GenAI_policies.csv")
-
-   # Preprocess text
-   policy_data <- policy_data %>%
-     unnest_tokens(word, Policy_Text) %>%
-     anti_join(stop_words)
-
-   # Create document-term matrix
-   dtm <- policy_data %>%
-     cast_dtm(document = University_ID, term = word, value = n)
-```
-
-3.  **Step 3: Perform Topic Modeling (LDA)**\
-    Apply Latent Dirichlet Allocation (LDA) to identify topics within the text data.
-
-```{r, eval = FALSE}
-   # Set parameters for LDA
-   lda_model <- LDA(dtm, k = 3, control = list(seed = 123))  # 3 topics
-
-   # Extract topics
-   topics <- tidy(lda_model, matrix = "beta")
-```
-
-4.  **Step 4: Visualize Top Terms in Each Topic**\
-    Display the top terms associated with each topic.
-
-```{r, eval = FALSE}
-   # Extract top terms for each topic
-   top_terms <- topics %>%
-     group_by(topic) %>%
-     slice_max(beta, n = 10) %>%
-     ungroup() %>%
-     arrange(topic, -beta)
-
-   # Plot top terms
-   ggplot(top_terms, aes(x = reorder_within(term, beta, topic), y = beta, fill = topic)) +
-     geom_col(show.legend = FALSE) +
-     facet_wrap(~ topic, scales = "free_y") +
-     coord_flip() +
-     scale_x_reordered() +
-     labs(title = "Top Terms in Each Topic", x = NULL, y = "Beta")
-```
-
-------------------------------------------------------------------------
-
-##### Results and Discussions
-
--   **RQ1**: What are the main themes or topics present in GenAI policy texts across universities?\
-    The LDA model reveals three key topics: 1) academic integrity, 2) student support, and 3) instructor discretion. These topics represent the primary areas of concern and focus in university GenAI policies.
-
--   **RQ2**: How do policies cluster based on their emphasis?\
-    The topic clusters suggest that universities tend to focus on specific aspects: some emphasize academic integrity, while others prioritize support for learning and flexibility for instructors. This clustering can inform administrators about prevalent policy themes, aiding in policy alignment across institutions.
-
-## 2.6 Clustering-Based Analysis
+## 2.5 Clustering-Based Analysis
 
 Clustering-based analysis involves grouping similar text documents or text segments into clusters based on their underlying topics or themes. This approach is particularly useful for identifying dominant themes in text data, such as university AI policy documents.
 
-### 2.6.1 Purpose + CASE
+### 2.5.1 Purpose + CASE
 
 **Purpose**: The goal of clustering-based analysis is to uncover latent themes in text data using unsupervised machine learning techniques. Topic modeling is one popular method for clustering documents into groups based on their content.
 
@@ -763,12 +577,12 @@ Clustering-based analysis involves grouping similar text documents or text segme
 
 Allocation (LDA) to identify dominant themes in these policy documents. This analysis will help categorize policies into overarching themes, such as academic integrity, student support, and instructor discretion.
 
-### 2.6.2 Sample Research Questions
+### 2.5.2 Sample Research Questions
 
 -   **RQ1**: What are the prominent themes present in university policies regarding GenAI usage Stance?
 -   **RQ2**: How do these themes reflect the key concerns or opportunities for intergrating GenAI in higher education?
 
-### 2.6.3 Analysis
+### 2.5.3 Analysis
 
 #### Step 1: Install and Load Necessary Libraries
 
@@ -881,7 +695,7 @@ gpt_policy_ap_top_terms_k3 %>%
   scale_y_reordered()
 ```
 
-### 2.6.4 Results and Discussions
+### 2.5.4 Results and Discussions
 
 #### **Research Question 1:**
 
