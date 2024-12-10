@@ -12,21 +12,11 @@
   {
     "objectID": "section-1.html",
     "href": "section-1.html",
-    "title": "2  Section 1",
+    "title": "2  Section 1 Getting Started",
     "section": "",
-    "text": "2.1 1.1\nWelcome!",
+    "text": "Abstract: In this section, we will introduce the steps to get started with using R and RStudio. The section will also cover the key concepts in working with R such as packages, R markdown. We will also cover important steps in preparing data, which we will be using frequently in the rest of the book. Since these topics have been covered in so much more detail in other books, or other resources online, we will end the section with a list of key resources on these topics that are easily accessible online.\n\nSection Overview\nUsing R and RStudio\n\nFoundational skills: Data, packages, functions, projects\nReproducibility and R Markdown documents\nBase R: assignment, equality, dollar-sign indexing, xx\nR files\nProject setup within RStudio\n\nCore Data Wrangling Capabilities\n\nSelecting and renaming variables\nCreating new variables\nArranging variables\nJoining data",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Section 1</span>"
-    ]
-  },
-  {
-    "objectID": "section-1.html#section-1",
-    "href": "section-1.html#section-1",
-    "title": "2  Section 1",
-    "section": "2.2 2.1",
-    "text": "2.2 2.1\n\n2 + 2\n\n[1] 4",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Section 1</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Section 1 **Getting Started**</span>"
     ]
   },
   {
