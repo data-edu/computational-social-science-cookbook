@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -115,7 +149,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Section 1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Section 1 <strong>Getting Started</strong></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -165,8 +199,23 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">6.1</span> 5.1 Overview</a></li>
+  <li><a href="#accessing-big-data-broadening-the-horizon" id="toc-accessing-big-data-broadening-the-horizon" class="nav-link" data-scroll-target="#accessing-big-data-broadening-the-horizon"><span class="header-section-number">6.2</span> 5.2 Accessing Big data (Broadening the Horizon)</a></li>
+  <li><a href="#big-data" id="toc-big-data" class="nav-link" data-scroll-target="#big-data"><span class="header-section-number">6.3</span> 5.2.1 Big Data</a>
+  <ul class="collapse">
+  <li><a href="#accessing-pisa-data" id="toc-accessing-pisa-data" class="nav-link" data-scroll-target="#accessing-pisa-data"><span class="header-section-number">6.3.1</span> Accessing PISA Data</a></li>
+  <li><a href="#accessing-ipeds-data" id="toc-accessing-ipeds-data" class="nav-link" data-scroll-target="#accessing-ipeds-data"><span class="header-section-number">6.3.2</span> Accessing IPEDS Data</a></li>
+  <li><a href="#accessing-open-university-learning-analytics-dataset-oulad" id="toc-accessing-open-university-learning-analytics-dataset-oulad" class="nav-link" data-scroll-target="#accessing-open-university-learning-analytics-dataset-oulad"><span class="header-section-number">6.3.3</span> Accessing Open University Learning Analytics Dataset (OULAD)</a></li>
+  <li><a href="#steps-to-access-oulad-data" id="toc-steps-to-access-oulad-data" class="nav-link" data-scroll-target="#steps-to-access-oulad-data"><span class="header-section-number">6.3.4</span> Steps to Access OULAD Data</a></li>
+  <li><a href="#learning-analytics" id="toc-learning-analytics" class="nav-link" data-scroll-target="#learning-analytics"><span class="header-section-number">6.3.5</span> 5.2.2 Learning Analytics</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -190,9 +239,350 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>Abstract:</strong> This section reviews how to access data that is primarily numeric/quantitative in nature, but from a different source and of a different nature than the data typically used by social scientists. Example data sets include international or national large-scale assessments (e.g., PISA, NAEP) and data from digital technologies (e.g., log-trace data from adaptive mathematics programs).&nbsp;</p>
+<p><strong>Abstract:</strong> This section reviews how to access data that is primarily numeric/quantitative in nature, but from a different source and of a different nature than the data typically used by social scientists. Example data sets include international or national large-scale assessments (e.g., PISA, NAEP) and data from digital technologies (e.g., log-trace data from Open University Learning Analytics Dataset (OULAD)).&nbsp;</p>
+<section id="overview" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">6.1</span> 5.1 Overview</h2>
+<p>In social science research, data is traditionally sourced from small-scale surveys, experiments, or qualitative studies. However, the rise of big data offers researchers opportunities to explore numeric and quantitative datasets of unprecedented scale and variety. This chapter discusses how to access and analyze large-scale datasets like international assessments (e.g., PISA, NAEP) and digital log-trace data (e.g., Open University Learning Analytics Dataset (OULAD)). These secondary data sources enable novel research questions and methods, particularly when paired with machine learning and statistical modeling approaches.</p>
+</section>
+<section id="accessing-big-data-broadening-the-horizon" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="accessing-big-data-broadening-the-horizon"><span class="header-section-number">6.2</span> 5.2 Accessing Big data (Broadening the Horizon)</h2>
+</section>
+<section id="big-data" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="big-data"><span class="header-section-number">6.3</span> 5.2.1 Big Data</h2>
+<section id="accessing-pisa-data" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="accessing-pisa-data"><span class="header-section-number">6.3.1</span> Accessing PISA Data</h3>
+<p>The Programme for International Student Assessment (PISA) is a widely used dataset for large-scale educational research. It assesses 15-year-old students’ knowledge and skills in reading, mathematics, and science across multiple countries. Researchers can access PISA data through various methods:</p>
+<section id="direct-download-from-the-official-website" class="level4" data-number="6.3.1.1">
+<h4 data-number="6.3.1.1" class="anchored" data-anchor-id="direct-download-from-the-official-website"><span class="header-section-number">6.3.1.1</span> 1. <strong>Direct Download from the Official Website</strong></h4>
+<p>The OECD provides direct access to PISA data files via its official website. Researchers can download data for specific years and cycles. Data files are typically provided in <code>.csv</code> or <code>.sav</code> (SPSS) formats, along with detailed documentation.</p>
+<ul>
+<li><strong>Steps to Access PISA Data from the OECD Website:</strong>
+<ol type="1">
+<li>Visit the <a href="https://www.oecd.org/pisa/">OECD PISA website</a>.</li>
+<li>Navigate to the “Data” section.</li>
+<li>Select the desired assessment year (e.g., 2022).</li>
+<li>Download the data and accompanying codebooks.</li>
+</ol></li>
+</ul>
+</section>
+<section id="using-the-oecd-r-package" class="level4" data-number="6.3.1.2">
+<h4 data-number="6.3.1.2" class="anchored" data-anchor-id="using-the-oecd-r-package"><span class="header-section-number">6.3.1.2</span> 2. <strong>Using the <code>OECD</code> R Package</strong></h4>
+<p>The <code>OECD</code> R package provides a direct interface to download and explore datasets published by the OECD, including PISA.</p>
+<ul>
+<li><strong>Steps to Use the <code>OECD</code> Package:</strong>
+<ol type="1">
+<li>Install and load the <code>OECD</code> package.</li>
+<li>Use the <code>getOECD()</code> function to fetch PISA data.</li>
+</ol></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load the OECD package</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"OECD"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(OECD)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetch PISA data for the 2018 cycle</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>pisa_data <span class="ot">&lt;-</span> <span class="fu">getOECD</span>(<span class="st">"pisa"</span>, <span class="at">years =</span> <span class="st">"2022"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Display a summary of the data</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pisa_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="using-the-edsurvey-r-package" class="level4" data-number="6.3.1.3">
+<h4 data-number="6.3.1.3" class="anchored" data-anchor-id="using-the-edsurvey-r-package"><span class="header-section-number">6.3.1.3</span> 3. <strong>Using the <code>Edsurvey</code> R Package</strong></h4>
+<p>The <code>Edsurvey</code> package is designed specifically for analyzing large-scale assessment data, including PISA. It allows for complex statistical modeling and supports handling weights and replicate weights used in PISA.</p>
+<ul>
+<li><strong>Steps to Use the <code>Edsurvey</code> Package:</strong>
+<ol type="1">
+<li>Install and load the <code>Edsurvey</code> package.</li>
+<li>Download the PISA data from the OECD website and provide the path to the <code>.sav</code> files.</li>
+<li>Load the data into R using <code>readPISA()</code>.</li>
+</ol></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load the Edsurvey package</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"Edsurvey"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Edsurvey)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Read PISA data from a local file</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>pisa_data <span class="ot">&lt;-</span> <span class="fu">readPISA</span>(<span class="st">"path/to/PISA2022Student.sav"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the structure of the dataset</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(pisa_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="comparison-of-methods" class="level4" data-number="6.3.1.4">
+<h4 data-number="6.3.1.4" class="anchored" data-anchor-id="comparison-of-methods"><span class="header-section-number">6.3.1.4</span> Comparison of Methods</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Method</strong></th>
+<th><strong>Advantages</strong></th>
+<th><strong>Disadvantages</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Direct Download</td>
+<td>Full access to all raw data and documentation.</td>
+<td>Requires manual processing and cleaning.</td>
+</tr>
+<tr class="even">
+<td><code>OECD</code> Package</td>
+<td>Easy to use for downloading specific datasets.</td>
+<td>Limited to OECD-published formats.</td>
+</tr>
+<tr class="odd">
+<td><code>Edsurvey</code> Package</td>
+<td>Supports advanced statistical analysis and weights.</td>
+<td>Requires additional setup and dependencies.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="accessing-ipeds-data" class="level3" data-number="6.3.2">
+<h3 data-number="6.3.2" class="anchored" data-anchor-id="accessing-ipeds-data"><span class="header-section-number">6.3.2</span> Accessing IPEDS Data</h3>
+<p>The Integrated Postsecondary Education Data System (IPEDS) is a comprehensive source of data on U.S. colleges, universities, and technical and vocational institutions. It provides data on enrollments, completions, graduation rates, faculty, finances, and more. Researchers and policymakers widely use IPEDS data to analyze trends in higher education.</p>
+<p>There are several ways to access IPEDS data, depending on the user’s needs and technical proficiency.</p>
+<section id="direct-download-from-the-nces-website" class="level4" data-number="6.3.2.1">
+<h4 data-number="6.3.2.1" class="anchored" data-anchor-id="direct-download-from-the-nces-website"><span class="header-section-number">6.3.2.1</span> 1. <strong>Direct Download from the NCES Website</strong></h4>
+<p>The most straightforward way to access IPEDS data is by downloading it directly from the National Center for Education Statistics (NCES) website.</p>
+<section id="steps-to-access-ipeds-data" class="level5" data-number="6.3.2.1.1">
+<h5 data-number="6.3.2.1.1" class="anchored" data-anchor-id="steps-to-access-ipeds-data"><span class="header-section-number">6.3.2.1.1</span> <strong>Steps to Access IPEDS Data:</strong></h5>
+<ol type="1">
+<li>Visit the <a href="https://nces.ed.gov/ipeds/">IPEDS Data Center</a>.</li>
+<li>Click on “Use the Data” and navigate to the “Download IPEDS Data Files” section.</li>
+<li>Select the desired data year and survey component (e.g., Fall Enrollment, Graduation Rates).</li>
+<li>Download the data files, typically provided in <code>.csv</code> or <code>.xls</code> format, along with accompanying codebooks.</li>
+</ol>
+</section>
+</section>
+<section id="using-the-ipeds-r-package" class="level4" data-number="6.3.2.2">
+<h4 data-number="6.3.2.2" class="anchored" data-anchor-id="using-the-ipeds-r-package"><span class="header-section-number">6.3.2.2</span> 2. <strong>Using the <code>ipeds</code> R Package</strong></h4>
+<p>The <code>ipeds</code> R package simplifies downloading and analyzing IPEDS data directly from R by connecting to the NCES data repository.</p>
+<section id="steps-to-use-the-ipeds-package" class="level5" data-number="6.3.2.2.1">
+<h5 data-number="6.3.2.2.1" class="anchored" data-anchor-id="steps-to-use-the-ipeds-package"><span class="header-section-number">6.3.2.2.1</span> <strong>Steps to Use the <code>ipeds</code> Package:</strong></h5>
+<ol type="1">
+<li>Install and load the <code>ipeds</code> package.</li>
+<li>Use the <code>download_ipeds()</code> function to fetch data for specific survey components and years.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load the ipeds package</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ipeds"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ipeds)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Download IPEDS data for completions in 2021</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>ipeds_data <span class="ot">&lt;-</span> <span class="fu">download_ipeds</span>(<span class="st">"C"</span>, <span class="at">year =</span> <span class="dv">2021</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># View the structure of the downloaded data</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ipeds_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="using-the-tidycensus-r-package" class="level4" data-number="6.3.2.3">
+<h4 data-number="6.3.2.3" class="anchored" data-anchor-id="using-the-tidycensus-r-package"><span class="header-section-number">6.3.2.3</span> 3. <strong>Using the <code>tidycensus</code> R Package</strong></h4>
+<p>The <code>tidycensus</code> package, while primarily designed for Census data, can access specific IPEDS data linked to educational institutions.</p>
+</section>
+<section id="steps-to-use-the-tidycensus-package" class="level4" data-number="6.3.2.4">
+<h4 data-number="6.3.2.4" class="anchored" data-anchor-id="steps-to-use-the-tidycensus-package"><span class="header-section-number">6.3.2.4</span> <strong>Steps to Use the <code>tidycensus</code> Package:</strong></h4>
+<ol type="1">
+<li>Install and load the <code>tidycensus</code> package.</li>
+<li>Set up a Census API key to access the data.</li>
+<li>Query IPEDS data for specific institution-level information.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load the tidycensus package</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidycensus"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidycensus)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Set Census API key (replace with your actual key)</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">census_api_key</span>(<span class="st">"your_census_api_key"</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetch IPEDS-related data (e.g., institution information)</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>ipeds_institutions <span class="ot">&lt;-</span> <span class="fu">get_acs</span>(</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">geography =</span> <span class="st">"place"</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">variables =</span> <span class="st">"B14002_003"</span>,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">year =</span> <span class="dv">2021</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">survey =</span> <span class="st">"acs5"</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># View the first few rows</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ipeds_institutions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="using-online-tools" class="level4" data-number="6.3.2.5">
+<h4 data-number="6.3.2.5" class="anchored" data-anchor-id="using-online-tools"><span class="header-section-number">6.3.2.5</span> 4. <strong>Using Online Tools</strong></h4>
+<p>IPEDS provides several online tools for querying and visualizing data without requiring programming skills.</p>
+</section>
+<section id="common-tools" class="level4" data-number="6.3.2.6">
+<h4 data-number="6.3.2.6" class="anchored" data-anchor-id="common-tools"><span class="header-section-number">6.3.2.6</span> <strong>Common Tools:</strong></h4>
+<ul>
+<li><strong>IPEDS Data Explorer</strong>: Enables users to query and export customized datasets.</li>
+<li><strong>Trend Generator</strong>: Allows users to visualize trends in key metrics over time.</li>
+<li><strong>IPEDS Use the Data</strong>: Simplified tool for accessing pre-compiled datasets.</li>
+</ul>
+</section>
+<section id="steps-to-use-the-ipeds-data-explorer" class="level4" data-number="6.3.2.7">
+<h4 data-number="6.3.2.7" class="anchored" data-anchor-id="steps-to-use-the-ipeds-data-explorer"><span class="header-section-number">6.3.2.7</span> <strong>Steps to Use the IPEDS Data Explorer:</strong></h4>
+<ol type="1">
+<li>Visit the IPEDS Data Explorer.</li>
+<li>Select variables of interest, such as institution type, enrollment size, or location.</li>
+<li>Filter results by years, institution categories, or other criteria.</li>
+<li>Export the results as a <code>.csv</code> or <code>.xlsx</code> file.</li>
+</ol>
+</section>
+<section id="comparison-of-methods-1" class="level4" data-number="6.3.2.8">
+<h4 data-number="6.3.2.8" class="anchored" data-anchor-id="comparison-of-methods-1"><span class="header-section-number">6.3.2.8</span> Comparison of Methods</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Method</strong></th>
+<th><strong>Advantages</strong></th>
+<th><strong>Disadvantages</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Direct Download</td>
+<td>Full access to raw data and documentation.</td>
+<td>Requires manual data preparation and cleaning.</td>
+</tr>
+<tr class="even">
+<td><code>ipeds</code> Package</td>
+<td>Automated access to specific components.</td>
+<td>Limited flexibility for customized queries.</td>
+</tr>
+<tr class="odd">
+<td><code>tidycensus</code> Package</td>
+<td>Allows integration with Census and ACS data.</td>
+<td>Requires API setup and advanced R skills.</td>
+</tr>
+<tr class="even">
+<td>Online Tools</td>
+<td>User-friendly and suitable for non-coders.</td>
+<td>Limited to predefined queries and exports.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="accessing-open-university-learning-analytics-dataset-oulad" class="level3" data-number="6.3.3">
+<h3 data-number="6.3.3" class="anchored" data-anchor-id="accessing-open-university-learning-analytics-dataset-oulad"><span class="header-section-number">6.3.3</span> Accessing Open University Learning Analytics Dataset (OULAD)</h3>
+<p>The <strong>Open University Learning Analytics Dataset (OULAD)</strong> is a publicly available dataset designed to support research in educational data mining and learning analytics. It includes student demographics, module information, interactions with the virtual learning environment (VLE), and assessment scores.</p>
+</section>
+<section id="steps-to-access-oulad-data" class="level3" data-number="6.3.4">
+<h3 data-number="6.3.4" class="anchored" data-anchor-id="steps-to-access-oulad-data"><span class="header-section-number">6.3.4</span> Steps to Access OULAD Data</h3>
+<section id="visit-the-oulad-repository" class="level4" data-number="6.3.4.1">
+<h4 data-number="6.3.4.1" class="anchored" data-anchor-id="visit-the-oulad-repository"><span class="header-section-number">6.3.4.1</span> Visit the OULAD Repository**</h4>
+<p>The dataset is hosted on the <a href="https://analyse.kmi.open.ac.uk/open_dataset">Open University’s Analytics Project</a>. To access the data: 1. Navigate to the website. 2. Download the dataset as a <code>.zip</code> file. 3. Extract the <code>.zip</code> file to a local directory.</p>
+<p>The dataset contains multiple CSV files: - <code>studentInfo.csv</code>: Student demographics and performance data. - <code>studentVle.csv</code>: Interactions with the VLE. - <code>vle.csv</code>: Details of learning resources. - <code>studentAssessment.csv</code>: Assessment scores.</p>
+</section>
+<section id="loading-oulad-data-in-r" class="level4" data-number="6.3.4.2">
+<h4 data-number="6.3.4.2" class="anchored" data-anchor-id="loading-oulad-data-in-r"><span class="header-section-number">6.3.4.2</span> Loading OULAD Data in R</h4>
+<p>Once the data is downloaded and extracted, follow these steps to load and access it in R:</p>
+<section id="step-1-install-required-packages" class="level5" data-number="6.3.4.2.1">
+<h5 data-number="6.3.4.2.1" class="anchored" data-anchor-id="step-1-install-required-packages"><span class="header-section-number">6.3.4.2.1</span> <strong>Step 1: Install Required Packages</strong></h5>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install necessary packages</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"readr"</span>, <span class="st">"dplyr"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="step-2-load-data" class="level5" data-number="6.3.4.2.2">
+<h5 data-number="6.3.4.2.2" class="anchored" data-anchor-id="step-2-load-data"><span class="header-section-number">6.3.4.2.2</span> <strong>Step 2: Load Data</strong></h5>
+<p>Use the <code>readr</code> package to read the CSV files into R.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required libraries</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the path to the OULAD data</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>data_path <span class="ot">&lt;-</span> <span class="st">"path/to/OULAD/"</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Load individual CSV files</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>student_info <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">file.path</span>(data_path, <span class="st">"studentInfo.csv"</span>))</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>student_vle <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">file.path</span>(data_path, <span class="st">"studentVle.csv"</span>))</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>vle <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">file.path</span>(data_path, <span class="st">"vle.csv"</span>))</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>student_assessment <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">file.path</span>(data_path, <span class="st">"studentAssessment.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="step-3-preview-the-data" class="level5" data-number="6.3.4.2.3">
+<h5 data-number="6.3.4.2.3" class="anchored" data-anchor-id="step-3-preview-the-data"><span class="header-section-number">6.3.4.2.3</span> <strong>Step 3: Preview the Data</strong></h5>
+<p>Inspect the structure and contents of the datasets.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View the first few rows of student info</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(student_info)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the structure of the student VLE data</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(student_vle)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="learning-analytics" class="level3" data-number="6.3.5">
+<h3 data-number="6.3.5" class="anchored" data-anchor-id="learning-analytics"><span class="header-section-number">6.3.5</span> 5.2.2 Learning Analytics</h3>
+<section id="what-is-learning-analytics" class="level4" data-number="6.3.5.1">
+<h4 data-number="6.3.5.1" class="anchored" data-anchor-id="what-is-learning-analytics"><span class="header-section-number">6.3.5.1</span> What is Learning Analytics?</h4>
+<p><strong>Learning Analytics (LA)</strong> refers to the measurement, collection, analysis, and reporting of data about learners and their contexts. The primary goal of LA is to understand and improve learning processes by identifying patterns, predicting outcomes, and providing actionable insights to educators, institutions, and learners.</p>
+<p>Key features of LA include: - <strong>Data Collection</strong>: Gathering information from digital platforms such as learning management systems (LMS) or external assessments. - <strong>Analysis</strong>: Using machine learning, statistical methods, or visualization tools to reveal trends and patterns. - <strong>Applications</strong>: Supporting personalized learning, enhancing institutional decision-making, and improving curriculum design.</p>
+</section>
+<section id="applications-of-learning-analytics-in-big-data" class="level4" data-number="6.3.5.2">
+<h4 data-number="6.3.5.2" class="anchored" data-anchor-id="applications-of-learning-analytics-in-big-data"><span class="header-section-number">6.3.5.2</span> Applications of Learning Analytics in Big Data</h4>
+<p>Learning analytics can be applied to large-scale educational datasets like <strong>PISA</strong>, <strong>IPEDS</strong>, and <strong>OULAD</strong> to uncover trends, predict outcomes, and guide interventions.</p>
+<section id="pisa-data-and-learning-analytics" class="level5" data-number="6.3.5.2.1">
+<h5 data-number="6.3.5.2.1" class="anchored" data-anchor-id="pisa-data-and-learning-analytics"><span class="header-section-number">6.3.5.2.1</span> <strong>1. PISA Data and Learning Analytics</strong></h5>
+<ul>
+<li><strong>What it offers</strong>: Insights into international student performance in reading, math, and science, combined with contextual variables (e.g., socio-economic status).</li>
+<li><strong>LA Applications</strong>:
+<ul>
+<li>Identifying key factors influencing performance across countries.</li>
+<li>Predicting the impact of ICT use on student achievement.</li>
+<li>Segmenting students into performance clusters for targeted interventions.</li>
+</ul></li>
+</ul>
+</section>
+<section id="ipeds-data-and-learning-analytics" class="level5" data-number="6.3.5.2.2">
+<h5 data-number="6.3.5.2.2" class="anchored" data-anchor-id="ipeds-data-and-learning-analytics"><span class="header-section-number">6.3.5.2.2</span> <strong>2. IPEDS Data and Learning Analytics</strong></h5>
+<ul>
+<li><strong>What it offers</strong>: U.S. institutional-level data on enrollment, graduation rates, tuition, and financial aid.</li>
+<li><strong>LA Applications</strong>:
+<ul>
+<li>Analyzing trends in student demographics across institutions.</li>
+<li>Predicting enrollment patterns based on historical data.</li>
+<li>Benchmarking institutions to inform policymaking and funding decisions.</li>
+</ul></li>
+</ul>
+</section>
+<section id="oulad-and-learning-analytics" class="level5" data-number="6.3.5.2.3">
+<h5 data-number="6.3.5.2.3" class="anchored" data-anchor-id="oulad-and-learning-analytics"><span class="header-section-number">6.3.5.2.3</span> <strong>3. OULAD and Learning Analytics</strong></h5>
+<ul>
+<li><strong>What it offers</strong>: Rich data on student engagement with virtual learning environments (VLE), assessment scores, and demographic information.</li>
+<li><strong>LA Applications</strong>:
+<ul>
+<li>Tracking student interactions with learning resources to predict course completion.</li>
+<li>Modeling the relationship between VLE usage and final grades.</li>
+<li>Detecting early warning signs for at-risk students based on engagement metrics.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="why-learning-analytics-matters" class="level4" data-number="6.3.5.3">
+<h4 data-number="6.3.5.3" class="anchored" data-anchor-id="why-learning-analytics-matters"><span class="header-section-number">6.3.5.3</span> Why Learning Analytics Matters</h4>
+<p>The integration of <strong>Learning Analytics</strong> with big data enables researchers and practitioners to: - <strong>Personalize Learning</strong>: Tailor educational experiences to meet individual needs. - <strong>Improve Retention</strong>: Identify at-risk learners and implement timely interventions. - <strong>Enhance Decision-Making</strong>: Provide evidence-based recommendations for curriculum and policy adjustments.</p>
+<p>By leveraging datasets like PISA, IPEDS, and OULAD, learning analytics can help bridge the gap between raw data and actionable insights, fostering a more equitable and effective educational landscape. ```</p>
 
 
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -617,7 +1007,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./section-4.html" class="pagination-link" aria-label="Section 4  **Social Network Analyses (Relational Data)**">
+      <a href="./section-4.html" class="pagination-link" aria-label="Section 4 **Social Network Analyses (Relational Data)**">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Section 4 <strong>Social Network Analyses (Relational Data)</strong></span></span>
       </a>          
   </div>

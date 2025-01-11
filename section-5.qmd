@@ -1,3 +1,269 @@
 # Section 5 **Secondary Analysis of Big Data (Numeric Data)**
 
-**Abstract:** This section reviews how to access data that is primarily numeric/quantitative in nature, but from a different source and of a different nature than the data typically used by social scientists. Example data sets include international or national large-scale assessments (e.g., PISA, NAEP) and data from digital technologies (e.g., log-trace data from adaptive mathematics programs). 
+**Abstract:** This section reviews how to access data that is primarily numeric/quantitative in nature, but from a different source and of a different nature than the data typically used by social scientists. Example data sets include international or national large-scale assessments (e.g., PISA, NAEP) and data from digital technologies (e.g., log-trace data from Open University Learning Analytics Dataset (OULAD)). 
+
+## 5.1 Overview
+
+In social science research, data is traditionally sourced from small-scale surveys, experiments, or qualitative studies. However, the rise of big data offers researchers opportunities to explore numeric and quantitative datasets of unprecedented scale and variety. This chapter discusses how to access and analyze large-scale datasets like international assessments (e.g., PISA, NAEP) and digital log-trace data (e.g., Open University Learning Analytics Dataset (OULAD)). These secondary data sources enable novel research questions and methods, particularly when paired with machine learning and statistical modeling approaches.
+
+## 5.2 Accessing Big data (Broadening the Horizon)
+
+## 5.2.1 Big Data
+
+### Accessing PISA Data
+
+The Programme for International Student Assessment (PISA) is a widely used dataset for large-scale educational research. It assesses 15-year-old students' knowledge and skills in reading, mathematics, and science across multiple countries. Researchers can access PISA data through various methods:
+
+#### 1. **Direct Download from the Official Website**
+
+The OECD provides direct access to PISA data files via its official website. Researchers can download data for specific years and cycles. Data files are typically provided in `.csv` or `.sav` (SPSS) formats, along with detailed documentation.
+
+-   **Steps to Access PISA Data from the OECD Website:**
+    1.  Visit the [OECD PISA website](https://www.oecd.org/pisa/).
+    2.  Navigate to the "Data" section.
+    3.  Select the desired assessment year (e.g., 2022).
+    4.  Download the data and accompanying codebooks.
+
+#### 2. **Using the `OECD` R Package**
+
+The `OECD` R package provides a direct interface to download and explore datasets published by the OECD, including PISA.
+
+-   **Steps to Use the `OECD` Package:**
+    1.  Install and load the `OECD` package.
+    2.  Use the `getOECD()` function to fetch PISA data.
+
+```{r eval=FALSE}
+# Install and load the OECD package
+install.packages("OECD")
+library(OECD)
+
+# Fetch PISA data for the 2018 cycle
+pisa_data <- getOECD("pisa", years = "2022")
+
+# Display a summary of the data
+summary(pisa_data)
+```
+
+#### 3. **Using the `Edsurvey` R Package**
+
+The `Edsurvey` package is designed specifically for analyzing large-scale assessment data, including PISA. It allows for complex statistical modeling and supports handling weights and replicate weights used in PISA.
+
+-   **Steps to Use the `Edsurvey` Package:**
+    1.  Install and load the `Edsurvey` package.
+    2.  Download the PISA data from the OECD website and provide the path to the `.sav` files.
+    3.  Load the data into R using `readPISA()`.
+
+```{r eval=FALSE}
+# Install and load the Edsurvey package
+install.packages("Edsurvey")
+library(Edsurvey)
+
+# Read PISA data from a local file
+pisa_data <- readPISA("path/to/PISA2022Student.sav")
+
+# Display the structure of the dataset
+str(pisa_data)
+
+```
+
+#### Comparison of Methods
+
+| **Method** | **Advantages** | **Disadvantages** |
+|------------------------|------------------------|------------------------|
+| Direct Download | Full access to all raw data and documentation. | Requires manual processing and cleaning. |
+| `OECD` Package | Easy to use for downloading specific datasets. | Limited to OECD-published formats. |
+| `Edsurvey` Package | Supports advanced statistical analysis and weights. | Requires additional setup and dependencies. |
+
+### Accessing IPEDS Data
+
+The Integrated Postsecondary Education Data System (IPEDS) is a comprehensive source of data on U.S. colleges, universities, and technical and vocational institutions. It provides data on enrollments, completions, graduation rates, faculty, finances, and more. Researchers and policymakers widely use IPEDS data to analyze trends in higher education.
+
+There are several ways to access IPEDS data, depending on the user's needs and technical proficiency.
+
+#### 1. **Direct Download from the NCES Website**
+
+The most straightforward way to access IPEDS data is by downloading it directly from the National Center for Education Statistics (NCES) website.
+
+##### **Steps to Access IPEDS Data:**
+
+1.  Visit the [IPEDS Data Center](https://nces.ed.gov/ipeds/).
+2.  Click on "Use the Data" and navigate to the "Download IPEDS Data Files" section.
+3.  Select the desired data year and survey component (e.g., Fall Enrollment, Graduation Rates).
+4.  Download the data files, typically provided in `.csv` or `.xls` format, along with accompanying codebooks.
+
+#### 2. **Using the `ipeds` R Package**
+
+The `ipeds` R package simplifies downloading and analyzing IPEDS data directly from R by connecting to the NCES data repository.
+
+##### **Steps to Use the `ipeds` Package:**
+
+1.  Install and load the `ipeds` package.
+2.  Use the `download_ipeds()` function to fetch data for specific survey components and years.
+
+```{r eval=FALSE}
+# Install and load the ipeds package
+install.packages("ipeds")
+library(ipeds)
+
+# Download IPEDS data for completions in 2021
+ipeds_data <- download_ipeds("C", year = 2021)
+
+# View the structure of the downloaded data
+str(ipeds_data)
+```
+
+#### 3. **Using the `tidycensus` R Package**
+
+The `tidycensus` package, while primarily designed for Census data, can access specific IPEDS data linked to educational institutions.
+
+#### **Steps to Use the `tidycensus` Package:**
+
+1.  Install and load the `tidycensus` package.
+2.  Set up a Census API key to access the data.
+3.  Query IPEDS data for specific institution-level information.
+
+```{r eval=FALSE}
+# Install and load the tidycensus package
+install.packages("tidycensus")
+library(tidycensus)
+
+# Set Census API key (replace with your actual key)
+census_api_key("your_census_api_key")
+
+# Fetch IPEDS-related data (e.g., institution information)
+ipeds_institutions <- get_acs(
+  geography = "place",
+  variables = "B14002_003",
+  year = 2021,
+  survey = "acs5"
+)
+
+# View the first few rows
+head(ipeds_institutions)
+
+```
+
+#### 4. **Using Online Tools**
+
+IPEDS provides several online tools for querying and visualizing data without requiring programming skills.
+
+#### **Common Tools:**
+
+-   **IPEDS Data Explorer**: Enables users to query and export customized datasets.
+-   **Trend Generator**: Allows users to visualize trends in key metrics over time.
+-   **IPEDS Use the Data**: Simplified tool for accessing pre-compiled datasets.
+
+#### **Steps to Use the IPEDS Data Explorer:**
+
+1.  Visit the IPEDS Data Explorer.
+2.  Select variables of interest, such as institution type, enrollment size, or location.
+3.  Filter results by years, institution categories, or other criteria.
+4.  Export the results as a `.csv` or `.xlsx` file.
+
+#### Comparison of Methods
+
+| **Method** | **Advantages** | **Disadvantages** |
+|------------------------|------------------------|------------------------|
+| Direct Download | Full access to raw data and documentation. | Requires manual data preparation and cleaning. |
+| `ipeds` Package | Automated access to specific components. | Limited flexibility for customized queries. |
+| `tidycensus` Package | Allows integration with Census and ACS data. | Requires API setup and advanced R skills. |
+| Online Tools | User-friendly and suitable for non-coders. | Limited to predefined queries and exports. |
+
+### Accessing Open University Learning Analytics Dataset (OULAD)
+
+The **Open University Learning Analytics Dataset (OULAD)** is a publicly available dataset designed to support research in educational data mining and learning analytics. It includes student demographics, module information, interactions with the virtual learning environment (VLE), and assessment scores.
+
+### Steps to Access OULAD Data
+
+#### Visit the OULAD Repository\*\*
+
+The dataset is hosted on the [Open University’s Analytics Project](https://analyse.kmi.open.ac.uk/open_dataset). To access the data: 1. Navigate to the website. 2. Download the dataset as a `.zip` file. 3. Extract the `.zip` file to a local directory.
+
+The dataset contains multiple CSV files: - `studentInfo.csv`: Student demographics and performance data. - `studentVle.csv`: Interactions with the VLE. - `vle.csv`: Details of learning resources. - `studentAssessment.csv`: Assessment scores.
+
+#### Loading OULAD Data in R
+
+Once the data is downloaded and extracted, follow these steps to load and access it in R:
+
+##### **Step 1: Install Required Packages**
+
+```{r eval=FALSE}
+# Install necessary packages
+install.packages(c("readr", "dplyr"))
+```
+
+##### **Step 2: Load Data**
+
+Use the `readr` package to read the CSV files into R.
+
+```{r eval=FALSE}
+# Load required libraries
+library(readr)
+
+# Define the path to the OULAD data
+data_path <- "path/to/OULAD/"
+
+# Load individual CSV files
+student_info <- read_csv(file.path(data_path, "studentInfo.csv"))
+student_vle <- read_csv(file.path(data_path, "studentVle.csv"))
+vle <- read_csv(file.path(data_path, "vle.csv"))
+student_assessment <- read_csv(file.path(data_path, "studentAssessment.csv"))
+
+```
+
+##### **Step 3: Preview the Data**
+
+Inspect the structure and contents of the datasets.
+
+```{r eval=FALSE}
+# View the first few rows of student info
+head(student_info)
+
+# Check the structure of the student VLE data
+str(student_vle)
+```
+
+### 5.2.2 Learning Analytics
+
+#### What is Learning Analytics?
+
+**Learning Analytics (LA)** refers to the measurement, collection, analysis, and reporting of data about learners and their contexts. The primary goal of LA is to understand and improve learning processes by identifying patterns, predicting outcomes, and providing actionable insights to educators, institutions, and learners.
+
+Key features of LA include: - **Data Collection**: Gathering information from digital platforms such as learning management systems (LMS) or external assessments. - **Analysis**: Using machine learning, statistical methods, or visualization tools to reveal trends and patterns. - **Applications**: Supporting personalized learning, enhancing institutional decision-making, and improving curriculum design.
+
+
+#### Applications of Learning Analytics in Big Data
+
+Learning analytics can be applied to large-scale educational datasets like **PISA**, **IPEDS**, and **OULAD** to uncover trends, predict outcomes, and guide interventions.
+
+##### **1. PISA Data and Learning Analytics**
+
+-   **What it offers**: Insights into international student performance in reading, math, and science, combined with contextual variables (e.g., socio-economic status).
+-   **LA Applications**:
+    -   Identifying key factors influencing performance across countries.
+    -   Predicting the impact of ICT use on student achievement.
+    -   Segmenting students into performance clusters for targeted interventions.
+
+##### **2. IPEDS Data and Learning Analytics**
+
+-   **What it offers**: U.S. institutional-level data on enrollment, graduation rates, tuition, and financial aid.
+-   **LA Applications**:
+    -   Analyzing trends in student demographics across institutions.
+    -   Predicting enrollment patterns based on historical data.
+    -   Benchmarking institutions to inform policymaking and funding decisions.
+
+##### **3. OULAD and Learning Analytics**
+
+-   **What it offers**: Rich data on student engagement with virtual learning environments (VLE), assessment scores, and demographic information.
+-   **LA Applications**:
+    -   Tracking student interactions with learning resources to predict course completion.
+    -   Modeling the relationship between VLE usage and final grades.
+    -   Detecting early warning signs for at-risk students based on engagement metrics.
+
+
+
+#### Why Learning Analytics Matters
+
+The integration of **Learning Analytics** with big data enables researchers and practitioners to: - **Personalize Learning**: Tailor educational experiences to meet individual needs. - **Improve Retention**: Identify at-risk learners and implement timely interventions. - **Enhance Decision-Making**: Provide evidence-based recommendations for curriculum and policy adjustments.
+
+By leveraging datasets like PISA, IPEDS, and OULAD, learning analytics can help bridge the gap between raw data and actionable insights, fostering a more equitable and effective educational landscape. \`\`\`
