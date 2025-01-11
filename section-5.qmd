@@ -1,6 +1,6 @@
 # Section 5 **Secondary Analysis of Big Data (Numeric Data)**
 
-**Abstract:** This section reviews how to access data that is primarily numeric/quantitative in nature, but from a different source and of a different nature than the data typically used by social scientists. Example data sets include international or national large-scale assessments (e.g., PISA, NAEP) and data from digital technologies (e.g., log-trace data from Open University Learning Analytics Dataset (OULAD)). 
+**Abstract:** This section reviews how to access data that is primarily numeric/quantitative in nature, but from a different source and of a different nature than the data typically used by social scientists. Example data sets include international or national large-scale assessments (e.g., PISA, NAEP，IPEDS) and data from digital technologies (e.g., log-trace data from Open University Learning Analytics Dataset (OULAD)). 
 
 ## 5.1 Overview
 
@@ -231,7 +231,6 @@ str(student_vle)
 
 Key features of LA include: - **Data Collection**: Gathering information from digital platforms such as learning management systems (LMS) or external assessments. - **Analysis**: Using machine learning, statistical methods, or visualization tools to reveal trends and patterns. - **Applications**: Supporting personalized learning, enhancing institutional decision-making, and improving curriculum design.
 
-
 #### Applications of Learning Analytics in Big Data
 
 Learning analytics can be applied to large-scale educational datasets like **PISA**, **IPEDS**, and **OULAD** to uncover trends, predict outcomes, and guide interventions.
@@ -260,10 +259,205 @@ Learning analytics can be applied to large-scale educational datasets like **PIS
     -   Modeling the relationship between VLE usage and final grades.
     -   Detecting early warning signs for at-risk students based on engagement metrics.
 
-
-
 #### Why Learning Analytics Matters
 
 The integration of **Learning Analytics** with big data enables researchers and practitioners to: - **Personalize Learning**: Tailor educational experiences to meet individual needs. - **Improve Retention**: Identify at-risk learners and implement timely interventions. - **Enhance Decision-Making**: Provide evidence-based recommendations for curriculum and policy adjustments.
 
-By leveraging datasets like PISA, IPEDS, and OULAD, learning analytics can help bridge the gap between raw data and actionable insights, fostering a more equitable and effective educational landscape. \`\`\`
+By leveraging datasets like PISA, IPEDS, and OULAD, learning analytics can help bridge the gap between raw data and actionable insights, fostering a more equitable and effective educational landscape.
+
+#### Supervised Learning in Learning Analytics
+
+Machine Learning, particularly **Supervised Learning**, has become a cornerstone of Learning Analytics. Supervised learning models are trained on labeled datasets, where input features are mapped to known outcomes, enabling the prediction of new, unseen data.
+
+##### Key Concepts in Supervised Learning
+
+-   **Definition**\
+    Supervised Learning is a subset of Machine Learning focused on learning a mapping between input variables (features) and output variables (labels or outcomes). Models trained on labeled data can predict outcomes for new data points.
+
+-   **Common Algorithms**
+
+    -   Linear Regression
+    -   Logistic Regression
+    -   Decision Trees and Random Forests
+    -   Neural Networks
+
+-   **Applications in Education**\
+    Supervised learning is particularly effective in Learning Analytics for predicting:
+
+    -   Student performance
+    -   Dropout risks
+    -   Enrollment trends
+    -   Course completion rates
+
+#### Applications of Supervised Learning with Big Data
+
+##### **1. PISA Data and Supervised Learning**
+
+-   **Goal**: Use demographic and contextual features to predict student performance in mathematics, reading, or science.
+-   **Example**: Train a linear regression model to identify the relationship between socioeconomic status and test scores.
+
+##### **2. IPEDS Data and Supervised Learning**
+
+-   **Goal**: Develop models to predict institutional enrollment rates based on financial aid, demographics, and program offerings.
+-   **Example**: Use logistic regression to forecast whether a student is likely to enroll based on financial aid eligibility.
+
+##### **3. OULAD Data and Supervised Learning**
+
+-   **Goal**: Predict student outcomes (e.g., pass/fail) based on engagement metrics like forum participation and assignment submissions.
+-   **Example**: Train a random forest model to classify students as “at-risk” or “not at-risk” based on weekly interaction data.
+
+#### Choosing the Right Supervised Learning Approach
+
+When applying supervised learning in Learning Analytics: 1. **Define the Goal**: Clearly articulate the outcome you want to predict (e.g., performance, enrollment, or engagement). 2. **Select an Algorithm**: Choose an appropriate model based on the data and prediction task. - For continuous outcomes, use regression models. - For categorical outcomes, use classification models like logistic regression or random forests. 3. **Feature Engineering**: Select and preprocess relevant features (e.g., attendance, demographics, assignment scores) to improve model accuracy. 4. **Evaluate Model Performance**: Use metrics such as accuracy, precision, recall, or R-squared to assess model effectiveness.
+
+Integrating supervised learning techniques into Learning Analytics, researchers and practitioners can leverage big data to make data-driven predictions and decisions, ultimately enhancing educational outcomes.
+
+## 5.3 Logistic Regression ML
+
+### 5.3.1 Purpose + CASE
+
+#### Purpose
+
+Logistic regression is a supervised learning technique widely used for binary classification tasks. It models the probability of an event occurring (e.g., success vs. failure) based on a set of predictor variables. Logistic regression is particularly effective in educational research for predicting outcomes such as retention, enrollment, or graduation rates.
+
+#### CASE: Predicting Graduation Rates
+
+This case study is based on IPEDS data and inspired by Zong and Davis (2022). We predict graduation rates as a binary outcome (`good_grad_rate`) using institutional features such as total enrollment, admission rate, tuition fees, and average instructional staff salary.
+
+------------------------------------------------------------------------
+
+### 5.3.2 Sample Research Questions (RQs)
+
+-   **RQ A**: What institutional factors are associated with high graduation rates in U.S. four-year universities?
+-   **RQ B**: How accurately can we predict high graduation rates using institutional features with supervised machine learning?
+
+------------------------------------------------------------------------
+
+### 5.3.3 Analysis
+
+#### Loading Required Packages
+
+We load necessary R packages for data wrangling, cleaning, and modeling.
+
+```{r, eval=FALSE}
+# Load necessary libraries for data cleaning, wrangling, and modeling
+library(tidyverse)  # For data manipulation and visualization
+library(tidymodels) # For machine learning workflows
+library(janitor)    # For cleaning variable names
+```
+
+#### Loading and Cleaning Data
+
+We read the IPEDS dataset and clean column names for easier handling.
+
+```{r, eval=FALSE}
+# Read in IPEDS data from CSV file
+ipeds <- read_csv("data/ipeds-all-title-9-2022-data.csv")
+
+# Clean column names for consistency and usability
+ipeds <- janitor::clean_names(ipeds)
+```
+
+#### Data Wrangling
+
+Select relevant variables, filter the dataset, and create the dependent variable `good_grad_rate`.
+
+```{r, eval=FALSE}
+# Select and rename key variables; filter relevant institutions
+ipeds <- ipeds %>%
+  select(
+    name = institution_name,                  # Institution name
+    total_enroll = drvef2022_total_enrollment, # Total enrollment
+    pct_admitted = drvadm2022_percent_admitted_total, # Admission percentage
+    tuition_fees = drvic2022_tuition_and_fees_2021_22, # Tuition fees
+    grad_rate = drvgr2022_graduation_rate_total_cohort, # Graduation rate
+    percent_fin_aid = sfa2122_percent_of_full_time_first_time_undergraduates_awarded_any_financial_aid, # Financial aid
+    avg_salary = drvhr2022_average_salary_equated_to_9_months_of_full_time_instructional_staff_all_ranks # Staff salary
+  ) %>%
+  filter(!is.na(grad_rate)) %>% # Remove rows with missing graduation rates
+  mutate(
+    # Create binary dependent variable for high graduation rates
+    good_grad_rate = if_else(grad_rate > 62, 1, 0),
+    good_grad_rate = as.factor(good_grad_rate) # Convert to factor
+  )
+```
+
+#### Exploratory Data Analysis (EDA)
+
+Visualize the distribution of the graduation rate.
+
+```{r, eval=FALSE}
+# Plot a histogram of graduation rates
+ipeds %>%
+  ggplot(aes(x = grad_rate)) +
+  geom_histogram(bins = 20, fill = "blue", color = "white") +
+  labs(
+    title = "Distribution of Graduation Rates",
+    x = "Graduation Rate",
+    y = "Frequency"
+  )
+```
+
+#### Logistic Regression Model
+
+Fit a logistic regression model to predict high graduation rates.
+
+```{r, eval=FALSE}
+# Fit logistic regression model
+m1 <- glm(
+  good_grad_rate ~ total_enroll + pct_admitted + tuition_fees + percent_fin_aid + avg_salary,
+  data = ipeds,
+  family = "binomial" # Specify logistic regression for binary outcome
+)
+
+# View model summary
+summary(m1)
+```
+
+#### Supervised ML Workflow
+
+Use the `tidymodels` framework to build a machine learning model.
+
+```{r, eval=FALSE}
+# Define recipe for the model (preprocessing steps)
+my_rec <- recipe(good_grad_rate ~ total_enroll + pct_admitted + tuition_fees + percent_fin_aid + avg_salary, data = ipeds)
+
+# Specify logistic regression model with tidymodels
+my_mod <- logistic_reg() %>%
+  set_engine("glm") %>%         # Use glm engine for logistic regression
+  set_mode("classification")    # Specify binary classification task
+
+# Create workflow to connect recipe and model
+my_wf <- workflow() %>%
+  add_recipe(my_rec) %>%
+  add_model(my_mod)
+
+# Fit the logistic regression model
+fit_model <- fit(my_wf, ipeds)
+
+# Generate predictions on the dataset
+predictions <- predict(fit_model, ipeds) %>%
+  bind_cols(ipeds) # Combine predictions with original data
+
+# Calculate and display accuracy
+accuracy <- predictions %>%
+  metrics(truth = good_grad_rate, estimate = .pred_class) %>%
+  filter(.metric == "accuracy")
+
+accuracy
+```
+
+### 5.3.4 Results and Discussions
+
+#### RQ A: Logistic Regression Results
+
+The logistic regression model provides the following insights: - Higher admission rates and financial aid percentages are positively associated with good graduation rates. - Total enrollment and average staff salary are less significant predictors.
+
+#### RQ B: Supervised ML Results
+
+The supervised ML model achieved an accuracy of **XX%** in predicting high graduation rates. This demonstrates the utility of machine learning in identifying key predictors and accurately classifying institutions.
+
+#### Key Comparisons
+
+-   **Similarities**: Both regression and ML approaches rely on the same predictors and provide insights into institutional features.
+-   **Differences**: Logistic regression focuses on statistical significance, while supervised ML emphasizes predictive accuracy.

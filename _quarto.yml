@@ -5,7 +5,7 @@ project:
 book:
   title: "Computational Social Science Cookbook with R"
   author: "Wei Wang, Mete Akcaoglu, Joshua Rosenberg, Shaun Kellogg"
-  date: "11/8/2024"
+  date: "`r format(Sys.Date(),'%B %e, %Y')`"
   chapters:
     - index.qmd
     - section-1.qmd

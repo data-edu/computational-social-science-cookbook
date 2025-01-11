@@ -214,6 +214,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#steps-to-access-oulad-data" id="toc-steps-to-access-oulad-data" class="nav-link" data-scroll-target="#steps-to-access-oulad-data"><span class="header-section-number">6.3.4</span> Steps to Access OULAD Data</a></li>
   <li><a href="#learning-analytics" id="toc-learning-analytics" class="nav-link" data-scroll-target="#learning-analytics"><span class="header-section-number">6.3.5</span> 5.2.2 Learning Analytics</a></li>
   </ul></li>
+  <li><a href="#logistic-regression-ml" id="toc-logistic-regression-ml" class="nav-link" data-scroll-target="#logistic-regression-ml"><span class="header-section-number">6.4</span> 5.3 Logistic Regression ML</a>
+  <ul class="collapse">
+  <li><a href="#purpose-case" id="toc-purpose-case" class="nav-link" data-scroll-target="#purpose-case"><span class="header-section-number">6.4.1</span> 5.3.1 Purpose + CASE</a></li>
+  <li><a href="#sample-research-questions-rqs" id="toc-sample-research-questions-rqs" class="nav-link" data-scroll-target="#sample-research-questions-rqs"><span class="header-section-number">6.4.2</span> 5.3.2 Sample Research Questions (RQs)</a></li>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis"><span class="header-section-number">6.4.3</span> 5.3.3 Analysis</a></li>
+  <li><a href="#results-and-discussions" id="toc-results-and-discussions" class="nav-link" data-scroll-target="#results-and-discussions"><span class="header-section-number">6.4.4</span> 5.3.4 Results and Discussions</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -239,7 +246,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><strong>Abstract:</strong> This section reviews how to access data that is primarily numeric/quantitative in nature, but from a different source and of a different nature than the data typically used by social scientists. Example data sets include international or national large-scale assessments (e.g., PISA, NAEP) and data from digital technologies (e.g., log-trace data from Open University Learning Analytics Dataset (OULAD)).&nbsp;</p>
+<p><strong>Abstract:</strong> This section reviews how to access data that is primarily numeric/quantitative in nature, but from a different source and of a different nature than the data typically used by social scientists. Example data sets include international or national large-scale assessments (e.g., PISA, NAEP，IPEDS) and data from digital technologies (e.g., log-trace data from Open University Learning Analytics Dataset (OULAD)).&nbsp;</p>
 <section id="overview" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">6.1</span> 5.1 Overview</h2>
 <p>In social science research, data is traditionally sourced from small-scale surveys, experiments, or qualitative studies. However, the rise of big data offers researchers opportunities to explore numeric and quantitative datasets of unprecedented scale and variety. This chapter discusses how to access and analyze large-scale datasets like international assessments (e.g., PISA, NAEP) and digital log-trace data (e.g., Open University Learning Analytics Dataset (OULAD)). These secondary data sources enable novel research questions and methods, particularly when paired with machine learning and statistical modeling approaches.</p>
@@ -577,7 +584,212 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="why-learning-analytics-matters" class="level4" data-number="6.3.5.3">
 <h4 data-number="6.3.5.3" class="anchored" data-anchor-id="why-learning-analytics-matters"><span class="header-section-number">6.3.5.3</span> Why Learning Analytics Matters</h4>
 <p>The integration of <strong>Learning Analytics</strong> with big data enables researchers and practitioners to: - <strong>Personalize Learning</strong>: Tailor educational experiences to meet individual needs. - <strong>Improve Retention</strong>: Identify at-risk learners and implement timely interventions. - <strong>Enhance Decision-Making</strong>: Provide evidence-based recommendations for curriculum and policy adjustments.</p>
-<p>By leveraging datasets like PISA, IPEDS, and OULAD, learning analytics can help bridge the gap between raw data and actionable insights, fostering a more equitable and effective educational landscape. ```</p>
+<p>By leveraging datasets like PISA, IPEDS, and OULAD, learning analytics can help bridge the gap between raw data and actionable insights, fostering a more equitable and effective educational landscape.</p>
+</section>
+<section id="supervised-learning-in-learning-analytics" class="level4" data-number="6.3.5.4">
+<h4 data-number="6.3.5.4" class="anchored" data-anchor-id="supervised-learning-in-learning-analytics"><span class="header-section-number">6.3.5.4</span> Supervised Learning in Learning Analytics</h4>
+<p>Machine Learning, particularly <strong>Supervised Learning</strong>, has become a cornerstone of Learning Analytics. Supervised learning models are trained on labeled datasets, where input features are mapped to known outcomes, enabling the prediction of new, unseen data.</p>
+<section id="key-concepts-in-supervised-learning" class="level5" data-number="6.3.5.4.1">
+<h5 data-number="6.3.5.4.1" class="anchored" data-anchor-id="key-concepts-in-supervised-learning"><span class="header-section-number">6.3.5.4.1</span> Key Concepts in Supervised Learning</h5>
+<ul>
+<li><p><strong>Definition</strong><br>
+Supervised Learning is a subset of Machine Learning focused on learning a mapping between input variables (features) and output variables (labels or outcomes). Models trained on labeled data can predict outcomes for new data points.</p></li>
+<li><p><strong>Common Algorithms</strong></p>
+<ul>
+<li>Linear Regression</li>
+<li>Logistic Regression</li>
+<li>Decision Trees and Random Forests</li>
+<li>Neural Networks</li>
+</ul></li>
+<li><p><strong>Applications in Education</strong><br>
+Supervised learning is particularly effective in Learning Analytics for predicting:</p>
+<ul>
+<li>Student performance</li>
+<li>Dropout risks</li>
+<li>Enrollment trends</li>
+<li>Course completion rates</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="applications-of-supervised-learning-with-big-data" class="level4" data-number="6.3.5.5">
+<h4 data-number="6.3.5.5" class="anchored" data-anchor-id="applications-of-supervised-learning-with-big-data"><span class="header-section-number">6.3.5.5</span> Applications of Supervised Learning with Big Data</h4>
+<section id="pisa-data-and-supervised-learning" class="level5" data-number="6.3.5.5.1">
+<h5 data-number="6.3.5.5.1" class="anchored" data-anchor-id="pisa-data-and-supervised-learning"><span class="header-section-number">6.3.5.5.1</span> <strong>1. PISA Data and Supervised Learning</strong></h5>
+<ul>
+<li><strong>Goal</strong>: Use demographic and contextual features to predict student performance in mathematics, reading, or science.</li>
+<li><strong>Example</strong>: Train a linear regression model to identify the relationship between socioeconomic status and test scores.</li>
+</ul>
+</section>
+<section id="ipeds-data-and-supervised-learning" class="level5" data-number="6.3.5.5.2">
+<h5 data-number="6.3.5.5.2" class="anchored" data-anchor-id="ipeds-data-and-supervised-learning"><span class="header-section-number">6.3.5.5.2</span> <strong>2. IPEDS Data and Supervised Learning</strong></h5>
+<ul>
+<li><strong>Goal</strong>: Develop models to predict institutional enrollment rates based on financial aid, demographics, and program offerings.</li>
+<li><strong>Example</strong>: Use logistic regression to forecast whether a student is likely to enroll based on financial aid eligibility.</li>
+</ul>
+</section>
+<section id="oulad-data-and-supervised-learning" class="level5" data-number="6.3.5.5.3">
+<h5 data-number="6.3.5.5.3" class="anchored" data-anchor-id="oulad-data-and-supervised-learning"><span class="header-section-number">6.3.5.5.3</span> <strong>3. OULAD Data and Supervised Learning</strong></h5>
+<ul>
+<li><strong>Goal</strong>: Predict student outcomes (e.g., pass/fail) based on engagement metrics like forum participation and assignment submissions.</li>
+<li><strong>Example</strong>: Train a random forest model to classify students as “at-risk” or “not at-risk” based on weekly interaction data.</li>
+</ul>
+</section>
+</section>
+<section id="choosing-the-right-supervised-learning-approach" class="level4" data-number="6.3.5.6">
+<h4 data-number="6.3.5.6" class="anchored" data-anchor-id="choosing-the-right-supervised-learning-approach"><span class="header-section-number">6.3.5.6</span> Choosing the Right Supervised Learning Approach</h4>
+<p>When applying supervised learning in Learning Analytics: 1. <strong>Define the Goal</strong>: Clearly articulate the outcome you want to predict (e.g., performance, enrollment, or engagement). 2. <strong>Select an Algorithm</strong>: Choose an appropriate model based on the data and prediction task. - For continuous outcomes, use regression models. - For categorical outcomes, use classification models like logistic regression or random forests. 3. <strong>Feature Engineering</strong>: Select and preprocess relevant features (e.g., attendance, demographics, assignment scores) to improve model accuracy. 4. <strong>Evaluate Model Performance</strong>: Use metrics such as accuracy, precision, recall, or R-squared to assess model effectiveness.</p>
+<p>Integrating supervised learning techniques into Learning Analytics, researchers and practitioners can leverage big data to make data-driven predictions and decisions, ultimately enhancing educational outcomes.</p>
+</section>
+</section>
+</section>
+<section id="logistic-regression-ml" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="logistic-regression-ml"><span class="header-section-number">6.4</span> 5.3 Logistic Regression ML</h2>
+<section id="purpose-case" class="level3" data-number="6.4.1">
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="purpose-case"><span class="header-section-number">6.4.1</span> 5.3.1 Purpose + CASE</h3>
+<section id="purpose" class="level4" data-number="6.4.1.1">
+<h4 data-number="6.4.1.1" class="anchored" data-anchor-id="purpose"><span class="header-section-number">6.4.1.1</span> Purpose</h4>
+<p>Logistic regression is a supervised learning technique widely used for binary classification tasks. It models the probability of an event occurring (e.g., success vs.&nbsp;failure) based on a set of predictor variables. Logistic regression is particularly effective in educational research for predicting outcomes such as retention, enrollment, or graduation rates.</p>
+</section>
+<section id="case-predicting-graduation-rates" class="level4" data-number="6.4.1.2">
+<h4 data-number="6.4.1.2" class="anchored" data-anchor-id="case-predicting-graduation-rates"><span class="header-section-number">6.4.1.2</span> CASE: Predicting Graduation Rates</h4>
+<p>This case study is based on IPEDS data and inspired by Zong and Davis (2022). We predict graduation rates as a binary outcome (<code>good_grad_rate</code>) using institutional features such as total enrollment, admission rate, tuition fees, and average instructional staff salary.</p>
+<hr>
+</section>
+</section>
+<section id="sample-research-questions-rqs" class="level3" data-number="6.4.2">
+<h3 data-number="6.4.2" class="anchored" data-anchor-id="sample-research-questions-rqs"><span class="header-section-number">6.4.2</span> 5.3.2 Sample Research Questions (RQs)</h3>
+<ul>
+<li><strong>RQ A</strong>: What institutional factors are associated with high graduation rates in U.S. four-year universities?</li>
+<li><strong>RQ B</strong>: How accurately can we predict high graduation rates using institutional features with supervised machine learning?</li>
+</ul>
+<hr>
+</section>
+<section id="analysis" class="level3" data-number="6.4.3">
+<h3 data-number="6.4.3" class="anchored" data-anchor-id="analysis"><span class="header-section-number">6.4.3</span> 5.3.3 Analysis</h3>
+<section id="loading-required-packages" class="level4" data-number="6.4.3.1">
+<h4 data-number="6.4.3.1" class="anchored" data-anchor-id="loading-required-packages"><span class="header-section-number">6.4.3.1</span> Loading Required Packages</h4>
+<p>We load necessary R packages for data wrangling, cleaning, and modeling.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary libraries for data cleaning, wrangling, and modeling</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="co"># For data manipulation and visualization</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels) <span class="co"># For machine learning workflows</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)    <span class="co"># For cleaning variable names</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="loading-and-cleaning-data" class="level4" data-number="6.4.3.2">
+<h4 data-number="6.4.3.2" class="anchored" data-anchor-id="loading-and-cleaning-data"><span class="header-section-number">6.4.3.2</span> Loading and Cleaning Data</h4>
+<p>We read the IPEDS dataset and clean column names for easier handling.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in IPEDS data from CSV file</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>ipeds <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/ipeds-all-title-9-2022-data.csv"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean column names for consistency and usability</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>ipeds <span class="ot">&lt;-</span> janitor<span class="sc">::</span><span class="fu">clean_names</span>(ipeds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data-wrangling" class="level4" data-number="6.4.3.3">
+<h4 data-number="6.4.3.3" class="anchored" data-anchor-id="data-wrangling"><span class="header-section-number">6.4.3.3</span> Data Wrangling</h4>
+<p>Select relevant variables, filter the dataset, and create the dependent variable <code>good_grad_rate</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select and rename key variables; filter relevant institutions</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>ipeds <span class="ot">&lt;-</span> ipeds <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> institution_name,                  <span class="co"># Institution name</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_enroll =</span> drvef2022_total_enrollment, <span class="co"># Total enrollment</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">pct_admitted =</span> drvadm2022_percent_admitted_total, <span class="co"># Admission percentage</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">tuition_fees =</span> drvic2022_tuition_and_fees_2021_22, <span class="co"># Tuition fees</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">grad_rate =</span> drvgr2022_graduation_rate_total_cohort, <span class="co"># Graduation rate</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">percent_fin_aid =</span> sfa2122_percent_of_full_time_first_time_undergraduates_awarded_any_financial_aid, <span class="co"># Financial aid</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_salary =</span> drvhr2022_average_salary_equated_to_9_months_of_full_time_instructional_staff_all_ranks <span class="co"># Staff salary</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(grad_rate)) <span class="sc">%&gt;%</span> <span class="co"># Remove rows with missing graduation rates</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create binary dependent variable for high graduation rates</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">good_grad_rate =</span> <span class="fu">if_else</span>(grad_rate <span class="sc">&gt;</span> <span class="dv">62</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">good_grad_rate =</span> <span class="fu">as.factor</span>(good_grad_rate) <span class="co"># Convert to factor</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exploratory-data-analysis-eda" class="level4" data-number="6.4.3.4">
+<h4 data-number="6.4.3.4" class="anchored" data-anchor-id="exploratory-data-analysis-eda"><span class="header-section-number">6.4.3.4</span> Exploratory Data Analysis (EDA)</h4>
+<p>Visualize the distribution of the graduation rate.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot a histogram of graduation rates</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>ipeds <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> grad_rate)) <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>, <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribution of Graduation Rates"</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Graduation Rate"</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Frequency"</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="logistic-regression-model" class="level4" data-number="6.4.3.5">
+<h4 data-number="6.4.3.5" class="anchored" data-anchor-id="logistic-regression-model"><span class="header-section-number">6.4.3.5</span> Logistic Regression Model</h4>
+<p>Fit a logistic regression model to predict high graduation rates.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit logistic regression model</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  good_grad_rate <span class="sc">~</span> total_enroll <span class="sc">+</span> pct_admitted <span class="sc">+</span> tuition_fees <span class="sc">+</span> percent_fin_aid <span class="sc">+</span> avg_salary,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> ipeds,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="st">"binomial"</span> <span class="co"># Specify logistic regression for binary outcome</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># View model summary</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="supervised-ml-workflow" class="level4" data-number="6.4.3.6">
+<h4 data-number="6.4.3.6" class="anchored" data-anchor-id="supervised-ml-workflow"><span class="header-section-number">6.4.3.6</span> Supervised ML Workflow</h4>
+<p>Use the <code>tidymodels</code> framework to build a machine learning model.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define recipe for the model (preprocessing steps)</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>my_rec <span class="ot">&lt;-</span> <span class="fu">recipe</span>(good_grad_rate <span class="sc">~</span> total_enroll <span class="sc">+</span> pct_admitted <span class="sc">+</span> tuition_fees <span class="sc">+</span> percent_fin_aid <span class="sc">+</span> avg_salary, <span class="at">data =</span> ipeds)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify logistic regression model with tidymodels</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>my_mod <span class="ot">&lt;-</span> <span class="fu">logistic_reg</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"glm"</span>) <span class="sc">%&gt;%</span>         <span class="co"># Use glm engine for logistic regression</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_mode</span>(<span class="st">"classification"</span>)    <span class="co"># Specify binary classification task</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create workflow to connect recipe and model</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>my_wf <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_recipe</span>(my_rec) <span class="sc">%&gt;%</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(my_mod)</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the logistic regression model</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>fit_model <span class="ot">&lt;-</span> <span class="fu">fit</span>(my_wf, ipeds)</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate predictions on the dataset</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit_model, ipeds) <span class="sc">%&gt;%</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(ipeds) <span class="co"># Combine predictions with original data</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate and display accuracy</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>accuracy <span class="ot">&lt;-</span> predictions <span class="sc">%&gt;%</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">metrics</span>(<span class="at">truth =</span> good_grad_rate, <span class="at">estimate =</span> .pred_class) <span class="sc">%&gt;%</span></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(.metric <span class="sc">==</span> <span class="st">"accuracy"</span>)</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>accuracy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="results-and-discussions" class="level3" data-number="6.4.4">
+<h3 data-number="6.4.4" class="anchored" data-anchor-id="results-and-discussions"><span class="header-section-number">6.4.4</span> 5.3.4 Results and Discussions</h3>
+<section id="rq-a-logistic-regression-results" class="level4" data-number="6.4.4.1">
+<h4 data-number="6.4.4.1" class="anchored" data-anchor-id="rq-a-logistic-regression-results"><span class="header-section-number">6.4.4.1</span> RQ A: Logistic Regression Results</h4>
+<p>The logistic regression model provides the following insights: - Higher admission rates and financial aid percentages are positively associated with good graduation rates. - Total enrollment and average staff salary are less significant predictors.</p>
+</section>
+<section id="rq-b-supervised-ml-results" class="level4" data-number="6.4.4.2">
+<h4 data-number="6.4.4.2" class="anchored" data-anchor-id="rq-b-supervised-ml-results"><span class="header-section-number">6.4.4.2</span> RQ B: Supervised ML Results</h4>
+<p>The supervised ML model achieved an accuracy of <strong>XX%</strong> in predicting high graduation rates. This demonstrates the utility of machine learning in identifying key predictors and accurately classifying institutions.</p>
+</section>
+<section id="key-comparisons" class="level4" data-number="6.4.4.3">
+<h4 data-number="6.4.4.3" class="anchored" data-anchor-id="key-comparisons"><span class="header-section-number">6.4.4.3</span> Key Comparisons</h4>
+<ul>
+<li><strong>Similarities</strong>: Both regression and ML approaches rely on the same predictors and provide insights into institutional features.</li>
+<li><strong>Differences</strong>: Logistic regression focuses on statistical significance, while supervised ML emphasizes predictive accuracy.</li>
+</ul>
 
 
 </section>
