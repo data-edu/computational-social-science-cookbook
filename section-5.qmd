@@ -8,13 +8,13 @@ In social science research, data is traditionally sourced from small-scale surve
 
 ## 5.2 Accessing Big data (Broadening the Horizon)
 
-## 5.2.1 Big Data
+### 5.2.1 Big Data
 
-### Accessing PISA Data
+#### Accessing PISA Data
 
 The Programme for International Student Assessment (PISA) is a widely used dataset for large-scale educational research. It assesses 15-year-old students' knowledge and skills in reading, mathematics, and science across multiple countries. Researchers can access PISA data through various methods:
 
-#### 1. **Direct Download from the Official Website**
+##### 1. **Direct Download from the Official Website**
 
 The OECD provides direct access to PISA data files via its official website. Researchers can download data for specific years and cycles. Data files are typically provided in `.csv` or `.sav` (SPSS) formats, along with detailed documentation.
 
@@ -24,7 +24,7 @@ The OECD provides direct access to PISA data files via its official website. Res
     3.  Select the desired assessment year (e.g., 2022).
     4.  Download the data and accompanying codebooks.
 
-#### 2. **Using the `OECD` R Package**
+##### 2. **Using the `OECD` R Package**
 
 The `OECD` R package provides a direct interface to download and explore datasets published by the OECD, including PISA.
 
@@ -44,7 +44,7 @@ pisa_data <- getOECD("pisa", years = "2022")
 summary(pisa_data)
 ```
 
-#### 3. **Using the `Edsurvey` R Package**
+##### 3. **Using the `Edsurvey` R Package**
 
 The `Edsurvey` package is designed specifically for analyzing large-scale assessment data, including PISA. It allows for complex statistical modeling and supports handling weights and replicate weights used in PISA.
 
@@ -66,7 +66,7 @@ str(pisa_data)
 
 ```
 
-#### Comparison of Methods
+##### Comparison of Methods
 
 | **Method** | **Advantages** | **Disadvantages** |
 |------------------------|------------------------|------------------------|
@@ -74,13 +74,13 @@ str(pisa_data)
 | `OECD` Package | Easy to use for downloading specific datasets. | Limited to OECD-published formats. |
 | `Edsurvey` Package | Supports advanced statistical analysis and weights. | Requires additional setup and dependencies. |
 
-### Accessing IPEDS Data
+#### Accessing IPEDS Data
 
 The Integrated Postsecondary Education Data System (IPEDS) is a comprehensive source of data on U.S. colleges, universities, and technical and vocational institutions. It provides data on enrollments, completions, graduation rates, faculty, finances, and more. Researchers and policymakers widely use IPEDS data to analyze trends in higher education.
 
 There are several ways to access IPEDS data, depending on the user's needs and technical proficiency.
 
-#### 1. **Direct Download from the NCES Website**
+##### 1. **Direct Download from the NCES Website**
 
 The most straightforward way to access IPEDS data is by downloading it directly from the National Center for Education Statistics (NCES) website.
 
@@ -91,7 +91,7 @@ The most straightforward way to access IPEDS data is by downloading it directly 
 3.  Select the desired data year and survey component (e.g., Fall Enrollment, Graduation Rates).
 4.  Download the data files, typically provided in `.csv` or `.xls` format, along with accompanying codebooks.
 
-#### 2. **Using the `ipeds` R Package**
+##### 2. **Using the `ipeds` R Package**
 
 The `ipeds` R package simplifies downloading and analyzing IPEDS data directly from R by connecting to the NCES data repository.
 
@@ -112,11 +112,11 @@ ipeds_data <- download_ipeds("C", year = 2021)
 str(ipeds_data)
 ```
 
-#### 3. **Using the `tidycensus` R Package**
+##### 3. **Using the `tidycensus` R Package**
 
 The `tidycensus` package, while primarily designed for Census data, can access specific IPEDS data linked to educational institutions.
 
-#### **Steps to Use the `tidycensus` Package:**
+##### **Steps to Use the `tidycensus` Package:**
 
 1.  Install and load the `tidycensus` package.
 2.  Set up a Census API key to access the data.
@@ -143,24 +143,24 @@ head(ipeds_institutions)
 
 ```
 
-#### 4. **Using Online Tools**
+##### 4. **Using Online Tools**
 
 IPEDS provides several online tools for querying and visualizing data without requiring programming skills.
 
-#### **Common Tools:**
+##### **Common Tools:**
 
 -   **IPEDS Data Explorer**: Enables users to query and export customized datasets.
 -   **Trend Generator**: Allows users to visualize trends in key metrics over time.
 -   **IPEDS Use the Data**: Simplified tool for accessing pre-compiled datasets.
 
-#### **Steps to Use the IPEDS Data Explorer:**
+##### **Steps to Use the IPEDS Data Explorer:**
 
 1.  Visit the IPEDS Data Explorer.
 2.  Select variables of interest, such as institution type, enrollment size, or location.
 3.  Filter results by years, institution categories, or other criteria.
 4.  Export the results as a `.csv` or `.xlsx` file.
 
-#### Comparison of Methods
+##### Comparison of Methods
 
 | **Method** | **Advantages** | **Disadvantages** |
 |------------------------|------------------------|------------------------|
@@ -169,19 +169,19 @@ IPEDS provides several online tools for querying and visualizing data without re
 | `tidycensus` Package | Allows integration with Census and ACS data. | Requires API setup and advanced R skills. |
 | Online Tools | User-friendly and suitable for non-coders. | Limited to predefined queries and exports. |
 
-### Accessing Open University Learning Analytics Dataset (OULAD)
+#### Accessing Open University Learning Analytics Dataset (OULAD)
 
 The **Open University Learning Analytics Dataset (OULAD)** is a publicly available dataset designed to support research in educational data mining and learning analytics. It includes student demographics, module information, interactions with the virtual learning environment (VLE), and assessment scores.
 
-### Steps to Access OULAD Data
+#### Steps to Access OULAD Data
 
-#### Visit the OULAD Repository\*\*
+##### Visit the OULAD Repository\*\*
 
 The dataset is hosted on the [Open University’s Analytics Project](https://analyse.kmi.open.ac.uk/open_dataset). To access the data: 1. Navigate to the website. 2. Download the dataset as a `.zip` file. 3. Extract the `.zip` file to a local directory.
 
 The dataset contains multiple CSV files: - `studentInfo.csv`: Student demographics and performance data. - `studentVle.csv`: Interactions with the VLE. - `vle.csv`: Details of learning resources. - `studentAssessment.csv`: Assessment scores.
 
-#### Loading OULAD Data in R
+##### Loading OULAD Data in R
 
 Once the data is downloaded and extracted, follow these steps to load and access it in R:
 
@@ -324,14 +324,12 @@ Logistic regression is a supervised learning technique widely used for binary cl
 
 This case study is based on IPEDS data and inspired by Zong and Davis (2022). We predict graduation rates as a binary outcome (`good_grad_rate`) using institutional features such as total enrollment, admission rate, tuition fees, and average instructional staff salary.
 
-------------------------------------------------------------------------
 
 ### 5.3.2 Sample Research Questions (RQs)
 
 -   **RQ A**: What institutional factors are associated with high graduation rates in U.S. four-year universities?
 -   **RQ B**: How accurately can we predict high graduation rates using institutional features with supervised machine learning?
 
-------------------------------------------------------------------------
 
 ### 5.3.3 Analysis
 
