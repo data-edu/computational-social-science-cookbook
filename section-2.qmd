@@ -1,4 +1,4 @@
-# Section 2 : **Capturing and Analyzing Text Data with Computational Methods**
+# Section 2 **Capturing and Analyzing Text Data with Computational Methods**
 
 ## 2.1 Overview
 
