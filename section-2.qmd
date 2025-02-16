@@ -1,4 +1,4 @@
-# Section 2 : Capturing and Analyzing Text Data with Computational Methods 
+# Section 2 : Capturing and Analyzing Text Data with Computational Methods
 
 ## 2.1 Overview
 
@@ -657,7 +657,7 @@ ggplot(perplexities, aes(x = k, y = perplexity)) +
 
 ```
 
-#### Step 3: Fit the LDA Model 
+#### Step 3: Fit the LDA Model
 
 Fit an LDA model with `k = 3` topics.
 
@@ -675,7 +675,7 @@ gpt_policy_topics_k3 <- tidy(lda_model, matrix = "beta")
 print(gpt_policy_topics_k3)
 ```
 
-#### Step 4:  Visualize Topics
+#### Step 4: Visualize Topics
 
 Extract the top terms for each topic and visualize them.
 

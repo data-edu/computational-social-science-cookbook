@@ -22,9 +22,11 @@ bibliography: [references.bib, packages.bib]
 format:
   html:
     theme: flatly
+    number-sections: false   # Turn off HTML autonumbering
   pdf:
     documentclass: scrreprt
     pdf-engine: xelatex
+    number-sections: false   # Turn off PDF autonumbering
 
 editor: visual
 
