@@ -364,24 +364,36 @@ Surveys and discussion posts are valuable sources of text data in social science
 
 ## 2.3 Frequency-based Analysis
 
-### 2.3.1 Purpose + Case
+In the following section, we will provide a "recipe" for the social scientist interested in these new methods of analyzing text data to get you from the initial stages of getting the data to running the analyses and the write up. Often left out is also a research question that suits or requires a method. Since we have a data and method-centric approach here, we will backtrack and also provide a research question, so that you can model after it in your own work. Finally, we will provide a sample results and discussions section.
 
-The purpose of the frequency-based approach is to count the number of words as they appear in a text file, whether it is a collection of tweets, documents, or interview transcripts. This approach aligns with the frequency-coding method (Saldana) and can supplement human coding by revealing the most/least commonly occurring words, which can then be compared across dependent variables.
+### 2.3.1 Purpose
+
+The purpose of the frequency-based approach is to count the number of words as they appear in a text file, whether it is a collection of tweets, documents, or interview transcripts. This approach aligns with the frequency-coding method (e.g., Saldana) and can supplement human coding by revealing the most/least commonly occurring words, which can then be compared across dependent variables.
 
 #### Case Study: Frequency-Based Analysis of GenAI USage Guidelines in Higher Education
 
-As AI writing tools like ChatGPT become more prevalent, educators are working to understand how best to integrate them within academic settings, while many students and instructors remain uncertain about current allowances. Our research into AI usage guidelines from the top 100 universities in North America aims to identify prominent themes and concerns in institutional policies regarding GenAI.
-
-#### Data Source
-
-The dataset consists of publicly available AI policy texts from 100 universities(USA), the data has been downloaded and saved as a CSV file for analysis.
+As AI writing tools like ChatGPT become more prevalent, educators are working to understand how best to integrate them within academic settings, while many students and instructors remain uncertain about acceptable use cases. Our research into AI usage guidelines from the top 100 universities in North America aims to identify prominent themes and concerns in institutional policies regarding GenAI.
 
 ### 2.3.2 Sample Research Questions
+
+To investigate the nature of AI use policies within higher education institutions, in this study, our research questions are:
 
 -   **RQ1**: What are the most frequently mentioned words in university GenAI writing usage policies?
 -   **RQ2**: Which keywords reflect common concerns or focal points related to GenAI writing usage in academic settings?
 
-### 2.3.3 Analysis
+### 2.3.3 Sample Methods
+
+#### Data Source
+
+The dataset consists of publicly available AI policy texts from 100 universities(USA), the data has been downloaded and saved as a CSV file for analysis. –we might have to write more here to model how a research should be describing the data from its acquisition to use for research.
+
+#### Data Analysis
+
+In order to analyze the data we used xyz, —-let's provide a sample write up for the researcher to adapt.
+
+####  
+
+### 2.3.4 Analysis
 
 ##### Step 1: Load Required Libraries
 
@@ -464,21 +476,23 @@ policy_word_chart <- ggplot(top_words, aes(x = reorder(word, n), y = n, fill = w
 print(policy_word_chart)
 ```
 
-### 2.3.4 Results and Discussions
+### 2.3.5 Results and Discussions
 
 -   **RQ1**: What are the most frequently mentioned words in university GenAI writing usage policies?\
-    The frequency analysis shows that keywords such as "assignment," "student," and "writing" are among the most commonly mentioned terms across AI policies at 100 universities. This emphasis reflects a focus on using AI tools to support student learning and enhance teaching content. The frequent mention of these words suggests that institutions are considering the role of AI in academic assignments and course design, indicating a strategic commitment to integrating AI within educational tasks and student interactions.
+    The results of the frequency analysis showed that keywords such as "assignment," "student," and "writing" were among the most commonly mentioned terms across AI policies at 100 universities. This emphasis reflects a focus on using AI tools to support student learning and enhance teaching content. The frequent mention of these words suggests that institutions are considering the role of AI in academic assignments and course design, indicating a strategic commitment to integrating AI within educational tasks and student interactions.
 
 -   **RQ2**: Which keywords reflect common concerns or focal points related to GenAI writing usage in academic settings?\
-    The analysis of the top 12 frequently mentioned terms highlights additional focal points, including "tool," "academic," "instructor," "integrity," and "expectations." These terms reveal concerns around the ethical use of AI tools, the need for clarity in academic applications, and the central role of instructors in AI policy implementation. Keywords like "integrity" and "expectations" emphasize the importance of maintaining academic standards and setting clear guidelines for AI use in classrooms, while "instructor" underscores the influence faculty members have in shaping AI-related practices. Together, these terms reflect a commitment to transparent policies that support ethical and effective AI integration, enhancing the academic experience for students.
+    The analysis of the top 12 frequently mentioned terms highlighted additional focal points, including "tool," "academic," "instructor," "integrity," and "expectations." These terms reveal concerns around the ethical use of AI tools, the need for clarity in academic applications, and the central role of instructors in AI policy implementation. Keywords like "integrity" and "expectations" emphasize the importance of maintaining academic standards and setting clear guidelines for AI use in classrooms, while "instructor" underscores the influence faculty members have in shaping AI-related practices. Together, these terms reflect a commitment to transparent policies that support ethical and effective AI integration, enhancing the academic experience for students.
 
 ## 2.4 Dictionary-based Analysis
 
-### 2.4.1 Purpose + Case
+### 2.4.1 Purpose 
 
 The purpose of dictionary-based analysis in text data is to assess the presence of predefined categories, like emotions or sentiments, within the text using lexicons or dictionaries. This approach allows researchers to quantify qualitative aspects, such as positive or negative sentiment, based on specific words that correspond to these categories.
 
-**Case**: In this analysis, we examine the stance of 100 universities on the use of GenAI by applying the Bing sentiment dictionary. By analyzing sentiment scores, we aim to identify the general tone in these policies, indicating whether the institutions' attitudes toward GenAI are predominantly positive or negative.
+**Case**:
+
+In this analysis, we examine the stance of 100 universities on the use of GenAI by applying the Bing sentiment dictionary. By analyzing sentiment scores, we aim to identify the general tone in these policies, indicating whether the institutions' attitudes toward GenAI are predominantly positive or negative.
 
 ### 2.4.2 Sample Research Questions
 
@@ -571,7 +585,7 @@ print(density_plot)
 
 Clustering-based analysis involves grouping similar text documents or text segments into clusters based on their underlying topics or themes. This approach is particularly useful for identifying dominant themes in text data, such as university AI policy documents.
 
-### 2.5.1 Purpose + CASE
+### 2.5.1 Purpose
 
 **Purpose**: The goal of clustering-based analysis is to uncover latent themes in text data using unsupervised machine learning techniques. Topic modeling is one popular method for clustering documents into groups based on their content.
 
