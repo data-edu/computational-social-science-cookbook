@@ -8,7 +8,9 @@ With the advent of new software, we can capture and analyze text data in ways th
 
 > **Disclaimer**: While resources are available that discuss these analysis methods in depth, this book aims to provide a practical guide for social scientists, using data they will likely encounter. Our goal is to present a "cookbook" for guiding research projects through real-world examples.
 
-## 2.2 Accessing Text Data (Broadening the Horizon)
+## 2.2 Accessing Text Data
+
+For conventional qualitative researcher, text data comes from the usual sources such as interview transcripts or existing documents. Nowadays, however, text can be found and collected in many different ways. For example, social media is rich with text data, likewise for faculty who are teaching course (especially online), every student writing can be seen as a piece of text data. In this section, we will cover a few basic ways of accessing text data. Please note that although we cover some prominent ways, this is by no means an exhaustive list. Therefore, please refer to the additional resources section at the end of the section to dive deeper.
 
 ### 2.2.1 Web Scraping (Unstructured or API)
 
