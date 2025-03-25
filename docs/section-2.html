@@ -197,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">2.1 Overview</a></li>
-  <li><a href="#accessing-text-data-broadening-the-horizon" id="toc-accessing-text-data-broadening-the-horizon" class="nav-link" data-scroll-target="#accessing-text-data-broadening-the-horizon">2.2 Accessing Text Data (Broadening the Horizon)</a>
+  <li><a href="#accessing-text-data" id="toc-accessing-text-data" class="nav-link" data-scroll-target="#accessing-text-data">2.2 Accessing Text Data</a>
   <ul class="collapse">
   <li><a href="#web-scraping-unstructured-or-api" id="toc-web-scraping-unstructured-or-api" class="nav-link" data-scroll-target="#web-scraping-unstructured-or-api">2.2.1 Web Scraping (Unstructured or API)</a></li>
   <li><a href="#what-is-an-api" id="toc-what-is-an-api" class="nav-link" data-scroll-target="#what-is-an-api">What is an API?</a></li>
@@ -207,21 +207,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#frequency-based-analysis" id="toc-frequency-based-analysis" class="nav-link" data-scroll-target="#frequency-based-analysis">2.3 Frequency-based Analysis</a>
   <ul class="collapse">
-  <li><a href="#purpose-case" id="toc-purpose-case" class="nav-link" data-scroll-target="#purpose-case">2.3.1 Purpose + Case</a></li>
+  <li><a href="#purpose" id="toc-purpose" class="nav-link" data-scroll-target="#purpose">2.3.1 Purpose</a></li>
   <li><a href="#sample-research-questions" id="toc-sample-research-questions" class="nav-link" data-scroll-target="#sample-research-questions">2.3.2 Sample Research Questions</a></li>
-  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">2.3.3 Analysis</a></li>
-  <li><a href="#results-and-discussions" id="toc-results-and-discussions" class="nav-link" data-scroll-target="#results-and-discussions">2.3.4 Results and Discussions</a></li>
+  <li><a href="#sample-methods" id="toc-sample-methods" class="nav-link" data-scroll-target="#sample-methods">2.3.3 Sample Methods</a></li>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">2.3.4 Analysis</a></li>
+  <li><a href="#results-and-discussions" id="toc-results-and-discussions" class="nav-link" data-scroll-target="#results-and-discussions">2.3.5 Results and Discussions</a></li>
   </ul></li>
   <li><a href="#dictionary-based-analysis" id="toc-dictionary-based-analysis" class="nav-link" data-scroll-target="#dictionary-based-analysis">2.4 Dictionary-based Analysis</a>
   <ul class="collapse">
-  <li><a href="#purpose-case-1" id="toc-purpose-case-1" class="nav-link" data-scroll-target="#purpose-case-1">2.4.1 Purpose + Case</a></li>
+  <li><a href="#purpose-1" id="toc-purpose-1" class="nav-link" data-scroll-target="#purpose-1">2.4.1 Purpose</a></li>
   <li><a href="#sample-research-questions-1" id="toc-sample-research-questions-1" class="nav-link" data-scroll-target="#sample-research-questions-1">2.4.2 Sample Research Questions</a></li>
   <li><a href="#analysis-1" id="toc-analysis-1" class="nav-link" data-scroll-target="#analysis-1">2.4.3 Analysis</a></li>
   <li><a href="#results-and-discussions-1" id="toc-results-and-discussions-1" class="nav-link" data-scroll-target="#results-and-discussions-1">2.4.4 Results and Discussions</a></li>
   </ul></li>
   <li><a href="#clustering-based-analysis" id="toc-clustering-based-analysis" class="nav-link" data-scroll-target="#clustering-based-analysis">2.5 Clustering-Based Analysis</a>
   <ul class="collapse">
-  <li><a href="#purpose-case-2" id="toc-purpose-case-2" class="nav-link" data-scroll-target="#purpose-case-2">2.5.1 Purpose + CASE</a></li>
+  <li><a href="#purpose-2" id="toc-purpose-2" class="nav-link" data-scroll-target="#purpose-2">2.5.1 Purpose</a></li>
   <li><a href="#sample-research-questions-2" id="toc-sample-research-questions-2" class="nav-link" data-scroll-target="#sample-research-questions-2">2.5.2 Sample Research Questions</a></li>
   <li><a href="#analysis-2" id="toc-analysis-2" class="nav-link" data-scroll-target="#analysis-2">2.5.3 Analysis</a></li>
   <li><a href="#results-and-discussions-2" id="toc-results-and-discussions-2" class="nav-link" data-scroll-target="#results-and-discussions-2">2.5.4 Results and Discussions</a></li>
@@ -259,8 +260,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Disclaimer</strong>: While resources are available that discuss these analysis methods in depth, this book aims to provide a practical guide for social scientists, using data they will likely encounter. Our goal is to present a “cookbook” for guiding research projects through real-world examples.</p>
 </blockquote>
 </section>
-<section id="accessing-text-data-broadening-the-horizon" class="level2">
-<h2 class="anchored" data-anchor-id="accessing-text-data-broadening-the-horizon">2.2 Accessing Text Data (Broadening the Horizon)</h2>
+<section id="accessing-text-data" class="level2">
+<h2 class="anchored" data-anchor-id="accessing-text-data">2.2 Accessing Text Data</h2>
+<p>For conventional qualitative researcher, text data comes from the usual sources such as interview transcripts or existing documents. Nowadays, however, text can be found and collected in many different ways. For example, social media is rich with text data, likewise for faculty who are teaching course (especially online), every student writing can be seen as a piece of text data. In this section, we will cover a few basic ways of accessing text data. Please note that although we cover some prominent ways, this is by no means an exhaustive list. Therefore, please refer to the additional resources section at the end of the section to dive deeper.</p>
 <section id="web-scraping-unstructured-or-api" class="level3">
 <h3 class="anchored" data-anchor-id="web-scraping-unstructured-or-api">2.2.1 Web Scraping (Unstructured or API)</h3>
 <section id="what-is-web-scraping" class="level4">
@@ -610,27 +612,39 @@ If further analysis is needed, such as frequency-based analysis, split the text 
 </section>
 <section id="frequency-based-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="frequency-based-analysis">2.3 Frequency-based Analysis</h2>
-<section id="purpose-case" class="level3">
-<h3 class="anchored" data-anchor-id="purpose-case">2.3.1 Purpose + Case</h3>
-<p>The purpose of the frequency-based approach is to count the number of words as they appear in a text file, whether it is a collection of tweets, documents, or interview transcripts. This approach aligns with the frequency-coding method (Saldana) and can supplement human coding by revealing the most/least commonly occurring words, which can then be compared across dependent variables.</p>
+<p>In the following section, we will provide a “recipe” for the social scientist interested in these new methods of analyzing text data to get you from the initial stages of getting the data to running the analyses and the write up. Often left out is also a research question that suits or requires a method. Since we have a data and method-centric approach here, we will backtrack and also provide a research question, so that you can model after it in your own work. Finally, we will provide a sample results and discussions section.</p>
+<section id="purpose" class="level3">
+<h3 class="anchored" data-anchor-id="purpose">2.3.1 Purpose</h3>
+<p>The purpose of the frequency-based approach is to count the number of words as they appear in a text file, whether it is a collection of tweets, documents, or interview transcripts. This approach aligns with the frequency-coding method (e.g., Saldana) and can supplement human coding by revealing the most/least commonly occurring words, which can then be compared across dependent variables.</p>
 <section id="case-study-frequency-based-analysis-of-genai-usage-guidelines-in-higher-education" class="level4">
 <h4 class="anchored" data-anchor-id="case-study-frequency-based-analysis-of-genai-usage-guidelines-in-higher-education">Case Study: Frequency-Based Analysis of GenAI USage Guidelines in Higher Education</h4>
-<p>As AI writing tools like ChatGPT become more prevalent, educators are working to understand how best to integrate them within academic settings, while many students and instructors remain uncertain about current allowances. Our research into AI usage guidelines from the top 100 universities in North America aims to identify prominent themes and concerns in institutional policies regarding GenAI.</p>
-</section>
-<section id="data-source" class="level4">
-<h4 class="anchored" data-anchor-id="data-source">Data Source</h4>
-<p>The dataset consists of publicly available AI policy texts from 100 universities(USA), the data has been downloaded and saved as a CSV file for analysis.</p>
+<p>As AI writing tools like ChatGPT become more prevalent, educators are working to understand how best to integrate them within academic settings, while many students and instructors remain uncertain about acceptable use cases. Our research into AI usage guidelines from the top 100 universities in North America aims to identify prominent themes and concerns in institutional policies regarding GenAI.</p>
 </section>
 </section>
 <section id="sample-research-questions" class="level3">
 <h3 class="anchored" data-anchor-id="sample-research-questions">2.3.2 Sample Research Questions</h3>
+<p>To investigate the nature of AI use policies within higher education institutions, in this study, our research questions are:</p>
 <ul>
 <li><strong>RQ1</strong>: What are the most frequently mentioned words in university GenAI writing usage policies?</li>
 <li><strong>RQ2</strong>: Which keywords reflect common concerns or focal points related to GenAI writing usage in academic settings?</li>
 </ul>
 </section>
+<section id="sample-methods" class="level3">
+<h3 class="anchored" data-anchor-id="sample-methods">2.3.3 Sample Methods</h3>
+<section id="data-source" class="level4">
+<h4 class="anchored" data-anchor-id="data-source">Data Source</h4>
+<p>The dataset consists of publicly available AI policy texts from 100 universities(USA), the data has been downloaded and saved as a CSV file for analysis. –we might have to write more here to model how a research should be describing the data from its acquisition to use for research.</p>
+</section>
+<section id="data-analysis" class="level4">
+<h4 class="anchored" data-anchor-id="data-analysis">Data Analysis</h4>
+<p>In order to analyze the data we used xyz, —-let’s provide a sample write up for the researcher to adapt.</p>
+</section>
+<section id="section" class="level4">
+<h4 class="anchored" data-anchor-id="section"></h4>
+</section>
+</section>
 <section id="analysis" class="level3">
-<h3 class="anchored" data-anchor-id="analysis">2.3.3 Analysis</h3>
+<h3 class="anchored" data-anchor-id="analysis">2.3.4 Analysis</h3>
 <section id="step-1-load-required-libraries" class="level5">
 <h5 class="anchored" data-anchor-id="step-1-load-required-libraries">Step 1: Load Required Libraries</h5>
 <p>Install and load libraries for data processing, visualization, and word cloud generation.</p>
@@ -738,21 +752,22 @@ If further analysis is needed, such as frequency-based analysis, split the text 
 </section>
 </section>
 <section id="results-and-discussions" class="level3">
-<h3 class="anchored" data-anchor-id="results-and-discussions">2.3.4 Results and Discussions</h3>
+<h3 class="anchored" data-anchor-id="results-and-discussions">2.3.5 Results and Discussions</h3>
 <ul>
 <li><p><strong>RQ1</strong>: What are the most frequently mentioned words in university GenAI writing usage policies?<br>
-The frequency analysis shows that keywords such as “assignment,” “student,” and “writing” are among the most commonly mentioned terms across AI policies at 100 universities. This emphasis reflects a focus on using AI tools to support student learning and enhance teaching content. The frequent mention of these words suggests that institutions are considering the role of AI in academic assignments and course design, indicating a strategic commitment to integrating AI within educational tasks and student interactions.</p></li>
+The results of the frequency analysis showed that keywords such as “assignment,” “student,” and “writing” were among the most commonly mentioned terms across AI policies at 100 universities. This emphasis reflects a focus on using AI tools to support student learning and enhance teaching content. The frequent mention of these words suggests that institutions are considering the role of AI in academic assignments and course design, indicating a strategic commitment to integrating AI within educational tasks and student interactions.</p></li>
 <li><p><strong>RQ2</strong>: Which keywords reflect common concerns or focal points related to GenAI writing usage in academic settings?<br>
-The analysis of the top 12 frequently mentioned terms highlights additional focal points, including “tool,” “academic,” “instructor,” “integrity,” and “expectations.” These terms reveal concerns around the ethical use of AI tools, the need for clarity in academic applications, and the central role of instructors in AI policy implementation. Keywords like “integrity” and “expectations” emphasize the importance of maintaining academic standards and setting clear guidelines for AI use in classrooms, while “instructor” underscores the influence faculty members have in shaping AI-related practices. Together, these terms reflect a commitment to transparent policies that support ethical and effective AI integration, enhancing the academic experience for students.</p></li>
+The analysis of the top 12 frequently mentioned terms highlighted additional focal points, including “tool,” “academic,” “instructor,” “integrity,” and “expectations.” These terms reveal concerns around the ethical use of AI tools, the need for clarity in academic applications, and the central role of instructors in AI policy implementation. Keywords like “integrity” and “expectations” emphasize the importance of maintaining academic standards and setting clear guidelines for AI use in classrooms, while “instructor” underscores the influence faculty members have in shaping AI-related practices. Together, these terms reflect a commitment to transparent policies that support ethical and effective AI integration, enhancing the academic experience for students.</p></li>
 </ul>
 </section>
 </section>
 <section id="dictionary-based-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="dictionary-based-analysis">2.4 Dictionary-based Analysis</h2>
-<section id="purpose-case-1" class="level3">
-<h3 class="anchored" data-anchor-id="purpose-case-1">2.4.1 Purpose + Case</h3>
+<section id="purpose-1" class="level3">
+<h3 class="anchored" data-anchor-id="purpose-1">2.4.1 Purpose</h3>
 <p>The purpose of dictionary-based analysis in text data is to assess the presence of predefined categories, like emotions or sentiments, within the text using lexicons or dictionaries. This approach allows researchers to quantify qualitative aspects, such as positive or negative sentiment, based on specific words that correspond to these categories.</p>
-<p><strong>Case</strong>: In this analysis, we examine the stance of 100 universities on the use of GenAI by applying the Bing sentiment dictionary. By analyzing sentiment scores, we aim to identify the general tone in these policies, indicating whether the institutions’ attitudes toward GenAI are predominantly positive or negative.</p>
+<p><strong>Case</strong>:</p>
+<p>In this analysis, we examine the stance of 100 universities on the use of GenAI by applying the Bing sentiment dictionary. By analyzing sentiment scores, we aim to identify the general tone in these policies, indicating whether the institutions’ attitudes toward GenAI are predominantly positive or negative.</p>
 </section>
 <section id="sample-research-questions-1" class="level3">
 <h3 class="anchored" data-anchor-id="sample-research-questions-1">2.4.2 Sample Research Questions</h3>
@@ -867,8 +882,8 @@ The dictionary-based sentiment analysis reveals the prevailing sentiments in uni
 <section id="clustering-based-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="clustering-based-analysis">2.5 Clustering-Based Analysis</h2>
 <p>Clustering-based analysis involves grouping similar text documents or text segments into clusters based on their underlying topics or themes. This approach is particularly useful for identifying dominant themes in text data, such as university AI policy documents.</p>
-<section id="purpose-case-2" class="level3">
-<h3 class="anchored" data-anchor-id="purpose-case-2">2.5.1 Purpose + CASE</h3>
+<section id="purpose-2" class="level3">
+<h3 class="anchored" data-anchor-id="purpose-2">2.5.1 Purpose</h3>
 <p><strong>Purpose</strong>: The goal of clustering-based analysis is to uncover latent themes in text data using unsupervised machine learning techniques. Topic modeling is one popular method for clustering documents into groups based on their content.</p>
 <p><strong>Case</strong>: Using the GenAI policy texts from 100 universities, we apply Latent Dirichlet</p>
 <p>Allocation (LDA) to identify dominant themes in these policy documents. This analysis will help categorize policies into overarching themes, such as academic integrity, student support, and instructor discretion.</p>
