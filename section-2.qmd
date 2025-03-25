@@ -391,7 +391,7 @@ The dataset consists of publicly available AI policy texts from 100 universities
 
 In order to analyze the data we used xyz, —-let's provide a sample write up for the researcher to adapt.
 
-####  
+#### 
 
 ### 2.3.4 Analysis
 
@@ -486,7 +486,7 @@ print(policy_word_chart)
 
 ## 2.4 Dictionary-based Analysis
 
-### 2.4.1 Purpose 
+### 2.4.1 Purpose
 
 The purpose of dictionary-based analysis in text data is to assess the presence of predefined categories, like emotions or sentiments, within the text using lexicons or dictionaries. This approach allows researchers to quantify qualitative aspects, such as positive or negative sentiment, based on specific words that correspond to these categories.
 
