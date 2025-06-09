@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -157,8 +191,41 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">4.1 Overview</a></li>
+  <li><a href="#accessing-sna-data" id="toc-accessing-sna-data" class="nav-link" data-scroll-target="#accessing-sna-data">4.2 Accessing SNA Data</a>
+  <ul class="collapse">
+  <li><a href="#types-and-sources-of-sna-data" id="toc-types-and-sources-of-sna-data" class="nav-link" data-scroll-target="#types-and-sources-of-sna-data">4.2.1 Types and Sources of SNA Data</a></li>
+  <li><a href="#example-1-creating-a-simple-network-from-an-edge-list" id="toc-example-1-creating-a-simple-network-from-an-edge-list" class="nav-link" data-scroll-target="#example-1-creating-a-simple-network-from-an-edge-list">4.2.2 Example 1: Creating a Simple Network from an Edge List</a></li>
+  <li><a href="#example-2-generating-network-data-from-digital-traces" id="toc-example-2-generating-network-data-from-digital-traces" class="nav-link" data-scroll-target="#example-2-generating-network-data-from-digital-traces">4.2.3 Example 2: Generating Network Data from Digital Traces</a></li>
+  <li><a href="#example-3-collecting-sna-data-via-surveys" id="toc-example-3-collecting-sna-data-via-surveys" class="nav-link" data-scroll-target="#example-3-collecting-sna-data-via-surveys">4.2.4 Example 3: Collecting SNA Data via Surveys</a></li>
+  <li><a href="#node-attribute-data" id="toc-node-attribute-data" class="nav-link" data-scroll-target="#node-attribute-data">4.2.5 Node Attribute Data</a></li>
+  <li><a href="#further-examples" id="toc-further-examples" class="nav-link" data-scroll-target="#further-examples">4.2.6 Further Examples</a></li>
+  <li><a href="#best-practices-and-tips" id="toc-best-practices-and-tips" class="nav-link" data-scroll-target="#best-practices-and-tips">4.2.7 Best Practices and Tips</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">4.2.8 Summary</a></li>
+  </ul></li>
+  <li><a href="#network-management-measurement-in-social-network-analysis" id="toc-network-management-measurement-in-social-network-analysis" class="nav-link" data-scroll-target="#network-management-measurement-in-social-network-analysis">4.3 Network Management &amp; Measurement in Social Network Analysis</a>
+  <ul class="collapse">
+  <li><a href="#purpose-case" id="toc-purpose-case" class="nav-link" data-scroll-target="#purpose-case">4.3.1 Purpose + Case</a></li>
+  <li><a href="#sample-research-questions" id="toc-sample-research-questions" class="nav-link" data-scroll-target="#sample-research-questions">4.3.2 Sample Research Questions</a></li>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">4.3.3 Analysis</a></li>
+  <li><a href="#results-and-discussion" id="toc-results-and-discussion" class="nav-link" data-scroll-target="#results-and-discussion">4.3.4 Results and Discussion</a></li>
+  <li><a href="#comparison-across-cohorts" id="toc-comparison-across-cohorts" class="nav-link" data-scroll-target="#comparison-across-cohorts"><strong>Comparison Across Cohorts</strong></a></li>
+  <li><a href="#educational-implications" id="toc-educational-implications" class="nav-link" data-scroll-target="#educational-implications"><strong>Educational Implications</strong></a></li>
+  </ul></li>
+  <li><a href="#case-study-hashtag-common-core" id="toc-case-study-hashtag-common-core" class="nav-link" data-scroll-target="#case-study-hashtag-common-core">4.4 Case Study: Hashtag Common Core</a>
+  <ul class="collapse">
+  <li><a href="#purpose-case-1" id="toc-purpose-case-1" class="nav-link" data-scroll-target="#purpose-case-1">4.4.1 Purpose &amp; Case</a></li>
+  <li><a href="#sample-research-questions-1" id="toc-sample-research-questions-1" class="nav-link" data-scroll-target="#sample-research-questions-1">4.4.2 Sample Research Questions</a></li>
+  <li><a href="#analysis-1" id="toc-analysis-1" class="nav-link" data-scroll-target="#analysis-1">4.4.3 Analysis</a></li>
+  <li><a href="#results-and-discussion-1" id="toc-results-and-discussion-1" class="nav-link" data-scroll-target="#results-and-discussion-1">4.4.4 Results and Discussion</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -182,10 +249,918 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><br>
-<strong>Abstract</strong>: Social network analysis (SNA) is the process of investigating social structures through the use of networks and graph theory. It is a technique used to map and measure relationships and flows between people, groups, organizations, computers, or other information/knowledge processing entities. SNA can be a useful tool for understanding the team structures, for example, in an online classroom. It can be an additional layer of understanding the outcomes (or predictors) of certain instructional interventions. Used this way SNA can be used to identify patterns and trends in social networks, as well as to understand how these networks operate. Additionally, SNA can be used to predict future behavior in social networks, and to design interventions that aim to improve the functioning of these networks.</p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">4.1 Overview</h2>
+<p>Social network analysis (SNA) is the process of investigating social structures through the use of networks and graph theory. It is a technique used to map and measure relationships and flows between people, groups, organizations, computers, or other information/knowledge processing entities. SNA can be a useful tool for understanding the team structures, for example, in an online classroom. It can be an additional layer of understanding the outcomes (or predictors) of certain instructional interventions. Used this way SNA can be used to identify patterns and trends in social networks, as well as to understand how these networks operate. Additionally, SNA can be used to predict future behavior in social networks, and to design interventions that aim to improve the functioning of these networks.</p>
+</section>
+<section id="accessing-sna-data" class="level2">
+<h2 class="anchored" data-anchor-id="accessing-sna-data">4.2 Accessing SNA Data</h2>
+<p>Social Network Analysis (SNA) relies on relational data—information about <strong>connections</strong> (edges) between entities (nodes) such as students, teachers, or organizations. Compared to traditional survey or tabular data, SNA requires <strong>pairwise relational information</strong>. In education, this could include “who collaborates with whom,” “who talks to whom,” or digital traces of discussion and collaboration in online platforms.</p>
+<section id="types-and-sources-of-sna-data" class="level3">
+<h3 class="anchored" data-anchor-id="types-and-sources-of-sna-data">4.2.1 Types and Sources of SNA Data</h3>
+<p>There are several common sources and structures for SNA data in educational and social science contexts:</p>
+<ul>
+<li><strong>Survey-based Network Data</strong>: Collected via roster or name generator questions, e.g., “List the classmates you discuss assignments with.”</li>
+<li><strong>Behavioral/Observational Data</strong>: Derived from logs of actual interactions, e.g., forum replies, emails, classroom seating.</li>
+<li><strong>Archival or Digital Trace Data</strong>: Extracted from digital platforms such as MOOCs, LMS discussion forums, Slack, Twitter, or Facebook.</li>
+<li><strong>Administrative/Organizational Data</strong>: Information about formal structures such as team membership or co-authorship.</li>
+</ul>
+<p><strong>Data Structure</strong>: Most SNA data are formatted as: - <strong>Edge List</strong> (two columns: source and target) - <strong>Adjacency Matrix</strong> (rows and columns are actors; cell values indicate a tie) - <strong>Node Attributes</strong> (supplementary information about each node, e.g., gender, role)</p>
+</section>
+<section id="example-1-creating-a-simple-network-from-an-edge-list" class="level3">
+<h3 class="anchored" data-anchor-id="example-1-creating-a-simple-network-from-an-edge-list">4.2.2 Example 1: Creating a Simple Network from an Edge List</h3>
+<p>Below is an example of constructing a network from a simple CSV edge list. This mirrors typical classroom survey data (“who do you consider your friend in this class?”).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load the igraph package</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"igraph"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Load an edge list from CSV</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>edge_list <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/friendship_edges.csv"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the graph object (directed network)</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">graph_from_data_frame</span>(edge_list, <span class="at">directed =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the network</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(g, <span class="at">main =</span> <span class="st">"Friendship Network"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="example-2-generating-network-data-from-digital-traces" class="level3">
+<h3 class="anchored" data-anchor-id="example-2-generating-network-data-from-digital-traces">4.2.3 Example 2: Generating Network Data from Digital Traces</h3>
+<p>Many educational datasets now come from online discussion forums, MOOCs, or LMS systems. For example, the MOOC case study (Kellogg &amp; Edelmann, 2015) uses reply relationships in online courses to construct discussion networks.</p>
+<pre><code># Suppose you have a data frame with columns: from_user, to_user
+mooc_edges &lt;- read.csv("data/mooc_discussion_edges.csv")
+g_mooc &lt;- graph_from_data_frame(mooc_edges, directed = TRUE)
+plot(g_mooc, main = "MOOC Discussion Network")</code></pre>
+</section>
+<section id="example-3-collecting-sna-data-via-surveys" class="level3">
+<h3 class="anchored" data-anchor-id="example-3-collecting-sna-data-via-surveys">4.2.4 Example 3: Collecting SNA Data via Surveys</h3>
+<p>If you want to collect your own network data:</p>
+<ul>
+<li><p>Ask participants to <strong>name or select</strong> (from a roster) their friends, collaborators, or contacts.</p></li>
+<li><p>Compile responses into an edge list.</p></li>
+<li><p>Example survey prompt:</p>
+<blockquote class="blockquote">
+<p>“Please list up to five classmates you seek help from most frequently.”</p>
+</blockquote></li>
+</ul>
+<p><strong>Tip:</strong></p>
+<p>Survey-based SNA is easier to manage with small to medium groups. For larger networks, digital trace or archival data may be more practical.</p>
+</section>
+<section id="node-attribute-data" class="level3">
+<h3 class="anchored" data-anchor-id="node-attribute-data">4.2.5 Node Attribute Data</h3>
+<p>You can also load additional data about each node (student, teacher, etc.) to enable richer analyses (e.g., centrality by gender or role).</p>
+<pre><code>node_attributes &lt;- read.csv("data/friendship_nodes.csv")
+# Add attributes to igraph object
+V(g)$gender &lt;- node_attributes$gender[match(V(g)$name, node_attributes$name)]</code></pre>
+</section>
+<section id="further-examples" class="level3">
+<h3 class="anchored" data-anchor-id="further-examples">4.2.6 Further Examples</h3>
+<ul>
+<li><strong>Public Datasets</strong>:
+<ul>
+<li><a href="https://github.com/kelloggm/ed-mooc-network">MOOC Discussion Networks</a></li>
+<li><a href="https://www.cpc.unc.edu/projects/addhealth/documentation/network/">Add Health</a></li>
+<li><a href="http://hashtagcommoncore.com/">Common Core Twitter Networks (Supovitz et al.)</a></li>
+</ul></li>
+<li><strong>Synthetic Data</strong>:
+<ul>
+<li><p>R’s <code>igraph</code> package can also generate sample networks for practice:</p>
+<pre><code>g_sample &lt;- sample_gnp(n = 10, p = 0.3)
+plot(g_sample, main = "Random Sample Network")</code></pre></li>
+</ul></li>
+</ul>
+</section>
+<section id="best-practices-and-tips" class="level3">
+<h3 class="anchored" data-anchor-id="best-practices-and-tips">4.2.7 Best Practices and Tips</h3>
+<ul>
+<li><strong>Ethics</strong>: Social network data can be sensitive. Protect anonymity and comply with IRB/data use guidelines.</li>
+<li><strong>Format Consistency</strong>: Always clarify whether ties are directed/undirected, binary/weighted, and ensure consistent formatting.</li>
+<li><strong>Missing Data</strong>: Especially in survey-based SNA, missing responses can impact network structure and interpretation.</li>
+</ul>
+</section>
+<section id="summary" class="level3">
+<h3 class="anchored" data-anchor-id="summary">4.2.8 Summary</h3>
+<p>Accessing SNA data involves both careful <strong>design</strong> (in the case of surveys/observations) and <strong>extraction/wrangling</strong> (in the case of digital traces or archival records). The choice of data source and structure will directly influence the kinds of questions you can answer with SNA.</p>
+<blockquote class="blockquote">
+<p>Recommended Reading:</p>
+<ul>
+<li>Borgatti, S. P., Everett, M. G., &amp; Johnson, J. C. (2018). <em>Analyzing Social Networks</em> (2nd ed). SAGE.</li>
+<li>Kellogg, S., &amp; Edelmann, A. (2015). Massive open online course discussion forums as networks.</li>
+</ul>
+</blockquote>
+</section>
+</section>
+<section id="network-management-measurement-in-social-network-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="network-management-measurement-in-social-network-analysis">4.3 Network Management &amp; Measurement in Social Network Analysis</h2>
+<section id="purpose-case" class="level3">
+<h3 class="anchored" data-anchor-id="purpose-case">4.3.1 Purpose + Case</h3>
+<p><strong>Purpose:</strong> This section demonstrates how to manage, measure, and visualize large-scale discussion networks from online professional development settings. Through this real-world example, we guide readers in loading relational data, constructing a directed network, and conducting a suite of essential SNA measures. The focus is on classroom- and course-level online discussions, which are representative of many contemporary educational and research settings.</p>
+<p><strong>Case Study:</strong> The case data comes from two cohorts of an online professional development program (“DLT1” and “DLT2”). Each cohort’s discussion data includes (a) <strong>edge list</strong> data capturing who replied to whom, and (b) <strong>node/actor</strong> attributes describing roles (e.g., facilitator, expert). These data allow us to reconstruct and analyze the full structure of communication in two authentic online learning communities.</p>
+</section>
+<section id="sample-research-questions" class="level3">
+<h3 class="anchored" data-anchor-id="sample-research-questions">4.3.2 Sample Research Questions</h3>
+<ul>
+<li><strong>RQ1:</strong> What is the overall structure of interaction in each online discussion cohort? Are they densely connected, or fragmented?</li>
+<li><strong>RQ2:</strong> Who are the most central or influential actors in the network? How do facilitators or experts compare with regular participants?</li>
+<li><strong>RQ3:</strong> To what extent are ties reciprocated (mutual) and how cohesive are the networks?</li>
+<li><strong>RQ4:</strong> How do the network properties (e.g., density, reciprocity, clustering) compare between cohorts?</li>
+</ul>
+</section>
+<section id="analysis" class="level3">
+<h3 class="anchored" data-anchor-id="analysis">4.3.3 Analysis</h3>
+<section id="step-1-install-and-load-required-packages" class="level4">
+<h4 class="anchored" data-anchor-id="step-1-install-and-load-required-packages">Step 1: Install and Load Required Packages</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load necessary libraries</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(c("tidygraph", "ggraph", "readr", "janitor"))</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidygraph)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggraph)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="step-2-import-and-clean-dataload-edges-and-node-attributes-for-dlt1" class="level4">
+<h4 class="anchored" data-anchor-id="step-2-import-and-clean-dataload-edges-and-node-attributes-for-dlt1">Step 2: Import and Clean Data：Load Edges and Node Attributes for DLT1:</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load edge list (who replied to whom)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>dlt1_ties <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/dlt1-edges.csv"</span>, </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">Sender =</span> <span class="fu">col_character</span>(), </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">Receiver =</span> <span class="fu">col_character</span>(), </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                   <span class="st">`</span><span class="at">Category Text</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">col_skip</span>(), </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                   <span class="st">`</span><span class="at">Comment ID</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">col_character</span>(), </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>                   <span class="st">`</span><span class="at">Discussion ID</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">col_character</span>())) <span class="sc">|&gt;</span> </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Load node attributes (participant roles, etc.)</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>dlt1_actors <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/dlt1-nodes.csv"</span>, </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">UID =</span> <span class="fu">col_character</span>(), </span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>                   <span class="at">Facilitator =</span> <span class="fu">col_character</span>(), </span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>                   <span class="at">expert =</span> <span class="fu">col_character</span>(), </span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>                   <span class="at">connect =</span> <span class="fu">col_character</span>())) <span class="sc">|&gt;</span> </span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dlt1_ties)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 9
+  sender receiver timestamp discussion_title discussion_category parent_category
+  &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;            &lt;chr&gt;               &lt;chr&gt;          
+1 360    444      4/4/13 1… Most important … Group N             Units 1-3 Disc…
+2 356    444      4/4/13 1… Most important … Group D-L           Units 1-3 Disc…
+3 356    444      4/4/13 1… DLT Resources—C… Group D-L           Units 1-3 Disc…
+4 344    444      4/4/13 1… Most important … Group O-T           Units 1-3 Disc…
+5 392    444      4/4/13 1… Most important … Group U-Z           Units 1-3 Disc…
+6 219    444      4/4/13 1… Most important … Group M             Units 1-3 Disc…
+# ℹ 3 more variables: discussion_identifier &lt;chr&gt;, comment_id &lt;chr&gt;,
+#   discussion_id &lt;chr&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dlt1_actors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 13
+  uid   facilitator role1  experience experience2 grades location region country
+  &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;  
+1 1     0           libme…          1 6 to 10     secon… VA       South  US     
+2 2     0           class…          1 6 to 10     secon… FL       South  US     
+3 3     0           distr…          2 11 to 20    gener… PA       North… US     
+4 4     0           class…          2 11 to 20    middle NC       South  US     
+5 5     0           other…          3 20+         gener… AL       South  US     
+6 6     0           class…          1 4 to 5      gener… AL       South  US     
+# ℹ 4 more variables: group &lt;chr&gt;, gender &lt;chr&gt;, expert &lt;chr&gt;, connect &lt;chr&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="step-3-construct-and-explore-the-network" class="level4">
+<h4 class="anchored" data-anchor-id="step-3-construct-and-explore-the-network">Step 3: Construct and Explore the Network</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Build the directed network graph (nodes: uid, edges: sender-&gt;receiver)</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>dlt1_network <span class="ot">&lt;-</span> <span class="fu">tbl_graph</span>(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">edges =</span> dlt1_ties,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">nodes =</span> dlt1_actors,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">node_key =</span> <span class="st">"uid"</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">directed =</span> <span class="cn">TRUE</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Overview of the network</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>dlt1_network</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tbl_graph: 445 nodes and 2529 edges
+#
+# A directed multigraph with 4 components
+#
+# Node Data: 445 × 13 (active)
+   uid   facilitator role1 experience experience2 grades location region country
+   &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;  
+ 1 1     0           libm…          1 6 to 10     secon… VA       South  US     
+ 2 2     0           clas…          1 6 to 10     secon… FL       South  US     
+ 3 3     0           dist…          2 11 to 20    gener… PA       North… US     
+ 4 4     0           clas…          2 11 to 20    middle NC       South  US     
+ 5 5     0           othe…          3 20+         gener… AL       South  US     
+ 6 6     0           clas…          1 4 to 5      gener… AL       South  US     
+ 7 7     0           inst…          2 11 to 20    gener… SD       Midwe… US     
+ 8 8     0           spec…          1 6 to 10     secon… BE       Inter… BE     
+ 9 9     0           clas…          1 6 to 10     middle NC       South  US     
+10 10    0           scho…          2 11 to 20    middle NC       South  US     
+# ℹ 435 more rows
+# ℹ 4 more variables: group &lt;chr&gt;, gender &lt;chr&gt;, expert &lt;chr&gt;, connect &lt;chr&gt;
+#
+# Edge Data: 2,529 × 9
+   from    to timestamp    discussion_title  discussion_category parent_category
+  &lt;int&gt; &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;             &lt;chr&gt;               &lt;chr&gt;          
+1   360   444 4/4/13 16:32 Most important c… Group N             Units 1-3 Disc…
+2   356   444 4/4/13 18:45 Most important c… Group D-L           Units 1-3 Disc…
+3   356   444 4/4/13 18:47 DLT Resources—Co… Group D-L           Units 1-3 Disc…
+# ℹ 2,526 more rows
+# ℹ 3 more variables: discussion_identifier &lt;chr&gt;, comment_id &lt;chr&gt;,
+#   discussion_id &lt;chr&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output: 445 nodes, 2529 edges, 4 components (directed multigraph)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="step-4-basic-visualization" class="level4">
+<h4 class="anchored" data-anchor-id="step-4-basic-visualization">Step 4: Basic Visualization</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Quick overview plot (stress layout by default)</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">autograph</span>(dlt1_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="section-4_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Custom visualization with colors and centrality</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(dlt1_network, <span class="at">layout =</span> <span class="st">"fr"</span>) <span class="sc">+</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> role1, <span class="at">size =</span> <span class="fu">local_size</span>())) <span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_graph</span>()<span class="sc">+</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"sans"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="section-4_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="step-5-network-size-and-centralization" class="level4">
+<h4 class="anchored" data-anchor-id="step-5-network-size-and-centralization">Step 5: Network Size and Centralization</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of nodes and edges</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gorder</span>(dlt1_network)   <span class="co"># 445</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 445</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsize</span>(dlt1_network)    <span class="co"># 2529</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2529</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Degree centrality (all, in, out)</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>deg_all <span class="ot">&lt;-</span> <span class="fu">centr_degree</span>(dlt1_network, <span class="at">mode =</span> <span class="st">"all"</span>)<span class="sc">$</span>res</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>deg_in  <span class="ot">&lt;-</span> <span class="fu">centr_degree</span>(dlt1_network, <span class="at">mode =</span> <span class="st">"in"</span>)<span class="sc">$</span>res</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>deg_out <span class="ot">&lt;-</span> <span class="fu">centr_degree</span>(dlt1_network, <span class="at">mode =</span> <span class="st">"out"</span>)<span class="sc">$</span>res</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Centralization</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">centr_degree</span>(dlt1_network, <span class="at">mode =</span> <span class="st">"all"</span>)<span class="sc">$</span>centralization  <span class="co"># 0.64</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6429242</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">centr_degree</span>(dlt1_network, <span class="at">mode =</span> <span class="st">"in"</span>)<span class="sc">$</span>centralization   <span class="co"># 1.06</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.05702</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">centr_degree</span>(dlt1_network, <span class="at">mode =</span> <span class="st">"out"</span>)<span class="sc">$</span>centralization  <span class="co"># 0.23</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2259389</code></pre>
+</div>
+</div>
+</section>
+<section id="step-6-attach-and-visualize-node-centrality" class="level4">
+<h4 class="anchored" data-anchor-id="step-6-attach-and-visualize-node-centrality">Step 6: Attach and Visualize Node Centrality</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add in-degree centrality as node attribute</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>dlt1_network <span class="ot">&lt;-</span> dlt1_network <span class="sc">|&gt;</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">activate</span>(nodes) <span class="sc">|&gt;</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">in_degree =</span> <span class="fu">centrality_degree</span>(<span class="at">mode =</span> <span class="st">"in"</span>))</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot, sizing nodes by in-degree</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(dlt1_network) <span class="sc">+</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> in_degree, <span class="at">color =</span> role1)) <span class="sc">+</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_graph</span>()<span class="sc">+</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"sans"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="section-4_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="step-7-network-density-reciprocity-clustering-distance" class="level4">
+<h4 class="anchored" data-anchor-id="step-7-network-density-reciprocity-clustering-distance">Step 7: Network Density, Reciprocity, Clustering, Distance</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Density</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">edge_density</span>(dlt1_network)      <span class="co"># 0.013 (sparse network)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.01279988</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reciprocity</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">reciprocity</span>(dlt1_network)       <span class="co"># 0.20 (20% of ties are reciprocated)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1997544</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add reciprocated edge attribute and plot</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>dlt1_network <span class="ot">&lt;-</span> dlt1_network <span class="sc">|&gt;</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">activate</span>(edges) <span class="sc">|&gt;</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">reciprocated =</span> <span class="fu">edge_is_mutual</span>())</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(dlt1_network) <span class="sc">+</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> in_degree)) <span class="sc">+</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="fu">aes</span>(<span class="at">color =</span> reciprocated), <span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_graph</span>()<span class="sc">+</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"sans"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="section-4_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clustering (transitivity/global)</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">transitivity</span>(dlt1_network)      <span class="co"># 0.089</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.08880774</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Network diameter (longest shortest path) &amp; average distance</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">diameter</span>(dlt1_network)          <span class="co"># 8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean_distance</span>(dlt1_network)     <span class="co"># 3.03</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.030694</code></pre>
+</div>
+</div>
+</section>
+<section id="step-8repeat-for-dlt2" class="level4">
+<h4 class="anchored" data-anchor-id="step-8repeat-for-dlt2">Step 8:Repeat for DLT2</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 8: Repeat for DLT2</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Load the DLT2 edge and node data</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>dlt2_ties <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/dlt2-edges.csv"</span>, </span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">Sender =</span> <span class="fu">col_character</span>(), </span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">Receiver =</span> <span class="fu">col_character</span>(), </span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>                   <span class="st">`</span><span class="at">Category Text</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">col_skip</span>(), </span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>                   <span class="st">`</span><span class="at">Comment ID</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">col_character</span>(), </span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>                   <span class="st">`</span><span class="at">Discussion ID</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">col_character</span>())) <span class="sc">|&gt;</span> </span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>dlt2_actors <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/dlt2-nodes.csv"</span>, </span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">UID =</span> <span class="fu">col_character</span>(), </span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>                   <span class="at">Facilitator =</span> <span class="fu">col_character</span>(), </span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>                   <span class="at">expert =</span> <span class="fu">col_character</span>(), </span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a>                   <span class="at">connect =</span> <span class="fu">col_character</span>())) <span class="sc">|&gt;</span> </span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Construct the directed network</span></span>
+<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a>dlt2_network <span class="ot">&lt;-</span> <span class="fu">tbl_graph</span>(</span>
+<span id="cb37-21"><a href="#cb37-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">edges =</span> dlt2_ties,</span>
+<span id="cb37-22"><a href="#cb37-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">nodes =</span> dlt2_actors,</span>
+<span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">node_key =</span> <span class="st">"uid"</span>,</span>
+<span id="cb37-24"><a href="#cb37-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">directed =</span> <span class="cn">TRUE</span></span>
+<span id="cb37-25"><a href="#cb37-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb37-26"><a href="#cb37-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-27"><a href="#cb37-27" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Basic network properties</span></span>
+<span id="cb37-28"><a href="#cb37-28" aria-hidden="true" tabindex="-1"></a>num_nodes <span class="ot">&lt;-</span> <span class="fu">gorder</span>(dlt2_network)   <span class="co"># Number of nodes</span></span>
+<span id="cb37-29"><a href="#cb37-29" aria-hidden="true" tabindex="-1"></a>num_edges <span class="ot">&lt;-</span> <span class="fu">gsize</span>(dlt2_network)    <span class="co"># Number of edges</span></span>
+<span id="cb37-30"><a href="#cb37-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-31"><a href="#cb37-31" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Degree centrality (overall, in, out)</span></span>
+<span id="cb37-32"><a href="#cb37-32" aria-hidden="true" tabindex="-1"></a>deg_all <span class="ot">&lt;-</span> <span class="fu">centr_degree</span>(dlt2_network, <span class="at">mode =</span> <span class="st">"all"</span>)<span class="sc">$</span>res</span>
+<span id="cb37-33"><a href="#cb37-33" aria-hidden="true" tabindex="-1"></a>deg_in  <span class="ot">&lt;-</span> <span class="fu">centr_degree</span>(dlt2_network, <span class="at">mode =</span> <span class="st">"in"</span>)<span class="sc">$</span>res</span>
+<span id="cb37-34"><a href="#cb37-34" aria-hidden="true" tabindex="-1"></a>deg_out <span class="ot">&lt;-</span> <span class="fu">centr_degree</span>(dlt2_network, <span class="at">mode =</span> <span class="st">"out"</span>)<span class="sc">$</span>res</span>
+<span id="cb37-35"><a href="#cb37-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-36"><a href="#cb37-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Centralization values</span></span>
+<span id="cb37-37"><a href="#cb37-37" aria-hidden="true" tabindex="-1"></a>centr_all <span class="ot">&lt;-</span> <span class="fu">centr_degree</span>(dlt2_network, <span class="at">mode =</span> <span class="st">"all"</span>)<span class="sc">$</span>centralization</span>
+<span id="cb37-38"><a href="#cb37-38" aria-hidden="true" tabindex="-1"></a>centr_in  <span class="ot">&lt;-</span> <span class="fu">centr_degree</span>(dlt2_network, <span class="at">mode =</span> <span class="st">"in"</span>)<span class="sc">$</span>centralization</span>
+<span id="cb37-39"><a href="#cb37-39" aria-hidden="true" tabindex="-1"></a>centr_out <span class="ot">&lt;-</span> <span class="fu">centr_degree</span>(dlt2_network, <span class="at">mode =</span> <span class="st">"out"</span>)<span class="sc">$</span>centralization</span>
+<span id="cb37-40"><a href="#cb37-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-41"><a href="#cb37-41" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Attach centrality as a node attribute</span></span>
+<span id="cb37-42"><a href="#cb37-42" aria-hidden="true" tabindex="-1"></a>dlt2_network <span class="ot">&lt;-</span> dlt2_network <span class="sc">|&gt;</span></span>
+<span id="cb37-43"><a href="#cb37-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">activate</span>(nodes) <span class="sc">|&gt;</span></span>
+<span id="cb37-44"><a href="#cb37-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">in_degree =</span> <span class="fu">centrality_degree</span>(<span class="at">mode =</span> <span class="st">"in"</span>))</span>
+<span id="cb37-45"><a href="#cb37-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-46"><a href="#cb37-46" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. Visualize the network</span></span>
+<span id="cb37-47"><a href="#cb37-47" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(dlt2_network, <span class="at">layout =</span> <span class="st">"fr"</span>) <span class="sc">+</span></span>
+<span id="cb37-48"><a href="#cb37-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb37-49"><a href="#cb37-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> role, <span class="at">size =</span> <span class="fu">local_size</span>())) <span class="sc">+</span></span>
+<span id="cb37-50"><a href="#cb37-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_graph</span>()<span class="sc">+</span></span>
+<span id="cb37-51"><a href="#cb37-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"sans"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="section-4_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 7. Density, reciprocity, clustering, distances</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>density <span class="ot">&lt;-</span> <span class="fu">edge_density</span>(dlt2_network)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>recip   <span class="ot">&lt;-</span> <span class="fu">reciprocity</span>(dlt2_network)</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>dlt2_network <span class="ot">&lt;-</span> dlt2_network <span class="sc">|&gt;</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">activate</span>(edges) <span class="sc">|&gt;</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">reciprocated =</span> <span class="fu">edge_is_mutual</span>())</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(dlt2_network) <span class="sc">+</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> in_degree)) <span class="sc">+</span></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="fu">aes</span>(<span class="at">color =</span> reciprocated), <span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_graph</span>()<span class="sc">+</span></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"sans"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="section-4_files/figure-html/unnamed-chunk-9-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>trans   <span class="ot">&lt;-</span> <span class="fu">transitivity</span>(dlt2_network)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>diam    <span class="ot">&lt;-</span> <span class="fu">diameter</span>(dlt2_network)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>mean_d  <span class="ot">&lt;-</span> <span class="fu">mean_distance</span>(dlt2_network)</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 8. Print summary statistics</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"DLT2 Network Stats:</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>DLT2 Network Stats:</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Nodes:"</span>, num_nodes, <span class="st">"Edges:"</span>, num_edges, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Nodes: 492 Edges: 2584 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Degree Centralization (all/in/out):"</span>, centr_all, centr_in, centr_out, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Degree Centralization (all/in/out): 0.5311161 0.8650671 0.3273889 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Density:"</span>, density, <span class="st">"Reciprocity:"</span>, recip, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Density: 0.0106966 Reciprocity: 0.2500977 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Transitivity:"</span>, trans, <span class="st">"Diameter:"</span>, diam, <span class="st">"Mean Distance:"</span>, mean_d, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Transitivity: 0.1248291 Diameter: 8 Mean Distance: 3.03815 </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="results-and-discussion" class="level3">
+<h3 class="anchored" data-anchor-id="results-and-discussion">4.3.4 Results and Discussion</h3>
+<section id="rq1-what-is-the-overall-structure-of-interaction-in-each-cohort" class="level4">
+<h4 class="anchored" data-anchor-id="rq1-what-is-the-overall-structure-of-interaction-in-each-cohort"><strong>RQ1: What is the overall structure of interaction in each cohort?</strong></h4>
+<ul>
+<li><strong>DLT1</strong> consists of <strong>445 nodes</strong> (participants) and <strong>2529 edges</strong> (directed interactions).</li>
+<li><strong>DLT2</strong> has <strong>492 nodes</strong> and <strong>2584 edges</strong>.</li>
+<li>Both networks are <strong>large and sparse</strong>:
+<ul>
+<li><em>Density</em>: DLT1 = <strong>0.013</strong>, DLT2 = <strong>0.011</strong></li>
+<li>Interpretation: Only about 1–1.3% of all possible connections exist—typical for online discussion networks where not every participant interacts with every other.</li>
+</ul></li>
+<li>Both networks are <strong>multi-component</strong> (several disconnected groups), but most participants are included in the main giant component.</li>
+<li>The <strong>diameter</strong> (longest shortest path) is 8 for both cohorts, and the <strong>average shortest path length</strong> is about <strong>3.03 (DLT1)</strong> and <strong>3.04 (DLT2)</strong>, indicating that on average, any participant is just 3 steps away from any other in the largest group.</li>
+<li><strong>Interpretation</strong>: Information or discussion threads can reach most participants with only a few hops, but overall engagement is selective rather than comprehensive.</li>
+</ul>
+</section>
+<section id="rq2-who-are-the-most-central-or-influential-actors" class="level4">
+<h4 class="anchored" data-anchor-id="rq2-who-are-the-most-central-or-influential-actors"><strong>RQ2: Who are the most central or influential actors?</strong></h4>
+<ul>
+<li>Centrality (degree, in-degree, out-degree) analyses show a <strong>right-skewed distribution</strong>: most participants have low centrality, but a small subset are highly connected.</li>
+<li>In both DLT1 and DLT2, <strong>facilitators</strong> and a handful of highly active participants emerge as <strong>hubs</strong>—they initiate and/or receive a disproportionate number of interactions.
+<ul>
+<li>For DLT1, degree centralization (all): <strong>0.64</strong> (in: <strong>1.06</strong>, out: <strong>0.23</strong>)</li>
+<li>For DLT2, degree centralization (all): <strong>0.53</strong> (in: <strong>0.87</strong>, out: <strong>0.33</strong>)</li>
+</ul></li>
+<li><strong>Visualization</strong>: Network plots with node size proportional to in-degree clearly highlight these central actors.</li>
+<li><strong>Interpretation</strong>: These key individuals (often facilitators) play critical roles in steering discussion, providing feedback, and potentially keeping less active members engaged.</li>
+</ul>
+</section>
+<section id="rq3-are-ties-reciprocated" class="level4">
+<h4 class="anchored" data-anchor-id="rq3-are-ties-reciprocated"><strong>RQ3: Are ties reciprocated?</strong></h4>
+<ul>
+<li><strong>Reciprocity</strong> (proportion of mutual connections):
+<ul>
+<li>DLT1: <strong>0.20</strong> (20% of ties are reciprocated)</li>
+<li>DLT2: <strong>0.25</strong> (25% reciprocated)</li>
+</ul></li>
+<li><strong>Interpretation</strong>: Most interactions are one-way (e.g., a reply that does not receive a response), but a substantial fraction are mutual—possibly reflecting peer-to-peer conversations or ongoing exchanges. In online learning contexts, this suggests a mix of broadcasting (one-to-many) and genuine dialog (two-way).</li>
+</ul>
+</section>
+<section id="rq4-how-cohesive-are-the-networks" class="level4">
+<h4 class="anchored" data-anchor-id="rq4-how-cohesive-are-the-networks"><strong>RQ4: How cohesive are the networks?</strong></h4>
+<ul>
+<li><strong>Transitivity/Clustering coefficient</strong> (probability that two connected nodes’ neighbors are also connected):
+<ul>
+<li>DLT1: <strong>0.089</strong></li>
+<li>DLT2: <strong>0.125</strong></li>
+</ul></li>
+<li><strong>Interpretation</strong>: Triadic closure is low—there are few closed triangles, so close-knit groups (where “my friend is also your friend”) are rare. The network structure is more “hub-and-spoke” than “cliquish.”</li>
+<li><strong>Diameter</strong>: 8 for both, showing that even the furthest nodes can be reached in 8 steps.</li>
+<li><strong>Mean distance</strong>: ~3.0, so participants are relatively close to each other in the main component.</li>
+</ul>
+</section>
+</section>
+<section id="comparison-across-cohorts" class="level3">
+<h3 class="anchored" data-anchor-id="comparison-across-cohorts"><strong>Comparison Across Cohorts</strong></h3>
+<ul>
+<li><strong>DLT2 is slightly larger</strong> (more participants and interactions), but the structural properties—density, centralization, reciprocity, clustering, and path lengths—are all quite similar.</li>
+<li>Minor variations (e.g., higher reciprocity and clustering in DLT2) could reflect differences in facilitation style, cohort engagement, or participant composition.</li>
+<li><strong>Interpretation</strong>: Both cohorts exhibit classic patterns for large-scale online educational discussions—a small number of central actors drive most of the interaction, the networks are sparse but efficiently connected, and genuine dialogue is present but not universal.</li>
+</ul>
+</section>
+<section id="educational-implications" class="level3">
+<h3 class="anchored" data-anchor-id="educational-implications"><strong>Educational Implications</strong></h3>
+<ul>
+<li><p><strong>For educators and instructional designers</strong>:</p>
+<p>These findings suggest that a small group of highly active facilitators or students are critical to fostering interaction. Encouraging more distributed engagement (for example, through peer response requirements or rotating leadership) may enhance network cohesion and learning opportunities.</p></li>
+<li><p><strong>For researchers</strong>:</p>
+<p>Understanding who occupies central positions and the overall structure of discussion networks can inform interventions to support isolated participants, promote reciprocity, and create more connected learning communities.</p></li>
+</ul>
+<p><strong>Summary:</strong></p>
+<p>Through these SNA measures, we have shown how to reconstruct, visualize, and interpret the structure of large-scale online discussion networks. The approach enables identification of core communicators, understanding of participation patterns, and empirical comparison across cohorts or interventions. This “cookbook” can be adapted to other online learning or collaborative contexts.</p>
+<p>&gt; <strong>Note</strong>: This analysis is based on real-world data from online professional development courses. The methods and findings can be generalized to other educational settings where social networks play a role in learning and collaboration.</p>
+</section>
+</section>
+<section id="case-study-hashtag-common-core" class="level2">
+<h2 class="anchored" data-anchor-id="case-study-hashtag-common-core">4.4 Case Study: Hashtag Common Core</h2>
+<section id="purpose-case-1" class="level3">
+<h3 class="anchored" data-anchor-id="purpose-case-1">4.4.1 Purpose &amp; Case</h3>
+<p>The purpose of this case study is to demonstrate the application of social network analysis (SNA) in a real-world policy context: the heated national debate over the Common Core State Standards (CCSS) as it played out on Twitter. Drawing on the work of Supovitz, Daly, del Fresno, and Kolouch, the #COMMONCORE Project provides a vivid example of how social media-enabled networks shape educational discourse and policy.</p>
+<p>This case focuses on: - Identifying <strong>key actors</strong> (“transmitters,” “transceivers,” and “transcenders”) and measuring their influence, - Detecting <strong>subgroups/factions</strong> within the conversation, - Exploring how <strong>sentiment</strong> about the Common Core varies across network positions, - Demonstrating <strong>network wrangling, visualization, and analysis</strong> using real tweet data.</p>
+<section id="data-source" class="level4">
+<h4 class="anchored" data-anchor-id="data-source">Data Source</h4>
+<p>Data was collected from Twitter’s public API using keywords/hashtags related to the Common Core (e.g., <code>#commoncore</code>, <code>ccss</code>, <code>stopcommoncore</code>). The dataset includes user names, tweets, mentions, retweets, and relevant timestamps from a sample week. Only public tweets are included, and user privacy is respected.</p>
+</section>
+</section>
+<section id="sample-research-questions-1" class="level3">
+<h3 class="anchored" data-anchor-id="sample-research-questions-1">4.4.2 Sample Research Questions</h3>
+<ul>
+<li><strong>RQ1:</strong> Who are the “transmitters,” “transceivers,” and “transcenders” in the Common Core Twitter network?</li>
+<li><strong>RQ2:</strong> What subgroups or factions exist within the network, and how are they structured?</li>
+<li><strong>RQ3:</strong> How does sentiment about the Common Core vary across actors and subgroups?</li>
+<li><strong>RQ4:</strong> What other patterns of communication (e.g., centrality, clique formation, isolates) characterize this network?</li>
+</ul>
+</section>
+<section id="analysis-1" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-1">4.4.3 Analysis</h3>
+<section id="step-1-load-required-packages" class="level4">
+<h4 class="anchored" data-anchor-id="step-1-load-required-packages">Step 1: Load Required Packages</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) </span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidygraph) </span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggraph) </span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr) </span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph) </span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext) </span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vader)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="step-2-data-import-and-wrangling" class="level4">
+<h4 class="anchored" data-anchor-id="step-2-data-import-and-wrangling">Step 2: Data Import and Wrangling</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import tweet data (edgelist format: sender, receiver, timestamp, text)</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>ccss_tweets <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/ccss-tweets.csv"</span>)</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare the edgelist (extract sender, mentioned users, and tweet text)</span></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>ties_1 <span class="ot">&lt;-</span> ccss_tweets <span class="sc">%&gt;%</span></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(<span class="at">sender =</span> screen_name, <span class="at">target =</span> mentions_screen_name) <span class="sc">%&gt;%</span></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sender, target, created_at, text)</span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Unnest receiver to handle multiple mentions per tweet</span></span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>ties_2 <span class="ot">&lt;-</span> ties_1 <span class="sc">%&gt;%</span></span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(<span class="at">input =</span> target,</span>
+<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a>                <span class="at">output =</span> receiver,</span>
+<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a>                <span class="at">to_lower =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb50-14"><a href="#cb50-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(sender, receiver)</span>
+<span id="cb50-15"><a href="#cb50-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-16"><a href="#cb50-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove tweets without mentions to focus on direct connections</span></span>
+<span id="cb50-17"><a href="#cb50-17" aria-hidden="true" tabindex="-1"></a>ties <span class="ot">&lt;-</span> ties_2 <span class="sc">%&gt;%</span></span>
+<span id="cb50-18"><a href="#cb50-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(receiver)</span>
+<span id="cb50-19"><a href="#cb50-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-20"><a href="#cb50-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Save for reproducibility</span></span>
+<span id="cb50-21"><a href="#cb50-21" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(ties, <span class="st">"data/ccss-edgelist.csv"</span>)</span>
+<span id="cb50-22"><a href="#cb50-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-23"><a href="#cb50-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Build nodelist</span></span>
+<span id="cb50-24"><a href="#cb50-24" aria-hidden="true" tabindex="-1"></a>actors_1 <span class="ot">&lt;-</span> ties <span class="sc">%&gt;%</span></span>
+<span id="cb50-25"><a href="#cb50-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sender, receiver) <span class="sc">%&gt;%</span></span>
+<span id="cb50-26"><a href="#cb50-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(sender,receiver))</span>
+<span id="cb50-27"><a href="#cb50-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-28"><a href="#cb50-28" aria-hidden="true" tabindex="-1"></a>actors <span class="ot">&lt;-</span> actors_1 <span class="sc">%&gt;%</span></span>
+<span id="cb50-29"><a href="#cb50-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(value) <span class="sc">%&gt;%</span></span>
+<span id="cb50-30"><a href="#cb50-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">actors =</span> value) <span class="sc">%&gt;%</span></span>
+<span id="cb50-31"><a href="#cb50-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>()</span>
+<span id="cb50-32"><a href="#cb50-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-33"><a href="#cb50-33" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(actors, <span class="st">"data/ccss-nodelist.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="step-3-create-network-object" class="level4">
+<h4 class="anchored" data-anchor-id="step-3-create-network-object">Step 3: Create Network Object</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>ccss_network <span class="ot">&lt;-</span> <span class="fu">tbl_graph</span>(<span class="at">edges =</span> ties,</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">nodes =</span> actors,</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">directed =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>ccss_network</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tbl_graph: 46 nodes and 42 edges
+#
+# A directed multigraph with 14 components
+#
+# Node Data: 46 × 1 (active)
+   actors        
+   &lt;chr&gt;         
+ 1 DistanceLrnBot
+ 2 k12movieguides
+ 3 WEquilSchool  
+ 4 JoeWEquil     
+ 5 SumayLu       
+ 6 fluttbot      
+ 7 BodShameless  
+ 8 Math          
+ 9 ozsultan      
+10 sfchronicle   
+# ℹ 36 more rows
+#
+# Edge Data: 42 × 4
+   from    to created_at          text                                          
+  &lt;int&gt; &lt;int&gt; &lt;dttm&gt;              &lt;chr&gt;                                         
+1     1     2 2021-06-28 09:53:54 "#Luca Movie Guide | Worksheet | Questions | …
+2     3     4 2021-06-28 02:32:59 "Why public schools should focus more on buil…
+3     3     3 2021-06-28 02:32:59 "Why public schools should focus more on buil…
+# ℹ 39 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="step-4-network-structure-components-cliques-and-communities" class="level4">
+<h4 class="anchored" data-anchor-id="step-4-network-structure-components-cliques-and-communities">Step 4: Network Structure – Components, Cliques, and Communities</h4>
+<ul>
+<li><strong>Components</strong>
+<ul>
+<li>Identify weak and strong components (connected subgroups):</li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>    ccss_network <span class="ot">&lt;-</span> ccss_network <span class="sc">|&gt;</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>      <span class="fu">activate</span>(nodes) <span class="sc">|&gt;</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">weak_component =</span> <span class="fu">group_components</span>(<span class="at">type =</span> <span class="st">"weak"</span>),</span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">strong_component =</span> <span class="fu">group_components</span>(<span class="at">type =</span> <span class="st">"strong"</span>))</span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># View component sizes</span></span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>    ccss_network <span class="sc">|&gt;</span></span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span></span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">group_by</span>(weak_component) <span class="sc">|&gt;</span></span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">summarise</span>(<span class="at">size =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">arrange</span>(<span class="fu">desc</span>(size))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 14 × 2
+   weak_component  size
+            &lt;int&gt; &lt;int&gt;
+ 1              1    14
+ 2              2     6
+ 3              3     4
+ 4              4     3
+ 5              5     3
+ 6              6     2
+ 7              7     2
+ 8              8     2
+ 9              9     2
+10             10     2
+11             11     2
+12             12     2
+13             13     1
+14             14     1</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Cliques</strong>
+<ul>
+<li>Identify fully connected subgroups (if any):</li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">clique_num</span>(ccss_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cliques</span>(ccss_network, <span class="at">min =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
++ 3/46 vertices, from 7825daf:
+[1] 4 5 6
+
+[[2]]
++ 3/46 vertices, from 7825daf:
+[1] 39 40 41
+
+[[3]]
++ 3/46 vertices, from 7825daf:
+[1] 3 4 6
+
+[[4]]
++ 4/46 vertices, from 7825daf:
+[1] 3 4 5 6
+
+[[5]]
++ 3/46 vertices, from 7825daf:
+[1] 3 4 5
+
+[[6]]
++ 3/46 vertices, from 7825daf:
+[1] 3 5 6</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Communities</strong>
+<ul>
+<li>Detect densely connected communities using edge betweenness:</li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>    ccss_network <span class="ot">&lt;-</span> ccss_network <span class="sc">|&gt;</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>      <span class="fu">morph</span>(to_undirected) <span class="sc">|&gt;</span></span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">activate</span>(nodes) <span class="sc">|&gt;</span></span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">sub_group =</span> <span class="fu">group_edge_betweenness</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">unmorph</span>()</span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>    ccss_network <span class="sc">|&gt;</span></span>
+<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span></span>
+<span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">group_by</span>(sub_group) <span class="sc">|&gt;</span></span>
+<span id="cb59-9"><a href="#cb59-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">summarise</span>(<span class="at">size =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb59-10"><a href="#cb59-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">arrange</span>(<span class="fu">desc</span>(size))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 16 × 2
+   sub_group  size
+       &lt;int&gt; &lt;int&gt;
+ 1         1    10
+ 2         2     6
+ 3         3     4
+ 4         4     3
+ 5         5     3
+ 6         6     2
+ 7         7     2
+ 8         8     2
+ 9         9     2
+10        10     2
+11        11     2
+12        12     2
+13        13     2
+14        14     2
+15        15     1
+16        16     1</code></pre>
+</div>
+</div>
+</section>
+<section id="step-5-egocentric-analysis-centrality-key-actors" class="level4">
+<h4 class="anchored" data-anchor-id="step-5-egocentric-analysis-centrality-key-actors">Step 5: Egocentric Analysis – Centrality &amp; Key Actors</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>ccss_network <span class="ot">&lt;-</span> ccss_network <span class="sc">|&gt;</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">activate</span>(nodes) <span class="sc">|&gt;</span></span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fu">local_size</span>(),</span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">in_degree =</span> <span class="fu">centrality_degree</span>(<span class="at">mode =</span> <span class="st">"in"</span>),</span>
+<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">out_degree =</span> <span class="fu">centrality_degree</span>(<span class="at">mode =</span> <span class="st">"out"</span>),</span>
+<span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">closeness =</span> <span class="fu">centrality_closeness</span>(),</span>
+<span id="cb61-8"><a href="#cb61-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">betweenness =</span> <span class="fu">centrality_betweenness</span>()</span>
+<span id="cb61-9"><a href="#cb61-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb61-10"><a href="#cb61-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-11"><a href="#cb61-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Identify top actors by out_degree (transmitters), in_degree (transceivers), and both (transcenders)</span></span>
+<span id="cb61-12"><a href="#cb61-12" aria-hidden="true" tabindex="-1"></a>top_transmitters <span class="ot">&lt;-</span> ccss_network <span class="sc">%&gt;%</span> <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(out_degree)) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">5</span>)</span>
+<span id="cb61-13"><a href="#cb61-13" aria-hidden="true" tabindex="-1"></a>top_transceivers <span class="ot">&lt;-</span> ccss_network <span class="sc">%&gt;%</span> <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(in_degree)) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">5</span>)</span>
+<span id="cb61-14"><a href="#cb61-14" aria-hidden="true" tabindex="-1"></a>top_transcenders <span class="ot">&lt;-</span> ccss_network <span class="sc">%&gt;%</span> <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb61-15"><a href="#cb61-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(out_degree <span class="sc">&gt;</span> <span class="fu">quantile</span>(out_degree, <span class="fl">0.9</span>) <span class="sc">&amp;</span> in_degree <span class="sc">&gt;</span> <span class="fu">quantile</span>(in_degree, <span class="fl">0.9</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="step-6-visualize-the-network" class="level4">
+<h4 class="anchored" data-anchor-id="step-6-visualize-the-network">Step 6: Visualize the Network</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(ccss_network, <span class="at">layout =</span> <span class="st">"fr"</span>) <span class="sc">+</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> out_degree, <span class="at">color =</span> out_degree)) <span class="sc">+</span></span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_graph</span>()<span class="sc">+</span></span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"sans"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="section-4_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="step-7-sentiment-analysis-optional" class="level4">
+<h4 class="anchored" data-anchor-id="step-7-sentiment-analysis-optional">Step 7: Sentiment Analysis (Optional)</h4>
+<p>If you want to analyze sentiment as in the original #COMMONCORE study:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vader)</span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>vader_ccss <span class="ot">&lt;-</span> <span class="fu">vader_df</span>(ccss_tweets<span class="sc">$</span>text)</span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a> <span class="fu">mean</span>(vader_ccss<span class="sc">$</span>compound)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.08668182</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a> vader_ccss_summary <span class="ot">&lt;-</span> vader_ccss <span class="sc">%&gt;%</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">mutate</span>(<span class="at">sentiment =</span> <span class="fu">case_when</span>(</span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>     compound <span class="sc">&gt;=</span> <span class="fl">0.05</span> <span class="sc">~</span> <span class="st">"positive"</span>,</span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>     compound <span class="sc">&lt;=</span> <span class="sc">-</span><span class="fl">0.05</span> <span class="sc">~</span> <span class="st">"negative"</span>,</span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>     <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"neutral"</span></span>
+<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a>   )) <span class="sc">%&gt;%</span></span>
+<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">count</span>(sentiment)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="results-and-discussion-1" class="level3">
+<h3 class="anchored" data-anchor-id="results-and-discussion-1">4.4.4 Results and Discussion</h3>
+<section id="rq1-who-are-the-transmitters-transceivers-and-transcenders-in-the-common-core-twitter-network" class="level4">
+<h4 class="anchored" data-anchor-id="rq1-who-are-the-transmitters-transceivers-and-transcenders-in-the-common-core-twitter-network"><strong>RQ1: Who are the “transmitters,” “transceivers,” and “transcenders” in the Common Core Twitter network?</strong></h4>
+<ul>
+<li><p><strong>Transmitters (high out-degree):</strong><br>
+The user <code>SumayLu</code> stands out as the top transmitter, initiating 8 outgoing ties (mentions/retweets), followed by <code>DouglasHolt...</code> (5), <code>WEquilSchool</code> (3), <code>fluttbot</code> (3), and <code>JoeWEquil</code> (2). These users are the most active in broadcasting or mentioning others within the network.</p></li>
+<li><p><strong>Transceivers (high in-degree):</strong><br>
+The most-mentioned users are <code>WEquilSchool</code> and <code>SumayLu</code> (in-degree = 3), <code>JoeWEquil</code> (2), <code>Tech4Learni...</code> (2), and <code>LASER_Insti...</code> (2). These individuals receive the most attention from other actors—potential focal points in conversations.</p></li>
+<li><p><strong>Transcenders (high in-degree <em>and</em> out-degree):</strong><br>
+Only two users—<code>WEquilSchool</code> (in-degree = 3, out-degree = 3) and <code>SumayLu</code> (in-degree = 3, out-degree = 8)—simultaneously act as hubs for both sending and receiving communication. These “bridging” actors may serve as key facilitators or connectors in the discourse.</p></li>
+</ul>
+</section>
+<section id="rq2-what-subgroups-or-factions-exist-in-the-network" class="level4">
+<h4 class="anchored" data-anchor-id="rq2-what-subgroups-or-factions-exist-in-the-network"><strong>RQ2: What subgroups or factions exist in the network?</strong></h4>
+<ul>
+<li><strong>Component analysis</strong> shows a <strong>fragmented network</strong>:
+<ul>
+<li>There are <strong>14 weakly connected components</strong>, the largest containing 14 users, and several small groups or dyads (many with just 2–3 members).</li>
+<li>This fragmentation suggests limited overall cohesion, with multiple parallel or isolated conversations occurring.</li>
+</ul></li>
+<li><strong>Clique analysis</strong> reveals:
+<ul>
+<li>Four cliques (fully connected subgroups) of size 3 or 4—e.g., one 4-person clique involving nodes 3, 4, 5, and 6, and several overlapping 3-person cliques. This indicates pockets of tight-knit interaction, but such groups are rare relative to the size of the network.</li>
+</ul></li>
+<li><strong>Community detection</strong> using edge betweenness identifies 16 subgroups, generally aligning with the component structure. The largest subgroup has 10 members, with most others much smaller.</li>
+</ul>
+</section>
+<section id="rq3-what-is-the-overall-sentiment-in-the-network" class="level4">
+<h4 class="anchored" data-anchor-id="rq3-what-is-the-overall-sentiment-in-the-network"><strong>RQ3: What is the overall sentiment in the network?</strong></h4>
+<ul>
+<li><strong>VADER sentiment analysis</strong> of tweet content yields:
+<ul>
+<li>An average sentiment score (<code>compound</code>) of <strong>0.09</strong> (slightly positive), indicating that, despite the policy controversy, the sampled tweets were, on balance, more positive than negative.</li>
+<li>When tweets are classified into categories:
+<ul>
+<li>A mix of <em>positive</em>, <em>neutral</em>, and <em>negative</em> tweets is observed, with positive tweets slightly outnumbering negatives.</li>
+</ul></li>
+<li>This suggests the debate, at least in this time slice, included advocacy and constructive dialogue, not only criticism or negativity.</li>
+</ul></li>
+</ul>
+</section>
+<section id="rq4-what-other-patterns-of-communication-e.g.-centrality-clique-formation-isolates-characterize-this-network" class="level4">
+<h4 class="anchored" data-anchor-id="rq4-what-other-patterns-of-communication-e.g.-centrality-clique-formation-isolates-characterize-this-network"><strong>RQ4: What other patterns of communication (e.g., centrality, clique formation, isolates) characterize this network?</strong></h4>
+<ul>
+<li><p><strong>Centrality Patterns:</strong></p>
+<p>The network displays a classic “star” structure in its largest component. Two users, <code>SumayLu</code> and <code>WEquilSchool</code>, stand out with high out-degree and in-degree centrality, respectively. Most other users have very low degree values (often 0 or 1), meaning they are peripheral, engaging in few interactions.</p>
+<ul>
+<li><em>Transmitters</em> (high out-degree): e.g., <code>SumayLu</code> (8 outgoing ties), <code>DouglasHolt...</code> (5).</li>
+<li><em>Transceivers</em> (high in-degree): e.g., <code>WEquilSchool</code>, <code>SumayLu</code> (both in-degree = 3).</li>
+<li><em>Transcenders</em> (both high in- and out-degree): rare—only <code>WEquilSchool</code> and <code>SumayLu</code> meet this criterion in this sample.</li>
+</ul></li>
+<li><p><strong>Clique Formation:</strong></p>
+<p>Clique analysis revealed <strong>4 cliques</strong> (fully connected subgroups) of size 3 or more, with one larger clique (size 4) and several overlapping smaller cliques. However, cliques are rare and limited in size—most communication occurs outside of dense subgroups.</p></li>
+<li><p><strong>Isolates and Components:</strong></p>
+<p>The network has <strong>14 weak components</strong>—many of them tiny. Several users are <strong>isolates</strong> or part of isolated dyads and triads, meaning they are disconnected from the main conversation or only loosely connected. This points to a lack of broad, network-wide cohesion.</p></li>
+<li><p><strong>Community Structure:</strong></p>
+<p>Edge betweenness community detection found 16 subgroups, typically matching up with the component structure: most subgroups are very small (2–3 nodes), while the largest subgroup consists of 10 users.</p></li>
+<li><p><strong>Summary:</strong></p>
+<p>Communication in this network is characterized by:</p>
+<ul>
+<li><strong>Strong centralization</strong> around a small number of users (hubs);</li>
+<li><strong>Sparse and fragmented structure</strong> with many small, disconnected components;</li>
+<li><strong>Limited clique formation</strong>—pockets of tightly connected users exist but are rare;</li>
+<li><strong>Numerous isolates</strong>—users who are only weakly or not at all connected to the core discussion.</li>
+</ul></li>
+</ul>
+</section>
+<section id="discussion" class="level4">
+<h4 class="anchored" data-anchor-id="discussion"><strong>Discussion</strong></h4>
+<p>This analysis of the Common Core Twitter conversation reveals a <strong>sparse and fragmented network structure</strong>. The debate is distributed across many small subgroups, with only one moderately sized component (14 members). Within this landscape:</p>
+<ul>
+<li><strong>Key actors</strong> such as <code>SumayLu</code> and <code>WEquilSchool</code> serve as both broadcasters and focal points of attention (“transcenders”), but most users are peripheral, interacting minimally.</li>
+<li><strong>Cliques and communities</strong> are few and small, underscoring the lack of broad cohesion. Most interactions happen within micro-groups rather than across the entire network.</li>
+<li><strong>Sentiment</strong> is, perhaps surprisingly, slightly positive on average. This may reflect the presence of advocacy groups, promotional messaging, or simply a lack of highly negative engagement during the observed period.</li>
+</ul>
+<p><strong>Implications:</strong><br>
+The findings illustrate classic social network phenomena in online policy debate: - Most users are only lightly involved, and only a select few drive discussion or receive significant attention. - Communication is siloed, with many small isolated groups and minimal bridging between them. - Sentiment analysis offers nuance: while public debates may be assumed to be contentious, the prevailing tone can still be balanced or even positive in certain time slices.</p>
+<p><strong>For researchers and practitioners</strong>, this means that: - Identifying and engaging “transcenders” is essential for bridging subgroups and spreading information. - Interventions or outreach should consider the network’s fragmentation—broader influence may require engaging multiple small groups individually rather than targeting a single “core.” - Combining SNA with text/sentiment analysis gives a fuller picture: not just who is talking, but <em>how</em> and <em>with what tone</em>.</p>
+<p>Future analysis could track changes in sentiment and connectivity over time, or compare subgroups for differences in message tone and network position.</p>
+<p><strong>References</strong></p>
+<ul>
+<li>Supovitz, J., Daly, A.J., del Fresno, M., &amp; Kolouch, C. (2017).&nbsp;<em>#commoncore Project.</em> Retrieved from <a href="http://www.hashtagcommoncore.com/">http://www.hashtagcommoncore.com</a></li>
+<li>Carolan, B.V. (2014). <em>Social Network Analysis and Education: Theory, Methods &amp; Applications.</em> Sage.</li>
+<li>Silge, J., &amp; Robinson, D. (2017). <em>Text Mining with R: A Tidy Approach</em>. O’Reilly.</li>
+</ul>
 
 
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

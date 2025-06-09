@@ -835,7 +835,6 @@ Number of Fisher Scoring iterations: 5</code></pre>
 </ul></li>
 </ul>
 <p>Overall, the regression model demonstrates that several institutional factors are statistically significant predictors of graduation rates. In particular, tuition fees and avg_salary have a strong positive effect, while pct_admitted and percent_fin_aid show negative associations.</p>
-<hr>
 </section>
 <section id="supervised-ml-workflow-results-rq-b" class="level4">
 <h4 class="anchored" data-anchor-id="supervised-ml-workflow-results-rq-b">Supervised ML Workflow Results (RQ B)</h4>
@@ -844,7 +843,6 @@ Number of Fisher Scoring iterations: 5</code></pre>
 <li><strong>Accuracy</strong>: 80.02%</li>
 </ul>
 <p>This indicates that the machine learning model correctly classified approximately 80% of the institutions as having either a good or not good graduation rate, based on the selected predictors.</p>
-<hr>
 </section>
 <section id="overall-discussion" class="level4">
 <h4 class="anchored" data-anchor-id="overall-discussion">Overall Discussion</h4>
@@ -876,7 +874,6 @@ Number of Fisher Scoring iterations: 5</code></pre>
 <section id="case" class="level4">
 <h4 class="anchored" data-anchor-id="case">CASE</h4>
 <p>Inspired by research on digital trace data (e.g., Rodriguez et al., 2021; Bosch, 2021), this case study uses pre-processed interactions data from OULAD. In our analysis, we focus on predicting whether a student will pass the course (a binary outcome) based on engineered features derived from clickstream data. These features include the total number of clicks (<code>sum_clicks</code>), summary statistics (mean and standard deviation of clicks), and linear trends over time (slope and intercept from clickstream patterns).</p>
-<hr>
 </section>
 </section>
 <section id="sample-research-questions" class="level3">
@@ -886,13 +883,11 @@ Number of Fisher Scoring iterations: 5</code></pre>
 <li><strong>RQ2:</strong> Which interaction-based features (e.g., total clicks, click stream slope) are most important in predicting student outcomes?</li>
 <li><strong>RQ3:</strong> How does the use of cross-validation (e.g., v-fold CV) influence the stability and generalizability of the random forest model on interactions data?</li>
 </ul>
-<hr>
 </section>
 <section id="analysis-1" class="level3">
 <h3 class="anchored" data-anchor-id="analysis-1">5.4.3 Analysis</h3>
 <section id="loading-required-packages-1" class="level4">
 <h4 class="anchored" data-anchor-id="loading-required-packages-1">Loading Required Packages</h4>
-<p>Below we load the necessary packages. (Note: All code chunks are set to <code>eval=FALSE</code> for instructional purposes.)</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary libraries for data manipulation and modeling</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)      <span class="co"># Data wrangling and visualization</span></span>
@@ -1429,12 +1424,12 @@ Number of Fisher Scoring iterations: 5</code></pre>
 <pre><code># A tibble: 6 × 6
   .metric     .estimator  mean     n std_err .config             
   &lt;chr&gt;       &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               
-1 accuracy    binary     0.671     4 0.00169 Preprocessor1_Model1
-2 kap         binary     0.263     4 0.00331 Preprocessor1_Model1
-3 npv         binary     0.589     4 0.00371 Preprocessor1_Model1
-4 ppv         binary     0.702     4 0.00101 Preprocessor1_Model1
-5 sensitivity binary     0.815     4 0.00337 Preprocessor1_Model1
-6 specificity binary     0.435     4 0.00336 Preprocessor1_Model1</code></pre>
+1 accuracy    binary     0.671     4 0.00191 Preprocessor1_Model1
+2 kap         binary     0.263     4 0.00458 Preprocessor1_Model1
+3 npv         binary     0.589     4 0.00359 Preprocessor1_Model1
+4 ppv         binary     0.702     4 0.00174 Preprocessor1_Model1
+5 sensitivity binary     0.815     4 0.00352 Preprocessor1_Model1
+6 specificity binary     0.434     4 0.00582 Preprocessor1_Model1</code></pre>
 </div>
 </div>
 </section>
@@ -1516,7 +1511,6 @@ Prediction    0    1
 Using 4-fold cross-validation, our random forest model yielded an average accuracy of approximately <strong>67.0%</strong> (mean accuracy from resamples: 0.670) with a Cohen’s Kappa of <strong>0.261</strong>, suggesting moderate agreement beyond chance. When fitted on the entire training set and evaluated on the test set, the final model showed an accuracy of <strong>66.5%</strong> along with: - <strong>Sensitivity:</strong> 81.5% – indicating the model correctly identifies a high proportion of students who pass. - <strong>Specificity:</strong> 41.9% – suggesting that the model is less effective at correctly identifying students who do not pass. - <strong>Positive Predictive Value (PPV):</strong> 69.7% - <strong>Negative Predictive Value (NPV):</strong> 58.0%</p>
 <p>The confusion matrix shows: - True Negatives (TN): 5439 - False Negatives (FN): 1238 - False Positives (FP): 2370 - True Positives (TP): 1710</p>
 <p>Overall, these metrics indicate that while the model performs well in detecting positive outcomes (high sensitivity), its lower specificity means that it tends to misclassify a relatively higher proportion of non-passing students.</p>
-<hr>
 </section>
 <section id="research-question-2-rq2" class="level4">
 <h4 class="anchored" data-anchor-id="research-question-2-rq2">Research Question 2 (RQ2):</h4>
@@ -1531,14 +1525,12 @@ The variable importance analysis, extracted from the final random forest model u
 <li>Other categorical variables (e.g., dummy-coded <code>disability</code>, <code>gender</code>, and <code>code_module</code> levels) generally show lower importance scores, with values typically under 80, indicating that while they do contribute, engagement and performance metrics dominate.</li>
 </ul>
 <p>These results suggest that both the intensity and the temporal trend of student interactions with the learning environment are critical in predicting whether a student will pass.</p>
-<hr>
 </section>
 <section id="research-question-3-rq3" class="level4">
 <h4 class="anchored" data-anchor-id="research-question-3-rq3">Research Question 3 (RQ3):</h4>
 <p><em>How does the use of cross-validation impact the stability and generalizability of the random forest model on interactions data?</em></p>
 <p><strong>Response:</strong><br>
 The use of 4-fold cross-validation (via <code>vfold_cv</code>) allowed us to assess the model’s performance across multiple subsets of the data, mitigating the risk of overfitting. The resampling results are relatively consistent (with accuracy around 67%, sensitivity at 81.6%, and specificity around 43.2%), which supports the model’s robustness and generalizability. Although the final test set performance (accuracy of 66.5%) is slightly lower, the overall consistency of metrics across folds indicates that our model is stable when applied to unseen data.</p>
-<hr>
 </section>
 <section id="overall-discussion-1" class="level4">
 <h4 class="anchored" data-anchor-id="overall-discussion-1">Overall Discussion</h4>
