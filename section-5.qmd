@@ -324,12 +324,10 @@ Logistic regression is a supervised learning technique widely used for binary cl
 
 This case study is based on IPEDS data and inspired by Zong and Davis (2022). We predict graduation rates as a binary outcome (`good_grad_rate`) using institutional features such as total enrollment, admission rate, tuition fees, and average instructional staff salary.
 
-
 ### 5.3.2 Sample Research Questions (RQs)
 
 -   **RQ A**: What institutional factors are associated with high graduation rates in U.S. four-year universities?
 -   **RQ B**: How accurately can we predict high graduation rates using institutional features with supervised machine learning?
-
 
 ### 5.3.3 Analysis
 
@@ -449,52 +447,47 @@ my_accuracy
 
 #### Logistic Regression Model (RQ A)
 
-The logistic regression model was fitted to predict whether a university achieves a "good" graduation rate (i.e., graduation rate > 62%) based on several institutional features. The model output is summarized below:
+The logistic regression model was fitted to predict whether a university achieves a "good" graduation rate (i.e., graduation rate \> 62%) based on several institutional features. The model output is summarized below:
 
-- **Coefficients & Significance**:
-  - **total_enroll**: Estimate = 3.35e-05, *z* = 4.251, p = 2.13e-05  
-    *Interpretation*: As total enrollment increases, the probability of a high graduation rate increases.
-  - **pct_admitted**: Estimate = -1.407e-02, *z* = -3.997, p = 6.40e-05  
-    *Interpretation*: Higher admission percentages are associated with a lower likelihood of achieving a high graduation rate.
-  - **tuition_fees**: Estimate = 6.952e-05, *z* = 14.003, p < 2e-16  
-    *Interpretation*: Higher tuition fees are strongly associated with higher graduation rates.
-  - **percent_fin_aid**: Estimate = -2.960e-02, *z* = -5.237, p = 1.64e-07  
-    *Interpretation*: A higher percentage of students receiving financial aid is associated with a lower probability of a good graduation rate.
-  - **avg_salary**: Estimate = 2.996e-05, *z* = 7.740, p = 9.91e-15  
-    *Interpretation*: Higher average salaries for instructional staff are positively associated with high graduation rates.
-  
-- **Model Fit Statistics**:
-  - **Null Deviance**: 2277 (on 1706 degrees of freedom)
-  - **Residual Deviance**: 1632 (on 1701 degrees of freedom)
-  - **AIC**: 1644
-  - Note: 3621 observations were deleted due to missing values.
+-   **Coefficients & Significance**:
+    -   **total_enroll**: Estimate = 3.35e-05, *z* = 4.251, p = 2.13e-05\
+        *Interpretation*: As total enrollment increases, the probability of a high graduation rate increases.
+    -   **pct_admitted**: Estimate = -1.407e-02, *z* = -3.997, p = 6.40e-05\
+        *Interpretation*: Higher admission percentages are associated with a lower likelihood of achieving a high graduation rate.
+    -   **tuition_fees**: Estimate = 6.952e-05, *z* = 14.003, p \< 2e-16\
+        *Interpretation*: Higher tuition fees are strongly associated with higher graduation rates.
+    -   **percent_fin_aid**: Estimate = -2.960e-02, *z* = -5.237, p = 1.64e-07\
+        *Interpretation*: A higher percentage of students receiving financial aid is associated with a lower probability of a good graduation rate.
+    -   **avg_salary**: Estimate = 2.996e-05, *z* = 7.740, p = 9.91e-15\
+        *Interpretation*: Higher average salaries for instructional staff are positively associated with high graduation rates.
+-   **Model Fit Statistics**:
+    -   **Null Deviance**: 2277 (on 1706 degrees of freedom)
+    -   **Residual Deviance**: 1632 (on 1701 degrees of freedom)
+    -   **AIC**: 1644
+    -   Note: 3621 observations were deleted due to missing values.
 
 Overall, the regression model demonstrates that several institutional factors are statistically significant predictors of graduation rates. In particular, tuition fees and avg_salary have a strong positive effect, while pct_admitted and percent_fin_aid show negative associations.
 
----
 
 #### Supervised ML Workflow Results (RQ B)
 
 Using the tidymodels framework, we built a logistic regression model as part of a supervised machine learning workflow. The performance metric obtained is as follows:
 
-- **Accuracy**: 80.02%
+-   **Accuracy**: 80.02%
 
 This indicates that the machine learning model correctly classified approximately 80% of the institutions as having either a good or not good graduation rate, based on the selected predictors.
 
----
 
 #### Overall Discussion
 
-- **Similarities between Approaches**:
-  - Both the traditional logistic regression and the tidymodels workflow identified key predictors that influence graduation rates, such as total enrollment, admission percentage, tuition fees, financial aid percentage, and average staff salary.
-  - Each approach provides valuable insights: the regression model offers detailed coefficient estimates and significance levels, while the tidymodels workflow emphasizes predictive accuracy.
-
-- **Differences between Approaches**:
-  - **Interpretability vs. Predictive Performance**: The logistic regression output delivers interpretability through its coefficients and p-values, allowing us to understand the direction and magnitude of the relationships. In contrast, the supervised ML workflow focuses on achieving a robust predictive performance, evidenced by an 80% accuracy.
-  - **Handling of Data**: The traditional regression model summarizes the relationship between variables, whereas the ML workflow integrates data pre-processing, modeling, and validation into a cohesive framework.
+-   **Similarities between Approaches**:
+    -   Both the traditional logistic regression and the tidymodels workflow identified key predictors that influence graduation rates, such as total enrollment, admission percentage, tuition fees, financial aid percentage, and average staff salary.
+    -   Each approach provides valuable insights: the regression model offers detailed coefficient estimates and significance levels, while the tidymodels workflow emphasizes predictive accuracy.
+-   **Differences between Approaches**:
+    -   **Interpretability vs. Predictive Performance**: The logistic regression output delivers interpretability through its coefficients and p-values, allowing us to understand the direction and magnitude of the relationships. In contrast, the supervised ML workflow focuses on achieving a robust predictive performance, evidenced by an 80% accuracy.
+    -   **Handling of Data**: The traditional regression model summarizes the relationship between variables, whereas the ML workflow integrates data pre-processing, modeling, and validation into a cohesive framework.
 
 In summary, our analyses indicate that institutional factors, particularly tuition fees and staff salaries, play a significant role in predicting graduation outcomes. The supervised ML approach, with an accuracy of around 80%, confirms the model's practical utility in classifying institutions based on graduation performance. Both methods complement each other, providing a comprehensive understanding of the underlying dynamics that drive graduation rates in higher education.
-
 
 ## 5.4 Random Forests ML on Interactions Data
 
@@ -503,26 +496,24 @@ In this section, we explore a more sophisticated supervised learning approach—
 ### 5.4.1 Purpose + CASE
 
 #### Purpose
+
 Random Forests is an ensemble learning method that builds multiple decision trees and aggregates their results to improve prediction accuracy and control over-fitting. It is particularly well suited for complex, high-dimensional data such as student interaction (clickstream) data. This approach not only provides robust predictions but also offers insights into variable importance, helping us understand which features most influence student outcomes.
 
 #### CASE
+
 Inspired by research on digital trace data (e.g., Rodriguez et al., 2021; Bosch, 2021), this case study uses pre-processed interactions data from OULAD. In our analysis, we focus on predicting whether a student will pass the course (a binary outcome) based on engineered features derived from clickstream data. These features include the total number of clicks (`sum_clicks`), summary statistics (mean and standard deviation of clicks), and linear trends over time (slope and intercept from clickstream patterns).
 
----
 
 ### 5.4.2 Sample Research Questions
 
-- **RQ1:** How accurately can a random forest model predict whether a student will pass a course using interactions data from OULAD?
-- **RQ2:** Which interaction-based features (e.g., total clicks, click stream slope) are most important in predicting student outcomes?
-- **RQ3:** How does the use of cross-validation (e.g., v-fold CV) influence the stability and generalizability of the random forest model on interactions data?
+-   **RQ1:** How accurately can a random forest model predict whether a student will pass a course using interactions data from OULAD?
+-   **RQ2:** Which interaction-based features (e.g., total clicks, click stream slope) are most important in predicting student outcomes?
+-   **RQ3:** How does the use of cross-validation (e.g., v-fold CV) influence the stability and generalizability of the random forest model on interactions data?
 
----
 
 ### 5.4.3 Analysis
 
 #### Loading Required Packages
-
-Below we load the necessary packages. (Note: All code chunks are set to `eval=FALSE` for instructional purposes.)
 
 ```{r}
 # Load necessary libraries for data manipulation and modeling
@@ -534,7 +525,9 @@ library(vip)            # Variable importance plots
 ```
 
 #### Loading and Preparing the Data
+
 We load the pre-filtered interactions data from OULAD along with a students-and-assessments file, then join them to create a complete dataset for modeling.
+
 ```{r}
 # Load the interactions data (filtered for the first one-third of the semester)
 interactions <- read_csv("data/oulad-interactions-filtered.csv")
@@ -614,7 +607,9 @@ students_assessments_and_interactions %>%
 ```
 
 #### Creating the Model Recipe
+
 We build a recipe that includes the engineered features from interactions data along with other predictors from the students data.
+
 ```{r}
 my_rec2 <- recipe(pass ~ disability +
                      date_registration + 
@@ -639,7 +634,9 @@ my_rec2 <- recipe(pass ~ disability +
 ```
 
 #### Specifying the Model and Workflow
+
 We use a random forest model via the `ranger` engine and set up our workflow.
+
 ```{r}
 # Specify random forest model
 my_mod2 <- rand_forest() %>% 
@@ -654,7 +651,9 @@ my_wf2 <- workflow() %>%
 ```
 
 #### Resampling and Model Fitting
+
 We perform cross-validation (v-fold CV) to estimate model performance.
+
 ```{r}
 # Create 4-fold cross-validation on training data
 vfcv <- vfold_cv(data = students_assessments_and_interactions, v = 4, strata = pass)
@@ -673,6 +672,7 @@ collect_metrics(fitted_model_resamples)
 #### Final Model Fit and Evaluation
 
 Finally, we fit the model on the full training set (using last_fit) and evaluate its predictions on the test set.
+
 ```{r}
 # Split data into training and testing sets (e.g., 33% for testing)
 set.seed(20230712)
@@ -709,52 +709,43 @@ print(importance_values)
 
 ```
 
-
 ### 5.4.4 Results and Discussions
 
-#### Research Question 1 (RQ1): 
+#### Research Question 1 (RQ1):
+
 *How accurately can a random forest model predict whether a student will pass a course using interactions data from OULAD?*
 
-**Response:**  
-Using 4-fold cross-validation, our random forest model yielded an average accuracy of approximately **67.0%** (mean accuracy from resamples: 0.670) with a Cohen's Kappa of **0.261**, suggesting moderate agreement beyond chance. When fitted on the entire training set and evaluated on the test set, the final model showed an accuracy of **66.5%** along with:
-- **Sensitivity:** 81.5% – indicating the model correctly identifies a high proportion of students who pass.
-- **Specificity:** 41.9% – suggesting that the model is less effective at correctly identifying students who do not pass.
-- **Positive Predictive Value (PPV):** 69.7%
-- **Negative Predictive Value (NPV):** 58.0%
+**Response:**\
+Using 4-fold cross-validation, our random forest model yielded an average accuracy of approximately **67.0%** (mean accuracy from resamples: 0.670) with a Cohen's Kappa of **0.261**, suggesting moderate agreement beyond chance. When fitted on the entire training set and evaluated on the test set, the final model showed an accuracy of **66.5%** along with: - **Sensitivity:** 81.5% – indicating the model correctly identifies a high proportion of students who pass. - **Specificity:** 41.9% – suggesting that the model is less effective at correctly identifying students who do not pass. - **Positive Predictive Value (PPV):** 69.7% - **Negative Predictive Value (NPV):** 58.0%
 
-The confusion matrix shows:
-- True Negatives (TN): 5439
-- False Negatives (FN): 1238
-- False Positives (FP): 2370
-- True Positives (TP): 1710
+The confusion matrix shows: - True Negatives (TN): 5439 - False Negatives (FN): 1238 - False Positives (FP): 2370 - True Positives (TP): 1710
 
 Overall, these metrics indicate that while the model performs well in detecting positive outcomes (high sensitivity), its lower specificity means that it tends to misclassify a relatively higher proportion of non-passing students.
 
----
 
-#### Research Question 2 (RQ2): 
+#### Research Question 2 (RQ2):
+
 *Which interaction-based features are most important in predicting student outcomes?*
 
-**Response:**  
+**Response:**\
 The variable importance analysis, extracted from the final random forest model using the `vip()` function, highlights the following key predictors (with their respective importance scores):
 
-- **sum_clicks:** 1062.49 – This is the most influential feature, indicating that the total number of clicks (i.e., student engagement) in the VLE is a strong predictor of student success.
-- **mean_weighted_score:** 838.06 – Reflecting academic performance as measured by weighted assessment scores.
-- **mean_clicks:** 737.79, **slope:** 739.86, and **intercept:** 729.52 – These engineered features representing the central tendency and trend of click behavior further underline the importance of digital engagement patterns.
-- **date_registration:** 652.15 – The registration date also plays a significant role.
-- Other categorical variables (e.g., dummy-coded `disability`, `gender`, and `code_module` levels) generally show lower importance scores, with values typically under 80, indicating that while they do contribute, engagement and performance metrics dominate.
+-   **sum_clicks:** 1062.49 – This is the most influential feature, indicating that the total number of clicks (i.e., student engagement) in the VLE is a strong predictor of student success.
+-   **mean_weighted_score:** 838.06 – Reflecting academic performance as measured by weighted assessment scores.
+-   **mean_clicks:** 737.79, **slope:** 739.86, and **intercept:** 729.52 – These engineered features representing the central tendency and trend of click behavior further underline the importance of digital engagement patterns.
+-   **date_registration:** 652.15 – The registration date also plays a significant role.
+-   Other categorical variables (e.g., dummy-coded `disability`, `gender`, and `code_module` levels) generally show lower importance scores, with values typically under 80, indicating that while they do contribute, engagement and performance metrics dominate.
 
 These results suggest that both the intensity and the temporal trend of student interactions with the learning environment are critical in predicting whether a student will pass.
 
----
 
 #### Research Question 3 (RQ3):
+
 *How does the use of cross-validation impact the stability and generalizability of the random forest model on interactions data?*
 
-**Response:**  
+**Response:**\
 The use of 4-fold cross-validation (via `vfold_cv`) allowed us to assess the model's performance across multiple subsets of the data, mitigating the risk of overfitting. The resampling results are relatively consistent (with accuracy around 67%, sensitivity at 81.6%, and specificity around 43.2%), which supports the model’s robustness and generalizability. Although the final test set performance (accuracy of 66.5%) is slightly lower, the overall consistency of metrics across folds indicates that our model is stable when applied to unseen data.
 
----
 
 #### Overall Discussion
 
