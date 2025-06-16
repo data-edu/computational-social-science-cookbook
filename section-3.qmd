@@ -1,3 +1,44 @@
 # Section 3 **Multimodal Data (Images, Video, Audio)**
 
-**Abstract**: Conventionally, for us (the social scientists) we start the research process by generating research questions based on our previous knowledge and theories in the field and that is still the way to go about it. But, it is also possible that our observations of the world can guide our research questions. In this section, we will discuss how social scientists can look beyond conventional data types, and learn about capturing and analyzing multimodal data. 
+## 3.1 Overview
+
+In this section, we will discuss how social scientists can look beyond conventional data types, and learn about capturing and analyzing multimodal data. 
+
+## 3.2 Images
+
+I am not sure if we need to talk about "accessing" or collecting image data as it is pretty much standard.
+
+## 3.3 Analyzing Images
+
+With the advent of Large-Language Models (LLMs) we can use their power to analyze images. In this section, we will focus on using one package that uses local LLMs (i.e., privacy) to analyze image files: [{kuzco}](https://github.com/frankiethull/kuzco).
+
+### 3.3.1. Setting Up Kuzco
+
+To use kuzco, you need to, first, install Ollama (a software that allows pulling and running local LLMs) and ollamar & ellmer packages.
+
+You can install Ollama by downloading and installing the application from its provider's website. Basically the steps are:
+
+1.  Download and install the [Ollama](https://ollama.com/) app.
+
+-   [macOS](https://ollama.com/download/Ollama-darwin.zip)
+
+-   [Windows preview](https://ollama.com/download/OllamaSetup.exe)
+
+-   Linux: `curl -fsSL https://ollama.com/install.sh | sh`
+
+-   [Docker image](https://hub.docker.com/r/ollama/ollama)
+
+2.  Open/launch the Ollama app to start the local server.
+
+After installing Ollama, you will then need to install ollamar and ellmer:
+
+```{r}
+install.packages("ollamar")
+install.packages("ellmer")
+```
+
+Once these are installed, install kuzco:
+
+```{r}
+devtools::install_github("frankiethull/kuzco")
+```
