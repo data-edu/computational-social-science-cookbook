@@ -42,3 +42,161 @@ Once these are installed, install kuzco:
 ```{r}
 devtools::install_github("frankiethull/kuzco")
 ```
+
+### 3.3.2 Image Classification
+
+The first function kuzco package provides is to create a data frame from the objects of a given image.
+
+## Case Study: Analyzing Classroom Photographs with Kuzco to Explore Student Engagement
+
+### 3.3.2.1 Purpose
+
+In a study on student engagement during collaborative science instruction, a researcher used a series of classroom photographs to better understand how students participated in different types of learning activities. Rather than relying solely on manual observation and field notes, the researcher applied the `{kuzco}` R package to process and interpret visual data. Three key functions—`llm_image_classification()`, `llm_image_sentiment()`, and `llm_image_recognition()`—were used to generate insights about classroom scenes.
+
+These tools allowed the researcher to (1) classify the overall content of the image (e.g., lab work, discussion, presentation), (2) recognize and count key objects or people in the frame (e.g., students, materials, whiteboards), and (3) estimate the emotional tone of the scene based on posture and facial cues. This approach enabled a more systematic and scalable analysis of classroom engagement, providing structured outputs that could be interpreted alongside observational data and interview responses.
+
+### 3.3.2.2 Research Questions
+
+To investigate the nature of AI use policies within higher education institutions, in this study, our research questions are:
+
+-   **RQ1:** How do classroom activities, as categorized through image classification, vary across different phases of science instruction?
+-   **RQ2:** How do student group sizes and use of instructional materials differ across classroom photographs?
+-   **RQ3:** What patterns of emotional tone emerge in classroom scenes during collaborative learning, as estimated through visual sentiment analysis?
+
+### 3.3.2.3  Methods
+
+This study used visual data from middle school science classrooms to explore patterns of student interaction, task engagement, and classroom atmosphere across different instructional moments. The analysis was supported by large language model (LLM)-based image processing tools from the `{kuzco}` R package, allowing for efficient classification, recognition, and sentiment estimation without advanced machine learning expertise.
+
+### 3.3.2.4 Data Source
+
+The dataset consisted of 48 photographs taken during four 7th-grade science lessons, each lasting approximately 60 minutes. Photos were captured every 5–7 minutes by a stationary camera positioned at the back of the room to minimize disruption. All images were de-identified prior to analysis to protect student privacy. Each photo represented a naturally occurring moment of group-based learning and was accompanied by a brief instructional context log maintained by the classroom observer.
+
+### 3.3.2.5 Data Analysis
+
+Images were processed using the following `{kuzco}` functions:
+
+-   **`llm_image_classification()`**: Generated scene-level labels and narrative summaries (e.g., "students engaged in group discussion around lab materials").
+
+-   **`llm_image_recognition()`**: Identified and counted key visual entities such as students, desks, instructional materials, and gestures
+
+-   **`llm_image_sentiment()`**: Estimated the emotional tone of each scene (e.g., positive, neutral, frustrated), with particular attention to student posture and interaction dynamics.
+
+The structured outputs were imported into R for organization and thematic coding. Using both deductive categories (e.g., group size, task type) and inductive patterns (e.g., collaborative vs. passive positioning), the researcher examined how engagement varied across activities. Triangulation with field notes enhanced interpretive validity, and descriptive summaries were generated to visualize classroom dynamics over time.
+
+*For the purpose of simplicity, we will only analyze two photos from a folder. The process for batch analysis can be increased to more photos.*
+
+With the code below, we create a function to batch analyze images:
+
+```{r}
+library(kuzco)
+library(ollamar)
+library(tibble)
+library(purrr)
+library(dplyr)
+library(fs)
+
+# Set your image folder path
+image_folder <- "/Users/makcaoglu/CSS/docs/section-3_files"
+
+# List images (adjust pattern as needed)
+image_files <- dir_ls(image_folder, regexp = "\\.(jpg|jpeg|png)$", recurse = FALSE)
+
+# Function to classify and detect in one step
+process_image <- function(img_path) {
+  # Classification
+  classification <- llm_image_classification(
+    llm_model = "qwen2.5vl",
+    image = img_path,
+    backend = 'ollamar'
+  )
+  
+  # Object detection (e.g., people)
+  detection <- llm_image_recognition(
+    llm_model = "qwen2.5vl",
+    image = img_path,
+    recognize_object = "people",
+    backend = 'ollamar'
+  )
+  
+  # Sentiment/emotion
+  sentiment <- llm_image_sentiment(
+    llm_model = "qwen2.5vl",
+    image = img_path
+  )
+  
+  #the new custom fuction for sentiment
+  customized <- llm_image_custom(
+    llm_model = "qwen2.5vl",
+    image = img_path,
+    system_prompt = "You are an expert classroom observer. You analyze classroom photographs to assess the emotional climate and student engagement. Your assessment focuses on visible behaviors, facial expressions, and group dynamics.",
+    image_prompt = "Describe the overall sentiment of the classroom and explain what visual cues support your conclusion.",
+    example_df = data.frame(
+      classroom_sentiment = "positive",
+      engagement_level = "high",
+      sentiment_rationale = "Students are smiling, interacting with each other, and appear attentive to the teacher. Desks are arranged for group work."
+    )
+  )
+  
+  # Return combined tibble
+  tibble::tibble(
+  file = img_path,
+  image_classification = classification$image_classification,
+  primary_object = classification$primary_object,
+  secondary_object = classification$secondary_object,
+  image_description = classification$image_description,
+  image_colors = classification$image_colors,
+  image_proba_names = paste(unlist(classification$image_proba_names), collapse = ", "),
+  image_proba_values = paste(unlist(classification$image_proba_values), collapse = ", "),
+  object_recognized = detection$object_recognized,
+  object_count = detection$object_count,
+  object_description = detection$object_description,
+  object_location = detection$object_location,
+  classroom_sentiment = customized$classroom_sentiment,
+  engagement_level = customized$engagement_level,
+  sentiment_rationale = customized$sentiment_rationale
+)
+
+}
+```
+
+Now, we run the analyses:
+
+```{r}
+
+# Apply to all images and combine into one data frame
+results_df <- map_dfr(image_files, process_image)
+
+# View result
+print(results_df)
+
+
+# Arrange columns in logical order and rename for clarity
+results_clean <- results_df |>
+  select(
+    file,
+    image_classification,
+    image_description,
+    primary_object,
+    secondary_object,
+    image_colors,
+    image_proba_names,
+    image_proba_values,
+    object_recognized,
+    object_count,
+    object_description,
+    object_location,
+    image_sentiment,
+    image_score,
+    sentiment_description,
+    image_keywords
+  )
+
+# Save to CSV (optional)
+write.csv(results_clean, "image_classification_detection_results.csv", row.names = FALSE)
+
+# View top images with the most people (if desired)
+results_clean |> 
+  arrange(desc(object_count)) |> 
+  print(n = Inf)
+
+```
