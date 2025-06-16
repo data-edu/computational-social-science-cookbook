@@ -200,3 +200,16 @@ results_clean |>
   print(n = Inf)
 
 ```
+
+### 3.3.2.6 Results and Discussion:
+
+The analysis of classroom photographs using the `{kuzco}` package yielded structured insights across three domains: instructional context (classification), observable features (recognition), and affective tone (sentiment). Below, we summarize preliminary findings from two sample images.
+
+**RQ1: Instructional Activity Patterns (Image Classification)**\
+Across images, `llm_image_classification()` consistently labeled the scenes as “classroom,” with descriptive summaries indicating quiet, focused individual or small-group work. For example, one image was described as “a classroom scene with a student focused on writing,” while another featured “students sitting at desks… and a teacher in the background.” These classifications help distinguish between instructional moments (e.g., individual seatwork vs. whole-group interaction), informing a timeline of activity types over the course of the lesson.
+
+**RQ2: Student Presence and Interaction (Image Recognition)**\
+The `llm_image_recognition()` function identified and described key objects and individuals in each photo. Object counts ranged from 2 to 7, allowing for comparisons in group size and density. In one image, a single student was the focal point, while another captured a larger group of students engaged in various literacy tasks. Object descriptions included not only counts but also contextual roles (e.g., “a boy writing with a pencil” or “students engaged in reading”), enhancing interpretability of engagement.
+
+**RQ3: Affective Tone in Classroom Scenes (Image Sentiment)**\
+Both images were rated as **positive** using `llm_image_sentiment()`, with scores of 0.7 and 0.8 respectively. Sentiment descriptions highlighted emotional tone inferred from posture, interaction, and environmental cues: one described “a quiet studious atmosphere,” while the other conveyed “a cheerful and engaged sentiment.” These outputs suggest that students were generally attentive and involved, and that the physical learning environment contributed to a positive classroom climate.
