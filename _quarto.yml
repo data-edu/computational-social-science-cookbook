@@ -22,8 +22,17 @@ bibliography: [references.bib, packages.bib]
 
 format:
   html:
-    theme: flatly
+    theme:
+      light: [ flatly, styles/theme.scss ]
+      dark: [ flatly, styles/dark-theme.scss ]
+    respect-usride.csser-color-scheme: true
+    css: styles/override.css
     number-sections: false   # Turn off HTML autonumbering
+    grid:
+       sidebar-width: 300px
+       body-width: 860px
+       margin-width: 300px
+       gutter-width: 1.5rem
   pdf:
     documentclass: scrreprt
     pdf-engine: xelatex

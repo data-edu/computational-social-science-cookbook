@@ -373,13 +373,13 @@ cat("Transitivity:", trans, "Diameter:", diam, "Mean Distance:", mean_d, "\n")
 -   **Diameter**: 8 for both, showing that even the furthest nodes can be reached in 8 steps.
 -   **Mean distance**: \~3.0, so participants are relatively close to each other in the main component.
 
-### **Comparison Across Cohorts**
+ **Comparison Across Cohorts**
 
 -   **DLT2 is slightly larger** (more participants and interactions), but the structural properties—density, centralization, reciprocity, clustering, and path lengths—are all quite similar.
 -   Minor variations (e.g., higher reciprocity and clustering in DLT2) could reflect differences in facilitation style, cohort engagement, or participant composition.
 -   **Interpretation**: Both cohorts exhibit classic patterns for large-scale online educational discussions—a small number of central actors drive most of the interaction, the networks are sparse but efficiently connected, and genuine dialogue is present but not universal.
 
-### **Educational Implications**
+ **Educational Implications**
 
 -   **For educators and instructional designers**:
 
