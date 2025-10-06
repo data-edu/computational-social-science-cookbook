@@ -3,9 +3,9 @@ project:
   output-dir: docs
 
 book:
-  title: "Computational Social Science Cookbook with R"
+  title: "Computational Analysis of Educational Data: A Field Guide Using R"
   author: "Wei Wang, Mete Akcaoglu, Joshua Rosenberg, Shaun Kellogg"
-  date: " Aug 16,2025"
+  date: " Oct 16,2025"
   chapters:
     - index.qmd
     - section-1.qmd
@@ -14,6 +14,7 @@ book:
     - section-4.qmd
     - section-5.qmd
     - section-6.qmd
+    - section-7.qmd
     - conclusion.qmd
     - references.qmd
 
