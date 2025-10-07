@@ -2,15 +2,33 @@
 
 ## 5.1 Overview
 
-In this section, we will discuss how social scientists can look beyond conventional data types, and learn about capturing and analyzing multimodal data. 
+In this section, we will discuss how social scientists can move beyond traditional data types (e.g., text and numbers) and learn about capturing and analyzing multimodal data.\
+
+Multimodal data includes audio, video, and other non‑textual information that gives a fuller picture of human behavior.\
+
+Modern devices such as wearables, smartphones, and online platforms now let researchers collect large amounts of this mixed data.\
+
+To make sense of it, we use computational tools that combine the different types:
+
+-   image analysis for video frames,
+
+-   voice‑to‑text software for audio, and
+
+-   machine‑learning models that link text, pictures, and sensor signals.
+
+These tools let researchers ask new questions. For example, how body language and tone of voice together affect conversations or how physiological signals match feelings can help uncover insights that single‑mode studies miss. By integrating multimodal data, social scientists can broaden the depth and reach of their research beyond what conventional single‑mode analysis offers.
 
 ## 5.2 Images
 
-I am not sure if we need to talk about "accessing" or collecting image data as it is pretty much standard.
+Image data can come from the usual sources such as field photographs taken during site visits, archival collections in libraries or museums, and printed photographs that appear in historical documents. Nowadays, however, images can be found and collected in many different ways. For example, social media platforms like Instagram, Facebook, and TikTok are rich with user‑generated photos; online photo repositories such as Flickr, Unsplash, and Wikimedia Commons host millions of images that are freely accessible; news outlets regularly publish photographs to accompany stories; satellite imagery from NASA or ESA provides large‑scale visual data; and everyday smartphone cameras capture images that can be shared in research settings. Please note that although we cover some prominent ways, this is by no means an exhaustive list. Therefore, please refer to the additional resources section at the end of the section to dive deeper.
 
 ## 3.3 Analyzing Images
 
 With the advent of Large-Language Models (LLMs) we can use their power to analyze images. In this section, we will focus on using one package that uses local LLMs (i.e., privacy) to analyze image files: [{kuzco}](https://github.com/frankiethull/kuzco).
+
+Kuzco is
+
+> is a simple vision boilerplate built for ollama in R, on top of {ollamar} & {ellmer}. {kuzco} is designed as a computer vision assistant, giving local models guidance on classifying images and return structured data. The goal is to standardize outputs for image classification and use LLMs as an alternative option to keras or torch. {kuzco} currently supports: classification, recognition, sentiment, text extraction, alt-text creation, and **custom** computer vision tasks.
 
 ### 5.3.1. Setting Up Kuzco
 
@@ -43,13 +61,13 @@ Once these are installed, install kuzco:
 devtools::install_github("frankiethull/kuzco")
 ```
 
-### 5.3.2 Image Classification
+## 5.3.2 Image Classification
 
-The first function kuzco package provides is to create a data frame from the objects of a given image.
+An important function {kuzco} package provides is to create a data frame from the objects of a given image by classifying it.
 
-## Case Study: Analyzing Classroom Photographs with Kuzco to Explore Student Engagement
+### Case Study: Analyzing Classroom Photographs with Kuzco to Explore Student Engagement
 
-### 5.3.2.1 Purpose
+#### 5.3.2.1 Purpose
 
 In a study on student engagement during collaborative science instruction, a researcher used a series of classroom photographs to better understand how students participated in different types of learning activities. Rather than relying solely on manual observation and field notes, the researcher applied the `{kuzco}` R package to process and interpret visual data. Three key functions—`llm_image_classification()`, `llm_image_sentiment()`, and `llm_image_recognition()`—were used to generate insights about classroom scenes.
 
@@ -57,7 +75,7 @@ These tools allowed the researcher to (1) classify the overall content of the im
 
 ### 5.3.2.2 Research Questions
 
-To investigate the nature of AI use policies within higher education institutions, in this study, our research questions are:
+To investigate the nature of a classroom discourse, in this study, our research questions are:
 
 -   **RQ1:** How do classroom activities, as categorized through image classification, vary across different phases of science instruction?
 -   **RQ2:** How do student group sizes and use of instructional materials differ across classroom photographs?
@@ -85,6 +103,10 @@ The structured outputs were imported into R for organization and thematic coding
 
 *For the purpose of simplicity, we will only analyze two photos from a folder. The process for batch analysis can be increased to more photos.*
 
+![](data/s5_images/primary-school-teacher-working-with-students-in-classroom-838559688.jpg){width="575"}
+
+![](data/s5_images/35320686-2551789306.jpg){width="576"}
+
 With the code below, we create a function to batch analyze images:
 
 ```{r eval=FALSE}
@@ -96,7 +118,7 @@ library(dplyr)
 library(fs)
 
 # Set your image folder path
-image_folder <- "/Users/makcaoglu/CSS/docs/section-3_files"
+image_folder <- "/Users/makcaoglu/Documents/CSS_Book/data/s5_images" #hide this before pub
 
 # List images (adjust pattern as needed)
 image_files <- dir_ls(image_folder, regexp = "\\.(jpg|jpeg|png)$", recurse = FALSE)
