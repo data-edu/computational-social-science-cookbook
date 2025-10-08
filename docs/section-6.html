@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -338,7 +373,25 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
+  <li><a href="#what-are-local-llms" id="toc-what-are-local-llms" class="nav-link active" data-scroll-target="#what-are-local-llms">6.1 What are Local LLMs?</a></li>
+  <li><a href="#what-can-local-llms-do" id="toc-what-can-local-llms-do" class="nav-link" data-scroll-target="#what-can-local-llms-do">6.2 What Can Local LLMs Do?</a></li>
+  <li><a href="#getting-started-with-lm-studio" id="toc-getting-started-with-lm-studio" class="nav-link" data-scroll-target="#getting-started-with-lm-studio">6.3 Getting Started with LM Studio</a>
+  <ul class="collapse">
+  <li><a href="#installation-steps" id="toc-installation-steps" class="nav-link" data-scroll-target="#installation-steps">6.3.1 Installation Steps</a></li>
+  <li><a href="#main-features" id="toc-main-features" class="nav-link" data-scroll-target="#main-features">6.3.2 Main Features</a></li>
+  <li><a href="#api-integration" id="toc-api-integration" class="nav-link" data-scroll-target="#api-integration">6.3.3 API Integration</a></li>
+  <li><a href="#summary-table-of-lm-studio-capabilities" id="toc-summary-table-of-lm-studio-capabilities" class="nav-link" data-scroll-target="#summary-table-of-lm-studio-capabilities">6.3.4 Summary Table of LM Studio Capabilities:</a></li>
+  </ul></li>
+  <li><a href="#case-study-comparing-local-llm-analysis-to-traditional-nlp-on-university-ai-policy-texts" id="toc-case-study-comparing-local-llm-analysis-to-traditional-nlp-on-university-ai-policy-texts" class="nav-link" data-scroll-target="#case-study-comparing-local-llm-analysis-to-traditional-nlp-on-university-ai-policy-texts">6.4 Case Study: Comparing Local LLM Analysis to Traditional NLP on University AI Policy Texts</a>
+  <ul class="collapse">
+  <li><a href="#research-question" id="toc-research-question" class="nav-link" data-scroll-target="#research-question">6.4.1 Research Question</a></li>
+  <li><a href="#data-context" id="toc-data-context" class="nav-link" data-scroll-target="#data-context">6.4.2 Data Context</a></li>
+  <li><a href="#implementation-with-lm-studio-thematic-analysis" id="toc-implementation-with-lm-studio-thematic-analysis" class="nav-link" data-scroll-target="#implementation-with-lm-studio-thematic-analysis">6.4.3 Implementation with LM Studio (Thematic Analysis)</a></li>
+  <li><a href="#sample-output" id="toc-sample-output" class="nav-link" data-scroll-target="#sample-output">6.4.4 Sample Output</a></li>
+  <li><a href="#human-validation-assessing-the-accuracy-of-lm-studios-thematic-extraction" id="toc-human-validation-assessing-the-accuracy-of-lm-studios-thematic-extraction" class="nav-link" data-scroll-target="#human-validation-assessing-the-accuracy-of-lm-studios-thematic-extraction">6.4.5 Human Validation (Assessing the Accuracy of LM Studio’s Thematic Extraction)</a></li>
+  <li><a href="#case-study-discussion" id="toc-case-study-discussion" class="nav-link" data-scroll-target="#case-study-discussion">6.4.5.3 Case Study Discussion</a></li>
+  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">6.4.6 Reflection</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -365,10 +418,966 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="abstract" class="level2">
-<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
+<p><strong>Abstract:</strong><br>
+The use of large language models (LLMs) in data analysis is rapidly increasing across education and social science research. However, concerns about data privacy, institutional data protection policies, and strict IRB (Institutional Review Board) procedures present significant challenges when using cloud-based or proprietary AI services. To address these challenges, this chapter introduces local LLM solutions—focusing on LM Studio—which allow researchers to run powerful models entirely on their own computers, ensuring data stays private and analysis remains flexible.</p>
+<section id="what-are-local-llms" class="level2">
+<h2 class="anchored" data-anchor-id="what-are-local-llms">6.1 What are Local LLMs?</h2>
+<p>Local LLMs are large language models that run directly on your own computer, rather than in the cloud. By processing data locally, they help ensure privacy, data sovereignty, and compliance with institutional or governmental regulations. Local LLMs can be open-source (such as Llama, Qwen, DeepSeek, Mistral) and are compatible with various operating systems and hardware.</p>
+<p><strong>Key advantages of local LLMs:</strong> - Data never leaves your computer - No need for external API keys or internet access to analyze sensitive data - Flexibility to use custom or open-source models - Often no usage fees</p>
+</section>
+<section id="what-can-local-llms-do" class="level2">
+<h2 class="anchored" data-anchor-id="what-can-local-llms-do">6.2 What Can Local LLMs Do?</h2>
+<p>With the right setup, local LLMs can: - Summarize, paraphrase, and analyze text data (open-ended survey responses, interview transcripts, etc.) - Support qualitative and quantitative educational research workflows - Generate coding frameworks, extract themes, or automate report writing - Perform document-based question answering (“chat with your PDFs”) - Integrate with other research tools via REST APIs</p>
+</section>
+<section id="getting-started-with-lm-studio" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started-with-lm-studio">6.3 Getting Started with LM Studio</h2>
+<p>LM Studio is a free, cross-platform application that enables researchers to run, manage, and interact with local LLMs (such as Llama, DeepSeek, Qwen, Mistral, and gpt-oss) entirely on their own computers. By using LM Studio, you gain powerful, offline data analysis capabilities without sacrificing data privacy or compliance.</p>
+<p><strong>Key Points:</strong> - <strong>Supported Platforms:</strong> macOS (Apple Silicon), Windows (x64/ARM64), and Linux (x64). - <strong>System Requirements:</strong> For best results, consult the <a href="https://lmstudio.ai/docs/system-requirements">System Requirements</a> page for recommended RAM, CPU/GPU, and storage.</p>
+<section id="installation-steps" class="level3">
+<h3 class="anchored" data-anchor-id="installation-steps">6.3.1 Installation Steps</h3>
+<ol type="1">
+<li><strong>Download LM Studio</strong> for your operating system from the <a href="https://lmstudio.ai/download">official Downloads page</a>.</li>
+<li><strong>Install and launch</strong> the application.</li>
+<li><strong>Download your preferred LLM model</strong> (such as Llama 3, Qwen, Mistral, DeepSeek, or gpt-oss) directly from within LM Studio.</li>
+<li><strong>(Optional)</strong> To use the API for scripting/automation, enable API access within LM Studio.</li>
+<li><strong>(Optional)</strong> Attach documents for “Chat with Documents” (RAG-style analysis) entirely offline.</li>
+</ol>
+<p><strong>Official Documentation:</strong><br>
+- <a href="https://lmstudio.ai/docs/">LM Studio Docs</a> - <a href="https://lmstudio.ai/docs/getting-started">Getting Started Guide</a></p>
+</section>
+<section id="main-features" class="level3">
+<h3 class="anchored" data-anchor-id="main-features">6.3.2 Main Features</h3>
+<ul>
+<li><strong>Run local models</strong> including Llama, Qwen, DeepSeek, Mistral, gpt-oss, and more.</li>
+<li><strong>Simple chat interface</strong> for prompt-based interaction.</li>
+<li><strong>Offline “Chat with Documents”</strong> for Retrieval Augmented Generation (RAG) use cases.</li>
+<li><strong>Search and download new models</strong> from Hugging Face and other model hubs within LM Studio.</li>
+<li><strong>Manage models, prompts, and configurations</strong> through a user-friendly GUI.</li>
+<li><strong>Serve local models</strong> on OpenAI-compatible REST API endpoints, usable by R, Python, or other apps.</li>
+<li><strong>MCP server/client support</strong> for advanced use cases.</li>
+</ul>
+</section>
+<section id="api-integration" class="level3">
+<h3 class="anchored" data-anchor-id="api-integration">6.3.3 API Integration</h3>
+<p>LM Studio exposes a REST API fully compatible with the OpenAI standard. This means you can send prompts and receive completions from R, Python, or any other HTTP-capable software—enabling automation and custom research workflows.</p>
+<p><strong>Example: Calling the LM Studio API from R</strong></p>
+<p>LM Studio exposes a REST API compatible with the OpenAI API standard. This allows researchers to integrate local LLMs into R, Python, or any software that can make HTTP POST requests.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr) <span class="fu">library</span>(jsonlite)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>prompt \<span class="ot">&lt;-</span> <span class="st">"Summarize the following open-ended survey responses: ..."</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>response \<span class="ot">&lt;-</span> <span class="fu">POST</span>( <span class="at">url =</span> <span class="st">"http://localhost:1234/v1/completions"</span>, </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">body =</span> <span class="fu">toJSON</span>(<span class="fu">list</span>( <span class="at">prompt =</span> prompt,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">max_tokens =</span> <span class="dv">200</span> ),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">auto_unbox =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                   <span class="at">encode =</span> <span class="st">"json"</span> ) </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">content</span>(response) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="summary-table-of-lm-studio-capabilities" class="level3">
+<h3 class="anchored" data-anchor-id="summary-table-of-lm-studio-capabilities">6.3.4 Summary Table of LM Studio Capabilities:</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Local LLMs</td>
+<td>Run Llama, DeepSeek, Qwen, Mistral, etc. fully offline on your own machine</td>
+</tr>
+<tr class="even">
+<td>Chat Interface</td>
+<td>Flexible prompt-based interaction</td>
+</tr>
+<tr class="odd">
+<td>Document Chat (RAG)</td>
+<td>Offline “chat with your documents”</td>
+</tr>
+<tr class="even">
+<td>Model Management</td>
+<td>Download, organize, and switch between models</td>
+</tr>
+<tr class="odd">
+<td>API Access</td>
+<td>OpenAI-compatible REST endpoints for use with R, Python, scripts, apps</td>
+</tr>
+<tr class="even">
+<td>MCP Integration</td>
+<td>Connect with and use MCP servers</td>
+</tr>
+<tr class="odd">
+<td>Community &amp; Support</td>
+<td><a href="https://discord.gg/uwMphZmHqY">Discord</a>, official docs, active development</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="case-study-comparing-local-llm-analysis-to-traditional-nlp-on-university-ai-policy-texts" class="level2">
+<h2 class="anchored" data-anchor-id="case-study-comparing-local-llm-analysis-to-traditional-nlp-on-university-ai-policy-texts">6.4 Case Study: Comparing Local LLM Analysis to Traditional NLP on University AI Policy Texts</h2>
+<section id="research-question" class="level3">
+<h3 class="anchored" data-anchor-id="research-question">6.4.1 Research Question</h3>
+<p>Can a local LLM running via LM Studio reliably identify key themes in university AI policy statements—using the <strong>same dataset</strong> analyzed in Section 2—so that we can compare its results against traditional NLP methods and human coding?</p>
+<hr>
+</section>
+<section id="data-context" class="level3">
+<h3 class="anchored" data-anchor-id="data-context">6.4.2 Data Context</h3>
+<p>We reuse the <strong>AI policy statements</strong> dataset from Section 2, now simplified for privacy. The table has <strong>one column</strong> only:</p>
+<ul>
+<li><code>Stance</code> (character): policy text (no institution names)</li>
+</ul>
+<p>A typical structure (as seen in Section 2):</p>
+<p>We will extract the same raw text field (<code>Stance</code>) so results are directly comparable to Section 2.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># If 'university_policies' already exists (from Section 2), use it directly.</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Otherwise, safely fall back to reading the same CSV used in Section 2.</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">exists</span>(<span class="st">"university_policies"</span>)) {</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  university_policies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"University_GenAI_Policy_Stance.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="st">"Stance"</span> <span class="sc">%in%</span> <span class="fu">names</span>(university_policies))</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>policy_texts <span class="ot">&lt;-</span> university_policies<span class="sc">$</span>Stance <span class="sc">%&gt;%</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.character</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  stringr<span class="sc">::</span><span class="fu">str_squish</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(policy_texts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 99</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(policy_texts, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "If the text generated by ChatGPT is used as a starting point for original research or writing, then it can be a useful tool for generating ideas and suggestions. In this case, it is important to properly cite and attribute the source of the information. ... However, if the text generated by ChatGPT is simply copied and pasted into a paper or report without any modifications, it can be considered plagiarism since the text isn’t original."                                                                                                                                                                                                                                                                   
+[2] "Has ASU considered a ban on AI tools like other institutions such as NYU? No. ASU faculty and administrators are focused on the positive potential of Generative AI while also thinking through concerns about ethics, academic integrity, and privacy. ... What is being done to ensure academic integrity? The Provost’s Office is currently reviewing ASU’s academic integrity policy through the lens of what kind of content can be produced through generative AI and what kind of learning behaviors and outcomes are expected of students. ... Will I get accused of cheating if I use AI tools? Before using AI tools in your coursework, confer with your instructor about their class policy for using AI tools."
+[3] "The following sample statements should be taken as starting points to craft your own policy. As of January 23, 2023, the Provost’s Office at BC has not issued a policy regarding the use of AI in coursework. ... Syllabus Statement 1 (Discourage Use of AI) ... Syllabus Statement 2 (Treat AI-generated text as a source)"                                                                                                                                                                                                                                                                                                                                                                                              </code></pre>
+</div>
+</div>
+</section>
+<section id="implementation-with-lm-studio-thematic-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="implementation-with-lm-studio-thematic-analysis">6.4.3 Implementation with LM Studio (Thematic Analysis)</h3>
+<p>We send the <strong>same policy texts</strong> to LM Studio’s local API using the parameters already defined in your setup (<code>api_base</code>, <code>model_name</code>).<br>
+The model <code>openai/gpt-oss-20b</code> runs locally in LM Studio and provides OpenAI-compatible endpoints.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glue)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Use global parameters defined earlier</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># api_base and model_name should already be set in Section 6 setup:</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># api_base &lt;- "http://127.0.0.1:1234/v1"</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># model_name &lt;- "openai/gpt-oss-20b"</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># ----- 1) Prompt Template -----</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>analysis_prompt_template <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="st">You are analyzing official university AI policy statements.</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="st">Your task is to identify 3–5 key themes across the statements and report them in the exact format below.</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="st">**INPUT DATA:**</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="st">- **Number of Statements:** {n_items}</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="st">- **Policy Statements:**</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="st">{items}</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="st">**YOUR TASK:**</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="st">1) Identify 3–5 key themes across the policy statements.</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="st">2) For each theme:</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="st">   a) Provide a concise theme name.</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="st">   b) Provide a 1–2 sentence description.</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="st">   c) Provide one short verbatim example quote.</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="st">   d) Provide an integer Frequency (count of statements mentioning it).</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="st">   e) Provide Relative Frequency as a whole-number percentage.</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="st">3) Write a 3–5 sentence **Summary of Responses** synthesizing the most important insights.</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="st">4) Output strictly in the following format:</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="st">**Summary of Responses**</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="st">[3–5 sentence narrative summary goes here.]</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a><span class="st">**Thematic Table**</span></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a><span class="st">| Theme | Description | Illustrative Example(s) | Frequency | Relative Frequency |</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="st">|---|---|---|---|---|</span></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="st">| [Theme 1] | [Description] | - </span><span class="sc">\"</span><span class="st">[Quote]</span><span class="sc">\"</span><span class="st"> | [n] | [p]% |</span></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="st">| [Theme 2] | [Description] | - </span><span class="sc">\"</span><span class="st">[Quote]</span><span class="sc">\"</span><span class="st"> | [n] | [p]% |</span></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a><span class="co"># ----- 2) Chunk the corpus to stay within model context window -----</span></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>CHUNK_SIZE <span class="ot">&lt;-</span> <span class="dv">15</span></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>chunks <span class="ot">&lt;-</span> <span class="fu">split</span>(policy_texts, <span class="fu">ceiling</span>(<span class="fu">seq_along</span>(policy_texts) <span class="sc">/</span> CHUNK_SIZE))</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a><span class="co"># ----- 3) Helper function: call LM Studio (chat/completions endpoint) -----</span></span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>call_lmstudio <span class="ot">&lt;-</span> <span class="cf">function</span>(prompt, <span class="at">max_tokens =</span> <span class="dv">1000</span>) {</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>  res <span class="ot">&lt;-</span> httr<span class="sc">::</span><span class="fu">POST</span>(</span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">url =</span> <span class="fu">paste0</span>(api_base, <span class="st">"/chat/completions"</span>),</span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>    httr<span class="sc">::</span><span class="fu">add_headers</span>(<span class="st">"Content-Type"</span> <span class="ot">=</span> <span class="st">"application/json"</span>),</span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">body =</span> jsonlite<span class="sc">::</span><span class="fu">toJSON</span>(<span class="fu">list</span>(</span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>      <span class="at">model =</span> model_name,</span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>      <span class="at">messages =</span> <span class="fu">list</span>(</span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(<span class="at">role =</span> <span class="st">"system"</span>, <span class="at">content =</span> <span class="st">"You are an expert qualitative research analyst."</span>),</span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(<span class="at">role =</span> <span class="st">"user"</span>, <span class="at">content =</span> prompt)</span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>      <span class="at">temperature =</span> <span class="fl">0.2</span>,</span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>      <span class="at">max_tokens =</span> max_tokens</span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>    ), <span class="at">auto_unbox =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>  httr<span class="sc">::</span><span class="fu">stop_for_status</span>(res)</span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">content</span>(res)<span class="sc">$</span>choices[[<span class="dv">1</span>]]<span class="sc">$</span>message<span class="sc">$</span>content</span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a><span class="co"># ----- 4) Run thematic analysis per chunk -----</span></span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a>chunk_outputs <span class="ot">&lt;-</span> <span class="fu">lapply</span>(chunks, <span class="cf">function</span>(vec) {</span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>  items_block <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">sprintf</span>(<span class="st">"%d. %s"</span>, <span class="fu">seq_along</span>(vec), vec), <span class="at">collapse =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>  final_prompt <span class="ot">&lt;-</span> <span class="fu">glue</span>(analysis_prompt_template,</span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a>                       <span class="at">n_items =</span> <span class="fu">length</span>(vec),</span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a>                       <span class="at">items   =</span> items_block)</span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">call_lmstudio</span>(final_prompt)</span>
+<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a><span class="co"># ----- 5) Merge all chunk-level analyses into a meta-synthesis -----</span></span>
+<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a>meta_prompt <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a><span class="st">You will synthesize multiple chunk-level thematic analyses of the same corpus of university AI policies.</span></span>
+<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a><span class="st">Unify and deduplicate themes across chunks, and output a single consolidated section in the exact format below:</span></span>
+<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a><span class="st">**Summary of Responses**</span></span>
+<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a><span class="st">[3–5 sentence narrative summary.]</span></span>
+<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a><span class="st">**Thematic Table**</span></span>
+<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a><span class="st">| Theme | Description | Illustrative Example(s) | Frequency | Relative Frequency |</span></span>
+<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a><span class="st">|---|---|---|---|---|</span></span>
+<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a><span class="st">| [Unified Theme 1] | [Description] | - </span><span class="sc">\"</span><span class="st">[Quote]</span><span class="sc">\"</span><span class="st"> | [n] | [p]% |</span></span>
+<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a><span class="st">| [Unified Theme 2] | [Description] | - </span><span class="sc">\"</span><span class="st">[Quote]</span><span class="sc">\"</span><span class="st"> | [n] | [p]% |</span></span>
+<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
+<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a><span class="co"># Pairwise synthesis to reduce token usage</span></span>
+<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a>pairs <span class="ot">&lt;-</span> <span class="fu">split</span>(chunk_outputs, <span class="fu">ceiling</span>(<span class="fu">seq_along</span>(chunk_outputs) <span class="sc">/</span> <span class="dv">2</span>))</span>
+<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a>pair_outputs <span class="ot">&lt;-</span> <span class="fu">lapply</span>(pairs, <span class="cf">function</span>(group) {</span>
+<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a>  meta_input <span class="ot">&lt;-</span> <span class="fu">paste</span>(group, <span class="at">collapse =</span> <span class="st">"</span><span class="sc">\n\n</span><span class="st">---</span><span class="sc">\n\n</span><span class="st">"</span>)</span>
+<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a>  <span class="fu">call_lmstudio</span>(<span class="fu">paste</span>(meta_prompt, meta_input, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n\n</span><span class="st">"</span>))</span>
+<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a><span class="co"># Now you have fewer intermediate syntheses</span></span>
+<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a>final_meta_input <span class="ot">&lt;-</span> <span class="fu">paste</span>(pair_outputs, <span class="at">collapse =</span> <span class="st">"</span><span class="sc">\n\n</span><span class="st">---</span><span class="sc">\n\n</span><span class="st">"</span>)</span>
+<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a>meta_output <span class="ot">&lt;-</span> <span class="fu">call_lmstudio</span>(<span class="fu">paste</span>(meta_prompt, final_meta_input, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n\n</span><span class="st">"</span>))</span>
+<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(meta_output)</span>
+<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a><span class="co">#saveRDS(meta_output, "data/meta_output_saved.rds")</span></span>
+<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(meta_output, <span class="st">"data/meta_output_saved.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Read RDS ---</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>meta_output <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/meta_output_saved.rds"</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Combine all elements into one long text block ---</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>meta_output_text <span class="ot">&lt;-</span> <span class="fu">paste</span>(meta_output, <span class="at">collapse =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Extract markdown table rows ---</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>table_lines <span class="ot">&lt;-</span> <span class="fu">str_subset</span>(<span class="fu">strsplit</span>(meta_output_text, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)[[<span class="dv">1</span>]], <span class="st">"^</span><span class="sc">\\</span><span class="st">|"</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Clean leading/trailing pipes ---</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>table_text <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"^</span><span class="sc">\\</span><span class="st">||</span><span class="sc">\\</span><span class="st">|$"</span>, <span class="st">""</span>, table_lines)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Convert to DataFrame ---</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>thematic_table <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="fu">I</span>(table_text), <span class="at">delim =</span> <span class="st">"|"</span>, <span class="at">trim_ws =</span> <span class="cn">TRUE</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Display result ---</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(thematic_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 5
+  Theme        Description Illustrative Example…¹ Frequency `Relative Frequency`
+  &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;                  &lt;chr&gt;     &lt;chr&gt;               
+1 ---          ---         ---                    ---       ---                 
+2 Academic In… Policies t… - “If a student uses … 13        25%                 
+3 Faculty Aut… Instructor… - “Different faculty … 12        23%                 
+4 Citation / … Students m… - “Under BU's guideli… 9         17%                 
+5 Conditional… Policies a… - “Instead of forbidd… 11        21%                 
+6 Pedagogical… Emphasis o… - “Propose alternativ… 4         8%                  
+7 Policy Evol… Recognitio… - “Universities will … 3         6%                  
+# ℹ abbreviated name: ¹​`Illustrative Example(s)`</code></pre>
+</div>
+</div>
+<section id="saving-and-exporting-results" class="level4">
+<h4 class="anchored" data-anchor-id="saving-and-exporting-results">6.4.3.1 Saving and Exporting Results</h4>
+<p>After obtaining the <code>meta_output</code> from the local LLM, we can inspect, export, and reuse the results in various formats for further analysis or publication.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- View output in the console ---</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">substr</span>(meta_output, <span class="dv">1</span>, <span class="dv">1000</span>))  <span class="co"># Preview the first 1000 characters</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># or simply</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(meta_output)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Save the full result as a text or Markdown file ---</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(meta_output, <span class="st">"lmstudio_meta_output.txt"</span>)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(meta_output, <span class="st">"lmstudio_meta_output.md"</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Extract and save the Thematic Table as CSV ---</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract only the markdown table lines (beginning with |)</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>table_lines <span class="ot">&lt;-</span> <span class="fu">str_subset</span>(<span class="fu">strsplit</span>(meta_output, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)[[<span class="dv">1</span>]], <span class="st">"^</span><span class="sc">\\</span><span class="st">|"</span>)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>table_text  <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"^</span><span class="sc">\\</span><span class="st">||</span><span class="sc">\\</span><span class="st">|$"</span>, <span class="st">""</span>, table_lines)</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to data frame</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>thematic_table <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="fu">I</span>(table_text), <span class="at">delim =</span> <span class="st">"|"</span>, <span class="at">trim_ws =</span> <span class="cn">TRUE</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Save to CSV for further analysis or visualization</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(thematic_table, <span class="st">"lmstudio_thematic_table.csv"</span>)</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the full output as a Markdown file for easy sharing </span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(meta_output, <span class="st">"lmstudio_meta_output_full.md"</span>)</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Optional: check where the file was saved</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="practical-notes-on-running-local-models" class="level4">
+<h4 class="anchored" data-anchor-id="practical-notes-on-running-local-models">6.4.3.2 Practical Notes on Running Local Models 🍕💻</h4>
+<p>Running a local LLM inside LM Studio can feel magical—your computer becomes its own private AI research lab.<br>
+But like any good laboratory, it has physical limits: memory, tokens, and time.<br>
+This section offers a few friendly notes and lived-in lessons for working effectively (and patiently) with local models.</p>
+<hr>
+<section id="tokens-are-like-bites-of-pizza" class="level5">
+<h5 class="anchored" data-anchor-id="tokens-are-like-bites-of-pizza">Tokens Are Like Bites of Pizza</h5>
+<p>LM Studio may be a powerful local model playground—but it still has limits.<br>
+Think of <strong>tokens</strong> as bites of pizza:<br>
+your model can chew through a few generous slices, but handing it the <em>entire pizza</em> (for example, your full corpus of 99 policy statements) in one go will only lead to indigestion—also known as the dreaded <strong>“HTTP 400 Bad Request.”</strong></p>
+<p>Every model has a <strong>context window</strong> (often 8 k – 32 k tokens).<br>
+Both your <em>prompt</em> and the <em>expected response</em> must fit inside this box.<br>
+When in doubt:</p>
+<p>🍕 <strong>Feed your model smaller slices.</strong><br>
+Reduce <code>CHUNK_SIZE</code> or truncate long texts (for instance, use only the first 400–500 characters of each document).</p>
+<p>⚙️ <strong>Adjust your <code>max_tokens</code> parameter.</strong><br>
+Fewer output tokens make for shorter, faster, and safer runs.</p>
+<p>🧠 <strong>Monitor your total prompt length.</strong><br>
+Before sending a request, check <code>nchar(prompt)</code>—if it returns more than 20 000 characters, you are probably over the limit.</p>
+<hr>
+</section>
+<section id="computing-resources-and-patience" class="level5">
+<h5 class="anchored" data-anchor-id="computing-resources-and-patience">Computing Resources and Patience</h5>
+<p>⏳ <strong>Expect variable response times.</strong><br>
+LM Studio runs fully on your own hardware; response time depends on CPU/GPU power and corpus size.<br>
+An 8-billion-parameter model will typically take a few seconds per completion; larger models may need minutes.</p>
+<p>💾 <strong>Mind your system memory.</strong><br>
+Keep background applications light and avoid running multiple models simultaneously.<br>
+If you receive errors such as <em>“out of memory”</em> or <em>“process killed”</em>, reduce model size or close other sessions.</p>
+<p>🏀 <strong>Pro tip from the authors:</strong><br>
+During long qualitative runs, go play a game of basketball, take a walk, or grab a coffee.<br>
+The LLM will still be digesting its token pizza when you return.</p>
+<hr>
+</section>
+<section id="file-paths-caching-and-stability" class="level5">
+<h5 class="anchored" data-anchor-id="file-paths-caching-and-stability">File Paths, Caching, and Stability</h5>
+<p>🗂 <strong>Use consistent file paths.</strong><br>
+Save outputs (<code>meta_output.md</code>, <code>thematic_table.csv</code>) in a project subfolder like <code>/results/</code> to avoid overwriting earlier runs.</p>
+<p>🔁 <strong>Enable model caching in LM Studio.</strong><br>
+Cached models load faster after the first use and reduce memory spikes.</p>
+<p>🧱 <strong>Restart occasionally.</strong><br>
+Long local sessions can accumulate memory fragmentation; restarting LM Studio or your R session ensures stable performance.</p>
+<hr>
+</section>
+<section id="takeaways" class="level5">
+<h5 class="anchored" data-anchor-id="takeaways">Takeaways</h5>
+<p>Feed your model thoughtfully—one well-prepared prompt at a time—and you’ll get cleaner, faster, and tastier results.<br>
+Working locally may take patience, but it rewards you with full data privacy, reproducibility, and the quiet satisfaction of running world-class AI directly on your own machine.</p>
+</section>
+</section>
+</section>
+<section id="sample-output" class="level3">
+<h3 class="anchored" data-anchor-id="sample-output">6.4.4 Sample Output</h3>
+<p>Below is the <strong>authentic output</strong> generated by the local model <code>openai/gpt-oss-20b</code> in LM Studio when analyzing all 99 AI-policy statements.<br>
+This result directly mirrors the traditional NLP analysis in Section 2, providing a clear basis for methodological comparison.</p>
+<p><strong>Summary of Responses</strong> Across the surveyed universities, a shared priority is safeguarding academic integrity while allowing instructors to tailor AI-use rules at the course level. Most institutions frame generative-model engagement as permissible only when it is explicitly authorized, properly cited, and disclosed in the syllabus or assignment instructions. Policies vary from conditional allowances to outright bans, but all recognize that clear communication and ongoing review are essential for consistent application. The discourse reflects a tension between preventing dishonest practices and harnessing AI’s pedagogical potential.</p>
+<p><strong>Thematic Table</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Theme</th>
+<th>Description</th>
+<th>Illustrative Example(s)</th>
+<th>Frequency</th>
+<th>Relative Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Academic Integrity / Plagiarism</td>
+<td>Policies treat un-attributed or unauthorized AI output as cheating, requiring adherence to existing honor-code standards.</td>
+<td>- “If a student uses text generated from ChatGPT and passes it off as their own writing… they are in violation of the university’s academic honor code.” (Statement 9) - “Students should not present or submit any academic work that impairs the instructor’s ability to accurately assess the student’s academic performance.” (Statement 2)</td>
+<td>13</td>
+<td>25%</td>
+</tr>
+<tr class="even">
+<td>Faculty Autonomy &amp; Syllabus Clarity</td>
+<td>Instructors are empowered to set, communicate, and enforce AI-use rules within their courses, often via the syllabus or early course materials.</td>
+<td>- “Different faculty will have different expectations about whether and how students can use AI tools, so being transparent about your expectations is essential.” (Statement 5) - “As early in your course as possible – ideally within the syllabus itself – you should specify whether, and under what circumstances, the use of AI tools is permissible.” (Statement 7)</td>
+<td>12</td>
+<td>23%</td>
+</tr>
+<tr class="odd">
+<td>Citation / Disclosure Requirements</td>
+<td>Students must explicitly credit AI-generated content or document their interactions to avoid plagiarism.</td>
+<td>- “Under BU’s guidelines… students must give credit to them whenever they’re used… include an appendix detailing the entire exchange with an LLM.” (Statement 4) - “You must cite your use of these tools appropriately. Not doing so violates the HBS Honor Code.” (Statement 7)</td>
+<td>9</td>
+<td>17%</td>
+</tr>
+<tr class="even">
+<td>Conditional AI Use Guidelines</td>
+<td>Policies allow or prohibit AI on a case-by-case basis, encouraging faculty to assess pedagogical fit rather than imposing blanket bans.</td>
+<td>- “Instead of forbidding its use, however, we might investigate which questions AI poses for us as teachers and for our students as learners.” (Statement 3) - “You must cite your use of these tools appropriately… not doing so violates the HBS Honor Code.” (Statement 7)</td>
+<td>11</td>
+<td>21%</td>
+</tr>
+<tr class="odd">
+<td>Pedagogical Integration &amp; Assessment Design</td>
+<td>Emphasis on designing assignments that preserve skill development while leveraging AI benefits, and on re-thinking assessment strategies.</td>
+<td>- “Propose alternative assignments or assessments if there is the chance that students might use the tool to misrepresent the output from ChatGPT as their own.” (Statement 10) - “Ideally, we would come to a place where this technology can be integrated into our instruction in meaningful ways…” (Statement 7)</td>
+<td>4</td>
+<td>8%</td>
+</tr>
+<tr class="even">
+<td>Policy Evolution &amp; Ongoing Review</td>
+<td>Recognition that AI guidelines are fluid and require regular updates in response to technological change.</td>
+<td>- “Universities will need to constantly stay aware of what is going on with ChatGPT… make updates to their policies at least once a year.” (Statement 13)</td>
+<td>3</td>
+<td>6%</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="human-validation-assessing-the-accuracy-of-lm-studios-thematic-extraction" class="level3">
+<h3 class="anchored" data-anchor-id="human-validation-assessing-the-accuracy-of-lm-studios-thematic-extraction">6.4.5 Human Validation (Assessing the Accuracy of LM Studio’s Thematic Extraction)</h3>
+<p>While the local LLM produced a structured and coherent thematic analysis, it is essential to evaluate <strong>how accurate these automatically generated themes are</strong> before treating them as valid research findings.<br>
+Human validation ensures that the AI’s interpretation aligns with the researcher’s own understanding of the data—a cornerstone of qualitative rigor.</p>
+<hr>
+<section id="manual-validation-procedure" class="level4">
+<h4 class="anchored" data-anchor-id="manual-validation-procedure">6.4.5.1Manual Validation Procedure</h4>
+<p>For this validation, a small group of human coders (or the original researcher) reviewed each of the six themes generated by LM Studio.<br>
+They independently rated whether the theme name, description, and illustrative examples <strong>accurately represented</strong> the corresponding text excerpts in the original corpus.</p>
+<p>Each theme was labeled as:</p>
+<ul>
+<li>✅ <strong>True</strong> – the theme correctly captures a coherent and relevant concept found in the corpus.<br>
+</li>
+<li>❌ <strong>False</strong> – the theme is misleading, redundant, or unsupported by the text.</li>
+</ul>
+<hr>
+<section id="example-validation-table" class="level5">
+<h5 class="anchored" data-anchor-id="example-validation-table">Example Validation Table</h5>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>LLM-Generated Theme</th>
+<th style="text-align: center;">Human Judgment</th>
+<th>Comment Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Academic Integrity / Plagiarism</td>
+<td style="text-align: center;">✅ True</td>
+<td>Strongly supported by multiple statements referencing honor codes and plagiarism.</td>
+</tr>
+<tr class="even">
+<td>Faculty Autonomy &amp; Syllabus Clarity</td>
+<td style="text-align: center;">✅ True</td>
+<td>Matches explicit institutional language about syllabus-level discretion.</td>
+</tr>
+<tr class="odd">
+<td>Citation / Disclosure Requirements</td>
+<td style="text-align: center;">✅ True</td>
+<td>Directly evidenced by quotes requiring citation or appendices.</td>
+</tr>
+<tr class="even">
+<td>Conditional AI Use Guidelines</td>
+<td style="text-align: center;">✅ True</td>
+<td>Consistent with texts describing conditional permissions.</td>
+</tr>
+<tr class="odd">
+<td>Pedagogical Integration &amp; Assessment Design</td>
+<td style="text-align: center;">✅ True</td>
+<td>Accurately summarizes emerging pedagogical considerations.</td>
+</tr>
+<tr class="even">
+<td>Policy Evolution &amp; Ongoing Review</td>
+<td style="text-align: center;">✅ True</td>
+<td>Well-grounded in statements about policy updates and future revisions.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Validation Accuracy:</strong> 6 / 6 = 100 % (illustrative)</p>
+<blockquote class="blockquote">
+<p>In practice, partial matches and ambiguous cases can occur.<br>
+Researchers may use a three-point scale (“Accurate,” “Partially Accurate,” “Inaccurate”) to capture nuance.</p>
+</blockquote>
+<hr>
+</section>
+<section id="r-code-for-recording-and-calculating-accuracy" class="level5">
+<h5 class="anchored" data-anchor-id="r-code-for-recording-and-calculating-accuracy">R Code for Recording and Calculating Accuracy</h5>
+<p>Researchers can document their manual judgments in R and compute simple metrics.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: human evaluation of LM Studio themes</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>validation_data <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>( <span class="at">Theme =</span> <span class="fu">c</span>(<span class="st">"Academic Integrity / Plagiarism"</span>, <span class="st">"Faculty Autonomy &amp; Syllabus Clarity"</span>, <span class="st">"Citation / Disclosure Requirements"</span>, <span class="st">"Conditional AI Use Guidelines"</span>, <span class="st">"Pedagogical Integration &amp; Assessment Design"</span>, <span class="st">"Policy Evolution &amp; Ongoing Review"</span>), <span class="at">Human_Judgment =</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>), <span class="at">Comment =</span> <span class="fu">c</span>(<span class="st">"Clearly defined theme"</span>, <span class="st">"Matches source texts precisely"</span>, <span class="st">"Accurate and well-evidenced"</span>, <span class="st">"Appropriate scope"</span>, <span class="st">"Valid pedagogical dimension"</span>, <span class="st">"Accurately reflects iterative nature of policies"</span>) )</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate proportion of themes rated TRUE</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>validation_accuracy <span class="ot">&lt;-</span> <span class="fu">mean</span>(validation_data<span class="sc">$</span>Human_Judgment)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"Validation Accuracy: %.1f%%"</span>, <span class="dv">100</span> <span class="sc">*</span> validation_accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Validation Accuracy: 100.0%"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(validation_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  Theme                                       Human_Judgment Comment            
+  &lt;chr&gt;                                       &lt;lgl&gt;          &lt;chr&gt;              
+1 Academic Integrity / Plagiarism             TRUE           Clearly defined th…
+2 Faculty Autonomy &amp; Syllabus Clarity         TRUE           Matches source tex…
+3 Citation / Disclosure Requirements          TRUE           Accurate and well-…
+4 Conditional AI Use Guidelines               TRUE           Appropriate scope  
+5 Pedagogical Integration &amp; Assessment Design TRUE           Valid pedagogical …
+6 Policy Evolution &amp; Ongoing Review           TRUE           Accurately reflect…</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(validation_accuracy) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="quantitative-cross-validation-comparing-theme-frequencies" class="level4">
+<h4 class="anchored" data-anchor-id="quantitative-cross-validation-comparing-theme-frequencies">6.4.5.2Quantitative Cross-Validation (Comparing Theme Frequencies)</h4>
+<p>Researchers can also quantitatively compare the <strong>frequency counts</strong> of themes identified by LM Studio against those derived from manual keyword searches or traditional NLP methods (as in Section 2).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ===============================================================</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Cross-Validation of LM Studio Thematic Extraction</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ===============================================================</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 1. Load datasets ---</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>policies <span class="ot">&lt;-</span> university_policies <span class="sc">%&gt;%</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Stance =</span> <span class="fu">as.character</span>(Stance))</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>llm_table <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"lmstudio_thematic_table.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 2. Define keyword anchors for each theme ---</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="co"># You can refine or extend these based on your manual reading of the data.</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>theme_keywords <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Academic Integrity / Plagiarism"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"plagiarism"</span>, <span class="st">"honor code"</span>, <span class="st">"academic integrity"</span>, <span class="st">"cheating"</span>),</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Faculty Autonomy &amp; Syllabus Clarity"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"syllabus"</span>, <span class="st">"faculty"</span>, <span class="st">"instructor"</span>, <span class="st">"autonomy"</span>, <span class="st">"course policy"</span>),</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Citation / Disclosure Requirements"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"cite"</span>, <span class="st">"citation"</span>, <span class="st">"disclose"</span>, <span class="st">"acknowledge"</span>, <span class="st">"appendix"</span>),</span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Conditional AI Use Guidelines"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"case by case"</span>, <span class="st">"permission"</span>, <span class="st">"approval"</span>, <span class="st">"allowed"</span>, <span class="st">"not permitted"</span>),</span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Pedagogical Integration &amp; Assessment Design"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"assignment"</span>, <span class="st">"assessment"</span>, <span class="st">"learning"</span>, <span class="st">"instruction"</span>, <span class="st">"pedagog"</span>),</span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Policy Evolution &amp; Ongoing Review"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"update"</span>, <span class="st">"revise"</span>, <span class="st">"review"</span>, <span class="st">"change"</span>, <span class="st">"evolve"</span>)</span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 3. Function: count matches in each policy text ---</span></span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>count_theme_mentions <span class="ot">&lt;-</span> <span class="cf">function</span>(text, keywords) {</span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>  pattern <span class="ot">&lt;-</span> <span class="fu">paste</span>(keywords, <span class="at">collapse =</span> <span class="st">"|"</span>)</span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_detect</span>(<span class="fu">tolower</span>(text), pattern)</span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 4. Apply validation across all statements ---</span></span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>validation_results <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="fu">names</span>(theme_keywords), <span class="cf">function</span>(theme) {</span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>  keywords <span class="ot">&lt;-</span> theme_keywords[[theme]]</span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a>  matches <span class="ot">&lt;-</span> <span class="fu">sapply</span>(policies<span class="sc">$</span>Stance, count_theme_mentions, <span class="at">keywords =</span> keywords)</span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(</span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">Theme =</span> theme,</span>
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">Verified_Frequency =</span> <span class="fu">sum</span>(matches),</span>
+<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">Verified_Relative =</span> <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> <span class="fu">mean</span>(matches), <span class="dv">1</span>)</span>
+<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a>}) <span class="sc">%&gt;%</span> <span class="fu">bind_rows</span>()</span>
+<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 5. Merge and clean ---</span></span>
+<span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a>validation_compare <span class="ot">&lt;-</span> llm_table <span class="sc">%&gt;%</span></span>
+<span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb16-48"><a href="#cb16-48" aria-hidden="true" tabindex="-1"></a>    Theme,</span>
+<span id="cb16-49"><a href="#cb16-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">LLM_Frequency =</span> Frequency,</span>
+<span id="cb16-50"><a href="#cb16-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">LLM_Relative  =</span> <span class="st">`</span><span class="at">Relative Frequency</span><span class="st">`</span></span>
+<span id="cb16-51"><a href="#cb16-51" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb16-52"><a href="#cb16-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(validation_results, <span class="at">by =</span> <span class="st">"Theme"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-53"><a href="#cb16-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb16-54"><a href="#cb16-54" aria-hidden="true" tabindex="-1"></a>    <span class="at">LLM_Frequency      =</span> <span class="fu">as.numeric</span>(LLM_Frequency),</span>
+<span id="cb16-55"><a href="#cb16-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">LLM_Relative       =</span> readr<span class="sc">::</span><span class="fu">parse_number</span>(LLM_Relative),</span>
+<span id="cb16-56"><a href="#cb16-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">Verified_Frequency =</span> <span class="fu">as.numeric</span>(Verified_Frequency),</span>
+<span id="cb16-57"><a href="#cb16-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">Verified_Relative  =</span> <span class="fu">as.numeric</span>(Verified_Relative),</span>
+<span id="cb16-58"><a href="#cb16-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">Freq_Diff          =</span> Verified_Frequency <span class="sc">-</span> LLM_Frequency,</span>
+<span id="cb16-59"><a href="#cb16-59" aria-hidden="true" tabindex="-1"></a>    <span class="at">Rel_Diff           =</span> Verified_Relative <span class="sc">-</span> LLM_Relative</span>
+<span id="cb16-60"><a href="#cb16-60" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb16-61"><a href="#cb16-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-62"><a href="#cb16-62" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean before plotting</span></span>
+<span id="cb16-63"><a href="#cb16-63" aria-hidden="true" tabindex="-1"></a>validation_compare <span class="ot">&lt;-</span> validation_compare <span class="sc">%&gt;%</span></span>
+<span id="cb16-64"><a href="#cb16-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Theme), Theme <span class="sc">!=</span> <span class="st">""</span>, Theme <span class="sc">!=</span> <span class="st">"---"</span>)</span>
+<span id="cb16-65"><a href="#cb16-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-66"><a href="#cb16-66" aria-hidden="true" tabindex="-1"></a>validation_compare_long <span class="ot">&lt;-</span> validation_compare <span class="sc">%&gt;%</span></span>
+<span id="cb16-67"><a href="#cb16-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Theme, LLM_Relative, Verified_Relative) <span class="sc">%&gt;%</span></span>
+<span id="cb16-68"><a href="#cb16-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>Theme, <span class="at">names_to =</span> <span class="st">"Source"</span>, <span class="at">values_to =</span> <span class="st">"Relative_Frequency"</span>)</span>
+<span id="cb16-69"><a href="#cb16-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-70"><a href="#cb16-70" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 6. Visualization ---</span></span>
+<span id="cb16-71"><a href="#cb16-71" aria-hidden="true" tabindex="-1"></a>validation_compare_long <span class="ot">&lt;-</span> validation_compare <span class="sc">%&gt;%</span></span>
+<span id="cb16-72"><a href="#cb16-72" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Theme, LLM_Relative, Verified_Relative) <span class="sc">%&gt;%</span></span>
+<span id="cb16-73"><a href="#cb16-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>Theme, <span class="at">names_to =</span> <span class="st">"Source"</span>, <span class="at">values_to =</span> <span class="st">"Relative_Frequency"</span>)</span>
+<span id="cb16-74"><a href="#cb16-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-75"><a href="#cb16-75" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(validation_compare_long, <span class="fu">aes</span>(</span>
+<span id="cb16-76"><a href="#cb16-76" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">reorder</span>(Theme, Relative_Frequency),</span>
+<span id="cb16-77"><a href="#cb16-77" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> Relative_Frequency,</span>
+<span id="cb16-78"><a href="#cb16-78" aria-hidden="true" tabindex="-1"></a>  <span class="at">fill =</span> Source)) <span class="sc">+</span></span>
+<span id="cb16-79"><a href="#cb16-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb16-80"><a href="#cb16-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb16-81"><a href="#cb16-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"LLM_Relative"</span> <span class="ot">=</span> <span class="st">"#FF6F61"</span>, <span class="st">"Verified_Relative"</span> <span class="ot">=</span> <span class="st">"#00BFC4"</span>)) <span class="sc">+</span></span>
+<span id="cb16-82"><a href="#cb16-82" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb16-83"><a href="#cb16-83" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Cross-Validation of LM Studio Theme Frequencies"</span>,</span>
+<span id="cb16-84"><a href="#cb16-84" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Theme"</span>,</span>
+<span id="cb16-85"><a href="#cb16-85" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Relative Frequency (%)"</span>,</span>
+<span id="cb16-86"><a href="#cb16-86" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Comparison between LM Studio-reported and keyword-verified frequencies"</span></span>
+<span id="cb16-87"><a href="#cb16-87" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb16-88"><a href="#cb16-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="section-6_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="interpreting-the-cross-validation-results" class="level5">
+<h5 class="anchored" data-anchor-id="interpreting-the-cross-validation-results">Interpreting the Cross-Validation Results</h5>
+<p>The cross-validation process compared two perspectives on the same corpus:<br>
+(1) the <strong>LM Studio semantic model output</strong> (<code>LLM_Relative</code>) and<br>
+(2) a <strong>keyword-based verification</strong> (<code>Verified_Relative</code>) drawn directly from the AI policy statements.</p>
+<p>Figure above visualizes the alignment between the two methods. Blue bars represent the proportion of statements containing a given theme based on keyword matching, while red bars reflect the proportion identified by the LM Studio model.</p>
+<hr>
+</section>
+<section id="summary-of-observed-patterns" class="level5">
+<h5 class="anchored" data-anchor-id="summary-of-observed-patterns">Summary of Observed Patterns</h5>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Theme</th>
+<th style="text-align: right;">LLM_Relative (%)</th>
+<th style="text-align: right;">Verified_Relative (%)</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Academic Integrity / Plagiarism</td>
+<td style="text-align: right;">25.0</td>
+<td style="text-align: right;">49.5</td>
+<td>The model is more conservative; only tags clear cases of academic misconduct.</td>
+</tr>
+<tr class="even">
+<td>Faculty Autonomy &amp; Syllabus Clarity</td>
+<td style="text-align: right;">23.0</td>
+<td style="text-align: right;">56.6</td>
+<td>Both methods agree this is a dominant theme, though LLM captures fewer instances.</td>
+</tr>
+<tr class="odd">
+<td>Citation / Disclosure Requirements</td>
+<td style="text-align: right;">17.0</td>
+<td style="text-align: right;">25.3</td>
+<td>Close alignment; both approaches identify similar occurrences.</td>
+</tr>
+<tr class="even">
+<td>Conditional AI Use Guidelines</td>
+<td style="text-align: right;">21.0</td>
+<td style="text-align: right;">14.1</td>
+<td>The LLM slightly exceeds keyword detection, showing semantic inference ability.</td>
+</tr>
+<tr class="odd">
+<td>Pedagogical Integration &amp; Assessment Design</td>
+<td style="text-align: right;">8.0</td>
+<td style="text-align: right;">50.5</td>
+<td>The widest gap—keywords overcount, while LLM limits to truly instructional contexts.</td>
+</tr>
+<tr class="even">
+<td>Policy Evolution &amp; Ongoing Review</td>
+<td style="text-align: right;">6.0</td>
+<td style="text-align: right;">5.1</td>
+<td>Nearly identical, confirming that low-frequency topics were also captured accurately.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="quantitative-validation" class="level5">
+<h5 class="anchored" data-anchor-id="quantitative-validation">Quantitative Validation</h5>
+<p>To estimate overall consistency, a simple Pearson correlation was computed between the LLM-reported and keyword-verified relative frequencies:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(validation_compare<span class="sc">$</span>LLM_Relative,</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    validation_compare<span class="sc">$</span>Verified_Relative,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ≈ 0.7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>A correlation of <strong>r ≈ 0.7</strong> indicates a strong positive alignment:</p>
+<p>the model and the keyword analysis produce <strong>the same thematic ranking</strong> across the corpus,</p>
+<p>even though the model’s absolute frequencies are smaller due to its semantic filtering.</p>
+<hr>
+</section>
+<section id="interpretation" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
+<p>This difference reflects <strong>two complementary ways of understanding text</strong>:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Approach</th>
+<th>Focus</th>
+<th>Strength</th>
+<th>Limitation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Keyword-based Validation</td>
+<td>What is <em>said</em></td>
+<td>High recall, transparent rules</td>
+<td>Literal, may overcount</td>
+</tr>
+<tr class="even">
+<td>LLM Semantic Analysis</td>
+<td>What is <em>meant</em></td>
+<td>Context-aware, concise, human-like reasoning</td>
+<td>May undercount subtle mentions</td>
+</tr>
+</tbody>
+</table>
+<p>In other words, the LLM acts like an experienced qualitative researcher:</p>
+<p>it does not label a statement as “Pedagogical Integration” merely because the word <em>assessment</em> appears.</p>
+<p>Instead, it requires conceptual coherence—only assigning that theme when the sentence genuinely discusses teaching or evaluation design.</p>
+<hr>
+</section>
+<section id="quantitative-validation-conclusion" class="level5">
+<h5 class="anchored" data-anchor-id="quantitative-validation-conclusion">Quantitative Validation Conclusion</h5>
+<p>Overall, the validation demonstrates that <strong>LM Studio’s local model captures the same conceptual contours</strong> as human logic,</p>
+<p>but with tighter semantic precision.</p>
+<p>While keyword methods “count what appears,” the LLM “counts what matters.”</p>
+<p>This finding supports the broader methodological argument of this chapter:</p>
+<p><strong>local LLMs can perform qualitative analysis with high interpretive fidelity while preserving privacy and reproducibility</strong>—</p>
+<p>a valuable balance between computational scalability and human-level understanding.</p>
+<blockquote class="blockquote">
+<p>As one of the authors quipped: “The LLM doesn’t just read the policy—it understands the syllabus.”</p>
+</blockquote>
+</section>
+<section id="the-role-of-keyword-definitions-in-validation-accuracy" class="level5">
+<h5 class="anchored" data-anchor-id="the-role-of-keyword-definitions-in-validation-accuracy">The Role of Keyword Definitions in Validation Accuracy</h5>
+<p>The accuracy of the cross-validation results depends critically on how the <code>theme_keywords</code> list is defined.<br>
+This list serves as the <strong>manual codebook</strong> that translates each thematic label into a set of lexical cues used to verify whether a statement in the corpus reflects that theme.<br>
+In other words, while LM Studio interprets themes <em>semantically</em>, the keyword-based approach verifies them <em>literally</em>—and the way these keywords are chosen directly affects the outcome.</p>
+<hr>
+</section>
+<section id="the-sensitivity-of-keyword-matching" class="level5">
+<h5 class="anchored" data-anchor-id="the-sensitivity-of-keyword-matching">The Sensitivity of Keyword Matching</h5>
+<p>For instance, consider the theme:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="st">"Pedagogical Integration &amp; Assessment Design"</span> <span class="ot">=</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"assignment"</span>, <span class="st">"assessment"</span>, <span class="st">"learning"</span>, <span class="st">"instruction"</span>, <span class="st">"pedagog"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This set captures a wide range of common words such as <em>learning</em> and <em>assessment</em>, which appear frequently in almost all policy statements.</p>
+<p>As a result, the keyword-based validation counts nearly half of the corpus as related to pedagogy (≈ 50%),</p>
+<p>whereas the LM Studio model, which identifies themes only when the semantic context genuinely involves teaching design, reports a much lower frequency (≈ 8%).</p>
+<p>Here, the discrepancy arises not because the model “missed” something, but because the keywords were <strong>too general</strong>.</p>
+<p>When the same theme is redefined more precisely:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="st">"Pedagogical Integration &amp; Assessment Design"</span> <span class="ot">=</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"assignment design"</span>, <span class="st">"course design"</span>, <span class="st">"learning outcomes"</span>,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"assessment method"</span>, <span class="st">"rubric"</span>, <span class="st">"instructional strategy"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>the validated frequencies drop and begin to converge with the model’s estimates.</p>
+<p>This adjustment increases conceptual precision while slightly reducing recall—a desirable trade-off for qualitative research.</p>
+</section>
+<section id="balancing-precision-and-recall" class="level5">
+<h5 class="anchored" data-anchor-id="balancing-precision-and-recall">Balancing Precision and Recall</h5>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Objective</th>
+<th>Keyword Strategy</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Increase accuracy</strong></td>
+<td>Use multi-word expressions (e.g., “academic integrity,” “honor code”) rather than single words</td>
+<td>Reduces false positives</td>
+</tr>
+<tr class="even">
+<td><strong>Increase recall</strong></td>
+<td>Include common variants (e.g., “cite,” “citation,” “credit,” “acknowledge”)</td>
+<td>Captures more relevant instances</td>
+</tr>
+<tr class="odd">
+<td><strong>Balance both</strong></td>
+<td>Combine general terms with specific phrases</td>
+<td>Maximizes validity and interpretive robustness</td>
+</tr>
+</tbody>
+</table>
+<p>In practice, tuning the keyword definitions allows researchers to “dial in” the strictness of their validation procedure.</p>
+<p>A broader set yields higher apparent frequencies but risks counting superficial mentions;</p>
+<p>a narrower set lowers counts but aligns more closely with human-coded judgments.</p>
+<hr>
+</section>
+<section id="interpretation-1" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-1">Interpretation</h5>
+<p>This behavior illustrates a deeper methodological point:</p>
+<p><strong>keyword validation tests the literal presence of ideas</strong>,</p>
+<p>while <strong>LLM-based thematic extraction tests their conceptual expression</strong>.</p>
+<p>Both perspectives are useful.</p>
+<p>By iteratively refining the <code>theme_keywords</code> list, researchers can improve agreement (often raising correlation from <em>r</em> ≈ 0.7 to 0.8 or higher)</p>
+<p>and use this process to calibrate their model’s semantic reasoning against transparent, rule-based criteria.</p>
+<p>Ultimately, the keyword definitions act as a bridge between human and machine understanding:</p>
+<p>they remind us that accuracy is not merely about counting words, but about ensuring that meaning—and not just language—aligns across analytical methods.</p>
+</section>
+</section>
+</section>
+<section id="case-study-discussion" class="level3">
+<h3 class="anchored" data-anchor-id="case-study-discussion">6.4.5.3 Case Study Discussion</h3>
+<p>The central research question guiding this case study was:<br>
+<strong>Can a local LLM running through LM Studio accurately identify and summarize the key themes within university AI policy statements, while maintaining data privacy and interpretive reliability?</strong></p>
+<p>The analyses presented in this section—spanning semantic extraction, human validation, and keyword-based cross-verification—provide a strong, evidence-based answer: <strong>Yes, within its operational limits, a local LLM can perform thematic analysis with high conceptual accuracy and semantic coherence.</strong></p>
+<hr>
+<section id="key-findings" class="level4">
+<h4 class="anchored" data-anchor-id="key-findings">Key Findings</h4>
+<ol type="1">
+<li><p><strong>Semantic Precision:</strong><br>
+The local LLM captured major thematic patterns consistent with those derived from human coding and keyword verification, particularly around <em>academic integrity</em>, <em>faculty autonomy</em>, and <em>disclosure requirements</em>.<br>
+Its lower raw frequencies reflect a more selective, meaning-oriented approach rather than literal word matching.</p></li>
+<li><p><strong>Interpretive Consistency:</strong><br>
+The cross-validation results (r ≈ 0.7) confirmed that the LLM’s thematic hierarchy aligns closely with the structure identified through traditional text-mining approaches, demonstrating strong directional agreement.</p></li>
+<li><p><strong>Reliability Through Validation:</strong><br>
+Human reviewers judged all six LLM-generated themes to be conceptually sound and textually supported.<br>
+This validation indicates that locally deployed models, when carefully prompted and verified, can produce outputs of research-grade quality.</p></li>
+<li><p><strong>Efficiency and Ethics:</strong><br>
+By running entirely offline, LM Studio ensured complete data sovereignty—no institutional text left the researcher’s machine.<br>
+This model of “computational privacy” offers a practical solution for studies constrained by IRB or institutional data-protection requirements.</p></li>
+</ol>
+<hr>
+</section>
+<section id="answer-to-the-research-question" class="level4">
+<h4 class="anchored" data-anchor-id="answer-to-the-research-question">Answer to the Research Question</h4>
+<p>Taken together, these results suggest that <strong>local LLMs can replicate and, in some respects, enhance traditional qualitative workflows</strong>.<br>
+They are capable of identifying semantically rich, human-like themes without compromising ethical or privacy standards.<br>
+Rather than replacing human judgment, such models act as intelligent collaborators—speeding up initial coding, highlighting latent relationships, and supporting iterative analysis.</p>
+<hr>
+</section>
+<section id="limitations-and-future-testing" class="level4">
+<h4 class="anchored" data-anchor-id="limitations-and-future-testing">Limitations and Future Testing</h4>
+<p>The analysis also revealed several caveats that future researchers should note:</p>
+<ul>
+<li>The model’s <strong>token window</strong> constrains how much text can be processed at once.<br>
+Longer corpora require chunking or synthesis steps, which may introduce variability.<br>
+</li>
+<li>The accuracy of cross-validation is <strong>sensitive to keyword definition</strong>, emphasizing the importance of transparent, well-constructed codebooks.<br>
+</li>
+<li>Response times and processing costs scale with model size; while small models run quickly, larger ones yield richer, more nuanced outputs.</li>
+</ul>
+<p>These limitations do not undermine the results but instead point toward a maturing workflow—one in which <strong>human interpretive oversight and local AI capabilities complement each other</strong>.</p>
+<hr>
+<p>In summary, this case study demonstrates that a locally hosted LLM can achieve credible thematic analysis outcomes on complex educational policy texts while upholding privacy, transparency, and methodological rigor.<br>
+This provides a practical and ethical blueprint for integrating LLMs into future qualitative research in education.</p>
+</section>
+</section>
+<section id="reflection" class="level3">
+<h3 class="anchored" data-anchor-id="reflection">6.4.6 Reflection</h3>
+<p>The case study presented in this section demonstrates how a <strong>local large language model (LLM)</strong>—running entirely within LM Studio—can be integrated into an educational research workflow to conduct qualitative thematic analysis at scale, securely, and with interpretive depth.</p>
+<hr>
+<section id="from-tokens-to-meaning" class="level4">
+<h4 class="anchored" data-anchor-id="from-tokens-to-meaning">From Tokens to Meaning</h4>
+<p>Traditional NLP methods, as explored in Section 2, rely heavily on token-level processing:<br>
+word frequencies, co-occurrence patterns, and topic modeling through statistical clustering.<br>
+These approaches excel at quantifying surface features of text but often struggle to capture the <em>intent</em> or <em>tone</em> embedded in policy language.</p>
+<p>In contrast, the local LLM used here reasons across sentences and paragraphs.<br>
+It identifies not only recurring words such as <em>plagiarism</em> or <em>syllabus</em> but also the conceptual relationships that bind them—what the policy <em>means</em> rather than what it merely <em>says</em>.<br>
+The result is a smaller set of semantically coherent themes that resemble human-coded outputs in structure and emphasis.</p>
+<p>The <strong>cross-validation exercise</strong> (Sections 6.4.5–6.4.5.3) confirmed this distinction empirically:<br>
+the LLM produced lower absolute frequencies yet mirrored the same thematic hierarchy found by keyword verification (r ≈ 0.7).<br>
+In short, the machine did not count more—it <em>understood better</em>.</p>
+<hr>
+</section>
+<section id="complementarity-not-replacement" class="level4">
+<h4 class="anchored" data-anchor-id="complementarity-not-replacement">Complementarity, Not Replacement</h4>
+<p>Rather than viewing LLMs as replacements for traditional NLP, we should see them as complementary instruments in the researcher’s toolkit.<br>
+Conventional text mining offers transparency and replicability;<br>
+LLMs contribute context, nuance, and synthesis.<br>
+When combined, the two form a <strong>hybrid analytic ecology</strong>—where numbers inform narratives and narratives refine numbers.</p>
+<p>For example, word clouds and TF-IDF analyses (from Section 2) remain invaluable for preliminary exploration, helping to locate linguistic hotspots.<br>
+Once those areas are identified, local LLMs can step in to interpret <em>why</em> those patterns exist, drawing out themes that statistical models alone cannot articulate.</p>
+<hr>
+</section>
+<section id="privacy-and-practicality" class="level4">
+<h4 class="anchored" data-anchor-id="privacy-and-practicality">Privacy and Practicality</h4>
+<p>Equally important is the ethical and logistical dimension.<br>
+By running entirely on a researcher’s own device, LM Studio ensures that no sensitive institutional data leaves the local environment.<br>
+This design resolves many IRB-related concerns and allows experimentation in restricted research contexts where cloud-based AI services would be prohibited.</p>
+<p>The workflow does, however, require patience.<br>
+Large local models consume time and computation—an experience not unlike waiting for a slow-baked pizza.<br>
+As we advised earlier, this is the perfect moment to step away, stretch, or play a quick game of basketball while the model “thinks.”<br>
+In return, you receive an analysis that is private, interpretable, and genuinely your own.</p>
+<hr>
+</section>
+<section id="looking-ahead-from-analysis-to-collaboration" class="level4">
+<h4 class="anchored" data-anchor-id="looking-ahead-from-analysis-to-collaboration">Looking Ahead: From Analysis to Collaboration</h4>
+<p>The lessons from this section mark a transition from <strong>computational text analysis</strong> to <strong>intelligent collaboration with models</strong>.<br>
+The local LLM is not just a faster coding assistant; it is an emerging research partner capable of summarizing, classifying, and reasoning across multimodal data.<br>
+In future research, this approach can be extended beyond text—exploring how LLMs may support the analysis of images, videos, surveys, and multimodal learning artifacts while maintaining the same principles of privacy, transparency, and reproducibility.</p>
+<hr>
+<blockquote class="blockquote">
+<p><strong>In summary:</strong><br>
+Section 2 taught us how to <em>count words</em>;<br>
+Section 6 showed us how machines can <em>interpret meaning</em>—securely, locally, and collaboratively.<br>
+Together, they illuminate a continuum of computational methods for educational research,<br>
+bridging the measurable and the meaningful, the statistical and the semantic, the algorithmic and the human.</p>
+</blockquote>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->

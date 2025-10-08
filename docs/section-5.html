@@ -378,11 +378,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#analyzing-images" id="toc-analyzing-images" class="nav-link" data-scroll-target="#analyzing-images">3.3 Analyzing Images</a>
   <ul class="collapse">
   <li><a href="#setting-up-kuzco" id="toc-setting-up-kuzco" class="nav-link" data-scroll-target="#setting-up-kuzco">5.3.1. Setting Up Kuzco</a></li>
-  <li><a href="#image-classification" id="toc-image-classification" class="nav-link" data-scroll-target="#image-classification">5.3.2 Image Classification</a></li>
   </ul></li>
-  <li><a href="#case-study-analyzing-classroom-photographs-with-kuzco-to-explore-student-engagement" id="toc-case-study-analyzing-classroom-photographs-with-kuzco-to-explore-student-engagement" class="nav-link" data-scroll-target="#case-study-analyzing-classroom-photographs-with-kuzco-to-explore-student-engagement">Case Study: Analyzing Classroom Photographs with Kuzco to Explore Student Engagement</a>
+  <li><a href="#image-classification" id="toc-image-classification" class="nav-link" data-scroll-target="#image-classification">5.3.2 Image Classification</a>
   <ul class="collapse">
-  <li><a href="#purpose" id="toc-purpose" class="nav-link" data-scroll-target="#purpose">5.3.2.1 Purpose</a></li>
+  <li><a href="#case-study-analyzing-classroom-photographs-with-kuzco-to-explore-student-engagement" id="toc-case-study-analyzing-classroom-photographs-with-kuzco-to-explore-student-engagement" class="nav-link" data-scroll-target="#case-study-analyzing-classroom-photographs-with-kuzco-to-explore-student-engagement">Case Study: Analyzing Classroom Photographs with Kuzco to Explore Student Engagement</a></li>
   <li><a href="#research-questions" id="toc-research-questions" class="nav-link" data-scroll-target="#research-questions">5.3.2.2 Research Questions</a></li>
   <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">5.3.2.3 Methods</a></li>
   <li><a href="#data-source" id="toc-data-source" class="nav-link" data-scroll-target="#data-source">5.3.2.4 Data Source</a></li>
@@ -417,15 +416,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">5.1 Overview</h2>
-<p>In this section, we will discuss how social scientists can look beyond conventional data types, and learn about capturing and analyzing multimodal data.&nbsp;</p>
+<p>In this section, we will discuss how social scientists can move beyond traditional data types (e.g., text and numbers) and learn about capturing and analyzing multimodal data.<br>
+</p>
+<p>Multimodal data includes audio, video, and other non‑textual information that gives a fuller picture of human behavior.<br>
+</p>
+<p>Modern devices such as wearables, smartphones, and online platforms now let researchers collect large amounts of this mixed data.<br>
+</p>
+<p>To make sense of it, we use computational tools that combine the different types:</p>
+<ul>
+<li><p>image analysis for video frames,</p></li>
+<li><p>voice‑to‑text software for audio, and</p></li>
+<li><p>machine‑learning models that link text, pictures, and sensor signals.</p></li>
+</ul>
+<p>These tools let researchers ask new questions. For example, how body language and tone of voice together affect conversations or how physiological signals match feelings can help uncover insights that single‑mode studies miss. By integrating multimodal data, social scientists can broaden the depth and reach of their research beyond what conventional single‑mode analysis offers.</p>
 </section>
 <section id="images" class="level2">
 <h2 class="anchored" data-anchor-id="images">5.2 Images</h2>
-<p>I am not sure if we need to talk about “accessing” or collecting image data as it is pretty much standard.</p>
+<p>Image data can come from the usual sources such as field photographs taken during site visits, archival collections in libraries or museums, and printed photographs that appear in historical documents. Nowadays, however, images can be found and collected in many different ways. For example, social media platforms like Instagram, Facebook, and TikTok are rich with user‑generated photos; online photo repositories such as Flickr, Unsplash, and Wikimedia Commons host millions of images that are freely accessible; news outlets regularly publish photographs to accompany stories; satellite imagery from NASA or ESA provides large‑scale visual data; and everyday smartphone cameras capture images that can be shared in research settings. Please note that although we cover some prominent ways, this is by no means an exhaustive list. Therefore, please refer to the additional resources section at the end of the section to dive deeper.</p>
 </section>
 <section id="analyzing-images" class="level2">
 <h2 class="anchored" data-anchor-id="analyzing-images">3.3 Analyzing Images</h2>
 <p>With the advent of Large-Language Models (LLMs) we can use their power to analyze images. In this section, we will focus on using one package that uses local LLMs (i.e., privacy) to analyze image files: <a href="https://github.com/frankiethull/kuzco">{kuzco}</a>.</p>
+<p>Kuzco is</p>
+<blockquote class="blockquote">
+<p>is a simple vision boilerplate built for ollama in R, on top of {ollamar} &amp; {ellmer}. {kuzco} is designed as a computer vision assistant, giving local models guidance on classifying images and return structured data. The goal is to standardize outputs for image classification and use LLMs as an alternative option to keras or torch. {kuzco} currently supports: classification, recognition, sentiment, text extraction, alt-text creation, and <strong>custom</strong> computer vision tasks.</p>
+</blockquote>
 <section id="setting-up-kuzco" class="level3">
 <h3 class="anchored" data-anchor-id="setting-up-kuzco">5.3.1. Setting Up Kuzco</h3>
 <p>To use kuzco, you need to, first, install Ollama (a software that allows pulling and running local LLMs) and ollamar &amp; ellmer packages.</p>
@@ -452,21 +467,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"frankiethull/kuzco"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="image-classification" class="level3">
-<h3 class="anchored" data-anchor-id="image-classification">5.3.2 Image Classification</h3>
-<p>The first function kuzco package provides is to create a data frame from the objects of a given image.</p>
 </section>
-</section>
-<section id="case-study-analyzing-classroom-photographs-with-kuzco-to-explore-student-engagement" class="level2">
-<h2 class="anchored" data-anchor-id="case-study-analyzing-classroom-photographs-with-kuzco-to-explore-student-engagement">Case Study: Analyzing Classroom Photographs with Kuzco to Explore Student Engagement</h2>
-<section id="purpose" class="level3">
-<h3 class="anchored" data-anchor-id="purpose">5.3.2.1 Purpose</h3>
+<section id="image-classification" class="level2">
+<h2 class="anchored" data-anchor-id="image-classification">5.3.2 Image Classification</h2>
+<p>An important function {kuzco} package provides is to create a data frame from the objects of a given image by classifying it.</p>
+<section id="case-study-analyzing-classroom-photographs-with-kuzco-to-explore-student-engagement" class="level3">
+<h3 class="anchored" data-anchor-id="case-study-analyzing-classroom-photographs-with-kuzco-to-explore-student-engagement">Case Study: Analyzing Classroom Photographs with Kuzco to Explore Student Engagement</h3>
+<section id="purpose" class="level4">
+<h4 class="anchored" data-anchor-id="purpose">5.3.2.1 Purpose</h4>
 <p>In a study on student engagement during collaborative science instruction, a researcher used a series of classroom photographs to better understand how students participated in different types of learning activities. Rather than relying solely on manual observation and field notes, the researcher applied the <code>{kuzco}</code> R package to process and interpret visual data. Three key functions—<code>llm_image_classification()</code>, <code>llm_image_sentiment()</code>, and <code>llm_image_recognition()</code>—were used to generate insights about classroom scenes.</p>
 <p>These tools allowed the researcher to (1) classify the overall content of the image (e.g., lab work, discussion, presentation), (2) recognize and count key objects or people in the frame (e.g., students, materials, whiteboards), and (3) estimate the emotional tone of the scene based on posture and facial cues. This approach enabled a more systematic and scalable analysis of classroom engagement, providing structured outputs that could be interpreted alongside observational data and interview responses.</p>
 </section>
+</section>
 <section id="research-questions" class="level3">
 <h3 class="anchored" data-anchor-id="research-questions">5.3.2.2 Research Questions</h3>
-<p>To investigate the nature of AI use policies within higher education institutions, in this study, our research questions are:</p>
+<p>To investigate the nature of a classroom discourse, in this study, our research questions are:</p>
 <ul>
 <li><strong>RQ1:</strong> How do classroom activities, as categorized through image classification, vary across different phases of science instruction?</li>
 <li><strong>RQ2:</strong> How do student group sizes and use of instructional materials differ across classroom photographs?</li>
@@ -491,6 +506,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>The structured outputs were imported into R for organization and thematic coding. Using both deductive categories (e.g., group size, task type) and inductive patterns (e.g., collaborative vs.&nbsp;passive positioning), the researcher examined how engagement varied across activities. Triangulation with field notes enhanced interpretive validity, and descriptive summaries were generated to visualize classroom dynamics over time.</p>
 <p><em>For the purpose of simplicity, we will only analyze two photos from a folder. The process for batch analysis can be increased to more photos.</em></p>
+<p><img src="data/s5_images/primary-school-teacher-working-with-students-in-classroom-838559688.jpg" class="img-fluid" width="575"></p>
+<p><img src="data/s5_images/35320686-2551789306.jpg" class="img-fluid" width="576"></p>
 <p>With the code below, we create a function to batch analyze images:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kuzco)</span>
@@ -501,7 +518,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fs)</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Set your image folder path</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>image_folder <span class="ot">&lt;-</span> <span class="st">"/Users/makcaoglu/CSS/docs/section-3_files"</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>image_folder <span class="ot">&lt;-</span> <span class="st">"/Users/makcaoglu/Documents/CSS_Book/data/s5_images"</span> <span class="co">#hide this before pub</span></span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># List images (adjust pattern as needed)</span></span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>image_files <span class="ot">&lt;-</span> <span class="fu">dir_ls</span>(image_folder, <span class="at">regexp =</span> <span class="st">"</span><span class="sc">\\</span><span class="st">.(jpg|jpeg|png)$"</span>, <span class="at">recurse =</span> <span class="cn">FALSE</span>)</span>
