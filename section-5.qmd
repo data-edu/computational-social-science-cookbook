@@ -109,7 +109,7 @@ The structured outputs were imported into R for organization and thematic coding
 
 With the code below, we create a function to batch analyze images:
 
-```{r eval=FALSE}
+```{r eval=TRUE}
 library(kuzco)
 library(ollamar)
 library(tibble)
@@ -127,29 +127,30 @@ image_files <- dir_ls(image_folder, regexp = "\\.(jpg|jpeg|png)$", recurse = FAL
 process_image <- function(img_path) {
   # Classification
   classification <- llm_image_classification(
-    llm_model = "qwen2.5vl",
+    llm_model = "qwen2.5vl:7b",
     image = img_path,
-    backend = 'ollamar'
+    backend = 'ellmer'
   )
   
   # Object detection (e.g., people)
   detection <- llm_image_recognition(
-    llm_model = "qwen2.5vl",
+    llm_model = "qwen2.5vl:7b",
     image = img_path,
     recognize_object = "people",
-    backend = 'ollamar'
+    backend = 'ellmer'
   )
   
   # Sentiment/emotion
   sentiment <- llm_image_sentiment(
-    llm_model = "qwen2.5vl",
+    llm_model = "qwen2.5vl:7b",
     image = img_path
   )
   
   #the new custom fuction for sentiment
   customized <- llm_image_custom(
-    llm_model = "qwen2.5vl",
+    llm_model = "qwen2.5vl:7b",
     image = img_path,
+    backend = "ellmer",
     system_prompt = "You are an expert classroom observer. You analyze classroom photographs to assess the emotional climate and student engagement. Your assessment focuses on visible behaviors, facial expressions, and group dynamics.",
     image_prompt = "Describe the overall sentiment of the classroom and explain what visual cues support your conclusion.",
     example_df = data.frame(
@@ -183,7 +184,7 @@ process_image <- function(img_path) {
 
 Now, we run the analyses:
 
-```{r eval=FALSE}
+```{r eval=TRUE}
 
 # Apply to all images and combine into one data frame
 results_df <- map_dfr(image_files, process_image)
@@ -200,17 +201,14 @@ results_clean <- results_df |>
     image_description,
     primary_object,
     secondary_object,
-    image_colors,
-    image_proba_names,
-    image_proba_values,
     object_recognized,
     object_count,
     object_description,
-    object_location,
-    image_sentiment,
-    image_score,
-    sentiment_description,
-    image_keywords
+    image_proba_names,
+    image_proba_values,
+    classroom_sentiment,
+    engagement_level,
+    sentiment_rationale,
   )
 
 # Save to CSV (optional)
@@ -218,8 +216,9 @@ write.csv(results_clean, "image_classification_detection_results.csv", row.names
 
 # View top images with the most people (if desired)
 results_clean |> 
-  arrange(desc(object_count)) |> 
-  print(n = Inf)
+  arrange(desc(object_count))
+
+knitr::kable(results_clean)
 
 ```
 
@@ -227,11 +226,14 @@ results_clean |>
 
 The analysis of classroom photographs using the `{kuzco}` package yielded structured insights across three domains: instructional context (classification), observable features (recognition), and affective tone (sentiment). Below, we summarize preliminary findings from two sample images.
 
-**RQ1: Instructional Activity Patterns (Image Classification)**\
-Across images, `llm_image_classification()` consistently labeled the scenes as “classroom,” with descriptive summaries indicating quiet, focused individual or small-group work. For example, one image was described as “a classroom scene with a student focused on writing,” while another featured “students sitting at desks… and a teacher in the background.” These classifications help distinguish between instructional moments (e.g., individual seatwork vs. whole-group interaction), informing a timeline of activity types over the course of the lesson.
+#### RQ1: Activity Variation Across Instructional Phases
 
-**RQ2: Student Presence and Interaction (Image Recognition)**\
-The `llm_image_recognition()` function identified and described key objects and individuals in each photo. Object counts ranged from 2 to 7, allowing for comparisons in group size and density. In one image, a single student was the focal point, while another captured a larger group of students engaged in various literacy tasks. Object descriptions included not only counts but also contextual roles (e.g., “a boy writing with a pencil” or “students engaged in reading”), enhancing interpretability of engagement.
+One image was labeled as “students engaged in group discussion,” reflecting a student‐centered phase of collaborative inquiry. The other was classified as “teacher demonstration at front of class,” corresponding to an instructor‐led modeling phase. These two snapshots illustrate how **collaborative group work** and **direct instruction** alternate during a lesson, supporting mixed‐mode science pedagogy.
 
-**RQ3: Affective Tone in Classroom Scenes (Image Sentiment)**\
-Both images were rated as **positive** using `llm_image_sentiment()`, with scores of 0.7 and 0.8 respectively. Sentiment descriptions highlighted emotional tone inferred from posture, interaction, and environmental cues: one described “a quiet studious atmosphere,” while the other conveyed “a cheerful and engaged sentiment.” These outputs suggest that students were generally attentive and involved, and that the physical learning environment contributed to a positive classroom climate.
+#### RQ2: Student Group Sizes and Materials Use
+
+The group discussion scene showed **6 students**, suggesting small‐group clusters. The demonstration scene captured **12 students** focused on the teacher, indicating whole‐class attention. Both images contained visible instructional materials (lab equipment, whiteboard), but object recognition focused on counting people. Future analyses should expand **`recognize_object`** to include discrete material counts. These counts align with expectations: small groups during hands‐on inquiry and full class during teacher‐led explanation.
+
+#### RQ3: Emotional Tone Patterns in Collaborative Learning
+
+The group discussion image was labeled **positive**, with cues of smiling and open body language. The demonstration image was rated **neutral**, consistent with attentive but less expressive posture. This suggests that **active collaboration** elicits more positive affect compared to passive observation phases.
