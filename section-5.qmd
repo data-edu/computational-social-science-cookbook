@@ -2,11 +2,11 @@
 
 ## 5.1 Overview
 
-In this section, we will discuss how social scientists can move beyond traditional data types (e.g., text and numbers) and learn about capturing and analyzing multimodal data.\
+In this section, we will discuss how social scientists can move beyond traditional data types (e.g., text and numbers) and learn about capturing and analyzing multimodal data.
 
-Multimodal data includes audio, video, and other non‑textual information that gives a fuller picture of human behavior.\
+Multimodal data includes audio, video, and other non‑textual information that gives a fuller picture of human behavior.
 
-Modern devices such as wearables, smartphones, and online platforms now let researchers collect large amounts of this mixed data.\
+Modern devices such as wearables, smartphones, and online platforms now let researchers collect large amounts of this mixed data.
 
 To make sense of it, we use computational tools that combine the different types:
 
@@ -196,7 +196,6 @@ print(results_df)
 # Arrange columns in logical order and rename for clarity
 results_clean <- results_df |>
   select(
-    file,
     image_classification,
     image_description,
     primary_object,
@@ -216,10 +215,7 @@ write.csv(results_clean, "image_classification_detection_results.csv", row.names
 
 # View top images with the most people (if desired)
 results_clean |> 
-  arrange(desc(object_count))
-
-knitr::kable(results_clean)
-
+  arrange(desc(object_count)) %>% head(5)
 ```
 
 ### 5.3.2.6 Results and Discussion:
