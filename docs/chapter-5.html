@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Using commercial APIs (e.g., OpenAI, Anthropic, Google, Mistral) to integrate large language models into educational data analysis workflows.">
 
-<title>Section 7 Communication Collaboration Practices – Computational Analysis of Educational Data: A Field Guide Using R</title>
+<title>Cloud-based LLMs for Educational Research – Computational Analysis of Educational Data: A Field Guide Using R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +66,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./conclusion.html" rel="next">
-<link href="./section-6.html" rel="prev">
+<link href="./chapter-6.html" rel="next">
+<link href="./chapter-4.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -73,9 +109,11 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
 
 <link rel="stylesheet" href="styles/override.css">
+<link rel="stylesheet" href="styles/sidebar.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -249,7 +287,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./section-7.html"><span class="chapter-title">Section 7 <strong>Communication Collaboration Practices</strong></span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-5.html">Section 3 — AI and LLMs in Educational Research</a></li><li class="breadcrumb-item"><a href="./chapter-5.html"><span class="chapter-title">Cloud-based LLMs for Educational Research</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -282,41 +320,90 @@ ul.task-list li input[type="checkbox"] {
   <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preface</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Section 1 — Getting Started</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Section 1 <strong>Getting Started</strong></span></a>
+  <a href="./chapter-1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 1 <strong>Getting Started</strong></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Section 2 — Traditional Computational Analyses of Educational Data</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Section 2 <strong>Capturing and Analyzing Text Data with Computational Methods</strong></span></a>
+  <a href="./chapter-2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 2 <strong>Capturing and Analyzing Text Data with Computational Methods</strong></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Section 3 <strong>Social Network Analyses (Relational Data)</strong></span></a>
+  <a href="./chapter-3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 3 <strong>Social Network Analyses (Relational Data)</strong></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Section 4 <strong>Secondary Analysis of Big Data (Numeric Data)</strong></span></a>
+  <a href="./chapter-4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 4 <strong>Secondary Analysis of Big Data (Numeric Data)</strong></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Section 3 — AI and LLMs in Educational Research</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Section 5 <strong>Multimodal Data (Images, Video, Audio) with LLMs</strong></span></a>
+  <a href="./chapter-5.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Cloud-based LLMs for Educational Research</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Section 6 <strong>Local LLMs in Educational Research</strong></span></a>
+  <a href="./chapter-6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 6 <strong>Local LLMs in Educational Research</strong></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-7.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Section 7 <strong>Communication Collaboration Practices</strong></span></a>
+  <a href="./chapter-7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 7 <strong>Multimodal Data (Images, Video, Audio) with Local LLMs</strong></span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Section 4 — Communication and Collaboration Practices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 8 <strong>Communication Collaboration Practices</strong></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./conclusion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Conclusion</span></a>
@@ -335,10 +422,16 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#available-cloud-based-llm-apis" id="toc-available-cloud-based-llm-apis" class="nav-link" data-scroll-target="#available-cloud-based-llm-apis">1. Available Cloud-based LLM APIs</a></li>
+  <li><a href="#connecting-to-an-api-in-r" id="toc-connecting-to-an-api-in-r" class="nav-link" data-scroll-target="#connecting-to-an-api-in-r">2. Connecting to an API in R</a></li>
+  <li><a href="#example-automating-qualitative-coding" id="toc-example-automating-qualitative-coding" class="nav-link" data-scroll-target="#example-automating-qualitative-coding">3. Example: Automating Qualitative Coding</a></li>
+  <li><a href="#reproducibility-and-ethical-considerations" id="toc-reproducibility-and-ethical-considerations" class="nav-link" data-scroll-target="#reproducibility-and-ethical-considerations">4. Reproducibility and Ethical Considerations</a></li>
+  <li><a href="#extending-to-other-apis" id="toc-extending-to-other-apis" class="nav-link" data-scroll-target="#extending-to-other-apis">5. Extending to Other APIs</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -346,9 +439,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-5.html">Section 3 — AI and LLMs in Educational Research</a></li><li class="breadcrumb-item"><a href="./chapter-5.html"><span class="chapter-title">Cloud-based LLMs for Educational Research</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Section 7 <strong>Communication Collaboration Practices</strong></span></h1>
+<h1 class="title"><span class="chapter-title">Cloud-based LLMs for Educational Research</span></h1>
 </div>
 
 
@@ -365,9 +458,134 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="abstract" class="level2">
-<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p>A key part of social science research (and, any analysis involving computational tools) is communicating about the output or findings. In this section, we describe how to communicate with colleagues or the wider world through the use of a variety of tools, especially R Markdown and git/GitHub. We also discuss how to collaborate on projects that involve computational methods and “good” (flexible yet principled) practices for doing so based on our experience and prior scholarship.</p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>Large Language Models (LLMs) available through cloud APIs provide powerful text analysis, generation, and reasoning capabilities that can be applied to educational research.<br>
+This chapter introduces how researchers can connect to commercial or open LLM services — such as <strong>OpenAI GPT models</strong>, <strong>Anthropic Claude</strong>, <strong>Google Gemini</strong>, and <strong>Mistral</strong> — to automate data processing, assist qualitative coding, and explore mixed-methods analyses.</p>
+<p>We will discuss: - Available cloud-based LLM APIs and their access mechanisms<br>
+- R-based workflows for sending prompts and receiving model outputs<br>
+- Example use cases in educational research contexts<br>
+- Considerations around privacy, ethics, and reproducibility</p>
+</section>
+<section id="available-cloud-based-llm-apis" class="level2">
+<h2 class="anchored" data-anchor-id="available-cloud-based-llm-apis">1. Available Cloud-based LLM APIs</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Provider</th>
+<th>Example Models</th>
+<th>Access</th>
+<th>R or HTTP Wrapper</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>OpenAI</td>
+<td>GPT-4o, GPT-4-Turbo</td>
+<td>API key from <a href="https://platform.openai.com">platform.openai.com</a></td>
+<td><code>{httr2}</code>, <code>{openai}</code></td>
+</tr>
+<tr class="even">
+<td>Anthropic</td>
+<td>Claude 3, Claude 3.5</td>
+<td>API key from <a href="https://console.anthropic.com">console.anthropic.com</a></td>
+<td><code>{httr2}</code>, <code>{anthropic}</code></td>
+</tr>
+<tr class="odd">
+<td>Google</td>
+<td>Gemini 1.5</td>
+<td><a href="https://aistudio.google.com">AI Studio</a></td>
+<td><code>{googleGenerativeAI}</code></td>
+</tr>
+<tr class="even">
+<td>Mistral</td>
+<td>Mixtral, Mistral 7B</td>
+<td><a href="https://mistral.ai">mistral.ai</a></td>
+<td>HTTP calls via <code>{httr2}</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p>💡 <strong>Tip:</strong> Use <code>.Renviron</code> to store API keys securely. Avoid embedding them in public code repositories.</p>
+</blockquote>
+</section>
+<section id="connecting-to-an-api-in-r" class="level2">
+<h2 class="anchored" data-anchor-id="connecting-to-an-api-in-r">2. Connecting to an API in R</h2>
+<p>Example using the <strong>OpenAI API</strong> and the <code>{httr2}</code> package:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare request</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>resp <span class="ot">&lt;-</span> <span class="fu">request</span>(<span class="st">"https://api.openai.com/v1/chat/completions"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">req_headers</span>(</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Authorization"</span> <span class="ot">=</span> <span class="fu">paste</span>(<span class="st">"Bearer"</span>, <span class="fu">Sys.getenv</span>(<span class="st">"OPENAI_API_KEY"</span>)),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Content-Type"</span> <span class="ot">=</span> <span class="st">"application/json"</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">req_body_json</span>(<span class="fu">list</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">model =</span> <span class="st">"gpt-4o-mini"</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">messages =</span> <span class="fu">list</span>(</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(<span class="at">role =</span> <span class="st">"system"</span>, <span class="at">content =</span> <span class="st">"You are an assistant helping with educational data analysis."</span>),</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(<span class="at">role =</span> <span class="st">"user"</span>, <span class="at">content =</span> <span class="st">"Summarize these student reflections in three themes."</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">|&gt;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">req_perform</span>()</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Parse and print</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>content <span class="ot">&lt;-</span> <span class="fu">resp_body_json</span>(resp)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(content<span class="sc">$</span>choices[[<span class="dv">1</span>]]<span class="sc">$</span>message<span class="sc">$</span>content)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="example-automating-qualitative-coding" class="level2">
+<h2 class="anchored" data-anchor-id="example-automating-qualitative-coding">3. Example: Automating Qualitative Coding</h2>
+<p>LLMs can support <em>qualitative analysis</em> by:</p>
+<ul>
+<li>Suggesting initial codes or categories from open-ended responses</li>
+<li>Clustering semantically similar responses</li>
+<li>Generating summaries of student feedback</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: clustering reflective comments</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>responses <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"I learned how to write better R code."</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Collaborating with peers improved my understanding."</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"I struggled with data visualization."</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>prompt <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"Cluster these reflections into themes:</span><span class="sc">\n</span><span class="st">"</span>, <span class="fu">paste</span>(responses, <span class="at">collapse =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">- "</span>))</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Send to API (pseudocode)</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># result &lt;- openai::create_chat_completion(model="gpt-4o-mini", messages=list(...))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="reproducibility-and-ethical-considerations" class="level2">
+<h2 class="anchored" data-anchor-id="reproducibility-and-ethical-considerations">4. Reproducibility and Ethical Considerations</h2>
+<p>When using cloud-based LLMs:</p>
+<ul>
+<li><strong>Reproducibility:</strong> Model versions change frequently; document the model name, date, and API parameters.</li>
+<li><strong>Data Privacy:</strong> Avoid uploading identifiable student data. De-identify text prior to sending.</li>
+<li><strong>Cost and Rate Limits:</strong> Be aware of token-based billing; batch requests when possible.</li>
+<li><strong>Ethics and Transparency:</strong> Report clearly how LLMs were used in data analysis and interpretation.</li>
+</ul>
+</section>
+<section id="extending-to-other-apis" class="level2">
+<h2 class="anchored" data-anchor-id="extending-to-other-apis">5. Extending to Other APIs</h2>
+<p>You can explore:</p>
+<ul>
+<li><code>{anthropic}</code> or <code>{claude}</code> packages for Claude models</li>
+<li><code>{googleGenerativeAI}</code> for Gemini API</li>
+<li><code>{mistralapi}</code> for open-weight models hosted on Hugging Face or Mistral Cloud</li>
+</ul>
+<p>Each provides similar request structures and response handling via JSON.</p>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>Cloud-based LLMs expand the researcher’s analytical toolkit, enabling scalable and automated text analysis in educational contexts.</p>
+<p>By integrating these APIs with R-based workflows, researchers can:</p>
+<ul>
+<li>Efficiently analyze large qualitative datasets</li>
+<li>Prototype computational methods quickly</li>
+<li>Maintain transparency through code-based documentation</li>
+</ul>
+<blockquote class="blockquote">
+<p>In the next chapter, we will shift our focus to local LLMs — exploring how models can be deployed and fine-tuned entirely offline for educational research.</p>
+</blockquote>
 
 
 </section>
@@ -787,13 +1005,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./section-6.html" class="pagination-link" aria-label="Section 6 **Local LLMs in Educational Research**">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Section 6 <strong>Local LLMs in Educational Research</strong></span></span>
+      <a href="./chapter-4.html" class="pagination-link" aria-label="Chapter 4 **Secondary Analysis of Big Data (Numeric Data)**">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Chapter 4 <strong>Secondary Analysis of Big Data (Numeric Data)</strong></span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./conclusion.html" class="pagination-link" aria-label="Conclusion">
-        <span class="nav-page-text"><span class="chapter-title">Conclusion</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapter-6.html" class="pagination-link" aria-label="Chapter 6 **Local LLMs in Educational Research**">
+        <span class="nav-page-text"><span class="chapter-title">Chapter 6 <strong>Local LLMs in Educational Research</strong></span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -802,4 +1020,5 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

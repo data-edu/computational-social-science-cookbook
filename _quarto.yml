@@ -5,16 +5,31 @@ project:
 book:
   title: "Computational Analysis of Educational Data: A Field Guide Using R"
   author: "Wei Wang, Mete Akcaoglu, Joshua Rosenberg, Shaun Kellogg"
-  date: " Oct 16,2025"
+  date: "October 16, 2025"
+
   chapters:
     - index.qmd
-    - section-1.qmd
-    - section-2.qmd
-    - section-3.qmd
-    - section-4.qmd
-    - section-5.qmd
-    - section-6.qmd
-    - section-7.qmd
+
+    - part: "Section 1 — Getting Started"
+      chapters:
+        - chapter-1.qmd
+
+    - part: "Section 2 — Traditional Computational Analyses of Educational Data"
+      chapters:
+        - chapter-2.qmd
+        - chapter-3.qmd
+        - chapter-4.qmd
+
+    - part: "Section 3 — AI and LLMs in Educational Research"
+      chapters:
+        - chapter-5.qmd
+        - chapter-6.qmd
+        - chapter-7.qmd
+
+    - part: "Section 4 — Communication and Collaboration Practices"
+      chapters:
+        - chapter-8.qmd
+
     - conclusion.qmd
     - references.qmd
 
@@ -23,22 +38,34 @@ bibliography: [references.bib, packages.bib]
 format:
   html:
     theme:
-      light: [ flatly, styles/theme.scss ]
-      dark: [ flatly, styles/dark-theme.scss ]
-    respect-usride.csser-color-scheme: true
-    css: styles/override.css
-    number-sections: false   # Turn off HTML autonumbering
+      light: [flatly, styles/theme.scss]
+      dark: [flatly, styles/dark-theme.scss]
+    css: 
+      - styles/override.css
+      - styles/sidebar.css     
+    number-sections: false     
     grid:
-       sidebar-width: 300px
-       body-width: 860px
-       margin-width: 300px
-       gutter-width: 1.5rem
+      sidebar-width: 300px
+      body-width: 860px
+      margin-width: 300px
+      gutter-width: 1.5rem
+    toc-title: "Contents"
+    toc-depth: 3
+    smooth-scroll: true
+
   pdf:
     documentclass: scrreprt
     pdf-engine: xelatex
-    number-sections: false   # Turn off PDF autonumbering
+    number-sections: false
+    toc-depth: 2
 
 editor: visual
 
 execute:
   warning: false
+
+  
+  
+  
+  
+  

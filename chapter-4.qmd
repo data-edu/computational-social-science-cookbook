@@ -1,4 +1,4 @@
-# Section 4 **Secondary Analysis of Big Data (Numeric Data)**
+# Chapter 4 **Secondary Analysis of Big Data (Numeric Data)**
 
 **Abstract:** This section reviews how to access data that is primarily numeric/quantitative in nature, but from a different source and of a different nature than the data typically used by social scientists. Example data sets include international or national large-scale assessments (e.g., PISA, NAEP，IPEDS) and data from digital technologies (e.g., log-trace data from Open University Learning Analytics Dataset (OULAD)). 
 
@@ -468,7 +468,6 @@ The logistic regression model was fitted to predict whether a university achieve
 
 Overall, the regression model demonstrates that several institutional factors are statistically significant predictors of graduation rates. In particular, tuition fees and avg_salary have a strong positive effect, while pct_admitted and percent_fin_aid show negative associations.
 
-
 #### Supervised ML Workflow Results (RQ B)
 
 Using the tidymodels framework, we built a logistic regression model as part of a supervised machine learning workflow. The performance metric obtained is as follows:
@@ -476,7 +475,6 @@ Using the tidymodels framework, we built a logistic regression model as part of 
 -   **Accuracy**: 80.02%
 
 This indicates that the machine learning model correctly classified approximately 80% of the institutions as having either a good or not good graduation rate, based on the selected predictors.
-
 
 #### Overall Discussion
 
@@ -503,13 +501,11 @@ Random Forests is an ensemble learning method that builds multiple decision tree
 
 Inspired by research on digital trace data (e.g., Rodriguez et al., 2021; Bosch, 2021), this case study uses pre-processed interactions data from OULAD. In our analysis, we focus on predicting whether a student will pass the course (a binary outcome) based on engineered features derived from clickstream data. These features include the total number of clicks (`sum_clicks`), summary statistics (mean and standard deviation of clicks), and linear trends over time (slope and intercept from clickstream patterns).
 
-
 ### 4.4.2 Sample Research Questions
 
 -   **RQ1:** How accurately can a random forest model predict whether a student will pass a course using interactions data from OULAD?
 -   **RQ2:** Which interaction-based features (e.g., total clicks, click stream slope) are most important in predicting student outcomes?
 -   **RQ3:** How does the use of cross-validation (e.g., v-fold CV) influence the stability and generalizability of the random forest model on interactions data?
-
 
 ### 4.4.3 Analysis
 
@@ -722,7 +718,6 @@ The confusion matrix shows: - True Negatives (TN): 5439 - False Negatives (FN): 
 
 Overall, these metrics indicate that while the model performs well in detecting positive outcomes (high sensitivity), its lower specificity means that it tends to misclassify a relatively higher proportion of non-passing students.
 
-
 #### Research Question 2 (RQ2):
 
 *Which interaction-based features are most important in predicting student outcomes?*
@@ -738,14 +733,12 @@ The variable importance analysis, extracted from the final random forest model u
 
 These results suggest that both the intensity and the temporal trend of student interactions with the learning environment are critical in predicting whether a student will pass.
 
-
 #### Research Question 3 (RQ3):
 
 *How does the use of cross-validation impact the stability and generalizability of the random forest model on interactions data?*
 
 **Response:**\
 The use of 4-fold cross-validation (via `vfold_cv`) allowed us to assess the model's performance across multiple subsets of the data, mitigating the risk of overfitting. The resampling results are relatively consistent (with accuracy around 67%, sensitivity at 81.6%, and specificity around 43.2%), which supports the model’s robustness and generalizability. Although the final test set performance (accuracy of 66.5%) is slightly lower, the overall consistency of metrics across folds indicates that our model is stable when applied to unseen data.
-
 
 #### Overall Discussion
 

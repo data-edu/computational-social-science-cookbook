@@ -1,0 +1,113 @@
+---
+title: "Cloud-based LLMs for Educational Research"
+description: "Using commercial APIs (e.g., OpenAI, Anthropic, Google, Mistral) to integrate large language models into educational data analysis workflows."
+---
+
+## Overview
+
+Large Language Models (LLMs) available through cloud APIs provide powerful text analysis, generation, and reasoning capabilities that can be applied to educational research.\
+This chapter introduces how researchers can connect to commercial or open LLM services — such as **OpenAI GPT models**, **Anthropic Claude**, **Google Gemini**, and **Mistral** — to automate data processing, assist qualitative coding, and explore mixed-methods analyses.
+
+We will discuss: - Available cloud-based LLM APIs and their access mechanisms\
+- R-based workflows for sending prompts and receiving model outputs\
+- Example use cases in educational research contexts\
+- Considerations around privacy, ethics, and reproducibility
+
+
+
+## 1. Available Cloud-based LLM APIs
+
+| Provider | Example Models | Access | R or HTTP Wrapper |
+|-----------------|-----------------|-----------------|--------------------|
+| OpenAI | GPT-4o, GPT-4-Turbo | API key from [platform.openai.com](https://platform.openai.com) | `{httr2}`, `{openai}` |
+| Anthropic | Claude 3, Claude 3.5 | API key from [console.anthropic.com](https://console.anthropic.com) | `{httr2}`, `{anthropic}` |
+| Google | Gemini 1.5 | [AI Studio](https://aistudio.google.com) | `{googleGenerativeAI}` |
+| Mistral | Mixtral, Mistral 7B | [mistral.ai](https://mistral.ai) | HTTP calls via `{httr2}` |
+
+> 💡 **Tip:** Use `.Renviron` to store API keys securely. Avoid embedding them in public code repositories.
+
+
+
+## 2. Connecting to an API in R
+
+Example using the **OpenAI API** and the `{httr2}` package:
+
+``` r
+library(httr2)
+library(jsonlite)
+
+# Prepare request
+resp <- request("https://api.openai.com/v1/chat/completions") |>
+  req_headers(
+    "Authorization" = paste("Bearer", Sys.getenv("OPENAI_API_KEY")),
+    "Content-Type" = "application/json"
+  ) |>
+  req_body_json(list(
+    model = "gpt-4o-mini",
+    messages = list(
+      list(role = "system", content = "You are an assistant helping with educational data analysis."),
+      list(role = "user", content = "Summarize these student reflections in three themes.")
+    )
+  )) |>
+  req_perform()
+
+# Parse and print
+content <- resp_body_json(resp)
+cat(content$choices[[1]]$message$content)
+```
+
+## 3. Example: Automating Qualitative Coding
+
+LLMs can support *qualitative analysis* by:
+
+-   Suggesting initial codes or categories from open-ended responses
+-   Clustering semantically similar responses
+-   Generating summaries of student feedback
+
+``` r
+# Example: clustering reflective comments
+responses <- c(
+  "I learned how to write better R code.",
+  "Collaborating with peers improved my understanding.",
+  "I struggled with data visualization."
+)
+
+prompt <- paste("Cluster these reflections into themes:\n", paste(responses, collapse = "\n- "))
+
+# Send to API (pseudocode)
+# result <- openai::create_chat_completion(model="gpt-4o-mini", messages=list(...))
+```
+
+## 4. Reproducibility and Ethical Considerations
+
+When using cloud-based LLMs:
+
+-   **Reproducibility:** Model versions change frequently; document the model name, date, and API parameters.
+-   **Data Privacy:** Avoid uploading identifiable student data. De-identify text prior to sending.
+-   **Cost and Rate Limits:** Be aware of token-based billing; batch requests when possible.
+-   **Ethics and Transparency:** Report clearly how LLMs were used in data analysis and interpretation.
+
+
+
+## 5. Extending to Other APIs
+
+You can explore:
+
+-   `{anthropic}` or `{claude}` packages for Claude models
+-   `{googleGenerativeAI}` for Gemini API
+-   `{mistralapi}` for open-weight models hosted on Hugging Face or Mistral Cloud
+
+Each provides similar request structures and response handling via JSON.
+
+
+## Summary
+
+Cloud-based LLMs expand the researcher’s analytical toolkit, enabling scalable and automated text analysis in educational contexts.
+
+By integrating these APIs with R-based workflows, researchers can:
+
+-   Efficiently analyze large qualitative datasets
+-   Prototype computational methods quickly
+-   Maintain transparency through code-based documentation
+
+> In the next chapter, we will shift our focus to local LLMs — exploring how models can be deployed and fine-tuned entirely offline for educational research.

@@ -1,0 +1,47 @@
+/* ====== Sidebar Style Enhancements ====== */
+
+/* Section (part) titles */
+.sidebar .sidebar-item-section {
+  font-weight: 700;
+  font-size: 1.05em;
+  color: #0a4d8c;
+  margin-top: 1em;
+  padding-top: 0.6em;
+  border-top: 2px solid #cce0f5;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Chapter links under each Section */
+.sidebar .sidebar-item {
+  font-weight: 500;
+  margin-left: 0.6em;
+}
+
+.sidebar .sidebar-item a {
+  color: #333;
+  text-decoration: none;
+}
+
+.sidebar .sidebar-item a:hover {
+  color: #0a4d8c;
+  text-decoration: underline;
+}
+
+/* Active chapter (highlighted) */
+.sidebar .sidebar-item.active > a {
+  font-weight: 700;
+  color: #0069d9;
+}
+
+/* Add subtle background for hover */
+.sidebar .sidebar-item a:hover {
+  background-color: #f0f6ff;
+  border-radius: 6px;
+  padding: 2px 4px;
+}
+
+/* Extra spacing between parts */
+.sidebar {
+  line-height: 1.5;
+}

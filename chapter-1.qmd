@@ -1,29 +1,27 @@
-# Section 1 **Getting Started**
+# Chapter 1 **Getting Started**
 
 **Abstract:** In this section, we will introduce the steps to get started with using R and RStudio. The section will also cover the key concepts in working with R such as packages, R markdown. We will also cover important steps in preparing data, which we will be using frequently in the rest of the book. Since these topics have been covered in so much more detail in other books, or other resources online, we will end the section with a list of key resources on these topics that are easily accessible online.
 
 ## Section Overview
 
-
-
 ## Using R and RStudio
 
-  -   Foundational skills: Data, packages, functions, projects
+-   Foundational skills: Data, packages, functions, projects
 
-  -   Reproducibility and R Markdown documents
+-   Reproducibility and R Markdown documents
 
-  -   Base R: assignment, equality, dollar-sign indexing, xx
+-   Base R: assignment, equality, dollar-sign indexing, xx
 
-  -   R files
+-   R files
 
-  -   Project setup within RStudio
+-   Project setup within RStudio
 
 ## Core Data Wrangling Capabilities
 
-  -   Selecting and renaming variables
+-   Selecting and renaming variables
 
-  -   Creating new variables
+-   Creating new variables
 
-  -   Arranging variables
+-   Arranging variables
 
-  -   Joining data
+-   Joining data
