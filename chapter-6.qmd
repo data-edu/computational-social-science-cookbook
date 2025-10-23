@@ -116,7 +116,7 @@ head(policy_texts, 3)
 ### 6.4.3 Implementation with LM Studio (Thematic Analysis)
 
 We send the **same policy texts** to LM Studio’s local API using the parameters already defined in your setup (`api_base`, `model_name`).\
-The model `openai/gpt-oss-20b` runs locally in LM Studio and provides OpenAI-compatible endpoints.
+The model `openai/gpt-oss-20b` runs locally in LM Studio and provides OpenAI-compatible endpoints. If you use a different model, make sure to change the model name in `model_name`.
 
 ```{r, eval = FALSE}
 library(httr)
@@ -126,8 +126,17 @@ library(stringr)
 
 # Use global parameters defined earlier
 # api_base and model_name should already be set in Section 6 setup:
-# api_base <- "http://127.0.0.1:1234/v1"
-# model_name <- "openai/gpt-oss-20b"
+pi_base <- "http://127.0.0.1:1234/v1"
+model_name <- "openai/gpt-oss-20b"
+
+```
+
+##### Prompt writing
+
+Next, we write our prompt. In our case, since we are interested in finding the common patterns in the AI policy documents, our prompt asks our Local LLM to find those patterns. What's great here is we can ask it to create a data frame ready data for us. *(Normally, if you pasted the text into the LM Studio chat box, you would get a narrative answer).* Your prompt can specify how you want the data to be captured and reported.
+
+``` r
+{r, eval = FALSE}
 
 # ----- 1) Prompt Template -----
 analysis_prompt_template <- "
@@ -159,10 +168,37 @@ Your task is to identify 3–5 key themes across the statements and report them 
 | [Theme 1] | [Description] | - \"[Quote]\" | [n] | [p]% |
 | [Theme 2] | [Description] | - \"[Quote]\" | [n] | [p]% |
 "
+```
 
+##### Chunks!
+
+Next, we define chunk sizes for the local LLM to analyze our data. In qualitative text analysis using LLMs (such as thematic synthesis or coding), chunk size refers to the amount of text you pass to the model at one time. It directly affects coherence, depth, and efficiency of analysis.
+
+Chunk size balances context preservation and analytic precision in qualitative LLM-based text analysis. If chunks are too small, the model loses semantic coherence, producing fragmented or repetitive themes. If too large, it may miss local nuances or exceed the model’s reasoning capacity. The aim is to maintain enough continuity for meaningful interpretation while staying within manageable input limits.
+
+Practically, chunk size should follow natural meaning units, such as paragraphs, speaker turns, or short sections, rather than fixed word counts. Researchers typically find that 500–1000 words work well for transcripts, while longer documents like policies can be chunked at 1000–1500 words. The guiding principle is to choose the smallest segment that preserves interpretive coherence.
+
+```{r}
 # ----- 2) Chunk the corpus to stay within model context window -----
 CHUNK_SIZE <- 15
 chunks <- split(policy_texts, ceiling(seq_along(policy_texts) / CHUNK_SIZE))
+
+
+```
+
+##### Connecting to LM Studio
+
+Once our data is prepared, our next step is to pass it to LM Studio. Using our function below, we send our text data to LM Studio server.
+
+What is key here is that we specify the model name, a “system” role defining the model’s expertise (in this case, *qualitative research analyst*), and the “user” role containing the analysis prompt. The parameters `temperature = 0.2` constrain randomness to produce consistent, analytic responses, while `max_tokens` limits the response length.
+
+-   `Temperature` controls randomness: a low value (0.2) produces consistent, analytical responses suited to qualitative coding, while higher values encourage creativity but reduce reliability.
+
+-   `Max tokens` limits response length. Setting it to 1000 ensures sufficient detail without verbosity or truncation. Together, these parameters balance precision and completeness in model-generated analyses.
+
+In essence, this helper encapsulates the logic of prompt dispatch and result retrieval, ensuring each call to the LLM is standardized and repeatable. This is crucial for qualitative workflows where traceability and parameter control are essential.
+
+```{r}
 
 # ----- 3) Helper function: call LM Studio (chat/completions endpoint) -----
 call_lmstudio <- function(prompt, max_tokens = 1000) {
@@ -182,6 +218,16 @@ call_lmstudio <- function(prompt, max_tokens = 1000) {
   httr::stop_for_status(res)
   content(res)$choices[[1]]$message$content
 }
+
+```
+
+##### Running the analysis
+
+##### Now, the script applies the `analysis_prompt_template` to each *chunk* of transcript data using `lapply()`. Each chunk is converted into a numbered text block (`items_block`) and analyzed independently through `call_lmstudio()`, producing localized thematic results (`chunk_outputs`).
+
+Second, the `meta_prompt` integrates these separate analyses. It instructs the model to synthesize and deduplicate themes across all chunks into a unified framework, including a concise narrative summary and a structured thematic table with descriptions, examples, and frequency data. Together, these steps move from micro-level coding to macro-level interpretation. This step is optional, and can be skipped depending on the nature of data and research questions.
+
+```{r}
 
 # ----- 4) Run thematic analysis per chunk -----
 chunk_outputs <- lapply(chunks, function(vec) {
@@ -206,6 +252,18 @@ Unify and deduplicate themes across chunks, and output a single consolidated sec
 | [Unified Theme 1] | [Description] | - \"[Quote]\" | [n] | [p]% |
 | [Unified Theme 2] | [Description] | - \"[Quote]\" | [n] | [p]% |
 "
+
+```
+
+##### Synthesizing and Final LLM Analysis
+
+We are now back in R synthising our data (and manage token limits efficiently).
+
+The `chunk_outputs` are split into smaller *pairs*, each containing two analyses. Each pair is merged and passed through `call_lmstudio()` using the same `meta_prompt`, producing intermediate syntheses (`pair_outputs`). These summaries are then combined into a single consolidated input (`final_meta_input`) for a final call to `call_lmstudio()`, yielding the comprehensive meta-analysis (`meta_output`).
+
+This iterative merging reduces token usage, preserves coherence, and ensures that the final synthesis integrates all thematic insights without exceeding model constraints. With `saveRDS(meta_output, "data/meta_output_saved.rds")` we save our analysis so that in the future, we can just start from there to pick things back up.
+
+```{r}
 # Pairwise synthesis to reduce token usage
 pairs <- split(chunk_outputs, ceiling(seq_along(chunk_outputs) / 2))
 
@@ -221,8 +279,11 @@ cat(meta_output)
 
 #saveRDS(meta_output, "data/meta_output_saved.rds")
 saveRDS(meta_output, "data/meta_output_saved.rds")
-
 ```
+
+##### Thematic Table Extraction and Cleaning
+
+This code takes the saved meta-analysis from LM Studio and turns it into a clean, usable table in R. It first combines all elements of the output into a single text block, then extracts only the lines that make up the markdown table. Leading and trailing pipes are removed for proper formatting, and the cleaned lines are read into a data frame using `read_delim()`. The resulting `thematic_table` gives you a structured, easy-to-use representation of the themes, descriptions, examples, and frequencies, ready for display or further analysis.
 
 ```{r}
 library(stringr)
@@ -286,58 +347,50 @@ getwd()
 
 #### 6.4.3.2 Practical Notes on Running Local Models 🍕💻
 
-Running a local LLM inside LM Studio can feel magical—your computer becomes its own private AI research lab.\
-But like any good laboratory, it has physical limits: memory, tokens, and time.\
-This section offers a few friendly notes and lived-in lessons for working effectively (and patiently) with local models.
+Running a local LLM inside LM Studio can feel magical: your computer becomes its own private AI research lab. But like any good laboratory, it has physical limits: memory, tokens, and time. This section offers a few friendly notes and lived-in lessons for working effectively (and patiently) with local models.
 
 ##### Tokens Are Like Bites of Pizza
 
-LM Studio may be a powerful local model playground—but it still has limits.\
-Think of **tokens** as bites of pizza:\
-your model can chew through a few generous slices, but handing it the *entire pizza* (for example, your full corpus of 99 policy statements) in one go will only lead to indigestion—also known as the dreaded **“HTTP 400 Bad Request.”**
+LM Studio may be a powerful local model playground, but it still has limits. Think of **tokens** as bites of pizza: your model can chew through a few generous slices, but handing it the *entire pizza* (for example, your full corpus of 99 policy statements) in one go will only lead to indigestion (also known as the dreaded “HTTP 400 Bad Request.”)
 
-Every model has a **context window** (often 8 k – 32 k tokens).\
-Both your *prompt* and the *expected response* must fit inside this box.\
+Every model has a context window (often 8 k – 32 k tokens). Both your *prompt* and the *expected response* must fit inside this box.\
 When in doubt:
 
-🍕 **Feed your model smaller slices.**\
+**Feed your model smaller slices.**\
 Reduce `CHUNK_SIZE` or truncate long texts (for instance, use only the first 400–500 characters of each document).
 
-⚙️ **Adjust your `max_tokens` parameter.**\
+**Adjust your `max_tokens` parameter.**\
 Fewer output tokens make for shorter, faster, and safer runs.
 
-🧠 **Monitor your total prompt length.**\
-Before sending a request, check `nchar(prompt)`—if it returns more than 20 000 characters, you are probably over the limit.
+**Monitor your total prompt length.**\
+Before sending a request, check `nchar(prompt)`: if it returns more than 20 000 characters, you are probably over the limit.
 
 ##### Computing Resources and Patience
 
-⏳ **Expect variable response times.**\
+**Expect variable response times.**\
 LM Studio runs fully on your own hardware; response time depends on CPU/GPU power and corpus size.\
 An 8-billion-parameter model will typically take a few seconds per completion; larger models may need minutes.
 
-💾 **Mind your system memory.**\
-Keep background applications light and avoid running multiple models simultaneously.\
-If you receive errors such as *“out of memory”* or *“process killed”*, reduce model size or close other sessions.
+**Mind your system memory.**\
+Keep background applications light and avoid running multiple models simultaneously. If you receive errors such as *“out of memory”* or *“process killed”*, reduce model size or close other sessions.
 
-🏀 **Pro tip from the authors:**\
-During long qualitative runs, go play a game of basketball, take a walk, or grab a coffee.\
-The LLM will still be digesting its token pizza when you return.
+**Pro tip from the authors:**\
+During long qualitative runs, go play a game of basketball, take a walk, or grab a coffee. The LLM will still be digesting its token pizza when you return.
 
 ##### File Paths, Caching, and Stability
 
-🗂 **Use consistent file paths.**\
+**Use consistent file paths.**\
 Save outputs (`meta_output.md`, `thematic_table.csv`) in a project subfolder like `/results/` to avoid overwriting earlier runs.
 
-🔁 **Enable model caching in LM Studio.**\
+**Enable model caching in LM Studio.**\
 Cached models load faster after the first use and reduce memory spikes.
 
-🧱 **Restart occasionally.**\
+**Restart occasionally.**\
 Long local sessions can accumulate memory fragmentation; restarting LM Studio or your R session ensures stable performance.
 
 ##### Takeaways
 
-Feed your model thoughtfully—one well-prepared prompt at a time—and you’ll get cleaner, faster, and tastier results.\
-Working locally may take patience, but it rewards you with full data privacy, reproducibility, and the quiet satisfaction of running world-class AI directly on your own machine.
+Feed your model thoughtfully—one well-prepared prompt at a time—and you’ll get cleaner, faster, and tastier results. Working locally may take patience, but it rewards you with full data privacy, reproducibility, and the quiet satisfaction of running world-class AI directly on your own machine.
 
 ### 6.4.4 Sample Output
 
