@@ -50,7 +50,8 @@ LM Studio exposes a REST API compatible with the OpenAI API standard. This allow
 
 ```{r, eval = FALSE}
 
-library(httr) library(jsonlite)
+library(httr) 
+library(jsonlite)
 
 prompt \<- "Summarize the following open-ended survey responses: ..."
 
@@ -118,7 +119,7 @@ head(policy_texts, 3)
 We send the **same policy texts** to LM Studio’s local API using the parameters already defined in your setup (`api_base`, `model_name`).\
 The model `openai/gpt-oss-20b` runs locally in LM Studio and provides OpenAI-compatible endpoints. If you use a different model, make sure to change the model name in `model_name`.
 
-```{r, eval = FALSE}
+```{r}
 library(httr)
 library(jsonlite)
 library(glue)
@@ -126,18 +127,43 @@ library(stringr)
 
 # Use global parameters defined earlier
 # api_base and model_name should already be set in Section 6 setup:
-pi_base <- "http://127.0.0.1:1234/v1"
+api_base <- "http://127.0.0.1:1234/v1"
 model_name <- "openai/gpt-oss-20b"
 
 ```
+
+##### Testing the Local Connection
+Before running large jobs, it’s good practice to confirm that LM Studio is responding correctly. A quick “ping test” helps prevent silent connection errors.
+
+```{r, eval = FALSE}
+library(httr)
+library(jsonlite)
+
+api_base <- "http://127.0.0.1:1234/v1"   # replace with your LM Studio endpoint
+model_name <- "openai/gpt-oss-20b"       # adjust to your chosen model
+
+res <- POST(
+  url = paste0(api_base, "/chat/completions"),
+  add_headers("Content-Type" = "application/json"),
+  body = toJSON(list(
+    model = model_name,
+    messages = list(
+      list(role = "system", content = "You are a helpful assistant."),
+      list(role = "user", content = "Please reply with 'pong'")
+    )
+  ), auto_unbox = TRUE)
+)
+
+cat(content(res)$choices[[1]]$message$content)
+```
+
+> ✅ If the model replies with “pong,” the local API is ready.
 
 ##### Prompt writing
 
 Next, we write our prompt. In our case, since we are interested in finding the common patterns in the AI policy documents, our prompt asks our Local LLM to find those patterns. What's great here is we can ask it to create a data frame ready data for us. *(Normally, if you pasted the text into the LM Studio chat box, you would get a narrative answer).* Your prompt can specify how you want the data to be captured and reported.
 
-``` r
-{r, eval = FALSE}
-
+```{r}
 # ----- 1) Prompt Template -----
 analysis_prompt_template <- "
 You are analyzing official university AI policy statements.
@@ -183,7 +209,6 @@ Practically, chunk size should follow natural meaning units, such as paragraphs,
 CHUNK_SIZE <- 15
 chunks <- split(policy_texts, ceiling(seq_along(policy_texts) / CHUNK_SIZE))
 
-
 ```
 
 ##### Connecting to LM Studio
@@ -198,7 +223,7 @@ What is key here is that we specify the model name, a “system” role defining
 
 In essence, this helper encapsulates the logic of prompt dispatch and result retrieval, ensuring each call to the LLM is standardized and repeatable. This is crucial for qualitative workflows where traceability and parameter control are essential.
 
-```{r}
+```{r, eval = FALSE}
 
 # ----- 3) Helper function: call LM Studio (chat/completions endpoint) -----
 call_lmstudio <- function(prompt, max_tokens = 1000) {
@@ -227,7 +252,7 @@ call_lmstudio <- function(prompt, max_tokens = 1000) {
 
 Second, the `meta_prompt` integrates these separate analyses. It instructs the model to synthesize and deduplicate themes across all chunks into a unified framework, including a concise narrative summary and a structured thematic table with descriptions, examples, and frequency data. Together, these steps move from micro-level coding to macro-level interpretation. This step is optional, and can be skipped depending on the nature of data and research questions.
 
-```{r}
+```{r, eval = FALSE}
 
 # ----- 4) Run thematic analysis per chunk -----
 chunk_outputs <- lapply(chunks, function(vec) {
@@ -263,7 +288,7 @@ The `chunk_outputs` are split into smaller *pairs*, each containing two analyses
 
 This iterative merging reduces token usage, preserves coherence, and ensures that the final synthesis integrates all thematic insights without exceeding model constraints. With `saveRDS(meta_output, "data/meta_output_saved.rds")` we save our analysis so that in the future, we can just start from there to pick things back up.
 
-```{r}
+```{r, eval = FALSE}
 # Pairwise synthesis to reduce token usage
 pairs <- split(chunk_outputs, ceiling(seq_along(chunk_outputs) / 2))
 
@@ -445,7 +470,7 @@ Each theme was labeled as:
 
 Researchers can document their manual judgments in R and compute simple metrics.
 
-```{r }
+```{r}
 library(dplyr)
 
 # Example: human evaluation of LM Studio themes
@@ -462,14 +487,29 @@ print(validation_data)
 print(validation_accuracy) 
 ```
 
-#### 6.4.5.2Quantitative Cross-Validation (Comparing Theme Frequencies)
+#### 6.4.5.2 Quantitative Cross-Validation (Comparing Theme Frequencies)
 
-Researchers can also quantitatively compare the **frequency counts** of themes identified by LM Studio against those derived from manual keyword searches or traditional NLP methods (as in Section 2).
+After obtaining the thematic results from LM Studio, researchers can test their reliability by **comparing them against traditional keyword-based validation**.\
+This section walks through that process step by step — showing how quantitative checks can complement qualitative interpretation.
+
+##### Step 1: Concept and Rationale
+
+While LLMs identify themes *semantically*, we can independently verify their consistency by checking whether the same ideas appear through **explicit keywords** in the original texts.\
+This serves as a quantitative cross-check between two perspectives:
+
+1.  **LM Studio output** — interprets meaning through context.\
+2.  **Keyword-based validation** — detects literal word usage.
+
+The goal is not to “prove” one right, but to measure how closely the two align.
+
+##### Step 2: Load and Prepare the Data
+
+We load both the original policy corpus and the LLM-generated thematic table.
 
 ```{r}
-# ===============================================================
-# Cross-Validation of LM Studio Thematic Extraction
-# ===============================================================
+# ========================================
+# Step 2 — Load data
+# ========================================
 
 library(dplyr)
 library(stringr)
@@ -477,14 +517,25 @@ library(readr)
 library(ggplot2)
 library(tidyr)
 
-# --- 1. Load datasets ---
 policies <- university_policies %>%
   mutate(Stance = as.character(Stance))
 
 llm_table <- read_csv("lmstudio_thematic_table.csv", show_col_types = FALSE)
+```
 
-# --- 2. Define keyword anchors for each theme ---
-# You can refine or extend these based on your manual reading of the data.
+> Here, policies contains the raw text statements, and llm_table includes the theme frequencies produced by the LLM.
+
+##### Step 3: Define Keyword Anchors
+
+Next, we define a manual **codebook** of lexical cues for each theme.
+
+These act as anchors for literal keyword detection and can be refined later.
+
+```{r}
+# ========================================
+# Step 3 — Define theme keywords
+# ========================================
+
 theme_keywords <- list(
   "Academic Integrity / Plagiarism" = c("plagiarism", "honor code", "academic integrity", "cheating"),
   "Faculty Autonomy & Syllabus Clarity" = c("syllabus", "faculty", "instructor", "autonomy", "course policy"),
@@ -494,13 +545,43 @@ theme_keywords <- list(
   "Policy Evolution & Ongoing Review" = c("update", "revise", "review", "change", "evolve")
 )
 
-# --- 3. Function: count matches in each policy text ---
+```
+
+> Each key in the list corresponds to a theme, and each value contains search terms representing that theme’s literal vocabulary.
+
+------------------------------------------------------------------------
+
+##### Step 4: Count Keyword Occurrences
+
+We now create a helper function to count how many policy statements mention any of the keywords for a given theme.
+
+```{r}
+# ========================================
+# Step 4 — Count keyword matches
+# ========================================
+
 count_theme_mentions <- function(text, keywords) {
   pattern <- paste(keywords, collapse = "|")
   str_detect(tolower(text), pattern)
 }
 
-# --- 4. Apply validation across all statements ---
+```
+
+> This function returns TRUE if a policy contains any of the keywords and FALSE otherwise.
+>
+> We’ll use it to compute frequency counts across all statements.
+
+------------------------------------------------------------------------
+
+##### Step 5: Compute Validation Metrics
+
+We apply the counting function to every theme and summarize the results into verified frequencies and percentages.
+
+```{r}
+# ========================================
+# Step 5 — Apply validation across the corpus
+# ========================================
+
 validation_results <- lapply(names(theme_keywords), function(theme) {
   keywords <- theme_keywords[[theme]]
   matches <- sapply(policies$Stance, count_theme_mentions, keywords = keywords)
@@ -511,7 +592,21 @@ validation_results <- lapply(names(theme_keywords), function(theme) {
   )
 }) %>% bind_rows()
 
-# --- 5. Merge and clean ---
+```
+
+> The resulting validation_results table shows how often each theme literally appears in the text according to keyword matching.
+
+------------------------------------------------------------------------
+
+##### Step 6: Merge with LLM Results
+
+To compare both approaches side by side, we merge the keyword-verified counts with the LLM-reported frequencies.
+
+```{r}
+# ========================================
+# Step 6 — Merge and clean data
+# ========================================
+
 validation_compare <- llm_table %>%
   select(
     Theme,
@@ -526,17 +621,26 @@ validation_compare <- llm_table %>%
     Verified_Relative  = as.numeric(Verified_Relative),
     Freq_Diff          = Verified_Frequency - LLM_Frequency,
     Rel_Diff           = Verified_Relative - LLM_Relative
-  )
-
-# Clean before plotting
-validation_compare <- validation_compare %>%
+  ) %>%
   filter(!is.na(Theme), Theme != "", Theme != "---")
 
-validation_compare_long <- validation_compare %>%
-  select(Theme, LLM_Relative, Verified_Relative) %>%
-  pivot_longer(-Theme, names_to = "Source", values_to = "Relative_Frequency")
+```
 
-# --- 6. Visualization ---
+> After cleaning, each row shows both sets of frequencies plus their differences.
+>
+> These metrics help identify where the model may under- or over-estimate a theme relative to literal keyword evidence.
+
+------------------------------------------------------------------------
+
+##### Step 7: Visualize the Comparison
+
+Finally, we visualize the relative frequencies from both methods.
+
+```{r}
+# ========================================
+# Step 7 — Visualization
+# ========================================
+
 validation_compare_long <- validation_compare %>%
   select(Theme, LLM_Relative, Verified_Relative) %>%
   pivot_longer(-Theme, names_to = "Source", values_to = "Relative_Frequency")
@@ -558,13 +662,81 @@ ggplot(validation_compare_long, aes(
 
 ```
 
+> The red bars show LLM estimates; the blue bars represent keyword matches.
+>
+> Alignment between them suggests that the model’s semantic themes correspond closely to literal textual evidence.
+
+------------------------------------------------------------------------
+
+##### Step 8: Statistical Consistency Check
+
+We can further quantify the alignment by computing a simple Pearson correlation.
+
+```{r}
+cor(validation_compare$LLM_Relative,
+    validation_compare$Verified_Relative,
+    use = "complete.obs")
+# ≈ 0.7
+
+```
+
+> A correlation around r ≈ 0.7 indicates a strong positive relationship —
+>
+> the model and the keyword method identify and rank themes in similar ways.
+
+------------------------------------------------------------------------
+
+##### Step 9: Interpretation and Reflection
+
+This quantitative validation highlights two complementary lenses:
+
+| Approach | Focus | Strength | Limitation |
+|------------------|------------------|------------------|------------------|
+| **Keyword-based Validation** | What is *said* | High recall, transparent rules | Literal, may overcount |
+| **LLM Semantic Analysis** | What is *meant* | Context-aware, concise, human-like reasoning | May undercount subtle mentions |
+
+The LLM acts like a careful qualitative coder: it labels only when meaning is clear,
+
+whereas keyword search counts every literal appearance.
+
+Together, these methods confirm that **LM Studio’s local model captures the same conceptual contours** as human reasoning,
+
+balancing interpretive depth with computational scalability.
+
+> As one co-author joked, “The LLM doesn’t just read the policy—it understands the syllabus.”
+
+------------------------------------------------------------------------
+
+##### Step 10: Refining the Keyword Definitions
+
+Because keyword validation depends entirely on how `theme_keywords` is defined, it’s worth experimenting with precision vs. recall.
+
+For example:
+
+```{r}
+"Pedagogical Integration & Assessment Design" =
+  c("assignment design", "course design", "learning outcomes",
+    "assessment method", "rubric", "instructional strategy")
+
+```
+
+Narrowing the expressions from single words (*learning*, *assessment*) to multi-word phrases improves conceptual accuracy
+
+and aligns frequencies more closely with LLM estimates.
+
+| Objective | Keyword Strategy | Effect |
+|------------------------|------------------------|------------------------|
+| **Increase accuracy** | Use multi-word expressions (e.g., “academic integrity,” “honor code”) | Reduces false positives |
+| **Increase recall** | Include variants (e.g., “cite,” “citation,” “acknowledge”) | Captures more instances |
+| **Balance both** | Mix general and specific terms | Maximizes validity |
+
+By tuning these lists, researchers can “dial in” their validation strictness and calibrate the model’s semantic reasoning against transparent rules.
+
 ##### Interpreting the Cross-Validation Results
 
 The cross-validation process compared two perspectives on the same corpus:\
 (1) the **LM Studio semantic model output** (`LLM_Relative`) and\
 (2) a **keyword-based verification** (`Verified_Relative`) drawn directly from the AI policy statements.
-
-Figure above visualizes the alignment between the two methods. Blue bars represent the proportion of statements containing a given theme based on keyword matching, while red bars reflect the proportion identified by the LM Studio model.
 
 ##### Summary of Observed Patterns
 
@@ -576,24 +748,6 @@ Figure above visualizes the alignment between the two methods. Blue bars represe
 | Conditional AI Use Guidelines | 21.0 | 14.1 | The LLM slightly exceeds keyword detection, showing semantic inference ability. |
 | Pedagogical Integration & Assessment Design | 8.0 | 50.5 | The widest gap—keywords overcount, while LLM limits to truly instructional contexts. |
 | Policy Evolution & Ongoing Review | 6.0 | 5.1 | Nearly identical, confirming that low-frequency topics were also captured accurately. |
-
-##### Quantitative Validation
-
-To estimate overall consistency, a simple Pearson correlation was computed between the LLM-reported and keyword-verified relative frequencies:
-
-```{r, eval = FALSE}
-cor(validation_compare$LLM_Relative,
-    validation_compare$Verified_Relative,
-    use = "complete.obs")
-# ≈ 0.7
-
-```
-
-A correlation of **r ≈ 0.7** indicates a strong positive alignment:
-
-the model and the keyword analysis produce **the same thematic ranking** across the corpus,
-
-even though the model’s absolute frequencies are smaller due to its semantic filtering.
 
 ##### Interpretation
 
@@ -612,17 +766,13 @@ Instead, it requires conceptual coherence—only assigning that theme when the s
 
 ##### Quantitative Validation Conclusion
 
-Overall, the validation demonstrates that **LM Studio’s local model captures the same conceptual contours** as human logic,
-
-but with tighter semantic precision.
+Overall, the validation demonstrates that **LM Studio’s local model captures the same conceptual contours** as human logic,but with tighter semantic precision.
 
 While keyword methods “count what appears,” the LLM “counts what matters.”
 
 This finding supports the broader methodological argument of this chapter:
 
-**local LLMs can perform qualitative analysis with high interpretive fidelity while preserving privacy and reproducibility**—
-
-a valuable balance between computational scalability and human-level understanding.
+**local LLMs can perform qualitative analysis with high interpretive fidelity while preserving privacy and reproducibility**— a valuable balance between computational scalability and human-level understanding.
 
 > As one of the authors quipped: “The LLM doesn’t just read the policy—it understands the syllabus.”
 
@@ -788,3 +938,4 @@ In future research, this approach can be extended beyond text—exploring how LL
 > Section 6 showed us how machines can *interpret meaning*—securely, locally, and collaboratively.\
 > Together, they illuminate a continuum of computational methods for educational research,\
 > bridging the measurable and the meaningful, the statistical and the semantic, the algorithmic and the human.
+
