@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Chapter 8 Communication Collaboration Practices – Computational Analysis of Educational Data: A Field Guide Using R</title>
+<title>Section 2 Introduction — Preparing for Traditional Computational Analyses of Educational Data – Computational Analysis of Educational Data: A Field Guide Using R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +65,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./conclusion.html" rel="next">
-<link href="./chapter-7.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -80,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles/sidebar.css">
 </head>
 
-<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -245,158 +278,21 @@ ul.task-list li input[type="checkbox"] {
   </script>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-8.html">Section 4 — Communication and Collaboration Practices</a></li><li class="breadcrumb-item"><a href="./chapter-8.html"><span class="chapter-title">Chapter 8 <strong>Communication Collaboration Practices</strong></span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
-</header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Computational Analysis of Educational Data: A Field Guide Using R</a> 
-        <div class="sidebar-tools-main">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-</div>
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preface</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Section 1 — Getting Started</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 1 <strong>Getting Started</strong></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Section 2 — Traditional Computational Analyses of Educational Data</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Section 2 Intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Section 2 Introduction — Preparing for Traditional Computational Analyses of Educational Data</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 2 <strong>Capturing and Analyzing Text Data with Computational Methods</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 3 <strong>Social Network Analyses (Relational Data)</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 4 <strong>Secondary Analysis of Big Data (Numeric Data)</strong></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Section 3 — AI and LLMs in Educational Research</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 5 — Introduction to AI and LLMs in Educational Research</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 6 <strong>Local LLMs in Educational Research</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 7 <strong>Multimodal Data (Images, Video, Audio) with Local LLMs</strong></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Section 4 — Communication and Collaboration Practices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-8.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Chapter 8 <strong>Communication Collaboration Practices</strong></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./conclusion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Conclusion</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
-  <li><a href="#r-markdown-vs.-quarto-vs.-jupyter-notebooks" id="toc-r-markdown-vs.-quarto-vs.-jupyter-notebooks" class="nav-link" data-scroll-target="#r-markdown-vs.-quarto-vs.-jupyter-notebooks">R Markdown vs.&nbsp;Quarto vs.&nbsp;Jupyter Notebooks?</a></li>
-  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">Quarto</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">2.0.1 Overview</a></li>
+  <li><a href="#the-analytical-scope-of-this-section" id="toc-the-analytical-scope-of-this-section" class="nav-link" data-scroll-target="#the-analytical-scope-of-this-section">2.0.2 The Analytical Scope of This Section</a></li>
+  <li><a href="#setting-up-the-computational-environment" id="toc-setting-up-the-computational-environment" class="nav-link" data-scroll-target="#setting-up-the-computational-environment">2.0.3 Setting Up the Computational Environment</a></li>
+  <li><a href="#a-general-computational-workflow" id="toc-a-general-computational-workflow" class="nav-link" data-scroll-target="#a-general-computational-workflow">2.0.4 A General Computational Workflow</a></li>
+  <li><a href="#ethics-transparency-and-reproducibility" id="toc-ethics-transparency-and-reproducibility" class="nav-link" data-scroll-target="#ethics-transparency-and-reproducibility">2.0.5 Ethics, Transparency, and Reproducibility</a></li>
+  <li><a href="#transition-to-analytical-chapters" id="toc-transition-to-analytical-chapters" class="nav-link" data-scroll-target="#transition-to-analytical-chapters">2.0.6 Transition to Analytical Chapters</a></li>
   </ul>
 </nav>
     </div>
@@ -404,9 +300,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-8.html">Section 4 — Communication and Collaboration Practices</a></li><li class="breadcrumb-item"><a href="./chapter-8.html"><span class="chapter-title">Chapter 8 <strong>Communication Collaboration Practices</strong></span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Chapter 8 <strong>Communication Collaboration Practices</strong></span></h1>
+<h1 class="title"><span class="chapter-title">Section 2 Introduction — Preparing for Traditional Computational Analyses of Educational Data</span></h1>
 </div>
 
 
@@ -423,17 +319,129 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="abstract" class="level2">
-<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p>A key part of social science research (and, any analysis involving computational tools) is communicating about the output or findings. In this section, we describe how to communicate with colleagues or the wider world through the use of a variety of tools, especially R Markdown and git/GitHub. We also discuss how to collaborate on projects that involve computational methods and “good” (flexible yet principled) practices for doing so based on our experience and prior scholarship.</p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">2.0.1 Overview</h2>
+<p>This section introduces the core computational methods that form the basis of educational data analysis. Across the next three chapters, you will learn how to analyze <strong>textual</strong>, <strong>relational</strong>, and <strong>numeric</strong> data—three major forms of information that appear in learning environments, institutional records, and educational research projects.</p>
+<p>These chapters emphasize hands-on, transparent, and reproducible approaches using R. By engaging with real examples, you will gain practical experience in transforming raw educational data into interpretable results that inform theory and practice.</p>
 </section>
-<section id="r-markdown-vs.-quarto-vs.-jupyter-notebooks" class="level2">
-<h2 class="anchored" data-anchor-id="r-markdown-vs.-quarto-vs.-jupyter-notebooks">R Markdown vs.&nbsp;Quarto vs.&nbsp;Jupyter Notebooks?</h2>
-<p>xx</p>
+<section id="the-analytical-scope-of-this-section" class="level2">
+<h2 class="anchored" data-anchor-id="the-analytical-scope-of-this-section">2.0.2 The Analytical Scope of This Section</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 23%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Chapter</th>
+<th>Data Type</th>
+<th>Analytical Focus</th>
+<th>Example Research Question</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Chapter 2</strong></td>
+<td>Text Data (unstructured)</td>
+<td>Natural language processing, tokenization, sentiment, topic modeling</td>
+<td>“What themes emerge in student reflections or policy statements?”</td>
+</tr>
+<tr class="even">
+<td><strong>Chapter 3</strong></td>
+<td>Relational Data</td>
+<td>Social network analysis: centrality, community detection, visualization</td>
+<td>“How do students or instructors connect and collaborate in learning networks?”</td>
+</tr>
+<tr class="odd">
+<td><strong>Chapter 4</strong></td>
+<td>Numeric / Big Data</td>
+<td>Statistical modeling, regression, clustering, predictive analysis</td>
+<td>“Which factors best predict academic outcomes or engagement?”</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p>📚 These three perspectives together illustrate how computational techniques can capture different dimensions of learning—language, interaction, and measurement.</p>
+</blockquote>
 </section>
-<section id="quarto" class="level2">
-<h2 class="anchored" data-anchor-id="quarto">Quarto</h2>
-<p>xx</p>
+<section id="setting-up-the-computational-environment" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-the-computational-environment">2.0.3 Setting Up the Computational Environment</h2>
+<p>Before exploring the examples, ensure that your R environment contains the essential packages used throughout this section.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Core workflow and visualization</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"tidyverse"</span>, <span class="st">"ggplot2"</span>, <span class="st">"readr"</span>, <span class="st">"stringr"</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Text analysis</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"tidytext"</span>, <span class="st">"quanteda"</span>, <span class="st">"textdata"</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Network analysis</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"igraph"</span>, <span class="st">"ggraph"</span>, <span class="st">"tidygraph"</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Numeric and machine learning tools</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">"caret"</span>, <span class="st">"cluster"</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Optional visualization and interaction packages:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"plotly"</span>, <span class="st">"RColorBrewer"</span>, <span class="st">"visNetwork"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>💡 Tip: Use a consistent project structure so each chapter builds on the same foundation:</p>
+<pre><code>project/
+├── data/        # datasets
+├── scripts/     # reusable code
+├── outputs/     # tables and processed files
+└── figures/     # charts and visualizations</code></pre>
+<p>This structure promotes reproducibility and helps keep analysis pipelines organized.</p>
+</blockquote>
+</section>
+<section id="a-general-computational-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="a-general-computational-workflow">2.0.4 A General Computational Workflow</h2>
+<p>Regardless of data type, the analytical logic follows a similar cycle:</p>
+<ol type="1">
+<li><strong>Load data</strong> — read files from local or online sources.</li>
+<li><strong>Clean data</strong> — handle missing values, normalize text or numeric fields.</li>
+<li><strong>Transform data</strong> — create tokens, build networks, or scale variables.</li>
+<li><strong>Analyze</strong> — apply the method appropriate to the data form.</li>
+<li><strong>Visualize and interpret</strong> — generate plots and summaries to support interpretation.</li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/example.csv"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>cleaned <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), str_squish)) <span class="sc">|&gt;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cleaned)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>🧩 This five-step workflow—load, clean, transform, analyze, interpret—appears throughout all chapters in this section.</p>
+</blockquote>
+</section>
+<section id="ethics-transparency-and-reproducibility" class="level2">
+<h2 class="anchored" data-anchor-id="ethics-transparency-and-reproducibility">2.0.5 Ethics, Transparency, and Reproducibility</h2>
+<p>Educational data often include sensitive or identifiable information.</p>
+<p>Responsible computational research requires attention to both ethical and methodological rigor.</p>
+<ul>
+<li><strong>Privacy:</strong> Remove or anonymize all personal identifiers.</li>
+<li><strong>Transparency:</strong> Keep analysis scripts in Quarto or R Markdown files for version control.</li>
+<li><strong>Reproducibility:</strong> Record package versions and parameters used in each analysis.</li>
+<li><strong>Interpretability:</strong> Combine quantitative patterns with contextual educational insight.</li>
+</ul>
+<blockquote class="blockquote">
+<p>⚖️ Ethical and transparent practices ensure that computational results remain credible, interpretable, and usable for improving learning.</p>
+</blockquote>
+</section>
+<section id="transition-to-analytical-chapters" class="level2">
+<h2 class="anchored" data-anchor-id="transition-to-analytical-chapters">2.0.6 Transition to Analytical Chapters</h2>
+<p>With the environment prepared and workflow established, you are ready to begin applying computational methods to real educational data:</p>
+<ul>
+<li><strong>Chapter 2 — Text Analysis:</strong> Working with unstructured language to uncover patterns in meaning and discourse.</li>
+<li><strong>Chapter 3 — Network Analysis:</strong> Examining connections and relationships among learners, instructors, or resources.</li>
+<li><strong>Chapter 4 — Numeric and Big Data:</strong> Exploring structured data to identify trends and predictors in education.</li>
+</ul>
+<blockquote class="blockquote">
+<p>The following chapter begins with text data, illustrating how natural language processing can transform qualitative information into structured, interpretable results.</p>
+</blockquote>
 
 
 </section>
@@ -851,18 +859,6 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./chapter-7.html" class="pagination-link" aria-label="Chapter 7 **Multimodal Data (Images, Video, Audio) with Local LLMs**">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Chapter 7 <strong>Multimodal Data (Images, Video, Audio) with Local LLMs</strong></span></span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./conclusion.html" class="pagination-link" aria-label="Conclusion">
-        <span class="nav-page-text"><span class="chapter-title">Conclusion</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 

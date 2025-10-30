@@ -16,7 +16,7 @@ book:
 
     - part: "Section 2 — Traditional Computational Analyses of Educational Data"
       chapters:
-        - section 2 Intro.qmd
+        - Section 2 Intro.qmd
         - chapter-2.qmd
         - chapter-3.qmd
         - chapter-4.qmd
