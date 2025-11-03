@@ -1,4 +1,4 @@
-# Chapter 7 **Multimodal Data (Images, Video, Audio) with Local LLMs**
+# Chapter 7 Multimodal Data (Images, Video, Audio) with Local LLMs
 
 ## 7.1 Overview
 

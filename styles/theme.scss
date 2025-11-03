@@ -2,88 +2,88 @@
 @import "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Mono:wght@400;500&display=swap";
 
 
-// 色板（品牌色 + 中性色）
-$primary: #0b6efc; // 主色（链接、强调）
-$secondary: #f7b32b; // 辅助色（按钮、徽章）
+// Color palette (brand + neutral)
+$primary: #0b6efc; // Primary color (links, emphasis)
+$secondary: #f7b32b; // Secondary color (buttons, badges)
 $success: #2fb170;
 $info: #3aaed8;
 $warning: #f0ad4e;
 $danger: #e85d68;
 
-
-$body-bg: #f6f7fb; // 页面背景
-$body-color: #1f2937; // 主文本色（近似 slate-800）
+$body-bg: #f6f7fb; // Page background
+$body-color: #1f2937; // Main text color (similar to slate-800)
 $link-color: $primary;
 
-
-// 代码与边框
+// Code and borders
 $code-color: #c7254e;
 $code-bg: #f8f8fb;
-$border-color: #e5e7eb; // 近似 gray-200
+$border-color: #e5e7eb; // Similar to gray-200
 
+// Layout variables (override Bootstrap defaults for finer control if needed)
+$grid-gutter-width: 1.5rem; // Grid spacing
 
-// 布局可选变量（如需更细控制可在此覆盖 bootstrap vars）
-$grid-gutter-width: 1.5rem; // 网格间距
-
-
-// 字体
+// Fonts
 $font-family-sans-serif: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
 $font-family-monospace: "Fira Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
 
 /*-- scss:rules --*/
-// 全局字体与正文
+// Global font and body
 body {
-font-family: $font-family-sans-serif;
-background-color: $body-bg;
-color: $body-color;
-line-height: 1.6;
+  font-family: $font-family-sans-serif;
+  background-color: $body-bg;
+  color: $body-color;
+  line-height: 1.6;
 }
 
-
-// 顶部导航栏
+// Top navigation bar
 .navbar {
-background-color: $primary;
+  background-color: $primary;
 }
 .navbar a,
 .navbar .navbar-brand,
 .navbar .nav-link {
-color: #fff !important;
+  color: #fff !important;
 }
 
-
-// 侧边栏（目录）
+// Sidebar (Table of Contents)
 .sidebar {
-background: #ffffff;
-border-right: 1px solid $border-color;
+  background: #ffffff;
+  border-right: 1px solid $border-color;
 }
 
-
-// 标题层级
+// Heading levels
 h1, h2, h3, h4, h5, h6 {
-color: #0f172a; // slate-900
-font-weight: 600;
+  color: #0f172a; // slate-900
+  font-weight: 600;
 }
 
+// Links and hover states
+a {
+  color: $link-color;
+  text-decoration: none;
+}
+a:hover {
+  color: darken($link-color, 12%);
+  text-decoration: underline;
+}
 
-// 链接与悬停
-a { color: $link-color; text-decoration: none; }
-a:hover { color: darken($link-color, 12%); text-decoration: underline; }
-
-
-// 引用块
+// Blockquotes
 blockquote {
-border-left: 4px solid $primary;
-background: #ffffff;
-padding: 0.75rem 1rem;
+  border-left: 4px solid $primary;
+  background: #ffffff;
+  padding: 0.75rem 1rem;
 }
 
-
-// 代码块与行内代码
+// Code blocks and inline code
 pre {
-background-color: $code-bg;
-border: 1px solid $border-color;
-border-radius: .5rem;
-padding: 1rem;
+  background-color: $code-bg;
+  border: 1px solid $border-color;
+  border-radius: .5rem;
+  padding: 1rem;
 }
-.footer { color: #6b7280; }
+
+// Footer
+.footer {
+  color: #6b7280;
+}

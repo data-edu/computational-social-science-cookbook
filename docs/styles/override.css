@@ -1,26 +1,22 @@
-/* 链接在目录（TOC）中的可读性 */
+/* Improve link readability in the Table of Contents (TOC) */
 .sidebar .toc a { opacity: 0.95; }
 .sidebar .toc a:hover { opacity: 1; text-decoration: underline; }
 
-
-/* 表格滚动与可读性 */
+/* Enhance table readability and horizontal scrolling */
 .table-responsive { overflow-x: auto; }
 .table th, .table td { vertical-align: middle; }
 
-
-/* 章节标题与目录间距微调 */
+/* Adjust spacing between section titles and the TOC */
 .quarto-title-block { margin-bottom: 1.25rem; }
 .sidebar nav[role="doc-toc"] { padding-top: 0.75rem; }
 
-
-/* 代码块在移动端的边距 */
+/* Add better padding for code blocks on mobile devices */
 @media (max-width: 576px) {
-pre { padding: 0.85rem; }
+  pre { padding: 0.85rem; }
 }
 
-
-/* 图片说明（caption）更清晰 */
+/* Improve figure caption clarity */
 .figure .figure-caption {
-font-size: 0.95rem;
-color: #6b7280;
+  font-size: 0.95rem;
+  color: #6b7280;
 }

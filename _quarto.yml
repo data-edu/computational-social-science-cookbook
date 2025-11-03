@@ -5,7 +5,7 @@ project:
 book:
   title: "Computational Analysis of Educational Data: A Field Guide Using R"
   author: "Wei Wang, Mete Akcaoglu, Joshua Rosenberg, Shaun Kellogg"
-  date: "October 16, 2025"
+  date: "January 12, 2026"
 
   chapters:
     - index.qmd
@@ -16,7 +16,7 @@ book:
 
     - part: "Section 2 — Traditional Computational Analyses of Educational Data"
       chapters:
-        - Section 2 Intro.qmd
+        - section-2-Intro.qmd
         - chapter-2.qmd
         - chapter-3.qmd
         - chapter-4.qmd
@@ -54,11 +54,31 @@ format:
     toc-depth: 3
     smooth-scroll: true
 
+
   pdf:
-    documentclass: scrreprt
-    pdf-engine: xelatex
-    number-sections: false
-    toc-depth: 2
+    documentclass: scrreprt          # Use the KOMA-Script report class (better typography)
+    pdf-engine: xelatex              # Use XeLaTeX for Unicode and font flexibility
+    number-sections: false           # Disable section numbering
+    toc-depth: 2                     # Table of contents depth
+    code-block:
+      wrap: "auto"                   # Enable automatic line wrapping in code blocks
+    code-block-bg: "#f9f9f9"         # Light gray background for code blocks
+    code-block-border-left: "#cccccc" # Subtle left border for code blocks
+
+    include-in-header:
+      text: |
+        % --- Improve code block formatting in PDF output ---
+        \usepackage{fvextra}        % Enhanced verbatim environments (fixes line wrapping issues)
+        \DefineVerbatimEnvironment{Highlighting}{Verbatim}{
+          breaklines=true,          % Automatically wrap long lines
+          breakanywhere=true,       % Allow breaks anywhere (not just at spaces)
+          showtabs=false,           % Do not show tab characters
+          showspaces=false,         % Do not mark spaces
+          obeytabs=true,            % Keep indentation consistent with R source
+          commandchars=\\\{\},      % Allow syntax highlighting commands
+          breaksymbolleft={},       % Disable line-break symbols on the left
+        }
+        \fvset{breaksymbol={}}      % Remove the “↩” (carriage return) symbol completely
 
 editor: visual
 

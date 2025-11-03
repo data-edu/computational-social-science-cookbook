@@ -1,4 +1,4 @@
-# Chapter 4 **Secondary Analysis of Big Data (Numeric Data)**
+# Chapter 4 Secondary Analysis of Big Data (Numeric Data)
 
 **Abstract:** This section reviews how to access data that is primarily numeric/quantitative in nature, but from a different source and of a different nature than the data typically used by social scientists. Example data sets include international or national large-scale assessments (e.g., PISA, NAEP，IPEDS) and data from digital technologies (e.g., log-trace data from Open University Learning Analytics Dataset (OULAD)). 
 
