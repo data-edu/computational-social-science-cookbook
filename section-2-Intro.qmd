@@ -1,0 +1,114 @@
+# Section 2 Introduction — Preparing for Traditional Computational Analyses of Educational Data
+
+## 2.0.1 Overview
+
+This section introduces the core computational methods that form the basis of educational data analysis. Across the next three chapters, you will learn how to analyze **textual**, **relational**, and **numeric** data—three major forms of information that appear in learning environments, institutional records, and educational research projects.
+
+These chapters emphasize hands-on, transparent, and reproducible approaches using R. By engaging with real examples, you will gain practical experience in transforming raw educational data into interpretable results that inform theory and practice.
+
+
+
+## 2.0.2 The Analytical Scope of This Section
+
+| Chapter | Data Type | Analytical Focus | Example Research Question |
+|---------------|---------------|-----------------|--------------------------|
+| **Chapter 2** | Text Data (unstructured) | Natural language processing, tokenization, sentiment, topic modeling | “What themes emerge in student reflections or policy statements?” |
+| **Chapter 3** | Relational Data | Social network analysis: centrality, community detection, visualization | “How do students or instructors connect and collaborate in learning networks?” |
+| **Chapter 4** | Numeric / Big Data | Statistical modeling, regression, clustering, predictive analysis | “Which factors best predict academic outcomes or engagement?” |
+
+> 📚 These three perspectives together illustrate how computational techniques can capture different dimensions of learning—language, interaction, and measurement.
+
+
+## 2.0.3 Setting Up the Computational Environment
+
+Before exploring the examples, ensure that your R environment contains the essential packages used throughout this section.
+
+``` r
+install.packages(c(
+  # Core workflow and visualization
+  "tidyverse", "ggplot2", "readr", "stringr",
+
+  # Text analysis
+  "tidytext", "quanteda", "textdata",
+
+  # Network analysis
+  "igraph", "ggraph", "tidygraph",
+
+  # Numeric and machine learning tools
+  "caret", "cluster"
+))
+```
+
+Optional visualization and interaction packages:
+
+``` r
+install.packages(c("plotly", "RColorBrewer", "visNetwork"))
+```
+
+> 💡 Tip: Use a consistent project structure so each chapter builds on the same foundation:
+>
+> ```         
+> project/
+> ├── data/        # datasets
+> ├── scripts/     # reusable code
+> ├── outputs/     # tables and processed files
+> └── figures/     # charts and visualizations
+> ```
+>
+> This structure promotes reproducibility and helps keep analysis pipelines organized.
+
+
+
+## 2.0.4 A General Computational Workflow
+
+Regardless of data type, the analytical logic follows a similar cycle:
+
+1.  **Load data** — read files from local or online sources.
+2.  **Clean data** — handle missing values, normalize text or numeric fields.
+3.  **Transform data** — create tokens, build networks, or scale variables.
+4.  **Analyze** — apply the method appropriate to the data form.
+5.  **Visualize and interpret** — generate plots and summaries to support interpretation.
+
+``` r
+library(tidyverse)
+
+data <- read_csv("data/example.csv")
+
+cleaned <- data |>
+  mutate(across(everything(), str_squish)) |>
+  drop_na()
+
+summary(cleaned)
+```
+
+> 🧩 This five-step workflow—load, clean, transform, analyze, interpret—appears throughout all chapters in this section.
+
+
+
+## 2.0.5 Ethics, Transparency, and Reproducibility
+
+Educational data often include sensitive or identifiable information.
+
+Responsible computational research requires attention to both ethical and methodological rigor.
+
+-   **Privacy:** Remove or anonymize all personal identifiers.
+-   **Transparency:** Keep analysis scripts in Quarto or R Markdown files for version control.
+-   **Reproducibility:** Record package versions and parameters used in each analysis.
+-   **Interpretability:** Combine quantitative patterns with contextual educational insight.
+
+> ⚖️ Ethical and transparent practices ensure that computational results remain credible, interpretable, and usable for improving learning.
+
+
+## 2.0.6 Transition to Analytical Chapters
+
+With the environment prepared and workflow established, you are ready to begin applying computational methods to real educational data:
+
+-   **Chapter 2 — Text Analysis:** Working with unstructured language to uncover patterns in meaning and discourse.
+-   **Chapter 3 — Network Analysis:** Examining connections and relationships among learners, instructors, or resources.
+-   **Chapter 4 — Numeric and Big Data:** Exploring structured data to identify trends and predictors in education.
+
+> The following chapter begins with text data, illustrating how natural language processing can transform qualitative information into structured, interpretable results.
+
+      
+
+
