@@ -1,8 +1,8 @@
-# Chapter 7 Multimodal Data (Images, Video, Audio) with Local LLMs
+# Chapter 7 Image Data with Local LLMs
 
 ## 7.1 Overview
 
-In this section, we will discuss how social scientists can move beyond traditional data types (e.g., text and numbers) and learn about capturing and analyzing multimodal data.
+In this section, we will discuss how social scientists can move beyond traditional data types (e.g., text and numbers) and learn about capturing and analyzing images as data.
 
 Multimodal data includes audio, video, and other non‑textual information that gives a fuller picture of human behavior.
 
