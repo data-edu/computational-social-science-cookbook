@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Chapter 1 Getting Started – Computational Analysis of Educational Data: A Field Guide Using R</title>
+<title>Getting Started with RStudio – Computational Analysis of Educational Data: A Field Guide Using R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -251,7 +286,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-1.html">Section 1 — Getting Started</a></li><li class="breadcrumb-item"><a href="./chapter-1.html"><span class="chapter-title">Chapter 1 <strong>Getting Started</strong></span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-1.html">Section 1 — Getting Started</a></li><li class="breadcrumb-item"><a href="./chapter-1.html"><span class="chapter-title">Getting Started with RStudio</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -295,7 +330,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Chapter 1 <strong>Getting Started</strong></span></a>
+  <a href="./chapter-1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Getting Started with RStudio</span></a>
   </div>
 </li>
       </ul>
@@ -352,7 +387,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 7 Multimodal Data (Images, Video, Audio) with Local LLMs</span></a>
+  <a href="./chapter-7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 7 Image Data with Local LLMs</span></a>
   </div>
 </li>
       </ul>
@@ -394,9 +429,38 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#section-overview" id="toc-section-overview" class="nav-link active" data-scroll-target="#section-overview">Section Overview</a></li>
-  <li><a href="#using-r-and-rstudio" id="toc-using-r-and-rstudio" class="nav-link" data-scroll-target="#using-r-and-rstudio">Using R and RStudio</a></li>
-  <li><a href="#core-data-wrangling-capabilities" id="toc-core-data-wrangling-capabilities" class="nav-link" data-scroll-target="#core-data-wrangling-capabilities">Core Data Wrangling Capabilities</a></li>
+  <li><a href="#the-four-essential-panes" id="toc-the-four-essential-panes" class="nav-link active" data-scroll-target="#the-four-essential-panes">The Four Essential Panes</a></li>
+  <li><a href="#r-projects-the-foundation-of-reproducible-work" id="toc-r-projects-the-foundation-of-reproducible-work" class="nav-link" data-scroll-target="#r-projects-the-foundation-of-reproducible-work">R Projects: The Foundation of Reproducible Work</a></li>
+  <li><a href="#three-ways-to-write-r-code" id="toc-three-ways-to-write-r-code" class="nav-link" data-scroll-target="#three-ways-to-write-r-code">Three Ways to Write R Code</a>
+  <ul class="collapse">
+  <li><a href="#r-scripts-.r" id="toc-r-scripts-.r" class="nav-link" data-scroll-target="#r-scripts-.r">R Scripts (.R)</a></li>
+  <li><a href="#r-markdown-.rmd" id="toc-r-markdown-.rmd" class="nav-link" data-scroll-target="#r-markdown-.rmd">R Markdown (.Rmd)</a></li>
+  <li><a href="#quarto-.qmd" id="toc-quarto-.qmd" class="nav-link" data-scroll-target="#quarto-.qmd">Quarto (.qmd)</a></li>
+  </ul></li>
+  <li><a href="#console-vs.-source-exploration-vs.-preservation" id="toc-console-vs.-source-exploration-vs.-preservation" class="nav-link" data-scroll-target="#console-vs.-source-exploration-vs.-preservation">Console vs.&nbsp;Source: Exploration vs.&nbsp;Preservation</a></li>
+  <li><a href="#version-control-with-git-and-github" id="toc-version-control-with-git-and-github" class="nav-link" data-scroll-target="#version-control-with-git-and-github">Version Control with Git and GitHub</a>
+  <ul class="collapse">
+  <li><a href="#why-git-matters" id="toc-why-git-matters" class="nav-link" data-scroll-target="#why-git-matters">Why Git Matters</a></li>
+  <li><a href="#the-git-pane-in-rstudio" id="toc-the-git-pane-in-rstudio" class="nav-link" data-scroll-target="#the-git-pane-in-rstudio">The Git Pane in RStudio</a></li>
+  <li><a href="#setting-up-git-and-github-a-friendlier-path" id="toc-setting-up-git-and-github-a-friendlier-path" class="nav-link" data-scroll-target="#setting-up-git-and-github-a-friendlier-path">Setting Up Git and GitHub: A Friendlier Path</a></li>
+  <li><a href="#common-problems-solutions" id="toc-common-problems-solutions" class="nav-link" data-scroll-target="#common-problems-solutions">Common Problems &amp; Solutions</a></li>
+  <li><a href="#alternative-ssh-keys-for-the-adventurous" id="toc-alternative-ssh-keys-for-the-adventurous" class="nav-link" data-scroll-target="#alternative-ssh-keys-for-the-adventurous">Alternative: SSH Keys (For the Adventurous)</a></li>
+  <li><a href="#using-git-in-rstudio" id="toc-using-git-in-rstudio" class="nav-link" data-scroll-target="#using-git-in-rstudio">Using Git in RStudio</a></li>
+  </ul></li>
+  <li><a href="#when-you-get-stuck" id="toc-when-you-get-stuck" class="nav-link" data-scroll-target="#when-you-get-stuck">When You Get Stuck</a>
+  <ul class="collapse">
+  <li><a href="#reading-error-messages" id="toc-reading-error-messages" class="nav-link" data-scroll-target="#reading-error-messages">Reading Error Messages</a></li>
+  <li><a href="#getting-help-on-functions" id="toc-getting-help-on-functions" class="nav-link" data-scroll-target="#getting-help-on-functions">Getting Help on Functions</a></li>
+  <li><a href="#where-computational-social-scientists-get-help" id="toc-where-computational-social-scientists-get-help" class="nav-link" data-scroll-target="#where-computational-social-scientists-get-help">Where Computational Social Scientists Get Help</a></li>
+  <li><a href="#large-language-models-and-ai-tools" id="toc-large-language-models-and-ai-tools" class="nav-link" data-scroll-target="#large-language-models-and-ai-tools">Large Language Models and AI tools</a></li>
+  </ul></li>
+  <li><a href="#going-deeper" id="toc-going-deeper" class="nav-link" data-scroll-target="#going-deeper">Going Deeper</a></li>
+  <li><a href="#the-structure-of-this-book" id="toc-the-structure-of-this-book" class="nav-link" data-scroll-target="#the-structure-of-this-book">The Structure of this Book</a>
+  <ul class="collapse">
+  <li><a href="#section-2-traditional-data-science" id="toc-section-2-traditional-data-science" class="nav-link" data-scroll-target="#section-2-traditional-data-science">Section 2: Traditional Data Science</a></li>
+  <li><a href="#section-3-ai-based-methods" id="toc-section-3-ai-based-methods" class="nav-link" data-scroll-target="#section-3-ai-based-methods">Section 3: AI-based Methods</a></li>
+  <li><a href="#section-4-communicating-findings" id="toc-section-4-communicating-findings" class="nav-link" data-scroll-target="#section-4-communicating-findings">Section 4: Communicating Findings</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -404,9 +468,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-1.html">Section 1 — Getting Started</a></li><li class="breadcrumb-item"><a href="./chapter-1.html"><span class="chapter-title">Chapter 1 <strong>Getting Started</strong></span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-1.html">Section 1 — Getting Started</a></li><li class="breadcrumb-item"><a href="./chapter-1.html"><span class="chapter-title">Getting Started with RStudio</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Chapter 1 <strong>Getting Started</strong></span></h1>
+<h1 class="title"><span class="chapter-title">Getting Started with RStudio</span></h1>
 </div>
 
 
@@ -423,30 +487,237 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>Abstract:</strong> In this section, we will introduce the steps to get started with using R and RStudio. The section will also cover the key concepts in working with R such as packages, R markdown. We will also cover important steps in preparing data, which we will be using frequently in the rest of the book. Since these topics have been covered in so much more detail in other books, or other resources online, we will end the section with a list of key resources on these topics that are easily accessible online.</p>
-<section id="section-overview" class="level2">
-<h2 class="anchored" data-anchor-id="section-overview">Section Overview</h2>
-</section>
-<section id="using-r-and-rstudio" class="level2">
-<h2 class="anchored" data-anchor-id="using-r-and-rstudio">Using R and RStudio</h2>
+<p>We’re not going to teach you RStudio comprehensively—excellent resources already exist for that purpose. We particularly recommend <a href="https://r4ds.hadley.nz/"><em>R for Data Science</em></a>, <a href="https://datascienceineducation.com/"><em>Data Science in Education Using R</em></a>, the <a href="https://posit.co/resources/primers/">RStudio primers</a>, and <a href="https://happygitwithr.com/"><em>Happy Git and GitHub for the useR</em></a>.</p>
+<p>Instead, this chapter covers just enough to reproduce our workflows and extend them to your own data science work. Think of this as the minimal viable setup for doing the work in this book.</p>
+<p><strong>A note on Positron</strong>: Throughout this book, we use RStudio, but <a href="https://github.com/posit-dev/positron">Positron</a> (Posit’s newer IDE built on VS Code) offers similar functionality and may appeal to users coming from VS Code or working across R and Python. The R code in this book will work identically in either environment.</p>
+<section id="the-four-essential-panes" class="level2">
+<h2 class="anchored" data-anchor-id="the-four-essential-panes">The Four Essential Panes</h2>
+<p>When you open RStudio, you’ll see four panes (though the layout is customizable). Here’s what matters for our work:</p>
 <ul>
-<li><p>Foundational skills: Data, packages, functions, projects</p></li>
-<li><p>Reproducibility and R Markdown documents</p></li>
-<li><p>Base R: assignment, equality, dollar-sign indexing, xx</p></li>
-<li><p>R files</p></li>
-<li><p>Project setup within RStudio</p></li>
+<li><strong>Source</strong> (top-left): Where you write and edit your code files</li>
+<li><strong>Console</strong> (bottom-left): Where R actually executes code and shows results</li>
+<li><strong>Environment</strong> (top-right): Shows the objects (data, functions, etc.) you’ve created</li>
+<li><strong>Files/Plots/Help</strong> (bottom-right): Navigate files, view visualizations, and access documentation</li>
+</ul>
+<p>You don’t need to customize anything yet—the defaults work fine.</p>
+</section>
+<section id="r-projects-the-foundation-of-reproducible-work" class="level2">
+<h2 class="anchored" data-anchor-id="r-projects-the-foundation-of-reproducible-work">R Projects: The Foundation of Reproducible Work</h2>
+<p><strong>Always work in an R Project.</strong> This is the single most important RStudio habit for reproducibility.</p>
+<p>An R Project is a folder that contains all files for a particular analysis—data, scripts, outputs—and sets your working directory automatically. This means your code will work on any computer without changing file paths.</p>
+<p>To create a new project:</p>
+<ol type="1">
+<li>File → New Project</li>
+<li>Choose “New Directory” or “Existing Directory”</li>
+<li>Name your project (e.g., “my-first-css-analysis”)</li>
+<li>Click “Create Project”</li>
+</ol>
+<p>Notice the <code>.Rproj</code> file in your folder? That’s your project file. Double-click it to open RStudio with the correct working directory already set.</p>
+</section>
+<section id="three-ways-to-write-r-code" class="level2">
+<h2 class="anchored" data-anchor-id="three-ways-to-write-r-code">Three Ways to Write R Code</h2>
+<p>RStudio supports multiple file types for writing R code. You’ll encounter all three in data science work:</p>
+<section id="r-scripts-.r" class="level3">
+<h3 class="anchored" data-anchor-id="r-scripts-.r">R Scripts (.R)</h3>
+<p>Plain text files containing R code, executed line-by-line or all at once. Great for data processing pipelines, functions, and code you’ll reuse.</p>
+<p>Create one: File → New File → R Script</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is an R script</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Lines starting with # are comments</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"mydata.csv"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="r-markdown-.rmd" class="level3">
+<h3 class="anchored" data-anchor-id="r-markdown-.rmd">R Markdown (.Rmd)</h3>
+<p>Documents that weave together narrative text (in Markdown) and code chunks. When you “knit” an R Markdown file, it executes the code and generates a formatted document (HTML, PDF, or Word).</p>
+<p>You should know R Markdown exists because you’ll encounter it in older resources and projects, but we’re not using it in this book.</p>
+</section>
+<section id="quarto-.qmd" class="level3">
+<h3 class="anchored" data-anchor-id="quarto-.qmd">Quarto (.qmd)</h3>
+<p>Quarto is the successor to R Markdown, with better multi-language support (R, Python, Julia) and more consistent syntax. It’s what we’ll use throughout this book.</p>
+<p>Create one: File → New File → Quarto Document</p>
+<p>The structure looks similar to R Markdown, but the rendering engine is more powerful:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "My Analysis"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>This is regular text.</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a code chunk</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Click the “Render” button (or Ctrl/Cmd + Shift + K) to execute all code and generate your document.</p>
+<p><strong>Key difference for beginners</strong>: Think of R scripts as “just code” and Quarto as “code + explanation + output” in one document. Use scripts for behind-the-scenes work, Quarto for analysis you want to share or understand later.</p>
+</section>
+</section>
+<section id="console-vs.-source-exploration-vs.-preservation" class="level2">
+<h2 class="anchored" data-anchor-id="console-vs.-source-exploration-vs.-preservation">Console vs.&nbsp;Source: Exploration vs.&nbsp;Preservation</h2>
+<p>A common pattern in data science work:</p>
+<ul>
+<li><strong>Console</strong>: Quick exploration, testing ideas, checking output. Code here disappears when you close RStudio.</li>
+<li><strong>Source</strong> (scripts/Quarto): Code you want to keep, reproduce, or share. This is your permanent record.</li>
+</ul>
+<p>Early on, you might type everything in the Console. That’s fine for learning! But as soon as you do something you want to remember, put it in a script or Quarto file.</p>
+</section>
+<section id="version-control-with-git-and-github" class="level2">
+<h2 class="anchored" data-anchor-id="version-control-with-git-and-github">Version Control with Git and GitHub</h2>
+<p>Git is how computational social scientists share, version, and collaborate on their work. GitHub is the most popular platform for hosting Git repositories.</p>
+<section id="why-git-matters" class="level3">
+<h3 class="anchored" data-anchor-id="why-git-matters">Why Git Matters</h3>
+<p>Without version control, you end up with files like <code>analysis_final.R</code>, <code>analysis_final2.R</code>, <code>analysis_ACTUALLY_final.R</code>. Git tracks every change you make, so you can:</p>
+<ul>
+<li>Go back to any previous version</li>
+<li>Experiment without fear of breaking things</li>
+<li>Collaborate with others without emailing files back and forth</li>
+<li>Share your work publicly for transparency and reproducibility</li>
 </ul>
 </section>
-<section id="core-data-wrangling-capabilities" class="level2">
-<h2 class="anchored" data-anchor-id="core-data-wrangling-capabilities">Core Data Wrangling Capabilities</h2>
+<section id="the-git-pane-in-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="the-git-pane-in-rstudio">The Git Pane in RStudio</h3>
+<p>If Git is configured, you’ll see a “Git” tab in the Environment pane (top-right). This is where you stage changes, commit them with messages, and push to GitHub—all without leaving RStudio.</p>
+<p>Using Git isn’t strictly required to follow this book, but it’s strongly encouraged. Most data science work lives in Git repositories.</p>
+</section>
+<section id="setting-up-git-and-github-a-friendlier-path" class="level3">
+<h3 class="anchored" data-anchor-id="setting-up-git-and-github-a-friendlier-path">Setting Up Git and GitHub: A Friendlier Path</h3>
+<p>Git authentication is famously difficult. We’re going to use an opinionated approach that minimizes pain: <strong>Personal Access Tokens (PAT) via the <code>usethis</code> package</strong>.</p>
+<p>This approach is: - R-native (stays in your comfort zone) - Guided (the package walks you through it) - Good enough for this book’s purposes</p>
+<section id="step-1-install-required-packages" class="level4">
+<h4 class="anchored" data-anchor-id="step-1-install-required-packages">Step 1: Install Required Packages</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"usethis"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"gitcreds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="step-2-configure-your-git-identity" class="level4">
+<h4 class="anchored" data-anchor-id="step-2-configure-your-git-identity">Step 2: Configure Your Git Identity</h4>
+<p>Tell Git who you are (one-time setup):</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_config</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">user.name =</span> <span class="st">"Jane Doe"</span>,           <span class="co"># Your actual name</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">user.email =</span> <span class="st">"jane@example.com"</span>   <span class="co"># Email associated with GitHub</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Important</strong>: Use the email address associated with your GitHub account.</p>
+</section>
+<section id="step-3-create-a-github-personal-access-token" class="level4">
+<h4 class="anchored" data-anchor-id="step-3-create-a-github-personal-access-token">Step 3: Create a GitHub Personal Access Token</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_github_token</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This opens GitHub in your browser. You’ll need to:</p>
+<ol type="1">
+<li>Log in to GitHub if you haven’t already</li>
+<li>Leave the default scopes checked (or at minimum select “repo” and “workflow”)</li>
+<li>Set expiration to 90 days (we recommend this for security, though you’ll need to regenerate the token when it expires)</li>
+<li>Click “Generate token” at the bottom</li>
+<li><strong>Copy the token immediately</strong>—GitHub only shows it once!</li>
+</ol>
+<p>The token looks like a long random string: <code>ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</code></p>
+</section>
+<section id="step-4-store-your-token-in-r" class="level4">
+<h4 class="anchored" data-anchor-id="step-4-store-your-token-in-r">Step 4: Store Your Token in R</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>gitcreds<span class="sc">::</span><span class="fu">gitcreds_set</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>When prompted, paste your token and press Enter. R will securely store it for future use.</p>
+</section>
+<section id="step-5-verify-everything-worked" class="level4">
+<h4 class="anchored" data-anchor-id="step-5-verify-everything-worked">Step 5: Verify Everything Worked</h4>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">git_sitrep</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This gives you a diagnostic report. If you see: - Your name and email listed - “Personal access token for ‘https://github.com’: ‘<discovered>’”</discovered></p>
+<p>You’re all set! If something looks wrong, see the troubleshooting section below.</p>
+</section>
+</section>
+<section id="common-problems-solutions" class="level3">
+<h3 class="anchored" data-anchor-id="common-problems-solutions">Common Problems &amp; Solutions</h3>
+<p><strong>Problem</strong>: “I closed the browser before copying my token”<br>
+<strong>Solution</strong>: No worries—tokens are disposable by design. Run <code>usethis::create_github_token()</code> again to generate a new one.</p>
+<p><strong>Problem</strong>: “It worked yesterday, now Git asks for credentials again”<br>
+<strong>Solution</strong>: Your token likely expired. Run <code>usethis::create_github_token()</code> again, copy the new token, and run <code>gitcreds::gitcreds_set()</code> to update it.</p>
+<p><strong>Problem</strong>: “I get ‘Permission denied’ or authentication errors”<br>
+<strong>Solution</strong>: Check <code>usethis::git_sitrep()</code>. Your token may have expired or wasn’t stored correctly. Try running <code>gitcreds::gitcreds_set()</code> again.</p>
+<p><strong>Problem</strong>: “I don’t see a Git pane in RStudio”<br>
+<strong>Solution</strong>: Either Git isn’t installed on your computer, or RStudio can’t find it. See <a href="https://happygitwithr.com/install-git.html">Happy Git with R, Chapter 6</a> for installation instructions.</p>
+</section>
+<section id="alternative-ssh-keys-for-the-adventurous" class="level3">
+<h3 class="anchored" data-anchor-id="alternative-ssh-keys-for-the-adventurous">Alternative: SSH Keys (For the Adventurous)</h3>
+<p>If you plan to use Git extensively beyond this book, SSH keys are more convenient—you set them up once and never think about authentication again. However, they’re more complex to configure initially.</p>
+<p>If you’re interested in the SSH approach, see <a href="https://happygitwithr.com/ssh-keys.html">Happy Git with R, Chapters 10-12</a>. For now, the PAT method will serve you well.</p>
+</section>
+<section id="using-git-in-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="using-git-in-rstudio">Using Git in RStudio</h3>
+<p>We’ll introduce Git commands as you need them throughout the book. For now, know that the Git pane in RStudio gives you a graphical interface for the most common operations:</p>
 <ul>
-<li><p>Selecting and renaming variables</p></li>
-<li><p>Creating new variables</p></li>
-<li><p>Arranging variables</p></li>
-<li><p>Joining data</p></li>
+<li><strong>Pull</strong>: Download changes from GitHub</li>
+<li><strong>Commit</strong>: Save a snapshot of your changes with a descriptive message</li>
+<li><strong>Push</strong>: Upload your commits to GitHub</li>
 </ul>
+<p>You can also use terminal commands (<code>git status</code>, <code>git add</code>, <code>git commit</code>, <code>git push</code>) if you prefer, but the RStudio interface works great for our purposes.</p>
+</section>
+</section>
+<section id="when-you-get-stuck" class="level2">
+<h2 class="anchored" data-anchor-id="when-you-get-stuck">When You Get Stuck</h2>
+<section id="reading-error-messages" class="level3">
+<h3 class="anchored" data-anchor-id="reading-error-messages">Reading Error Messages</h3>
+<p>When something goes wrong, R prints an error message in the Console (usually in red). These messages often look cryptic at first, but they’re trying to help:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Error <span class="cf">in</span> <span class="fu">mean</span>(x) <span class="sc">:</span> object <span class="st">'x'</span> not found</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This tells you exactly what went wrong: R couldn’t find an object called <code>x</code>. Either you misspelled it, or you haven’t created it yet.</p>
+</section>
+<section id="getting-help-on-functions" class="level3">
+<h3 class="anchored" data-anchor-id="getting-help-on-functions">Getting Help on Functions</h3>
+<p>R has built-in documentation for every function:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>?mean           <span class="co"># Opens help for the mean() function</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>??regression    <span class="co"># Searches all help files for "regression"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Help files include descriptions, arguments, examples, and related functions.</p>
+</section>
+<section id="where-computational-social-scientists-get-help" class="level3">
+<h3 class="anchored" data-anchor-id="where-computational-social-scientists-get-help">Where Computational Social Scientists Get Help</h3>
+<p>When you’re truly stuck, the R community is remarkably helpful:</p>
+<ul>
+<li><a href="https://community.rstudio.com/">RStudio Community</a>: Welcoming forum for all R questions</li>
+<li><a href="https://stackoverflow.com/questions/tagged/r">Stack Overflow</a>: Searchable archive of millions of questions</li>
+<li><a href="https://rfordatasci.com/">R for Data Science Online Learning Community</a>: Active Slack workspace</li>
+</ul>
+<p><strong>Pro tip</strong>: Before asking a question, try searching for your error message. Someone has likely encountered it before.</p>
+<p>Of course, turning to AI can also help, as we describe next</p>
+</section>
+<section id="large-language-models-and-ai-tools" class="level3">
+<h3 class="anchored" data-anchor-id="large-language-models-and-ai-tools">Large Language Models and AI tools</h3>
+<p>In section 3, we describe using Large Language Models (LLMs) as a part of a workflow. They can also be helpful for getting unstuck, and, indeed, this is a great tool for data scientists. We recommend two primary ways.</p>
+<ol type="1">
+<li><p>Asking LLMs directly - pick your favorite</p></li>
+<li><p>Using GitHub copilot (setup described below )</p></li>
+</ol>
+</section>
+</section>
+<section id="going-deeper" class="level2">
+<h2 class="anchored" data-anchor-id="going-deeper">Going Deeper</h2>
+<p>This chapter gave you the essentials for working through this book. When you’re ready to level up your RStudio skills:</p>
+<ul>
+<li><a href="https://r4ds.hadley.nz/"><em>R for Data Science (2e)</em></a>: Comprehensive introduction to data science with R</li>
+<li><a href="https://datascienceineducation.com/"><em>Data Science in Education Using R</em></a>: Applied data science in educational contexts</li>
+<li><a href="https://docs.posit.co/ide/user/">RStudio User Guide</a>: Official documentation for all RStudio features</li>
+<li><a href="https://quarto.org/">Quarto Documentation</a>: Deep dive into Quarto’s capabilities</li>
+<li><a href="https://happygitwithr.com/">Happy Git and GitHub for the useR</a>: Everything you need for Git/GitHub workflows</li>
+</ul>
+<p>Advanced RStudio features worth exploring later:</p>
+<ul>
+<li><strong>Keyboard shortcuts</strong> (Alt+Shift+K to see them all)</li>
+<li><strong>Code snippets</strong> (type “fun” + Tab to scaffold a function)</li>
+<li><strong>Debugger</strong> (for tracking down errors in complex code)</li>
+<li><strong>Visual markdown editor</strong> (WYSIWYG editing for Quarto documents)</li>
+<li><strong>Background jobs</strong> (run long scripts without freezing RStudio)</li>
+</ul>
+<p>For now, you have everything you need to get started. Let’s dive in to</p>
+</section>
+<section id="the-structure-of-this-book" class="level2">
+<h2 class="anchored" data-anchor-id="the-structure-of-this-book">The Structure of this Book</h2>
+<section id="section-2-traditional-data-science" class="level3">
+<h3 class="anchored" data-anchor-id="section-2-traditional-data-science">Section 2: Traditional Data Science</h3>
+</section>
+<section id="section-3-ai-based-methods" class="level3">
+<h3 class="anchored" data-anchor-id="section-3-ai-based-methods">Section 3: AI-based Methods</h3>
+</section>
+<section id="section-4-communicating-findings" class="level3">
+<h3 class="anchored" data-anchor-id="section-4-communicating-findings">Section 4: Communicating Findings</h3>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
