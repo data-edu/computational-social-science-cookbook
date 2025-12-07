@@ -1,4 +1,6 @@
-# Chapter 3 Social Network Analyses (Relational Data)
+---
+title: "Social Networks Analyses"
+---
 
 ## 3.1 Overview
 

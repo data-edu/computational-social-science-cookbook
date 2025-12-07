@@ -1,6 +1,9 @@
-# Chapter 6 Local LLMs in Educational Research
+---
+title: "Local LLMs"
+---
 
-**Abstract:**\
+
+**Overview:**\
 The use of large language models (LLMs) in data analysis is rapidly increasing across education and social science research. However, concerns about data privacy, institutional data protection policies, and strict IRB (Institutional Review Board) procedures present significant challenges when using cloud-based or proprietary AI services. To address these challenges, this chapter introduces local LLM solutions—focusing on LM Studio—which allow researchers to run powerful models entirely on their own computers, ensuring data stays private and analysis remains flexible.
 
 ## 6.1 What are Local LLMs?
@@ -133,6 +136,7 @@ model_name <- "openai/gpt-oss-20b"
 ```
 
 ##### Testing the Local Connection
+
 Before running large jobs, it’s good practice to confirm that LM Studio is responding correctly. A quick “ping test” helps prevent silent connection errors.
 
 ```{r, eval = FALSE}
@@ -938,4 +942,3 @@ In future research, this approach can be extended beyond text—exploring how LL
 > Section 6 showed us how machines can *interpret meaning*—securely, locally, and collaboratively.\
 > Together, they illuminate a continuum of computational methods for educational research,\
 > bridging the measurable and the meaningful, the statistical and the semantic, the algorithmic and the human.
-
