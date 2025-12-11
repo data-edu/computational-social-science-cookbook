@@ -16,20 +16,18 @@ book:
         - chapter-1-2.qmd
         - chapter-1-3.qmd
 
-    - part: "Computational Methods"
+    - part: section-2-Intro.qmd
       chapters:
-        - section-2-Intro.qmd
         - chapter-2.qmd
         - chapter-3.qmd
         - chapter-4.qmd
 
-    - part: "AI and LLMs"
+    - part: section-3-intro.qmd
       chapters:
-        - section-3-intro.qmd
         - chapter-6.qmd
         - chapter-7.qmd
 
-    - part: "Communication Collaboration"
+    - part: "Communication"
       chapters:
         - chapter-8.qmd
 

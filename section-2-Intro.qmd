@@ -1,16 +1,15 @@
 ---
-title: "Introduction"
+title: "Computational Methods"
 ---
 
-## Preparing for Traditional Computational Analyses of Educational Data
 
-## 2.0.1 Overview
+## Overview
 
 This section introduces the core computational methods that form the basis of educational data analysis. Across the next three chapters, you will learn how to analyze **textual**, **relational**, and **numeric** data—three major forms of information that appear in learning environments, institutional records, and educational research projects.
 
 These chapters emphasize hands-on, transparent, and reproducible approaches using R. By engaging with real examples, you will gain practical experience in transforming raw educational data into interpretable results that inform theory and practice.
 
-## 2.0.2 The Analytical Scope of This Section
+## The Analytical Scope of This Section
 
 | Chapter | Data Type | Analytical Focus | Example Research Question |
 |-----------------|-----------------|-----------------|----------------------|
@@ -20,7 +19,7 @@ These chapters emphasize hands-on, transparent, and reproducible approaches usin
 
 > 📚 These three perspectives together illustrate how computational techniques can capture different dimensions of learning—language, interaction, and measurement.
 
-## 2.0.3 Setting Up the Computational Environment
+## Setting Up the Computational Environment
 
 Before exploring the examples, ensure that your R environment contains the essential packages used throughout this section.
 
@@ -58,7 +57,7 @@ install.packages(c("plotly", "RColorBrewer", "visNetwork"))
 >
 > This structure promotes reproducibility and helps keep analysis pipelines organized.
 
-## 2.0.4 A General Computational Workflow
+## A General Computational Workflow
 
 Regardless of data type, the analytical logic follows a similar cycle:
 
@@ -82,7 +81,7 @@ summary(cleaned)
 
 > 🧩 This five-step workflow—load, clean, transform, analyze, interpret—appears throughout all chapters in this section.
 
-## 2.0.5 Ethics, Transparency, and Reproducibility
+## Ethics, Transparency, and Reproducibility
 
 Educational data often include sensitive or identifiable information.
 
@@ -95,7 +94,7 @@ Responsible computational research requires attention to both ethical and method
 
 > ⚖️ Ethical and transparent practices ensure that computational results remain credible, interpretable, and usable for improving learning.
 
-## 2.0.6 Transition to Analytical Chapters
+## Transition to Analytical Chapters
 
 With the environment prepared and workflow established, you are ready to begin applying computational methods to real educational data:
 

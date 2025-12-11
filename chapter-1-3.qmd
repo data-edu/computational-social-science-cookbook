@@ -1,4 +1,4 @@
 ---
-title: "Data Wrangling with Tidyverse"
+title: "Tidyverse"
 format: html
 ---

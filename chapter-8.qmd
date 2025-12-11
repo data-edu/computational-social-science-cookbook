@@ -1,7 +1,6 @@
 ---
-title: "Communication and Collaboration"
+title: "Communication"
 ---
-
 
 ## Overview
 

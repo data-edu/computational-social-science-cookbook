@@ -1,4 +1,4 @@
 ---
-title: "IDEs and Project Management"
+title: "IDE"
 format: html
 ---
