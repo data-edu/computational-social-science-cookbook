@@ -393,7 +393,6 @@ The dataset consists of publicly available AI policy texts from 100 universities
 
 In order to analyze the data we used xyz, —-let's provide a sample write up for the researcher to adapt.
 
-#### 
 
 ### 2.3.4 Analysis
 

@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -394,9 +429,27 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#r-markdown-vs.-quarto-vs.-jupyter-notebooks" id="toc-r-markdown-vs.-quarto-vs.-jupyter-notebooks" class="nav-link" data-scroll-target="#r-markdown-vs.-quarto-vs.-jupyter-notebooks">R Markdown vs.&nbsp;Quarto vs.&nbsp;Jupyter Notebooks?</a></li>
-  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">Quarto</a></li>
+  <li><a href="#overview-why-communication-matters" id="toc-overview-why-communication-matters" class="nav-link active" data-scroll-target="#overview-why-communication-matters">8.1 Overview: Why Communication Matters</a></li>
+  <li><a href="#writing-research-questions-for-computational-studies" id="toc-writing-research-questions-for-computational-studies" class="nav-link" data-scroll-target="#writing-research-questions-for-computational-studies">8.2 Writing Research Questions for Computational Studies</a></li>
+  <li><a href="#writing-the-methods-section" id="toc-writing-the-methods-section" class="nav-link" data-scroll-target="#writing-the-methods-section">8.3 Writing the Methods Section</a>
+  <ul class="collapse">
+  <li><a href="#data-source" id="toc-data-source" class="nav-link" data-scroll-target="#data-source">8.3.1 Data Source</a></li>
+  <li><a href="#preprocessing" id="toc-preprocessing" class="nav-link" data-scroll-target="#preprocessing">8.3.2 Preprocessing</a></li>
+  <li><a href="#analytical-approach" id="toc-analytical-approach" class="nav-link" data-scroll-target="#analytical-approach">8.3.3 Analytical Approach</a></li>
+  <li><a href="#reproducibility" id="toc-reproducibility" class="nav-link" data-scroll-target="#reproducibility">8.3.4 Reproducibility</a></li>
+  </ul></li>
+  <li><a href="#writing-the-results-section" id="toc-writing-the-results-section" class="nav-link" data-scroll-target="#writing-the-results-section">8.4 Writing the Results Section</a></li>
+  <li><a href="#writing-the-discussion-section" id="toc-writing-the-discussion-section" class="nav-link" data-scroll-target="#writing-the-discussion-section">8.5 Writing the Discussion Section</a></li>
+  <li><a href="#ethical-and-responsible-communication" id="toc-ethical-and-responsible-communication" class="nav-link" data-scroll-target="#ethical-and-responsible-communication">8.6 Ethical and Responsible Communication</a></li>
+  <li><a href="#a-full-example-communicating-a-frequency-based-text-analysis" id="toc-a-full-example-communicating-a-frequency-based-text-analysis" class="nav-link" data-scroll-target="#a-full-example-communicating-a-frequency-based-text-analysis">8.7 A Full Example: Communicating a Frequency-Based Text Analysis</a>
+  <ul class="collapse">
+  <li><a href="#research-context" id="toc-research-context" class="nav-link" data-scroll-target="#research-context">8.7.1 Research Context</a></li>
+  <li><a href="#research-questions" id="toc-research-questions" class="nav-link" data-scroll-target="#research-questions">8.7.2 Research Questions</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">8.7.3 Methods</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">8.7.4 Results</a></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">8.7.5 Discussion</a></li>
+  </ul></li>
+  <li><a href="#summary-and-communication-checklist" id="toc-summary-and-communication-checklist" class="nav-link" data-scroll-target="#summary-and-communication-checklist">8.8 Summary and Communication Checklist</a></li>
   </ul>
 </nav>
     </div>
@@ -423,17 +476,235 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>A key part of social science research (and, any analysis involving computational tools) is communicating about the output or findings. In this section, we describe how to communicate with colleagues or the wider world through the use of a variety of tools, especially R Markdown and git/GitHub. We also discuss how to collaborate on projects that involve computational methods and “good” (flexible yet principled) practices for doing so based on our experience and prior scholarship.</p>
+<section id="overview-why-communication-matters" class="level2">
+<h2 class="anchored" data-anchor-id="overview-why-communication-matters">8.1 Overview: Why Communication Matters</h2>
+<p>Computational approaches allow educational researchers to analyze increasingly complex and large-scale datasets. However, the impact of these analyses ultimately depends on researchers’ ability to communicate their findings clearly and responsibly. Communication is not the last step in research—it is integral to making research meaningful, interpretable, and useful.</p>
+<p>In this chapter, we demonstrate how to translate computational analyses into research questions, methods, results, and discussion sections suitable for academic manuscripts. We draw on examples from earlier chapters, culminating in a fully worked example using text data (Section 8.7).</p>
 </section>
-<section id="r-markdown-vs.-quarto-vs.-jupyter-notebooks" class="level2">
-<h2 class="anchored" data-anchor-id="r-markdown-vs.-quarto-vs.-jupyter-notebooks">R Markdown vs.&nbsp;Quarto vs.&nbsp;Jupyter Notebooks?</h2>
-<p>xx</p>
+<section id="writing-research-questions-for-computational-studies" class="level2">
+<h2 class="anchored" data-anchor-id="writing-research-questions-for-computational-studies">8.2 Writing Research Questions for Computational Studies</h2>
+<p>Research questions in computational studies should reflect both:</p>
+<ol type="1">
+<li><strong>Theoretical or practical concerns from the educational context</strong>, and</li>
+<li><strong>The affordances and constraints of available data</strong>.</li>
+</ol>
+<p>Examples:</p>
+<ul>
+<li><em>How do students’ textual reflections reveal their self-regulated learning behaviors?</em></li>
+<li><em>What themes appear across universities’ AI usage policies?</em></li>
+<li><em>How do temporal patterns in collaborative learning environments relate to participation structures?</em></li>
+</ul>
+<p>A common mistake is asking causal questions of descriptive computational data. In this chapter, we model questions that align well with the available methods.</p>
 </section>
-<section id="quarto" class="level2">
-<h2 class="anchored" data-anchor-id="quarto">Quarto</h2>
-<p>xx</p>
+<section id="writing-the-methods-section" class="level2">
+<h2 class="anchored" data-anchor-id="writing-the-methods-section">8.3 Writing the Methods Section</h2>
+<p>The Methods section of a computational educational research paper must describe:</p>
+<section id="data-source" class="level3">
+<h3 class="anchored" data-anchor-id="data-source">8.3.1 Data Source</h3>
+<p>Explain what the data represent, who produced them, when and how they were collected, and their relevance to the research questions.</p>
+</section>
+<section id="preprocessing" class="level3">
+<h3 class="anchored" data-anchor-id="preprocessing">8.3.2 Preprocessing</h3>
+<p>Computational methods require transparency in data cleaning and transformation. Examples include:</p>
+<ul>
+<li>tokenization</li>
+<li>stop-word removal</li>
+<li>construction of document-term matrices</li>
+<li>handling missingness</li>
+<li>normalization or modeling assumptions</li>
+</ul>
+</section>
+<section id="analytical-approach" class="level3">
+<h3 class="anchored" data-anchor-id="analytical-approach">8.3.3 Analytical Approach</h3>
+<p>Describe the computational method (e.g., frequency-based analysis, sentiment analysis, topic modeling, network analysis). Clarify:</p>
+<ul>
+<li>what the method can do</li>
+<li>what it cannot do</li>
+<li>any assumptions or modeling choices</li>
+</ul>
+</section>
+<section id="reproducibility" class="level3">
+<h3 class="anchored" data-anchor-id="reproducibility">8.3.4 Reproducibility</h3>
+<p>Include package versions, code availability, and information necessary to replicate the analysis.</p>
+</section>
+</section>
+<section id="writing-the-results-section" class="level2">
+<h2 class="anchored" data-anchor-id="writing-the-results-section">8.4 Writing the Results Section</h2>
+<p>The Results section should:</p>
+<ul>
+<li>present findings clearly</li>
+<li>use visuals to support interpretation</li>
+<li>avoid overstating claims</li>
+<li>connect results to the research questions</li>
+</ul>
+<p>Computational results often include tables, bar charts, network diagrams, distributions, or topic visualizations.</p>
+</section>
+<section id="writing-the-discussion-section" class="level2">
+<h2 class="anchored" data-anchor-id="writing-the-discussion-section">8.5 Writing the Discussion Section</h2>
+<p>A strong Discussion section typically includes:</p>
+<ol type="1">
+<li><strong>Interpretation</strong> – What do the results mean in context?</li>
+<li><strong>Implications</strong> – What should educators, designers, or institutions do with this knowledge?</li>
+<li><strong>Limitations</strong> – What can this method <em>not</em> tell us?</li>
+<li><strong>Future Directions</strong> – How might research extend or deepen our findings?</li>
+</ol>
+</section>
+<section id="ethical-and-responsible-communication" class="level2">
+<h2 class="anchored" data-anchor-id="ethical-and-responsible-communication">8.6 Ethical and Responsible Communication</h2>
+<p>When reporting computational analyses in education, consider:</p>
+<ul>
+<li>privacy and FERPA concerns</li>
+<li>de-identification of student text</li>
+<li>bias in algorithms or dictionaries</li>
+<li>transparency regarding model limitations</li>
+<li>avoiding deficit-oriented narratives about learners</li>
+</ul>
+</section>
+<section id="a-full-example-communicating-a-frequency-based-text-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="a-full-example-communicating-a-frequency-based-text-analysis">8.7 A Full Example: Communicating a Frequency-Based Text Analysis</h2>
+<p>To model the complete process of communicating a computational educational study, this section provides a full academic write-up using <em>frequency-based text analysis</em> (Section 2.3).</p>
+<section id="research-context" class="level3">
+<h3 class="anchored" data-anchor-id="research-context">8.7.1 Research Context</h3>
+<p>As universities respond to the rise of generative AI tools such as ChatGPT, many institutions publish guidance documents outlining appropriate or inappropriate uses of AI in academic settings. These policies represent an important source of insight into evolving institutional attitudes toward AI in higher education.</p>
+<p>Because these documents are text-based and publicly available, they are well suited to computational text analysis. Here, we apply a frequency-based approach to identify common themes and dominant concerns expressed in 100 U.S. university AI policies.</p>
+</section>
+<section id="research-questions" class="level3">
+<h3 class="anchored" data-anchor-id="research-questions">8.7.2 Research Questions</h3>
+<p>The research questions guiding this analysis are:</p>
+<ul>
+<li><strong>RQ1:</strong> What are the most frequently mentioned words in university generative AI writing usage policies?</li>
+<li><strong>RQ2:</strong> Which keywords reflect common concerns or focal points related to GenAI writing usage in academic settings?</li>
+</ul>
+<p>These questions are descriptive and align with the strengths of frequency-based text analysis.</p>
+</section>
+<section id="methods" class="level3">
+<h3 class="anchored" data-anchor-id="methods">8.7.3 Methods</h3>
+<section id="data-source-1" class="level4">
+<h4 class="anchored" data-anchor-id="data-source-1">Data Source</h4>
+<p>Policy texts were collected from the publicly available websites of 100 U.S. universities between October and December 2024. Each institution’s primary AI policy regarding writing or academic integrity was extracted and compiled into a CSV file.</p>
+</section>
+<section id="data-preparation" class="level4">
+<h4 class="anchored" data-anchor-id="data-preparation">Data Preparation</h4>
+<p>We tokenized the text, removed English stop words, and counted word frequencies using <code>tidytext</code>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>university_policies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"University_GenAI_Policy_Stance.csv"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>word_frequency <span class="ot">&lt;-</span> university_policies <span class="sc">%&gt;%</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, Stance) <span class="sc">%&gt;%</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words) <span class="sc">%&gt;%</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="analytical-approach-1" class="level4">
+<h4 class="anchored" data-anchor-id="analytical-approach-1">Analytical Approach</h4>
+<p>A <strong>frequency-based text analysis</strong> was conducted to identify the most frequently used words and examine patterns of emphasis across policy documents. This method highlights what institutions discuss most often and provides a starting point for interpretive analysis.</p>
+</section>
+<section id="reproducibility-1" class="level4">
+<h4 class="anchored" data-anchor-id="reproducibility-1">Reproducibility</h4>
+<p>All analyses were conducted in R 4.3+ using the <code>tidytext</code>, <code>dplyr</code>, <code>ggplot2</code>, and <code>wordcloud</code> packages.</p>
+</section>
+</section>
+<section id="results" class="level3">
+<h3 class="anchored" data-anchor-id="results">8.7.4 Results</h3>
+<section id="most-frequent-words-rq1" class="level4">
+<h4 class="anchored" data-anchor-id="most-frequent-words-rq1">Most Frequent Words (RQ1)</h4>
+<p>The highest-frequency words included:</p>
+<ul>
+<li><em>assignment</em></li>
+<li><em>student</em></li>
+<li><em>writing</em></li>
+<li><em>tool</em></li>
+<li><em>integrity</em></li>
+</ul>
+<p>These terms emphasize the contexts in which GenAI is most often addressed: coursework, academic integrity, and instructional guidance.</p>
+</section>
+<section id="visualization-top-12-words" class="level4">
+<h4 class="anchored" data-anchor-id="visualization-top-12-words">Visualization: Top 12 Words</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>top_words <span class="ot">&lt;-</span> word_frequency <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(top_words, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(word, n), <span class="at">y =</span> n, <span class="at">fill =</span> word)) <span class="sc">+</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Top 12 Most Frequent Words in University GenAI Policies"</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Frequency"</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="word-cloud-visualization" class="level4">
+<h4 class="anchored" data-anchor-id="word-cloud-visualization">Word Cloud Visualization</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wordcloud)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">wordcloud</span>(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">words =</span> word_frequency<span class="sc">$</span>word,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">freq =</span> word_frequency<span class="sc">$</span>n,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">min.freq =</span> <span class="dv">10</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">random.order =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">colors =</span> <span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">"Dark2"</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="keywords-reflecting-institutional-concerns-rq2" class="level4">
+<h4 class="anchored" data-anchor-id="keywords-reflecting-institutional-concerns-rq2">Keywords Reflecting Institutional Concerns (RQ2)</h4>
+<p>Words such as <em>integrity</em>, <em>academic</em>, <em>expectations</em>, and <em>instructor</em> reveal common institutional concerns, namely:</p>
+<ul>
+<li>enforcing academic honesty</li>
+<li>clarifying student responsibilities</li>
+<li>determining instructor authority</li>
+<li>defining ethical use of AI</li>
+</ul>
+</section>
+</section>
+<section id="discussion" class="level3">
+<h3 class="anchored" data-anchor-id="discussion">8.7.5 Discussion</h3>
+<section id="interpretation" class="level4">
+<h4 class="anchored" data-anchor-id="interpretation">Interpretation</h4>
+<p>The frequency patterns suggest that universities frame generative AI primarily in terms of academic integrity and instructional responsibility. The focus on assignments and coursework indicates that institutions are especially concerned about how AI tools may alter learning activities.</p>
+</section>
+<section id="implications" class="level4">
+<h4 class="anchored" data-anchor-id="implications">Implications</h4>
+<p>These findings may support:</p>
+<ul>
+<li>instructors designing clearer GenAI usage policies</li>
+<li>institutions refining policy language for transparency</li>
+<li>researchers tracking how AI policies evolve over time</li>
+</ul>
+</section>
+<section id="limitations" class="level4">
+<h4 class="anchored" data-anchor-id="limitations">Limitations</h4>
+<ul>
+<li>Frequency analysis does not capture nuance or sentiment</li>
+<li>High-frequency terms may serve multiple purposes</li>
+<li>Policies from different institutional types may differ in systematic ways not analyzed here</li>
+</ul>
+</section>
+<section id="future-directions" class="level4">
+<h4 class="anchored" data-anchor-id="future-directions">Future Directions</h4>
+<ul>
+<li>Sentiment analysis (Section 2.4) could reveal tone</li>
+<li>Topic modeling (Section 2.5) could uncover deeper structures</li>
+<li>Temporal analysis may show policy evolution over time</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="summary-and-communication-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="summary-and-communication-checklist">8.8 Summary and Communication Checklist</h2>
+<p>This chapter demonstrated how to communicate computational educational research clearly and ethically.</p>
+<p>A useful checklist includes:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Research questions align with data and method</label></li>
+<li><label><input type="checkbox">Methods include transparent preprocessing steps</label></li>
+<li><label><input type="checkbox">Results directly answer the research questions</label></li>
+<li><label><input type="checkbox">Visualizations are interpretable and relevant</label></li>
+<li><label><input type="checkbox">Discussion connects findings to educational implications</label></li>
+<li><label><input type="checkbox">Ethical considerations are explicitly addressed</label></li>
+<li><label><input type="checkbox">Code and analytic decisions are reproducible</label></li>
+</ul>
 
 
 </section>

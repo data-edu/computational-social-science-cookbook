@@ -2,7 +2,7 @@
 title: "LLMs Methods"
 ---
 
-## 5.1 Why Large Language Models Matter in Educational Research
+ 5.1 Why Large Language Models Matter in Educational Research
 
 Large Language Models (LLMs) have transformed how researchers analyze, generate, and interpret text. Unlike traditional NLP pipelines that rely on token counts and surface patterns, LLMs reason over context, semantics, and discourse structure.
 
@@ -10,15 +10,14 @@ In educational research, this means: - Summarizing and coding open-ended student
 
 LLMs thus expand the researcher’s computational toolkit—from statistical pattern recognition to **context-aware meaning-making**.
 
-------------------------------------------------------------------------
 
-## 5.2 Cloud-based LLMs: Capabilities and Setup
+
+ 5.2 Cloud-based LLMs: Capabilities and Setup
 
 Cloud-based Large Language Models (LLMs) offer access to state-of-the-art generative and analytical capabilities without requiring local hardware or model management. They run on remote servers and are accessed via APIs—making them ideal for rapid prototyping, large-scale text processing, and exploratory analyses in educational research.
 
-------------------------------------------------------------------------
 
-### 5.2.1 Overview of Major Cloud Providers
+### Overview of Major Cloud Providers
 
 The landscape of LLMs evolves quickly. As of 2025, the following providers represent the most common cloud-based options for educational data analysis.
 
@@ -32,9 +31,9 @@ The landscape of LLMs evolves quickly. As of 2025, the following providers repre
 
 > 💡 **Tip:** Always confirm the latest model names, context-window sizes, and pricing tiers on each provider’s documentation page. Many vendors update models quarterly, affecting reproducibility.
 
-------------------------------------------------------------------------
 
-### 5.2.2 Connecting to a Cloud API from R
+
+###  Connecting to a Cloud API from R
 
 Below is a minimal reproducible example using the **OpenAI API** through the `{httr2}` package. The same structure applies to most HTTP-based providers.
 
@@ -64,9 +63,8 @@ cat(content$choices[[1]]$message$content)
 >
 > **(1)** authenticate → **(2)** send prompt → **(3)** receive structured response.
 
-------------------------------------------------------------------------
 
-### 5.2.3 Using the `{ellmer}` Package — A Unified LLM Interface for R
+### Using the `{ellmer}` Package — A Unified LLM Interface for R
 
 The **`ellmer`** package, developed within the Posit/Tidyverse ecosystem, provides a consistent way to access multiple LLM providers from R through one simple interface.
 
@@ -121,9 +119,9 @@ cat(result$choices[[1]]$message$content)
 >
 > `provider =` and `model =` arguments—no need to rewrite your R code.
 
-------------------------------------------------------------------------
 
-### 5.2.4 Typical Educational Use Cases
+
+### Typical Educational Use Cases
 
 -   Automated qualitative coding of survey or interview data
 -   Summarizing student feedback at scale
@@ -131,9 +129,9 @@ cat(result$choices[[1]]$message$content)
 -   Generating or evaluating teaching materials
 -   Rapid prototyping for mixed-methods research designs
 
-------------------------------------------------------------------------
 
-### 5.2.5 Reproducibility and Ethical Considerations
+
+### Reproducibility and Ethical Considerations
 
 Because cloud services update frequently, reproducibility requires careful documentation:
 
@@ -144,9 +142,8 @@ Because cloud services update frequently, reproducibility requires careful docum
 
 > ⚖️ Responsible use of cloud LLMs means balancing analytical convenience with ethical data stewardship.
 
-------------------------------------------------------------------------
 
-### 5.2.6 Summary
+### Summary
 
 Cloud-based LLMs provide high-performance, instantly accessible text-analysis capabilities for educational research.
 
@@ -156,13 +153,13 @@ They are ideal for large-scale data exploration, qualitative summarization, and 
 >
 > exploring how offline tools such as **LM Studio** can achieve similar capabilities while maintaining full data privacy.
 
-## 5.3 Local LLMs: Privacy-Preserving and Offline Analysis
+## Local LLMs: Privacy-Preserving and Offline Analysis
 
 While cloud models offer convenience, they also raise concerns around **data privacy, cost, and IRB compliance**.
 
 Local LLMs solve these challenges by running entirely on your own computer.
 
-### 5.3.1 What Are Local LLMs?
+### What Are Local LLMs?
 
 Local LLMs are open or custom models executed on your local hardware.
 
@@ -177,9 +174,9 @@ They process text without sending it to external servers—ensuring full data so
 -   Highly customizable and often cost-free
 -   Enables fully offline reproducible analysis
 
-------------------------------------------------------------------------
 
-### 5.3.2 Getting Started with LM Studio
+
+### Getting Started with LM Studio
 
 LM Studio is a free, cross-platform desktop application for managing and running local LLMs.
 
@@ -210,7 +207,7 @@ It provides a GUI for model downloads, prompt testing, and an optional REST API 
 
 ------------------------------------------------------------------------
 
-### 5.3.3 Calling the LM Studio API from R
+### Calling the LM Studio API from R
 
 LM Studio exposes an OpenAI-compatible REST API, so R code can look almost identical to the cloud example:
 
@@ -233,7 +230,7 @@ content(response)
 
 ------------------------------------------------------------------------
 
-## 5.4 Cloud vs Local LLMs: Choosing the Right Tool
+## Cloud vs Local LLMs: Choosing the Right Tool
 
 | Criterion | Cloud-based LLMs | Local LLMs |
 |------------------------|------------------------|------------------------|
@@ -248,7 +245,7 @@ content(response)
 
 ------------------------------------------------------------------------
 
-## 5.5 Practical Setup Checklist
+## Practical Setup Checklist
 
 Before running LLM-based analyses:
 
@@ -262,7 +259,7 @@ Before running LLM-based analyses:
 
 ------------------------------------------------------------------------
 
-## 5.6 Summary
+## Summary
 
 Both cloud-based and local LLMs enable researchers to integrate generative AI into educational inquiry.
 

@@ -2,14 +2,246 @@
 title: "Communication"
 ---
 
-## Overview
+## 8.1 Overview: Why Communication Matters
 
-A key part of social science research (and, any analysis involving computational tools) is communicating about the output or findings. In this section, we describe how to communicate with colleagues or the wider world through the use of a variety of tools, especially R Markdown and git/GitHub. We also discuss how to collaborate on projects that involve computational methods and “good” (flexible yet principled) practices for doing so based on our experience and prior scholarship.
+Computational approaches allow educational researchers to analyze increasingly complex and large-scale datasets. However, the impact of these analyses ultimately depends on researchers’ ability to communicate their findings clearly and responsibly. Communication is not the last step in research—it is integral to making research meaningful, interpretable, and useful.
 
-## R Markdown vs. Quarto vs. Jupyter Notebooks?
+In this chapter, we demonstrate how to translate computational analyses into research questions, methods, results, and discussion sections suitable for academic manuscripts. We draw on examples from earlier chapters, culminating in a fully worked example using text data (Section 8.7).
 
-xx
 
-## Quarto
+## 8.2 Writing Research Questions for Computational Studies
 
-xx
+Research questions in computational studies should reflect both:
+
+1.  **Theoretical or practical concerns from the educational context**, and
+2.  **The affordances and constraints of available data**.
+
+Examples:
+
+-   *How do students’ textual reflections reveal their self-regulated learning behaviors?*
+-   *What themes appear across universities’ AI usage policies?*
+-   *How do temporal patterns in collaborative learning environments relate to participation structures?*
+
+A common mistake is asking causal questions of descriptive computational data. In this chapter, we model questions that align well with the available methods.
+
+
+## 8.3 Writing the Methods Section
+
+The Methods section of a computational educational research paper must describe:
+
+### 8.3.1 Data Source
+
+Explain what the data represent, who produced them, when and how they were collected, and their relevance to the research questions.
+
+### 8.3.2 Preprocessing
+
+Computational methods require transparency in data cleaning and transformation. Examples include:
+
+-   tokenization
+-   stop-word removal
+-   construction of document-term matrices
+-   handling missingness
+-   normalization or modeling assumptions
+
+### 8.3.3 Analytical Approach
+
+Describe the computational method (e.g., frequency-based analysis, sentiment analysis, topic modeling, network analysis). Clarify:
+
+-   what the method can do
+-   what it cannot do
+-   any assumptions or modeling choices
+
+### 8.3.4 Reproducibility
+
+Include package versions, code availability, and information necessary to replicate the analysis.
+
+
+
+## 8.4 Writing the Results Section
+
+The Results section should:
+
+-   present findings clearly
+-   use visuals to support interpretation
+-   avoid overstating claims
+-   connect results to the research questions
+
+Computational results often include tables, bar charts, network diagrams, distributions, or topic visualizations.
+
+
+## 8.5 Writing the Discussion Section
+
+A strong Discussion section typically includes:
+
+1.  **Interpretation** – What do the results mean in context?
+2.  **Implications** – What should educators, designers, or institutions do with this knowledge?
+3.  **Limitations** – What can this method *not* tell us?
+4.  **Future Directions** – How might research extend or deepen our findings?
+
+
+## 8.6 Ethical and Responsible Communication
+
+When reporting computational analyses in education, consider:
+
+-   privacy and FERPA concerns
+-   de-identification of student text
+-   bias in algorithms or dictionaries
+-   transparency regarding model limitations
+-   avoiding deficit-oriented narratives about learners
+
+
+
+## 8.7 A Full Example: Communicating a Frequency-Based Text Analysis
+
+To model the complete process of communicating a computational educational study, this section provides a full academic write-up using *frequency-based text analysis* (Section 2.3).
+
+
+### 8.7.1 Research Context
+
+As universities respond to the rise of generative AI tools such as ChatGPT, many institutions publish guidance documents outlining appropriate or inappropriate uses of AI in academic settings. These policies represent an important source of insight into evolving institutional attitudes toward AI in higher education.
+
+Because these documents are text-based and publicly available, they are well suited to computational text analysis. Here, we apply a frequency-based approach to identify common themes and dominant concerns expressed in 100 U.S. university AI policies.
+
+
+
+### 8.7.2 Research Questions
+
+The research questions guiding this analysis are:
+
+-   **RQ1:** What are the most frequently mentioned words in university generative AI writing usage policies?
+-   **RQ2:** Which keywords reflect common concerns or focal points related to GenAI writing usage in academic settings?
+
+These questions are descriptive and align with the strengths of frequency-based text analysis.
+
+
+
+### 8.7.3 Methods
+
+#### Data Source
+
+Policy texts were collected from the publicly available websites of 100 U.S. universities between October and December 2024. Each institution’s primary AI policy regarding writing or academic integrity was extracted and compiled into a CSV file.
+
+#### Data Preparation
+
+We tokenized the text, removed English stop words, and counted word frequencies using `tidytext`.
+
+``` r
+library(tidytext)
+library(dplyr)
+library(readr)
+
+university_policies <- read_csv("University_GenAI_Policy_Stance.csv")
+
+word_frequency <- university_policies %>%
+  unnest_tokens(word, Stance) %>%
+  anti_join(stop_words) %>%
+  count(word, sort = TRUE)
+  
+```
+
+#### Analytical Approach
+
+A **frequency-based text analysis** was conducted to identify the most frequently used words and examine patterns of emphasis across policy documents. This method highlights what institutions discuss most often and provides a starting point for interpretive analysis.
+
+#### Reproducibility
+
+All analyses were conducted in R 4.3+ using the `tidytext`, `dplyr`, `ggplot2`, and `wordcloud` packages.
+
+
+
+### 8.7.4 Results
+
+#### Most Frequent Words (RQ1)
+
+The highest-frequency words included:
+
+-   *assignment*
+-   *student*
+-   *writing*
+-   *tool*
+-   *integrity*
+
+These terms emphasize the contexts in which GenAI is most often addressed: coursework, academic integrity, and instructional guidance.
+
+#### Visualization: Top 12 Words
+
+``` r
+library(ggplot2)
+
+top_words <- word_frequency %>% slice(1:12)
+
+ggplot(top_words, aes(x = reorder(word, n), y = n, fill = word)) +
+  geom_col() +
+  coord_flip() +
+  theme_minimal() +
+  labs(
+    title = "Top 12 Most Frequent Words in University GenAI Policies",
+    x = NULL, y = "Frequency"
+  )
+```
+
+#### Word Cloud Visualization
+
+``` r
+library(wordcloud)
+
+wordcloud(
+  words = word_frequency$word,
+  freq = word_frequency$n,
+  min.freq = 10,
+  random.order = FALSE,
+  colors = brewer.pal(8, "Dark2")
+)
+```
+
+#### Keywords Reflecting Institutional Concerns (RQ2)
+
+Words such as *integrity*, *academic*, *expectations*, and *instructor* reveal common institutional concerns, namely:
+
+-   enforcing academic honesty
+-   clarifying student responsibilities
+-   determining instructor authority
+-   defining ethical use of AI
+
+
+
+### 8.7.5 Discussion
+
+#### Interpretation
+
+The frequency patterns suggest that universities frame generative AI primarily in terms of academic integrity and instructional responsibility. The focus on assignments and coursework indicates that institutions are especially concerned about how AI tools may alter learning activities.
+
+#### Implications
+
+These findings may support:
+
+-   instructors designing clearer GenAI usage policies
+-   institutions refining policy language for transparency
+-   researchers tracking how AI policies evolve over time
+
+#### Limitations
+
+-   Frequency analysis does not capture nuance or sentiment
+-   High-frequency terms may serve multiple purposes
+-   Policies from different institutional types may differ in systematic ways not analyzed here
+
+#### Future Directions
+
+-   Sentiment analysis (Section 2.4) could reveal tone
+-   Topic modeling (Section 2.5) could uncover deeper structures
+-   Temporal analysis may show policy evolution over time
+
+
+## 8.8 Summary and Communication Checklist
+
+This chapter demonstrated how to communicate computational educational research clearly and ethically.
+
+A useful checklist includes:
+
+-   [ ] Research questions align with data and method
+-   [ ] Methods include transparent preprocessing steps
+-   [ ] Results directly answer the research questions
+-   [ ] Visualizations are interpretable and relevant
+-   [ ] Discussion connects findings to educational implications
+-   [ ] Ethical considerations are explicitly addressed
+-   [ ] Code and analytic decisions are reproducible
