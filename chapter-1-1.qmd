@@ -271,6 +271,12 @@ For now, you have everything you need to get started. Let's dive in to
 
 ### Section 2: Traditional Data Science
 
+This section includes
+
 ### Section 3: AI-based Methods
 
+This section includes
+
 ### Section 4: Communicating Findings
+
+This section includes
