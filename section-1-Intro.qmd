@@ -1,0 +1,27 @@
+# Getting Started {.unnumbered}
+
+If you're coming to computational social science from a background in education research or the social sciences more broadly, the technical setup can feel like a barrier. This section removes that barrier by giving you exactly what you need to start doing the work—no more, no less.
+
+We're not trying to make you an expert in R, Positron, or version control. Plenty of comprehensive resources exist for that, and we'll point you to them. Instead, think of this section as the minimal viable setup for computational social science work. We'll cover just enough so you can reproduce the analyses in this book and adapt them to your own research questions.
+
+The three chapters that follow introduce the core tools you'll use throughout:
+
+**Chapter 1: R** covers the essential file types you'll work with—R scripts for code you want to run, Quarto documents for analyses you want to share, and the distinction between exploring in the console versus preserving work in files. We'll also show you where to get help when you're stuck, including how AI tools fit into a data scientist's workflow.
+
+**Chapter 2: Positron and RStudio** introduces the environment where you'll actually do your work. Whether you choose Positron (newer, built on VS Code) or RStudio (established, widely used), you'll learn the four-pane layout, how projects keep your work reproducible, and how Git integration helps you track changes without fear.
+
+**Chapter 3: Tidyverse** gives you the data manipulation vocabulary that makes R powerful for social science. The tidyverse's consistent syntax for reading, cleaning, transforming, and visualizing data has become the lingua franca of computational social science. This chapter gets you speaking it.
+
+By the end of this section, you'll have a working computational environment and enough technical foundation to jump into the substantive work ahead. The goal isn't mastery—it's momentum.
+
+## How This Book is Organized
+
+This book is structured around the workflow of computational social science research, moving from traditional statistical approaches through modern AI methods to effective communication of findings.
+
+**Section 2: Traditional Data Science** covers the foundational techniques that remain essential even as newer methods emerge. These chapters focus on the statistical and computational approaches that have defined social science for decades—regression, visualization, and working with complex survey and administrative data structures.
+
+**Section 3: AI-Based Methods** introduces techniques that leverage large language models and other AI tools for social science research. You'll learn how to use these models for classification, data generation, and analysis at scale. We approach AI pragmatically: these are tools that extend (not replace) traditional methods, and they come with important limitations you need to understand.
+
+**Section 4: Communicating Findings** closes the loop by showing you how to present your work effectively. Computational research only matters if others can understand and build on it. This section covers creating reproducible reports, interactive visualizations, and public-facing explanations that meet the standards of both academic rigor and accessible communication.
+
+Throughout, we prioritize reproducibility and transparency. Every analysis uses open tools, every method can be traced from raw data to final output, and every chapter includes working code you can adapt. This isn't just good practice—it's becoming the baseline expectation for computational work in the social sciences.

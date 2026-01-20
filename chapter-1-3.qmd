@@ -2,3 +2,77 @@
 title: "Tidyverse"
 format: html
 ---
+
+The tidyverse is a collection of R packages designed for data science with a shared philosophy: code should be readable, consistent, and focused on the data transformations you're actually trying to accomplish. If you've struggled with base R's sometimes cryptic syntax, the tidyverse will feel like a relief.
+
+Most computational social science workflows rely on tidyverse packages for data manipulation, visualization, and modeling. Learning this ecosystem means learning the tools your collaborators use, the examples you'll find online, and the approaches that scale from quick exploration to publication-ready analysis.
+
+## What's in the Tidyverse?
+
+The tidyverse is actually a meta-package that loads eight core packages when you run `library(tidyverse)`:
+
+-   **ggplot2**: Data visualization with a grammar of graphics
+-   **dplyr**: Data manipulation (filtering, selecting, summarizing, joining)
+-   **tidyr**: Reshaping data between wide and long formats
+-   **readr**: Reading rectangular data (CSV, TSV) efficiently
+-   **purrr**: Functional programming tools for iteration
+-   **tibble**: Modern reimagining of data frames
+-   **stringr**: String manipulation
+-   **forcats**: Working with categorical variables (factors)
+
+You don't need to master all of these immediately. Most data work relies heavily on `dplyr` and `ggplot2`, with the others playing supporting roles as needed.
+
+## Installing and Loading the Tidyverse
+
+Installation (one time):
+
+``` r
+install.packages("tidyverse")
+```
+
+Loading (at the start of each session or script):
+
+``` r
+library(tidyverse)
+```
+
+When you load the tidyverse, you'll see a message listing which packages were attached and any conflicts (functions from tidyverse packages that mask base R functions). The conflicts are normal and intentional—tidyverse functions are generally preferable for data science work.
+
+## The Pipe Operator: `|>` and `%>%`
+
+The tidyverse introduced a distinctive style: piping operations together to create readable data transformation pipelines. Instead of nesting functions inside each other, you "pipe" the output of one function into the next.
+
+R now has a native pipe operator `|>` (introduced in R 4.1), while the tidyverse originally used `%>%` from the magrittr package. They work almost identically for most purposes:
+
+``` r
+# Without pipes (nested, hard to read)
+summary(filter(select(data, age, income), age > 18))
+
+# With native pipe |> (readable, left-to-right)
+data |>
+  select(age, income) |>
+  filter(age > 18) |>
+  summary()
+
+# With magrittr pipe %>% (functionally similar)
+data %>%
+  select(age, income) %>%
+  filter(age > 18) %>%
+  summary()
+```
+
+We'll use the native pipe `|>` throughout this book because it's now built into R, but you'll encounter `%>%` in older code and documentation. For practical purposes, they're interchangeable in most tidyverse workflows.
+
+**How to read it**: Think of `|>` as "then." The code above reads: "Take data, *then* select age and income columns, *then* filter for adults, *then* get a summary."
+
+## Next Steps
+
+This chapter provides a foundation for tidyverse thinking. The subsequent chapters in this book use tidyverse functions extensively, and we'll explain new functions as they appear. You'll learn by doing, with real data and real research questions.
+
+When you want to go deeper:
+
+-   [*R for Data Science (2e)*](https://r4ds.hadley.nz/): The definitive guide to the tidyverse
+-   [Tidyverse documentation](https://www.tidyverse.org/): Reference docs for all packages
+-   [RStudio Cheatsheets](https://posit.co/resources/cheatsheets/): Visual quick references for dplyr, ggplot2, and more
+
+The tidyverse community is large and welcoming. When you get stuck, someone has likely asked your question before.
