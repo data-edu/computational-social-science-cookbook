@@ -113,3 +113,5 @@ Two approaches work well:
 2.  **Use GitHub Copilot**: An AI coding assistant that works inside your editor (setup covered in the next chapter). It can suggest code completions, explain what existing code does, and generate boilerplate. Think of it as an always-available pair programmer.
 
 The best programmers don't memorize every function—they know how to find answers quickly. LLMs have become part of that toolkit, alongside documentation, Stack Overflow, and experimentation. Use them when you're stuck, but also pay attention to *why* solutions work. That's how you build intuition.
+
+Please see section 1.4 for more information about the relationship between you, data, and LLMs.
