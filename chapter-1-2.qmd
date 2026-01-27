@@ -117,25 +117,19 @@ When prompted, paste your token and press Enter. R stores it securely for future
 usethis::git_sitrep()
 ```
 
-This diagnostic report should show:
-- Your name and email
-- "Personal access token for 'https://github.com': '\<discovered\>'"
+This diagnostic report should show: - Your name and email - "Personal access token for 'https://github.com': '\<discovered\>'"
 
 If so, you're all set. If not, see troubleshooting below.
 
 ### Common Problems & Solutions
 
-**Problem**: "I closed the browser before copying my token"
-**Solution**: Tokens are disposable by design. Run `usethis::create_github_token()` again to generate a new one.
+**Problem**: "I closed the browser before copying my token" **Solution**: Tokens are disposable by design. Run `usethis::create_github_token()` again to generate a new one.
 
-**Problem**: "It worked yesterday, now Git asks for credentials again"
-**Solution**: Your token expired. Run `usethis::create_github_token()` again, copy the new token, then run `gitcreds::gitcreds_set()` to update it.
+**Problem**: "It worked yesterday, now Git asks for credentials again" **Solution**: Your token expired. Run `usethis::create_github_token()` again, copy the new token, then run `gitcreds::gitcreds_set()` to update it.
 
-**Problem**: "I get 'Permission denied' or authentication errors"
-**Solution**: Check `usethis::git_sitrep()`. Your token may have expired or wasn't stored correctly. Run `gitcreds::gitcreds_set()` again.
+**Problem**: "I get 'Permission denied' or authentication errors" **Solution**: Check `usethis::git_sitrep()`. Your token may have expired or wasn't stored correctly. Run `gitcreds::gitcreds_set()` again.
 
-**Problem**: "I don't see Git integration in my IDE"
-**Solution**: Git may not be installed, or your IDE can't find it. See [Happy Git with R, Chapter 6](https://happygitwithr.com/install-git.html) for installation instructions.
+**Problem**: "I don't see Git integration in my IDE" **Solution**: Git may not be installed, or your IDE can't find it. See [Happy Git with R, Chapter 6](https://happygitwithr.com/install-git.html) for installation instructions.
 
 ### Alternative: SSH Keys (For the Long Haul)
 
@@ -164,8 +158,4 @@ This chapter gave you a working environment. When you're ready to explore more:
 -   [Happy Git and GitHub for the useR](https://happygitwithr.com/): Everything Git-related for R users
 -   [GitHub Skills](https://skills.github.com/): Interactive tutorials for Git and GitHub
 
-Advanced features worth exploring later:
--   **Keyboard shortcuts** (speed up your workflow dramatically)
--   **Code snippets** (type abbreviations that expand to code templates)
--   **Debugger** (step through code line-by-line when things break)
--   **Extensions** (especially in Positron, where VS Code extensions work)
+Advanced features worth exploring later: - **Keyboard shortcuts** (speed up your workflow dramatically) - **Code snippets** (type abbreviations that expand to code templates) - **Debugger** (step through code line-by-line when things break) - **Extensions** (especially in Positron, where VS Code extensions work)

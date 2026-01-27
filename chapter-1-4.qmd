@@ -1,0 +1,26 @@
+---
+title: "LLMs and Data Science"
+format: html
+---
+
+(Responsible) use of LLMs in Data Science
+
+As we integrate large language models into data analysis, our responsibilities as researchers evolve in important ways . There are three primary approaches to this integration (Cheng, 2025):
+
+-   first, using LLMs for code autocomplete and inline coding assistance, such as through integrated development environments like Positron;
+
+-   second, using LLMs to support the broader analysis process through complete code generation, such as with tools like Posit Databot; and
+
+-   third, deploying LLMs to directly analyze qualitative or text data .
+
+When we examine the first two usage types (e.g., code autocomplete and code generation) through the responsible usage framework, we find more encouraging alignment with the three essential criteria of correctness, transparency, and reproducibility . Code-generating and code-assisting LLMs produce verifiable output that researchers can inspect, test, and validate before execution, ensuring correctness through human review. The process maintains transparency because the generated code itself is visible and interpretable, allowing researchers to understand exactly what analytical steps are being performed. Reproducibility is enhanced because the same code can be run multiple times on the same data to yield consistent results, and the code can be shared alongside research findings.
+
+In contrast, the third approach where LLMs directly analyze qualitative or text data within a black box may raise critical questions about research integrity. LLMs present inherent challenges against these principles: they are notorious for generating convincing but incorrect answers, operate as black boxes with limited transparency, and lack reproducibility due to their non-deterministic nature . When we apply this framework to direct text analysis by LLMs, significant concerns emerge: we cannot guarantee correctness, the process lacks transparency, and reproducibility remains uncertain at best.
+
+### Achieving Responsible Usage Through Evidence-Based Results
+
+However, for the third type of usage where LLMs directly analyze data (as we do in Section X), we can work toward achieving "yes" answers across all three framework criteria by requiring LLMs to produce evidence-based results. By structuring prompts to demand transparent, verifiable outputs, such as requiring the LLM to identify themes, provide verbatim quotes from the source data, report frequencies with counts and percentages, and present findings in standardized tabular formats. We transform the black box into a more transparent analytical tool. This approach ensures correctness by grounding every claim in specific textual evidence that researchers can verify, enhances transparency by making the analytical reasoning traceable through quoted examples and quantitative metrics, and improves reproducibility by standardizing the output format and maintaining clear documentation of the analytical process. When LLMs are constrained to cite their sources, quantify their observations, and structure their findings systematically, they shift from opaque pattern generators to accountable research assistants whose work can be validated against the original data. This methodology aligns with Posit's recommendation for constrained use and micromanaged implementation, ensuring that LLMs remain within appropriate boundaries while still providing valuable analytical support for qualitative research .
+
+Reference
+
+Cheng, J. (2025). *Harnessing the power of LLMs for responsible data science and research* \[Conference presentation\]. R+AI 2025. Available at [**https://r-consortium.org/posts/keeping-llms-in-their-lane-focused-ai-for-data-science-and-research/**](https://r-consortium.org/posts/keeping-llms-in-their-lane-focused-ai-for-data-science-and-research/)
