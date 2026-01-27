@@ -3,7 +3,7 @@ title: "LLMs and Data Science"
 format: html
 ---
 
-(Responsible) use of LLMs in Data Science
+### (Responsible) use of LLMs in Data Science
 
 As we integrate large language models into data analysis, our responsibilities as researchers evolve in important ways . There are three primary approaches to this integration (Cheng, 2025):
 
