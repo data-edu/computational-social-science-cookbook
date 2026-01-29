@@ -2,7 +2,7 @@
 title: "LLMs Methods"
 ---
 
- 5.1 Why Large Language Models Matter in Educational Research
+5.1 Why Large Language Models Matter in Educational Research
 
 Large Language Models (LLMs) have transformed how researchers analyze, generate, and interpret text. Unlike traditional NLP pipelines that rely on token counts and surface patterns, LLMs reason over context, semantics, and discourse structure.
 
@@ -10,19 +10,16 @@ In educational research, this means: - Summarizing and coding open-ended student
 
 LLMs thus expand the researcher’s computational toolkit—from statistical pattern recognition to **context-aware meaning-making**.
 
-
-
- 5.2 Cloud-based LLMs: Capabilities and Setup
+5.2 Cloud-based LLMs: Capabilities and Setup
 
 Cloud-based Large Language Models (LLMs) offer access to state-of-the-art generative and analytical capabilities without requiring local hardware or model management. They run on remote servers and are accessed via APIs—making them ideal for rapid prototyping, large-scale text processing, and exploratory analyses in educational research.
-
 
 ### Overview of Major Cloud Providers
 
 The landscape of LLMs evolves quickly. As of 2025, the following providers represent the most common cloud-based options for educational data analysis.
 
 | Provider | Example Models | Access | R / HTTP Wrapper |
-|-----------------|---------------------|-----------------|------------------|
+|------------------|--------------------|------------------|------------------|
 | **OpenAI** | GPT-4o / GPT-5 | API key via [platform.openai.com](https://platform.openai.com) | `{httr2}`, `{openai}`, `{ellmer}` |
 | **Anthropic** | Claude 3 Opus · Claude 4 | API key via [console.anthropic.com](https://console.anthropic.com) | `{httr2}`, `{anthropic}`, `{ellmer}` |
 | **Google** | Gemini 2.5 · Gemini Ultra (2025) | [AI Studio](https://aistudio.google.com) | `{googleGenerativeAI}`, `{ellmer}` |
@@ -31,9 +28,7 @@ The landscape of LLMs evolves quickly. As of 2025, the following providers repre
 
 > 💡 **Tip:** Always confirm the latest model names, context-window sizes, and pricing tiers on each provider’s documentation page. Many vendors update models quarterly, affecting reproducibility.
 
-
-
-###  Connecting to a Cloud API from R
+### Connecting to a Cloud API from R
 
 Below is a minimal reproducible example using the **OpenAI API** through the `{httr2}` package. The same structure applies to most HTTP-based providers.
 
@@ -62,7 +57,6 @@ cat(content$choices[[1]]$message$content)
 > 🧩 This pattern underlies all API workflows:
 >
 > **(1)** authenticate → **(2)** send prompt → **(3)** receive structured response.
-
 
 ### Using the `{ellmer}` Package — A Unified LLM Interface for R
 
@@ -119,8 +113,6 @@ cat(result$choices[[1]]$message$content)
 >
 > `provider =` and `model =` arguments—no need to rewrite your R code.
 
-
-
 ### Typical Educational Use Cases
 
 -   Automated qualitative coding of survey or interview data
@@ -128,8 +120,6 @@ cat(result$choices[[1]]$message$content)
 -   Drafting analytic memos or interpretive summaries
 -   Generating or evaluating teaching materials
 -   Rapid prototyping for mixed-methods research designs
-
-
 
 ### Reproducibility and Ethical Considerations
 
@@ -141,7 +131,6 @@ Because cloud services update frequently, reproducibility requires careful docum
 -   **Disclose** clearly how LLMs assisted analysis or interpretation
 
 > ⚖️ Responsible use of cloud LLMs means balancing analytical convenience with ethical data stewardship.
-
 
 ### Summary
 
@@ -173,8 +162,6 @@ They process text without sending it to external servers—ensuring full data so
 -   No API keys or internet required
 -   Highly customizable and often cost-free
 -   Enables fully offline reproducible analysis
-
-
 
 ### Getting Started with LM Studio
 

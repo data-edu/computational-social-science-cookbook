@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -300,7 +335,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-1-2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">IDE</span></a>
+  <a href="./chapter-1-2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Positron and RStudio</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -321,7 +356,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Text Data</span></a>
+  <a href="./chapter-2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 2 Capturing and Analyzing Text Data with Computational Methods</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -389,8 +424,17 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#whats-in-the-tidyverse" id="toc-whats-in-the-tidyverse" class="nav-link active" data-scroll-target="#whats-in-the-tidyverse">What’s in the Tidyverse?</a></li>
+  <li><a href="#installing-and-loading-the-tidyverse" id="toc-installing-and-loading-the-tidyverse" class="nav-link" data-scroll-target="#installing-and-loading-the-tidyverse">Installing and Loading the Tidyverse</a></li>
+  <li><a href="#the-pipe-operator-and" id="toc-the-pipe-operator-and" class="nav-link" data-scroll-target="#the-pipe-operator-and">The Pipe Operator: <code>|&gt;</code> and <code>%&gt;%</code></a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -415,8 +459,65 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>The tidyverse is a collection of R packages designed for data science with a shared philosophy: code should be readable, consistent, and focused on the data transformations you’re actually trying to accomplish. If you’ve struggled with base R’s sometimes cryptic syntax, the tidyverse will feel like a relief.</p>
+<p>Most computational social science workflows rely on tidyverse packages for data manipulation, visualization, and modeling. Learning this ecosystem means learning the tools your collaborators use, the examples you’ll find online, and the approaches that scale from quick exploration to publication-ready analysis.</p>
+<section id="whats-in-the-tidyverse" class="level2">
+<h2 class="anchored" data-anchor-id="whats-in-the-tidyverse">What’s in the Tidyverse?</h2>
+<p>The tidyverse is actually a meta-package that loads eight core packages when you run <code>library(tidyverse)</code>:</p>
+<ul>
+<li><strong>ggplot2</strong>: Data visualization with a grammar of graphics</li>
+<li><strong>dplyr</strong>: Data manipulation (filtering, selecting, summarizing, joining)</li>
+<li><strong>tidyr</strong>: Reshaping data between wide and long formats</li>
+<li><strong>readr</strong>: Reading rectangular data (CSV, TSV) efficiently</li>
+<li><strong>purrr</strong>: Functional programming tools for iteration</li>
+<li><strong>tibble</strong>: Modern reimagining of data frames</li>
+<li><strong>stringr</strong>: String manipulation</li>
+<li><strong>forcats</strong>: Working with categorical variables (factors)</li>
+</ul>
+<p>You don’t need to master all of these immediately. Most data work relies heavily on <code>dplyr</code> and <code>ggplot2</code>, with the others playing supporting roles as needed.</p>
+</section>
+<section id="installing-and-loading-the-tidyverse" class="level2">
+<h2 class="anchored" data-anchor-id="installing-and-loading-the-tidyverse">Installing and Loading the Tidyverse</h2>
+<p>Installation (one time):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Loading (at the start of each session or script):</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>When you load the tidyverse, you’ll see a message listing which packages were attached and any conflicts (functions from tidyverse packages that mask base R functions). The conflicts are normal and intentional—tidyverse functions are generally preferable for data science work.</p>
+</section>
+<section id="the-pipe-operator-and" class="level2">
+<h2 class="anchored" data-anchor-id="the-pipe-operator-and">The Pipe Operator: <code>|&gt;</code> and <code>%&gt;%</code></h2>
+<p>The tidyverse introduced a distinctive style: piping operations together to create readable data transformation pipelines. Instead of nesting functions inside each other, you “pipe” the output of one function into the next.</p>
+<p>R now has a native pipe operator <code>|&gt;</code> (introduced in R 4.1), while the tidyverse originally used <code>%&gt;%</code> from the magrittr package. They work almost identically for most purposes:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Without pipes (nested, hard to read)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">filter</span>(<span class="fu">select</span>(data, age, income), age <span class="sc">&gt;</span> <span class="dv">18</span>))</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># With native pipe |&gt; (readable, left-to-right)</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(age, income) <span class="sc">|&gt;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age <span class="sc">&gt;</span> <span class="dv">18</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># With magrittr pipe %&gt;% (functionally similar)</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(age, income) <span class="sc">%&gt;%</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age <span class="sc">&gt;</span> <span class="dv">18</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We’ll use the native pipe <code>|&gt;</code> throughout this book because it’s now built into R, but you’ll encounter <code>%&gt;%</code> in older code and documentation. For practical purposes, they’re interchangeable in most tidyverse workflows.</p>
+<p><strong>How to read it</strong>: Think of <code>|&gt;</code> as “then.” The code above reads: “Take data, <em>then</em> select age and income columns, <em>then</em> filter for adults, <em>then</em> get a summary.”</p>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
+<p>This chapter provides a foundation for tidyverse thinking. The subsequent chapters in this book use tidyverse functions extensively, and we’ll explain new functions as they appear. You’ll learn by doing, with real data and real research questions.</p>
+<p>When you want to go deeper:</p>
+<ul>
+<li><a href="https://r4ds.hadley.nz/"><em>R for Data Science (2e)</em></a>: The definitive guide to the tidyverse</li>
+<li><a href="https://www.tidyverse.org/">Tidyverse documentation</a>: Reference docs for all packages</li>
+<li><a href="https://posit.co/resources/cheatsheets/">RStudio Cheatsheets</a>: Visual quick references for dplyr, ggplot2, and more</li>
+</ul>
+<p>The tidyverse community is large and welcoming. When you get stuck, someone has likely asked your question before.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -833,8 +934,8 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter-1-2.html" class="pagination-link" aria-label="IDE">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">IDE</span></span>
+      <a href="./chapter-1-2.html" class="pagination-link" aria-label="Positron and RStudio">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Positron and RStudio</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

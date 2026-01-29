@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>IDE – Computational Analysis of Educational Data: A Field Guide Using R</title>
+<title>Positron and RStudio – Computational Analysis of Educational Data: A Field Guide Using R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -251,7 +286,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-1-1.html">Getting Started</a></li><li class="breadcrumb-item"><a href="./chapter-1-2.html"><span class="chapter-title">IDE</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-1-1.html">Getting Started</a></li><li class="breadcrumb-item"><a href="./chapter-1-2.html"><span class="chapter-title">Positron and RStudio</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -300,7 +335,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-1-2.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">IDE</span></a>
+  <a href="./chapter-1-2.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Positron and RStudio</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -321,7 +356,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Text Data</span></a>
+  <a href="./chapter-2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 2 Capturing and Analyzing Text Data with Computational Methods</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -389,16 +424,34 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#why-positron" id="toc-why-positron" class="nav-link active" data-scroll-target="#why-positron">Why Positron?</a></li>
+  <li><a href="#the-four-essential-panes" id="toc-the-four-essential-panes" class="nav-link" data-scroll-target="#the-four-essential-panes">The Four Essential Panes</a></li>
+  <li><a href="#r-projects-the-foundation-of-reproducible-work" id="toc-r-projects-the-foundation-of-reproducible-work" class="nav-link" data-scroll-target="#r-projects-the-foundation-of-reproducible-work">R Projects: The Foundation of Reproducible Work</a></li>
+  <li><a href="#version-control-with-git-and-github" id="toc-version-control-with-git-and-github" class="nav-link" data-scroll-target="#version-control-with-git-and-github">Version Control with Git and GitHub</a>
+  <ul class="collapse">
+  <li><a href="#why-git-matters" id="toc-why-git-matters" class="nav-link" data-scroll-target="#why-git-matters">Why Git Matters</a></li>
+  <li><a href="#the-git-integration-in-your-ide" id="toc-the-git-integration-in-your-ide" class="nav-link" data-scroll-target="#the-git-integration-in-your-ide">The Git Integration in Your IDE</a></li>
+  <li><a href="#setting-up-git-and-github-the-path-of-least-resistance" id="toc-setting-up-git-and-github-the-path-of-least-resistance" class="nav-link" data-scroll-target="#setting-up-git-and-github-the-path-of-least-resistance">Setting Up Git and GitHub: The Path of Least Resistance</a></li>
+  <li><a href="#common-problems-solutions" id="toc-common-problems-solutions" class="nav-link" data-scroll-target="#common-problems-solutions">Common Problems &amp; Solutions</a></li>
+  <li><a href="#alternative-ssh-keys-for-the-long-haul" id="toc-alternative-ssh-keys-for-the-long-haul" class="nav-link" data-scroll-target="#alternative-ssh-keys-for-the-long-haul">Alternative: SSH Keys (For the Long Haul)</a></li>
+  <li><a href="#using-git-in-practice" id="toc-using-git-in-practice" class="nav-link" data-scroll-target="#using-git-in-practice">Using Git in Practice</a></li>
+  </ul></li>
+  <li><a href="#going-further" id="toc-going-further" class="nav-link" data-scroll-target="#going-further">Going Further</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-1-1.html">Getting Started</a></li><li class="breadcrumb-item"><a href="./chapter-1-2.html"><span class="chapter-title">IDE</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-1-1.html">Getting Started</a></li><li class="breadcrumb-item"><a href="./chapter-1-2.html"><span class="chapter-title">Positron and RStudio</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">IDE</span></h1>
+<h1 class="title"><span class="chapter-title">Positron and RStudio</span></h1>
 </div>
 
 
@@ -415,8 +468,139 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>You need an environment for writing and running R code. We’re going to focus on <strong>Positron</strong>, Posit’s newer IDE built on the foundation of VS Code. If you’re already comfortable with RStudio, everything in this chapter applies there too—the fundamental concepts are identical, and the R code in this book works the same way in both.</p>
+<section id="why-positron" class="level2">
+<h2 class="anchored" data-anchor-id="why-positron">Why Positron?</h2>
+<p>Positron represents where computational social science workflows are heading: multi-language support (R and Python in the same environment), modern editor features inherited from VS Code, and a more extensible architecture. If you’re coming from VS Code, Positron will feel immediately familiar. If you’re new to both, you’re learning a tool that’s designed for the future of data science.</p>
+<p>That said, <strong>RStudio remains excellent</strong>. It’s mature, widely documented, and has a loyal community. Some researchers prefer its more opinionated interface—everything you need is visible and organized for R-first workflows. If you’re already using RStudio and prefer it, nothing in this book requires switching.</p>
+<p>The instructions below work in both environments unless otherwise noted. When we say “Positron,” assume the same applies to RStudio.</p>
+</section>
+<section id="the-four-essential-panes" class="level2">
+<h2 class="anchored" data-anchor-id="the-four-essential-panes">The Four Essential Panes</h2>
+<p>Both Positron and RStudio organize your workspace into four main areas (though the layout is customizable):</p>
+<ul>
+<li><strong>Source/Editor</strong> (top-left): Where you write and edit your code files (.R scripts, .qmd documents)</li>
+<li><strong>Console</strong> (bottom-left): Where R actually executes code and shows results in real-time</li>
+<li><strong>Environment/Variables</strong> (top-right): Shows the objects (data, functions, etc.) currently loaded in memory</li>
+<li><strong>Files/Plots/Help</strong> (bottom-right): Navigate your project files, view visualizations, and access documentation</li>
+</ul>
+<p>The defaults work fine for now. As you get comfortable, you might adjust panel sizes or move things around, but the essential logic stays the same: code on the left, context on the right.</p>
+</section>
+<section id="r-projects-the-foundation-of-reproducible-work" class="level2">
+<h2 class="anchored" data-anchor-id="r-projects-the-foundation-of-reproducible-work">R Projects: The Foundation of Reproducible Work</h2>
+<p><strong>Always work in an R Project.</strong> This is the single most important RStudio habit for reproducibility.</p>
+<p>An R Project is a folder that contains all files for a particular analysis—data, scripts, outputs—and sets your working directory automatically. This means your code will work on any computer without changing file paths.</p>
+<p>To create a new project:</p>
+<ol type="1">
+<li>File → New Project</li>
+<li>Choose “New Directory” or “Existing Directory”</li>
+<li>Name your project (e.g., “my-first-css-analysis”)</li>
+<li>Click “Create Project”</li>
+</ol>
+<p>Notice the <code>.Rproj</code> file in your folder? That’s your project file. Double-click it to open Positron or RStudio with the correct working directory already set.</p>
+</section>
+<section id="version-control-with-git-and-github" class="level2">
+<h2 class="anchored" data-anchor-id="version-control-with-git-and-github">Version Control with Git and GitHub</h2>
+<p>Git is how computational social scientists version, share, and collaborate on their work. GitHub is the most popular platform for hosting Git repositories. If you’ve never used version control before, this section will get you set up with a workflow that integrates directly into your IDE.</p>
+<section id="why-git-matters" class="level3">
+<h3 class="anchored" data-anchor-id="why-git-matters">Why Git Matters</h3>
+<p>Without version control, you end up with files like <code>analysis_final.R</code>, <code>analysis_final2.R</code>, <code>analysis_ACTUALLY_final.R</code>. Git tracks every change you make, so you can:</p>
+<ul>
+<li>Go back to any previous version without keeping multiple copies</li>
+<li>Experiment freely—if something breaks, you can always revert</li>
+<li>Collaborate with others without emailing files back and forth</li>
+<li>Share your work publicly for transparency and reproducibility</li>
+</ul>
+<p>Most computational social science projects live in Git repositories, and employers expect researchers to be comfortable with basic version control.</p>
+</section>
+<section id="the-git-integration-in-your-ide" class="level3">
+<h3 class="anchored" data-anchor-id="the-git-integration-in-your-ide">The Git Integration in Your IDE</h3>
+<p>Once Git is configured, you’ll see version control features built into your environment:</p>
+<ul>
+<li><strong>In RStudio</strong>: A “Git” tab appears in the Environment pane (top-right)</li>
+<li><strong>In Positron</strong>: Git integration works through the Source Control panel (often on the left sidebar)</li>
+</ul>
+<p>Either way, you can stage changes, write commit messages, and push to GitHub without leaving your editor. This is far friendlier than memorizing terminal commands.</p>
+</section>
+<section id="setting-up-git-and-github-the-path-of-least-resistance" class="level3">
+<h3 class="anchored" data-anchor-id="setting-up-git-and-github-the-path-of-least-resistance">Setting Up Git and GitHub: The Path of Least Resistance</h3>
+<p>Git authentication is notoriously confusing. We’re going to use an R-native approach that minimizes pain: <strong>Personal Access Tokens (PAT) via the <code>usethis</code> package</strong>. This keeps you in familiar territory and works reliably for the kind of work you’ll do in this book.</p>
+<section id="step-1-install-required-packages" class="level4">
+<h4 class="anchored" data-anchor-id="step-1-install-required-packages">Step 1: Install Required Packages</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"usethis"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"gitcreds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="step-2-configure-your-git-identity" class="level4">
+<h4 class="anchored" data-anchor-id="step-2-configure-your-git-identity">Step 2: Configure Your Git Identity</h4>
+<p>Tell Git who you are (one-time setup):</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_config</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">user.name =</span> <span class="st">"Jane Doe"</span>,           <span class="co"># Your actual name</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">user.email =</span> <span class="st">"jane@example.com"</span>   <span class="co"># Email associated with GitHub</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Important</strong>: Use the same email address you’ll use (or already use) for your GitHub account.</p>
+</section>
+<section id="step-3-create-a-github-personal-access-token" class="level4">
+<h4 class="anchored" data-anchor-id="step-3-create-a-github-personal-access-token">Step 3: Create a GitHub Personal Access Token</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_github_token</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This opens GitHub in your browser. You’ll need to:</p>
+<ol type="1">
+<li>Log in to GitHub if you haven’t already</li>
+<li>Leave the default scopes checked (at minimum: “repo” and “workflow”)</li>
+<li>Set expiration to 90 days (good security practice, though you’ll regenerate when it expires)</li>
+<li>Click “Generate token” at the bottom</li>
+<li><strong>Copy the token immediately</strong>—GitHub only shows it once</li>
+</ol>
+<p>The token looks like: <code>ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</code></p>
+</section>
+<section id="step-4-store-your-token-in-r" class="level4">
+<h4 class="anchored" data-anchor-id="step-4-store-your-token-in-r">Step 4: Store Your Token in R</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>gitcreds<span class="sc">::</span><span class="fu">gitcreds_set</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>When prompted, paste your token and press Enter. R stores it securely for future use.</p>
+</section>
+<section id="step-5-verify-everything-worked" class="level4">
+<h4 class="anchored" data-anchor-id="step-5-verify-everything-worked">Step 5: Verify Everything Worked</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">git_sitrep</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This diagnostic report should show: - Your name and email - “Personal access token for ‘https://github.com’: ‘&lt;discovered&gt;’”</p>
+<p>If so, you’re all set. If not, see troubleshooting below.</p>
+</section>
+</section>
+<section id="common-problems-solutions" class="level3">
+<h3 class="anchored" data-anchor-id="common-problems-solutions">Common Problems &amp; Solutions</h3>
+<p><strong>Problem</strong>: “I closed the browser before copying my token” <strong>Solution</strong>: Tokens are disposable by design. Run <code>usethis::create_github_token()</code> again to generate a new one.</p>
+<p><strong>Problem</strong>: “It worked yesterday, now Git asks for credentials again” <strong>Solution</strong>: Your token expired. Run <code>usethis::create_github_token()</code> again, copy the new token, then run <code>gitcreds::gitcreds_set()</code> to update it.</p>
+<p><strong>Problem</strong>: “I get ‘Permission denied’ or authentication errors” <strong>Solution</strong>: Check <code>usethis::git_sitrep()</code>. Your token may have expired or wasn’t stored correctly. Run <code>gitcreds::gitcreds_set()</code> again.</p>
+<p><strong>Problem</strong>: “I don’t see Git integration in my IDE” <strong>Solution</strong>: Git may not be installed, or your IDE can’t find it. See <a href="https://happygitwithr.com/install-git.html">Happy Git with R, Chapter 6</a> for installation instructions.</p>
+</section>
+<section id="alternative-ssh-keys-for-the-long-haul" class="level3">
+<h3 class="anchored" data-anchor-id="alternative-ssh-keys-for-the-long-haul">Alternative: SSH Keys (For the Long Haul)</h3>
+<p>If you plan to use Git extensively beyond this book, SSH keys are more convenient—set them up once and never think about authentication again. But they’re more complex to configure initially.</p>
+<p>Interested? See <a href="https://happygitwithr.com/ssh-keys.html">Happy Git with R, Chapters 10-12</a>. For now, the PAT method will serve you well.</p>
+</section>
+<section id="using-git-in-practice" class="level3">
+<h3 class="anchored" data-anchor-id="using-git-in-practice">Using Git in Practice</h3>
+<p>We’ll introduce Git commands as you need them throughout the book. For now, know that your IDE gives you a graphical interface for the most common operations:</p>
+<ul>
+<li><strong>Pull</strong>: Download changes from GitHub (always do this before starting work)</li>
+<li><strong>Commit</strong>: Save a snapshot of your changes with a descriptive message</li>
+<li><strong>Push</strong>: Upload your commits to GitHub</li>
+</ul>
+<p>You can also use terminal commands (<code>git status</code>, <code>git add</code>, <code>git commit</code>, <code>git push</code>) if you prefer, but the IDE interface handles 90% of everyday tasks.</p>
+<p>The key habit: commit often with clear messages (“Add data cleaning script” rather than “changes”), and push regularly so your work is backed up and others can see your progress.</p>
+</section>
+</section>
+<section id="going-further" class="level2">
+<h2 class="anchored" data-anchor-id="going-further">Going Further</h2>
+<p>This chapter gave you a working environment. When you’re ready to explore more:</p>
+<ul>
+<li><a href="https://github.com/posit-dev/positron/wiki">Positron Documentation</a>: Official docs for Positron features</li>
+<li><a href="https://docs.posit.co/ide/user/">RStudio User Guide</a>: Comprehensive guide to all RStudio capabilities</li>
+<li><a href="https://happygitwithr.com/">Happy Git and GitHub for the useR</a>: Everything Git-related for R users</li>
+<li><a href="https://skills.github.com/">GitHub Skills</a>: Interactive tutorials for Git and GitHub</li>
+</ul>
+<p>Advanced features worth exploring later: - <strong>Keyboard shortcuts</strong> (speed up your workflow dramatically) - <strong>Code snippets</strong> (type abbreviations that expand to code templates) - <strong>Debugger</strong> (step through code line-by-line when things break) - <strong>Extensions</strong> (especially in Positron, where VS Code extensions work)</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
