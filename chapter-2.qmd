@@ -1,4 +1,6 @@
-# Chapter 2 Capturing and Analyzing Text Data with Computational Methods
+---
+title: "Text Data"
+---
 
 ## 2.1 Overview
 
