@@ -552,7 +552,6 @@ theme_keywords <- list(
 
 > Each key in the list corresponds to a theme, and each value contains search terms representing that theme’s literal vocabulary.
 
-------------------------------------------------------------------------
 
 ##### Step 4: Count Keyword Occurrences
 
@@ -574,7 +573,6 @@ count_theme_mentions <- function(text, keywords) {
 >
 > We’ll use it to compute frequency counts across all statements.
 
-------------------------------------------------------------------------
 
 ##### Step 5: Compute Validation Metrics
 
@@ -599,7 +597,6 @@ validation_results <- lapply(names(theme_keywords), function(theme) {
 
 > The resulting validation_results table shows how often each theme literally appears in the text according to keyword matching.
 
-------------------------------------------------------------------------
 
 ##### Step 6: Merge with LLM Results
 
@@ -633,7 +630,6 @@ validation_compare <- llm_table %>%
 >
 > These metrics help identify where the model may under- or over-estimate a theme relative to literal keyword evidence.
 
-------------------------------------------------------------------------
 
 ##### Step 7: Visualize the Comparison
 
@@ -669,7 +665,6 @@ ggplot(validation_compare_long, aes(
 >
 > Alignment between them suggests that the model’s semantic themes correspond closely to literal textual evidence.
 
-------------------------------------------------------------------------
 
 ##### Step 8: Statistical Consistency Check
 
@@ -687,7 +682,6 @@ cor(validation_compare$LLM_Relative,
 >
 > the model and the keyword method identify and rank themes in similar ways.
 
-------------------------------------------------------------------------
 
 ##### Step 9: Interpretation and Reflection
 
@@ -708,7 +702,6 @@ balancing interpretive depth with computational scalability.
 
 > As one co-author joked, “The LLM doesn’t just read the policy—it understands the syllabus.”
 
-------------------------------------------------------------------------
 
 ##### Step 10: Refining the Keyword Definitions
 

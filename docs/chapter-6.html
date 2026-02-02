@@ -343,6 +343,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <a href="./chapter-1-3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tidyverse</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-1-4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">LLMs and Data Science</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -1139,7 +1144,6 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <blockquote class="blockquote">
 <p>Each key in the list corresponds to a theme, and each value contains search terms representing that theme’s literal vocabulary.</p>
 </blockquote>
-<hr>
 </section>
 <section id="step-4-count-keyword-occurrences" class="level5">
 <h5 class="anchored" data-anchor-id="step-4-count-keyword-occurrences">Step 4: Count Keyword Occurrences</h5>
@@ -1158,7 +1162,6 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <p>This function returns TRUE if a policy contains any of the keywords and FALSE otherwise.</p>
 <p>We’ll use it to compute frequency counts across all statements.</p>
 </blockquote>
-<hr>
 </section>
 <section id="step-5-compute-validation-metrics" class="level5">
 <h5 class="anchored" data-anchor-id="step-5-compute-validation-metrics">Step 5: Compute Validation Metrics</h5>
@@ -1181,7 +1184,6 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <blockquote class="blockquote">
 <p>The resulting validation_results table shows how often each theme literally appears in the text according to keyword matching.</p>
 </blockquote>
-<hr>
 </section>
 <section id="step-6-merge-with-llm-results" class="level5">
 <h5 class="anchored" data-anchor-id="step-6-merge-with-llm-results">Step 6: Merge with LLM Results</h5>
@@ -1212,7 +1214,6 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <p>After cleaning, each row shows both sets of frequencies plus their differences.</p>
 <p>These metrics help identify where the model may under- or over-estimate a theme relative to literal keyword evidence.</p>
 </blockquote>
-<hr>
 </section>
 <section id="step-7-visualize-the-comparison" class="level5">
 <h5 class="anchored" data-anchor-id="step-7-visualize-the-comparison">Step 7: Visualize the Comparison</h5>
@@ -1252,7 +1253,6 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <p>The red bars show LLM estimates; the blue bars represent keyword matches.</p>
 <p>Alignment between them suggests that the model’s semantic themes correspond closely to literal textual evidence.</p>
 </blockquote>
-<hr>
 </section>
 <section id="step-8-statistical-consistency-check" class="level5">
 <h5 class="anchored" data-anchor-id="step-8-statistical-consistency-check">Step 8: Statistical Consistency Check</h5>
@@ -1270,7 +1270,6 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <p>A correlation around r ≈ 0.7 indicates a strong positive relationship —</p>
 <p>the model and the keyword method identify and rank themes in similar ways.</p>
 </blockquote>
-<hr>
 </section>
 <section id="step-9-interpretation-and-reflection" class="level5">
 <h5 class="anchored" data-anchor-id="step-9-interpretation-and-reflection">Step 9: Interpretation and Reflection</h5>
@@ -1312,7 +1311,6 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <blockquote class="blockquote">
 <p>As one co-author joked, “The LLM doesn’t just read the policy—it understands the syllabus.”</p>
 </blockquote>
-<hr>
 </section>
 <section id="step-10-refining-the-keyword-definitions" class="level5">
 <h5 class="anchored" data-anchor-id="step-10-refining-the-keyword-definitions">Step 10: Refining the Keyword Definitions</h5>
