@@ -8,7 +8,6 @@
   margin-top: 1em;
   padding-top: 0.6em;
   border-top: 2px solid #cce0f5;
-  /*text-transform: uppercase;*/
   letter-spacing: 0.5px;
 }
 
@@ -21,24 +20,22 @@
 .sidebar .sidebar-item a {
   color: #333;
   text-decoration: none;
+  padding: 2px 4px;              /* ← ADD padding here (normal state) */
+  border-radius: 6px;            /* ← ADD border-radius here too */
+  display: inline-block;         /* ← Makes padding/border-radius work correctly */
 }
 
 .sidebar .sidebar-item a:hover {
   color: #0a4d8c;
   text-decoration: underline;
+  background-color: #f0f6ff;     /* Only change background on hover */
+  /* padding and border-radius are inherited from normal state */
 }
 
 /* Active chapter (highlighted) */
 .sidebar .sidebar-item.active > a {
   font-weight: 700;
   color: #0069d9;
-}
-
-/* Add subtle background for hover */
-.sidebar .sidebar-item a:hover {
-  background-color: #f0f6ff;
-  border-radius: 6px;
-  padding: 2px 4px;
 }
 
 /* Extra spacing between parts */
