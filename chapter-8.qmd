@@ -4,244 +4,243 @@ title: "Communication"
 
 ## 8.1 Overview: Why Communication Matters
 
-Computational approaches allow educational researchers to analyze increasingly complex and large-scale datasets. However, the impact of these analyses ultimately depends on researchers’ ability to communicate their findings clearly and responsibly. Communication is not the last step in research—it is integral to making research meaningful, interpretable, and useful.
+Computational approaches enable educational researchers to analyze increasingly complex and large-scale data. However, the value of these analyses ultimately depends on how clearly and responsibly findings are communicated. Communication is not a final step added after analysis—it is an integral part of making research meaningful, interpretable, and usable.
 
-In this chapter, we demonstrate how to translate computational analyses into research questions, methods, results, and discussion sections suitable for academic manuscripts. We draw on examples from earlier chapters, culminating in a fully worked example using text data (Section 8.7).
+Poor communication can obscure otherwise rigorous analyses, while effective communication can extend the reach of research beyond academic journals to educators, designers, policymakers, and students. In computational educational research, communication also involves technical decisions about formats, platforms, and levels of transparency.
+
+In this chapter, we introduce common ways researchers communicate computational work, with particular attention to open, reproducible, and web-based approaches. We then demonstrate how a complete computational analysis—introduced earlier in this book—can be communicated using a Quarto-based project website.
+
+## 8.2 Common Ways to Communicate Computational Educational Research
+
+Educational researchers use a range of formats and platforms to share computational work. Each approach reflects trade-offs among accessibility, formality, reproducibility, and audience.
+
+### 8.2.1 Traditional Journal Publications
+
+Peer-reviewed journal articles remain the dominant mode of scholarly communication in education. Journals provide formal review, editorial oversight, and long-term archiving.
+
+Examples of education journals that publish computational and data-intensive work include:
+
+-   *Educational Researcher*: <https://journals.sagepub.com/home/edr>
+-   *Journal of Learning Analytics*: <https://learning-analytics.info/>
+
+While journal articles are essential for academic recognition, they often impose constraints on length, visualizations, and methodological detail. As a result, many computational decisions—such as preprocessing steps or parameter choices—may be summarized rather than fully documented.
+
+### 8.2.2 Preprints and Open Science Repositories
+
+Preprint servers allow researchers to share manuscripts publicly before or during the peer-review process. These platforms support rapid dissemination and open feedback.
+
+Common platforms include:
+
+-   **arXiv**: <https://arxiv.org/>
+-   **PsyArXiv**: <https://psyarxiv.com/>
+-   **Open Science Framework (OSF)**: <https://osf.io/>
+
+Preprints are particularly useful for computational research, where methods evolve quickly and early visibility can support collaboration. Researchers should always confirm that their target journals permit preprint posting.
+
+### 8.2.3 Project Websites and Living Documents
+
+Increasingly, computational researchers publish project websites that combine narrative, code, figures, and links to data. These sites allow authors to present analyses without the spatial constraints of traditional articles.
+
+A common workflow involves:
+
+-   Hosting source files and code on **GitHub** (<https://github.com/>)
+-   Publishing a static website using **GitHub Pages** (<https://pages.github.com/>)
+-   Authoring documents with **Quarto** (<https://quarto.org/>)
+
+This approach supports transparency, reproducibility, and incremental updates. Project websites are especially well suited for method demonstrations, teaching examples, and analyses involving multiple visualizations.
+
+### 8.2.4 Open Data and Code Archives
+
+Dedicated repositories allow researchers to share datasets, analysis scripts, and documentation in citable form.
+
+Popular platform such as:
+
+-   **Zenodo**: <https://zenodo.org/>
+
+These services issue persistent identifiers (DOIs), enabling datasets and code to be cited independently of articles. A common practice is to host active development on GitHub while archiving stable releases on Zenodo.
+
+## 8.3 Choosing an Appropriate Communication Strategy
+
+No single communication method is optimal for all projects. Researchers should consider their intended audience, goals, and constraints.
+
+For example:
+
+-   Journal articles are essential for scholarly recognition.
+-   Preprints support rapid and open dissemination.
+-   Project websites allow rich, transparent presentation of computational workflows.
+-   Data repositories ensure long-term access and citability.
+
+In practice, many projects use **multiple complementary channels**, such as a journal article accompanied by a public website and an archived dataset.
 
 
-## 8.2 Writing Research Questions for Computational Studies
+## 8.4 Case Study: Communicating a Text Analysis with Quarto
 
-Research questions in computational studies should reflect both:
+In earlier chapters, this book introduced frequency-based text analysis as a method for exploring patterns in large collections of educational texts. In this section, we shift focus from *conducting* analysis to *communicating* it. Specifically, we demonstrate how an existing computational study can be shared as a public, reproducible, and accessible research artifact using Quarto.
 
-1.  **Theoretical or practical concerns from the educational context**, and
-2.  **The affordances and constraints of available data**.
-
-Examples:
-
--   *How do students’ textual reflections reveal their self-regulated learning behaviors?*
--   *What themes appear across universities’ AI usage policies?*
--   *How do temporal patterns in collaborative learning environments relate to participation structures?*
-
-A common mistake is asking causal questions of descriptive computational data. In this chapter, we model questions that align well with the available methods.
+The case study draws on the frequency-based analysis of generative AI (GenAI) usage guidelines from 100 U.S. universities presented in Chapter 2. Rather than reproducing the analytical steps, the goal here is to illustrate how such work can be communicated effectively to a broader audience through a project website.
 
 
-## 8.3 Writing the Methods Section
+### 8.4.1 From Analysis to Communication
 
-The Methods section of a computational educational research paper must describe:
+Traditional journal articles often summarize computational workflows due to space limitations. In contrast, web-based formats allow researchers to present narrative explanations, code, visualizations, and documentation in a single, integrated environment.
 
-### 8.3.1 Data Source
+For the GenAI policy analysis, a communication-oriented artifact should allow readers to:
 
-Explain what the data represent, who produced them, when and how they were collected, and their relevance to the research questions.
+- understand the research context and questions,
+- inspect analytical decisions at a high level,
+- view results alongside interpretation,
+- and access code and data when appropriate.
 
-### 8.3.2 Preprocessing
-
-Computational methods require transparency in data cleaning and transformation. Examples include:
-
--   tokenization
--   stop-word removal
--   construction of document-term matrices
--   handling missingness
--   normalization or modeling assumptions
-
-### 8.3.3 Analytical Approach
-
-Describe the computational method (e.g., frequency-based analysis, sentiment analysis, topic modeling, network analysis). Clarify:
-
--   what the method can do
--   what it cannot do
--   any assumptions or modeling choices
-
-### 8.3.4 Reproducibility
-
-Include package versions, code availability, and information necessary to replicate the analysis.
+Quarto (<https://quarto.org/>) provides a flexible framework for producing such artifacts, enabling researchers to write plain-text documents that render into polished websites.
 
 
+### 8.4.2 Overview of the Communication Artifact
 
-## 8.4 Writing the Results Section
+In this example, the analysis is communicated as a Quarto-based project website hosted via GitHub Pages (<https://pages.github.com/>). The website includes:
 
-The Results section should:
+- a landing page describing the research context,
+- a dedicated analysis page summarizing methods and findings,
+- embedded figures generated from R,
+- and links to data and code repositories.
 
--   present findings clearly
--   use visuals to support interpretation
--   avoid overstating claims
--   connect results to the research questions
-
-Computational results often include tables, bar charts, network diagrams, distributions, or topic visualizations.
+This format supports transparency and reproducibility while remaining accessible to readers without advanced programming backgrounds.
 
 
-## 8.5 Writing the Discussion Section
+### 8.4.3 Project Structure
 
-A strong Discussion section typically includes:
+A minimal project structure for communicating the GenAI policy analysis is shown below:
 
-1.  **Interpretation** – What do the results mean in context?
-2.  **Implications** – What should educators, designers, or institutions do with this knowledge?
-3.  **Limitations** – What can this method *not* tell us?
-4.  **Future Directions** – How might research extend or deepen our findings?
+```
 
+genai-policy-analysis/
+
+├── _quarto.yml
+
+├── index.qmd
+
+├── analysis/
+
+│ └── frequency-analysis.qmd
+
+├── data/
+
+│ └── University_GenAI_Policy_Stance.csv
+
+└── README.md
+
+```
+
+This organization separates communication documents from raw data and supports reuse and extension.
+
+---
+
+### 8.4.4 Website Configuration
+
+The project is configured as a Quarto website using the `_quarto.yml` file:
+
+```yaml
+project:
+  type: website
+
+website:
+  title: "GenAI Usage Guidelines in Higher Education"
+  navbar:
+    right:
+      - text: "Analysis"
+        href: analysis/frequency-analysis.html
+
+```
+
+This configuration enables navigation between pages and produces a static website suitable for public hosting.
+
+### 8.4.5 Communicating the Analysis in a Quarto Document
+
+The core communication document (`frequency-analysis.qmd`) integrates narrative text with selected code and visual outputs. Rather than presenting all preprocessing steps, the document emphasizes interpretability and alignment with research questions.
+
+An excerpt from such a document is shown below:
+
+
+### Research Context
+
+As generative AI writing tools become more prevalent, universities have issued guidelines to clarify acceptable use in academic contexts. This analysis examines 100 publicly available GenAI policy documents from U.S. universities to identify prominent themes and institutional concerns.
+
+### Research Questions
+
+- What words appear most frequently in university GenAI writing usage policies?
+- Which keywords reflect common concerns related to academic integrity and instructional responsibility?
+
+### Analytical Overview
+
+Text data were tokenized, common stop words were removed, and word frequencies were calculated using R. Full preprocessing and analytical details are documented in Chapter 2.
+
+Figures such as word clouds and frequency bar charts are rendered directly within the document, allowing readers to view results alongside explanatory text.
+
+### 8.4.6 Presenting Results for Interpretation
+
+Instead of emphasizing technical implementation, the website focuses on interpretive clarity. For example, a bar chart displaying the most frequent terms highlights the prominence of words such as *assignment*, *student*, and *writing*, emphasizing institutional attention to coursework and academic expectations.
+
+Narrative text accompanying the visualization explains how these patterns relate to broader concerns about academic integrity, instructor authority, and ethical AI use. This integration of visual and narrative elements helps prevent misinterpretation of descriptive computational results.
+
+### 8.4.7 Publishing and Sharing
+
+Once rendered, the Quarto project can be published via GitHub Pages by hosting the repository on GitHub (https://github.com/). This process produces a stable, shareable URL that can be cited in manuscripts, course syllabi, or presentations.
+
+Examples of publicly available Quarto projects can be found at:
+
+https://quarto.org/examples/
+
+### 8.4.8 Why This Format Matters
+
+Communicating the GenAI policy analysis as a web-based artifact offers several advantages:
+
+- Readers can engage with results at their own pace.
+- Methods and assumptions are documented transparently.
+- The analysis can be updated as policies evolve.
+- The artifact supports both research dissemination and teaching.
+
+Importantly, this approach complements rather than replaces traditional publications. A journal article may present the core findings, while a project website provides extended documentation and resources.
+
+### 8.4.9 Summary
+
+This case study illustrates how a frequency-based text analysis can be transformed into a communicative research product using Quarto. By shifting emphasis from computation to interpretation and accessibility, researchers can extend the reach and impact of computational educational research beyond static manuscripts.
+
+## 8.5 Benefits of Web-Based Communication
+
+Communicating computational research through project websites offers several advantages:
+
+-   **Transparency**: Readers can inspect code, data, and assumptions.
+-   **Reproducibility**: Analyses can be rerun and extended.
+-   **Flexibility**: Content can be updated as methods or data evolve.
+-   **Pedagogical value**: Websites serve as learning resources for students and practitioners.
+
+These benefits complement, rather than replace, traditional academic publications.
 
 ## 8.6 Ethical and Responsible Communication
 
-When reporting computational analyses in education, consider:
+When communicating computational analyses in education, researchers must attend to ethical considerations. These include protecting student privacy, avoiding deficit-oriented narratives, and clearly stating methodological limitations.
 
--   privacy and FERPA concerns
--   de-identification of student text
--   bias in algorithms or dictionaries
--   transparency regarding model limitations
--   avoiding deficit-oriented narratives about learners
+Public-facing materials should avoid revealing identifiable information and should transparently acknowledge sources of bias or uncertainty. Responsible communication ensures that openness does not come at the expense of ethical research practice.
 
+## 8.7 Summary and Communication Checklist
 
+This chapter emphasized that communication is a methodological choice, not merely a presentation task. Computational educational research benefits from communication strategies that align with open science, reproducibility, and audience needs.
 
-## 8.7 A Full Example: Communicating a Frequency-Based Text Analysis
+A practical checklist for communicating computational research includes:
 
-To model the complete process of communicating a computational educational study, this section provides a full academic write-up using *frequency-based text analysis* (Section 2.3).
+-   Research questions align with data and methods
+-   Analytical decisions are documented transparently
+-   Code and data are accessible when possible
+-   Visualizations support interpretation rather than replace explanation
+-   Ethical considerations are explicitly addressed
+-   Communication formats match the intended audience
 
-
-### 8.7.1 Research Context
-
-As universities respond to the rise of generative AI tools such as ChatGPT, many institutions publish guidance documents outlining appropriate or inappropriate uses of AI in academic settings. These policies represent an important source of insight into evolving institutional attitudes toward AI in higher education.
-
-Because these documents are text-based and publicly available, they are well suited to computational text analysis. Here, we apply a frequency-based approach to identify common themes and dominant concerns expressed in 100 U.S. university AI policies.
+Together, these practices support rigorous, responsible, and impactful computational educational research.
 
 
 
-### 8.7.2 Research Questions
-
-The research questions guiding this analysis are:
-
--   **RQ1:** What are the most frequently mentioned words in university generative AI writing usage policies?
--   **RQ2:** Which keywords reflect common concerns or focal points related to GenAI writing usage in academic settings?
-
-These questions are descriptive and align with the strengths of frequency-based text analysis.
 
 
 
-### 8.7.3 Methods
-
-#### Data Source
-
-Policy texts were collected from the publicly available websites of 100 U.S. universities between October and December 2024. Each institution’s primary AI policy regarding writing or academic integrity was extracted and compiled into a CSV file.
-
-#### Data Preparation
-
-We tokenized the text, removed English stop words, and counted word frequencies using `tidytext`.
-
-``` r
-library(tidytext)
-library(dplyr)
-library(readr)
-
-university_policies <- read_csv("University_GenAI_Policy_Stance.csv")
-
-word_frequency <- university_policies %>%
-  unnest_tokens(word, Stance) %>%
-  anti_join(stop_words) %>%
-  count(word, sort = TRUE)
-  
-```
-
-#### Analytical Approach
-
-A **frequency-based text analysis** was conducted to identify the most frequently used words and examine patterns of emphasis across policy documents. This method highlights what institutions discuss most often and provides a starting point for interpretive analysis.
-
-#### Reproducibility
-
-All analyses were conducted in R 4.3+ using the `tidytext`, `dplyr`, `ggplot2`, and `wordcloud` packages.
 
 
 
-### 8.7.4 Results
-
-#### Most Frequent Words (RQ1)
-
-The highest-frequency words included:
-
--   *assignment*
--   *student*
--   *writing*
--   *tool*
--   *integrity*
-
-These terms emphasize the contexts in which GenAI is most often addressed: coursework, academic integrity, and instructional guidance.
-
-#### Visualization: Top 12 Words
-
-``` r
-library(ggplot2)
-
-top_words <- word_frequency %>% slice(1:12)
-
-ggplot(top_words, aes(x = reorder(word, n), y = n, fill = word)) +
-  geom_col() +
-  coord_flip() +
-  theme_minimal() +
-  labs(
-    title = "Top 12 Most Frequent Words in University GenAI Policies",
-    x = NULL, y = "Frequency"
-  )
-```
-
-#### Word Cloud Visualization
-
-``` r
-library(wordcloud)
-
-wordcloud(
-  words = word_frequency$word,
-  freq = word_frequency$n,
-  min.freq = 10,
-  random.order = FALSE,
-  colors = brewer.pal(8, "Dark2")
-)
-```
-
-#### Keywords Reflecting Institutional Concerns (RQ2)
-
-Words such as *integrity*, *academic*, *expectations*, and *instructor* reveal common institutional concerns, namely:
-
--   enforcing academic honesty
--   clarifying student responsibilities
--   determining instructor authority
--   defining ethical use of AI
-
-
-
-### 8.7.5 Discussion
-
-#### Interpretation
-
-The frequency patterns suggest that universities frame generative AI primarily in terms of academic integrity and instructional responsibility. The focus on assignments and coursework indicates that institutions are especially concerned about how AI tools may alter learning activities.
-
-#### Implications
-
-These findings may support:
-
--   instructors designing clearer GenAI usage policies
--   institutions refining policy language for transparency
--   researchers tracking how AI policies evolve over time
-
-#### Limitations
-
--   Frequency analysis does not capture nuance or sentiment
--   High-frequency terms may serve multiple purposes
--   Policies from different institutional types may differ in systematic ways not analyzed here
-
-#### Future Directions
-
--   Sentiment analysis (Section 2.4) could reveal tone
--   Topic modeling (Section 2.5) could uncover deeper structures
--   Temporal analysis may show policy evolution over time
-
-
-## 8.8 Summary and Communication Checklist
-
-This chapter demonstrated how to communicate computational educational research clearly and ethically.
-
-A useful checklist includes:
-
--   [ ] Research questions align with data and method
--   [ ] Methods include transparent preprocessing steps
--   [ ] Results directly answer the research questions
--   [ ] Visualizations are interpretable and relevant
--   [ ] Discussion connects findings to educational implications
--   [ ] Ethical considerations are explicitly addressed
--   [ ] Code and analytic decisions are reproducible
