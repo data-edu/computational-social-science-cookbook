@@ -22,6 +22,8 @@ Both Positron and RStudio organize your workspace into four main areas (though t
 -   **Environment/Variables** (top-right): Shows the objects (data, functions, etc.) currently loaded in memory
 -   **Files/Plots/Help** (bottom-right): Navigate your project files, view visualizations, and access documentation
 
+![Positron Interface](docs/chapter-1_files/positronIDE.png){width="648"}
+
 The defaults work fine for now. As you get comfortable, you might adjust panel sizes or move things around, but the essential logic stays the same: code on the left, context on the right.
 
 ## R Projects: The Foundation of Reproducible Work

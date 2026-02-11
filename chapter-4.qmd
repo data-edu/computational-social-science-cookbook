@@ -71,7 +71,7 @@ str(pisa_data)
 ##### Comparison of Methods
 
 | **Method** | **Advantages** | **Disadvantages** |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | Direct Download | Full access to all raw data and documentation. | Requires manual processing and cleaning. |
 | `OECD` Package | Easy to use for downloading specific datasets. | Limited to OECD-published formats. |
 | `Edsurvey` Package | Supports advanced statistical analysis and weights. | Requires additional setup and dependencies. |
@@ -165,7 +165,7 @@ IPEDS provides several online tools for querying and visualizing data without re
 ##### Comparison of Methods
 
 | **Method** | **Advantages** | **Disadvantages** |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | Direct Download | Full access to raw data and documentation. | Requires manual data preparation and cleaning. |
 | `ipeds` Package | Automated access to specific components. | Limited flexibility for customized queries. |
 | `tidycensus` Package | Allows integration with Census and ACS data. | Requires API setup and advanced R skills. |

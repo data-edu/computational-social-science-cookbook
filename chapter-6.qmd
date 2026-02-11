@@ -9,15 +9,33 @@ The use of large language models (LLMs) in data analysis is rapidly increasing a
 
 Local LLMs are large language models that run directly on your own computer, rather than in the cloud. By processing data locally, they help ensure privacy, data sovereignty, and compliance with institutional or governmental regulations. Local LLMs can be open-source (such as Llama, Qwen, DeepSeek, Mistral) and are compatible with various operating systems and hardware.
 
-**Key advantages of local LLMs:** - Data never leaves your computer - No need for external API keys or internet access to analyze sensitive data - Flexibility to use custom or open-source models - Often no usage fees
+**Key advantages of local LLMs:**
+
+-   Data never leaves your computer
+
+-   No need for external API keys or internet access to analyze sensitive data
+
+-   Flexibility to use custom or open-source models
+
+-   Often no usage fees
 
 ## 6.2 What Can Local LLMs Do?
 
-With the right setup, local LLMs can: - Summarize, paraphrase, and analyze text data (open-ended survey responses, interview transcripts, etc.) - Support qualitative and quantitative educational research workflows - Generate coding frameworks, extract themes, or automate report writing - Perform document-based question answering (“chat with your PDFs”) - Integrate with other research tools via REST APIs
+With the right setup, local LLMs can:
+
+-   Summarize, paraphrase, and analyze text data (open-ended survey responses, interview transcripts, etc.)
+
+-   Support qualitative and quantitative educational research workflows
+
+-   Generate coding frameworks, extract themes, or automate report writing
+
+-   Perform document-based question answering (“chat with your PDFs”)
+
+-   Integrate with other research tools via REST APIs
 
 ## 6.3 Getting Started with LM Studio
 
-LM Studio is a free, cross-platform application that enables researchers to run, manage, and interact with local LLMs (such as Llama, DeepSeek, Qwen, Mistral, and gpt-oss) entirely on their own computers. By using LM Studio, you gain powerful, offline data analysis capabilities without sacrificing data privacy or compliance.
+LMStudio is a free, cross-platform application that enables researchers to run, manage, and interact with local LLMs (such as Llama, DeepSeek, Qwen, Mistral, and gpt-oss) entirely on their own computers. By using LM Studio, you gain powerful, offline data analysis capabilities without sacrificing data privacy or compliance.
 
 **Key Points:** - **Supported Platforms:** macOS (Apple Silicon), Windows (x64/ARM64), and Linux (x64). - **System Requirements:** For best results, consult the [System Requirements](https://lmstudio.ai/docs/system-requirements) page for recommended RAM, CPU/GPU, and storage.
 
@@ -29,8 +47,11 @@ LM Studio is a free, cross-platform application that enables researchers to run,
 4.  **(Optional)** To use the API for scripting/automation, enable API access within LM Studio.
 5.  **(Optional)** Attach documents for “Chat with Documents” (RAG-style analysis) entirely offline.
 
-**Official Documentation:**\
-- [LM Studio Docs](https://lmstudio.ai/docs/) - [Getting Started Guide](https://lmstudio.ai/docs/getting-started)
+**Official Documentation:**
+
+-   [LM Studio Docs](https://lmstudio.ai/docs/)
+
+-   [Getting Started Guide](https://lmstudio.ai/docs/getting-started)
 
 ### 6.3.2 Main Features
 
@@ -68,7 +89,7 @@ content(response)
 ### 6.3.4 Summary Table of LM Studio Capabilities:
 
 | Feature | Description |
-|------------------------------------|------------------------------------|
+|-------------|------------------------------------|
 | Local LLMs | Run Llama, DeepSeek, Qwen, Mistral, etc. fully offline on your own machine |
 | Chat Interface | Flexible prompt-based interaction |
 | Document Chat (RAG) | Offline “chat with your documents” |
@@ -81,7 +102,11 @@ content(response)
 
 ### 6.4.1 Research Question
 
-Can a local LLM running via LM Studio reliably identify key themes in university AI policy statements—using the **same dataset** analyzed in Section 2—so that we can compare its results against traditional NLP methods and human coding?
+For this case study, our research question will be:
+
+-   What are the key themes in university AI policy statements?
+
+We will be using the same dataset analyzed in Section 2 so that we can compare its results against traditional NLP methods and human coding.
 
 ### 6.4.2 Data Context
 
@@ -160,7 +185,7 @@ res <- POST(
 cat(content(res)$choices[[1]]$message$content)
 ```
 
-> ✅ If the model replies with “pong,” the local API is ready.
+> If the model replies with “pong,” the local API is ready.
 
 ##### Prompt writing
 
@@ -251,7 +276,7 @@ call_lmstudio <- function(prompt, max_tokens = 1000) {
 
 ##### Running the analysis
 
-##### Now, the script applies the `analysis_prompt_template` to each *chunk* of transcript data using `lapply()`. Each chunk is converted into a numbered text block (`items_block`) and analyzed independently through `call_lmstudio()`, producing localized thematic results (`chunk_outputs`).
+Now, the script applies the `analysis_prompt_template` to each *chunk* of transcript data using `lapply()`. Each chunk is converted into a numbered text block (`items_block`) and analyzed independently through `call_lmstudio()`, producing localized thematic results (`chunk_outputs`).
 
 Second, the `meta_prompt` integrates these separate analyses. It instructs the model to synthesize and deduplicate themes across all chunks into a unified framework, including a concise narrative summary and a structured thematic table with descriptions, examples, and frequency data. Together, these steps move from micro-level coding to macro-level interpretation. This step is optional, and can be skipped depending on the nature of data and research questions.
 
@@ -285,7 +310,7 @@ Unify and deduplicate themes across chunks, and output a single consolidated sec
 
 ##### Synthesizing and Final LLM Analysis
 
-We are now back in R synthising our data (and manage token limits efficiently).
+We are now back in R synthesizing our data (and manage token limits efficiently).
 
 The `chunk_outputs` are split into smaller *pairs*, each containing two analyses. Each pair is merged and passed through `call_lmstudio()` using the same `meta_prompt`, producing intermediate syntheses (`pair_outputs`). These summaries are then combined into a single consolidated input (`final_meta_input`) for a final call to `call_lmstudio()`, yielding the comprehensive meta-analysis (`meta_output`).
 
@@ -373,7 +398,7 @@ getwd()
 
 ```
 
-#### 6.4.3.2 Practical Notes on Running Local Models 🍕💻
+#### 6.4.3.2 Practical Notes on Running Local Models
 
 Running a local LLM inside LM Studio can feel magical: your computer becomes its own private AI research lab. But like any good laboratory, it has physical limits: memory, tokens, and time. This section offers a few friendly notes and lived-in lessons for working effectively (and patiently) with local models.
 
@@ -382,43 +407,44 @@ Running a local LLM inside LM Studio can feel magical: your computer becomes its
 LM Studio may be a powerful local model playground, but it still has limits. Think of **tokens** as bites of pizza: your model can chew through a few generous slices, but handing it the *entire pizza* (for example, your full corpus of 99 policy statements) in one go will only lead to indigestion (also known as the dreaded “HTTP 400 Bad Request.”)
 
 Every model has a context window (often 8 k – 32 k tokens). Both your *prompt* and the *expected response* must fit inside this box.\
+
 When in doubt:
 
-**Feed your model smaller slices.**\
-Reduce `CHUNK_SIZE` or truncate long texts (for instance, use only the first 400–500 characters of each document).
+-   **Feed your model smaller slices.**\
+    Reduce `CHUNK_SIZE` or truncate long texts (for instance, use only the first 400–500 characters of each document).
 
-**Adjust your `max_tokens` parameter.**\
-Fewer output tokens make for shorter, faster, and safer runs.
+-   **Adjust your `max_tokens` parameter.**\
+    Fewer output tokens make for shorter, faster, and safer runs.
 
-**Monitor your total prompt length.**\
-Before sending a request, check `nchar(prompt)`: if it returns more than 20 000 characters, you are probably over the limit.
+-   **Monitor your total prompt length.**\
+    Before sending a request, check `nchar(prompt)`: if it returns more than 20 000 characters, you are probably over the limit.
 
 ##### Computing Resources and Patience
 
-**Expect variable response times.**\
-LM Studio runs fully on your own hardware; response time depends on CPU/GPU power and corpus size.\
-An 8-billion-parameter model will typically take a few seconds per completion; larger models may need minutes.
+-   **Expect variable response times.**\
+    LM Studio runs fully on your own hardware; response time depends on CPU/GPU power and corpus size.\
+    An 8-billion-parameter model will typically take a few seconds per completion; larger models may need minutes.
 
-**Mind your system memory.**\
-Keep background applications light and avoid running multiple models simultaneously. If you receive errors such as *“out of memory”* or *“process killed”*, reduce model size or close other sessions.
+-   **Mind your system memory.**\
+    Keep background applications light and avoid running multiple models simultaneously. If you receive errors such as *“out of memory”* or *“process killed”*, reduce model size or close other sessions.
 
-**Pro tip from the authors:**\
-During long qualitative runs, go play a game of basketball, take a walk, or grab a coffee. The LLM will still be digesting its token pizza when you return.
+-   **Pro tip from the authors:**\
+    During long qualitative runs, go play a game of basketball, take a walk, or grab a coffee. The LLM will still be digesting its token pizza when you return.
 
 ##### File Paths, Caching, and Stability
 
-**Use consistent file paths.**\
-Save outputs (`meta_output.md`, `thematic_table.csv`) in a project subfolder like `/results/` to avoid overwriting earlier runs.
+-   **Use consistent file paths.**\
+    Save outputs (`meta_output.md`, `thematic_table.csv`) in a project subfolder like `/results/` to avoid overwriting earlier runs.
 
-**Enable model caching in LM Studio.**\
-Cached models load faster after the first use and reduce memory spikes.
+-   **Enable model caching in LM Studio.**\
+    Cached models load faster after the first use and reduce memory spikes.
 
-**Restart occasionally.**\
-Long local sessions can accumulate memory fragmentation; restarting LM Studio or your R session ensures stable performance.
+-   **Restart occasionally.**\
+    Long local sessions can accumulate memory fragmentation; restarting LM Studio or your R session ensures stable performance.
 
 ##### Takeaways
 
-Feed your model thoughtfully—one well-prepared prompt at a time—and you’ll get cleaner, faster, and tastier results. Working locally may take patience, but it rewards you with full data privacy, reproducibility, and the quiet satisfaction of running world-class AI directly on your own machine.
+Feed your model thoughtfully aiming for one well-prepared prompt at a time and you’ll get cleaner, faster, and tastier results. Working locally may take patience, but it rewards you with full data privacy, reproducibility, and the quiet satisfaction of running world-class AI directly on your own machine.
 
 ### 6.4.4 Sample Output
 
@@ -430,7 +456,7 @@ This result directly mirrors the traditional NLP analysis in Section 2, providin
 **Thematic Table**
 
 | Theme | Description | Illustrative Example(s) | Frequency | Relative Frequency |
-|---------------|---------------|---------------|---------------|---------------|
+|----------|-----------|---------------|---------|--------|
 | Academic Integrity / Plagiarism | Policies treat un-attributed or unauthorized AI output as cheating, requiring adherence to existing honor-code standards. | \- “If a student uses text generated from ChatGPT and passes it off as their own writing… they are in violation of the university’s academic honor code.” (Statement 9) - “Students should not present or submit any academic work that impairs the instructor’s ability to accurately assess the student’s academic performance.” (Statement 2) | 13 | 25% |
 | Faculty Autonomy & Syllabus Clarity | Instructors are empowered to set, communicate, and enforce AI-use rules within their courses, often via the syllabus or early course materials. | \- “Different faculty will have different expectations about whether and how students can use AI tools, so being transparent about your expectations is essential.” (Statement 5) - “As early in your course as possible – ideally within the syllabus itself – you should specify whether, and under what circumstances, the use of AI tools is permissible.” (Statement 7) | 12 | 23% |
 | Citation / Disclosure Requirements | Students must explicitly credit AI-generated content or document their interactions to avoid plagiarism. | \- “Under BU’s guidelines… students must give credit to them whenever they’re used… include an appendix detailing the entire exchange with an LLM.” (Statement 4) - “You must cite your use of these tools appropriately. Not doing so violates the HBS Honor Code.” (Statement 7) | 9 | 17% |
@@ -450,19 +476,19 @@ They independently rated whether the theme name, description, and illustrative e
 
 Each theme was labeled as:
 
--   ✅ **True** – the theme correctly captures a coherent and relevant concept found in the corpus.\
--   ❌ **False** – the theme is misleading, redundant, or unsupported by the text.
+-   **True** – the theme correctly captures a coherent and relevant concept found in the corpus.
+-   **False** – the theme is misleading, redundant, or unsupported by the text.
 
 ##### Example Validation Table
 
 | LLM-Generated Theme | Human Judgment | Comment Summary |
-|------------------------|:----------------------:|------------------------|
-| Academic Integrity / Plagiarism | ✅ True | Strongly supported by multiple statements referencing honor codes and plagiarism. |
-| Faculty Autonomy & Syllabus Clarity | ✅ True | Matches explicit institutional language about syllabus-level discretion. |
-| Citation / Disclosure Requirements | ✅ True | Directly evidenced by quotes requiring citation or appendices. |
-| Conditional AI Use Guidelines | ✅ True | Consistent with texts describing conditional permissions. |
-| Pedagogical Integration & Assessment Design | ✅ True | Accurately summarizes emerging pedagogical considerations. |
-| Policy Evolution & Ongoing Review | ✅ True | Well-grounded in statements about policy updates and future revisions. |
+|--------------|:----------:|------------------------|
+| Academic Integrity / Plagiarism | True | Strongly supported by multiple statements referencing honor codes and plagiarism. |
+| Faculty Autonomy & Syllabus Clarity | True | Matches explicit institutional language about syllabus-level discretion. |
+| Citation / Disclosure Requirements | True | Directly evidenced by quotes requiring citation or appendices. |
+| Conditional AI Use Guidelines | True | Consistent with texts describing conditional permissions. |
+| Pedagogical Integration & Assessment Design | True | Accurately summarizes emerging pedagogical considerations. |
+| Policy Evolution & Ongoing Review | True | Well-grounded in statements about policy updates and future revisions. |
 
 **Validation Accuracy:** 6 / 6 = 100 % (illustrative)
 
@@ -500,7 +526,7 @@ This section walks through that process step by step — showing how quantitativ
 While LLMs identify themes *semantically*, we can independently verify their consistency by checking whether the same ideas appear through **explicit keywords** in the original texts.\
 This serves as a quantitative cross-check between two perspectives:
 
-1.  **LM Studio output** — interprets meaning through context.\
+1.  **LM Studio output** — interprets meaning through context.
 2.  **Keyword-based validation** — detects literal word usage.
 
 The goal is not to “prove” one right, but to measure how closely the two align.
@@ -682,7 +708,7 @@ cor(validation_compare$LLM_Relative,
 This quantitative validation highlights two complementary lenses:
 
 | Approach | Focus | Strength | Limitation |
-|------------------|------------------|------------------|------------------|
+|-------------|---------|-------------|--------------|
 | **Keyword-based Validation** | What is *said* | High recall, transparent rules | Literal, may overcount |
 | **LLM Semantic Analysis** | What is *meant* | Context-aware, concise, human-like reasoning | May undercount subtle mentions |
 
@@ -714,7 +740,7 @@ Narrowing the expressions from single words (*learning*, *assessment*) to multi-
 and aligns frequencies more closely with LLM estimates.
 
 | Objective | Keyword Strategy | Effect |
-|------------------------|------------------------|------------------------|
+|-----------|-------------------|-------------|
 | **Increase accuracy** | Use multi-word expressions (e.g., “academic integrity,” “honor code”) | Reduces false positives |
 | **Increase recall** | Include variants (e.g., “cite,” “citation,” “acknowledge”) | Captures more instances |
 | **Balance both** | Mix general and specific terms | Maximizes validity |
@@ -730,7 +756,7 @@ The cross-validation process compared two perspectives on the same corpus:\
 ##### Summary of Observed Patterns
 
 | Theme | LLM_Relative (%) | Verified_Relative (%) | Interpretation |
-|------------------|-----------------:|-----------------:|------------------|
+|------------------|------:|------:|--------------------------|
 | Academic Integrity / Plagiarism | 25.0 | 49.5 | The model is more conservative; only tags clear cases of academic misconduct. |
 | Faculty Autonomy & Syllabus Clarity | 23.0 | 56.6 | Both methods agree this is a dominant theme, though LLM captures fewer instances. |
 | Citation / Disclosure Requirements | 17.0 | 25.3 | Close alignment; both approaches identify similar occurrences. |
@@ -743,33 +769,21 @@ The cross-validation process compared two perspectives on the same corpus:\
 This difference reflects **two complementary ways of understanding text**:
 
 | Approach | Focus | Strength | Limitation |
-|------------------|------------------|------------------|------------------|
+|------------|---------|--------------|--------------|
 | Keyword-based Validation | What is *said* | High recall, transparent rules | Literal, may overcount |
 | LLM Semantic Analysis | What is *meant* | Context-aware, concise, human-like reasoning | May undercount subtle mentions |
 
-In other words, the LLM acts like an experienced qualitative researcher:
-
-it does not label a statement as “Pedagogical Integration” merely because the word *assessment* appears.
-
-Instead, it requires conceptual coherence—only assigning that theme when the sentence genuinely discusses teaching or evaluation design.
+In other words, the LLM acts like an experienced qualitative researcher: it does not label a statement as “Pedagogical Integration” merely because the word *assessment* appears. Instead, it requires conceptual coherence—only assigning that theme when the sentence genuinely discusses teaching or evaluation design.
 
 ##### Quantitative Validation Conclusion
 
-Overall, the validation demonstrates that **LM Studio’s local model captures the same conceptual contours** as human logic,but with tighter semantic precision.
-
-While keyword methods “count what appears,” the LLM “counts what matters.”
-
-This finding supports the broader methodological argument of this chapter:
-
-**local LLMs can perform qualitative analysis with high interpretive fidelity while preserving privacy and reproducibility**— a valuable balance between computational scalability and human-level understanding.
+Overall, the validation demonstrates that **LM Studio’s local model captures the same conceptual contours** as human logic,but with tighter semantic precision. While keyword methods “count what appears,” the LLM “counts what matters.” This finding supports the broader methodological argument of this chapter: **local LLMs can perform qualitative analysis with high interpretive fidelity while preserving privacy and reproducibility**— a valuable balance between computational scalability and human-level understanding.
 
 > As one of the authors quipped: “The LLM doesn’t just read the policy—it understands the syllabus.”
 
 ##### The Role of Keyword Definitions in Validation Accuracy
 
-The accuracy of the cross-validation results depends critically on how the `theme_keywords` list is defined.\
-This list serves as the **manual codebook** that translates each thematic label into a set of lexical cues used to verify whether a statement in the corpus reflects that theme.\
-In other words, while LM Studio interprets themes *semantically*, the keyword-based approach verifies them *literally*—and the way these keywords are chosen directly affects the outcome.
+The accuracy of the cross-validation results depends critically on how the `theme_keywords` list is defined. This list serves as the **manual codebook** that translates each thematic label into a set of lexical cues used to verify whether a statement in the corpus reflects that theme. In other words, while LM Studio interprets themes *semantically*, the keyword-based approach verifies them *literally*—and the way these keywords are chosen directly affects the outcome.
 
 ##### The Sensitivity of Keyword Matching
 
@@ -780,15 +794,9 @@ For instance, consider the theme:
   c("assignment", "assessment", "learning", "instruction", "pedagog")
 ```
 
-This set captures a wide range of common words such as *learning* and *assessment*, which appear frequently in almost all policy statements.
+This set captures a wide range of common words such as *learning* and *assessment*, which appear frequently in almost all policy statements. As a result, the keyword-based validation counts nearly half of the corpus as related to pedagogy (≈ 50%), whereas the LM Studio model, which identifies themes only when the semantic context genuinely involves teaching design, reports a much lower frequency (≈ 8%). Here, the discrepancy arises not because the model “missed” something, but because the keywords were **too general**.
 
-As a result, the keyword-based validation counts nearly half of the corpus as related to pedagogy (≈ 50%),
-
-whereas the LM Studio model, which identifies themes only when the semantic context genuinely involves teaching design, reports a much lower frequency (≈ 8%).
-
-Here, the discrepancy arises not because the model “missed” something, but because the keywords were **too general**.
-
-When the same theme is redefined more precisely:
+When the same theme is redefined more precisely: the validated frequencies drop and begin to converge with the model’s estimates. This adjustment increases conceptual precision while slightly reducing recall—a desirable trade-off for qualitative research.
 
 ```{r, eval = FALSE}
 "Pedagogical Integration & Assessment Design" = 
@@ -797,46 +805,25 @@ When the same theme is redefined more precisely:
 
 ```
 
-the validated frequencies drop and begin to converge with the model’s estimates.
-
-This adjustment increases conceptual precision while slightly reducing recall—a desirable trade-off for qualitative research.
-
 ##### Balancing Precision and Recall
 
 | Objective | Keyword Strategy | Effect |
-|------------------------|------------------------|------------------------|
+|--------------|------------------------|------------------------|
 | **Increase accuracy** | Use multi-word expressions (e.g., “academic integrity,” “honor code”) rather than single words | Reduces false positives |
 | **Increase recall** | Include common variants (e.g., “cite,” “citation,” “credit,” “acknowledge”) | Captures more relevant instances |
 | **Balance both** | Combine general terms with specific phrases | Maximizes validity and interpretive robustness |
 
-In practice, tuning the keyword definitions allows researchers to “dial in” the strictness of their validation procedure.
-
-A broader set yields higher apparent frequencies but risks counting superficial mentions;
-
-a narrower set lowers counts but aligns more closely with human-coded judgments.
+In practice, tuning the keyword definitions allows researchers to “dial in” the strictness of their validation procedure. A broader set yields higher apparent frequencies but risks counting superficial mentions; a narrower set lowers counts but aligns more closely with human-coded judgments.
 
 ##### Interpretation
 
-This behavior illustrates a deeper methodological point:
+This behavior illustrates a deeper methodological point: **keyword validation tests the literal presence of ideas**, while **LLM-based thematic extraction tests their conceptual expression**. Both perspectives are useful.
 
-**keyword validation tests the literal presence of ideas**,
-
-while **LLM-based thematic extraction tests their conceptual expression**.
-
-Both perspectives are useful.
-
-By iteratively refining the `theme_keywords` list, researchers can improve agreement (often raising correlation from *r* ≈ 0.7 to 0.8 or higher)
-
-and use this process to calibrate their model’s semantic reasoning against transparent, rule-based criteria.
-
-Ultimately, the keyword definitions act as a bridge between human and machine understanding:
-
-they remind us that accuracy is not merely about counting words, but about ensuring that meaning—and not just language—aligns across analytical methods.
+By iteratively refining the `theme_keywords` list, researchers can improve agreement (often raising correlation from *r* ≈ 0.7 to 0.8 or higher) and use this process to calibrate their model’s semantic reasoning against transparent, rule-based criteria. Ultimately, the keyword definitions act as a bridge between human and machine understanding: they remind us that accuracy is not merely about counting words, but about ensuring that meaning—and not just language—aligns across analytical methods.
 
 ### 6.4.5.3 Case Study Discussion
 
-The central research question guiding this case study was:\
-**Can a local LLM running through LM Studio accurately identify and summarize the key themes within university AI policy statements, while maintaining data privacy and interpretive reliability?**
+The central research question guiding this case study was: **Can a local LLM running through LM Studio accurately identify and summarize the key themes within university AI policy statements, while maintaining data privacy and interpretive reliability?**
 
 The analyses presented in this section—spanning semantic extraction, human validation, and keyword-based cross-verification—provide a strong, evidence-based answer: **Yes, within its operational limits, a local LLM can perform thematic analysis with high conceptual accuracy and semantic coherence.**
 
@@ -859,23 +846,19 @@ The analyses presented in this section—spanning semantic extraction, human val
 
 #### Answer to the Research Question
 
-Taken together, these results suggest that **local LLMs can replicate and, in some respects, enhance traditional qualitative workflows**.\
-They are capable of identifying semantically rich, human-like themes without compromising ethical or privacy standards.\
-Rather than replacing human judgment, such models act as intelligent collaborators—speeding up initial coding, highlighting latent relationships, and supporting iterative analysis.
+Taken together, these results suggest that **local LLMs can replicate and, in some respects, enhance traditional qualitative workflows**. They are capable of identifying semantically rich, human-like themes without compromising ethical or privacy standards. Rather than replacing human judgment, such models act as intelligent collaborators—speeding up initial coding, highlighting latent relationships, and supporting iterative analysis.
 
 #### Limitations and Future Testing
 
 The analysis also revealed several caveats that future researchers should note:
 
--   The model’s **token window** constrains how much text can be processed at once.\
-    Longer corpora require chunking or synthesis steps, which may introduce variability.\
--   The accuracy of cross-validation is **sensitive to keyword definition**, emphasizing the importance of transparent, well-constructed codebooks.\
+-   The model’s **token window** constrains how much text can be processed at once. Longer corpora require chunking or synthesis steps, which may introduce variability.
+-   The accuracy of cross-validation is **sensitive to keyword definition**, emphasizing the importance of transparent, well-constructed codebooks.
 -   Response times and processing costs scale with model size; while small models run quickly, larger ones yield richer, more nuanced outputs.
 
 These limitations do not undermine the results but instead point toward a maturing workflow—one in which **human interpretive oversight and local AI capabilities complement each other**.
 
-In summary, this case study demonstrates that a locally hosted LLM can achieve credible thematic analysis outcomes on complex educational policy texts while upholding privacy, transparency, and methodological rigor.\
-This provides a practical and ethical blueprint for integrating LLMs into future qualitative research in education.
+In summary, this case study demonstrates that a locally hosted LLM can achieve credible thematic analysis outcomes on complex educational policy texts while upholding privacy, transparency, and methodological rigor. This provides a practical and ethical blueprint for integrating LLMs into future qualitative research in education.
 
 ### 6.4.6 Reflection
 
@@ -883,44 +866,29 @@ The case study presented in this section demonstrates how a **local large langua
 
 #### From Tokens to Meaning
 
-Traditional NLP methods, as explored in Section 2, rely heavily on token-level processing:\
-word frequencies, co-occurrence patterns, and topic modeling through statistical clustering.\
-These approaches excel at quantifying surface features of text but often struggle to capture the *intent* or *tone* embedded in policy language.
+Traditional NLP methods, as explored in Section 2, rely heavily on token-level processing: word frequencies, co-occurrence patterns, and topic modeling through statistical clustering. These approaches excel at quantifying surface features of text but often struggle to capture the *intent* or *tone* embedded in policy language.
 
-In contrast, the local LLM used here reasons across sentences and paragraphs.\
-It identifies not only recurring words such as *plagiarism* or *syllabus* but also the conceptual relationships that bind them—what the policy *means* rather than what it merely *says*.\
-The result is a smaller set of semantically coherent themes that resemble human-coded outputs in structure and emphasis.
+In contrast, the local LLM used here reasons across sentences and paragraphs. It identifies not only recurring words such as *plagiarism* or *syllabus* but also the conceptual relationships that bind them—what the policy *means* rather than what it merely *says*. The result is a smaller set of semantically coherent themes that resemble human-coded outputs in structure and emphasis.
 
-The **cross-validation exercise** (Sections 6.4.5–6.4.5.3) confirmed this distinction empirically:\
-the LLM produced lower absolute frequencies yet mirrored the same thematic hierarchy found by keyword verification (r ≈ 0.7).\
-In short, the machine did not count more—it *understood better*.
+The **cross-validation exercise** (Sections 6.4.5–6.4.5.3) confirmed this distinction empirically: the LLM produced lower absolute frequencies yet mirrored the same thematic hierarchy found by keyword verification (r ≈ 0.7). In short, the machine did not count more—it *understood better*.
 
 #### Complementarity, Not Replacement
 
 Rather than viewing LLMs as replacements for traditional NLP, we should see them as complementary instruments in the researcher’s toolkit.\
-Conventional text mining offers transparency and replicability;\
-LLMs contribute context, nuance, and synthesis.\
-When combined, the two form a **hybrid analytic ecology**—where numbers inform narratives and narratives refine numbers.
+Conventional text mining offers transparency and replicability; LLMs contribute context, nuance, and synthesis. When combined, the two form a **hybrid analytic ecology**—where numbers inform narratives and narratives refine numbers.
 
-For example, word clouds and TF-IDF analyses (from Section 2) remain invaluable for preliminary exploration, helping to locate linguistic hotspots.\
-Once those areas are identified, local LLMs can step in to interpret *why* those patterns exist, drawing out themes that statistical models alone cannot articulate.
+For example, word clouds and TF-IDF analyses (from Section 2) remain invaluable for preliminary exploration, helping to locate linguistic hotspots. Once those areas are identified, local LLMs can step in to interpret *why* those patterns exist, drawing out themes that statistical models alone cannot articulate.
 
 #### Privacy and Practicality
 
-Equally important is the ethical and logistical dimension.\
-By running entirely on a researcher’s own device, LM Studio ensures that no sensitive institutional data leaves the local environment.\
-This design resolves many IRB-related concerns and allows experimentation in restricted research contexts where cloud-based AI services would be prohibited.
+Equally important is the ethical and logistical dimension. By running entirely on a researcher’s own device, LM Studio ensures that no sensitive institutional data leaves the local environment. This design resolves many IRB-related concerns and allows experimentation in restricted research contexts where cloud-based AI services would be prohibited.
 
-The workflow does, however, require patience.\
-Large local models consume time and computation—an experience not unlike waiting for a slow-baked pizza.\
-As we advised earlier, this is the perfect moment to step away, stretch, or play a quick game of basketball while the model “thinks.”\
-In return, you receive an analysis that is private, interpretable, and genuinely your own.
+The workflow does, however, require patience. Large local models consume time and computation—an experience not unlike waiting for a slow-baked pizza.\
+As we advised earlier, this is the perfect moment to step away, stretch, or play a quick game of basketball while the model “thinks.” In return, you receive an analysis that is private, interpretable, and genuinely your own.
 
 #### Looking Ahead: From Analysis to Collaboration
 
-The lessons from this section mark a transition from **computational text analysis** to **intelligent collaboration with models**.\
-The local LLM is not just a faster coding assistant; it is an emerging research partner capable of summarizing, classifying, and reasoning across multimodal data.\
-In future research, this approach can be extended beyond text—exploring how LLMs may support the analysis of images, videos, surveys, and multimodal learning artifacts while maintaining the same principles of privacy, transparency, and reproducibility.
+The lessons from this section mark a transition from **computational text analysis** to **intelligent collaboration with models**. The local LLM is not just a faster coding assistant; it is an emerging research partner capable of summarizing, classifying, and reasoning across multimodal data. In future research, this approach can be extended beyond text—exploring how LLMs may support the analysis of images, videos, surveys, and multimodal learning artifacts while maintaining the same principles of privacy, transparency, and reproducibility.
 
 > **In summary:**\
 > Section 2 taught us how to *count words*;\

@@ -72,13 +72,11 @@ For example:
 
 In practice, many projects use **multiple complementary channels**, such as a journal article accompanied by a public website and an archived dataset.
 
-
 ## 8.4 Case Study: Communicating a Text Analysis with Quarto
 
 In earlier chapters, this book introduced frequency-based text analysis as a method for exploring patterns in large collections of educational texts. In this section, we shift focus from *conducting* analysis to *communicating* it. Specifically, we demonstrate how an existing computational study can be shared as a public, reproducible, and accessible research artifact using Quarto.
 
 The case study draws on the frequency-based analysis of generative AI (GenAI) usage guidelines from 100 U.S. universities presented in Chapter 2. Rather than reproducing the analytical steps, the goal here is to illustrate how such work can be communicated effectively to a broader audience through a project website.
-
 
 ### 8.4.1 From Analysis to Communication
 
@@ -86,31 +84,29 @@ Traditional journal articles often summarize computational workflows due to spac
 
 For the GenAI policy analysis, a communication-oriented artifact should allow readers to:
 
-- understand the research context and questions,
-- inspect analytical decisions at a high level,
-- view results alongside interpretation,
-- and access code and data when appropriate.
+-   understand the research context and questions,
+-   inspect analytical decisions at a high level,
+-   view results alongside interpretation,
+-   and access code and data when appropriate.
 
 Quarto (<https://quarto.org/>) provides a flexible framework for producing such artifacts, enabling researchers to write plain-text documents that render into polished websites.
-
 
 ### 8.4.2 Overview of the Communication Artifact
 
 In this example, the analysis is communicated as a Quarto-based project website hosted via GitHub Pages (<https://pages.github.com/>). The website includes:
 
-- a landing page describing the research context,
-- a dedicated analysis page summarizing methods and findings,
-- embedded figures generated from R,
-- and links to data and code repositories.
+-   a landing page describing the research context,
+-   a dedicated analysis page summarizing methods and findings,
+-   embedded figures generated from R,
+-   and links to data and code repositories.
 
 This format supports transparency and reproducibility while remaining accessible to readers without advanced programming backgrounds.
-
 
 ### 8.4.3 Project Structure
 
 A minimal project structure for communicating the GenAI policy analysis is shown below:
 
-```
+```         
 
 genai-policy-analysis/
 
@@ -127,18 +123,17 @@ genai-policy-analysis/
 │ └── University_GenAI_Policy_Stance.csv
 
 └── README.md
-
 ```
 
 This organization separates communication documents from raw data and supports reuse and extension.
 
----
+------------------------------------------------------------------------
 
 ### 8.4.4 Website Configuration
 
 The project is configured as a Quarto website using the `_quarto.yml` file:
 
-```yaml
+``` yaml
 project:
   type: website
 
@@ -148,7 +143,6 @@ website:
     right:
       - text: "Analysis"
         href: analysis/frequency-analysis.html
-
 ```
 
 This configuration enables navigation between pages and produces a static website suitable for public hosting.
@@ -159,15 +153,14 @@ The core communication document (`frequency-analysis.qmd`) integrates narrative 
 
 An excerpt from such a document is shown below:
 
-
 ### Research Context
 
 As generative AI writing tools become more prevalent, universities have issued guidelines to clarify acceptable use in academic contexts. This analysis examines 100 publicly available GenAI policy documents from U.S. universities to identify prominent themes and institutional concerns.
 
 ### Research Questions
 
-- What words appear most frequently in university GenAI writing usage policies?
-- Which keywords reflect common concerns related to academic integrity and instructional responsibility?
+-   What words appear most frequently in university GenAI writing usage policies?
+-   Which keywords reflect common concerns related to academic integrity and instructional responsibility?
 
 ### Analytical Overview
 
@@ -193,10 +186,10 @@ https://quarto.org/examples/
 
 Communicating the GenAI policy analysis as a web-based artifact offers several advantages:
 
-- Readers can engage with results at their own pace.
-- Methods and assumptions are documented transparently.
-- The analysis can be updated as policies evolve.
-- The artifact supports both research dissemination and teaching.
+-   Readers can engage with results at their own pace.
+-   Methods and assumptions are documented transparently.
+-   The analysis can be updated as policies evolve.
+-   The artifact supports both research dissemination and teaching.
 
 Importantly, this approach complements rather than replaces traditional publications. A journal article may present the core findings, while a project website provides extended documentation and resources.
 
@@ -235,12 +228,3 @@ A practical checklist for communicating computational research includes:
 -   Communication formats match the intended audience
 
 Together, these practices support rigorous, responsible, and impactful computational educational research.
-
-
-
-
-
-
-
-
-

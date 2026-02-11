@@ -6,18 +6,15 @@ This section introduces the core computational methods that form the basis of ed
 
 These chapters emphasize hands-on, transparent, and reproducible approaches using R. By engaging with real examples, you will gain practical experience in transforming raw educational data into interpretable results that inform theory and practice.
 
-
-
 ## 2.0.2 The Analytical Scope of This Section
 
 | Chapter | Data Type | Analytical Focus | Example Research Question |
-|---------------|---------------|-----------------|--------------------------|
+|--------|------------|----------------|------------------------|
 | **Chapter 2** | Text Data (unstructured) | Natural language processing, tokenization, sentiment, topic modeling | “What themes emerge in student reflections or policy statements?” |
 | **Chapter 3** | Relational Data | Social network analysis: centrality, community detection, visualization | “How do students or instructors connect and collaborate in learning networks?” |
 | **Chapter 4** | Numeric / Big Data | Statistical modeling, regression, clustering, predictive analysis | “Which factors best predict academic outcomes or engagement?” |
 
 > 📚 These three perspectives together illustrate how computational techniques can capture different dimensions of learning—language, interaction, and measurement.
-
 
 ## 2.0.3 Setting Up the Computational Environment
 
@@ -57,8 +54,6 @@ install.packages(c("plotly", "RColorBrewer", "visNetwork"))
 >
 > This structure promotes reproducibility and helps keep analysis pipelines organized.
 
-
-
 ## 2.0.4 A General Computational Workflow
 
 Regardless of data type, the analytical logic follows a similar cycle:
@@ -83,8 +78,6 @@ summary(cleaned)
 
 > 🧩 This five-step workflow—load, clean, transform, analyze, interpret—appears throughout all chapters in this section.
 
-
-
 ## 2.0.5 Ethics, Transparency, and Reproducibility
 
 Educational data often include sensitive or identifiable information.
@@ -98,7 +91,6 @@ Responsible computational research requires attention to both ethical and method
 
 > ⚖️ Ethical and transparent practices ensure that computational results remain credible, interpretable, and usable for improving learning.
 
-
 ## 2.0.6 Transition to Analytical Chapters
 
 With the environment prepared and workflow established, you are ready to begin applying computational methods to real educational data:
@@ -108,7 +100,3 @@ With the environment prepared and workflow established, you are ready to begin a
 -   **Chapter 4 — Numeric and Big Data:** Exploring structured data to identify trends and predictors in education.
 
 > The following chapter begins with text data, illustrating how natural language processing can transform qualitative information into structured, interpretable results.
-
-      
-
-

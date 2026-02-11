@@ -3,7 +3,7 @@ title: "R"
 format: html
 ---
 
-We're not going to teach you RStudio comprehensively—excellent resources already exist for that purpose. We particularly recommend [*R for Data Science*](https://r4ds.hadley.nz/), [*Data Science in Education Using R*](https://datascienceineducation.com/), the [RStudio primers](https://posit.co/resources/primers/), and [*Happy Git and GitHub for the useR*](https://happygitwithr.com/).
+We're not going to teach you RStudio comprehensively because excellent resources already exist for that purpose. We particularly recommend [*R for Data Science*](https://r4ds.hadley.nz/), [*Data Science in Education Using R*](https://datascienceineducation.com/), the [RStudio primers](https://posit.co/resources/primers/), and [*Happy Git and GitHub for the useR*](https://happygitwithr.com/).
 
 Instead, this chapter covers just enough to reproduce our workflows and extend them to your own data science work. Think of this as the minimal viable setup for doing the work in this book.
 
@@ -104,7 +104,7 @@ Of course, turning to AI can also help, as we describe next.
 
 ### Large Language Models and AI Tools
 
-In Section 3, we cover using large language models as part of a research workflow. But LLMs are also useful for getting unstuck when you're learning—and this is increasingly how working data scientists operate.
+In Section 3, we cover using large language models as part of a research workflow. But LLMs are also useful for getting unstuck when you're learning and this is increasingly how working data scientists operate.
 
 Two approaches work well:
 

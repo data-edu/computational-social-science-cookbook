@@ -4,15 +4,15 @@ title: "Text Data"
 
 ## 2.1 Overview
 
-In social sciences, analyzing text data is usually considered the “job” of qualitative researchers.Traditionally, qualitative research involves identifying patterns in non-numeric data, and this pattern recognition is typically done manually. This process is time-intensive but can yield rich research results. Traditional methods for analyzing text data involve human coding and can include direct sources (e.g., books, online texts) or indirect sources (e.g., interview transcripts).
+In social sciences, analyzing text data is usually considered the “job” of qualitative researchers. Traditionally, qualitative research involves identifying patterns in non-numeric data, and this pattern recognition is typically done manually. This process is time-intensive but can yield rich research results. Traditional methods for analyzing text data involve human coding and can include direct (e.g., books, online texts) or indirect sources (e.g., interview transcripts).
 
-With the advent of new software, we can capture and analyze text data in ways that were previously not possible. Modern data collection techniques include web scraping, accessing social media APIs, or downloading large online documents. Given the increased size of text data, analysis now requires computational approaches (e.g., dictionary-based, frequency-based, machine learning) that go beyond manual coding. These computational methods allow social scientists to ask new types of research questions, expanding the scope and depth of possible insights.
+With the advent of new software, we can capture and analyze text data in ways that were previously not possible, such as web scraping, accessing social media APIs, or downloading large online documents. Given the increased (opportunities for collecting and) size of text data, analysis now can benefit from computational approaches (e.g., dictionary-based, frequency-based, machine learning) that go beyond manual coding. As we discussed on the front matter of the book, these computational methods allow social scientists to ask new types of research questions, expanding the scope and depth of possible insights.
 
 > **Disclaimer**: While resources are available that discuss these analysis methods in depth, this book aims to provide a practical guide for social scientists, using data they will likely encounter. Our goal is to present a "cookbook" for guiding research projects through real-world examples.
 
 ## 2.2 Accessing Text Data
 
-For conventional qualitative researcher, text data comes from the usual sources such as interview transcripts or existing documents. Nowadays, however, text can be found and collected in many different ways. For example, social media is rich with text data, likewise for faculty who are teaching course (especially online), every student writing can be seen as a piece of text data. In this section, we will cover a few basic ways of accessing text data. Please note that although we cover some prominent ways, this is by no means an exhaustive list. Therefore, please refer to the additional resources section at the end of the section to dive deeper.
+Nowadays, text can be found and collected in many different ways. For example, social media can serve as rich with text data (e.g., Reddit posts), likewise text created in classrooms, especially online (e.g., every student writing) can become part of text data. In this section, we will cover a few basic ways of accessing text data. Please note that although we cover some prominent ways, this is by no means an exhaustive list. Therefore, please refer to the additional resources section at the end of the section to dive deeper.
 
 ### 2.2.1 Web Scraping (Unstructured or API)
 
@@ -370,7 +370,7 @@ In the following section, we will provide a "recipe" for the social scientist in
 
 ### 2.3.1 Purpose
 
-The purpose of the frequency-based approach is to count the number of words as they appear in a text file, whether it is a collection of tweets, documents, or interview transcripts. This approach aligns with the frequency-coding method (e.g., Saldana) and can supplement human coding by revealing the most/least commonly occurring words, which can then be compared across dependent variables.
+The purpose of the frequency-based approach is to count the number of words as they appear in a text file, whether it is a collection of tweets, documents, or interview transcripts. This approach aligns with the frequency-coding method (e.g., Saldaña ,2021) and can supplement human coding by revealing the most/least commonly occurring words, which can then be compared across dependent variables.
 
 #### Case Study: Frequency-Based Analysis of GenAI USage Guidelines in Higher Education
 
@@ -397,7 +397,7 @@ In order to analyze the data we used xyz, —-let's provide a sample write up fo
 
 ### 2.3.4 Analysis
 
-##### Step 1: Load Required Libraries
+#### Step 1: Load Required Libraries
 
 Install and load libraries for data processing, visualization, and word cloud generation.
 
@@ -418,7 +418,7 @@ library(wordcloud2)
 library(webshot)
 ```
 
-##### Step 2: Load Data
+#### Step 2: Load Data
 
 Read the CSV file containing policy texts from the top 100 universities.
 
@@ -427,7 +427,7 @@ Read the CSV file containing policy texts from the top 100 universities.
 university_policies <- read_csv("University_GenAI_Policy_Stance.csv")
 ```
 
-##### Step 3: Tokenize Text and Count Word Frequency
+#### Step 3: Tokenize Text and Count Word Frequency
 
 Process the text data by tokenizing words, removing stop words, and counting word occurrences.
 
@@ -440,7 +440,7 @@ word_frequency <- university_policies %>%
 word_frequency
 ```
 
-##### Step 4: Create a Word Cloud
+#### Step 4: Create a Word Cloud
 
 Generate a word cloud to visualize the frequency of words in a circular shape.
 
@@ -451,7 +451,7 @@ wordcloud(words = word_frequency$word, freq = word_frequency$n, scale = c(4, 0.5
 
 ```
 
-##### Step 5: Visualize Top 12 Words in University Policies
+#### Step 5: Visualize Top 12 Words in University Policies
 
 Select the top 12 most frequent words and create a bar chart to visualize the distribution.
 
@@ -492,7 +492,7 @@ print(policy_word_chart)
 
 The purpose of dictionary-based analysis in text data is to assess the presence of predefined categories, like emotions or sentiments, within the text using lexicons or dictionaries. This approach allows researchers to quantify qualitative aspects, such as positive or negative sentiment, based on specific words that correspond to these categories.
 
-**Case**:
+#### **Case**:
 
 In this analysis, we examine the stance of 100 universities on the use of GenAI by applying the Bing sentiment dictionary. By analyzing sentiment scores, we aim to identify the general tone in these policies, indicating whether the institutions' attitudes toward GenAI are predominantly positive or negative.
 
@@ -766,3 +766,7 @@ The identified themes reflect both concerns and opportunities:
 #### **Discussion:**
 
 The topic modeling results suggest that universities are navigating a complex landscape of opportunities and challenges as they incorporate GenAI into academic contexts. While student-centric policies aim to balance innovation with ethical considerations, institutional-level themes signal the need for governance frameworks to ensure responsible AI use. These findings indicate that higher education institutions are positioned to play a pivotal role in shaping the future of generative AI in learning, provided they address the ethical, pedagogical, and policy challenges identified in this analysis.
+
+#### References:
+
+Saldaña, J. (2021). Coding techniques for quantitative and mixed data. *The Routledge reviewer’s guide to mixed methods analysis*, 151-160.

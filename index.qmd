@@ -13,7 +13,7 @@ Conventionally, as social scientists, we start the research process by generatin
 
 We are limited in how we see the world: we don't know what we don't know. For example, for someone who does not know that Twitter posts can be collected and analyzed as data to capture the state of the world, studying Twitter data will most likely not become a topic for a research question. Once you start seeing what can be data in the world, it starts shaping our ideas of what is "researchable". Here is a simple model that we propose that shows the reciprocal nature of the research process, which is at the core of our aims in this book:
 
-![Figure 1. Research - data relationship](data/researchCycle.png)
+![Figure 1. Research - data relationship (Generated using Gemini Pro based on an earlier drawing by the authors)](data/researchCycle.png)
 
 We are writing this book because in the past few years what we described above has started happening for us. We have published work on Twitter data, Social Network analyses, natural language processing, and machine learning that was only possible after we learned what kind of data already existed around us. We thought other social scientists may benefit from a resource that not only tells them what is available as data but also guides them through concrete examples of going through this research journey along with us. We hope that along this journey you will develop your own research questions, and maybe even replicate some of the studies we imagined in this book.
 
