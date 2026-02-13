@@ -1,117 +1,153 @@
 ---
-title: "R"
+title: "Positron and RStudio"
 format: html
 ---
 
-We're not going to teach you RStudio comprehensively because excellent resources already exist for that purpose. We particularly recommend [*R for Data Science*](https://r4ds.hadley.nz/), [*Data Science in Education Using R*](https://datascienceineducation.com/), the [RStudio primers](https://posit.co/resources/primers/), and [*Happy Git and GitHub for the useR*](https://happygitwithr.com/).
+You need an environment for writing and running R code. We're going to focus on **Positron**, Posit's newer IDE built on the foundation of VS Code. If you're already comfortable with RStudio, everything in this chapter applies there too—the fundamental concepts are identical, and the R code in this book works the same way in both.
 
-Instead, this chapter covers just enough to reproduce our workflows and extend them to your own data science work. Think of this as the minimal viable setup for doing the work in this book.
+## Why Positron?
 
-## Three Ways to Write R Code
+Positron represents where computational social science workflows are heading: multi-language support (R and Python in the same environment), modern editor features inherited from VS Code, and a more extensible architecture. If you're coming from VS Code, Positron will feel immediately familiar. If you're new to both, you're learning a tool that's designed for the future of data science.
 
-RStudio supports multiple file types for writing R code. You'll encounter all three in data science work:
+That said, **RStudio remains great**. It's mature, widely documented, and has a loyal community. Some researchers prefer its more opinionated interface—everything you need is visible and organized for R-first workflows. If you're already using RStudio and prefer it, nothing in this book requires switching.
 
-### R Scripts (.R)
+The instructions below work in both environments unless otherwise noted. When we say "Positron," assume the same applies to RStudio.
 
-Plain text files containing R code, executed line-by-line or all at once. Great for data processing pipelines, functions, and code you'll reuse.
+## The Four Essential Panes
 
-Create one: File → New File → R Script
+Both Positron and RStudio organize your workspace into four main areas (though the layout is customizable):
 
-``` r
-# This is an R script
-# Lines starting with # are comments
-data <- read.csv("mydata.csv")
-summary(data)
-```
+-   **Source/Editor** (top-left): Where you write and edit your code files (.R scripts, .qmd documents)
+-   **Console** (bottom-left): Where R actually executes code and shows results in real-time
+-   **Environment/Variables** (top-right): Shows the objects (data, functions, etc.) currently loaded in memory
+-   **Files/Plots/Help** (bottom-right): Navigate your project files, view visualizations, and access documentation
 
-### R Markdown (.Rmd)
+![Positron Interface](docs/chapter-1_files/positronIDE.png){width="648"}
 
-Documents that weave together narrative text (in Markdown) and code chunks. When you "knit" an R Markdown file, it executes the code and generates a formatted document (HTML, PDF, or Word).
+The defaults work fine for now. As you get comfortable, you might adjust panel sizes or move things around, but the essential logic stays the same: code on the left, context on the right.
 
-You should know R Markdown exists because you'll encounter it in older resources and projects, but we're not using it in this book.
+## R Projects
 
-### Quarto (.qmd)
+**Always work in an R Project.** This is the single most important RStudio habit for reproducibility.
 
-Quarto is the successor to R Markdown, with better multi-language support (R, Python, Julia) and more consistent syntax. It's what we'll use throughout this book.
+An R Project is a folder that contains all files for a particular analysis—data, scripts, outputs—and sets your working directory automatically. This means your code will work on any computer without changing file paths.
 
-Create one: File → New File → Quarto Document
+To create a new project:
 
-The structure looks similar to R Markdown, but the rendering engine is more powerful:
+1.  File → New Project
+2.  Choose "New Directory" or "Existing Directory"
+3.  Name your project (e.g., "my-first-css-analysis")
+4.  Click "Create Project"
 
-```` markdown
----
-title: "My Analysis"
-format: html
----
+Notice the `.Rproj` file in your folder? That's your project file. Double-click it to open Positron or RStudio with the correct working directory already set.
 
-## Introduction
+## Version Control with Git and GitHub
 
-This is regular text.
-```{{r}}
-# This is a code chunk
-x <- 1:10
-mean(x)
-```
-````
+Git is how computational social scientists version, share, and collaborate on their work. GitHub is the most popular platform for hosting Git repositories. If you've never used version control before, this section will get you set up with a workflow that integrates directly into your IDE.
 
-Click the "Render" button (or Ctrl/Cmd + Shift + K) to execute all code and generate your document.
+### Why Git Matters
 
-**Key difference for beginners**: Think of R scripts as "just code" and Quarto as "code + explanation + output" in one document. Use scripts for behind-the-scenes work, Quarto for analysis you want to share or understand later.
+Without version control, you end up with files like `analysis_final.R`, `analysis_final2.R`, `analysis_ACTUALLY_final.R`. Git tracks every change you make, so you can:
 
-## Console vs. Source: Exploration vs. Preservation
+-   Go back to any previous version without keeping multiple copies
+-   Experiment freely—if something breaks, you can always revert
+-   Collaborate with others without emailing files back and forth
+-   Share your work publicly for transparency and reproducibility
 
-A common pattern in data science work:
+Most computational social science projects live in Git repositories, and employers expect researchers to be comfortable with basic version control.
 
--   **Console**: Quick exploration, testing ideas, checking output. Code here disappears when you close RStudio.
--   **Source** (scripts/Quarto): Code you want to keep, reproduce, or share. This is your permanent record.
+### Git Integration
 
-Early on, you might type everything in the Console. That's fine for learning! But as soon as you do something you want to remember, put it in a script or Quarto file.
+Once Git is configured, you'll see version control features built into your environment:
 
-## When You Get Stuck
+-   **In RStudio**: A "Git" tab appears in the Environment pane (top-right)
+-   **In Positron**: Git integration works through the Source Control panel (often on the left sidebar)
 
-### Reading Error Messages
+Either way, you can stage changes, write commit messages, and push to GitHub without leaving your editor. This is far friendlier than memorizing terminal commands.
 
-When something goes wrong, R prints an error message in the Console (usually in red). These messages often look cryptic at first, but they're trying to help:
+### Setting Up Git and GitHub: The Path of Least Resistance
+
+Git authentication is notoriously confusing. We're going to use an R-native approach that minimizes pain: **Personal Access Tokens (PAT) via the `usethis` package**. This keeps you in familiar territory and works reliably for the kind of work you'll do in this book.
+
+#### Step 1: Install Required Packages
 
 ``` r
-Error in mean(x) : object 'x' not found
+install.packages("usethis")
+install.packages("gitcreds")
 ```
 
-This tells you exactly what went wrong: R couldn't find an object called `x`. Either you misspelled it, or you haven't created it yet.
+#### Step 2: Configure Your Git Identity
 
-### Getting Help on Functions
-
-R has built-in documentation for every function:
+Tell Git who you are (one-time setup):
 
 ``` r
-?mean           # Opens help for the mean() function
-??regression    # Searches all help files for "regression"
+usethis::use_git_config(
+  user.name = "Jane Doe",           # Your actual name
+  user.email = "jane@example.com"   # Email associated with GitHub
+)
 ```
 
-Help files include descriptions, arguments, examples, and related functions.
+**Important**: Use the same email address you'll use (or already use) for your GitHub account.
 
-### Where Computational Social Scientists Get Help
+#### Step 3: Create a GitHub Personal Access Token
 
-When you're truly stuck, the R community is remarkably helpful:
+``` r
+usethis::create_github_token()
+```
 
--   [RStudio Community](https://community.rstudio.com/): Welcoming forum for all R questions
--   [Stack Overflow](https://stackoverflow.com/questions/tagged/r): Searchable archive of millions of questions
--   [R for Data Science Online Learning Community](https://rfordatasci.com/): Active Slack workspace
+This opens GitHub in your browser. You'll need to:
 
-**Pro tip**: Before asking a question, try searching for your error message. Someone has likely encountered it before.
+1.  Log in to GitHub if you haven't already
+2.  Leave the default scopes checked (at minimum: "repo" and "workflow")
+3.  Set expiration to 90 days (good security practice, though you'll regenerate when it expires)
+4.  Click "Generate token" at the bottom
+5.  **Copy the token immediately**—GitHub only shows it once
 
-Of course, turning to AI can also help, as we describe next.
+The token looks like: `ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
 
-### Large Language Models and AI Tools
+#### Step 4: Store Your Token in R
 
-In Section 3, we cover using large language models as part of a research workflow. But LLMs are also useful for getting unstuck when you're learning and this is increasingly how working data scientists operate.
+``` r
+gitcreds::gitcreds_set()
+```
 
-Two approaches work well:
+When prompted, paste your token and press Enter. R stores it securely for future use.
 
-1.  **Ask LLMs directly**: ChatGPT, Claude, or your preferred model can explain error messages, suggest debugging approaches, and clarify confusing documentation. Copy your error message, describe what you were trying to do, and ask for help.
+#### Step 5: Verify Everything Worked
 
-2.  **Use GitHub Copilot**: An AI coding assistant that works inside your editor (setup covered in the next chapter). It can suggest code completions, explain what existing code does, and generate boilerplate. Think of it as an always-available pair programmer.
+``` r
+usethis::git_sitrep()
+```
 
-The best programmers don't memorize every function—they know how to find answers quickly. LLMs have become part of that toolkit, alongside documentation, Stack Overflow, and experimentation. Use them when you're stuck, but also pay attention to *why* solutions work. That's how you build intuition.
+This diagnostic report should show: - Your name and email - "Personal access token for 'https://github.com': '\<discovered\>'"
 
-Please see section 1.4 for more information about the relationship between you, data, and LLMs.
+If so, you're all set. If not, see troubleshooting below.
+
+### Alternative: SSH Keys (For the Long Haul)
+
+SSH keys can be convenient—set them up once and never think about authentication again. But they're more complex to configure initially.
+
+Interested? See [Happy Git with R, Chapters 10-12](https://happygitwithr.com/ssh-keys.html). For now, the PAT method will serve you well.
+
+### Using Git in Practice
+
+We'll introduce Git commands as you need them throughout the book. For now, know that your IDE gives you a graphical interface for the most common operations:
+
+-   **Pull**: Download changes from GitHub (always do this before starting work)
+-   **Commit**: Save a snapshot of your changes with a descriptive message
+-   **Push**: Upload your commits to GitHub
+
+You can also use terminal commands (`git status`, `git add`, `git commit`, `git push`) if you prefer, but the IDE interface handles 90% of everyday tasks.
+
+The key habit: commit often with clear messages ("Add data cleaning script" rather than "changes"), and push regularly so your work is backed up and others can see your progress.
+
+## Going Further
+
+This chapter gave you a working environment. When you're ready to explore more:
+
+-   [Positron Documentation](https://github.com/posit-dev/positron/wiki): Official docs for Positron features
+-   [RStudio User Guide](https://docs.posit.co/ide/user/): Comprehensive guide to all RStudio capabilities
+-   [Happy Git and GitHub for the useR](https://happygitwithr.com/): Everything Git-related for R users
+-   [GitHub Skills](https://skills.github.com/): Interactive tutorials for Git and GitHub
+
+Advanced features worth exploring later: - **Keyboard shortcuts** (speed up your workflow dramatically) - **Code snippets** (type abbreviations that expand to code templates) - **Debugger** (step through code line-by-line when things break) - **Extensions** (especially in Positron, where VS Code extensions work)

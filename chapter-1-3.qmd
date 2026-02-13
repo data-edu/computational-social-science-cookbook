@@ -20,9 +20,11 @@ The tidyverse is actually a meta-package that loads eight core packages when you
 -   **stringr**: String manipulation
 -   **forcats**: Working with categorical variables (factors)
 
-You don't need to master all of these immediately. Most data work relies heavily on `dplyr` and `ggplot2`, with the others playing supporting roles as needed.
+Most of the work we do in this chapter relies heavily on `dplyr` and `ggplot2`, with the others playing supporting roles as needed.
 
 ## Installing and Loading the Tidyverse
+
+You install packages like any others in R.
 
 Installation (one time):
 
