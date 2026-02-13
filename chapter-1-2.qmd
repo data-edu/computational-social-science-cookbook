@@ -24,6 +24,24 @@ data <- read.csv("mydata.csv")
 summary(data)
 ```
 
+Here's a more realistic example using student assessment data. Save this as `explore-data.R`:
+
+``` r
+# Example: Quick data exploration in an R script
+library(tidyverse)
+
+# Read the data
+students <- read_csv("data/oulad-students-and-assessments.csv")
+
+# Quick summaries
+summary(students$mean_weighted_score)
+table(students$final_result)
+```
+
+[Screenshot: R script open in Source pane]
+
+This script loads the tidyverse package (more on this in the next chapter), reads a CSV file, and produces quick summaries. You can run it line-by-line using Cmd/Ctrl + Enter, or run the entire script at once. The output appears in the Console, but the script itself is saved for later use.
+
 ### R Markdown (.Rmd)
 
 Documents that weave together narrative text (in Markdown) and code chunks. When you "knit" an R Markdown file, it executes the code and generates a formatted document (HTML, PDF, or Word).
@@ -56,14 +74,114 @@ mean(x)
 
 Click the "Render" button (or Ctrl/Cmd + Shift + K) to execute all code and generate your document.
 
+Here's a more complete Quarto example analyzing student data:
+
+```` markdown
+---
+title: "OULAD Student Analysis"
+format: html
+---
+
+## Loading Data
+
+First, we'll load the student assessment data from the Open University Learning Analytics Dataset:
+
+```{{r}}
+library(tidyverse)
+students <- read_csv("data/oulad-students-and-assessments.csv")
+```
+
+## Pass Rates by Gender
+
+Let's examine how pass rates differ by gender:
+
+```{{r}}
+students |>
+  group_by(gender, pass) |>
+  count() |>
+  pivot_wider(names_from = pass, values_from = n)
+```
+
+The table above shows the number of students who passed (1) and didn't pass (0) for each gender. We can see that both groups have substantial representation in the dataset.
+````
+
+[Screenshot: Rendered Quarto document showing code and output]
+
+When you render this document, Quarto executes each code chunk in order, captures the output, and weaves it together with your explanatory text. The result is an HTML document where readers see your code, your results, and your interpretation all together. This makes your analysis reproducible—anyone with your data can re-run your Quarto file and get the same results.
+
 **Key difference for beginners**: Think of R scripts as "just code" and Quarto as "code + explanation + output" in one document. Use scripts for behind-the-scenes work, Quarto for analysis you want to share or understand later.
+
+### Controlling Chunk Behavior with Options
+
+Quarto lets you control what appears in your rendered document using chunk options. These are specified at the top of each code chunk using `#|` syntax.
+
+Common options include:
+
+-   `#| echo: false` — Hide the code, show only the output
+-   `#| eval: false` — Show the code but don't run it
+-   `#| warning: false` — Suppress warning messages
+-   `#| message: false` — Suppress messages (like package loading notifications)
+-   `#| fig-width: 8` and `#| fig-height: 6` — Control plot dimensions in inches
+
+Here's an example showing how to hide code while displaying a plot:
+
+```` markdown
+```{{r}}
+#| echo: false
+#| message: false
+
+library(tidyverse)
+students <- read_csv("data/oulad-students-and-assessments.csv")
+
+students |>
+  ggplot(aes(x = final_result)) +
+  geom_bar() +
+  labs(title = "Distribution of Final Results")
+```
+````
+
+[Screenshot: Quarto document showing chunk options at top of code block]
+
+When rendered, readers see the plot but not the code that created it. This is useful for final reports where you want to emphasize results rather than implementation details.
+
+You can also set options globally for the entire document by adding them to your YAML header. For example, to hide all code by default:
+
+``` yaml
+---
+title: "My Analysis"
+format: html
+execute:
+  echo: false
+---
+```
+
+Individual chunks can override global settings. For more options, see the [Quarto documentation on execution options](https://quarto.org/docs/computations/execution-options.html).
 
 ## Console vs. Source: Exploration vs. Preservation
 
 A common pattern in data science work:
 
--   **Console**: Quick exploration, testing ideas, checking output. Code here disappears when you close RStudio.
+-   **Console**: Quick exploration, testing ideas, checking output. Code here disappears when you close Positron.
 -   **Source** (scripts/Quarto): Code you want to keep, reproduce, or share. This is your permanent record.
+
+Here's what this looks like in practice. Try this in the Console for a quick calculation:
+
+``` r
+# In Console - just exploring
+mean(c(85, 92, 78, 95, 88))
+[1] 87.6
+```
+
+That's useful for a quick check, but if you want to preserve this process for later:
+
+``` r
+# In a script - keeping a record
+test_scores <- c(85, 92, 78, 95, 88)
+average_score <- mean(test_scores)
+print(average_score)
+```
+
+The second approach creates a record you can return to, modify, and share. If you later need to change the scores or calculate something else, the script preserves your workflow.
 
 Early on, you might type everything in the Console. That's fine for learning! But as soon as you do something you want to remember, put it in a script or Quarto file.
 
@@ -107,8 +225,63 @@ Two approaches work well:
 
 1.  **Ask LLMs directly**: ChatGPT, Claude, or your preferred model can explain error messages, suggest debugging approaches, and clarify confusing documentation. Copy your error message, describe what you were trying to do, and ask for help.
 
-2.  **Use GitHub Copilot**: An AI coding assistant that works inside your editor (setup covered in the next chapter). It can suggest code completions, explain what existing code does, and generate boilerplate. Think of it as an always-available pair programmer.
+2.  **Use AI tools directly in Positron**: AI coding assistants can work inside your editor to suggest code completions, explain what existing code does, and generate boilerplate. We'll cover how to set these up in the next section.
 
 The best programmers don't memorize every function—they know how to find answers quickly. LLMs have become part of that toolkit, alongside documentation, Stack Overflow, and experimentation. Use them when you're stuck, but also pay attention to *why* solutions work. That's how you build intuition.
 
-Please see section 1.4 for more information about the relationship between you, data, and LLMs.
+#### Using AI Tools Directly in Positron
+
+Positron, being built on VS Code, supports AI assistant extensions that can help you write code more efficiently and understand errors more quickly.
+
+**AI Integration Options**
+
+Several AI extensions work in Positron:
+
+-   **GitHub Copilot**: The most popular AI pair programmer, offering real-time code suggestions
+-   **Claude for VS Code**: Provides AI assistance with code explanation and generation
+-   **Continue**: An open-source AI coding assistant that works with multiple LLM providers
+
+We'll focus on GitHub Copilot as it's widely adopted in data science work, but the workflow is similar for other extensions.
+
+**Setting Up GitHub Copilot**
+
+1.  Open the Extensions panel in Positron (View → Extensions, or the extensions icon in the left sidebar)
+2.  Search for "GitHub Copilot"
+3.  Click Install on the official GitHub Copilot extension
+4.  After installation, you'll be prompted to sign in with your GitHub account
+5.  Click "Sign in to GitHub" and complete the authentication in your browser
+
+**Note on access**: GitHub Copilot requires a subscription (around $10/month), though it's free for verified students and teachers. If you have a student email address, you can get free access through [GitHub Education](https://education.github.com/).
+
+**Using Copilot**
+
+Once installed, Copilot suggests code as you type. For example, if you write a comment describing what you want to do:
+
+``` r
+# Calculate the mean score by gender and pass status
+```
+
+Copilot will suggest the code to accomplish this. Press Tab to accept the suggestion, or keep typing to ignore it. The suggestions appear in gray text as you work.
+
+[Screenshot: Copilot providing code suggestion in Positron]
+
+You can also:
+
+-   Ask Copilot to explain code: Highlight code and right-click → Copilot → Explain This
+-   Request alternatives: If a suggestion isn't quite right, you can cycle through alternatives using Alt/Option + \]
+-   Use Copilot Chat: Open the chat panel to have a conversation about your code
+
+**When to Use Inline AI vs. External LLMs**
+
+Different tools excel at different tasks:
+
+-   **Inline AI (Copilot)**: Quick code completions, writing repetitive code, remembering function syntax, generating common patterns
+-   **External LLMs (ChatGPT/Claude)**: Complex explanations, understanding concepts, debugging logic errors, learning new approaches
+
+Many programmers use both: Copilot for day-to-day coding, external LLMs when they're truly stuck or learning something new.
+
+**Important Caution**
+
+AI suggestions aren't always correct. Always review code before accepting it, especially for data analysis where subtle errors can lead to wrong conclusions. Use AI tools to speed up your work, but verify that the code does what you think it does.
+
+Please see Section 1.4 for more information about the relationship between you, data, and LLMs.
