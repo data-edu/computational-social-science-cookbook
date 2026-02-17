@@ -20,9 +20,11 @@ The tidyverse is actually a meta-package that loads eight core packages when you
 -   **stringr**: String manipulation
 -   **forcats**: Working with categorical variables (factors)
 
-You don't need to master all of these immediately. Most data work relies heavily on `dplyr` and `ggplot2`, with the others playing supporting roles as needed.
+Most of the work we do in this chapter relies heavily on `dplyr` and `ggplot2`, with the others playing supporting roles as needed.
 
 ## Installing and Loading the Tidyverse
+
+You install packages like any others in R.
 
 Installation (one time):
 
@@ -38,36 +40,394 @@ library(tidyverse)
 
 When you load the tidyverse, you'll see a message listing which packages were attached and any conflicts (functions from tidyverse packages that mask base R functions). The conflicts are normal and intentional—tidyverse functions are generally preferable for data science work.
 
+## Working with Real Data
+
+Let's load actual data to see the tidyverse in action. We'll use student assessment data from the Open University Learning Analytics Dataset (OULAD), which contains information about student demographics and course outcomes.
+
+``` r
+library(tidyverse)
+
+# Read the data
+students <- read_csv("data/oulad-students-and-assessments.csv")
+
+# Take a quick look
+glimpse(students)
+```
+
+[Screenshot: Console showing glimpse() output of students data]
+
+The `glimpse()` function shows you the structure of your data: how many rows and columns, what type each column is (character, numeric, etc.), and the first few values. This dataset contains information about students (gender, age, region, disability status) along with their course performance (final_result, pass status, mean_weighted_score).
+
+This is the dataset we'll use in the examples below. It represents the kind of educational data you'll work with in computational social science: thousands of observations with both categorical and continuous variables.
+
+## Essential dplyr Functions
+
+The dplyr package provides functions for the most common data manipulation tasks. Here are the ones you'll use repeatedly.
+
+### filter() - Selecting Rows
+
+Use `filter()` to keep only rows that meet certain conditions:
+
+``` r
+# Keep only students who passed
+passed_students <- students |>
+  filter(pass == 1)
+
+# Multiple conditions with AND (comma means AND)
+passed_females <- students |>
+  filter(pass == 1, gender == "F")
+
+# OR condition using |
+good_outcomes <- students |>
+  filter(pass == 1 | mean_weighted_score > 800)
+```
+
+This gives us 22,333 passed students from the original 32,593. Use `==` for equality tests, `>` and `<` for comparisons, and combine conditions with commas (AND) or `|` (OR).
+
+### select() - Choosing Columns
+
+Use `select()` to pick which columns to keep or remove:
+
+``` r
+# Select specific columns
+student_basics <- students |>
+  select(id_student, gender, age_band, final_result)
+
+# Remove columns with minus sign
+student_no_dates <- students |>
+  select(-date_registration, -date_unregistration)
+
+# Select by pattern
+student_demographics <- students |>
+  select(starts_with("id"), gender, region)
+```
+
+The `select()` function is useful when you have many columns but only need a few for analysis. Helper functions like `starts_with()`, `ends_with()`, and `contains()` make it easy to select groups of related columns.
+
+### mutate() - Creating or Modifying Columns
+
+Use `mutate()` to add new columns or change existing ones:
+
+``` r
+# Create new column
+students <- students |>
+  mutate(high_achiever = mean_weighted_score > 800)
+
+# Modify existing column
+students <- students |>
+  mutate(age_band = factor(age_band))
+
+# Multiple new columns at once
+students <- students |>
+  mutate(
+    score_category = case_when(
+      mean_weighted_score > 800 ~ "High",
+      mean_weighted_score > 650 ~ "Medium",
+      TRUE ~ "Low"
+    )
+  )
+```
+
+The `case_when()` function inside `mutate()` handles conditional logic: if mean_weighted_score is over 800, assign "High"; if over 650, assign "Medium"; otherwise (TRUE), assign "Low".
+
+### summarize() - Calculating Summaries
+
+Use `summarize()` to collapse your data into summary statistics:
+
+``` r
+# Overall statistics
+students |>
+  summarize(
+    mean_score = mean(mean_weighted_score, na.rm = TRUE),
+    pass_rate = mean(pass, na.rm = TRUE),
+    n_students = n()
+  )
+
+# Output:
+#   mean_score pass_rate n_students
+#        722.4     0.685     32,593
+```
+
+The `na.rm = TRUE` argument tells R to ignore missing values when calculating means. The `n()` function counts the number of rows.
+
+### group_by() - Operations by Group
+
+Use `group_by()` before `summarize()` to calculate statistics for each group separately:
+
+``` r
+# Pass rates by gender
+students |>
+  group_by(gender) |>
+  summarize(
+    pass_rate = mean(pass, na.rm = TRUE),
+    n = n()
+  )
+
+# Output:
+#   gender pass_rate     n
+#   F          0.701 17,329
+#   M          0.665 15,264
+
+# Multiple grouping variables
+students |>
+  group_by(gender, disability) |>
+  summarize(mean_score = mean(mean_weighted_score, na.rm = TRUE))
+```
+
+After `group_by()`, subsequent operations happen separately for each group. This is one of the most powerful patterns in data analysis: split your data into groups, apply a function to each group, then combine the results.
+
+### arrange() - Sorting Rows
+
+Use `arrange()` to reorder rows:
+
+``` r
+# Sort by score (ascending by default)
+students |>
+  arrange(mean_weighted_score)
+
+# Sort descending
+students |>
+  arrange(desc(mean_weighted_score))
+
+# Multiple sort keys
+students |>
+  arrange(gender, desc(mean_weighted_score))
+```
+
+This is useful when you want to see the highest or lowest values, or when you need data in a particular order for plotting or reporting.
+
+### count() - Quick Frequency Tables
+
+Use `count()` as a shortcut for `group_by()` + `summarize(n = n())`:
+
+``` r
+# Count final results
+students |>
+  count(final_result)
+
+# Output:
+#   final_result     n
+#   Distinction  3,124
+#   Fail         7,052
+#   Pass        18,229
+#   Withdrawn    4,188
+
+# Count with percentages
+students |>
+  count(final_result) |>
+  mutate(percent = n / sum(n) * 100)
+```
+
+The `count()` function is perfect for quickly understanding the distribution of categorical variables.
+
 ## The Pipe Operator: `|>` and `%>%`
 
 The tidyverse introduced a distinctive style: piping operations together to create readable data transformation pipelines. Instead of nesting functions inside each other, you "pipe" the output of one function into the next.
 
-R now has a native pipe operator `|>` (introduced in R 4.1), while the tidyverse originally used `%>%` from the magrittr package. They work almost identically for most purposes:
+R now has a native pipe operator `|>` (introduced in R 4.1), while the tidyverse originally used `%>%` from the magrittr package. They work almost identically for most purposes.
+
+Here's a concrete example using the dplyr functions we just learned:
 
 ``` r
 # Without pipes (nested, hard to read)
-summary(filter(select(data, age, income), age > 18))
+summarize(
+  group_by(
+    filter(students, pass == 1),
+    gender
+  ),
+  mean_score = mean(mean_weighted_score, na.rm = TRUE)
+)
 
-# With native pipe |> (readable, left-to-right)
-data |>
-  select(age, income) |>
-  filter(age > 18) |>
-  summary()
+# With pipes (clear, step-by-step)
+students |>
+  filter(pass == 1) |>
+  group_by(gender) |>
+  summarize(mean_score = mean(mean_weighted_score, na.rm = TRUE))
 
-# With magrittr pipe %>% (functionally similar)
-data %>%
-  select(age, income) %>%
-  filter(age > 18) %>%
-  summary()
+# Output:
+#   gender mean_score
+#   F           736.4
+#   M           724.8
 ```
+
+The piped version reads like instructions: "Take students, *then* keep only those who passed, *then* group by gender, *then* calculate mean scores." Each step is on its own line, making it easy to follow the logic.
 
 We'll use the native pipe `|>` throughout this book because it's now built into R, but you'll encounter `%>%` in older code and documentation. For practical purposes, they're interchangeable in most tidyverse workflows.
 
-**How to read it**: Think of `|>` as "then." The code above reads: "Take data, *then* select age and income columns, *then* filter for adults, *then* get a summary."
+**How to read it**: Think of `|>` as "then." The pipe takes the result from the left and passes it as the first argument to the function on the right.
+
+## Data Visualization with ggplot2
+
+The ggplot2 package uses a "grammar of graphics" approach where you build plots in layers. You start with your data, specify how variables map to visual properties (x-axis, y-axis, colors), then add geometric objects like points, bars, or lines.
+
+### Basic Structure
+
+Every ggplot follows this template:
+
+``` r
+ggplot(data = DATA, aes(x = X_VAR, y = Y_VAR)) +
+  geom_FUNCTION()
+```
+
+The `aes()` function (short for "aesthetics") maps your data columns to visual properties. The `geom_` functions specify what kind of plot to draw.
+
+### Bar Charts - Categorical Data
+
+Use `geom_bar()` to visualize counts of categorical variables:
+
+``` r
+# Simple bar chart
+students |>
+  ggplot(aes(x = final_result)) +
+  geom_bar()
+```
+
+This automatically counts how many students have each final result (Pass, Fail, Distinction, Withdrawn) and displays the counts as bars.
+
+``` r
+# Stacked bar chart by group
+students |>
+  ggplot(aes(x = gender, fill = final_result)) +
+  geom_bar()
+```
+
+[Screenshot: Stacked bar chart showing final results by gender]
+
+The `fill` aesthetic colors the bars by final_result, creating stacked bars that show how outcomes differ between genders.
+
+``` r
+# Side-by-side bars
+students |>
+  ggplot(aes(x = gender, fill = final_result)) +
+  geom_bar(position = "dodge")
+```
+
+Setting `position = "dodge"` puts bars next to each other instead of stacking them, making it easier to compare counts directly.
+
+### Histograms - Distributions
+
+Use `geom_histogram()` to see the distribution of continuous variables:
+
+``` r
+# Distribution of scores
+students |>
+  ggplot(aes(x = mean_weighted_score)) +
+  geom_histogram(binwidth = 50)
+```
+
+The `binwidth` argument controls how wide each bar is. Smaller values show more detail, larger values show broader patterns.
+
+``` r
+# Separate distributions by group
+students |>
+  filter(!is.na(mean_weighted_score)) |>
+  ggplot(aes(x = mean_weighted_score, fill = factor(pass))) +
+  geom_histogram(binwidth = 50, position = "identity", alpha = 0.5)
+```
+
+Using `position = "identity"` overlays the histograms, and `alpha = 0.5` makes them semi-transparent so you can see both distributions.
+
+### Boxplots - Comparing Distributions
+
+Use `geom_boxplot()` to compare distributions across groups:
+
+``` r
+# Scores by final result
+students |>
+  filter(!is.na(mean_weighted_score)) |>
+  ggplot(aes(x = final_result, y = mean_weighted_score)) +
+  geom_boxplot()
+```
+
+[Screenshot: Boxplot showing score distributions by final result]
+
+Boxplots show the median (middle line), quartiles (box edges), and outliers (individual points). This makes it easy to see that Distinction students have higher median scores than Pass students, who score higher than those who Fail or Withdraw.
+
+``` r
+# With colors
+students |>
+  filter(!is.na(mean_weighted_score)) |>
+  ggplot(aes(x = final_result, y = mean_weighted_score, fill = final_result)) +
+  geom_boxplot()
+```
+
+Adding `fill` colors each boxplot by the category, making them easier to distinguish.
+
+### Scatter Plots - Relationships
+
+Use `geom_point()` to explore relationships between two continuous variables:
+
+``` r
+# Registration timing vs. scores
+students |>
+  filter(!is.na(mean_weighted_score)) |>
+  ggplot(aes(x = date_registration, y = mean_weighted_score)) +
+  geom_point(alpha = 0.3)
+```
+
+The `alpha` parameter makes points semi-transparent, which helps when many points overlap. This plot would show whether students who register earlier tend to score higher or lower.
+
+``` r
+# Add a trend line
+students |>
+  filter(!is.na(mean_weighted_score)) |>
+  ggplot(aes(x = date_registration, y = mean_weighted_score)) +
+  geom_point(alpha = 0.3) +
+  geom_smooth(method = "lm")
+```
+
+Adding `geom_smooth(method = "lm")` fits a linear model and displays the trend line with a confidence band, making patterns easier to see.
+
+### Improving Plots with Labels and Themes
+
+Good plots need clear labels:
+
+``` r
+students |>
+  ggplot(aes(x = final_result)) +
+  geom_bar(fill = "steelblue") +
+  labs(
+    title = "Distribution of Student Outcomes",
+    x = "Final Result",
+    y = "Number of Students"
+  ) +
+  theme_minimal()
+```
+
+The `labs()` function adds titles and axis labels. The `theme_minimal()` function applies a clean, simple theme. Other themes include `theme_bw()`, `theme_classic()`, and `theme_light()`.
+
+### Faceting - Small Multiples
+
+Use faceting to create separate plots for different groups:
+
+``` r
+# Separate plot for each course module
+students |>
+  ggplot(aes(x = final_result)) +
+  geom_bar() +
+  facet_wrap(~code_module)
+```
+
+This creates a grid of small bar charts, one for each module. It's useful when you want to compare patterns across many categories.
+
+``` r
+# Grid by two variables
+students |>
+  filter(!is.na(mean_weighted_score)) |>
+  ggplot(aes(x = mean_weighted_score)) +
+  geom_histogram(binwidth = 50) +
+  facet_grid(gender ~ disability)
+```
+
+[Screenshot: Faceted histogram showing score distributions by gender and disability status]
+
+`facet_grid()` creates a matrix of plots: rows for one variable (gender), columns for another (disability). This lets you see how score distributions vary across combinations of factors.
 
 ## Next Steps
 
-This chapter provides a foundation for tidyverse thinking. The subsequent chapters in this book use tidyverse functions extensively, and we'll explain new functions as they appear. You'll learn by doing, with real data and real research questions.
+You've now seen core tidyverse functions in action with real data. The seven dplyr functions covered here—`filter()`, `select()`, `mutate()`, `summarize()`, `group_by()`, `arrange()`, and `count()`—handle the majority of everyday data manipulation tasks. The ggplot2 visualizations—bar charts, histograms, boxplots, scatter plots, and faceting—cover most exploratory analysis needs.
+
+The subsequent chapters in this book use these functions extensively, and we'll introduce additional tidyverse capabilities as they become relevant. You'll continue learning by doing, working with real data and real research questions.
 
 When you want to go deeper:
 

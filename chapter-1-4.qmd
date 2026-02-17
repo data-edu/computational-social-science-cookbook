@@ -3,7 +3,7 @@ title: "LLMs and Data Science"
 format: html
 ---
 
-### (Responsible) use of LLMs in Data Science
+### The (Responsible) Use of LLMs in Data Science
 
 As we integrate large language models into data analysis, our responsibilities as researchers evolve in important ways . There are three primary approaches to this integration:
 
@@ -15,7 +15,7 @@ As we integrate large language models into data analysis, our responsibilities a
 
 ### The Responsible Use Framework
 
-The responsible use framework for LLMs in research, presented by Joe Cheng at R+AI Conference 2025 (Cheng, 2025), can be used as a practical evaluation tool centering on three essential criteria. **Correctness** refers to whether the LLM produces accurate and reliable results that can be verified and trusted. **Transparency** addresses whether the process and reasoning behind the AI's outputs are visible and understandable to researchers, allowing them to inspect how conclusions were reached. **Reproducibility** concerns whether the same analysis can be repeated and yield consistent results, a foundational requirement of scientific research. These three categories align with broader responsible AI governance principles commonly found in organizational frameworks but are specifically tailored to the research context where verifiability and scientific rigor are key. For an LLM application in research to be considered responsibly used, it should ideally achieve "yes" answers across all three criteria, ensuring that the technology enhances rather than compromises research integrity.
+The responsible use framework for LLMs in research, presented by Joe Cheng at R+AI Conference 2025 @Cheng2025LLMResponsible can be used as a practical evaluation tool centering on three essential criteria. **Correctness** refers to whether the LLM produces accurate and reliable results that can be verified and trusted. **Transparency** addresses whether the process and reasoning behind the AI's outputs are visible and understandable to researchers, allowing them to inspect how conclusions were reached. **Reproducibility** concerns whether the same analysis can be repeated and yield consistent results, a foundational requirement of scientific research. These three categories align with broader responsible AI governance principles commonly found in organizational frameworks but are specifically tailored to the research context where verifiability and scientific rigor are key. For an LLM application in research to be considered responsibly used, it should ideally achieve "yes" answers across all three criteria, ensuring that the technology enhances rather than compromises research integrity.
 
 ### Applying the Resposible Use Framework
 
@@ -26,7 +26,3 @@ In contrast, the third approach where LLMs directly analyze qualitative or text 
 ### Achieving Responsible Usage Through Evidence-Based Results
 
 However, for the third type of usage where LLMs directly analyze data (as we do in Section X), we can work toward achieving "yes" answers across all (or as many as possible) three framework criteria by requiring LLMs to produce evidence-based results. As we cover in Section 6, it is possible to use a Local LLM that is connected to R/Positron. In this approach, the researcher has control over the data analysis over simply pasting text into an LLMs chatbox. For example, this can be done by structuring prompts to demand transparent, verifiable outputs, such as requiring the LLM to identify themes, provide verbatim quotes from the source data, report frequencies with counts and percentages, and present findings in standardized tabular formats. We transform the black box into a more transparent analytical tool. This approach ensures **correctness** by grounding every claim in specific textual evidence that researchers can verify, enhances **transparency** by making the analytical reasoning traceable through quoted examples and quantitative metrics, and improves **reproducibility** by standardizing the output format and maintaining clear documentation of the analytical process. When LLMs are constrained to cite their sources, quantify their observations, and structure their findings systematically, they shift from opaque pattern generators to accountable research assistants whose work can be validated against the original data. This methodology aligns with the recommendation for constrained use and micromanaged implementation, ensuring that LLMs remain within appropriate boundaries while still providing valuable analytical support for qualitative research.
-
-Reference
-
-Cheng, J. (2025). *Harnessing the power of LLMs for responsible data science and research* \[Conference presentation\]. R+AI 2025. Available at [**https://r-consortium.org/posts/keeping-llms-in-their-lane-focused-ai-for-data-science-and-research/**](https://r-consortium.org/posts/keeping-llms-in-their-lane-focused-ai-for-data-science-and-research/)
