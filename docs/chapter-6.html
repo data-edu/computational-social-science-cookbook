@@ -484,15 +484,28 @@ The use of large language models (LLMs) in data analysis is rapidly increasing a
 <section id="what-are-local-llms" class="level2">
 <h2 class="anchored" data-anchor-id="what-are-local-llms">6.1 What are Local LLMs?</h2>
 <p>Local LLMs are large language models that run directly on your own computer, rather than in the cloud. By processing data locally, they help ensure privacy, data sovereignty, and compliance with institutional or governmental regulations. Local LLMs can be open-source (such as Llama, Qwen, DeepSeek, Mistral) and are compatible with various operating systems and hardware.</p>
-<p><strong>Key advantages of local LLMs:</strong> - Data never leaves your computer - No need for external API keys or internet access to analyze sensitive data - Flexibility to use custom or open-source models - Often no usage fees</p>
+<p><strong>Key advantages of local LLMs:</strong></p>
+<ul>
+<li><p>Data never leaves your computer</p></li>
+<li><p>No need for external API keys or internet access to analyze sensitive data</p></li>
+<li><p>Flexibility to use custom or open-source models</p></li>
+<li><p>Often no usage fees</p></li>
+</ul>
 </section>
 <section id="what-can-local-llms-do" class="level2">
 <h2 class="anchored" data-anchor-id="what-can-local-llms-do">6.2 What Can Local LLMs Do?</h2>
-<p>With the right setup, local LLMs can: - Summarize, paraphrase, and analyze text data (open-ended survey responses, interview transcripts, etc.) - Support qualitative and quantitative educational research workflows - Generate coding frameworks, extract themes, or automate report writing - Perform document-based question answering (“chat with your PDFs”) - Integrate with other research tools via REST APIs</p>
+<p>With the right setup, local LLMs can:</p>
+<ul>
+<li><p>Summarize, paraphrase, and analyze text data (open-ended survey responses, interview transcripts, etc.)</p></li>
+<li><p>Support qualitative and quantitative educational research workflows</p></li>
+<li><p>Generate coding frameworks, extract themes, or automate report writing</p></li>
+<li><p>Perform document-based question answering (“chat with your PDFs”)</p></li>
+<li><p>Integrate with other research tools via REST APIs</p></li>
+</ul>
 </section>
 <section id="getting-started-with-lm-studio" class="level2">
 <h2 class="anchored" data-anchor-id="getting-started-with-lm-studio">6.3 Getting Started with LM Studio</h2>
-<p>LM Studio is a free, cross-platform application that enables researchers to run, manage, and interact with local LLMs (such as Llama, DeepSeek, Qwen, Mistral, and gpt-oss) entirely on their own computers. By using LM Studio, you gain powerful, offline data analysis capabilities without sacrificing data privacy or compliance.</p>
+<p>LMStudio is a free, cross-platform application that enables researchers to run, manage, and interact with local LLMs (such as Llama, DeepSeek, Qwen, Mistral, and gpt-oss) entirely on their own computers. By using LM Studio, you gain powerful, offline data analysis capabilities without sacrificing data privacy or compliance.</p>
 <p><strong>Key Points:</strong> - <strong>Supported Platforms:</strong> macOS (Apple Silicon), Windows (x64/ARM64), and Linux (x64). - <strong>System Requirements:</strong> For best results, consult the <a href="https://lmstudio.ai/docs/system-requirements">System Requirements</a> page for recommended RAM, CPU/GPU, and storage.</p>
 <section id="installation-steps" class="level3">
 <h3 class="anchored" data-anchor-id="installation-steps">6.3.1 Installation Steps</h3>
@@ -503,8 +516,11 @@ The use of large language models (LLMs) in data analysis is rapidly increasing a
 <li><strong>(Optional)</strong> To use the API for scripting/automation, enable API access within LM Studio.</li>
 <li><strong>(Optional)</strong> Attach documents for “Chat with Documents” (RAG-style analysis) entirely offline.</li>
 </ol>
-<p><strong>Official Documentation:</strong><br>
-- <a href="https://lmstudio.ai/docs/">LM Studio Docs</a> - <a href="https://lmstudio.ai/docs/getting-started">Getting Started Guide</a></p>
+<p><strong>Official Documentation:</strong></p>
+<ul>
+<li><p><a href="https://lmstudio.ai/docs/">LM Studio Docs</a></p></li>
+<li><p><a href="https://lmstudio.ai/docs/getting-started">Getting Started Guide</a></p></li>
+</ul>
 </section>
 <section id="main-features" class="level3">
 <h3 class="anchored" data-anchor-id="main-features">6.3.2 Main Features</h3>
@@ -583,7 +599,11 @@ The use of large language models (LLMs) in data analysis is rapidly increasing a
 <h2 class="anchored" data-anchor-id="case-study-comparing-local-llm-analysis-to-traditional-nlp-on-university-ai-policy-texts">6.4 Case Study: Comparing Local LLM Analysis to Traditional NLP on University AI Policy Texts</h2>
 <section id="research-question" class="level3">
 <h3 class="anchored" data-anchor-id="research-question">6.4.1 Research Question</h3>
-<p>Can a local LLM running via LM Studio reliably identify key themes in university AI policy statements—using the <strong>same dataset</strong> analyzed in Section 2—so that we can compare its results against traditional NLP methods and human coding?</p>
+<p>For this case study, our research question will be:</p>
+<ul>
+<li>What are the key themes in university AI policy statements?</li>
+</ul>
+<p>We will be using the same dataset analyzed in Section 2 so that we can compare its results against traditional NLP methods and human coding.</p>
 </section>
 <section id="data-context" class="level3">
 <h3 class="anchored" data-anchor-id="data-context">6.4.2 Data Context</h3>
@@ -663,7 +683,7 @@ The model <code>openai/gpt-oss-20b</code> runs locally in LM Studio and provides
 <span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">content</span>(res)<span class="sc">$</span>choices[[<span class="dv">1</span>]]<span class="sc">$</span>message<span class="sc">$</span>content)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
-<p>✅ If the model replies with “pong,” the local API is ready.</p>
+<p>If the model replies with “pong,” the local API is ready.</p>
 </blockquote>
 </section>
 <section id="prompt-writing" class="level5">
@@ -745,9 +765,7 @@ The model <code>openai/gpt-oss-20b</code> runs locally in LM Studio and provides
 </section>
 <section id="running-the-analysis" class="level5">
 <h5 class="anchored" data-anchor-id="running-the-analysis">Running the analysis</h5>
-</section>
-<section id="now-the-script-applies-the-analysis_prompt_template-to-each-chunk-of-transcript-data-using-lapply.-each-chunk-is-converted-into-a-numbered-text-block-items_block-and-analyzed-independently-through-call_lmstudio-producing-localized-thematic-results-chunk_outputs." class="level5">
-<h5 class="anchored" data-anchor-id="now-the-script-applies-the-analysis_prompt_template-to-each-chunk-of-transcript-data-using-lapply.-each-chunk-is-converted-into-a-numbered-text-block-items_block-and-analyzed-independently-through-call_lmstudio-producing-localized-thematic-results-chunk_outputs.">Now, the script applies the <code>analysis_prompt_template</code> to each <em>chunk</em> of transcript data using <code>lapply()</code>. Each chunk is converted into a numbered text block (<code>items_block</code>) and analyzed independently through <code>call_lmstudio()</code>, producing localized thematic results (<code>chunk_outputs</code>).</h5>
+<p>Now, the script applies the <code>analysis_prompt_template</code> to each <em>chunk</em> of transcript data using <code>lapply()</code>. Each chunk is converted into a numbered text block (<code>items_block</code>) and analyzed independently through <code>call_lmstudio()</code>, producing localized thematic results (<code>chunk_outputs</code>).</p>
 <p>Second, the <code>meta_prompt</code> integrates these separate analyses. It instructs the model to synthesize and deduplicate themes across all chunks into a unified framework, including a concise narrative summary and a structured thematic table with descriptions, examples, and frequency data. Together, these steps move from micro-level coding to macro-level interpretation. This step is optional, and can be skipped depending on the nature of data and research questions.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ----- 4) Run thematic analysis per chunk -----</span></span>
@@ -777,7 +795,7 @@ The model <code>openai/gpt-oss-20b</code> runs locally in LM Studio and provides
 </section>
 <section id="synthesizing-and-final-llm-analysis" class="level5">
 <h5 class="anchored" data-anchor-id="synthesizing-and-final-llm-analysis">Synthesizing and Final LLM Analysis</h5>
-<p>We are now back in R synthising our data (and manage token limits efficiently).</p>
+<p>We are now back in R synthesizing our data (and manage token limits efficiently).</p>
 <p>The <code>chunk_outputs</code> are split into smaller <em>pairs</em>, each containing two analyses. Each pair is merged and passed through <code>call_lmstudio()</code> using the same <code>meta_prompt</code>, producing intermediate syntheses (<code>pair_outputs</code>). These summaries are then combined into a single consolidated input (<code>final_meta_input</code>) for a final call to <code>call_lmstudio()</code>, yielding the comprehensive meta-analysis (<code>meta_output</code>).</p>
 <p>This iterative merging reduces token usage, preserves coherence, and ensures that the final synthesis integrates all thematic insights without exceeding model constraints. With <code>saveRDS(meta_output, "data/meta_output_saved.rds")</code> we save our analysis so that in the future, we can just start from there to pick things back up.</p>
 <div class="cell">
@@ -872,42 +890,49 @@ The model <code>openai/gpt-oss-20b</code> runs locally in LM Studio and provides
 </div>
 </section>
 <section id="practical-notes-on-running-local-models" class="level4">
-<h4 class="anchored" data-anchor-id="practical-notes-on-running-local-models">6.4.3.2 Practical Notes on Running Local Models 🍕💻</h4>
+<h4 class="anchored" data-anchor-id="practical-notes-on-running-local-models">6.4.3.2 Practical Notes on Running Local Models</h4>
 <p>Running a local LLM inside LM Studio can feel magical: your computer becomes its own private AI research lab. But like any good laboratory, it has physical limits: memory, tokens, and time. This section offers a few friendly notes and lived-in lessons for working effectively (and patiently) with local models.</p>
 <section id="tokens-are-like-bites-of-pizza" class="level5">
 <h5 class="anchored" data-anchor-id="tokens-are-like-bites-of-pizza">Tokens Are Like Bites of Pizza</h5>
 <p>LM Studio may be a powerful local model playground, but it still has limits. Think of <strong>tokens</strong> as bites of pizza: your model can chew through a few generous slices, but handing it the <em>entire pizza</em> (for example, your full corpus of 99 policy statements) in one go will only lead to indigestion (also known as the dreaded “HTTP 400 Bad Request.”)</p>
 <p>Every model has a context window (often 8 k – 32 k tokens). Both your <em>prompt</em> and the <em>expected response</em> must fit inside this box.<br>
-When in doubt:</p>
-<p><strong>Feed your model smaller slices.</strong><br>
-Reduce <code>CHUNK_SIZE</code> or truncate long texts (for instance, use only the first 400–500 characters of each document).</p>
-<p><strong>Adjust your <code>max_tokens</code> parameter.</strong><br>
-Fewer output tokens make for shorter, faster, and safer runs.</p>
-<p><strong>Monitor your total prompt length.</strong><br>
-Before sending a request, check <code>nchar(prompt)</code>: if it returns more than 20 000 characters, you are probably over the limit.</p>
+</p>
+<p>When in doubt:</p>
+<ul>
+<li><p><strong>Feed your model smaller slices.</strong><br>
+Reduce <code>CHUNK_SIZE</code> or truncate long texts (for instance, use only the first 400–500 characters of each document).</p></li>
+<li><p><strong>Adjust your <code>max_tokens</code> parameter.</strong><br>
+Fewer output tokens make for shorter, faster, and safer runs.</p></li>
+<li><p><strong>Monitor your total prompt length.</strong><br>
+Before sending a request, check <code>nchar(prompt)</code>: if it returns more than 20 000 characters, you are probably over the limit.</p></li>
+</ul>
 </section>
 <section id="computing-resources-and-patience" class="level5">
 <h5 class="anchored" data-anchor-id="computing-resources-and-patience">Computing Resources and Patience</h5>
-<p><strong>Expect variable response times.</strong><br>
+<ul>
+<li><p><strong>Expect variable response times.</strong><br>
 LM Studio runs fully on your own hardware; response time depends on CPU/GPU power and corpus size.<br>
-An 8-billion-parameter model will typically take a few seconds per completion; larger models may need minutes.</p>
-<p><strong>Mind your system memory.</strong><br>
-Keep background applications light and avoid running multiple models simultaneously. If you receive errors such as <em>“out of memory”</em> or <em>“process killed”</em>, reduce model size or close other sessions.</p>
-<p><strong>Pro tip from the authors:</strong><br>
-During long qualitative runs, go play a game of basketball, take a walk, or grab a coffee. The LLM will still be digesting its token pizza when you return.</p>
+An 8-billion-parameter model will typically take a few seconds per completion; larger models may need minutes.</p></li>
+<li><p><strong>Mind your system memory.</strong><br>
+Keep background applications light and avoid running multiple models simultaneously. If you receive errors such as <em>“out of memory”</em> or <em>“process killed”</em>, reduce model size or close other sessions.</p></li>
+<li><p><strong>Pro tip from the authors:</strong><br>
+During long qualitative runs, go play a game of basketball, take a walk, or grab a coffee. The LLM will still be digesting its token pizza when you return.</p></li>
+</ul>
 </section>
 <section id="file-paths-caching-and-stability" class="level5">
 <h5 class="anchored" data-anchor-id="file-paths-caching-and-stability">File Paths, Caching, and Stability</h5>
-<p><strong>Use consistent file paths.</strong><br>
-Save outputs (<code>meta_output.md</code>, <code>thematic_table.csv</code>) in a project subfolder like <code>/results/</code> to avoid overwriting earlier runs.</p>
-<p><strong>Enable model caching in LM Studio.</strong><br>
-Cached models load faster after the first use and reduce memory spikes.</p>
-<p><strong>Restart occasionally.</strong><br>
-Long local sessions can accumulate memory fragmentation; restarting LM Studio or your R session ensures stable performance.</p>
+<ul>
+<li><p><strong>Use consistent file paths.</strong><br>
+Save outputs (<code>meta_output.md</code>, <code>thematic_table.csv</code>) in a project subfolder like <code>/results/</code> to avoid overwriting earlier runs.</p></li>
+<li><p><strong>Enable model caching in LM Studio.</strong><br>
+Cached models load faster after the first use and reduce memory spikes.</p></li>
+<li><p><strong>Restart occasionally.</strong><br>
+Long local sessions can accumulate memory fragmentation; restarting LM Studio or your R session ensures stable performance.</p></li>
+</ul>
 </section>
 <section id="takeaways" class="level5">
 <h5 class="anchored" data-anchor-id="takeaways">Takeaways</h5>
-<p>Feed your model thoughtfully—one well-prepared prompt at a time—and you’ll get cleaner, faster, and tastier results. Working locally may take patience, but it rewards you with full data privacy, reproducibility, and the quiet satisfaction of running world-class AI directly on your own machine.</p>
+<p>Feed your model thoughtfully aiming for one well-prepared prompt at a time and you’ll get cleaner, faster, and tastier results. Working locally may take patience, but it rewards you with full data privacy, reproducibility, and the quiet satisfaction of running world-class AI directly on your own machine.</p>
 </section>
 </section>
 </section>
@@ -919,11 +944,11 @@ This result directly mirrors the traditional NLP analysis in Section 2, providin
 <p><strong>Thematic Table</strong></p>
 <table class="caption-top table">
 <colgroup>
+<col style="width: 18%">
 <col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
+<col style="width: 28%">
+<col style="width: 16%">
+<col style="width: 15%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -990,17 +1015,16 @@ Human validation ensures that the AI’s interpretation aligns with the research
 They independently rated whether the theme name, description, and illustrative examples <strong>accurately represented</strong> the corresponding text excerpts in the original corpus.</p>
 <p>Each theme was labeled as:</p>
 <ul>
-<li>✅ <strong>True</strong> – the theme correctly captures a coherent and relevant concept found in the corpus.<br>
-</li>
-<li>❌ <strong>False</strong> – the theme is misleading, redundant, or unsupported by the text.</li>
+<li><strong>True</strong> – the theme correctly captures a coherent and relevant concept found in the corpus.</li>
+<li><strong>False</strong> – the theme is misleading, redundant, or unsupported by the text.</li>
 </ul>
 <section id="example-validation-table" class="level5">
 <h5 class="anchored" data-anchor-id="example-validation-table">Example Validation Table</h5>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 28%">
+<col style="width: 24%">
+<col style="width: 48%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1012,32 +1036,32 @@ They independently rated whether the theme name, description, and illustrative e
 <tbody>
 <tr class="odd">
 <td>Academic Integrity / Plagiarism</td>
-<td style="text-align: center;">✅ True</td>
+<td style="text-align: center;">True</td>
 <td>Strongly supported by multiple statements referencing honor codes and plagiarism.</td>
 </tr>
 <tr class="even">
 <td>Faculty Autonomy &amp; Syllabus Clarity</td>
-<td style="text-align: center;">✅ True</td>
+<td style="text-align: center;">True</td>
 <td>Matches explicit institutional language about syllabus-level discretion.</td>
 </tr>
 <tr class="odd">
 <td>Citation / Disclosure Requirements</td>
-<td style="text-align: center;">✅ True</td>
+<td style="text-align: center;">True</td>
 <td>Directly evidenced by quotes requiring citation or appendices.</td>
 </tr>
 <tr class="even">
 <td>Conditional AI Use Guidelines</td>
-<td style="text-align: center;">✅ True</td>
+<td style="text-align: center;">True</td>
 <td>Consistent with texts describing conditional permissions.</td>
 </tr>
 <tr class="odd">
 <td>Pedagogical Integration &amp; Assessment Design</td>
-<td style="text-align: center;">✅ True</td>
+<td style="text-align: center;">True</td>
 <td>Accurately summarizes emerging pedagogical considerations.</td>
 </tr>
 <tr class="even">
 <td>Policy Evolution &amp; Ongoing Review</td>
-<td style="text-align: center;">✅ True</td>
+<td style="text-align: center;">True</td>
 <td>Well-grounded in statements about policy updates and future revisions.</td>
 </tr>
 </tbody>
@@ -1094,8 +1118,7 @@ This section walks through that process step by step — showing how quantitativ
 <p>While LLMs identify themes <em>semantically</em>, we can independently verify their consistency by checking whether the same ideas appear through <strong>explicit keywords</strong> in the original texts.<br>
 This serves as a quantitative cross-check between two perspectives:</p>
 <ol type="1">
-<li><strong>LM Studio output</strong> — interprets meaning through context.<br>
-</li>
+<li><strong>LM Studio output</strong> — interprets meaning through context.</li>
 <li><strong>Keyword-based validation</strong> — detects literal word usage.</li>
 </ol>
 <p>The goal is not to “prove” one right, but to measure how closely the two align.</p>
@@ -1276,10 +1299,10 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <p>This quantitative validation highlights two complementary lenses:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 26%">
+<col style="width: 18%">
+<col style="width: 26%">
+<col style="width: 28%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1325,9 +1348,9 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <p>and aligns frequencies more closely with LLM estimates.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 25%">
+<col style="width: 44%">
+<col style="width: 30%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1366,10 +1389,10 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <h5 class="anchored" data-anchor-id="summary-of-observed-patterns">Summary of Observed Patterns</h5>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 31%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 44%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1424,10 +1447,10 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <p>This difference reflects <strong>two complementary ways of understanding text</strong>:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 24%">
+<col style="width: 18%">
+<col style="width: 28%">
+<col style="width: 28%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1452,25 +1475,18 @@ This serves as a quantitative cross-check between two perspectives:</p>
 </tr>
 </tbody>
 </table>
-<p>In other words, the LLM acts like an experienced qualitative researcher:</p>
-<p>it does not label a statement as “Pedagogical Integration” merely because the word <em>assessment</em> appears.</p>
-<p>Instead, it requires conceptual coherence—only assigning that theme when the sentence genuinely discusses teaching or evaluation design.</p>
+<p>In other words, the LLM acts like an experienced qualitative researcher: it does not label a statement as “Pedagogical Integration” merely because the word <em>assessment</em> appears. Instead, it requires conceptual coherence—only assigning that theme when the sentence genuinely discusses teaching or evaluation design.</p>
 </section>
 <section id="quantitative-validation-conclusion" class="level5">
 <h5 class="anchored" data-anchor-id="quantitative-validation-conclusion">Quantitative Validation Conclusion</h5>
-<p>Overall, the validation demonstrates that <strong>LM Studio’s local model captures the same conceptual contours</strong> as human logic,but with tighter semantic precision.</p>
-<p>While keyword methods “count what appears,” the LLM “counts what matters.”</p>
-<p>This finding supports the broader methodological argument of this chapter:</p>
-<p><strong>local LLMs can perform qualitative analysis with high interpretive fidelity while preserving privacy and reproducibility</strong>— a valuable balance between computational scalability and human-level understanding.</p>
+<p>Overall, the validation demonstrates that <strong>LM Studio’s local model captures the same conceptual contours</strong> as human logic,but with tighter semantic precision. While keyword methods “count what appears,” the LLM “counts what matters.” This finding supports the broader methodological argument of this chapter: <strong>local LLMs can perform qualitative analysis with high interpretive fidelity while preserving privacy and reproducibility</strong>— a valuable balance between computational scalability and human-level understanding.</p>
 <blockquote class="blockquote">
 <p>As one of the authors quipped: “The LLM doesn’t just read the policy—it understands the syllabus.”</p>
 </blockquote>
 </section>
 <section id="the-role-of-keyword-definitions-in-validation-accuracy" class="level5">
 <h5 class="anchored" data-anchor-id="the-role-of-keyword-definitions-in-validation-accuracy">The Role of Keyword Definitions in Validation Accuracy</h5>
-<p>The accuracy of the cross-validation results depends critically on how the <code>theme_keywords</code> list is defined.<br>
-This list serves as the <strong>manual codebook</strong> that translates each thematic label into a set of lexical cues used to verify whether a statement in the corpus reflects that theme.<br>
-In other words, while LM Studio interprets themes <em>semantically</em>, the keyword-based approach verifies them <em>literally</em>—and the way these keywords are chosen directly affects the outcome.</p>
+<p>The accuracy of the cross-validation results depends critically on how the <code>theme_keywords</code> list is defined. This list serves as the <strong>manual codebook</strong> that translates each thematic label into a set of lexical cues used to verify whether a statement in the corpus reflects that theme. In other words, while LM Studio interprets themes <em>semantically</em>, the keyword-based approach verifies them <em>literally</em>—and the way these keywords are chosen directly affects the outcome.</p>
 </section>
 <section id="the-sensitivity-of-keyword-matching" class="level5">
 <h5 class="anchored" data-anchor-id="the-sensitivity-of-keyword-matching">The Sensitivity of Keyword Matching</h5>
@@ -1479,26 +1495,21 @@ In other words, while LM Studio interprets themes <em>semantically</em>, the key
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="st">"Pedagogical Integration &amp; Assessment Design"</span> <span class="ot">=</span> </span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"assignment"</span>, <span class="st">"assessment"</span>, <span class="st">"learning"</span>, <span class="st">"instruction"</span>, <span class="st">"pedagog"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>This set captures a wide range of common words such as <em>learning</em> and <em>assessment</em>, which appear frequently in almost all policy statements.</p>
-<p>As a result, the keyword-based validation counts nearly half of the corpus as related to pedagogy (≈ 50%),</p>
-<p>whereas the LM Studio model, which identifies themes only when the semantic context genuinely involves teaching design, reports a much lower frequency (≈ 8%).</p>
-<p>Here, the discrepancy arises not because the model “missed” something, but because the keywords were <strong>too general</strong>.</p>
-<p>When the same theme is redefined more precisely:</p>
+<p>This set captures a wide range of common words such as <em>learning</em> and <em>assessment</em>, which appear frequently in almost all policy statements. As a result, the keyword-based validation counts nearly half of the corpus as related to pedagogy (≈ 50%), whereas the LM Studio model, which identifies themes only when the semantic context genuinely involves teaching design, reports a much lower frequency (≈ 8%). Here, the discrepancy arises not because the model “missed” something, but because the keywords were <strong>too general</strong>.</p>
+<p>When the same theme is redefined more precisely: the validated frequencies drop and begin to converge with the model’s estimates. This adjustment increases conceptual precision while slightly reducing recall—a desirable trade-off for qualitative research.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="st">"Pedagogical Integration &amp; Assessment Design"</span> <span class="ot">=</span> </span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"assignment design"</span>, <span class="st">"course design"</span>, <span class="st">"learning outcomes"</span>,</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"assessment method"</span>, <span class="st">"rubric"</span>, <span class="st">"instructional strategy"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>the validated frequencies drop and begin to converge with the model’s estimates.</p>
-<p>This adjustment increases conceptual precision while slightly reducing recall—a desirable trade-off for qualitative research.</p>
 </section>
 <section id="balancing-precision-and-recall" class="level5">
 <h5 class="anchored" data-anchor-id="balancing-precision-and-recall">Balancing Precision and Recall</h5>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 22%">
+<col style="width: 38%">
+<col style="width: 38%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1525,27 +1536,18 @@ In other words, while LM Studio interprets themes <em>semantically</em>, the key
 </tr>
 </tbody>
 </table>
-<p>In practice, tuning the keyword definitions allows researchers to “dial in” the strictness of their validation procedure.</p>
-<p>A broader set yields higher apparent frequencies but risks counting superficial mentions;</p>
-<p>a narrower set lowers counts but aligns more closely with human-coded judgments.</p>
+<p>In practice, tuning the keyword definitions allows researchers to “dial in” the strictness of their validation procedure. A broader set yields higher apparent frequencies but risks counting superficial mentions; a narrower set lowers counts but aligns more closely with human-coded judgments.</p>
 </section>
 <section id="interpretation-1" class="level5">
 <h5 class="anchored" data-anchor-id="interpretation-1">Interpretation</h5>
-<p>This behavior illustrates a deeper methodological point:</p>
-<p><strong>keyword validation tests the literal presence of ideas</strong>,</p>
-<p>while <strong>LLM-based thematic extraction tests their conceptual expression</strong>.</p>
-<p>Both perspectives are useful.</p>
-<p>By iteratively refining the <code>theme_keywords</code> list, researchers can improve agreement (often raising correlation from <em>r</em> ≈ 0.7 to 0.8 or higher)</p>
-<p>and use this process to calibrate their model’s semantic reasoning against transparent, rule-based criteria.</p>
-<p>Ultimately, the keyword definitions act as a bridge between human and machine understanding:</p>
-<p>they remind us that accuracy is not merely about counting words, but about ensuring that meaning—and not just language—aligns across analytical methods.</p>
+<p>This behavior illustrates a deeper methodological point: <strong>keyword validation tests the literal presence of ideas</strong>, while <strong>LLM-based thematic extraction tests their conceptual expression</strong>. Both perspectives are useful.</p>
+<p>By iteratively refining the <code>theme_keywords</code> list, researchers can improve agreement (often raising correlation from <em>r</em> ≈ 0.7 to 0.8 or higher) and use this process to calibrate their model’s semantic reasoning against transparent, rule-based criteria. Ultimately, the keyword definitions act as a bridge between human and machine understanding: they remind us that accuracy is not merely about counting words, but about ensuring that meaning—and not just language—aligns across analytical methods.</p>
 </section>
 </section>
 </section>
 <section id="case-study-discussion" class="level3">
 <h3 class="anchored" data-anchor-id="case-study-discussion">6.4.5.3 Case Study Discussion</h3>
-<p>The central research question guiding this case study was:<br>
-<strong>Can a local LLM running through LM Studio accurately identify and summarize the key themes within university AI policy statements, while maintaining data privacy and interpretive reliability?</strong></p>
+<p>The central research question guiding this case study was: <strong>Can a local LLM running through LM Studio accurately identify and summarize the key themes within university AI policy statements, while maintaining data privacy and interpretive reliability?</strong></p>
 <p>The analyses presented in this section—spanning semantic extraction, human validation, and keyword-based cross-verification—provide a strong, evidence-based answer: <strong>Yes, within its operational limits, a local LLM can perform thematic analysis with high conceptual accuracy and semantic coherence.</strong></p>
 <section id="key-findings" class="level4">
 <h4 class="anchored" data-anchor-id="key-findings">Key Findings</h4>
@@ -1565,24 +1567,18 @@ This model of “computational privacy” offers a practical solution for studie
 </section>
 <section id="answer-to-the-research-question" class="level4">
 <h4 class="anchored" data-anchor-id="answer-to-the-research-question">Answer to the Research Question</h4>
-<p>Taken together, these results suggest that <strong>local LLMs can replicate and, in some respects, enhance traditional qualitative workflows</strong>.<br>
-They are capable of identifying semantically rich, human-like themes without compromising ethical or privacy standards.<br>
-Rather than replacing human judgment, such models act as intelligent collaborators—speeding up initial coding, highlighting latent relationships, and supporting iterative analysis.</p>
+<p>Taken together, these results suggest that <strong>local LLMs can replicate and, in some respects, enhance traditional qualitative workflows</strong>. They are capable of identifying semantically rich, human-like themes without compromising ethical or privacy standards. Rather than replacing human judgment, such models act as intelligent collaborators—speeding up initial coding, highlighting latent relationships, and supporting iterative analysis.</p>
 </section>
 <section id="limitations-and-future-testing" class="level4">
 <h4 class="anchored" data-anchor-id="limitations-and-future-testing">Limitations and Future Testing</h4>
 <p>The analysis also revealed several caveats that future researchers should note:</p>
 <ul>
-<li>The model’s <strong>token window</strong> constrains how much text can be processed at once.<br>
-Longer corpora require chunking or synthesis steps, which may introduce variability.<br>
-</li>
-<li>The accuracy of cross-validation is <strong>sensitive to keyword definition</strong>, emphasizing the importance of transparent, well-constructed codebooks.<br>
-</li>
+<li>The model’s <strong>token window</strong> constrains how much text can be processed at once. Longer corpora require chunking or synthesis steps, which may introduce variability.</li>
+<li>The accuracy of cross-validation is <strong>sensitive to keyword definition</strong>, emphasizing the importance of transparent, well-constructed codebooks.</li>
 <li>Response times and processing costs scale with model size; while small models run quickly, larger ones yield richer, more nuanced outputs.</li>
 </ul>
 <p>These limitations do not undermine the results but instead point toward a maturing workflow—one in which <strong>human interpretive oversight and local AI capabilities complement each other</strong>.</p>
-<p>In summary, this case study demonstrates that a locally hosted LLM can achieve credible thematic analysis outcomes on complex educational policy texts while upholding privacy, transparency, and methodological rigor.<br>
-This provides a practical and ethical blueprint for integrating LLMs into future qualitative research in education.</p>
+<p>In summary, this case study demonstrates that a locally hosted LLM can achieve credible thematic analysis outcomes on complex educational policy texts while upholding privacy, transparency, and methodological rigor. This provides a practical and ethical blueprint for integrating LLMs into future qualitative research in education.</p>
 </section>
 </section>
 <section id="reflection" class="level3">
@@ -1590,40 +1586,25 @@ This provides a practical and ethical blueprint for integrating LLMs into future
 <p>The case study presented in this section demonstrates how a <strong>local large language model (LLM)</strong>—running entirely within LM Studio—can be integrated into an educational research workflow to conduct qualitative thematic analysis at scale, securely, and with interpretive depth.</p>
 <section id="from-tokens-to-meaning" class="level4">
 <h4 class="anchored" data-anchor-id="from-tokens-to-meaning">From Tokens to Meaning</h4>
-<p>Traditional NLP methods, as explored in Section 2, rely heavily on token-level processing:<br>
-word frequencies, co-occurrence patterns, and topic modeling through statistical clustering.<br>
-These approaches excel at quantifying surface features of text but often struggle to capture the <em>intent</em> or <em>tone</em> embedded in policy language.</p>
-<p>In contrast, the local LLM used here reasons across sentences and paragraphs.<br>
-It identifies not only recurring words such as <em>plagiarism</em> or <em>syllabus</em> but also the conceptual relationships that bind them—what the policy <em>means</em> rather than what it merely <em>says</em>.<br>
-The result is a smaller set of semantically coherent themes that resemble human-coded outputs in structure and emphasis.</p>
-<p>The <strong>cross-validation exercise</strong> (Sections 6.4.5–6.4.5.3) confirmed this distinction empirically:<br>
-the LLM produced lower absolute frequencies yet mirrored the same thematic hierarchy found by keyword verification (r ≈ 0.7).<br>
-In short, the machine did not count more—it <em>understood better</em>.</p>
+<p>Traditional NLP methods, as explored in Section 2, rely heavily on token-level processing: word frequencies, co-occurrence patterns, and topic modeling through statistical clustering. These approaches excel at quantifying surface features of text but often struggle to capture the <em>intent</em> or <em>tone</em> embedded in policy language.</p>
+<p>In contrast, the local LLM used here reasons across sentences and paragraphs. It identifies not only recurring words such as <em>plagiarism</em> or <em>syllabus</em> but also the conceptual relationships that bind them—what the policy <em>means</em> rather than what it merely <em>says</em>. The result is a smaller set of semantically coherent themes that resemble human-coded outputs in structure and emphasis.</p>
+<p>The <strong>cross-validation exercise</strong> (Sections 6.4.5–6.4.5.3) confirmed this distinction empirically: the LLM produced lower absolute frequencies yet mirrored the same thematic hierarchy found by keyword verification (r ≈ 0.7). In short, the machine did not count more—it <em>understood better</em>.</p>
 </section>
 <section id="complementarity-not-replacement" class="level4">
 <h4 class="anchored" data-anchor-id="complementarity-not-replacement">Complementarity, Not Replacement</h4>
 <p>Rather than viewing LLMs as replacements for traditional NLP, we should see them as complementary instruments in the researcher’s toolkit.<br>
-Conventional text mining offers transparency and replicability;<br>
-LLMs contribute context, nuance, and synthesis.<br>
-When combined, the two form a <strong>hybrid analytic ecology</strong>—where numbers inform narratives and narratives refine numbers.</p>
-<p>For example, word clouds and TF-IDF analyses (from Section 2) remain invaluable for preliminary exploration, helping to locate linguistic hotspots.<br>
-Once those areas are identified, local LLMs can step in to interpret <em>why</em> those patterns exist, drawing out themes that statistical models alone cannot articulate.</p>
+Conventional text mining offers transparency and replicability; LLMs contribute context, nuance, and synthesis. When combined, the two form a <strong>hybrid analytic ecology</strong>—where numbers inform narratives and narratives refine numbers.</p>
+<p>For example, word clouds and TF-IDF analyses (from Section 2) remain invaluable for preliminary exploration, helping to locate linguistic hotspots. Once those areas are identified, local LLMs can step in to interpret <em>why</em> those patterns exist, drawing out themes that statistical models alone cannot articulate.</p>
 </section>
 <section id="privacy-and-practicality" class="level4">
 <h4 class="anchored" data-anchor-id="privacy-and-practicality">Privacy and Practicality</h4>
-<p>Equally important is the ethical and logistical dimension.<br>
-By running entirely on a researcher’s own device, LM Studio ensures that no sensitive institutional data leaves the local environment.<br>
-This design resolves many IRB-related concerns and allows experimentation in restricted research contexts where cloud-based AI services would be prohibited.</p>
-<p>The workflow does, however, require patience.<br>
-Large local models consume time and computation—an experience not unlike waiting for a slow-baked pizza.<br>
-As we advised earlier, this is the perfect moment to step away, stretch, or play a quick game of basketball while the model “thinks.”<br>
-In return, you receive an analysis that is private, interpretable, and genuinely your own.</p>
+<p>Equally important is the ethical and logistical dimension. By running entirely on a researcher’s own device, LM Studio ensures that no sensitive institutional data leaves the local environment. This design resolves many IRB-related concerns and allows experimentation in restricted research contexts where cloud-based AI services would be prohibited.</p>
+<p>The workflow does, however, require patience. Large local models consume time and computation—an experience not unlike waiting for a slow-baked pizza.<br>
+As we advised earlier, this is the perfect moment to step away, stretch, or play a quick game of basketball while the model “thinks.” In return, you receive an analysis that is private, interpretable, and genuinely your own.</p>
 </section>
 <section id="looking-ahead-from-analysis-to-collaboration" class="level4">
 <h4 class="anchored" data-anchor-id="looking-ahead-from-analysis-to-collaboration">Looking Ahead: From Analysis to Collaboration</h4>
-<p>The lessons from this section mark a transition from <strong>computational text analysis</strong> to <strong>intelligent collaboration with models</strong>.<br>
-The local LLM is not just a faster coding assistant; it is an emerging research partner capable of summarizing, classifying, and reasoning across multimodal data.<br>
-In future research, this approach can be extended beyond text—exploring how LLMs may support the analysis of images, videos, surveys, and multimodal learning artifacts while maintaining the same principles of privacy, transparency, and reproducibility.</p>
+<p>The lessons from this section mark a transition from <strong>computational text analysis</strong> to <strong>intelligent collaboration with models</strong>. The local LLM is not just a faster coding assistant; it is an emerging research partner capable of summarizing, classifying, and reasoning across multimodal data. In future research, this approach can be extended beyond text—exploring how LLMs may support the analysis of images, videos, surveys, and multimodal learning artifacts while maintaining the same principles of privacy, transparency, and reproducibility.</p>
 <blockquote class="blockquote">
 <p><strong>In summary:</strong><br>
 Section 2 taught us how to <em>count words</em>;<br>
