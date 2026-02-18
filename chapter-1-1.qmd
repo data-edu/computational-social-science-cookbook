@@ -22,7 +22,7 @@ Both Positron and RStudio organize your workspace into four main areas (though t
 -   **Environment/Variables** (top-right): Shows the objects (data, functions, etc.) currently loaded in memory
 -   **Files/Plots/Help** (bottom-right): Navigate your project files, view visualizations, and access documentation
 
-![Positron Interface](docs/chapter-1_files/positronIDE.png){width="648"}
+![Positron Interface](data/positronIDE.png){width="648"}
 
 ### Understanding Each Pane
 
@@ -55,16 +55,16 @@ Notice the `.Rproj` file in your folder? That's your project file. Double-click 
 
 Keyboard shortcuts can speed up your workflow considerably. You don't need to memorize them all at once—start with a few that feel natural, and others will follow as you get more comfortable.
 
-| Action | Windows/Linux | macOS |
-|--------|---------------|-------|
-| Run current line or selection | Ctrl + Enter | Cmd + Enter |
-| New document | Ctrl + Shift + N | Cmd + Shift + N |
-| Save file | Ctrl + S | Cmd + S |
-| Find in file | Ctrl + F | Cmd + F |
-| Comment/uncomment code | Ctrl + Shift + C | Cmd + Shift + C |
-| Insert pipe operator (`|>`) | Ctrl + Shift + M | Cmd + Shift + M |
-| Insert assignment operator (`<-`) | Alt + - | Option + - |
-| Restart R session | Ctrl + Shift + F10 | Cmd + Shift + 0 |
+| Action                            | Windows/Linux      | macOS           |
+|-----------------------------------|--------------------|-----------------|
+| Run current line or selection     | Ctrl + Enter       | Cmd + Enter     |
+| New document                      | Ctrl + Shift + N   | Cmd + Shift + N |
+| Save file                         | Ctrl + S           | Cmd + S         |
+| Find in file                      | Ctrl + F           | Cmd + F         |
+| Comment/uncomment code            | Ctrl + Shift + C   | Cmd + Shift + C |
+| Insert pipe operator (`|>`)       | Ctrl + Shift + M   | Cmd + Shift + M |
+| Insert assignment operator (`<-`) | Alt + -            | Option + -      |
+| Restart R session                 | Ctrl + Shift + F10 | Cmd + Shift + 0 |
 
 The run command (Ctrl/Cmd + Enter) is the one you'll use most—it executes the line where your cursor is, or if you've selected multiple lines, it runs all of them. The comment shortcut is helpful when testing code: you can quickly comment out a section to see if removing it fixes an error.
 

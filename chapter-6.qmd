@@ -89,7 +89,7 @@ content(response)
 ### 6.3.4 Summary Table of LM Studio Capabilities:
 
 | Feature | Description |
-|-------------|------------------------------------|
+|--------------------|----------------------------------------------------|
 | Local LLMs | Run Llama, DeepSeek, Qwen, Mistral, etc. fully offline on your own machine |
 | Chat Interface | Flexible prompt-based interaction |
 | Document Chat (RAG) | Offline “chat with your documents” |
@@ -456,7 +456,7 @@ This result directly mirrors the traditional NLP analysis in Section 2, providin
 **Thematic Table**
 
 | Theme | Description | Illustrative Example(s) | Frequency | Relative Frequency |
-|----------|-----------|---------------|---------|--------|
+|--------------|--------------|----------------|--------------|--------------|
 | Academic Integrity / Plagiarism | Policies treat un-attributed or unauthorized AI output as cheating, requiring adherence to existing honor-code standards. | \- “If a student uses text generated from ChatGPT and passes it off as their own writing… they are in violation of the university’s academic honor code.” (Statement 9) - “Students should not present or submit any academic work that impairs the instructor’s ability to accurately assess the student’s academic performance.” (Statement 2) | 13 | 25% |
 | Faculty Autonomy & Syllabus Clarity | Instructors are empowered to set, communicate, and enforce AI-use rules within their courses, often via the syllabus or early course materials. | \- “Different faculty will have different expectations about whether and how students can use AI tools, so being transparent about your expectations is essential.” (Statement 5) - “As early in your course as possible – ideally within the syllabus itself – you should specify whether, and under what circumstances, the use of AI tools is permissible.” (Statement 7) | 12 | 23% |
 | Citation / Disclosure Requirements | Students must explicitly credit AI-generated content or document their interactions to avoid plagiarism. | \- “Under BU’s guidelines… students must give credit to them whenever they’re used… include an appendix detailing the entire exchange with an LLM.” (Statement 4) - “You must cite your use of these tools appropriately. Not doing so violates the HBS Honor Code.” (Statement 7) | 9 | 17% |
@@ -482,7 +482,7 @@ Each theme was labeled as:
 ##### Example Validation Table
 
 | LLM-Generated Theme | Human Judgment | Comment Summary |
-|--------------|:----------:|------------------------|
+|--------------------|:----------------:|----------------------------------|
 | Academic Integrity / Plagiarism | True | Strongly supported by multiple statements referencing honor codes and plagiarism. |
 | Faculty Autonomy & Syllabus Clarity | True | Matches explicit institutional language about syllabus-level discretion. |
 | Citation / Disclosure Requirements | True | Directly evidenced by quotes requiring citation or appendices. |
@@ -708,7 +708,7 @@ cor(validation_compare$LLM_Relative,
 This quantitative validation highlights two complementary lenses:
 
 | Approach | Focus | Strength | Limitation |
-|-------------|---------|-------------|--------------|
+|------------------|-----------------|------------------|-------------------|
 | **Keyword-based Validation** | What is *said* | High recall, transparent rules | Literal, may overcount |
 | **LLM Semantic Analysis** | What is *meant* | Context-aware, concise, human-like reasoning | May undercount subtle mentions |
 
@@ -740,7 +740,7 @@ Narrowing the expressions from single words (*learning*, *assessment*) to multi-
 and aligns frequencies more closely with LLM estimates.
 
 | Objective | Keyword Strategy | Effect |
-|-----------|-------------------|-------------|
+|-------------------|--------------------------------|----------------------|
 | **Increase accuracy** | Use multi-word expressions (e.g., “academic integrity,” “honor code”) | Reduces false positives |
 | **Increase recall** | Include variants (e.g., “cite,” “citation,” “acknowledge”) | Captures more instances |
 | **Balance both** | Mix general and specific terms | Maximizes validity |
@@ -756,7 +756,7 @@ The cross-validation process compared two perspectives on the same corpus:\
 ##### Summary of Observed Patterns
 
 | Theme | LLM_Relative (%) | Verified_Relative (%) | Interpretation |
-|------------------|------:|------:|--------------------------|
+|------------------|-------------:|-------------:|---------------------------|
 | Academic Integrity / Plagiarism | 25.0 | 49.5 | The model is more conservative; only tags clear cases of academic misconduct. |
 | Faculty Autonomy & Syllabus Clarity | 23.0 | 56.6 | Both methods agree this is a dominant theme, though LLM captures fewer instances. |
 | Citation / Disclosure Requirements | 17.0 | 25.3 | Close alignment; both approaches identify similar occurrences. |
@@ -769,7 +769,7 @@ The cross-validation process compared two perspectives on the same corpus:\
 This difference reflects **two complementary ways of understanding text**:
 
 | Approach | Focus | Strength | Limitation |
-|------------|---------|--------------|--------------|
+|-----------------|-----------------|-------------------|-------------------|
 | Keyword-based Validation | What is *said* | High recall, transparent rules | Literal, may overcount |
 | LLM Semantic Analysis | What is *meant* | Context-aware, concise, human-like reasoning | May undercount subtle mentions |
 
@@ -808,7 +808,7 @@ When the same theme is redefined more precisely: the validated frequencies drop 
 ##### Balancing Precision and Recall
 
 | Objective | Keyword Strategy | Effect |
-|--------------|------------------------|------------------------|
+|------------------|---------------------------|---------------------------|
 | **Increase accuracy** | Use multi-word expressions (e.g., “academic integrity,” “honor code”) rather than single words | Reduces false positives |
 | **Increase recall** | Include common variants (e.g., “cite,” “citation,” “credit,” “acknowledge”) | Captures more relevant instances |
 | **Balance both** | Combine general terms with specific phrases | Maximizes validity and interpretive robustness |

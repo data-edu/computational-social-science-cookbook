@@ -87,8 +87,7 @@ editor: visual
 execute:
   warning: false
 
-bibliography: references.bib
-csl: apa.csl   # optional, choose your citation style
+
   
   
   

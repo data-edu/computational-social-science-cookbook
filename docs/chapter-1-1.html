@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R – Computational Analysis of Educational Data: A Field Guide Using R</title>
+<title>Positron and RStudio – Computational Analysis of Educational Data: A Field Guide Using R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -286,7 +286,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-1-1.html">Getting Started</a></li><li class="breadcrumb-item"><a href="./chapter-1-1.html"><span class="chapter-title">R</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-1-1.html">Getting Started</a></li><li class="breadcrumb-item"><a href="./chapter-1-1.html"><span class="chapter-title">Positron and RStudio</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -330,12 +330,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-1-1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">R</span></a>
+  <a href="./chapter-1-1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Positron and RStudio</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-1-2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Positron and RStudio</span></a>
+  <a href="./chapter-1-2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -434,20 +434,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#three-ways-to-write-r-code" id="toc-three-ways-to-write-r-code" class="nav-link active" data-scroll-target="#three-ways-to-write-r-code">Three Ways to Write R Code</a>
+  <li><a href="#why-positron" id="toc-why-positron" class="nav-link active" data-scroll-target="#why-positron">Why Positron?</a></li>
+  <li><a href="#the-four-essential-panes" id="toc-the-four-essential-panes" class="nav-link" data-scroll-target="#the-four-essential-panes">The Four Essential Panes</a>
   <ul class="collapse">
-  <li><a href="#r-scripts-.r" id="toc-r-scripts-.r" class="nav-link" data-scroll-target="#r-scripts-.r">R Scripts (.R)</a></li>
-  <li><a href="#r-markdown-.rmd" id="toc-r-markdown-.rmd" class="nav-link" data-scroll-target="#r-markdown-.rmd">R Markdown (.Rmd)</a></li>
-  <li><a href="#quarto-.qmd" id="toc-quarto-.qmd" class="nav-link" data-scroll-target="#quarto-.qmd">Quarto (.qmd)</a></li>
+  <li><a href="#understanding-each-pane" id="toc-understanding-each-pane" class="nav-link" data-scroll-target="#understanding-each-pane">Understanding Each Pane</a></li>
   </ul></li>
-  <li><a href="#console-vs.-source-exploration-vs.-preservation" id="toc-console-vs.-source-exploration-vs.-preservation" class="nav-link" data-scroll-target="#console-vs.-source-exploration-vs.-preservation">Console vs.&nbsp;Source: Exploration vs.&nbsp;Preservation</a></li>
-  <li><a href="#when-you-get-stuck" id="toc-when-you-get-stuck" class="nav-link" data-scroll-target="#when-you-get-stuck">When You Get Stuck</a>
+  <li><a href="#r-projects" id="toc-r-projects" class="nav-link" data-scroll-target="#r-projects">R Projects</a></li>
+  <li><a href="#essential-keyboard-shortcuts" id="toc-essential-keyboard-shortcuts" class="nav-link" data-scroll-target="#essential-keyboard-shortcuts">Essential Keyboard Shortcuts</a></li>
+  <li><a href="#extensions-and-customization" id="toc-extensions-and-customization" class="nav-link" data-scroll-target="#extensions-and-customization">Extensions and Customization</a>
   <ul class="collapse">
-  <li><a href="#reading-error-messages" id="toc-reading-error-messages" class="nav-link" data-scroll-target="#reading-error-messages">Reading Error Messages</a></li>
-  <li><a href="#getting-help-on-functions" id="toc-getting-help-on-functions" class="nav-link" data-scroll-target="#getting-help-on-functions">Getting Help on Functions</a></li>
-  <li><a href="#where-computational-social-scientists-get-help" id="toc-where-computational-social-scientists-get-help" class="nav-link" data-scroll-target="#where-computational-social-scientists-get-help">Where Computational Social Scientists Get Help</a></li>
-  <li><a href="#large-language-models-and-ai-tools" id="toc-large-language-models-and-ai-tools" class="nav-link" data-scroll-target="#large-language-models-and-ai-tools">Large Language Models and AI Tools</a></li>
+  <li><a href="#useful-extensions-for-r-work" id="toc-useful-extensions-for-r-work" class="nav-link" data-scroll-target="#useful-extensions-for-r-work">Useful Extensions for R Work</a></li>
+  <li><a href="#rstudios-approach" id="toc-rstudios-approach" class="nav-link" data-scroll-target="#rstudios-approach">RStudio’s Approach</a></li>
+  <li><a href="#customization" id="toc-customization" class="nav-link" data-scroll-target="#customization">Customization</a></li>
   </ul></li>
+  <li><a href="#what-makes-positron-stand-out" id="toc-what-makes-positron-stand-out" class="nav-link" data-scroll-target="#what-makes-positron-stand-out">What Makes Positron Stand Out</a></li>
+  <li><a href="#version-control-with-git-and-github" id="toc-version-control-with-git-and-github" class="nav-link" data-scroll-target="#version-control-with-git-and-github">Version Control with Git and GitHub</a>
+  <ul class="collapse">
+  <li><a href="#why-git-matters" id="toc-why-git-matters" class="nav-link" data-scroll-target="#why-git-matters">Why Git Matters</a></li>
+  <li><a href="#git-integration" id="toc-git-integration" class="nav-link" data-scroll-target="#git-integration">Git Integration</a></li>
+  <li><a href="#setting-up-git-and-github-the-path-of-least-resistance" id="toc-setting-up-git-and-github-the-path-of-least-resistance" class="nav-link" data-scroll-target="#setting-up-git-and-github-the-path-of-least-resistance">Setting Up Git and GitHub: The Path of Least Resistance</a></li>
+  <li><a href="#alternative-ssh-keys-for-the-long-haul" id="toc-alternative-ssh-keys-for-the-long-haul" class="nav-link" data-scroll-target="#alternative-ssh-keys-for-the-long-haul">Alternative: SSH Keys (For the Long Haul)</a></li>
+  <li><a href="#using-git-in-practice" id="toc-using-git-in-practice" class="nav-link" data-scroll-target="#using-git-in-practice">Using Git in Practice</a></li>
+  </ul></li>
+  <li><a href="#going-further" id="toc-going-further" class="nav-link" data-scroll-target="#going-further">Going Further</a></li>
   </ul>
 </nav>
     </div>
@@ -455,9 +464,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-1-1.html">Getting Started</a></li><li class="breadcrumb-item"><a href="./chapter-1-1.html"><span class="chapter-title">R</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-1-1.html">Getting Started</a></li><li class="breadcrumb-item"><a href="./chapter-1-1.html"><span class="chapter-title">Positron and RStudio</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">R</span></h1>
+<h1 class="title"><span class="chapter-title">Positron and RStudio</span></h1>
 </div>
 
 
@@ -474,95 +483,261 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>We’re not going to teach you RStudio comprehensively—excellent resources already exist for that purpose. We particularly recommend <a href="https://r4ds.hadley.nz/"><em>R for Data Science</em></a>, <a href="https://datascienceineducation.com/"><em>Data Science in Education Using R</em></a>, the <a href="https://posit.co/resources/primers/">RStudio primers</a>, and <a href="https://happygitwithr.com/"><em>Happy Git and GitHub for the useR</em></a>.</p>
-<p>Instead, this chapter covers just enough to reproduce our workflows and extend them to your own data science work. Think of this as the minimal viable setup for doing the work in this book.</p>
-<section id="three-ways-to-write-r-code" class="level2">
-<h2 class="anchored" data-anchor-id="three-ways-to-write-r-code">Three Ways to Write R Code</h2>
-<p>RStudio supports multiple file types for writing R code. You’ll encounter all three in data science work:</p>
-<section id="r-scripts-.r" class="level3">
-<h3 class="anchored" data-anchor-id="r-scripts-.r">R Scripts (.R)</h3>
-<p>Plain text files containing R code, executed line-by-line or all at once. Great for data processing pipelines, functions, and code you’ll reuse.</p>
-<p>Create one: File → New File → R Script</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is an R script</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Lines starting with # are comments</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"mydata.csv"</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You need an environment for writing and running R code. We’re going to focus on <strong>Positron</strong>, Posit’s newer IDE built on the foundation of VS Code. If you’re already comfortable with RStudio, everything in this chapter applies there too—the fundamental concepts are identical, and the R code in this book works the same way in both.</p>
+<section id="why-positron" class="level2">
+<h2 class="anchored" data-anchor-id="why-positron">Why Positron?</h2>
+<p>Positron represents where computational social science workflows are heading: multi-language support (R and Python in the same environment), modern editor features inherited from VS Code, and a more extensible architecture. If you’re coming from VS Code, Positron will feel immediately familiar. If you’re new to both, you’re learning a tool that’s designed for the future of data science.</p>
+<p>That said, <strong>RStudio remains great</strong>. It’s mature, widely documented, and has a loyal community. Some researchers prefer its more opinionated interface—everything you need is visible and organized for R-first workflows. If you’re already using RStudio and prefer it, nothing in this book requires switching.</p>
+<p>The instructions below work in both environments unless otherwise noted. When we say “Positron,” assume the same applies to RStudio.</p>
 </section>
-<section id="r-markdown-.rmd" class="level3">
-<h3 class="anchored" data-anchor-id="r-markdown-.rmd">R Markdown (.Rmd)</h3>
-<p>Documents that weave together narrative text (in Markdown) and code chunks. When you “knit” an R Markdown file, it executes the code and generates a formatted document (HTML, PDF, or Word).</p>
-<p>You should know R Markdown exists because you’ll encounter it in older resources and projects, but we’re not using it in this book.</p>
-</section>
-<section id="quarto-.qmd" class="level3">
-<h3 class="anchored" data-anchor-id="quarto-.qmd">Quarto (.qmd)</h3>
-<p>Quarto is the successor to R Markdown, with better multi-language support (R, Python, Julia) and more consistent syntax. It’s what we’ll use throughout this book.</p>
-<p>Create one: File → New File → Quarto Document</p>
-<p>The structure looks similar to R Markdown, but the rendering engine is more powerful:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "My Analysis"</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>This is regular text.</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a code chunk</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Click the “Render” button (or Ctrl/Cmd + Shift + K) to execute all code and generate your document.</p>
-<p><strong>Key difference for beginners</strong>: Think of R scripts as “just code” and Quarto as “code + explanation + output” in one document. Use scripts for behind-the-scenes work, Quarto for analysis you want to share or understand later.</p>
-</section>
-</section>
-<section id="console-vs.-source-exploration-vs.-preservation" class="level2">
-<h2 class="anchored" data-anchor-id="console-vs.-source-exploration-vs.-preservation">Console vs.&nbsp;Source: Exploration vs.&nbsp;Preservation</h2>
-<p>A common pattern in data science work:</p>
+<section id="the-four-essential-panes" class="level2">
+<h2 class="anchored" data-anchor-id="the-four-essential-panes">The Four Essential Panes</h2>
+<p>Both Positron and RStudio organize your workspace into four main areas (though the layout is customizable):</p>
 <ul>
-<li><strong>Console</strong>: Quick exploration, testing ideas, checking output. Code here disappears when you close RStudio.</li>
-<li><strong>Source</strong> (scripts/Quarto): Code you want to keep, reproduce, or share. This is your permanent record.</li>
+<li><strong>Source/Editor</strong> (top-left): Where you write and edit your code files (.R scripts, .qmd documents)</li>
+<li><strong>Console</strong> (bottom-left): Where R actually executes code and shows results in real-time</li>
+<li><strong>Environment/Variables</strong> (top-right): Shows the objects (data, functions, etc.) currently loaded in memory</li>
+<li><strong>Files/Plots/Help</strong> (bottom-right): Navigate your project files, view visualizations, and access documentation</li>
 </ul>
-<p>Early on, you might type everything in the Console. That’s fine for learning! But as soon as you do something you want to remember, put it in a script or Quarto file.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/positronIDE.png" class="img-fluid figure-img" width="648"></p>
+<figcaption>Positron Interface</figcaption>
+</figure>
+</div>
+<p>[Screenshot: Positron with all four panes visible and labeled]</p>
+<section id="understanding-each-pane" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-each-pane">Understanding Each Pane</h3>
+<p><strong>Source/Editor Pane</strong>: This is where you spend most of your time writing code. The editor provides syntax highlighting (different colors for functions, strings, and comments), autocomplete suggestions, and the ability to work with multiple files in tabs. You can split the pane to view two files side-by-side, and for Quarto documents, you can preview the rendered output alongside your code.</p>
+<p><strong>Console Pane</strong>: When you run code, it executes here and displays results immediately. Press the up arrow to cycle through previously run commands—useful when you want to re-run or modify something. The prompt <code>&gt;</code> means R is ready for input; a <code>+</code> means R is waiting for you to complete a command (often because you forgot a closing parenthesis). You can clear the console output with Cmd/Ctrl + L, though this doesn’t delete your objects from memory.</p>
+<p><strong>Environment/Variables Pane</strong>: This shows every object currently loaded in R—datasets, variables, functions you’ve created. Click on a dataset name to open it in a spreadsheet-style viewer. The display also shows object types (data frame, list, numeric vector) and basic information like the number of rows and columns. You can remove objects using the broom icon, which clears your workspace—useful when starting fresh.</p>
+<p><strong>Files/Plots/Help Pane</strong>: The Files tab lets you navigate your project directory, create new folders, and open files. The Plots tab shows your visualizations with forward/back arrows to review previous plots and an Export button to save images. The Help tab displays R documentation when you run commands like <code>?mean</code> or search for functions. In RStudio, you’ll also see a Packages tab for installing and loading packages; Positron handles packages differently but with similar functionality.</p>
+<p>The defaults work fine for now. As you get comfortable, you might adjust panel sizes or move things around, but the essential logic stays the same: code on the left, context on the right.</p>
 </section>
-<section id="when-you-get-stuck" class="level2">
-<h2 class="anchored" data-anchor-id="when-you-get-stuck">When You Get Stuck</h2>
-<section id="reading-error-messages" class="level3">
-<h3 class="anchored" data-anchor-id="reading-error-messages">Reading Error Messages</h3>
-<p>When something goes wrong, R prints an error message in the Console (usually in red). These messages often look cryptic at first, but they’re trying to help:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Error <span class="cf">in</span> <span class="fu">mean</span>(x) <span class="sc">:</span> object <span class="st">'x'</span> not found</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This tells you exactly what went wrong: R couldn’t find an object called <code>x</code>. Either you misspelled it, or you haven’t created it yet.</p>
 </section>
-<section id="getting-help-on-functions" class="level3">
-<h3 class="anchored" data-anchor-id="getting-help-on-functions">Getting Help on Functions</h3>
-<p>R has built-in documentation for every function:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>?mean           <span class="co"># Opens help for the mean() function</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>??regression    <span class="co"># Searches all help files for "regression"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Help files include descriptions, arguments, examples, and related functions.</p>
-</section>
-<section id="where-computational-social-scientists-get-help" class="level3">
-<h3 class="anchored" data-anchor-id="where-computational-social-scientists-get-help">Where Computational Social Scientists Get Help</h3>
-<p>When you’re truly stuck, the R community is remarkably helpful:</p>
-<ul>
-<li><a href="https://community.rstudio.com/">RStudio Community</a>: Welcoming forum for all R questions</li>
-<li><a href="https://stackoverflow.com/questions/tagged/r">Stack Overflow</a>: Searchable archive of millions of questions</li>
-<li><a href="https://rfordatasci.com/">R for Data Science Online Learning Community</a>: Active Slack workspace</li>
-</ul>
-<p><strong>Pro tip</strong>: Before asking a question, try searching for your error message. Someone has likely encountered it before.</p>
-<p>Of course, turning to AI can also help, as we describe next.</p>
-</section>
-<section id="large-language-models-and-ai-tools" class="level3">
-<h3 class="anchored" data-anchor-id="large-language-models-and-ai-tools">Large Language Models and AI Tools</h3>
-<p>In Section 3, we cover using large language models as part of a research workflow. But LLMs are also useful for getting unstuck when you’re learning—and this is increasingly how working data scientists operate.</p>
-<p>Two approaches work well:</p>
+<section id="r-projects" class="level2">
+<h2 class="anchored" data-anchor-id="r-projects">R Projects</h2>
+<p><strong>Always work in an R Project.</strong> This is the single most important RStudio habit for reproducibility.</p>
+<p>An R Project is a folder that contains all files for a particular analysis—data, scripts, outputs—and sets your working directory automatically. This means your code will work on any computer without changing file paths.</p>
+<p>To create a new project:</p>
 <ol type="1">
-<li><p><strong>Ask LLMs directly</strong>: ChatGPT, Claude, or your preferred model can explain error messages, suggest debugging approaches, and clarify confusing documentation. Copy your error message, describe what you were trying to do, and ask for help.</p></li>
-<li><p><strong>Use GitHub Copilot</strong>: An AI coding assistant that works inside your editor (setup covered in the next chapter). It can suggest code completions, explain what existing code does, and generate boilerplate. Think of it as an always-available pair programmer.</p></li>
+<li>File → New Project</li>
+<li>Choose “New Directory” or “Existing Directory”</li>
+<li>Name your project (e.g., “my-first-css-analysis”)</li>
+<li>Click “Create Project”</li>
 </ol>
-<p>The best programmers don’t memorize every function—they know how to find answers quickly. LLMs have become part of that toolkit, alongside documentation, Stack Overflow, and experimentation. Use them when you’re stuck, but also pay attention to <em>why</em> solutions work. That’s how you build intuition.</p>
-<p>Please see section 1.4 for more information about the relationship between you, data, and LLMs.</p>
-
-
+<p>Notice the <code>.Rproj</code> file in your folder? That’s your project file. Double-click it to open Positron or RStudio with the correct working directory already set.</p>
 </section>
+<section id="essential-keyboard-shortcuts" class="level2">
+<h2 class="anchored" data-anchor-id="essential-keyboard-shortcuts">Essential Keyboard Shortcuts</h2>
+<p>Keyboard shortcuts can speed up your workflow considerably. You don’t need to memorize them all at once—start with a few that feel natural, and others will follow as you get more comfortable.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 48%">
+<col style="width: 27%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Windows/Linux</th>
+<th>macOS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Run current line or selection</td>
+<td>Ctrl + Enter</td>
+<td>Cmd + Enter</td>
+</tr>
+<tr class="even">
+<td>New document</td>
+<td>Ctrl + Shift + N</td>
+<td>Cmd + Shift + N</td>
+</tr>
+<tr class="odd">
+<td>Save file</td>
+<td>Ctrl + S</td>
+<td>Cmd + S</td>
+</tr>
+<tr class="even">
+<td>Find in file</td>
+<td>Ctrl + F</td>
+<td>Cmd + F</td>
+</tr>
+<tr class="odd">
+<td>Comment/uncomment code</td>
+<td>Ctrl + Shift + C</td>
+<td>Cmd + Shift + C</td>
+</tr>
+<tr class="even">
+<td>Insert pipe operator (<code>|&gt;</code>)</td>
+<td>Ctrl + Shift + M</td>
+<td>Cmd + Shift + M</td>
+</tr>
+<tr class="odd">
+<td>Insert assignment operator (<code>&lt;-</code>)</td>
+<td>Alt + -</td>
+<td>Option + -</td>
+</tr>
+<tr class="even">
+<td>Restart R session</td>
+<td>Ctrl + Shift + F10</td>
+<td>Cmd + Shift + 0</td>
+</tr>
+</tbody>
+</table>
+<p>[Screenshot: Help menu showing Keyboard Shortcuts option]</p>
+<p>The run command (Ctrl/Cmd + Enter) is the one you’ll use most—it executes the line where your cursor is, or if you’ve selected multiple lines, it runs all of them. The comment shortcut is helpful when testing code: you can quickly comment out a section to see if removing it fixes an error.</p>
+<p>Positron and RStudio have slightly different shortcuts for a few operations, particularly around navigating panes and restarting R. To see the full list specific to your environment, go to Help → Keyboard Shortcuts or press Alt/Option + Shift + K.</p>
+</section>
+<section id="extensions-and-customization" class="level2">
+<h2 class="anchored" data-anchor-id="extensions-and-customization">Extensions and Customization</h2>
+<p>Positron is built on VS Code, which means most VS Code extensions work in Positron. This gives you access to a large ecosystem of tools beyond what’s built into the base IDE.</p>
+<p>To access extensions, open the Extensions panel—usually visible in the left sidebar, or accessible via View → Extensions. From there, you can search for extensions by name or browse categories.</p>
+<section id="useful-extensions-for-r-work" class="level3">
+<h3 class="anchored" data-anchor-id="useful-extensions-for-r-work">Useful Extensions for R Work</h3>
+<p>While Positron comes with solid R support out of the box, these extensions can enhance your workflow:</p>
+<ul>
+<li><strong>Rainbow CSV</strong>: Colors columns in CSV files to make them easier to read</li>
+<li><strong>GitLens</strong>: Shows detailed Git information inline (who changed what, when, and why)</li>
+<li><strong>Markdown Preview Enhanced</strong>: Better previews for Markdown documents with extended syntax support</li>
+</ul>
+<p>To install an extension, search for it by name in the Extensions panel, click on it, and press Install. Most extensions work immediately without restarting Positron.</p>
+<p>[Screenshot: Extensions marketplace showing R-related extensions]</p>
+</section>
+<section id="rstudios-approach" class="level3">
+<h3 class="anchored" data-anchor-id="rstudios-approach">RStudio’s Approach</h3>
+<p>RStudio uses “addins” instead of extensions. These are R packages that add functionality to the IDE interface. The ecosystem is smaller than VS Code’s, but focused specifically on R workflows. If you’re using RStudio, you can find addins through the Addins menu once you’ve installed packages that provide them.</p>
+</section>
+<section id="customization" class="level3">
+<h3 class="anchored" data-anchor-id="customization">Customization</h3>
+<p>Both Positron and RStudio let you customize themes, font size, and panel arrangements. The defaults work well to start, but if you find yourself squinting at text or want a different color scheme, explore Preferences/Settings → Appearance. Changes are a matter of personal preference rather than workflow improvement, so don’t feel pressure to customize immediately.</p>
+</section>
+</section>
+<section id="what-makes-positron-stand-out" class="level2">
+<h2 class="anchored" data-anchor-id="what-makes-positron-stand-out">What Makes Positron Stand Out</h2>
+<p>Beyond the basics, Positron offers several features that become valuable as your projects grow in complexity:</p>
+<p><strong>Multi-language support</strong>: You can work with R and Python in the same project without switching between different environments. If you later need to use Python libraries or call Python code from R (common in machine learning workflows), Positron handles both languages natively.</p>
+<p><strong>Terminal integration</strong>: The built-in terminal in Positron has better shell support than RStudio’s terminal. This matters when you need to run command-line tools, manage Docker containers, or work with system utilities alongside your R code.</p>
+<p><strong>Remote development</strong>: Through SSH extensions, you can connect to remote servers and work on them as if they were local. Your code runs on the server, but Positron’s interface stays responsive on your machine. This is useful when analyzing large datasets that don’t fit on your laptop or when you need more computing power.</p>
+<p><strong>Performance</strong>: The editor itself is noticeably faster with large files—syntax highlighting, scrolling, and searching all feel snappier. This doesn’t matter much for typical scripts, but when you’re working with thousand-line codebases or large Quarto documents, the difference shows.</p>
+<p><strong>Modern editor features</strong>: IntelliSense provides context-aware code completion (it knows what functions are available on specific objects), bracket matching highlights matching parentheses and braces automatically, and a minimap gives you a bird’s-eye view for navigating long files.</p>
+<p>These features are there when you need them. For now, just know they exist—they’re part of why Positron represents where these tools are heading.</p>
+</section>
+<section id="version-control-with-git-and-github" class="level2">
+<h2 class="anchored" data-anchor-id="version-control-with-git-and-github">Version Control with Git and GitHub</h2>
+<p>Git is how computational social scientists version, share, and collaborate on their work. GitHub is the most popular platform for hosting Git repositories. If you’ve never used version control before, this section will get you set up with a workflow that integrates directly into your IDE.</p>
+<section id="why-git-matters" class="level3">
+<h3 class="anchored" data-anchor-id="why-git-matters">Why Git Matters</h3>
+<p>Without version control, you end up with files like <code>analysis_final.R</code>, <code>analysis_final2.R</code>, <code>analysis_ACTUALLY_final.R</code>. Git tracks every change you make, so you can:</p>
+<ul>
+<li>Go back to any previous version without keeping multiple copies</li>
+<li>Experiment freely—if something breaks, you can always revert</li>
+<li>Collaborate with others without emailing files back and forth</li>
+<li>Share your work publicly for transparency and reproducibility</li>
+</ul>
+<p>Most computational social science projects live in Git repositories, and employers expect researchers to be comfortable with basic version control.</p>
+</section>
+<section id="git-integration" class="level3">
+<h3 class="anchored" data-anchor-id="git-integration">Git Integration</h3>
+<p>Once Git is configured, you’ll see version control features built into your environment:</p>
+<ul>
+<li><strong>In RStudio</strong>: A “Git” tab appears in the Environment pane (top-right)</li>
+<li><strong>In Positron</strong>: Git integration works through the Source Control panel (often on the left sidebar)</li>
+</ul>
+<p>Either way, you can stage changes, write commit messages, and push to GitHub without leaving your editor. This is far friendlier than memorizing terminal commands.</p>
+</section>
+<section id="setting-up-git-and-github-the-path-of-least-resistance" class="level3">
+<h3 class="anchored" data-anchor-id="setting-up-git-and-github-the-path-of-least-resistance">Setting Up Git and GitHub: The Path of Least Resistance</h3>
+<p>Git authentication is notoriously confusing. We’re going to use an R-native approach that minimizes pain: <strong>Personal Access Tokens (PAT) via the <code>usethis</code> package</strong>. This keeps you in familiar territory and works reliably for the kind of work you’ll do in this book.</p>
+<section id="step-1-install-required-packages" class="level4">
+<h4 class="anchored" data-anchor-id="step-1-install-required-packages">Step 1: Install Required Packages</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"usethis"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"gitcreds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="step-2-configure-your-git-identity" class="level4">
+<h4 class="anchored" data-anchor-id="step-2-configure-your-git-identity">Step 2: Configure Your Git Identity</h4>
+<p>Tell Git who you are (one-time setup):</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_config</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">user.name =</span> <span class="st">"Jane Doe"</span>,           <span class="co"># Your actual name</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">user.email =</span> <span class="st">"jane@example.com"</span>   <span class="co"># Email associated with GitHub</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Important</strong>: Use the same email address you’ll use (or already use) for your GitHub account.</p>
+</section>
+<section id="step-3-create-a-github-personal-access-token" class="level4">
+<h4 class="anchored" data-anchor-id="step-3-create-a-github-personal-access-token">Step 3: Create a GitHub Personal Access Token</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_github_token</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This opens GitHub in your browser. You’ll need to:</p>
+<ol type="1">
+<li>Log in to GitHub if you haven’t already</li>
+<li>Leave the default scopes checked (at minimum: “repo” and “workflow”)</li>
+<li>Set expiration to 90 days (good security practice, though you’ll regenerate when it expires)</li>
+<li>Click “Generate token” at the bottom</li>
+<li><strong>Copy the token immediately</strong>—GitHub only shows it once</li>
+</ol>
+<p>The token looks like: <code>ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</code></p>
+</section>
+<section id="step-4-store-your-token-in-r" class="level4">
+<h4 class="anchored" data-anchor-id="step-4-store-your-token-in-r">Step 4: Store Your Token in R</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>gitcreds<span class="sc">::</span><span class="fu">gitcreds_set</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>When prompted, paste your token and press Enter. R stores it securely for future use.</p>
+</section>
+<section id="step-5-verify-everything-worked" class="level4">
+<h4 class="anchored" data-anchor-id="step-5-verify-everything-worked">Step 5: Verify Everything Worked</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">git_sitrep</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This diagnostic report should show: - Your name and email - “Personal access token for ‘https://github.com’: ‘&lt;discovered&gt;’”</p>
+<p>If so, you’re all set. If not, see troubleshooting below.</p>
+</section>
+</section>
+<section id="alternative-ssh-keys-for-the-long-haul" class="level3">
+<h3 class="anchored" data-anchor-id="alternative-ssh-keys-for-the-long-haul">Alternative: SSH Keys (For the Long Haul)</h3>
+<p>SSH keys can be convenient—set them up once and never think about authentication again. But they’re more complex to configure initially.</p>
+<p>Interested? See <a href="https://happygitwithr.com/ssh-keys.html">Happy Git with R, Chapters 10-12</a>. For now, the PAT method will serve you well.</p>
+</section>
+<section id="using-git-in-practice" class="level3">
+<h3 class="anchored" data-anchor-id="using-git-in-practice">Using Git in Practice</h3>
+<p>We’ll introduce Git commands as you need them throughout the book. For now, know that your IDE gives you a graphical interface for the most common operations:</p>
+<ul>
+<li><strong>Pull</strong>: Download changes from GitHub (always do this before starting work)</li>
+<li><strong>Commit</strong>: Save a snapshot of your changes with a descriptive message</li>
+<li><strong>Push</strong>: Upload your commits to GitHub</li>
+</ul>
+<p>[Screenshot: Source Control panel showing staged changes]</p>
+<p>You can also use terminal commands (<code>git status</code>, <code>git add</code>, <code>git commit</code>, <code>git push</code>) if you prefer, but the IDE interface handles 90% of everyday tasks.</p>
+<p>The key habit: commit often with clear messages (“Add data cleaning script” rather than “changes”), and push regularly so your work is backed up and others can see your progress.</p>
+<section id="a-brief-note-on-branches" class="level4">
+<h4 class="anchored" data-anchor-id="a-brief-note-on-branches">A Brief Note on Branches</h4>
+<p>So far we’ve discussed the basic workflow on a single branch (usually called <code>main</code>). Branches let you create parallel versions of your code for experimentation or collaboration without affecting your main work.</p>
+<p>Think of branches as separate workspaces: you can try a new analysis approach on a feature branch, and if it works out, merge it back into main. If it doesn’t work, you can simply delete the branch—your main code remains untouched.</p>
+<p>When to use branches:</p>
+<ul>
+<li><strong>Experimenting with new approaches</strong>: Try different analytical methods without risking your working code</li>
+<li><strong>Collaborating on specific features</strong>: Each person works on their own branch, then merges when ready</li>
+<li><strong>Maintaining different versions</strong>: Keep a stable main branch while developing updates separately</li>
+</ul>
+<p>Your IDE makes branch management visual. In Positron, the Source Control panel shows your current branch and lets you create, switch, and merge branches through menus. In RStudio, the Git pane has a branch dropdown for the same operations.</p>
+<p>For now, working on the main branch is sufficient. We’ll cover branching in more detail when you need it for collaboration or when your projects become more complex.</p>
+</section>
+</section>
+</section>
+<section id="going-further" class="level2">
+<h2 class="anchored" data-anchor-id="going-further">Going Further</h2>
+<p>This chapter gave you a working environment. When you’re ready to explore more:</p>
+<ul>
+<li><a href="https://github.com/posit-dev/positron/wiki">Positron Documentation</a>: Official docs for Positron features</li>
+<li><a href="https://docs.posit.co/ide/user/">RStudio User Guide</a>: Comprehensive guide to all RStudio capabilities</li>
+<li><a href="https://happygitwithr.com/">Happy Git and GitHub for the useR</a>: Everything Git-related for R users</li>
+<li><a href="https://skills.github.com/">GitHub Skills</a>: Interactive tutorials for Git and GitHub</li>
+</ul>
+<p>Advanced features worth exploring later:</p>
+<ul>
+<li><strong>Code snippets</strong>: Type abbreviations that expand to code templates</li>
+<li><strong>Debugger</strong>: Step through code line-by-line when things break</li>
+<li><strong>Live Share</strong> (Positron/VS Code): Collaborate in real-time by sharing your workspace with others</li>
+</ul>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -985,8 +1160,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter-1-2.html" class="pagination-link" aria-label="Positron and RStudio">
-        <span class="nav-page-text"><span class="chapter-title">Positron and RStudio</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapter-1-2.html" class="pagination-link" aria-label="R">
+        <span class="nav-page-text"><span class="chapter-title">R</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

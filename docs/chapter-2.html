@@ -330,12 +330,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-1-1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">R</span></a>
+  <a href="./chapter-1-1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Positron and RStudio</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-1-2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Positron and RStudio</span></a>
+  <a href="./chapter-1-2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -492,15 +492,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">2.1 Overview</h2>
-<p>In social sciences, analyzing text data is usually considered the “job” of qualitative researchers.Traditionally, qualitative research involves identifying patterns in non-numeric data, and this pattern recognition is typically done manually. This process is time-intensive but can yield rich research results. Traditional methods for analyzing text data involve human coding and can include direct sources (e.g., books, online texts) or indirect sources (e.g., interview transcripts).</p>
-<p>With the advent of new software, we can capture and analyze text data in ways that were previously not possible. Modern data collection techniques include web scraping, accessing social media APIs, or downloading large online documents. Given the increased size of text data, analysis now requires computational approaches (e.g., dictionary-based, frequency-based, machine learning) that go beyond manual coding. These computational methods allow social scientists to ask new types of research questions, expanding the scope and depth of possible insights.</p>
+<p>In social sciences, analyzing text data is usually considered the “job” of qualitative researchers. Traditionally, qualitative research involves identifying patterns in non-numeric data, and this pattern recognition is typically done manually. This process is time-intensive but can yield rich research results. Traditional methods for analyzing text data involve human coding and can include direct (e.g., books, online texts) or indirect sources (e.g., interview transcripts).</p>
+<p>With the advent of new software, we can capture and analyze text data in ways that were previously not possible, such as web scraping, accessing social media APIs, or downloading large online documents. Given the increased (opportunities for collecting and) size of text data, analysis now can benefit from computational approaches (e.g., dictionary-based, frequency-based, machine learning) that go beyond manual coding. As we discussed on the front matter of the book, these computational methods allow social scientists to ask new types of research questions, expanding the scope and depth of possible insights.</p>
 <blockquote class="blockquote">
 <p><strong>Disclaimer</strong>: While resources are available that discuss these analysis methods in depth, this book aims to provide a practical guide for social scientists, using data they will likely encounter. Our goal is to present a “cookbook” for guiding research projects through real-world examples.</p>
 </blockquote>
 </section>
 <section id="accessing-text-data" class="level2">
 <h2 class="anchored" data-anchor-id="accessing-text-data">2.2 Accessing Text Data</h2>
-<p>For conventional qualitative researcher, text data comes from the usual sources such as interview transcripts or existing documents. Nowadays, however, text can be found and collected in many different ways. For example, social media is rich with text data, likewise for faculty who are teaching course (especially online), every student writing can be seen as a piece of text data. In this section, we will cover a few basic ways of accessing text data. Please note that although we cover some prominent ways, this is by no means an exhaustive list. Therefore, please refer to the additional resources section at the end of the section to dive deeper.</p>
+<p>Nowadays, text can be found and collected in many different ways. For example, social media can serve as rich with text data (e.g., Reddit posts), likewise text created in classrooms, especially online (e.g., every student writing) can become part of text data. In this section, we will cover a few basic ways of accessing text data. Please note that although we cover some prominent ways, this is by no means an exhaustive list. Therefore, please refer to the additional resources section at the end of the section to dive deeper.</p>
 <section id="web-scraping-unstructured-or-api" class="level3">
 <h3 class="anchored" data-anchor-id="web-scraping-unstructured-or-api">2.2.1 Web Scraping (Unstructured or API)</h3>
 <section id="what-is-web-scraping" class="level4">
@@ -853,7 +853,7 @@ If further analysis is needed, such as frequency-based analysis, split the text 
 <p>In the following section, we will provide a “recipe” for the social scientist interested in these new methods of analyzing text data to get you from the initial stages of getting the data to running the analyses and the write up. Often left out is also a research question that suits or requires a method. Since we have a data and method-centric approach here, we will backtrack and also provide a research question, so that you can model after it in your own work. Finally, we will provide a sample results and discussions section.</p>
 <section id="purpose" class="level3">
 <h3 class="anchored" data-anchor-id="purpose">2.3.1 Purpose</h3>
-<p>The purpose of the frequency-based approach is to count the number of words as they appear in a text file, whether it is a collection of tweets, documents, or interview transcripts. This approach aligns with the frequency-coding method (e.g., Saldana) and can supplement human coding by revealing the most/least commonly occurring words, which can then be compared across dependent variables.</p>
+<p>The purpose of the frequency-based approach is to count the number of words as they appear in a text file, whether it is a collection of tweets, documents, or interview transcripts. This approach aligns with the frequency-coding method (e.g., Saldaña ,2021) and can supplement human coding by revealing the most/least commonly occurring words, which can then be compared across dependent variables.</p>
 <section id="case-study-frequency-based-analysis-of-genai-usage-guidelines-in-higher-education" class="level4">
 <h4 class="anchored" data-anchor-id="case-study-frequency-based-analysis-of-genai-usage-guidelines-in-higher-education">Case Study: Frequency-Based Analysis of GenAI USage Guidelines in Higher Education</h4>
 <p>As AI writing tools like ChatGPT become more prevalent, educators are working to understand how best to integrate them within academic settings, while many students and instructors remain uncertain about acceptable use cases. Our research into AI usage guidelines from the top 100 universities in North America aims to identify prominent themes and concerns in institutional policies regarding GenAI.</p>
@@ -883,8 +883,8 @@ If further analysis is needed, such as frequency-based analysis, split the text 
 </section>
 <section id="analysis" class="level3">
 <h3 class="anchored" data-anchor-id="analysis">2.3.4 Analysis</h3>
-<section id="step-1-load-required-libraries" class="level5">
-<h5 class="anchored" data-anchor-id="step-1-load-required-libraries">Step 1: Load Required Libraries</h5>
+<section id="step-1-load-required-libraries" class="level4">
+<h4 class="anchored" data-anchor-id="step-1-load-required-libraries">Step 1: Load Required Libraries</h4>
 <p>Install and load libraries for data processing, visualization, and word cloud generation.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install necessary packages if not already installed</span></span>
@@ -903,16 +903,16 @@ If further analysis is needed, such as frequency-based analysis, split the text 
 <span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(webshot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="step-2-load-data" class="level5">
-<h5 class="anchored" data-anchor-id="step-2-load-data">Step 2: Load Data</h5>
+<section id="step-2-load-data" class="level4">
+<h4 class="anchored" data-anchor-id="step-2-load-data">Step 2: Load Data</h4>
 <p>Read the CSV file containing policy texts from the top 100 universities.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>university_policies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"University_GenAI_Policy_Stance.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="step-3-tokenize-text-and-count-word-frequency" class="level5">
-<h5 class="anchored" data-anchor-id="step-3-tokenize-text-and-count-word-frequency">Step 3: Tokenize Text and Count Word Frequency</h5>
+<section id="step-3-tokenize-text-and-count-word-frequency" class="level4">
+<h4 class="anchored" data-anchor-id="step-3-tokenize-text-and-count-word-frequency">Step 3: Tokenize Text and Count Word Frequency</h4>
 <p>Process the text data by tokenizing words, removing stop words, and counting word occurrences.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tokenize text, remove stop words, and count word frequencies</span></span>
@@ -939,8 +939,8 @@ If further analysis is needed, such as frequency-based analysis, split the text 
 </div>
 </div>
 </section>
-<section id="step-4-create-a-word-cloud" class="level5">
-<h5 class="anchored" data-anchor-id="step-4-create-a-word-cloud">Step 4: Create a Word Cloud</h5>
+<section id="step-4-create-a-word-cloud" class="level4">
+<h4 class="anchored" data-anchor-id="step-4-create-a-word-cloud">Step 4: Create a Word Cloud</h4>
 <p>Generate a word cloud to visualize the frequency of words in a circular shape.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create and display the GenAI usage Stance wordcloud</span></span>
@@ -955,8 +955,8 @@ If further analysis is needed, such as frequency-based analysis, split the text 
 </div>
 </div>
 </section>
-<section id="step-5-visualize-top-12-words-in-university-policies" class="level5">
-<h5 class="anchored" data-anchor-id="step-5-visualize-top-12-words-in-university-policies">Step 5: Visualize Top 12 Words in University Policies</h5>
+<section id="step-5-visualize-top-12-words-in-university-policies" class="level4">
+<h4 class="anchored" data-anchor-id="step-5-visualize-top-12-words-in-university-policies">Step 5: Visualize Top 12 Words in University Policies</h4>
 <p>Select the top 12 most frequent words and create a bar chart to visualize the distribution.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select the top 12 words</span></span>
@@ -1004,8 +1004,10 @@ The analysis of the top 12 frequently mentioned terms highlighted additional foc
 <section id="purpose-1" class="level3">
 <h3 class="anchored" data-anchor-id="purpose-1">2.4.1 Purpose</h3>
 <p>The purpose of dictionary-based analysis in text data is to assess the presence of predefined categories, like emotions or sentiments, within the text using lexicons or dictionaries. This approach allows researchers to quantify qualitative aspects, such as positive or negative sentiment, based on specific words that correspond to these categories.</p>
-<p><strong>Case</strong>:</p>
+<section id="case" class="level4">
+<h4 class="anchored" data-anchor-id="case"><strong>Case</strong>:</h4>
 <p>In this analysis, we examine the stance of 100 universities on the use of GenAI by applying the Bing sentiment dictionary. By analyzing sentiment scores, we aim to identify the general tone in these policies, indicating whether the institutions’ attitudes toward GenAI are predominantly positive or negative.</p>
+</section>
 </section>
 <section id="sample-research-questions-1" class="level3">
 <h3 class="anchored" data-anchor-id="sample-research-questions-1">2.4.2 Sample Research Questions</h3>
@@ -1317,6 +1319,10 @@ The identified themes reflect both concerns and opportunities:</p>
 <section id="discussion" class="level4">
 <h4 class="anchored" data-anchor-id="discussion"><strong>Discussion:</strong></h4>
 <p>The topic modeling results suggest that universities are navigating a complex landscape of opportunities and challenges as they incorporate GenAI into academic contexts. While student-centric policies aim to balance innovation with ethical considerations, institutional-level themes signal the need for governance frameworks to ensure responsible AI use. These findings indicate that higher education institutions are positioned to play a pivotal role in shaping the future of generative AI in learning, provided they address the ethical, pedagogical, and policy challenges identified in this analysis.</p>
+</section>
+<section id="references" class="level4">
+<h4 class="anchored" data-anchor-id="references">References:</h4>
+<p>Saldaña, J. (2021). Coding techniques for quantitative and mixed data. <em>The Routledge reviewer’s guide to mixed methods analysis</em>, 151-160.</p>
 
 
 </section>

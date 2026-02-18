@@ -295,12 +295,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-1-1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">R</span></a>
+  <a href="./chapter-1-1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Positron and RStudio</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-1-2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Positron and RStudio</span></a>
+  <a href="./chapter-1-2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -399,7 +399,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#responsible-use-of-llms-in-data-science" id="toc-responsible-use-of-llms-in-data-science" class="nav-link active" data-scroll-target="#responsible-use-of-llms-in-data-science">(Responsible) use of LLMs in Data Science</a></li>
+  <li><a href="#the-responsible-use-of-llms-in-data-science" id="toc-the-responsible-use-of-llms-in-data-science" class="nav-link active" data-scroll-target="#the-responsible-use-of-llms-in-data-science">The (Responsible) Use of LLMs in Data Science</a></li>
   <li><a href="#the-responsible-use-framework" id="toc-the-responsible-use-framework" class="nav-link" data-scroll-target="#the-responsible-use-framework">The Responsible Use Framework</a></li>
   <li><a href="#applying-the-resposible-use-framework" id="toc-applying-the-resposible-use-framework" class="nav-link" data-scroll-target="#applying-the-resposible-use-framework">Applying the Resposible Use Framework</a></li>
   <li><a href="#achieving-responsible-usage-through-evidence-based-results" id="toc-achieving-responsible-usage-through-evidence-based-results" class="nav-link" data-scroll-target="#achieving-responsible-usage-through-evidence-based-results">Achieving Responsible Usage Through Evidence-Based Results</a></li>
@@ -429,8 +429,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="responsible-use-of-llms-in-data-science" class="level3">
-<h3 class="anchored" data-anchor-id="responsible-use-of-llms-in-data-science">(Responsible) use of LLMs in Data Science</h3>
+<section id="the-responsible-use-of-llms-in-data-science" class="level3">
+<h3 class="anchored" data-anchor-id="the-responsible-use-of-llms-in-data-science">The (Responsible) Use of LLMs in Data Science</h3>
 <p>As we integrate large language models into data analysis, our responsibilities as researchers evolve in important ways . There are three primary approaches to this integration:</p>
 <ul>
 <li><p>first, using LLMs for code autocompletion and inline coding assistance, such as through integrated development environments like Positron;</p></li>
@@ -440,7 +440,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="the-responsible-use-framework" class="level3">
 <h3 class="anchored" data-anchor-id="the-responsible-use-framework">The Responsible Use Framework</h3>
-<p>The responsible use framework for LLMs in research, presented by Joe Cheng at R+AI Conference 2025 (Cheng, 2025), can be used as a practical evaluation tool centering on three essential criteria. <strong>Correctness</strong> refers to whether the LLM produces accurate and reliable results that can be verified and trusted. <strong>Transparency</strong> addresses whether the process and reasoning behind the AI’s outputs are visible and understandable to researchers, allowing them to inspect how conclusions were reached. <strong>Reproducibility</strong> concerns whether the same analysis can be repeated and yield consistent results, a foundational requirement of scientific research. These three categories align with broader responsible AI governance principles commonly found in organizational frameworks but are specifically tailored to the research context where verifiability and scientific rigor are key. For an LLM application in research to be considered responsibly used, it should ideally achieve “yes” answers across all three criteria, ensuring that the technology enhances rather than compromises research integrity.</p>
+<p>The responsible use framework for LLMs in research, presented by Joe Cheng at R+AI Conference 2025 <span class="citation" data-cites="Cheng2025LLMResponsible">(<a href="#ref-Cheng2025LLMResponsible" role="doc-biblioref"><strong>Cheng2025LLMResponsible?</strong></a>)</span> can be used as a practical evaluation tool centering on three essential criteria. <strong>Correctness</strong> refers to whether the LLM produces accurate and reliable results that can be verified and trusted. <strong>Transparency</strong> addresses whether the process and reasoning behind the AI’s outputs are visible and understandable to researchers, allowing them to inspect how conclusions were reached. <strong>Reproducibility</strong> concerns whether the same analysis can be repeated and yield consistent results, a foundational requirement of scientific research. These three categories align with broader responsible AI governance principles commonly found in organizational frameworks but are specifically tailored to the research context where verifiability and scientific rigor are key. For an LLM application in research to be considered responsibly used, it should ideally achieve “yes” answers across all three criteria, ensuring that the technology enhances rather than compromises research integrity.</p>
 </section>
 <section id="applying-the-resposible-use-framework" class="level3">
 <h3 class="anchored" data-anchor-id="applying-the-resposible-use-framework">Applying the Resposible Use Framework</h3>
@@ -450,8 +450,6 @@ ul.task-list li input[type="checkbox"] {
 <section id="achieving-responsible-usage-through-evidence-based-results" class="level3">
 <h3 class="anchored" data-anchor-id="achieving-responsible-usage-through-evidence-based-results">Achieving Responsible Usage Through Evidence-Based Results</h3>
 <p>However, for the third type of usage where LLMs directly analyze data (as we do in Section X), we can work toward achieving “yes” answers across all (or as many as possible) three framework criteria by requiring LLMs to produce evidence-based results. As we cover in Section 6, it is possible to use a Local LLM that is connected to R/Positron. In this approach, the researcher has control over the data analysis over simply pasting text into an LLMs chatbox. For example, this can be done by structuring prompts to demand transparent, verifiable outputs, such as requiring the LLM to identify themes, provide verbatim quotes from the source data, report frequencies with counts and percentages, and present findings in standardized tabular formats. We transform the black box into a more transparent analytical tool. This approach ensures <strong>correctness</strong> by grounding every claim in specific textual evidence that researchers can verify, enhances <strong>transparency</strong> by making the analytical reasoning traceable through quoted examples and quantitative metrics, and improves <strong>reproducibility</strong> by standardizing the output format and maintaining clear documentation of the analytical process. When LLMs are constrained to cite their sources, quantify their observations, and structure their findings systematically, they shift from opaque pattern generators to accountable research assistants whose work can be validated against the original data. This methodology aligns with the recommendation for constrained use and micromanaged implementation, ensuring that LLMs remain within appropriate boundaries while still providing valuable analytical support for qualitative research.</p>
-<p>Reference</p>
-<p>Cheng, J. (2025). <em>Harnessing the power of LLMs for responsible data science and research</em> [Conference presentation]. R+AI 2025. Available at <a href="https://r-consortium.org/posts/keeping-llms-in-their-lane-focused-ai-for-data-science-and-research/"><strong>https://r-consortium.org/posts/keeping-llms-in-their-lane-focused-ai-for-data-science-and-research/</strong></a></p>
 
 
 </section>
