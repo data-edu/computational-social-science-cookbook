@@ -24,8 +24,6 @@ Both Positron and RStudio organize your workspace into four main areas (though t
 
 ![Positron Interface](docs/chapter-1_files/positronIDE.png){width="648"}
 
-[Screenshot: Positron with all four panes visible and labeled]
-
 ### Understanding Each Pane
 
 **Source/Editor Pane**: This is where you spend most of your time writing code. The editor provides syntax highlighting (different colors for functions, strings, and comments), autocomplete suggestions, and the ability to work with multiple files in tabs. You can split the pane to view two files side-by-side, and for Quarto documents, you can preview the rendered output alongside your code.
@@ -68,11 +66,14 @@ Keyboard shortcuts can speed up your workflow considerably. You don't need to me
 | Insert assignment operator (`<-`) | Alt + - | Option + - |
 | Restart R session | Ctrl + Shift + F10 | Cmd + Shift + 0 |
 
-[Screenshot: Help menu showing Keyboard Shortcuts option]
-
 The run command (Ctrl/Cmd + Enter) is the one you'll use most—it executes the line where your cursor is, or if you've selected multiple lines, it runs all of them. The comment shortcut is helpful when testing code: you can quickly comment out a section to see if removing it fixes an error.
 
 Positron and RStudio have slightly different shortcuts for a few operations, particularly around navigating panes and restarting R. To see the full list specific to your environment, go to Help → Keyboard Shortcuts or press Alt/Option + Shift + K.
+
+::: {.callout-tip}
+## RStudio Keybindings in Positron
+If you're coming from RStudio and want to keep using familiar shortcuts, install the **RStudio Keymap** extension in Positron. Open the Extensions panel (View → Extensions), search for "RStudio Keymap," and click Install. This maps common RStudio shortcuts to their Positron equivalents so you don't have to retrain your muscle memory.
+:::
 
 ## Extensions and Customization
 
@@ -90,7 +91,7 @@ While Positron comes with solid R support out of the box, these extensions can e
 
 To install an extension, search for it by name in the Extensions panel, click on it, and press Install. Most extensions work immediately without restarting Positron.
 
-[Screenshot: Extensions marketplace showing R-related extensions]
+![Extensions marketplace showing R-related extensions](positron%20r%20extensions.png)
 
 ### RStudio's Approach
 
@@ -212,7 +213,7 @@ We'll introduce Git commands as you need them throughout the book. For now, know
 -   **Commit**: Save a snapshot of your changes with a descriptive message
 -   **Push**: Upload your commits to GitHub
 
-[Screenshot: Source Control panel showing staged changes]
+![Source Control panel showing staged changes](source%20control.png)
 
 You can also use terminal commands (`git status`, `git add`, `git commit`, `git push`) if you prefer, but the IDE interface handles 90% of everyday tasks.
 

@@ -28,13 +28,16 @@ You install packages like any others in R.
 
 Installation (one time):
 
-``` r
+```{r}
+#| eval: false
 install.packages("tidyverse")
 ```
 
 Loading (at the start of each session or script):
 
-``` r
+```{r}
+#| label: load-tidyverse
+#| message: false
 library(tidyverse)
 ```
 
@@ -44,17 +47,14 @@ When you load the tidyverse, you'll see a message listing which packages were at
 
 Let's load actual data to see the tidyverse in action. We'll use student assessment data from the Open University Learning Analytics Dataset (OULAD), which contains information about student demographics and course outcomes.
 
-``` r
-library(tidyverse)
-
+```{r}
+#| label: load-data
 # Read the data
 students <- read_csv("data/oulad-students-and-assessments.csv")
 
 # Take a quick look
 glimpse(students)
 ```
-
-[Screenshot: Console showing glimpse() output of students data]
 
 The `glimpse()` function shows you the structure of your data: how many rows and columns, what type each column is (character, numeric, etc.), and the first few values. This dataset contains information about students (gender, age, region, disability status) along with their course performance (final_result, pass status, mean_weighted_score).
 
@@ -68,7 +68,8 @@ The dplyr package provides functions for the most common data manipulation tasks
 
 Use `filter()` to keep only rows that meet certain conditions:
 
-``` r
+```{r}
+#| label: filter-examples
 # Keep only students who passed
 passed_students <- students |>
   filter(pass == 1)
@@ -88,7 +89,8 @@ This gives us 22,333 passed students from the original 32,593. Use `==` for equa
 
 Use `select()` to pick which columns to keep or remove:
 
-``` r
+```{r}
+#| label: select-examples
 # Select specific columns
 student_basics <- students |>
   select(id_student, gender, age_band, final_result)
@@ -108,7 +110,8 @@ The `select()` function is useful when you have many columns but only need a few
 
 Use `mutate()` to add new columns or change existing ones:
 
-``` r
+```{r}
+#| label: mutate-examples
 # Create new column
 students <- students |>
   mutate(high_achiever = mean_weighted_score > 800)
@@ -134,7 +137,8 @@ The `case_when()` function inside `mutate()` handles conditional logic: if mean_
 
 Use `summarize()` to collapse your data into summary statistics:
 
-``` r
+```{r}
+#| label: summarize-example
 # Overall statistics
 students |>
   summarize(
@@ -142,10 +146,6 @@ students |>
     pass_rate = mean(pass, na.rm = TRUE),
     n_students = n()
   )
-
-# Output:
-#   mean_score pass_rate n_students
-#        722.4     0.685     32,593
 ```
 
 The `na.rm = TRUE` argument tells R to ignore missing values when calculating means. The `n()` function counts the number of rows.
@@ -154,7 +154,8 @@ The `na.rm = TRUE` argument tells R to ignore missing values when calculating me
 
 Use `group_by()` before `summarize()` to calculate statistics for each group separately:
 
-``` r
+```{r}
+#| label: group-by-examples
 # Pass rates by gender
 students |>
   group_by(gender) |>
@@ -162,12 +163,10 @@ students |>
     pass_rate = mean(pass, na.rm = TRUE),
     n = n()
   )
+```
 
-# Output:
-#   gender pass_rate     n
-#   F          0.701 17,329
-#   M          0.665 15,264
-
+```{r}
+#| label: group-by-multiple
 # Multiple grouping variables
 students |>
   group_by(gender, disability) |>
@@ -180,7 +179,8 @@ After `group_by()`, subsequent operations happen separately for each group. This
 
 Use `arrange()` to reorder rows:
 
-``` r
+```{r}
+#| label: arrange-examples
 # Sort by score (ascending by default)
 students |>
   arrange(mean_weighted_score)
@@ -200,18 +200,15 @@ This is useful when you want to see the highest or lowest values, or when you ne
 
 Use `count()` as a shortcut for `group_by()` + `summarize(n = n())`:
 
-``` r
+```{r}
+#| label: count-example
 # Count final results
 students |>
   count(final_result)
+```
 
-# Output:
-#   final_result     n
-#   Distinction  3,124
-#   Fail         7,052
-#   Pass        18,229
-#   Withdrawn    4,188
-
+```{r}
+#| label: count-percent
 # Count with percentages
 students |>
   count(final_result) |>
@@ -228,7 +225,9 @@ R now has a native pipe operator `|>` (introduced in R 4.1), while the tidyverse
 
 Here's a concrete example using the dplyr functions we just learned:
 
-``` r
+```{r}
+#| label: pipe-comparison
+#| eval: false
 # Without pipes (nested, hard to read)
 summarize(
   group_by(
@@ -237,17 +236,15 @@ summarize(
   ),
   mean_score = mean(mean_weighted_score, na.rm = TRUE)
 )
+```
 
+```{r}
+#| label: pipe-example
 # With pipes (clear, step-by-step)
 students |>
   filter(pass == 1) |>
   group_by(gender) |>
   summarize(mean_score = mean(mean_weighted_score, na.rm = TRUE))
-
-# Output:
-#   gender mean_score
-#   F           736.4
-#   M           724.8
 ```
 
 The piped version reads like instructions: "Take students, *then* keep only those who passed, *then* group by gender, *then* calculate mean scores." Each step is on its own line, making it easy to follow the logic.
@@ -264,7 +261,9 @@ The ggplot2 package uses a "grammar of graphics" approach where you build plots 
 
 Every ggplot follows this template:
 
-``` r
+```{r}
+#| label: ggplot-template
+#| eval: false
 ggplot(data = DATA, aes(x = X_VAR, y = Y_VAR)) +
   geom_FUNCTION()
 ```
@@ -275,7 +274,9 @@ The `aes()` function (short for "aesthetics") maps your data columns to visual p
 
 Use `geom_bar()` to visualize counts of categorical variables:
 
-``` r
+```{r}
+#| label: fig-bar-simple
+#| fig-cap: "Distribution of student final results"
 # Simple bar chart
 students |>
   ggplot(aes(x = final_result)) +
@@ -284,18 +285,20 @@ students |>
 
 This automatically counts how many students have each final result (Pass, Fail, Distinction, Withdrawn) and displays the counts as bars.
 
-``` r
+```{r}
+#| label: fig-bar-stacked
+#| fig-cap: "Stacked bar chart showing final results by gender"
 # Stacked bar chart by group
 students |>
   ggplot(aes(x = gender, fill = final_result)) +
   geom_bar()
 ```
 
-[Screenshot: Stacked bar chart showing final results by gender]
-
 The `fill` aesthetic colors the bars by final_result, creating stacked bars that show how outcomes differ between genders.
 
-``` r
+```{r}
+#| label: fig-bar-dodge
+#| fig-cap: "Side-by-side bar chart showing final results by gender"
 # Side-by-side bars
 students |>
   ggplot(aes(x = gender, fill = final_result)) +
@@ -308,7 +311,9 @@ Setting `position = "dodge"` puts bars next to each other instead of stacking th
 
 Use `geom_histogram()` to see the distribution of continuous variables:
 
-``` r
+```{r}
+#| label: fig-histogram
+#| fig-cap: "Distribution of mean weighted scores"
 # Distribution of scores
 students |>
   ggplot(aes(x = mean_weighted_score)) +
@@ -317,7 +322,9 @@ students |>
 
 The `binwidth` argument controls how wide each bar is. Smaller values show more detail, larger values show broader patterns.
 
-``` r
+```{r}
+#| label: fig-histogram-overlay
+#| fig-cap: "Overlaid histograms of scores by pass status"
 # Separate distributions by group
 students |>
   filter(!is.na(mean_weighted_score)) |>
@@ -331,7 +338,9 @@ Using `position = "identity"` overlays the histograms, and `alpha = 0.5` makes t
 
 Use `geom_boxplot()` to compare distributions across groups:
 
-``` r
+```{r}
+#| label: fig-boxplot
+#| fig-cap: "Score distributions by final result"
 # Scores by final result
 students |>
   filter(!is.na(mean_weighted_score)) |>
@@ -339,11 +348,11 @@ students |>
   geom_boxplot()
 ```
 
-[Screenshot: Boxplot showing score distributions by final result]
-
 Boxplots show the median (middle line), quartiles (box edges), and outliers (individual points). This makes it easy to see that Distinction students have higher median scores than Pass students, who score higher than those who Fail or Withdraw.
 
-``` r
+```{r}
+#| label: fig-boxplot-color
+#| fig-cap: "Score distributions by final result with color"
 # With colors
 students |>
   filter(!is.na(mean_weighted_score)) |>
@@ -357,7 +366,9 @@ Adding `fill` colors each boxplot by the category, making them easier to disting
 
 Use `geom_point()` to explore relationships between two continuous variables:
 
-``` r
+```{r}
+#| label: fig-scatter
+#| fig-cap: "Registration timing versus mean weighted scores"
 # Registration timing vs. scores
 students |>
   filter(!is.na(mean_weighted_score)) |>
@@ -367,7 +378,9 @@ students |>
 
 The `alpha` parameter makes points semi-transparent, which helps when many points overlap. This plot would show whether students who register earlier tend to score higher or lower.
 
-``` r
+```{r}
+#| label: fig-scatter-smooth
+#| fig-cap: "Registration timing versus scores with trend line"
 # Add a trend line
 students |>
   filter(!is.na(mean_weighted_score)) |>
@@ -382,7 +395,9 @@ Adding `geom_smooth(method = "lm")` fits a linear model and displays the trend l
 
 Good plots need clear labels:
 
-``` r
+```{r}
+#| label: fig-bar-polished
+#| fig-cap: "Distribution of student outcomes"
 students |>
   ggplot(aes(x = final_result)) +
   geom_bar(fill = "steelblue") +
@@ -400,7 +415,9 @@ The `labs()` function adds titles and axis labels. The `theme_minimal()` functio
 
 Use faceting to create separate plots for different groups:
 
-``` r
+```{r}
+#| label: fig-facet-wrap
+#| fig-cap: "Final results by course module"
 # Separate plot for each course module
 students |>
   ggplot(aes(x = final_result)) +
@@ -410,7 +427,9 @@ students |>
 
 This creates a grid of small bar charts, one for each module. It's useful when you want to compare patterns across many categories.
 
-``` r
+```{r}
+#| label: fig-facet-grid
+#| fig-cap: "Score distributions by gender and disability status"
 # Grid by two variables
 students |>
   filter(!is.na(mean_weighted_score)) |>
@@ -418,8 +437,6 @@ students |>
   geom_histogram(binwidth = 50) +
   facet_grid(gender ~ disability)
 ```
-
-[Screenshot: Faceted histogram showing score distributions by gender and disability status]
 
 `facet_grid()` creates a matrix of plots: rows for one variable (gender), columns for another (disability). This lets you see how score distributions vary across combinations of factors.
 
