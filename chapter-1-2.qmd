@@ -38,7 +38,7 @@ summary(students$mean_weighted_score)
 table(students$final_result)
 ```
 
-[Screenshot: R script open in Source pane]
+![R script open in Source pane](r%20script.png)
 
 This script loads the tidyverse package (more on this in the next chapter), reads a CSV file, and produces quick summaries. You can run it line-by-line using Cmd/Ctrl + Enter, or run the entire script at once. The output appears in the Console, but the script itself is saved for later use.
 
@@ -105,7 +105,7 @@ students |>
 The table above shows the number of students who passed (1) and didn't pass (0) for each gender. We can see that both groups have substantial representation in the dataset.
 ````
 
-[Screenshot: Rendered Quarto document showing code and output]
+![Rendered Quarto document showing code and output](rendered%20quarto.png)
 
 When you render this document, Quarto executes each code chunk in order, captures the output, and weaves it together with your explanatory text. The result is an HTML document where readers see your code, your results, and your interpretation all together. This makes your analysis reproducible—anyone with your data can re-run your Quarto file and get the same results.
 
@@ -140,7 +140,7 @@ students |>
 ```
 ````
 
-[Screenshot: Quarto document showing chunk options at top of code block]
+![Quarto document showing chunk options at top of code block](chunk%20options.png)
 
 When rendered, readers see the plot but not the code that created it. This is useful for final reports where you want to emphasize results rather than implementation details.
 
@@ -233,43 +233,13 @@ The best programmers don't memorize every function—they know how to find answe
 
 Positron, being built on VS Code, supports AI assistant extensions that can help you write code more efficiently and understand errors more quickly.
 
-**AI Integration Options**
+##### Positron Assistant
 
-Several AI extensions work in Positron:
+Positron includes a built-in AI chat panel called Positron Assistant. You can open it from the sidebar (look for the chat icon) or with the keyboard shortcut Ctrl/Cmd + Shift + I. Positron Assistant is context-aware—it can see your open files, your console history, and the variables in your environment, so you can ask questions about your code without copying and pasting everything into an external tool.
 
--   **GitHub Copilot**: The most popular AI pair programmer, offering real-time code suggestions
--   **Claude for VS Code**: Provides AI assistance with code explanation and generation
--   **Continue**: An open-source AI coding assistant that works with multiple LLM providers
+For example, if you've just loaded a dataset and aren't sure how to reshape it, you can highlight the relevant code and ask the assistant to explain it, suggest next steps, or help you fix an error. You can also ask it to generate code from a plain-language description, like "make a bar chart of pass rates by gender." The assistant will write code that fits the context of your current session, using the packages you've already loaded and the data you're working with.
 
-We'll focus on GitHub Copilot as it's widely adopted in data science work, but the workflow is similar for other extensions.
-
-**Setting Up GitHub Copilot**
-
-1.  Open the Extensions panel in Positron (View → Extensions, or the extensions icon in the left sidebar)
-2.  Search for "GitHub Copilot"
-3.  Click Install on the official GitHub Copilot extension
-4.  After installation, you'll be prompted to sign in with your GitHub account
-5.  Click "Sign in to GitHub" and complete the authentication in your browser
-
-**Note on access**: GitHub Copilot requires a subscription (around $10/month), though it's free for verified students and teachers. If you have a student email address, you can get free access through [GitHub Education](https://education.github.com/).
-
-**Using Copilot**
-
-Once installed, Copilot suggests code as you type. For example, if you write a comment describing what you want to do:
-
-``` r
-# Calculate the mean score by gender and pass status
-```
-
-Copilot will suggest the code to accomplish this. Press Tab to accept the suggestion, or keep typing to ignore it. The suggestions appear in gray text as you work.
-
-[Screenshot: Copilot providing code suggestion in Positron]
-
-You can also:
-
--   Ask Copilot to explain code: Highlight code and right-click → Copilot → Explain This
--   Request alternatives: If a suggestion isn't quite right, you can cycle through alternatives using Alt/Option + \]
--   Use Copilot Chat: Open the chat panel to have a conversation about your code
+Positron Assistant connects to a language model provider that you configure in your settings—options include Anthropic (Claude), OpenAI, and others. Some providers require a paid API key; check Positron's documentation at <https://positron.posit.co/> for current setup instructions. Because the assistant runs inside Positron rather than in a separate browser tab, it reduces the friction of switching between your code and a help tool, which makes it especially useful when you're learning.
 
 **When to Use Inline AI vs. External LLMs**
 

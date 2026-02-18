@@ -5,3 +5,5 @@
 
 /.quarto/
 data/oulad-interactions-filtered.csv
+
+example-script.R
