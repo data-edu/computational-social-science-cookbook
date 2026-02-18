@@ -505,7 +505,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Positron Interface</figcaption>
 </figure>
 </div>
-<p>[Screenshot: Positron with all four panes visible and labeled]</p>
 <section id="understanding-each-pane" class="level3">
 <h3 class="anchored" data-anchor-id="understanding-each-pane">Understanding Each Pane</h3>
 <p><strong>Source/Editor Pane</strong>: This is where you spend most of your time writing code. The editor provides syntax highlighting (different colors for functions, strings, and comments), autocomplete suggestions, and the ability to work with multiple files in tabs. You can split the pane to view two files side-by-side, and for Quarto documents, you can preview the rendered output alongside your code.</p>
@@ -587,9 +586,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p>[Screenshot: Help menu showing Keyboard Shortcuts option]</p>
 <p>The run command (Ctrl/Cmd + Enter) is the one you’ll use most—it executes the line where your cursor is, or if you’ve selected multiple lines, it runs all of them. The comment shortcut is helpful when testing code: you can quickly comment out a section to see if removing it fixes an error.</p>
 <p>Positron and RStudio have slightly different shortcuts for a few operations, particularly around navigating panes and restarting R. To see the full list specific to your environment, go to Help → Keyboard Shortcuts or press Alt/Option + Shift + K.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+RStudio Keybindings in Positron
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you’re coming from RStudio and want to keep using familiar shortcuts, install the <strong>RStudio Keymap</strong> extension in Positron. Open the Extensions panel (View → Extensions), search for “RStudio Keymap,” and click Install. This maps common RStudio shortcuts to their Positron equivalents so you don’t have to retrain your muscle memory.</p>
+</div>
+</div>
 </section>
 <section id="extensions-and-customization" class="level2">
 <h2 class="anchored" data-anchor-id="extensions-and-customization">Extensions and Customization</h2>
@@ -604,7 +615,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Markdown Preview Enhanced</strong>: Better previews for Markdown documents with extended syntax support</li>
 </ul>
 <p>To install an extension, search for it by name in the Extensions panel, click on it, and press Install. Most extensions work immediately without restarting Positron.</p>
-<p>[Screenshot: Extensions marketplace showing R-related extensions]</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="positron r extensions.png" class="img-fluid figure-img"></p>
+<figcaption>Extensions marketplace showing R-related extensions</figcaption>
+</figure>
+</div>
 </section>
 <section id="rstudios-approach" class="level3">
 <h3 class="anchored" data-anchor-id="rstudios-approach">RStudio’s Approach</h3>
@@ -703,7 +719,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Commit</strong>: Save a snapshot of your changes with a descriptive message</li>
 <li><strong>Push</strong>: Upload your commits to GitHub</li>
 </ul>
-<p>[Screenshot: Source Control panel showing staged changes]</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="source control.png" class="img-fluid figure-img"></p>
+<figcaption>Source Control panel showing staged changes</figcaption>
+</figure>
+</div>
 <p>You can also use terminal commands (<code>git status</code>, <code>git add</code>, <code>git commit</code>, <code>git push</code>) if you prefer, but the IDE interface handles 90% of everyday tasks.</p>
 <p>The key habit: commit often with clear messages (“Add data cleaning script” rather than “changes”), and push regularly so your work is backed up and others can see your progress.</p>
 <section id="a-brief-note-on-branches" class="level4">

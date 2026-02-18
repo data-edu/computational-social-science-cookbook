@@ -498,7 +498,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Quick summaries</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(students<span class="sc">$</span>mean_weighted_score)</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(students<span class="sc">$</span>final_result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>[Screenshot: R script open in Source pane]</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="r script.png" class="img-fluid figure-img"></p>
+<figcaption>R script open in Source pane</figcaption>
+</figure>
+</div>
 <p>This script loads the tidyverse package (more on this in the next chapter), reads a CSV file, and produces quick summaries. You can run it line-by-line using Cmd/Ctrl + Enter, or run the entire script at once. The output appears in the Console, but the script itself is saved for later use.</p>
 </section>
 <section id="r-markdown-.rmd" class="level3">
@@ -552,7 +557,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>The table above shows the number of students who passed (1) and didn't pass (0) for each gender. We can see that both groups have substantial representation in the dataset.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>[Screenshot: Rendered Quarto document showing code and output]</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="rendered quarto.png" class="img-fluid figure-img"></p>
+<figcaption>Rendered Quarto document showing code and output</figcaption>
+</figure>
+</div>
 <p>When you render this document, Quarto executes each code chunk in order, captures the output, and weaves it together with your explanatory text. The result is an HTML document where readers see your code, your results, and your interpretation all together. This makes your analysis reproducible—anyone with your data can re-run your Quarto file and get the same results.</p>
 <p><strong>Key difference for beginners</strong>: Think of R scripts as “just code” and Quarto as “code + explanation + output” in one document. Use scripts for behind-the-scenes work, Quarto for analysis you want to share or understand later.</p>
 </section>
@@ -580,7 +590,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Final Results"</span>)</span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>[Screenshot: Quarto document showing chunk options at top of code block]</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="chunk options.png" class="img-fluid figure-img"></p>
+<figcaption>Quarto document showing chunk options at top of code block</figcaption>
+</figure>
+</div>
 <p>When rendered, readers see the plot but not the code that created it. This is useful for final reports where you want to emphasize results rather than implementation details.</p>
 <p>You can also set options globally for the entire document by adding them to your YAML header. For example, to hide all code by default:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
@@ -647,34 +662,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="using-ai-tools-directly-in-positron" class="level4">
 <h4 class="anchored" data-anchor-id="using-ai-tools-directly-in-positron">Using AI Tools Directly in Positron</h4>
 <p>Positron, being built on VS Code, supports AI assistant extensions that can help you write code more efficiently and understand errors more quickly.</p>
-<p><strong>AI Integration Options</strong></p>
-<p>Several AI extensions work in Positron:</p>
-<ul>
-<li><strong>GitHub Copilot</strong>: The most popular AI pair programmer, offering real-time code suggestions</li>
-<li><strong>Claude for VS Code</strong>: Provides AI assistance with code explanation and generation</li>
-<li><strong>Continue</strong>: An open-source AI coding assistant that works with multiple LLM providers</li>
-</ul>
-<p>We’ll focus on GitHub Copilot as it’s widely adopted in data science work, but the workflow is similar for other extensions.</p>
-<p><strong>Setting Up GitHub Copilot</strong></p>
-<ol type="1">
-<li>Open the Extensions panel in Positron (View → Extensions, or the extensions icon in the left sidebar)</li>
-<li>Search for “GitHub Copilot”</li>
-<li>Click Install on the official GitHub Copilot extension</li>
-<li>After installation, you’ll be prompted to sign in with your GitHub account</li>
-<li>Click “Sign in to GitHub” and complete the authentication in your browser</li>
-</ol>
-<p><strong>Note on access</strong>: GitHub Copilot requires a subscription (around $10/month), though it’s free for verified students and teachers. If you have a student email address, you can get free access through <a href="https://education.github.com/">GitHub Education</a>.</p>
-<p><strong>Using Copilot</strong></p>
-<p>Once installed, Copilot suggests code as you type. For example, if you write a comment describing what you want to do:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the mean score by gender and pass status</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Copilot will suggest the code to accomplish this. Press Tab to accept the suggestion, or keep typing to ignore it. The suggestions appear in gray text as you work.</p>
-<p>[Screenshot: Copilot providing code suggestion in Positron]</p>
-<p>You can also:</p>
-<ul>
-<li>Ask Copilot to explain code: Highlight code and right-click → Copilot → Explain This</li>
-<li>Request alternatives: If a suggestion isn’t quite right, you can cycle through alternatives using Alt/Option + ]</li>
-<li>Use Copilot Chat: Open the chat panel to have a conversation about your code</li>
-</ul>
+<section id="positron-assistant" class="level5">
+<h5 class="anchored" data-anchor-id="positron-assistant">Positron Assistant</h5>
+<p>Positron includes a built-in AI chat panel called Positron Assistant. You can open it from the sidebar (look for the chat icon) or with the keyboard shortcut Ctrl/Cmd + Shift + I. Positron Assistant is context-aware—it can see your open files, your console history, and the variables in your environment, so you can ask questions about your code without copying and pasting everything into an external tool.</p>
+<p>For example, if you’ve just loaded a dataset and aren’t sure how to reshape it, you can highlight the relevant code and ask the assistant to explain it, suggest next steps, or help you fix an error. You can also ask it to generate code from a plain-language description, like “make a bar chart of pass rates by gender.” The assistant will write code that fits the context of your current session, using the packages you’ve already loaded and the data you’re working with.</p>
+<p>Positron Assistant connects to a language model provider that you configure in your settings—options include Anthropic (Claude), OpenAI, and others. Some providers require a paid API key; check Positron’s documentation at <a href="https://positron.posit.co/" class="uri">https://positron.posit.co/</a> for current setup instructions. Because the assistant runs inside Positron rather than in a separate browser tab, it reduces the friction of switching between your code and a help tool, which makes it especially useful when you’re learning.</p>
 <p><strong>When to Use Inline AI vs.&nbsp;External LLMs</strong></p>
 <p>Different tools excel at different tasks:</p>
 <ul>
@@ -687,6 +679,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Please see Section 1.4 for more information about the relationship between you, data, and LLMs.</p>
 
 
+</section>
 </section>
 </section>
 </section>
