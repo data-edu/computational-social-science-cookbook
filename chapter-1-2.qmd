@@ -1,163 +1,287 @@
 ---
-title: "Positron and RStudio"
+title: "R"
 format: html
 ---
 
-You need an environment for writing and running R code. We're going to focus on **Positron**, Posit's newer IDE built on the foundation of VS Code. If you're already comfortable with RStudio, everything in this chapter applies there too—the fundamental concepts are identical, and the R code in this book works the same way in both.
+We're not going to teach you RStudio comprehensively because excellent resources already exist for that purpose. We particularly recommend [*R for Data Science*](https://r4ds.hadley.nz/), [*Data Science in Education Using R*](https://datascienceineducation.com/), the [RStudio primers](https://posit.co/resources/primers/), and [*Happy Git and GitHub for the useR*](https://happygitwithr.com/).
 
-## Why Positron?
+Instead, this chapter covers just enough to reproduce our workflows and extend them to your own data science work. Think of this as the minimal viable setup for doing the work in this book.
 
-Positron represents where computational social science workflows are heading: multi-language support (R and Python in the same environment), modern editor features inherited from VS Code, and a more extensible architecture. If you're coming from VS Code, Positron will feel immediately familiar. If you're new to both, you're learning a tool that's designed for the future of data science.
+## Three Ways to Write R Code
 
-That said, **RStudio remains excellent**. It's mature, widely documented, and has a loyal community. Some researchers prefer its more opinionated interface—everything you need is visible and organized for R-first workflows. If you're already using RStudio and prefer it, nothing in this book requires switching.
+Positron supports multiple file types for writing R code. You'll encounter all three in data science work:
 
-The instructions below work in both environments unless otherwise noted. When we say "Positron," assume the same applies to RStudio.
+### R Scripts (.R)
 
-## The Four Essential Panes
+Plain text files containing R code, executed line-by-line or all at once. Great for data processing pipelines, functions, and code you'll reuse.
 
-Both Positron and RStudio organize your workspace into four main areas (though the layout is customizable):
-
--   **Source/Editor** (top-left): Where you write and edit your code files (.R scripts, .qmd documents)
--   **Console** (bottom-left): Where R actually executes code and shows results in real-time
--   **Environment/Variables** (top-right): Shows the objects (data, functions, etc.) currently loaded in memory
--   **Files/Plots/Help** (bottom-right): Navigate your project files, view visualizations, and access documentation
-
-![Positron Interface](data/positronIDE.png){width="648"}
-
-The defaults work fine for now. As you get comfortable, you might adjust panel sizes or move things around, but the essential logic stays the same: code on the left, context on the right.
-
-## R Projects: The Foundation of Reproducible Work
-
-**Always work in an R Project.** This is the single most important RStudio habit for reproducibility.
-
-An R Project is a folder that contains all files for a particular analysis—data, scripts, outputs—and sets your working directory automatically. This means your code will work on any computer without changing file paths.
-
-To create a new project:
-
-1.  File → New Project
-2.  Choose "New Directory" or "Existing Directory"
-3.  Name your project (e.g., "my-first-css-analysis")
-4.  Click "Create Project"
-
-Notice the `.Rproj` file in your folder? That's your project file. Double-click it to open Positron or RStudio with the correct working directory already set.
-
-## Version Control with Git and GitHub
-
-Git is how computational social scientists version, share, and collaborate on their work. GitHub is the most popular platform for hosting Git repositories. If you've never used version control before, this section will get you set up with a workflow that integrates directly into your IDE.
-
-### Why Git Matters
-
-Without version control, you end up with files like `analysis_final.R`, `analysis_final2.R`, `analysis_ACTUALLY_final.R`. Git tracks every change you make, so you can:
-
--   Go back to any previous version without keeping multiple copies
--   Experiment freely—if something breaks, you can always revert
--   Collaborate with others without emailing files back and forth
--   Share your work publicly for transparency and reproducibility
-
-Most computational social science projects live in Git repositories, and employers expect researchers to be comfortable with basic version control.
-
-### The Git Integration in Your IDE
-
-Once Git is configured, you'll see version control features built into your environment:
-
--   **In RStudio**: A "Git" tab appears in the Environment pane (top-right)
--   **In Positron**: Git integration works through the Source Control panel (often on the left sidebar)
-
-Either way, you can stage changes, write commit messages, and push to GitHub without leaving your editor. This is far friendlier than memorizing terminal commands.
-
-### Setting Up Git and GitHub: The Path of Least Resistance
-
-Git authentication is notoriously confusing. We're going to use an R-native approach that minimizes pain: **Personal Access Tokens (PAT) via the `usethis` package**. This keeps you in familiar territory and works reliably for the kind of work you'll do in this book.
-
-#### Step 1: Install Required Packages
+Create one: File → New File → R Script
 
 ``` r
-install.packages("usethis")
-install.packages("gitcreds")
+# This is an R script
+# Lines starting with # are comments
+data <- read.csv("mydata.csv")
+summary(data)
 ```
 
-#### Step 2: Configure Your Git Identity
-
-Tell Git who you are (one-time setup):
+Here's a more realistic example using student assessment data. Save this as `explore-data.R`:
 
 ``` r
-usethis::use_git_config(
-  user.name = "Jane Doe",           # Your actual name
-  user.email = "jane@example.com"   # Email associated with GitHub
-)
+# Example: Quick data exploration in an R script
+library(tidyverse)
+
+# Read the data
+students <- read_csv("data/oulad-students-and-assessments.csv")
+
+# Quick summaries
+summary(students$mean_weighted_score)
+table(students$final_result)
 ```
 
-**Important**: Use the same email address you'll use (or already use) for your GitHub account.
+[Screenshot: R script open in Source pane]
 
-#### Step 3: Create a GitHub Personal Access Token
+This script loads the tidyverse package (more on this in the next chapter), reads a CSV file, and produces quick summaries. You can run it line-by-line using Cmd/Ctrl + Enter, or run the entire script at once. The output appears in the Console, but the script itself is saved for later use.
+
+### R Markdown (.Rmd)
+
+Documents that weave together narrative text (in Markdown) and code chunks. When you "knit" an R Markdown file, it executes the code and generates a formatted document (HTML, PDF, or Word).
+
+You should know R Markdown exists because you'll encounter it in older resources and projects, but we're not using it in this book.
+
+### Quarto (.qmd)
+
+Quarto is the successor to R Markdown, with better multi-language support (R, Python, Julia) and more consistent syntax. It's what we'll use throughout this book.
+
+Create one: File → New File → Quarto Document
+
+The structure looks similar to R Markdown, but the rendering engine is more powerful:
+
+```` markdown
+---
+title: "My Analysis"
+format: html
+---
+
+## Introduction
+
+This is regular text.
+```{{r}}
+# This is a code chunk
+x <- 1:10
+mean(x)
+```
+````
+
+Click the "Render" button (or Ctrl/Cmd + Shift + K) to execute all code and generate your document.
+
+Here's a more complete Quarto example analyzing student data:
+
+```` markdown
+---
+title: "OULAD Student Analysis"
+format: html
+---
+
+## Loading Data
+
+First, we'll load the student assessment data from the Open University Learning Analytics Dataset:
+
+```{{r}}
+library(tidyverse)
+students <- read_csv("data/oulad-students-and-assessments.csv")
+```
+
+## Pass Rates by Gender
+
+Let's examine how pass rates differ by gender:
+
+```{{r}}
+students |>
+  group_by(gender, pass) |>
+  count() |>
+  pivot_wider(names_from = pass, values_from = n)
+```
+
+The table above shows the number of students who passed (1) and didn't pass (0) for each gender. We can see that both groups have substantial representation in the dataset.
+````
+
+[Screenshot: Rendered Quarto document showing code and output]
+
+When you render this document, Quarto executes each code chunk in order, captures the output, and weaves it together with your explanatory text. The result is an HTML document where readers see your code, your results, and your interpretation all together. This makes your analysis reproducible—anyone with your data can re-run your Quarto file and get the same results.
+
+**Key difference for beginners**: Think of R scripts as "just code" and Quarto as "code + explanation + output" in one document. Use scripts for behind-the-scenes work, Quarto for analysis you want to share or understand later.
+
+### Controlling Chunk Behavior with Options
+
+Quarto lets you control what appears in your rendered document using chunk options. These are specified at the top of each code chunk using `#|` syntax.
+
+Common options include:
+
+-   `#| echo: false` — Hide the code, show only the output
+-   `#| eval: false` — Show the code but don't run it
+-   `#| warning: false` — Suppress warning messages
+-   `#| message: false` — Suppress messages (like package loading notifications)
+-   `#| fig-width: 8` and `#| fig-height: 6` — Control plot dimensions in inches
+
+Here's an example showing how to hide code while displaying a plot:
+
+```` markdown
+```{{r}}
+#| echo: false
+#| message: false
+
+library(tidyverse)
+students <- read_csv("data/oulad-students-and-assessments.csv")
+
+students |>
+  ggplot(aes(x = final_result)) +
+  geom_bar() +
+  labs(title = "Distribution of Final Results")
+```
+````
+
+[Screenshot: Quarto document showing chunk options at top of code block]
+
+When rendered, readers see the plot but not the code that created it. This is useful for final reports where you want to emphasize results rather than implementation details.
+
+You can also set options globally for the entire document by adding them to your YAML header. For example, to hide all code by default:
+
+``` yaml
+---
+title: "My Analysis"
+format: html
+execute:
+  echo: false
+---
+```
+
+Individual chunks can override global settings. For more options, see the [Quarto documentation on execution options](https://quarto.org/docs/computations/execution-options.html).
+
+## Console vs. Source: Exploration vs. Preservation
+
+A common pattern in data science work:
+
+-   **Console**: Quick exploration, testing ideas, checking output. Code here disappears when you close Positron.
+-   **Source** (scripts/Quarto): Code you want to keep, reproduce, or share. This is your permanent record.
+
+Here's what this looks like in practice. Try this in the Console for a quick calculation:
 
 ``` r
-usethis::create_github_token()
+# In Console - just exploring
+mean(c(85, 92, 78, 95, 88))
+[1] 87.6
 ```
 
-This opens GitHub in your browser. You'll need to:
-
-1.  Log in to GitHub if you haven't already
-2.  Leave the default scopes checked (at minimum: "repo" and "workflow")
-3.  Set expiration to 90 days (good security practice, though you'll regenerate when it expires)
-4.  Click "Generate token" at the bottom
-5.  **Copy the token immediately**—GitHub only shows it once
-
-The token looks like: `ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
-
-#### Step 4: Store Your Token in R
+That's useful for a quick check, but if you want to preserve this process for later:
 
 ``` r
-gitcreds::gitcreds_set()
+# In a script - keeping a record
+test_scores <- c(85, 92, 78, 95, 88)
+average_score <- mean(test_scores)
+print(average_score)
 ```
 
-When prompted, paste your token and press Enter. R stores it securely for future use.
+The second approach creates a record you can return to, modify, and share. If you later need to change the scores or calculate something else, the script preserves your workflow.
 
-#### Step 5: Verify Everything Worked
+Early on, you might type everything in the Console. That's fine for learning! But as soon as you do something you want to remember, put it in a script or Quarto file.
+
+## When You Get Stuck
+
+### Reading Error Messages
+
+When something goes wrong, R prints an error message in the Console (usually in red). These messages often look cryptic at first, but they're trying to help:
 
 ``` r
-usethis::git_sitrep()
+Error in mean(x) : object 'x' not found
 ```
 
-This diagnostic report should show: - Your name and email - "Personal access token for 'https://github.com': '\<discovered\>'"
+This tells you exactly what went wrong: R couldn't find an object called `x`. Either you misspelled it, or you haven't created it yet.
 
-If so, you're all set. If not, see troubleshooting below.
+### Getting Help on Functions
 
-### Common Problems & Solutions
+R has built-in documentation for every function:
 
-**Problem**: "I closed the browser before copying my token" **Solution**: Tokens are disposable by design. Run `usethis::create_github_token()` again to generate a new one.
+``` r
+?mean           # Opens help for the mean() function
+??regression    # Searches all help files for "regression"
+```
 
-**Problem**: "It worked yesterday, now Git asks for credentials again" **Solution**: Your token expired. Run `usethis::create_github_token()` again, copy the new token, then run `gitcreds::gitcreds_set()` to update it.
+Help files include descriptions, arguments, examples, and related functions.
 
-**Problem**: "I get 'Permission denied' or authentication errors" **Solution**: Check `usethis::git_sitrep()`. Your token may have expired or wasn't stored correctly. Run `gitcreds::gitcreds_set()` again.
+### Where Computational Social Scientists Get Help
 
-**Problem**: "I don't see Git integration in my IDE" **Solution**: Git may not be installed, or your IDE can't find it. See [Happy Git with R, Chapter 6](https://happygitwithr.com/install-git.html) for installation instructions.
+When you're truly stuck, the R community is helpful:
 
-### Alternative: SSH Keys (For the Long Haul)
+-   [RStudio Community](https://community.rstudio.com/): Welcoming forum for all R questions
+-   [Stack Overflow](https://stackoverflow.com/questions/tagged/r): Searchable archive of millions of questions
 
-If you plan to use Git extensively beyond this book, SSH keys are more convenient—set them up once and never think about authentication again. But they're more complex to configure initially.
+Before asking a question, try searching for your error message. Someone has likely encountered it before. Of course, turning to AI can also help, as we describe next.
 
-Interested? See [Happy Git with R, Chapters 10-12](https://happygitwithr.com/ssh-keys.html). For now, the PAT method will serve you well.
+### Large Language Models and AI Tools for Getting Unstuck
 
-### Using Git in Practice
+In Section 3, we cover using large language models as part of a research workflow. But LLMs are also useful for getting unstuck when you're learning and this is increasingly how working data scientists operate.
 
-We'll introduce Git commands as you need them throughout the book. For now, know that your IDE gives you a graphical interface for the most common operations:
+Two approaches work well:
 
--   **Pull**: Download changes from GitHub (always do this before starting work)
--   **Commit**: Save a snapshot of your changes with a descriptive message
--   **Push**: Upload your commits to GitHub
+1.  **Ask LLMs directly**: ChatGPT, Claude, or your preferred model can explain error messages, suggest debugging approaches, and clarify confusing documentation. Copy your error message, describe what you were trying to do, and ask for help.
 
-You can also use terminal commands (`git status`, `git add`, `git commit`, `git push`) if you prefer, but the IDE interface handles 90% of everyday tasks.
+2.  **Use AI tools directly in Positron**: AI coding assistants can work inside your editor to suggest code completions, explain what existing code does, and generate boilerplate. We'll cover how to set these up in the next section.
 
-The key habit: commit often with clear messages ("Add data cleaning script" rather than "changes"), and push regularly so your work is backed up and others can see your progress.
+The best programmers don't memorize every function—they know how to find answers quickly. LLMs have become part of that toolkit, alongside documentation, Stack Overflow, and experimentation. Use them when you're stuck, but also pay attention to *why* solutions work. That's how you build intuition.
 
-## Going Further
+#### Using AI Tools Directly in Positron
 
-This chapter gave you a working environment. When you're ready to explore more:
+Positron, being built on VS Code, supports AI assistant extensions that can help you write code more efficiently and understand errors more quickly.
 
--   [Positron Documentation](https://github.com/posit-dev/positron/wiki): Official docs for Positron features
--   [RStudio User Guide](https://docs.posit.co/ide/user/): Comprehensive guide to all RStudio capabilities
--   [Happy Git and GitHub for the useR](https://happygitwithr.com/): Everything Git-related for R users
--   [GitHub Skills](https://skills.github.com/): Interactive tutorials for Git and GitHub
+**AI Integration Options**
 
-Advanced features worth exploring later: - **Keyboard shortcuts** (speed up your workflow dramatically) - **Code snippets** (type abbreviations that expand to code templates) - **Debugger** (step through code line-by-line when things break) - **Extensions** (especially in Positron, where VS Code extensions work)
+Several AI extensions work in Positron:
+
+-   **GitHub Copilot**: The most popular AI pair programmer, offering real-time code suggestions
+-   **Claude for VS Code**: Provides AI assistance with code explanation and generation
+-   **Continue**: An open-source AI coding assistant that works with multiple LLM providers
+
+We'll focus on GitHub Copilot as it's widely adopted in data science work, but the workflow is similar for other extensions.
+
+**Setting Up GitHub Copilot**
+
+1.  Open the Extensions panel in Positron (View → Extensions, or the extensions icon in the left sidebar)
+2.  Search for "GitHub Copilot"
+3.  Click Install on the official GitHub Copilot extension
+4.  After installation, you'll be prompted to sign in with your GitHub account
+5.  Click "Sign in to GitHub" and complete the authentication in your browser
+
+**Note on access**: GitHub Copilot requires a subscription (around $10/month), though it's free for verified students and teachers. If you have a student email address, you can get free access through [GitHub Education](https://education.github.com/).
+
+**Using Copilot**
+
+Once installed, Copilot suggests code as you type. For example, if you write a comment describing what you want to do:
+
+``` r
+# Calculate the mean score by gender and pass status
+```
+
+Copilot will suggest the code to accomplish this. Press Tab to accept the suggestion, or keep typing to ignore it. The suggestions appear in gray text as you work.
+
+[Screenshot: Copilot providing code suggestion in Positron]
+
+You can also:
+
+-   Ask Copilot to explain code: Highlight code and right-click → Copilot → Explain This
+-   Request alternatives: If a suggestion isn't quite right, you can cycle through alternatives using Alt/Option + \]
+-   Use Copilot Chat: Open the chat panel to have a conversation about your code
+
+**When to Use Inline AI vs. External LLMs**
+
+Different tools excel at different tasks:
+
+-   **Inline AI (Copilot)**: Quick code completions, writing repetitive code, remembering function syntax, generating common patterns
+-   **External LLMs (ChatGPT/Claude)**: Complex explanations, understanding concepts, debugging logic errors, learning new approaches
+
+Many programmers use both: Copilot for day-to-day coding, external LLMs when they're truly stuck or learning something new.
+
+**Important Caution**
+
+AI suggestions aren't always correct. Always review code before accepting it, especially for data analysis where subtle errors can lead to wrong conclusions. Use AI tools to speed up your work, but verify that the code does what you think it does.
+
+Please see Section 1.4 for more information about the relationship between you, data, and LLMs.
