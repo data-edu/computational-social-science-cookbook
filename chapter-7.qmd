@@ -93,7 +93,7 @@ Images were processed using the following `{kuzco}` functions:
 
 The structured outputs were imported into R for organization and thematic coding. Using both deductive categories (e.g., group size, task type) and inductive patterns (e.g., collaborative vs. passive positioning), the researcher examined how engagement varied across activities. Triangulation with field notes enhanced interpretive validity, and descriptive summaries were generated to visualize classroom dynamics over time.
 
-*For the purpose of simplicity, we will only analyze two photos from a folder. The process for batch analysis can be increased to more photos.*
+*For the purpose of simplicity, we will only analyze nine photos from a [folder](https://github.com/data-edu/computational-social-science-cookbook/tree/main/data/s5_images). The process for batch analysis can be increased to more photos.*
 
 ![](data/s5_images/primary-school-teacher-working-with-students-in-classroom-838559688.jpg){width="575"}
 
@@ -216,7 +216,7 @@ results_clean |>
 
 ### 7.3.2.6 Results and Discussion:
 
-The analysis of classroom photographs using the `{kuzco}` package yielded structured insights across three domains: instructional context (classification), observable features (recognition), and affective tone (sentiment). Below, we summarize preliminary findings from two sample images.
+The analysis of classroom photographs using the `{kuzco}` package yielded structured insights across three domains: instructional context (classification), observable features (recognition), and affective tone (sentiment). Below, we summarize preliminary findings from two sample images. Full results can be seen [here](https://github.com/data-edu/computational-social-science-cookbook/blob/main/image_classification_detection_results.csv).
 
 #### RQ1: Variation in Classroom Activities Across Instructional Moments
 
