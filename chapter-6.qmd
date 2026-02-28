@@ -2,6 +2,11 @@
 title: "Local LLMs"
 ---
 
+```{r}
+#| include: false
+options(warn = -1)
+```
+
 **Overview:**\
 The use of large language models (LLMs) in data analysis is rapidly increasing across education and social science research. However, concerns about data privacy, institutional data protection policies, and strict IRB (Institutional Review Board) procedures present significant challenges when using cloud-based or proprietary AI services. To address these challenges, this chapter introduces local LLM solutions—focusing on LM Studio—which allow researchers to run powerful models entirely on their own computers, ensuring data stays private and analysis remains flexible.
 
@@ -314,7 +319,7 @@ We are now back in R synthesizing our data (and manage token limits efficiently)
 
 The `chunk_outputs` are split into smaller *pairs*, each containing two analyses. Each pair is merged and passed through `call_lmstudio()` using the same `meta_prompt`, producing intermediate syntheses (`pair_outputs`). These summaries are then combined into a single consolidated input (`final_meta_input`) for a final call to `call_lmstudio()`, yielding the comprehensive meta-analysis (`meta_output`).
 
-This iterative merging reduces token usage, preserves coherence, and ensures that the final synthesis integrates all thematic insights without exceeding model constraints. With `saveRDS(meta_output, "data/meta_output_saved.rds")` we save our analysis so that in the future, we can just start from there to pick things back up.
+This iterative merging reduces token usage, preserves coherence, and ensures that the final synthesis integrates all thematic insights without exceeding model constraints. With `saveRDS(meta_output, "outputs/meta_output_saved.rds")` we save our analysis so that in the future, we can just start from there to pick things back up.
 
 ```{r, eval = FALSE}
 # Pairwise synthesis to reduce token usage
@@ -330,8 +335,8 @@ final_meta_input <- paste(pair_outputs, collapse = "\n\n---\n\n")
 meta_output <- call_lmstudio(paste(meta_prompt, final_meta_input, sep = "\n\n"))
 cat(meta_output)
 
-#saveRDS(meta_output, "data/meta_output_saved.rds")
-saveRDS(meta_output, "data/meta_output_saved.rds")
+#saveRDS(meta_output, "outputs/meta_output_saved.rds")
+saveRDS(meta_output, "outputs/meta_output_saved.rds")
 ```
 
 ##### Thematic Table Extraction and Cleaning
@@ -342,20 +347,27 @@ This code takes the saved meta-analysis from LM Studio and turns it into a clean
 library(stringr)
 library(readr)
 
-# --- Read RDS ---
-meta_output <- readRDS("data/meta_output_saved.rds")
+# --- Read RDS (if valid); otherwise fall back to CSV ---
+meta_output <- tryCatch(
+  readRDS("outputs/meta_output_saved.rds"),
+  error = function(e) NULL
+)
 
-# --- Combine all elements into one long text block ---
-meta_output_text <- paste(meta_output, collapse = "\n")
+if (is.null(meta_output)) {
+  thematic_table <- read_csv("outputs/lmstudio_thematic_table.csv", show_col_types = FALSE)
+} else {
+  # --- Combine all elements into one long text block ---
+  meta_output_text <- paste(meta_output, collapse = "\n")
 
-# --- Extract markdown table rows ---
-table_lines <- str_subset(strsplit(meta_output_text, "\n")[[1]], "^\\|")
+  # --- Extract markdown table rows ---
+  table_lines <- str_subset(strsplit(meta_output_text, "\n")[[1]], "^\\|")
 
-# --- Clean leading/trailing pipes ---
-table_text <- gsub("^\\||\\|$", "", table_lines)
+  # --- Clean leading/trailing pipes ---
+  table_text <- gsub("^\\||\\|$", "", table_lines)
 
-# --- Convert to DataFrame ---
-thematic_table <- read_delim(I(table_text), delim = "|", trim_ws = TRUE, show_col_types = FALSE)
+  # --- Convert to DataFrame ---
+  thematic_table <- read_delim(I(table_text), delim = "|", trim_ws = TRUE, show_col_types = FALSE)
+}
 
 # --- Display result ---
 print(thematic_table)
@@ -373,8 +385,8 @@ cat(substr(meta_output, 1, 1000))  # Preview the first 1000 characters
 cat(meta_output)
 
 # --- Save the full result as a text or Markdown file ---
-writeLines(meta_output, "lmstudio_meta_output.txt")
-writeLines(meta_output, "lmstudio_meta_output.md")
+writeLines(meta_output, "outputs/lmstudio_meta_output.txt")
+writeLines(meta_output, "outputs/lmstudio_meta_output.md")
 
 
 # --- Extract and save the Thematic Table as CSV ---
@@ -389,9 +401,9 @@ table_text  <- gsub("^\\||\\|$", "", table_lines)
 thematic_table <- read_delim(I(table_text), delim = "|", trim_ws = TRUE, show_col_types = FALSE)
 
 # Save to CSV for further analysis or visualization
-write_csv(thematic_table, "lmstudio_thematic_table.csv")
+write_csv(thematic_table, "outputs/lmstudio_thematic_table.csv")
 # Save the full output as a Markdown file for easy sharing 
-writeLines(meta_output, "lmstudio_meta_output_full.md")
+writeLines(meta_output, "outputs/lmstudio_meta_output_full.md")
 
 # Optional: check where the file was saved
 getwd()
@@ -434,7 +446,7 @@ When in doubt:
 ##### File Paths, Caching, and Stability
 
 -   **Use consistent file paths.**\
-    Save outputs (`meta_output.md`, `thematic_table.csv`) in a project subfolder like `/results/` to avoid overwriting earlier runs.
+    Save outputs (`meta_output.md`, `thematic_table.csv`) in a project subfolder like `outputs/` to avoid overwriting earlier runs.
 
 -   **Enable model caching in LM Studio.**\
     Cached models load faster after the first use and reduce memory spikes.
@@ -549,7 +561,7 @@ library(tidyr)
 policies <- university_policies %>%
   mutate(Stance = as.character(Stance))
 
-llm_table <- read_csv("lmstudio_thematic_table.csv", show_col_types = FALSE)
+llm_table <- read_csv("outputs/lmstudio_thematic_table.csv", show_col_types = FALSE)
 ```
 
 > Here, policies contains the raw text statements, and llm_table includes the theme frequencies produced by the LLM.

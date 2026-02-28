@@ -2,6 +2,11 @@
 title: "Text Data"
 ---
 
+```{r}
+#| include: false
+options(warn = -1)
+```
+
 ## 2.1 Overview
 
 In social sciences, analyzing text data is usually considered the “job” of qualitative researchers. Traditionally, qualitative research involves identifying patterns in non-numeric data, and this pattern recognition is typically done manually. This process is time-intensive but can yield rich research results. Traditional methods for analyzing text data involve human coding and can include direct (e.g., books, online texts) or indirect sources (e.g., interview transcripts).

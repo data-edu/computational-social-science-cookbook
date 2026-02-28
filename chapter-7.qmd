@@ -2,6 +2,11 @@
 title: "Image Data"
 ---
 
+```{r}
+#| include: false
+options(warn = -1)
+```
+
 # Chapter 7 Image Data with Local LLMs
 
 ## 7.1 Overview
@@ -110,7 +115,7 @@ library(dplyr)
 library(fs)
 
 # Set your image folder path
-image_folder <- "/Users/makcaoglu/Documents/CSS_Book/data/s5_images" #hide this before pub
+image_folder <- "data/s5_images"
 
 # List images (adjust pattern as needed)
 image_files <- dir_ls(image_folder, regexp = "\\.(jpg|jpeg|png)$", recurse = FALSE)
@@ -207,7 +212,7 @@ results_clean <- results_df |>
   )
 
 # Save to CSV (optional)
-write.csv(results_clean, "image_classification_detection_results.csv", row.names = FALSE)
+write.csv(results_clean, "outputs/image_classification_detection_results.csv", row.names = FALSE)
 
 # View top images with the most people (if desired)
 results_clean |> 
@@ -216,7 +221,7 @@ results_clean |>
 
 ### 7.3.2.6 Results and Discussion:
 
-The analysis of classroom photographs using the `{kuzco}` package yielded structured insights across three domains: instructional context (classification), observable features (recognition), and affective tone (sentiment). Below, we summarize preliminary findings from two sample images. Full results can be seen [here](https://github.com/data-edu/computational-social-science-cookbook/blob/main/image_classification_detection_results.csv).
+The analysis of classroom photographs using the `{kuzco}` package yielded structured insights across three domains: instructional context (classification), observable features (recognition), and affective tone (sentiment). Below, we summarize preliminary findings from two sample images. Full results can be seen [here](https://github.com/data-edu/computational-social-science-cookbook/blob/main/outputs/image_classification_detection_results.csv).
 
 #### RQ1: Variation in Classroom Activities Across Instructional Moments
 

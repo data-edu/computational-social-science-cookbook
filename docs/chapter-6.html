@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,18 +69,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./section-3-intro.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e22fca9baa702f495ffd48617094d5fd.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-26a26002a694bedc01fedf658a62bff0.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e22fca9baa702f495ffd48617094d5fd.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-c5d1edeae8daa928b75dacbf79faf054.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-11fee6df74d16f60ec81aba117e88c52.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-c5d1edeae8daa928b75dacbf79faf054.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-014a3776061e65346dda3980121eb167.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-b1fd978b70a8f69ce09fb519968ad8ed.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-014a3776061e65346dda3980121eb167.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-c52e4df5a77ab2f74b465130380e03e5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-02b580ac8026eae721de7dc387b49e5a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-c52e4df5a77ab2f74b465130380e03e5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -540,7 +541,7 @@ The use of large language models (LLMs) in data analysis is rapidly increasing a
 <p><strong>Example: Calling the LM Studio API from R</strong></p>
 <p>LM Studio exposes a REST API compatible with the OpenAI API standard. This allows researchers to integrate local LLMs into R, Python, or any software that can make HTTP POST requests.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr) </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr) </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>prompt \<span class="ot">&lt;-</span> <span class="st">"Summarize the following open-ended survey responses: ..."</span></span>
@@ -550,7 +551,7 @@ The use of large language models (LLMs) in data analysis is rapidly increasing a
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">max_tokens =</span> <span class="dv">200</span> ),</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">auto_unbox =</span> <span class="cn">TRUE</span>),</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">encode =</span> <span class="st">"json"</span> ) </span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">content</span>(response) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">content</span>(response) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="summary-table-of-lm-studio-capabilities" class="level3">
@@ -614,7 +615,7 @@ The use of large language models (LLMs) in data analysis is rapidly increasing a
 <p>A typical structure (as seen in Section 2):</p>
 <p>We will extract the same raw text field (<code>Stance</code>) so results are directly comparable to Section 2.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -631,11 +632,11 @@ The use of large language models (LLMs) in data analysis is rapidly increasing a
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  stringr<span class="sc">::</span><span class="fu">str_squish</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(policy_texts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(policy_texts)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 99</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(policy_texts, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(policy_texts, <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "If the text generated by ChatGPT is used as a starting point for original research or writing, then it can be a useful tool for generating ideas and suggestions. In this case, it is important to properly cite and attribute the source of the information. ... However, if the text generated by ChatGPT is simply copied and pasted into a paper or report without any modifications, it can be considered plagiarism since the text isn’t original."                                                                                                                                                                                                                                                                   
 [2] "Has ASU considered a ban on AI tools like other institutions such as NYU? No. ASU faculty and administrators are focused on the positive potential of Generative AI while also thinking through concerns about ethics, academic integrity, and privacy. ... What is being done to ensure academic integrity? The Provost’s Office is currently reviewing ASU’s academic integrity policy through the lens of what kind of content can be produced through generative AI and what kind of learning behaviors and outcomes are expected of students. ... Will I get accused of cheating if I use AI tools? Before using AI tools in your coursework, confer with your instructor about their class policy for using AI tools."
@@ -648,7 +649,7 @@ The use of large language models (LLMs) in data analysis is rapidly increasing a
 <p>We send the <strong>same policy texts</strong> to LM Studio’s local API using the parameters already defined in your setup (<code>api_base</code>, <code>model_name</code>).<br>
 The model <code>openai/gpt-oss-20b</code> runs locally in LM Studio and provides OpenAI-compatible endpoints. If you use a different model, make sure to change the model name in <code>model_name</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glue)</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
@@ -656,13 +657,13 @@ The model <code>openai/gpt-oss-20b</code> runs locally in LM Studio and provides
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Use global parameters defined earlier</span></span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># api_base and model_name should already be set in Section 6 setup:</span></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>api_base <span class="ot">&lt;-</span> <span class="st">"http://127.0.0.1:1234/v1"</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>model_name <span class="ot">&lt;-</span> <span class="st">"openai/gpt-oss-20b"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>model_name <span class="ot">&lt;-</span> <span class="st">"openai/gpt-oss-20b"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="testing-the-local-connection" class="level5">
 <h5 class="anchored" data-anchor-id="testing-the-local-connection">Testing the Local Connection</h5>
 <p>Before running large jobs, it’s good practice to confirm that LM Studio is responding correctly. A quick “ping test” helps prevent silent connection errors.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>api_base <span class="ot">&lt;-</span> <span class="st">"http://127.0.0.1:1234/v1"</span>   <span class="co"># replace with your LM Studio endpoint</span></span>
@@ -680,7 +681,7 @@ The model <code>openai/gpt-oss-20b</code> runs locally in LM Studio and provides
 <span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  ), <span class="at">auto_unbox =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">content</span>(res)<span class="sc">$</span>choices[[<span class="dv">1</span>]]<span class="sc">$</span>message<span class="sc">$</span>content)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">content</span>(res)<span class="sc">$</span>choices[[<span class="dv">1</span>]]<span class="sc">$</span>message<span class="sc">$</span>content)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <blockquote class="blockquote">
 <p>If the model replies with “pong,” the local API is ready.</p>
@@ -690,7 +691,7 @@ The model <code>openai/gpt-oss-20b</code> runs locally in LM Studio and provides
 <h5 class="anchored" data-anchor-id="prompt-writing">Prompt writing</h5>
 <p>Next, we write our prompt. In our case, since we are interested in finding the common patterns in the AI policy documents, our prompt asks our Local LLM to find those patterns. What’s great here is we can ask it to create a data frame ready data for us. <em>(Normally, if you pasted the text into the LM Studio chat box, you would get a narrative answer).</em> Your prompt can specify how you want the data to be captured and reported.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ----- 1) Prompt Template -----</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ----- 1) Prompt Template -----</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>analysis_prompt_template <span class="ot">&lt;-</span> <span class="st">"</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="st">You are analyzing official university AI policy statements.</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="st">Your task is to identify 3–5 key themes across the statements and report them in the exact format below.</span></span>
@@ -719,7 +720,7 @@ The model <code>openai/gpt-oss-20b</code> runs locally in LM Studio and provides
 <span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="st">|---|---|---|---|---|</span></span>
 <span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="st">| [Theme 1] | [Description] | - </span><span class="sc">\"</span><span class="st">[Quote]</span><span class="sc">\"</span><span class="st"> | [n] | [p]% |</span></span>
 <span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="st">| [Theme 2] | [Description] | - </span><span class="sc">\"</span><span class="st">[Quote]</span><span class="sc">\"</span><span class="st"> | [n] | [p]% |</span></span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="chunks" class="level5">
@@ -728,9 +729,9 @@ The model <code>openai/gpt-oss-20b</code> runs locally in LM Studio and provides
 <p>Chunk size balances context preservation and analytic precision in qualitative LLM-based text analysis. If chunks are too small, the model loses semantic coherence, producing fragmented or repetitive themes. If too large, it may miss local nuances or exceed the model’s reasoning capacity. The aim is to maintain enough continuity for meaningful interpretation while staying within manageable input limits.</p>
 <p>Practically, chunk size should follow natural meaning units, such as paragraphs, speaker turns, or short sections, rather than fixed word counts. Researchers typically find that 500–1000 words work well for transcripts, while longer documents like policies can be chunked at 1000–1500 words. The guiding principle is to choose the smallest segment that preserves interpretive coherence.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ----- 2) Chunk the corpus to stay within model context window -----</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ----- 2) Chunk the corpus to stay within model context window -----</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>CHUNK_SIZE <span class="ot">&lt;-</span> <span class="dv">15</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>chunks <span class="ot">&lt;-</span> <span class="fu">split</span>(policy_texts, <span class="fu">ceiling</span>(<span class="fu">seq_along</span>(policy_texts) <span class="sc">/</span> CHUNK_SIZE))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>chunks <span class="ot">&lt;-</span> <span class="fu">split</span>(policy_texts, <span class="fu">ceiling</span>(<span class="fu">seq_along</span>(policy_texts) <span class="sc">/</span> CHUNK_SIZE))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="connecting-to-lm-studio" class="level5">
@@ -743,7 +744,7 @@ The model <code>openai/gpt-oss-20b</code> runs locally in LM Studio and provides
 </ul>
 <p>In essence, this helper encapsulates the logic of prompt dispatch and result retrieval, ensuring each call to the LLM is standardized and repeatable. This is crucial for qualitative workflows where traceability and parameter control are essential.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ----- 3) Helper function: call LM Studio (chat/completions endpoint) -----</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ----- 3) Helper function: call LM Studio (chat/completions endpoint) -----</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>call_lmstudio <span class="ot">&lt;-</span> <span class="cf">function</span>(prompt, <span class="at">max_tokens =</span> <span class="dv">1000</span>) {</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  res <span class="ot">&lt;-</span> httr<span class="sc">::</span><span class="fu">POST</span>(</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">url =</span> <span class="fu">paste0</span>(api_base, <span class="st">"/chat/completions"</span>),</span>
@@ -760,7 +761,7 @@ The model <code>openai/gpt-oss-20b</code> runs locally in LM Studio and provides
 <span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  httr<span class="sc">::</span><span class="fu">stop_for_status</span>(res)</span>
 <span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">content</span>(res)<span class="sc">$</span>choices[[<span class="dv">1</span>]]<span class="sc">$</span>message<span class="sc">$</span>content</span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="running-the-analysis" class="level5">
@@ -768,7 +769,7 @@ The model <code>openai/gpt-oss-20b</code> runs locally in LM Studio and provides
 <p>Now, the script applies the <code>analysis_prompt_template</code> to each <em>chunk</em> of transcript data using <code>lapply()</code>. Each chunk is converted into a numbered text block (<code>items_block</code>) and analyzed independently through <code>call_lmstudio()</code>, producing localized thematic results (<code>chunk_outputs</code>).</p>
 <p>Second, the <code>meta_prompt</code> integrates these separate analyses. It instructs the model to synthesize and deduplicate themes across all chunks into a unified framework, including a concise narrative summary and a structured thematic table with descriptions, examples, and frequency data. Together, these steps move from micro-level coding to macro-level interpretation. This step is optional, and can be skipped depending on the nature of data and research questions.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ----- 4) Run thematic analysis per chunk -----</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ----- 4) Run thematic analysis per chunk -----</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>chunk_outputs <span class="ot">&lt;-</span> <span class="fu">lapply</span>(chunks, <span class="cf">function</span>(vec) {</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  items_block <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">sprintf</span>(<span class="st">"%d. %s"</span>, <span class="fu">seq_along</span>(vec), vec), <span class="at">collapse =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  final_prompt <span class="ot">&lt;-</span> <span class="fu">glue</span>(analysis_prompt_template,</span>
@@ -790,16 +791,16 @@ The model <code>openai/gpt-oss-20b</code> runs locally in LM Studio and provides
 <span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="st">|---|---|---|---|---|</span></span>
 <span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="st">| [Unified Theme 1] | [Description] | - </span><span class="sc">\"</span><span class="st">[Quote]</span><span class="sc">\"</span><span class="st"> | [n] | [p]% |</span></span>
 <span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="st">| [Unified Theme 2] | [Description] | - </span><span class="sc">\"</span><span class="st">[Quote]</span><span class="sc">\"</span><span class="st"> | [n] | [p]% |</span></span>
-<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="synthesizing-and-final-llm-analysis" class="level5">
 <h5 class="anchored" data-anchor-id="synthesizing-and-final-llm-analysis">Synthesizing and Final LLM Analysis</h5>
 <p>We are now back in R synthesizing our data (and manage token limits efficiently).</p>
 <p>The <code>chunk_outputs</code> are split into smaller <em>pairs</em>, each containing two analyses. Each pair is merged and passed through <code>call_lmstudio()</code> using the same <code>meta_prompt</code>, producing intermediate syntheses (<code>pair_outputs</code>). These summaries are then combined into a single consolidated input (<code>final_meta_input</code>) for a final call to <code>call_lmstudio()</code>, yielding the comprehensive meta-analysis (<code>meta_output</code>).</p>
-<p>This iterative merging reduces token usage, preserves coherence, and ensures that the final synthesis integrates all thematic insights without exceeding model constraints. With <code>saveRDS(meta_output, "data/meta_output_saved.rds")</code> we save our analysis so that in the future, we can just start from there to pick things back up.</p>
+<p>This iterative merging reduces token usage, preserves coherence, and ensures that the final synthesis integrates all thematic insights without exceeding model constraints. With <code>saveRDS(meta_output, "outputs/meta_output_saved.rds")</code> we save our analysis so that in the future, we can just start from there to pick things back up.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pairwise synthesis to reduce token usage</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pairwise synthesis to reduce token usage</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>pairs <span class="ot">&lt;-</span> <span class="fu">split</span>(chunk_outputs, <span class="fu">ceiling</span>(<span class="fu">seq_along</span>(chunk_outputs) <span class="sc">/</span> <span class="dv">2</span>))</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>pair_outputs <span class="ot">&lt;-</span> <span class="fu">lapply</span>(pairs, <span class="cf">function</span>(group) {</span>
@@ -812,34 +813,41 @@ The model <code>openai/gpt-oss-20b</code> runs locally in LM Studio and provides
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>meta_output <span class="ot">&lt;-</span> <span class="fu">call_lmstudio</span>(<span class="fu">paste</span>(meta_prompt, final_meta_input, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n\n</span><span class="st">"</span>))</span>
 <span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(meta_output)</span>
 <span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co">#saveRDS(meta_output, "data/meta_output_saved.rds")</span></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(meta_output, <span class="st">"data/meta_output_saved.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co">#saveRDS(meta_output, "outputs/meta_output_saved.rds")</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(meta_output, <span class="st">"outputs/meta_output_saved.rds"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="thematic-table-extraction-and-cleaning" class="level5">
 <h5 class="anchored" data-anchor-id="thematic-table-extraction-and-cleaning">Thematic Table Extraction and Cleaning</h5>
 <p>This code takes the saved meta-analysis from LM Studio and turns it into a clean, usable table in R. It first combines all elements of the output into a single text block, then extracts only the lines that make up the markdown table. Leading and trailing pipes are removed for proper formatting, and the cleaned lines are read into a data frame using <code>read_delim()</code>. The resulting <code>thematic_table</code> gives you a structured, easy-to-use representation of the themes, descriptions, examples, and frequencies, ready for display or further analysis.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Read RDS ---</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>meta_output <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/meta_output_saved.rds"</span>)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Combine all elements into one long text block ---</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>meta_output_text <span class="ot">&lt;-</span> <span class="fu">paste</span>(meta_output, <span class="at">collapse =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Read RDS (if valid); otherwise fall back to CSV ---</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>meta_output <span class="ot">&lt;-</span> <span class="fu">tryCatch</span>(</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">readRDS</span>(<span class="st">"outputs/meta_output_saved.rds"</span>),</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">error =</span> <span class="cf">function</span>(e) <span class="cn">NULL</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Extract markdown table rows ---</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>table_lines <span class="ot">&lt;-</span> <span class="fu">str_subset</span>(<span class="fu">strsplit</span>(meta_output_text, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)[[<span class="dv">1</span>]], <span class="st">"^</span><span class="sc">\\</span><span class="st">|"</span>)</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Clean leading/trailing pipes ---</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>table_text <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"^</span><span class="sc">\\</span><span class="st">||</span><span class="sc">\\</span><span class="st">|$"</span>, <span class="st">""</span>, table_lines)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">is.null</span>(meta_output)) {</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  thematic_table <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"outputs/lmstudio_thematic_table.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># --- Combine all elements into one long text block ---</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  meta_output_text <span class="ot">&lt;-</span> <span class="fu">paste</span>(meta_output, <span class="at">collapse =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
 <span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Convert to DataFrame ---</span></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>thematic_table <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="fu">I</span>(table_text), <span class="at">delim =</span> <span class="st">"|"</span>, <span class="at">trim_ws =</span> <span class="cn">TRUE</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># --- Extract markdown table rows ---</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>  table_lines <span class="ot">&lt;-</span> <span class="fu">str_subset</span>(<span class="fu">strsplit</span>(meta_output_text, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)[[<span class="dv">1</span>]], <span class="st">"^</span><span class="sc">\\</span><span class="st">|"</span>)</span>
 <span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Display result ---</span></span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(thematic_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># --- Clean leading/trailing pipes ---</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>  table_text <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"^</span><span class="sc">\\</span><span class="st">||</span><span class="sc">\\</span><span class="st">|$"</span>, <span class="st">""</span>, table_lines)</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># --- Convert to DataFrame ---</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>  thematic_table <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="fu">I</span>(table_text), <span class="at">delim =</span> <span class="st">"|"</span>, <span class="at">trim_ws =</span> <span class="cn">TRUE</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Display result ---</span></span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(thematic_table)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 7 × 5
   Theme        Description Illustrative Example…¹ Frequency `Relative Frequency`
@@ -859,14 +867,14 @@ The model <code>openai/gpt-oss-20b</code> runs locally in LM Studio and provides
 <h4 class="anchored" data-anchor-id="saving-and-exporting-results">6.4.3.1 Saving and Exporting Results</h4>
 <p>After obtaining the <code>meta_output</code> from the local LLM, we can inspect, export, and reuse the results in various formats for further analysis or publication.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- View output in the console ---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- View output in the console ---</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">substr</span>(meta_output, <span class="dv">1</span>, <span class="dv">1000</span>))  <span class="co"># Preview the first 1000 characters</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># or simply</span></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(meta_output)</span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Save the full result as a text or Markdown file ---</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(meta_output, <span class="st">"lmstudio_meta_output.txt"</span>)</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(meta_output, <span class="st">"lmstudio_meta_output.md"</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(meta_output, <span class="st">"outputs/lmstudio_meta_output.txt"</span>)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(meta_output, <span class="st">"outputs/lmstudio_meta_output.md"</span>)</span>
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Extract and save the Thematic Table as CSV ---</span></span>
@@ -881,12 +889,12 @@ The model <code>openai/gpt-oss-20b</code> runs locally in LM Studio and provides
 <span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>thematic_table <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="fu">I</span>(table_text), <span class="at">delim =</span> <span class="st">"|"</span>, <span class="at">trim_ws =</span> <span class="cn">TRUE</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Save to CSV for further analysis or visualization</span></span>
-<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(thematic_table, <span class="st">"lmstudio_thematic_table.csv"</span>)</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(thematic_table, <span class="st">"outputs/lmstudio_thematic_table.csv"</span>)</span>
 <span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the full output as a Markdown file for easy sharing </span></span>
-<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(meta_output, <span class="st">"lmstudio_meta_output_full.md"</span>)</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(meta_output, <span class="st">"outputs/lmstudio_meta_output_full.md"</span>)</span>
 <span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Optional: check where the file was saved</span></span>
-<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="practical-notes-on-running-local-models" class="level4">
@@ -923,7 +931,7 @@ During long qualitative runs, go play a game of basketball, take a walk, or grab
 <h5 class="anchored" data-anchor-id="file-paths-caching-and-stability">File Paths, Caching, and Stability</h5>
 <ul>
 <li><p><strong>Use consistent file paths.</strong><br>
-Save outputs (<code>meta_output.md</code>, <code>thematic_table.csv</code>) in a project subfolder like <code>/results/</code> to avoid overwriting earlier runs.</p></li>
+Save outputs (<code>meta_output.md</code>, <code>thematic_table.csv</code>) in a project subfolder like <code>outputs/</code> to avoid overwriting earlier runs.</p></li>
 <li><p><strong>Enable model caching in LM Studio.</strong><br>
 Cached models load faster after the first use and reduce memory spikes.</p></li>
 <li><p><strong>Restart occasionally.</strong><br>
@@ -1076,7 +1084,7 @@ Researchers may use a three-point scale (“Accurate,” “Partially Accurate,�
 <h5 class="anchored" data-anchor-id="r-code-for-recording-and-calculating-accuracy">R Code for Recording and Calculating Accuracy</h5>
 <p>Researchers can document their manual judgments in R and compute simple metrics.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: human evaluation of LM Studio themes</span></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1086,11 +1094,11 @@ Researchers may use a three-point scale (“Accurate,” “Partially Accurate,�
 <span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>validation_accuracy <span class="ot">&lt;-</span> <span class="fu">mean</span>(validation_data<span class="sc">$</span>Human_Judgment)</span>
 <span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"Validation Accuracy: %.1f%%"</span>, <span class="dv">100</span> <span class="sc">*</span> validation_accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"Validation Accuracy: %.1f%%"</span>, <span class="dv">100</span> <span class="sc">*</span> validation_accuracy)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Validation Accuracy: 100.0%"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(validation_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(validation_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
   Theme                                       Human_Judgment Comment            
@@ -1102,7 +1110,7 @@ Researchers may use a three-point scale (“Accurate,” “Partially Accurate,�
 5 Pedagogical Integration &amp; Assessment Design TRUE           Valid pedagogical …
 6 Policy Evolution &amp; Ongoing Review           TRUE           Accurately reflect…</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(validation_accuracy) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(validation_accuracy) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1</code></pre>
 </div>
@@ -1127,7 +1135,7 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <h5 class="anchored" data-anchor-id="step-2-load-and-prepare-the-data">Step 2: Load and Prepare the Data</h5>
 <p>We load both the original policy corpus and the LLM-generated thematic table.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========================================</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========================================</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2 — Load data</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ========================================</span></span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1140,7 +1148,7 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>policies <span class="ot">&lt;-</span> university_policies <span class="sc">%&gt;%</span></span>
 <span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Stance =</span> <span class="fu">as.character</span>(Stance))</span>
 <span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>llm_table <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"lmstudio_thematic_table.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>llm_table <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"outputs/lmstudio_thematic_table.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <blockquote class="blockquote">
 <p>Here, policies contains the raw text statements, and llm_table includes the theme frequencies produced by the LLM.</p>
@@ -1151,7 +1159,7 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <p>Next, we define a manual <strong>codebook</strong> of lexical cues for each theme.</p>
 <p>These act as anchors for literal keyword detection and can be refined later.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========================================</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========================================</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 3 — Define theme keywords</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ========================================</span></span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1162,7 +1170,7 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Conditional AI Use Guidelines"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"case by case"</span>, <span class="st">"permission"</span>, <span class="st">"approval"</span>, <span class="st">"allowed"</span>, <span class="st">"not permitted"</span>),</span>
 <span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Pedagogical Integration &amp; Assessment Design"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"assignment"</span>, <span class="st">"assessment"</span>, <span class="st">"learning"</span>, <span class="st">"instruction"</span>, <span class="st">"pedagog"</span>),</span>
 <span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Policy Evolution &amp; Ongoing Review"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"update"</span>, <span class="st">"revise"</span>, <span class="st">"review"</span>, <span class="st">"change"</span>, <span class="st">"evolve"</span>)</span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <blockquote class="blockquote">
 <p>Each key in the list corresponds to a theme, and each value contains search terms representing that theme’s literal vocabulary.</p>
@@ -1172,14 +1180,14 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <h5 class="anchored" data-anchor-id="step-4-count-keyword-occurrences">Step 4: Count Keyword Occurrences</h5>
 <p>We now create a helper function to count how many policy statements mention any of the keywords for a given theme.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========================================</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========================================</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 4 — Count keyword matches</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ========================================</span></span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>count_theme_mentions <span class="ot">&lt;-</span> <span class="cf">function</span>(text, keywords) {</span>
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  pattern <span class="ot">&lt;-</span> <span class="fu">paste</span>(keywords, <span class="at">collapse =</span> <span class="st">"|"</span>)</span>
 <span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_detect</span>(<span class="fu">tolower</span>(text), pattern)</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <blockquote class="blockquote">
 <p>This function returns TRUE if a policy contains any of the keywords and FALSE otherwise.</p>
@@ -1190,7 +1198,7 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <h5 class="anchored" data-anchor-id="step-5-compute-validation-metrics">Step 5: Compute Validation Metrics</h5>
 <p>We apply the counting function to every theme and summarize the results into verified frequencies and percentages.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========================================</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========================================</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 5 — Apply validation across the corpus</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ========================================</span></span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1202,7 +1210,7 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">Verified_Frequency =</span> <span class="fu">sum</span>(matches),</span>
 <span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">Verified_Relative =</span> <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> <span class="fu">mean</span>(matches), <span class="dv">1</span>)</span>
 <span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>}) <span class="sc">%&gt;%</span> <span class="fu">bind_rows</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>}) <span class="sc">%&gt;%</span> <span class="fu">bind_rows</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <blockquote class="blockquote">
 <p>The resulting validation_results table shows how often each theme literally appears in the text according to keyword matching.</p>
@@ -1212,7 +1220,7 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <h5 class="anchored" data-anchor-id="step-6-merge-with-llm-results">Step 6: Merge with LLM Results</h5>
 <p>To compare both approaches side by side, we merge the keyword-verified counts with the LLM-reported frequencies.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========================================</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========================================</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 6 — Merge and clean data</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ========================================</span></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1231,7 +1239,7 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">Freq_Diff          =</span> Verified_Frequency <span class="sc">-</span> LLM_Frequency,</span>
 <span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">Rel_Diff           =</span> Verified_Relative <span class="sc">-</span> LLM_Relative</span>
 <span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Theme), Theme <span class="sc">!=</span> <span class="st">""</span>, Theme <span class="sc">!=</span> <span class="st">"---"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Theme), Theme <span class="sc">!=</span> <span class="st">""</span>, Theme <span class="sc">!=</span> <span class="st">"---"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <blockquote class="blockquote">
 <p>After cleaning, each row shows both sets of frequencies plus their differences.</p>
@@ -1242,7 +1250,7 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <h5 class="anchored" data-anchor-id="step-7-visualize-the-comparison">Step 7: Visualize the Comparison</h5>
 <p>Finally, we visualize the relative frequencies from both methods.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========================================</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========================================</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 7 — Visualization</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ========================================</span></span>
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1263,11 +1271,11 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Relative Frequency (%)"</span>,</span>
 <span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Comparison between LM Studio-reported and keyword-verified frequencies"</span></span>
 <span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="chapter-6_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="chapter-6_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1281,13 +1289,13 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <h5 class="anchored" data-anchor-id="step-8-statistical-consistency-check">Step 8: Statistical Consistency Check</h5>
 <p>We can further quantify the alignment by computing a simple Pearson correlation.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(validation_compare<span class="sc">$</span>LLM_Relative,</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(validation_compare<span class="sc">$</span>LLM_Relative,</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    validation_compare<span class="sc">$</span>Verified_Relative,</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.4053206</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ≈ 0.7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ≈ 0.7</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <blockquote class="blockquote">
 <p>A correlation around r ≈ 0.7 indicates a strong positive relationship —</p>
@@ -1340,9 +1348,9 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <p>Because keyword validation depends entirely on how <code>theme_keywords</code> is defined, it’s worth experimenting with precision vs.&nbsp;recall.</p>
 <p>For example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="st">"Pedagogical Integration &amp; Assessment Design"</span> <span class="ot">=</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="st">"Pedagogical Integration &amp; Assessment Design"</span> <span class="ot">=</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"assignment design"</span>, <span class="st">"course design"</span>, <span class="st">"learning outcomes"</span>,</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"assessment method"</span>, <span class="st">"rubric"</span>, <span class="st">"instructional strategy"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"assessment method"</span>, <span class="st">"rubric"</span>, <span class="st">"instructional strategy"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Narrowing the expressions from single words (<em>learning</em>, <em>assessment</em>) to multi-word phrases improves conceptual accuracy</p>
 <p>and aligns frequencies more closely with LLM estimates.</p>
@@ -1492,15 +1500,15 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <h5 class="anchored" data-anchor-id="the-sensitivity-of-keyword-matching">The Sensitivity of Keyword Matching</h5>
 <p>For instance, consider the theme:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="st">"Pedagogical Integration &amp; Assessment Design"</span> <span class="ot">=</span> </span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"assignment"</span>, <span class="st">"assessment"</span>, <span class="st">"learning"</span>, <span class="st">"instruction"</span>, <span class="st">"pedagog"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="st">"Pedagogical Integration &amp; Assessment Design"</span> <span class="ot">=</span> </span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"assignment"</span>, <span class="st">"assessment"</span>, <span class="st">"learning"</span>, <span class="st">"instruction"</span>, <span class="st">"pedagog"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>This set captures a wide range of common words such as <em>learning</em> and <em>assessment</em>, which appear frequently in almost all policy statements. As a result, the keyword-based validation counts nearly half of the corpus as related to pedagogy (≈ 50%), whereas the LM Studio model, which identifies themes only when the semantic context genuinely involves teaching design, reports a much lower frequency (≈ 8%). Here, the discrepancy arises not because the model “missed” something, but because the keywords were <strong>too general</strong>.</p>
 <p>When the same theme is redefined more precisely: the validated frequencies drop and begin to converge with the model’s estimates. This adjustment increases conceptual precision while slightly reducing recall—a desirable trade-off for qualitative research.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="st">"Pedagogical Integration &amp; Assessment Design"</span> <span class="ot">=</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="st">"Pedagogical Integration &amp; Assessment Design"</span> <span class="ot">=</span> </span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"assignment design"</span>, <span class="st">"course design"</span>, <span class="st">"learning outcomes"</span>,</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"assessment method"</span>, <span class="st">"rubric"</span>, <span class="st">"instructional strategy"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"assessment method"</span>, <span class="st">"rubric"</span>, <span class="st">"instructional strategy"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="balancing-precision-and-recall" class="level5">
@@ -1683,13 +1691,14 @@ bridging the measurable and the meaningful, the statistical and the semantic, th
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

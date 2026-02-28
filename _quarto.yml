@@ -86,6 +86,13 @@ editor: visual
 
 execute:
   warning: false
+  freeze: auto
+  message: false
+
+knitr:
+  opts_chunk:
+    warning: false
+    message: false
 
 
   

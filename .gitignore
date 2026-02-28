@@ -7,3 +7,5 @@
 data/oulad-interactions-filtered.csv
 
 example-script.R
+
+**/*.quarto_ipynb

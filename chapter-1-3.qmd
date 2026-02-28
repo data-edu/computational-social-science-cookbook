@@ -3,6 +3,11 @@ title: "Tidyverse"
 format: html
 ---
 
+```{r}
+#| include: false
+options(warn = -1)
+```
+
 The tidyverse is a collection of R packages designed for data science with a shared philosophy: code should be readable, consistent, and focused on the data transformations you're actually trying to accomplish. If you've struggled with base R's sometimes cryptic syntax, the tidyverse will feel like a relief.
 
 Most computational social science workflows rely on tidyverse packages for data manipulation, visualization, and modeling. Learning this ecosystem means learning the tools your collaborators use, the examples you'll find online, and the approaches that scale from quick exploration to publication-ready analysis.
