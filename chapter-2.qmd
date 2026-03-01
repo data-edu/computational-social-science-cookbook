@@ -13,11 +13,15 @@ In social sciences, analyzing text data is usually considered the “job” of q
 
 With the advent of new software, we can capture and analyze text data in ways that were previously not possible, such as web scraping, accessing social media APIs, or downloading large online documents. Given the increased (opportunities for collecting and) size of text data, analysis now can benefit from computational approaches (e.g., dictionary-based, frequency-based, machine learning) that go beyond manual coding. As we discussed on the front matter of the book, these computational methods allow social scientists to ask new types of research questions, expanding the scope and depth of possible insights.
 
-> **Disclaimer**: While resources are available that discuss these analysis methods in depth, this book aims to provide a practical guide for social scientists, using data they will likely encounter. Our goal is to present a "cookbook" for guiding research projects through real-world examples.
+::: callout-warning
+## Disclaimer
+
+While resources are available that discuss these analysis methods in depth, this book aims to provide a practical guide for social scientists, using data they will likely encounter. Our goal is to present a "cookbook" for guiding research projects through real-world examples.
+:::
 
 ## 2.2 Accessing Text Data
 
-Nowadays, text can be found and collected in many different ways. For example, social media can serve as rich with text data (e.g., Reddit posts), likewise text created in classrooms, especially online (e.g., every student writing) can become part of text data. In this section, we will cover a few basic ways of accessing text data. Please note that although we cover some prominent ways, this is by no means an exhaustive list. Therefore, please refer to the additional resources section at the end of the section to dive deeper.
+Nowadays, text can be found and collected in many different ways. For example, social media can serve as a rich source of text data (e.g., Reddit posts), and text created in classrooms—especially online (e.g., student discussion posts)—can also be analyzed. In this section, we will cover a few basic ways of accessing text data. Please note that although we cover some prominent ways, this is by no means an exhaustive list. Therefore, please refer to the additional resources section at the end of the chapter to dive deeper.
 
 ### 2.2.1 Web Scraping (Unstructured or API)
 
@@ -377,13 +381,13 @@ In the following section, we will provide a "recipe" for the social scientist in
 
 The purpose of the frequency-based approach is to count the number of words as they appear in a text file, whether it is a collection of tweets, documents, or interview transcripts. This approach aligns with the frequency-coding method (e.g., Saldaña ,2021) and can supplement human coding by revealing the most/least commonly occurring words, which can then be compared across dependent variables.
 
-#### Case Study: Frequency-Based Analysis of GenAI USage Guidelines in Higher Education
+#### Case Study: Frequency-Based Analysis of GenAI Usage Guidelines in Higher Education
 
 As AI writing tools like ChatGPT become more prevalent, educators are working to understand how best to integrate them within academic settings, while many students and instructors remain uncertain about acceptable use cases. Our research into AI usage guidelines from the top 100 universities in North America aims to identify prominent themes and concerns in institutional policies regarding GenAI.
 
 ### 2.3.2 Sample Research Questions
 
-To investigate the nature of AI use policies within higher education institutions, in this study, our research questions are:
+To investigate the nature of AI use policies within higher education institutions, our research questions are:
 
 -   **RQ1**: What are the most frequently mentioned words in university GenAI writing usage policies?
 -   **RQ2**: Which keywords reflect common concerns or focal points related to GenAI writing usage in academic settings?
@@ -392,13 +396,11 @@ To investigate the nature of AI use policies within higher education institution
 
 #### Data Source
 
-The dataset consists of publicly available AI policy texts from 100 universities(USA), the data has been downloaded and saved as a CSV file for analysis. –we might have to write more here to model how a research should be describing the data from its acquisition to use for research.
+The dataset consists of publicly available AI policy texts from 100 universities in the USA. The data was collected from institutional websites, including syllabus guidelines and academic integrity pages, and saved as a CSV file for analysis.
 
 #### Data Analysis
 
-In order to analyze the data we used xyz, —-let's provide a sample write up for the researcher to adapt.
-
-#### 
+To analyze the data, we employed a natural language processing (NLP) approach, focusing on word frequency and visualization. We used the `tidytext` package to tokenize the policy text and the `ggplot2` and `wordcloud` packages to represent the results visually.
 
 ### 2.3.4 Analysis
 
@@ -407,8 +409,9 @@ In order to analyze the data we used xyz, —-let's provide a sample write up fo
 Install and load libraries for data processing, visualization, and word cloud generation.
 
 ```{r}
+#| label: load-libraries-frequency
 # Install necessary packages if not already installed
-#install.packages(c("tibble", "dplyr", "tidytext", "ggplot2", "viridis","tm",wordcloud" "wordcloud2","webshot"))
+# install.packages(c("tibble", "dplyr", "tidytext", "ggplot2", "viridis", "tm", "wordcloud", "wordcloud2", "webshot"))
 
 # Load libraries
 library(readr)
@@ -428,8 +431,9 @@ library(webshot)
 Read the CSV file containing policy texts from the top 100 universities.
 
 ```{r}
+#| label: load-data-frequency
 # Load the dataset
-university_policies <- read_csv("University_GenAI_Policy_Stance.csv")
+university_policies <- read_csv("data/University_GenAI_Policy_Stance.csv")
 ```
 
 #### Step 3: Tokenize Text and Count Word Frequency
@@ -437,11 +441,13 @@ university_policies <- read_csv("University_GenAI_Policy_Stance.csv")
 Process the text data by tokenizing words, removing stop words, and counting word occurrences.
 
 ```{r}
+#| label: tokenize-frequency
 # Tokenize text, remove stop words, and count word frequencies
-word_frequency <- university_policies %>%
-  unnest_tokens(word, Stance) %>%  # Tokenize the 'Policy_Text' column
-  anti_join(stop_words) %>%             # Remove common stop words
-  count(word, sort = TRUE)              # Count and sort words by frequency
+word_frequency <- university_policies |>
+  unnest_tokens(word, Stance) |> # Tokenize the 'Stance' column
+  anti_join(stop_words) |>       # Remove common stop words
+  count(word, sort = TRUE)        # Count and sort words by frequency
+
 word_frequency
 ```
 
@@ -450,10 +456,18 @@ word_frequency
 Generate a word cloud to visualize the frequency of words in a circular shape.
 
 ```{r}
+#| label: wordcloud-frequency
 # Create and display the GenAI usage Stance wordcloud
-
-wordcloud(words = word_frequency$word, freq = word_frequency$n, scale = c(4, 0.5), random.order = FALSE, min.freq = 10, colors = brewer.pal(8, "Dark2"), rot.per = 0.35)
-
+set.seed(1234) # For reproducibility
+wordcloud(
+  words = word_frequency$word,
+  freq = word_frequency$n,
+  scale = c(4, 0.5),
+  random.order = FALSE,
+  min.freq = 10,
+  colors = brewer.pal(8, "Dark2"),
+  rot.per = 0.35
+)
 ```
 
 #### Step 5: Visualize Top 12 Words in University Policies
@@ -461,8 +475,10 @@ wordcloud(words = word_frequency$word, freq = word_frequency$n, scale = c(4, 0.5
 Select the top 12 most frequent words and create a bar chart to visualize the distribution.
 
 ```{r}
+#| label: bar-chart-frequency
 # Select the top 12 words
-top_words <- word_frequency %>% slice(1:12)
+top_words <- word_frequency |>
+  slice(1:12)
 
 # Generate the bar chart
 policy_word_chart <- ggplot(top_words, aes(x = reorder(word, n), y = n, fill = word)) +
@@ -512,8 +528,9 @@ In this analysis, we examine the stance of 100 universities on the use of GenAI 
 First, install and load the required packages for text processing and visualization.
 
 ```{r}
+#| label: load-libraries-dictionary
 # Install necessary packages if not already installed
-#install.packages(c("tidytext","tidyverse" "dplyr", "ggplot2", "tidyr"))
+# install.packages(c("tidytext", "tidyverse", "dplyr", "ggplot2", "tidyr"))
 
 # Load libraries
 library(tidytext)
@@ -523,20 +540,22 @@ library(ggplot2)
 library(tidyr)
 ```
 
-#### Step 2: Load and Prepare Data(same as 2.3)
+#### Step 2: Load and Prepare Data
 
-Load the GenAI policy stance data from a CSV file. Be sure to update the file path as needed. we use the same data as 2.3.
+Load the GenAI policy stance data from a CSV file. We use the same data as in Section 2.3.
 
-```{r, eval=FALSE}
-# Load the dataset (replace "University_GenAI_Policy_Stance.csv" with the actual file path)
-university_policies <- read_csv("University_GenAI_Policy_Stance.csv")
+```{r}
+#| label: load-data-dictionary
+# Load the dataset
+university_policies <- read_csv("data/University_GenAI_Policy_Stance.csv")
+
 # Tokenize text, remove stop words, and count word frequencies
-word_frequency <- university_policies %>%
-  unnest_tokens(word, Stance) %>%  # Tokenize the 'Policy_Text' column
-  anti_join(stop_words) %>%             # Remove common stop words
-  count(word, sort = TRUE)              # Count and sort words by frequency
-word_frequency
+word_frequency <- university_policies |>
+  unnest_tokens(word, Stance) |> # Tokenize the 'Stance' column
+  anti_join(stop_words) |>       # Remove common stop words
+  count(word, sort = TRUE)        # Count and sort words by frequency
 
+word_frequency
 ```
 
 #### Step 3: Tokenize Text Data and Apply Sentiment Dictionary
@@ -544,10 +563,11 @@ word_frequency
 Tokenize the policy text data to separate individual words. Then, use the Bing sentiment dictionary to label each word as positive or negative.
 
 ```{r}
+#| label: sentiment-analysis
 # Tokenize 'Stance' column and apply Bing sentiment dictionary
-sentiment_scores <- word_frequency %>%
-  inner_join(get_sentiments("bing")) %>% # Join with Bing sentiment lexicon
-  pivot_wider(names_from = sentiment, values_from = n, values_fill = 0) %>%
+sentiment_scores <- word_frequency |>
+  inner_join(get_sentiments("bing")) |> # Join with Bing sentiment lexicon
+  pivot_wider(names_from = sentiment, values_from = n, values_fill = 0) |>
   mutate(sentiment_score = positive - negative) # Calculate net sentiment score
 
 sentiment_scores
@@ -558,11 +578,15 @@ sentiment_scores
 Visualize the distribution of sentiment scores with a density plot, showing the prevalence of positive and negative sentiments across university policies.
 
 ```{r}
+#| label: sentiment-density-plot
 # Generate a density plot of sentiment scores
 density_plot <- ggplot(sentiment_scores, aes(x = sentiment_score, fill = sentiment_score > 0)) +
   geom_density(alpha = 0.5) +
-  scale_fill_manual(values = c("red", "green"), name = "Sentiment",
-                    labels = c("Negative", "Positive")) +
+  scale_fill_manual(
+    values = c("red", "green"),
+    name = "Sentiment",
+    labels = c("Negative", "Positive")
+  ) +
   labs(
     title = "Density Plot of University AI Policy Sentiment",
     x = "Sentiment Score",
@@ -596,14 +620,12 @@ Clustering-based analysis involves grouping similar text documents or text segme
 
 **Purpose**: The goal of clustering-based analysis is to uncover latent themes in text data using unsupervised machine learning techniques. Topic modeling is one popular method for clustering documents into groups based on their content.
 
-**Case**: Using the GenAI policy texts from 100 universities, we apply Latent Dirichlet
-
-Allocation (LDA) to identify dominant themes in these policy documents. This analysis will help categorize policies into overarching themes, such as academic integrity, student support, and instructor discretion.
+**Case**: Using the GenAI policy texts from 100 universities, we apply Latent Dirichlet Allocation (LDA) to identify dominant themes in these policy documents. This analysis will help categorize policies into overarching themes, such as academic integrity, student support, and instructor discretion.
 
 ### 2.5.2 Sample Research Questions
 
 -   **RQ1**: What are the prominent themes present in university policies regarding GenAI usage Stance?
--   **RQ2**: How do these themes reflect the key concerns or opportunities for intergrating GenAI in higher education?
+-   **RQ2**: How do these themes reflect the key concerns or opportunities for integrating GenAI in higher education?
 
 ### 2.5.3 Analysis
 
@@ -612,17 +634,15 @@ Allocation (LDA) to identify dominant themes in these policy documents. This ana
 Install and load the required libraries for text processing and topic modeling.
 
 ```{r}
-
+#| label: load-libraries-clustering
 # Install necessary packages
-#install.packages(c("dplyr", "tidytext", "topicmodels", "ggplot2"))
+# install.packages(c("dplyr", "tidytext", "topicmodels", "ggplot2"))
 
 # Load libraries
 library(dplyr)
 library(tidytext)
 library(topicmodels)
 library(ggplot2)
-
-
 ```
 
 #### Step 2: Prepare the Data
@@ -630,29 +650,30 @@ library(ggplot2)
 Load the data and create a document-term matrix (DTM) for topic modeling.
 
 ```{r}
+#| label: prepare-data-clustering
 # Load the dataset
-university_policies <- read_csv("University_GenAI_Policy_Stance.csv")
+university_policies <- read_csv("data/University_GenAI_Policy_Stance.csv")
 
-# Tokenize text data and count word frequencies
-word_frequency <- university_policies %>%
-  unnest_tokens(word, Stance) %>%  # same as section 2.3
-  anti_join(stop_words) %>%             # Remove common stop words
-  count(word, sort = TRUE)              # Count and sort words by frequency
-word_frequency
+# Tokenize text data and count word frequencies by document (university)
+# We add a unique ID for each policy to treat it as a document
+university_policies <- university_policies |>
+  mutate(policy_id = row_number())
 
-# Creating Documents - Word Frequency Matrix
-gpt_dtm <- word_frequency %>%
-  group_by(word) %>%
-  mutate(id = row_number()) %>%
-  ungroup() %>%
-  cast_dtm(document = "id", term = "word", value = "n")
+word_counts <- university_policies |>
+  unnest_tokens(word, Stance) |>
+  anti_join(stop_words) |>
+  count(policy_id, word, sort = TRUE)
 
+# Create Document-Term Matrix
+gpt_dtm <- word_counts |>
+  cast_dtm(document = policy_id, term = word, value = n)
+
+gpt_dtm
 ```
 
-```{r, eval = FALSE}
-library(topicmodels)
-library(ggplot2)
-
+```{r}
+#| label: perplexity-check
+#| eval: false
 # Define range of k values
 k_values <- c(2, 3, 4, 5)
 
@@ -676,8 +697,6 @@ ggplot(perplexities, aes(x = k, y = perplexity)) +
     y = "Perplexity"
   ) +
   theme_minimal()
-
-
 ```
 
 #### Step 3: Fit the LDA Model
@@ -685,12 +704,9 @@ ggplot(perplexities, aes(x = k, y = perplexity)) +
 Fit an LDA model with `k = 3` topics.
 
 ```{r}
-
-# Converting document-word frequency matrices to sparse matrices
-gpt_dtm_sparse<- as(gpt_dtm, "matrix")
-
+#| label: fit-lda
 # Fit the LDA model
-lda_model <- LDA(gpt_dtm_sparse, k = 3, control = list(seed = 1234))
+lda_model <- LDA(gpt_dtm, k = 3, control = list(seed = 1234))
 
 # View model results
 gpt_policy_topics_k3 <- tidy(lda_model, matrix = "beta")
@@ -703,19 +719,27 @@ print(gpt_policy_topics_k3)
 Extract the top terms for each topic and visualize them.
 
 ```{r}
+#| label: visualize-lda
 # Visualizing top terms for each topic
-gpt_policy_ap_top_terms_k3 <- gpt_policy_topics_k3 %>%
-  group_by(topic) %>%
-  slice_max(beta, n = 10) %>% 
-  ungroup() %>%
+gpt_policy_ap_top_terms_k3 <- gpt_policy_topics_k3 |>
+  group_by(topic) |>
+  slice_max(beta, n = 10) |> 
+  ungroup() |>
   arrange(topic, -beta)
 
-gpt_policy_ap_top_terms_k3 %>%
-  mutate(term = reorder_within(term, beta, topic)) %>%
+gpt_policy_ap_top_terms_k3 |>
+  mutate(term = reorder_within(term, beta, topic)) |>
   ggplot(aes(beta, term, fill = factor(topic))) +
   geom_col(show.legend = FALSE) +
   facet_wrap(~ topic, scales = "free") +
-  scale_y_reordered()
+  scale_y_reordered() +
+  labs(
+    title = "Top Terms per Topic (LDA)",
+    subtitle = "Analysis of University GenAI Policies",
+    x = "Beta (Probability of term belonging to topic)",
+    y = NULL
+  ) +
+  theme_minimal()
 ```
 
 ### 2.5.4 Results and Discussions
