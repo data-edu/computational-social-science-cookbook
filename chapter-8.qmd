@@ -1,230 +1,260 @@
 ---
-title: "Communication"
+title: "Image Data"
 ---
 
-## 8.1 Overview: Why Communication Matters
-
-Computational approaches enable educational researchers to analyze increasingly complex and large-scale data. However, the value of these analyses ultimately depends on how clearly and responsibly findings are communicated. Communication is not a final step added after analysis—it is an integral part of making research meaningful, interpretable, and usable.
-
-Poor communication can obscure otherwise rigorous analyses, while effective communication can extend the reach of research beyond academic journals to educators, designers, policymakers, and students. In computational educational research, communication also involves technical decisions about formats, platforms, and levels of transparency.
-
-In this chapter, we introduce common ways researchers communicate computational work, with particular attention to open, reproducible, and web-based approaches. We then demonstrate how a complete computational analysis—introduced earlier in this book—can be communicated using a Quarto-based project website.
-
-## 8.2 Common Ways to Communicate Computational Educational Research
-
-Educational researchers use a range of formats and platforms to share computational work. Each approach reflects trade-offs among accessibility, formality, reproducibility, and audience.
-
-### 8.2.1 Traditional Journal Publications
-
-Peer-reviewed journal articles remain the dominant mode of scholarly communication in education. Journals provide formal review, editorial oversight, and long-term archiving.
-
-Examples of education journals that publish computational and data-intensive work include:
-
--   *Educational Researcher*: <https://journals.sagepub.com/home/edr>
--   *Journal of Learning Analytics*: <https://learning-analytics.info/>
-
-While journal articles are essential for academic recognition, they often impose constraints on length, visualizations, and methodological detail. As a result, many computational decisions—such as preprocessing steps or parameter choices—may be summarized rather than fully documented.
-
-### 8.2.2 Preprints and Open Science Repositories
-
-Preprint servers allow researchers to share manuscripts publicly before or during the peer-review process. These platforms support rapid dissemination and open feedback.
-
-Common platforms include:
-
--   **arXiv**: <https://arxiv.org/>
--   **PsyArXiv**: <https://psyarxiv.com/>
--   **Open Science Framework (OSF)**: <https://osf.io/>
-
-Preprints are particularly useful for computational research, where methods evolve quickly and early visibility can support collaboration. Researchers should always confirm that their target journals permit preprint posting.
-
-### 8.2.3 Project Websites and Living Documents
-
-Increasingly, computational researchers publish project websites that combine narrative, code, figures, and links to data. These sites allow authors to present analyses without the spatial constraints of traditional articles.
-
-A common workflow involves:
-
--   Hosting source files and code on **GitHub** (<https://github.com/>)
--   Publishing a static website using **GitHub Pages** (<https://pages.github.com/>)
--   Authoring documents with **Quarto** (<https://quarto.org/>)
-
-This approach supports transparency, reproducibility, and incremental updates. Project websites are especially well suited for method demonstrations, teaching examples, and analyses involving multiple visualizations.
-
-### 8.2.4 Open Data and Code Archives
-
-Dedicated repositories allow researchers to share datasets, analysis scripts, and documentation in citable form.
-
-Popular platform such as:
-
--   **Zenodo**: <https://zenodo.org/>
-
-These services issue persistent identifiers (DOIs), enabling datasets and code to be cited independently of articles. A common practice is to host active development on GitHub while archiving stable releases on Zenodo.
-
-## 8.3 Choosing an Appropriate Communication Strategy
-
-No single communication method is optimal for all projects. Researchers should consider their intended audience, goals, and constraints.
-
-For example:
-
--   Journal articles are essential for scholarly recognition.
--   Preprints support rapid and open dissemination.
--   Project websites allow rich, transparent presentation of computational workflows.
--   Data repositories ensure long-term access and citability.
-
-In practice, many projects use **multiple complementary channels**, such as a journal article accompanied by a public website and an archived dataset.
-
-## 8.4 Case Study: Communicating a Text Analysis with Quarto
-
-In earlier chapters, this book introduced frequency-based text analysis as a method for exploring patterns in large collections of educational texts. In this section, we shift focus from *conducting* analysis to *communicating* it. Specifically, we demonstrate how an existing computational study can be shared as a public, reproducible, and accessible research artifact using Quarto.
-
-The case study draws on the frequency-based analysis of generative AI (GenAI) usage guidelines from 100 U.S. universities presented in Chapter 2. Rather than reproducing the analytical steps, the goal here is to illustrate how such work can be communicated effectively to a broader audience through a project website.
-
-### 8.4.1 From Analysis to Communication
-
-Traditional journal articles often summarize computational workflows due to space limitations. In contrast, web-based formats allow researchers to present narrative explanations, code, visualizations, and documentation in a single, integrated environment.
-
-For the GenAI policy analysis, a communication-oriented artifact should allow readers to:
-
--   understand the research context and questions,
--   inspect analytical decisions at a high level,
--   view results alongside interpretation,
--   and access code and data when appropriate.
-
-Quarto (<https://quarto.org/>) provides a flexible framework for producing such artifacts, enabling researchers to write plain-text documents that render into polished websites.
-
-### 8.4.2 Overview of the Communication Artifact
-
-In this example, the analysis is communicated as a Quarto-based project website hosted via GitHub Pages (<https://pages.github.com/>). The website includes:
-
--   a landing page describing the research context,
--   a dedicated analysis page summarizing methods and findings,
--   embedded figures generated from R,
--   and links to data and code repositories.
-
-This format supports transparency and reproducibility while remaining accessible to readers without advanced programming backgrounds.
-
-### 8.4.3 Project Structure
-
-A minimal project structure for communicating the GenAI policy analysis is shown below:
-
-```         
-
-genai-policy-analysis/
-
-├── _quarto.yml
-
-├── index.qmd
-
-├── analysis/
-
-│ └── frequency-analysis.qmd
-
-├── data/
-
-│ └── University_GenAI_Policy_Stance.csv
-
-└── README.md
+```{r}
+#| include: false
+options(warn = -1)
 ```
 
-This organization separates communication documents from raw data and supports reuse and extension.
+# Chapter 8 Image Data with Local LLMs
 
-------------------------------------------------------------------------
+## 8.1 Overview
 
-### 8.4.4 Website Configuration
+In this section, we will discuss how social scientists can move beyond traditional data types (e.g., text and numbers) and learn about capturing and analyzing images as data.
 
-The project is configured as a Quarto website using the `_quarto.yml` file:
+Using images as data, researchers can ask new questions. For example, how body language affect conversations or how physiological signals match feelings can help uncover insights that single‑mode studies miss. By integrating multimodal data, social scientists can broaden the depth and reach of their research beyond what conventional single‑mode analysis offers.
 
-``` yaml
-project:
-  type: website
+## 8.2 Images
 
-website:
-  title: "GenAI Usage Guidelines in Higher Education"
-  navbar:
-    right:
-      - text: "Analysis"
-        href: analysis/frequency-analysis.html
+Image data can come from the usual sources such as field photographs taken during site visits, archival collections in libraries or museums, and printed photographs that appear in historical documents. Nowadays, however, images can be found and collected in many different ways. For example, social media platforms like Instagram, Facebook, and TikTok are rich with user‑generated photos; online photo repositories such as Flickr, Unsplash, and Wikimedia Commons host millions of images that are freely accessible; news outlets regularly publish photographs to accompany stories; satellite imagery from NASA or ESA provides large‑scale visual data; and everyday smartphone cameras capture images that can be shared in research settings. Please note that although we cover some prominent ways, this is by no means an exhaustive list. Therefore, please refer to the additional resources section at the end of the section to dive deeper.
+
+## 8.3 Analyzing Images
+
+With the advent of Large-Language Models (LLMs) we can use their power to analyze images. In this section, we will focus on using one package that uses local LLMs (i.e., privacy) to analyze image files: [{kuzco}](https://github.com/frankiethull/kuzco).
+
+Kuzco is
+
+> is a simple vision boilerplate built for ollama in R, on top of {ollamar} & {ellmer}. {kuzco} is designed as a computer vision assistant, giving local models guidance on classifying images and return structured data. The goal is to standardize outputs for image classification and use LLMs as an alternative option to keras or torch. {kuzco} currently supports: classification, recognition, sentiment, text extraction, alt-text creation, and **custom** computer vision tasks.
+
+### 8.3.1. Setting Up Kuzco
+
+To use kuzco, you need to, first, install Ollama (a software that allows pulling and running local LLMs) and ollamar & ellmer packages.
+
+You can install Ollama by downloading and installing the application from its provider's website. Basically the steps are:
+
+1.  Download and install the [Ollama](https://ollama.com/) app.
+
+-   [macOS](https://ollama.com/download/Ollama-darwin.zip)
+
+-   [Windows preview](https://ollama.com/download/OllamaSetup.exe)
+
+-   Linux: `curl -fsSL https://ollama.com/install.sh | sh`
+
+-   [Docker image](https://hub.docker.com/r/ollama/ollama)
+
+2.  Open/launch the Ollama app to start the local server.
+
+After installing Ollama, you will then need to install ollamar and ellmer:
+
+```{r, eval = FALSE}
+install.packages("ollamar")
+install.packages("ellmer")
 ```
 
-This configuration enables navigation between pages and produces a static website suitable for public hosting.
+Once these are installed, install kuzco:
 
-### 8.4.5 Communicating the Analysis in a Quarto Document
+```{r, eval = FALSE}
+devtools::install_github("frankiethull/kuzco")
+```
 
-The core communication document (`frequency-analysis.qmd`) integrates narrative text with selected code and visual outputs. Rather than presenting all preprocessing steps, the document emphasizes interpretability and alignment with research questions.
+## 8.3.2 Image Classification
 
-An excerpt from such a document is shown below:
+An important function {kuzco} package provides is to create a data frame from the objects of a given image by classifying it.
 
-### Research Context
+### Case Study: Analyzing Classroom Photographs with Kuzco to Explore Student Engagement
 
-As generative AI writing tools become more prevalent, universities have issued guidelines to clarify acceptable use in academic contexts. This analysis examines 100 publicly available GenAI policy documents from U.S. universities to identify prominent themes and institutional concerns.
+#### 8.3.2.1 Purpose
 
-### Research Questions
+In a study on student engagement during collaborative science instruction, a researcher used a series of classroom photographs to better understand how students participated in different types of learning activities. Rather than relying solely on manual observation and field notes, the researcher applied the `{kuzco}` R package to process and interpret visual data. Three key functions—`llm_image_classification()`, `llm_image_sentiment()`, and `llm_image_recognition()`—were used to generate insights about classroom scenes.
 
--   What words appear most frequently in university GenAI writing usage policies?
--   Which keywords reflect common concerns related to academic integrity and instructional responsibility?
+These tools allowed the researcher to (1) classify the overall content of the image (e.g., lab work, discussion, presentation), (2) recognize and count key objects or people in the frame (e.g., students, materials, whiteboards), and (3) estimate the emotional tone of the scene based on posture and facial cues. This approach enabled a more systematic and scalable analysis of classroom engagement, providing structured outputs that could be interpreted alongside observational data and interview responses.
 
-### Analytical Overview
+### 8.3.2.2 Research Questions
 
-Text data were tokenized, common stop words were removed, and word frequencies were calculated using R. Full preprocessing and analytical details are documented in Chapter 2.
+To investigate the nature of a classroom discourse, in this study, our research questions are:
 
-Figures such as word clouds and frequency bar charts are rendered directly within the document, allowing readers to view results alongside explanatory text.
+-   **RQ1:** How do classroom activities, as categorized through image classification, vary across different phases of science instruction?
+-   **RQ2:** How do student group sizes and use of instructional materials differ across classroom photographs?
+-   **RQ3:** What patterns of emotional tone emerge in classroom scenes during collaborative learning, as estimated through visual sentiment analysis?
 
-### 8.4.6 Presenting Results for Interpretation
+### 8.3.2.3 Methods
 
-Instead of emphasizing technical implementation, the website focuses on interpretive clarity. For example, a bar chart displaying the most frequent terms highlights the prominence of words such as *assignment*, *student*, and *writing*, emphasizing institutional attention to coursework and academic expectations.
+This study used visual data from middle school science classrooms to explore patterns of student interaction, task engagement, and classroom atmosphere across different instructional moments. The analysis was supported by large language model (LLM)-based image processing tools from the `{kuzco}` R package, allowing for efficient classification, recognition, and sentiment estimation without advanced machine learning expertise.
 
-Narrative text accompanying the visualization explains how these patterns relate to broader concerns about academic integrity, instructor authority, and ethical AI use. This integration of visual and narrative elements helps prevent misinterpretation of descriptive computational results.
+### 8.3.2.4 Data Source
 
-### 8.4.7 Publishing and Sharing
+The dataset consisted of 48 photographs taken during four 7th-grade science lessons, each lasting approximately 60 minutes. Photos were captured every 5–7 minutes by a stationary camera positioned at the back of the room to minimize disruption. All images were de-identified prior to analysis to protect student privacy. Each photo represented a naturally occurring moment of group-based learning and was accompanied by a brief instructional context log maintained by the classroom observer.
 
-Once rendered, the Quarto project can be published via GitHub Pages by hosting the repository on GitHub (https://github.com/). This process produces a stable, shareable URL that can be cited in manuscripts, course syllabi, or presentations.
+### 8.3.2.5 Data Analysis
 
-Examples of publicly available Quarto projects can be found at:
+Images were processed using the following `{kuzco}` functions:
 
-https://quarto.org/examples/
+-   **`llm_image_classification()`**: Generated scene-level labels and narrative summaries (e.g., "students engaged in group discussion around lab materials").
 
-### 8.4.8 Why This Format Matters
+-   **`llm_image_recognition()`**: Identified and counted key visual entities such as students, desks, instructional materials, and gestures
 
-Communicating the GenAI policy analysis as a web-based artifact offers several advantages:
+-   **`llm_image_sentiment()`**: Estimated the emotional tone of each scene (e.g., positive, neutral, frustrated), with particular attention to student posture and interaction dynamics.
 
--   Readers can engage with results at their own pace.
--   Methods and assumptions are documented transparently.
--   The analysis can be updated as policies evolve.
--   The artifact supports both research dissemination and teaching.
+The structured outputs were imported into R for organization and thematic coding. Using both deductive categories (e.g., group size, task type) and inductive patterns (e.g., collaborative vs. passive positioning), the researcher examined how engagement varied across activities. Triangulation with field notes enhanced interpretive validity, and descriptive summaries were generated to visualize classroom dynamics over time.
 
-Importantly, this approach complements rather than replaces traditional publications. A journal article may present the core findings, while a project website provides extended documentation and resources.
+*For the purpose of simplicity, we will only analyze nine photos from a [folder](https://github.com/data-edu/computational-social-science-cookbook/tree/main/data/s5_images). The process for batch analysis can be increased to more photos.*
 
-### 8.4.9 Summary
+![](data/s5_images/primary-school-teacher-working-with-students-in-classroom-838559688.jpg){width="575"}
 
-This case study illustrates how a frequency-based text analysis can be transformed into a communicative research product using Quarto. By shifting emphasis from computation to interpretation and accessibility, researchers can extend the reach and impact of computational educational research beyond static manuscripts.
+![](data/s5_images/35320686-2551789306.jpg){width="576"}
 
-## 8.5 Benefits of Web-Based Communication
+With the code below, we create a function to batch analyze images. First, since we aim to analyze images (i.e., batch) inside a folder, we define the folder and search and identify image files.
 
-Communicating computational research through project websites offers several advantages:
+```{r, eval = FALSE}
+library(kuzco)
+library(ollamar)
+library(tibble)
+library(purrr)
+library(dplyr)
+library(fs)
 
--   **Transparency**: Readers can inspect code, data, and assumptions.
--   **Reproducibility**: Analyses can be rerun and extended.
--   **Flexibility**: Content can be updated as methods or data evolve.
--   **Pedagogical value**: Websites serve as learning resources for students and practitioners.
+# Set your image folder path
+image_folder <- "data/s5_images"
 
-These benefits complement, rather than replace, traditional academic publications.
+# List images (adjust pattern as needed)
+image_files <- dir_ls(image_folder, regexp = "\\.(jpg|jpeg|png)$", recurse = FALSE)
+```
 
-## 8.6 Ethical and Responsible Communication
+Next, to analyze these images in batch, we create a function. The first part of the function defines our model and backend. As of writing this book, `qwen2.5vl:7b` model worked most efficiently and reliably. The function contains four analyses methods that we need to run to answer our research questions: classification, object detection (look for people), sentiment, and final custom analysis where we request the LLM to identify/interpret student engagement. The function lets us capture the LLM analysis as a tibble.
 
-When communicating computational analyses in education, researchers must attend to ethical considerations. These include protecting student privacy, avoiding deficit-oriented narratives, and clearly stating methodological limitations.
+```{r, eval = FALSE}
+# Function to classify and detect in one step
+process_image <- function(img_path) {
+  # Classification
+  classification <- llm_image_classification(
+    llm_model = "qwen2.5vl:7b",
+    image = img_path,
+    backend = 'ellmer'
+  )
+  
+  # Object detection (e.g., people)
+  detection <- llm_image_recognition(
+    llm_model = "qwen2.5vl:7b",
+    image = img_path,
+    recognize_object = "people",
+    backend = 'ellmer'
+  )
+  
+  # Sentiment/emotion
+  sentiment <- llm_image_sentiment(
+    llm_model = "qwen2.5vl:7b",
+    image = img_path
+  )
+  
+  #the new custom fuction for sentiment
+  customized <- llm_image_custom(
+    llm_model = "qwen2.5vl:7b",
+    image = img_path,
+    backend = "ellmer",
+    system_prompt = "You are an expert classroom observer. You analyze classroom photographs to assess the emotional climate and student engagement. Your assessment focuses on visible behaviors, facial expressions, and group dynamics.",
+    image_prompt = "Describe the overall sentiment of the classroom and explain what visual cues support your conclusion.",
+    example_df = data.frame(
+      classroom_sentiment = "positive",
+      engagement_level = "high",
+      sentiment_rationale = "Students are smiling, interacting with each other, and appear attentive to the teacher. Desks are arranged for group work."
+    )
+  )
+  
+  # Return combined tibble
+  tibble::tibble(
+  file = img_path,
+  image_classification = classification$image_classification,
+  primary_object = classification$primary_object,
+  secondary_object = classification$secondary_object,
+  image_description = classification$image_description,
+  image_colors = classification$image_colors,
+  image_proba_names = paste(unlist(classification$image_proba_names), collapse = ", "),
+  image_proba_values = paste(unlist(classification$image_proba_values), collapse = ", "),
+  object_recognized = detection$object_recognized,
+  object_count = detection$object_count,
+  object_description = detection$object_description,
+  object_location = detection$object_location,
+  classroom_sentiment = customized$classroom_sentiment,
+  engagement_level = customized$engagement_level,
+  sentiment_rationale = customized$sentiment_rationale
+)
 
-Public-facing materials should avoid revealing identifiable information and should transparently acknowledge sources of bias or uncertainty. Responsible communication ensures that openness does not come at the expense of ethical research practice.
+}
+```
 
-## 8.7 Summary and Communication Checklist
+Now, we run the analyses:
 
-This chapter emphasized that communication is a methodological choice, not merely a presentation task. Computational educational research benefits from communication strategies that align with open science, reproducibility, and audience needs.
+```{r, eval = FALSE}
 
-A practical checklist for communicating computational research includes:
+# Apply to all images and combine into one data frame
+results_df <- map_dfr(image_files, process_image)
 
--   Research questions align with data and methods
--   Analytical decisions are documented transparently
--   Code and data are accessible when possible
--   Visualizations support interpretation rather than replace explanation
--   Ethical considerations are explicitly addressed
--   Communication formats match the intended audience
+# View result
+print(results_df)
 
-Together, these practices support rigorous, responsible, and impactful computational educational research.
+
+# Arrange columns in logical order and rename for clarity
+results_clean <- results_df |>
+  select(
+    image_classification,
+    image_description,
+    primary_object,
+    secondary_object,
+    object_recognized,
+    object_count,
+    object_description,
+    image_proba_names,
+    image_proba_values,
+    classroom_sentiment,
+    engagement_level,
+    sentiment_rationale,
+  )
+
+# Save to CSV (optional)
+write.csv(results_clean, "outputs/image_classification_detection_results.csv", row.names = FALSE)
+
+# View top images with the most people (if desired)
+results_clean |> 
+  arrange(desc(object_count)) %>% head(5)
+```
+
+### 8.3.2.6 Results and Discussion:
+
+The analysis of classroom photographs using the `{kuzco}` package yielded structured insights across three domains: instructional context (classification), observable features (recognition), and affective tone (sentiment). Below, we summarize preliminary findings from two sample images. Full results can be seen [here](https://github.com/data-edu/computational-social-science-cookbook/blob/main/outputs/image_classification_detection_results.csv).
+
+#### RQ1: Variation in Classroom Activities Across Instructional Moments
+
+Classroom activity types were inferred using the `image_classification` and `image_description` columns generated by `llm_image_classification()`.
+
+Four images reflected teacher-led instruction (Images 1, 2, 3, and 7). Although `image_classification` labeled these scenes generically as *classroom*, the `image_description` column emphasized teacher-directed discourse, including phrases such as “a teacher is giving a lesson at the front of the room” (Image 1), “a classroom setting where a person is speaking to students” (Image 3), and “students seated in rows facing the front” (Image 7). These images showed whole-group instructional formats dominated by teacher explanation.
+
+Three images reflected collaborative or interactive activity (Images 0, 6, and 8). The `image_description` column explicitly referenced peer interaction behaviors, including “a group of students … sitting together… reading a book” (Image 0), “students raising their hands” (Image 6), and “students actively participating and showing enthusiasm” (Image 8). These entries also aligned with `primary_object` values centered on “students” rather than instructional tools or teacher presence.
+
+Two images depicted individual or independent work (Images 4 and 5). Evidence from `image_description` highlighted individual task engagement without peer or teacher interaction, such as “students are seated and reading from papers” (Image 4) and “students appear focused and are engaged in individual work” (Image 5).
+
+These findings indicate variability in instructional format across images, with teacher-led instruction most frequent (44%), followed by collaborative interaction (33%) and independent work (22%).
+
+#### RQ2: Group Size and Use of Instructional Materials
+
+Group size and material use were analyzed using `object_count`, `primary_object`, `secondary_object`, and `object_list` columns generated by `llm_image_recognition()`.
+
+The `object_count` column suggested observable group sizes ranging from 6 to 18 participants per image, with a median of 11. Teacher-led instruction was associated with larger visible groups (e.g., Images 1 and 3 showed 14–18 detected persons), while collaborative scenes tended to show smaller learning clusters (e.g., Images 0 and 8 with 6–8 persons), consistent with small-group activity structures.
+
+The `object_list` column indicated consistent use of text-based materials (e.g., “books,” “papers,” “notebooks”) across seven images (Images 0, 2, 4, 5, 6, 7, 8). Instructional displays such as “chalkboard,” “whiteboard,” or “projector screen” appeared in five images (Images 1, 2, 3, 6, 7), primarily during teacher-directed instruction. Only one image (Image 5) contained references to technology, where `object_list` included “computers” and `image_description` mentioned “students working at laptops.”
+
+#### RQ3: Emotional Tone and Engagement Across Classroom Scenes
+
+Emotional tone and behavioral participation were interpreted using the `classroom_sentiment`, `engagement_level`, and `sentiment_rationale` columns generated by `llm_image_sentiment()`.
+
+Sentiment was most often coded as neutral (`classroom_sentiment` = “neutral”; 4 images: 1, 2, 4, 5), followed by positive (3 images: 0, 3, 8) and moderately positive (2 images: 6, 7). However, student engagement varied independently of sentiment labels. The `engagement_level` column revealed a more nuanced pattern:
+
+-   High engagement (`engagement_level` = “high”) was observed in Images 0, 3, and 8, all of which also had positive sentiment. The `sentiment_rationale` referenced overt behavioral participation such as “students… interacting” (Image 0) and “raising hands” (Image 3).
+-   Moderate engagement (`engagement_level` = “moderate”) appeared in four images (Images 4, 5, 6, 7), even when sentiment was neutral or moderately positive. Rationales included “students appear focused on their work” (Image 5) and “students raising their hands… paying attention” (Image 6).
+-   Low engagement (`engagement_level` = “low”) occurred in two images (Images 1 and 2), both of which were whole-class lecture scenes with passive student posture. Rationales noted “students appear disengaged; many do not make eye contact with the teacher.”
+
+Together, these findings suggest that engagement was more sensitive to instructional structure than sentiment alone. Collaborative scenes showed the highest engagement, teacher-led instruction showed mixed engagement, and independent work produced moderate engagement with limited visible affect.
+
+#### Discussion
+
+Across the nine images, instructional format (RQ1) and classroom structure (RQ2) appeared to shape student participation patterns (RQ3). Collaborative activity was consistently associated with smaller group sizes and higher behavioral engagement. Teacher-led instruction involved larger groups and produced more passive engagement patterns. Independent work reflected focused but emotionally neutral learning states. Sentiment alone provided limited insight; however, the combination of **`engagement_level`** and **observed activity type** offered a more reliable indicator of classroom interaction quality.

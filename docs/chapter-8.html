@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Communication – Computational Analysis of Educational Data: A Field Guide Using R</title>
+<title>Image Data – Computational Analysis of Educational Data: A Field Guide Using R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./conclusion.html" rel="next">
+<link href="./chapter-9.html" rel="next">
 <link href="./chapter-7.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -287,7 +287,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-8.html">Communication</a></li><li class="breadcrumb-item"><a href="./chapter-8.html"><span class="chapter-title">Communication</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./llms-intro.html">LLMs and Data Science</a></li><li class="breadcrumb-item"><a href="./chapter-8.html"><span class="chapter-title">Image Data</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -344,11 +344,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <a href="./chapter-1-3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tidyverse</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-1-4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">LLMs and Data Science</span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -379,8 +374,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./section-3-intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">LLMs Methods</span></a>
+            <a href="./llms-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LLMs and Data Science</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -388,12 +383,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Local LLMs</span></a>
+  <a href="./chapter-5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">LLMs Methods</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Image Data</span></a>
+  <a href="./chapter-6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Positron AI Assistant and Data Bot</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Local LLMs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-8.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Image Data</span></a>
   </div>
 </li>
       </ul>
@@ -409,7 +414,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-8.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Communication</span></a>
+  <a href="./chapter-9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Communication</span></a>
   </div>
 </li>
       </ul>
@@ -435,33 +440,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#overview-why-communication-matters" id="toc-overview-why-communication-matters" class="nav-link active" data-scroll-target="#overview-why-communication-matters">8.1 Overview: Why Communication Matters</a></li>
-  <li><a href="#common-ways-to-communicate-computational-educational-research" id="toc-common-ways-to-communicate-computational-educational-research" class="nav-link" data-scroll-target="#common-ways-to-communicate-computational-educational-research">8.2 Common Ways to Communicate Computational Educational Research</a>
+  <li><a href="#chapter-8-image-data-with-local-llms" id="toc-chapter-8-image-data-with-local-llms" class="nav-link active" data-scroll-target="#chapter-8-image-data-with-local-llms">Chapter 8 Image Data with Local LLMs</a>
   <ul class="collapse">
-  <li><a href="#traditional-journal-publications" id="toc-traditional-journal-publications" class="nav-link" data-scroll-target="#traditional-journal-publications">8.2.1 Traditional Journal Publications</a></li>
-  <li><a href="#preprints-and-open-science-repositories" id="toc-preprints-and-open-science-repositories" class="nav-link" data-scroll-target="#preprints-and-open-science-repositories">8.2.2 Preprints and Open Science Repositories</a></li>
-  <li><a href="#project-websites-and-living-documents" id="toc-project-websites-and-living-documents" class="nav-link" data-scroll-target="#project-websites-and-living-documents">8.2.3 Project Websites and Living Documents</a></li>
-  <li><a href="#open-data-and-code-archives" id="toc-open-data-and-code-archives" class="nav-link" data-scroll-target="#open-data-and-code-archives">8.2.4 Open Data and Code Archives</a></li>
-  </ul></li>
-  <li><a href="#choosing-an-appropriate-communication-strategy" id="toc-choosing-an-appropriate-communication-strategy" class="nav-link" data-scroll-target="#choosing-an-appropriate-communication-strategy">8.3 Choosing an Appropriate Communication Strategy</a></li>
-  <li><a href="#case-study-communicating-a-text-analysis-with-quarto" id="toc-case-study-communicating-a-text-analysis-with-quarto" class="nav-link" data-scroll-target="#case-study-communicating-a-text-analysis-with-quarto">8.4 Case Study: Communicating a Text Analysis with Quarto</a>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">8.1 Overview</a></li>
+  <li><a href="#images" id="toc-images" class="nav-link" data-scroll-target="#images">8.2 Images</a></li>
+  <li><a href="#analyzing-images" id="toc-analyzing-images" class="nav-link" data-scroll-target="#analyzing-images">8.3 Analyzing Images</a>
   <ul class="collapse">
-  <li><a href="#from-analysis-to-communication" id="toc-from-analysis-to-communication" class="nav-link" data-scroll-target="#from-analysis-to-communication">8.4.1 From Analysis to Communication</a></li>
-  <li><a href="#overview-of-the-communication-artifact" id="toc-overview-of-the-communication-artifact" class="nav-link" data-scroll-target="#overview-of-the-communication-artifact">8.4.2 Overview of the Communication Artifact</a></li>
-  <li><a href="#project-structure" id="toc-project-structure" class="nav-link" data-scroll-target="#project-structure">8.4.3 Project Structure</a></li>
-  <li><a href="#website-configuration" id="toc-website-configuration" class="nav-link" data-scroll-target="#website-configuration">8.4.4 Website Configuration</a></li>
-  <li><a href="#communicating-the-analysis-in-a-quarto-document" id="toc-communicating-the-analysis-in-a-quarto-document" class="nav-link" data-scroll-target="#communicating-the-analysis-in-a-quarto-document">8.4.5 Communicating the Analysis in a Quarto Document</a></li>
-  <li><a href="#research-context" id="toc-research-context" class="nav-link" data-scroll-target="#research-context">Research Context</a></li>
-  <li><a href="#research-questions" id="toc-research-questions" class="nav-link" data-scroll-target="#research-questions">Research Questions</a></li>
-  <li><a href="#analytical-overview" id="toc-analytical-overview" class="nav-link" data-scroll-target="#analytical-overview">Analytical Overview</a></li>
-  <li><a href="#presenting-results-for-interpretation" id="toc-presenting-results-for-interpretation" class="nav-link" data-scroll-target="#presenting-results-for-interpretation">8.4.6 Presenting Results for Interpretation</a></li>
-  <li><a href="#publishing-and-sharing" id="toc-publishing-and-sharing" class="nav-link" data-scroll-target="#publishing-and-sharing">8.4.7 Publishing and Sharing</a></li>
-  <li><a href="#why-this-format-matters" id="toc-why-this-format-matters" class="nav-link" data-scroll-target="#why-this-format-matters">8.4.8 Why This Format Matters</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">8.4.9 Summary</a></li>
+  <li><a href="#setting-up-kuzco" id="toc-setting-up-kuzco" class="nav-link" data-scroll-target="#setting-up-kuzco">8.3.1. Setting Up Kuzco</a></li>
   </ul></li>
-  <li><a href="#benefits-of-web-based-communication" id="toc-benefits-of-web-based-communication" class="nav-link" data-scroll-target="#benefits-of-web-based-communication">8.5 Benefits of Web-Based Communication</a></li>
-  <li><a href="#ethical-and-responsible-communication" id="toc-ethical-and-responsible-communication" class="nav-link" data-scroll-target="#ethical-and-responsible-communication">8.6 Ethical and Responsible Communication</a></li>
-  <li><a href="#summary-and-communication-checklist" id="toc-summary-and-communication-checklist" class="nav-link" data-scroll-target="#summary-and-communication-checklist">8.7 Summary and Communication Checklist</a></li>
+  <li><a href="#image-classification" id="toc-image-classification" class="nav-link" data-scroll-target="#image-classification">8.3.2 Image Classification</a>
+  <ul class="collapse">
+  <li><a href="#case-study-analyzing-classroom-photographs-with-kuzco-to-explore-student-engagement" id="toc-case-study-analyzing-classroom-photographs-with-kuzco-to-explore-student-engagement" class="nav-link" data-scroll-target="#case-study-analyzing-classroom-photographs-with-kuzco-to-explore-student-engagement">Case Study: Analyzing Classroom Photographs with Kuzco to Explore Student Engagement</a></li>
+  <li><a href="#research-questions" id="toc-research-questions" class="nav-link" data-scroll-target="#research-questions">8.3.2.2 Research Questions</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">8.3.2.3 Methods</a></li>
+  <li><a href="#data-source" id="toc-data-source" class="nav-link" data-scroll-target="#data-source">8.3.2.4 Data Source</a></li>
+  <li><a href="#data-analysis" id="toc-data-analysis" class="nav-link" data-scroll-target="#data-analysis">8.3.2.5 Data Analysis</a></li>
+  <li><a href="#results-and-discussion" id="toc-results-and-discussion" class="nav-link" data-scroll-target="#results-and-discussion">8.3.2.6 Results and Discussion:</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -469,9 +465,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-8.html">Communication</a></li><li class="breadcrumb-item"><a href="./chapter-8.html"><span class="chapter-title">Communication</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./llms-intro.html">LLMs and Data Science</a></li><li class="breadcrumb-item"><a href="./chapter-8.html"><span class="chapter-title">Image Data</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Communication</span></h1>
+<h1 class="title"><span class="chapter-title">Image Data</span></h1>
 </div>
 
 
@@ -488,211 +484,236 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="overview-why-communication-matters" class="level2">
-<h2 class="anchored" data-anchor-id="overview-why-communication-matters">8.1 Overview: Why Communication Matters</h2>
-<p>Computational approaches enable educational researchers to analyze increasingly complex and large-scale data. However, the value of these analyses ultimately depends on how clearly and responsibly findings are communicated. Communication is not a final step added after analysis—it is an integral part of making research meaningful, interpretable, and usable.</p>
-<p>Poor communication can obscure otherwise rigorous analyses, while effective communication can extend the reach of research beyond academic journals to educators, designers, policymakers, and students. In computational educational research, communication also involves technical decisions about formats, platforms, and levels of transparency.</p>
-<p>In this chapter, we introduce common ways researchers communicate computational work, with particular attention to open, reproducible, and web-based approaches. We then demonstrate how a complete computational analysis—introduced earlier in this book—can be communicated using a Quarto-based project website.</p>
+<section id="chapter-8-image-data-with-local-llms" class="level1">
+<h1>Chapter 8 Image Data with Local LLMs</h1>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">8.1 Overview</h2>
+<p>In this section, we will discuss how social scientists can move beyond traditional data types (e.g., text and numbers) and learn about capturing and analyzing images as data.</p>
+<p>Using images as data, researchers can ask new questions. For example, how body language affect conversations or how physiological signals match feelings can help uncover insights that single‑mode studies miss. By integrating multimodal data, social scientists can broaden the depth and reach of their research beyond what conventional single‑mode analysis offers.</p>
 </section>
-<section id="common-ways-to-communicate-computational-educational-research" class="level2">
-<h2 class="anchored" data-anchor-id="common-ways-to-communicate-computational-educational-research">8.2 Common Ways to Communicate Computational Educational Research</h2>
-<p>Educational researchers use a range of formats and platforms to share computational work. Each approach reflects trade-offs among accessibility, formality, reproducibility, and audience.</p>
-<section id="traditional-journal-publications" class="level3">
-<h3 class="anchored" data-anchor-id="traditional-journal-publications">8.2.1 Traditional Journal Publications</h3>
-<p>Peer-reviewed journal articles remain the dominant mode of scholarly communication in education. Journals provide formal review, editorial oversight, and long-term archiving.</p>
-<p>Examples of education journals that publish computational and data-intensive work include:</p>
+<section id="images" class="level2">
+<h2 class="anchored" data-anchor-id="images">8.2 Images</h2>
+<p>Image data can come from the usual sources such as field photographs taken during site visits, archival collections in libraries or museums, and printed photographs that appear in historical documents. Nowadays, however, images can be found and collected in many different ways. For example, social media platforms like Instagram, Facebook, and TikTok are rich with user‑generated photos; online photo repositories such as Flickr, Unsplash, and Wikimedia Commons host millions of images that are freely accessible; news outlets regularly publish photographs to accompany stories; satellite imagery from NASA or ESA provides large‑scale visual data; and everyday smartphone cameras capture images that can be shared in research settings. Please note that although we cover some prominent ways, this is by no means an exhaustive list. Therefore, please refer to the additional resources section at the end of the section to dive deeper.</p>
+</section>
+<section id="analyzing-images" class="level2">
+<h2 class="anchored" data-anchor-id="analyzing-images">8.3 Analyzing Images</h2>
+<p>With the advent of Large-Language Models (LLMs) we can use their power to analyze images. In this section, we will focus on using one package that uses local LLMs (i.e., privacy) to analyze image files: <a href="https://github.com/frankiethull/kuzco">{kuzco}</a>.</p>
+<p>Kuzco is</p>
+<blockquote class="blockquote">
+<p>is a simple vision boilerplate built for ollama in R, on top of {ollamar} &amp; {ellmer}. {kuzco} is designed as a computer vision assistant, giving local models guidance on classifying images and return structured data. The goal is to standardize outputs for image classification and use LLMs as an alternative option to keras or torch. {kuzco} currently supports: classification, recognition, sentiment, text extraction, alt-text creation, and <strong>custom</strong> computer vision tasks.</p>
+</blockquote>
+<section id="setting-up-kuzco" class="level3">
+<h3 class="anchored" data-anchor-id="setting-up-kuzco">8.3.1. Setting Up Kuzco</h3>
+<p>To use kuzco, you need to, first, install Ollama (a software that allows pulling and running local LLMs) and ollamar &amp; ellmer packages.</p>
+<p>You can install Ollama by downloading and installing the application from its provider’s website. Basically the steps are:</p>
+<ol type="1">
+<li>Download and install the <a href="https://ollama.com/">Ollama</a> app.</li>
+</ol>
 <ul>
-<li><em>Educational Researcher</em>: <a href="https://journals.sagepub.com/home/edr" class="uri">https://journals.sagepub.com/home/edr</a></li>
-<li><em>Journal of Learning Analytics</em>: <a href="https://learning-analytics.info/" class="uri">https://learning-analytics.info/</a></li>
+<li><p><a href="https://ollama.com/download/Ollama-darwin.zip">macOS</a></p></li>
+<li><p><a href="https://ollama.com/download/OllamaSetup.exe">Windows preview</a></p></li>
+<li><p>Linux: <code>curl -fsSL https://ollama.com/install.sh | sh</code></p></li>
+<li><p><a href="https://hub.docker.com/r/ollama/ollama">Docker image</a></p></li>
 </ul>
-<p>While journal articles are essential for academic recognition, they often impose constraints on length, visualizations, and methodological detail. As a result, many computational decisions—such as preprocessing steps or parameter choices—may be summarized rather than fully documented.</p>
-</section>
-<section id="preprints-and-open-science-repositories" class="level3">
-<h3 class="anchored" data-anchor-id="preprints-and-open-science-repositories">8.2.2 Preprints and Open Science Repositories</h3>
-<p>Preprint servers allow researchers to share manuscripts publicly before or during the peer-review process. These platforms support rapid dissemination and open feedback.</p>
-<p>Common platforms include:</p>
-<ul>
-<li><strong>arXiv</strong>: <a href="https://arxiv.org/" class="uri">https://arxiv.org/</a></li>
-<li><strong>PsyArXiv</strong>: <a href="https://psyarxiv.com/" class="uri">https://psyarxiv.com/</a></li>
-<li><strong>Open Science Framework (OSF)</strong>: <a href="https://osf.io/" class="uri">https://osf.io/</a></li>
-</ul>
-<p>Preprints are particularly useful for computational research, where methods evolve quickly and early visibility can support collaboration. Researchers should always confirm that their target journals permit preprint posting.</p>
-</section>
-<section id="project-websites-and-living-documents" class="level3">
-<h3 class="anchored" data-anchor-id="project-websites-and-living-documents">8.2.3 Project Websites and Living Documents</h3>
-<p>Increasingly, computational researchers publish project websites that combine narrative, code, figures, and links to data. These sites allow authors to present analyses without the spatial constraints of traditional articles.</p>
-<p>A common workflow involves:</p>
-<ul>
-<li>Hosting source files and code on <strong>GitHub</strong> (<a href="https://github.com/" class="uri">https://github.com/</a>)</li>
-<li>Publishing a static website using <strong>GitHub Pages</strong> (<a href="https://pages.github.com/" class="uri">https://pages.github.com/</a>)</li>
-<li>Authoring documents with <strong>Quarto</strong> (<a href="https://quarto.org/" class="uri">https://quarto.org/</a>)</li>
-</ul>
-<p>This approach supports transparency, reproducibility, and incremental updates. Project websites are especially well suited for method demonstrations, teaching examples, and analyses involving multiple visualizations.</p>
-</section>
-<section id="open-data-and-code-archives" class="level3">
-<h3 class="anchored" data-anchor-id="open-data-and-code-archives">8.2.4 Open Data and Code Archives</h3>
-<p>Dedicated repositories allow researchers to share datasets, analysis scripts, and documentation in citable form.</p>
-<p>Popular platform such as:</p>
-<ul>
-<li><strong>Zenodo</strong>: <a href="https://zenodo.org/" class="uri">https://zenodo.org/</a></li>
-</ul>
-<p>These services issue persistent identifiers (DOIs), enabling datasets and code to be cited independently of articles. A common practice is to host active development on GitHub while archiving stable releases on Zenodo.</p>
+<ol start="2" type="1">
+<li>Open/launch the Ollama app to start the local server.</li>
+</ol>
+<p>After installing Ollama, you will then need to install ollamar and ellmer:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ollamar"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ellmer"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Once these are installed, install kuzco:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"frankiethull/kuzco"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 </section>
-<section id="choosing-an-appropriate-communication-strategy" class="level2">
-<h2 class="anchored" data-anchor-id="choosing-an-appropriate-communication-strategy">8.3 Choosing an Appropriate Communication Strategy</h2>
-<p>No single communication method is optimal for all projects. Researchers should consider their intended audience, goals, and constraints.</p>
-<p>For example:</p>
-<ul>
-<li>Journal articles are essential for scholarly recognition.</li>
-<li>Preprints support rapid and open dissemination.</li>
-<li>Project websites allow rich, transparent presentation of computational workflows.</li>
-<li>Data repositories ensure long-term access and citability.</li>
-</ul>
-<p>In practice, many projects use <strong>multiple complementary channels</strong>, such as a journal article accompanied by a public website and an archived dataset.</p>
+<section id="image-classification" class="level2">
+<h2 class="anchored" data-anchor-id="image-classification">8.3.2 Image Classification</h2>
+<p>An important function {kuzco} package provides is to create a data frame from the objects of a given image by classifying it.</p>
+<section id="case-study-analyzing-classroom-photographs-with-kuzco-to-explore-student-engagement" class="level3">
+<h3 class="anchored" data-anchor-id="case-study-analyzing-classroom-photographs-with-kuzco-to-explore-student-engagement">Case Study: Analyzing Classroom Photographs with Kuzco to Explore Student Engagement</h3>
+<section id="purpose" class="level4">
+<h4 class="anchored" data-anchor-id="purpose">8.3.2.1 Purpose</h4>
+<p>In a study on student engagement during collaborative science instruction, a researcher used a series of classroom photographs to better understand how students participated in different types of learning activities. Rather than relying solely on manual observation and field notes, the researcher applied the <code>{kuzco}</code> R package to process and interpret visual data. Three key functions—<code>llm_image_classification()</code>, <code>llm_image_sentiment()</code>, and <code>llm_image_recognition()</code>—were used to generate insights about classroom scenes.</p>
+<p>These tools allowed the researcher to (1) classify the overall content of the image (e.g., lab work, discussion, presentation), (2) recognize and count key objects or people in the frame (e.g., students, materials, whiteboards), and (3) estimate the emotional tone of the scene based on posture and facial cues. This approach enabled a more systematic and scalable analysis of classroom engagement, providing structured outputs that could be interpreted alongside observational data and interview responses.</p>
 </section>
-<section id="case-study-communicating-a-text-analysis-with-quarto" class="level2">
-<h2 class="anchored" data-anchor-id="case-study-communicating-a-text-analysis-with-quarto">8.4 Case Study: Communicating a Text Analysis with Quarto</h2>
-<p>In earlier chapters, this book introduced frequency-based text analysis as a method for exploring patterns in large collections of educational texts. In this section, we shift focus from <em>conducting</em> analysis to <em>communicating</em> it. Specifically, we demonstrate how an existing computational study can be shared as a public, reproducible, and accessible research artifact using Quarto.</p>
-<p>The case study draws on the frequency-based analysis of generative AI (GenAI) usage guidelines from 100 U.S. universities presented in Chapter 2. Rather than reproducing the analytical steps, the goal here is to illustrate how such work can be communicated effectively to a broader audience through a project website.</p>
-<section id="from-analysis-to-communication" class="level3">
-<h3 class="anchored" data-anchor-id="from-analysis-to-communication">8.4.1 From Analysis to Communication</h3>
-<p>Traditional journal articles often summarize computational workflows due to space limitations. In contrast, web-based formats allow researchers to present narrative explanations, code, visualizations, and documentation in a single, integrated environment.</p>
-<p>For the GenAI policy analysis, a communication-oriented artifact should allow readers to:</p>
-<ul>
-<li>understand the research context and questions,</li>
-<li>inspect analytical decisions at a high level,</li>
-<li>view results alongside interpretation,</li>
-<li>and access code and data when appropriate.</li>
-</ul>
-<p>Quarto (<a href="https://quarto.org/" class="uri">https://quarto.org/</a>) provides a flexible framework for producing such artifacts, enabling researchers to write plain-text documents that render into polished websites.</p>
-</section>
-<section id="overview-of-the-communication-artifact" class="level3">
-<h3 class="anchored" data-anchor-id="overview-of-the-communication-artifact">8.4.2 Overview of the Communication Artifact</h3>
-<p>In this example, the analysis is communicated as a Quarto-based project website hosted via GitHub Pages (<a href="https://pages.github.com/" class="uri">https://pages.github.com/</a>). The website includes:</p>
-<ul>
-<li>a landing page describing the research context,</li>
-<li>a dedicated analysis page summarizing methods and findings,</li>
-<li>embedded figures generated from R,</li>
-<li>and links to data and code repositories.</li>
-</ul>
-<p>This format supports transparency and reproducibility while remaining accessible to readers without advanced programming backgrounds.</p>
-</section>
-<section id="project-structure" class="level3">
-<h3 class="anchored" data-anchor-id="project-structure">8.4.3 Project Structure</h3>
-<p>A minimal project structure for communicating the GenAI policy analysis is shown below:</p>
-<pre><code>
-genai-policy-analysis/
-
-├── _quarto.yml
-
-├── index.qmd
-
-├── analysis/
-
-│ └── frequency-analysis.qmd
-
-├── data/
-
-│ └── University_GenAI_Policy_Stance.csv
-
-└── README.md</code></pre>
-<p>This organization separates communication documents from raw data and supports reuse and extension.</p>
-<hr>
-</section>
-<section id="website-configuration" class="level3">
-<h3 class="anchored" data-anchor-id="website-configuration">8.4.4 Website Configuration</h3>
-<p>The project is configured as a Quarto website using the <code>_quarto.yml</code> file:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"GenAI Usage Guidelines in Higher Education"</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">navbar</span><span class="kw">:</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">right</span><span class="kw">:</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Analysis"</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">href</span><span class="kw">:</span><span class="at"> analysis/frequency-analysis.html</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This configuration enables navigation between pages and produces a static website suitable for public hosting.</p>
-</section>
-<section id="communicating-the-analysis-in-a-quarto-document" class="level3">
-<h3 class="anchored" data-anchor-id="communicating-the-analysis-in-a-quarto-document">8.4.5 Communicating the Analysis in a Quarto Document</h3>
-<p>The core communication document (<code>frequency-analysis.qmd</code>) integrates narrative text with selected code and visual outputs. Rather than presenting all preprocessing steps, the document emphasizes interpretability and alignment with research questions.</p>
-<p>An excerpt from such a document is shown below:</p>
-</section>
-<section id="research-context" class="level3">
-<h3 class="anchored" data-anchor-id="research-context">Research Context</h3>
-<p>As generative AI writing tools become more prevalent, universities have issued guidelines to clarify acceptable use in academic contexts. This analysis examines 100 publicly available GenAI policy documents from U.S. universities to identify prominent themes and institutional concerns.</p>
 </section>
 <section id="research-questions" class="level3">
-<h3 class="anchored" data-anchor-id="research-questions">Research Questions</h3>
+<h3 class="anchored" data-anchor-id="research-questions">8.3.2.2 Research Questions</h3>
+<p>To investigate the nature of a classroom discourse, in this study, our research questions are:</p>
 <ul>
-<li>What words appear most frequently in university GenAI writing usage policies?</li>
-<li>Which keywords reflect common concerns related to academic integrity and instructional responsibility?</li>
+<li><strong>RQ1:</strong> How do classroom activities, as categorized through image classification, vary across different phases of science instruction?</li>
+<li><strong>RQ2:</strong> How do student group sizes and use of instructional materials differ across classroom photographs?</li>
+<li><strong>RQ3:</strong> What patterns of emotional tone emerge in classroom scenes during collaborative learning, as estimated through visual sentiment analysis?</li>
 </ul>
 </section>
-<section id="analytical-overview" class="level3">
-<h3 class="anchored" data-anchor-id="analytical-overview">Analytical Overview</h3>
-<p>Text data were tokenized, common stop words were removed, and word frequencies were calculated using R. Full preprocessing and analytical details are documented in Chapter 2.</p>
-<p>Figures such as word clouds and frequency bar charts are rendered directly within the document, allowing readers to view results alongside explanatory text.</p>
+<section id="methods" class="level3">
+<h3 class="anchored" data-anchor-id="methods">8.3.2.3 Methods</h3>
+<p>This study used visual data from middle school science classrooms to explore patterns of student interaction, task engagement, and classroom atmosphere across different instructional moments. The analysis was supported by large language model (LLM)-based image processing tools from the <code>{kuzco}</code> R package, allowing for efficient classification, recognition, and sentiment estimation without advanced machine learning expertise.</p>
 </section>
-<section id="presenting-results-for-interpretation" class="level3">
-<h3 class="anchored" data-anchor-id="presenting-results-for-interpretation">8.4.6 Presenting Results for Interpretation</h3>
-<p>Instead of emphasizing technical implementation, the website focuses on interpretive clarity. For example, a bar chart displaying the most frequent terms highlights the prominence of words such as <em>assignment</em>, <em>student</em>, and <em>writing</em>, emphasizing institutional attention to coursework and academic expectations.</p>
-<p>Narrative text accompanying the visualization explains how these patterns relate to broader concerns about academic integrity, instructor authority, and ethical AI use. This integration of visual and narrative elements helps prevent misinterpretation of descriptive computational results.</p>
+<section id="data-source" class="level3">
+<h3 class="anchored" data-anchor-id="data-source">8.3.2.4 Data Source</h3>
+<p>The dataset consisted of 48 photographs taken during four 7th-grade science lessons, each lasting approximately 60 minutes. Photos were captured every 5–7 minutes by a stationary camera positioned at the back of the room to minimize disruption. All images were de-identified prior to analysis to protect student privacy. Each photo represented a naturally occurring moment of group-based learning and was accompanied by a brief instructional context log maintained by the classroom observer.</p>
 </section>
-<section id="publishing-and-sharing" class="level3">
-<h3 class="anchored" data-anchor-id="publishing-and-sharing">8.4.7 Publishing and Sharing</h3>
-<p>Once rendered, the Quarto project can be published via GitHub Pages by hosting the repository on GitHub (https://github.com/). This process produces a stable, shareable URL that can be cited in manuscripts, course syllabi, or presentations.</p>
-<p>Examples of publicly available Quarto projects can be found at:</p>
-<p>https://quarto.org/examples/</p>
-</section>
-<section id="why-this-format-matters" class="level3">
-<h3 class="anchored" data-anchor-id="why-this-format-matters">8.4.8 Why This Format Matters</h3>
-<p>Communicating the GenAI policy analysis as a web-based artifact offers several advantages:</p>
+<section id="data-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="data-analysis">8.3.2.5 Data Analysis</h3>
+<p>Images were processed using the following <code>{kuzco}</code> functions:</p>
 <ul>
-<li>Readers can engage with results at their own pace.</li>
-<li>Methods and assumptions are documented transparently.</li>
-<li>The analysis can be updated as policies evolve.</li>
-<li>The artifact supports both research dissemination and teaching.</li>
+<li><p><strong><code>llm_image_classification()</code></strong>: Generated scene-level labels and narrative summaries (e.g., “students engaged in group discussion around lab materials”).</p></li>
+<li><p><strong><code>llm_image_recognition()</code></strong>: Identified and counted key visual entities such as students, desks, instructional materials, and gestures</p></li>
+<li><p><strong><code>llm_image_sentiment()</code></strong>: Estimated the emotional tone of each scene (e.g., positive, neutral, frustrated), with particular attention to student posture and interaction dynamics.</p></li>
 </ul>
-<p>Importantly, this approach complements rather than replaces traditional publications. A journal article may present the core findings, while a project website provides extended documentation and resources.</p>
+<p>The structured outputs were imported into R for organization and thematic coding. Using both deductive categories (e.g., group size, task type) and inductive patterns (e.g., collaborative vs.&nbsp;passive positioning), the researcher examined how engagement varied across activities. Triangulation with field notes enhanced interpretive validity, and descriptive summaries were generated to visualize classroom dynamics over time.</p>
+<p><em>For the purpose of simplicity, we will only analyze nine photos from a <a href="https://github.com/data-edu/computational-social-science-cookbook/tree/main/data/s5_images">folder</a>. The process for batch analysis can be increased to more photos.</em></p>
+<p><img src="data/s5_images/primary-school-teacher-working-with-students-in-classroom-838559688.jpg" class="img-fluid" width="575"></p>
+<p><img src="data/s5_images/35320686-2551789306.jpg" class="img-fluid" width="576"></p>
+<p>With the code below, we create a function to batch analyze images. First, since we aim to analyze images (i.e., batch) inside a folder, we define the folder and search and identify image files.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kuzco)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ollamar)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fs)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Set your image folder path</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>image_folder <span class="ot">&lt;-</span> <span class="st">"data/s5_images"</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># List images (adjust pattern as needed)</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>image_files <span class="ot">&lt;-</span> <span class="fu">dir_ls</span>(image_folder, <span class="at">regexp =</span> <span class="st">"</span><span class="sc">\\</span><span class="st">.(jpg|jpeg|png)$"</span>, <span class="at">recurse =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Next, to analyze these images in batch, we create a function. The first part of the function defines our model and backend. As of writing this book, <code>qwen2.5vl:7b</code> model worked most efficiently and reliably. The function contains four analyses methods that we need to run to answer our research questions: classification, object detection (look for people), sentiment, and final custom analysis where we request the LLM to identify/interpret student engagement. The function lets us capture the LLM analysis as a tibble.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to classify and detect in one step</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>process_image <span class="ot">&lt;-</span> <span class="cf">function</span>(img_path) {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Classification</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  classification <span class="ot">&lt;-</span> <span class="fu">llm_image_classification</span>(</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">llm_model =</span> <span class="st">"qwen2.5vl:7b"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">image =</span> img_path,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">backend =</span> <span class="st">'ellmer'</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Object detection (e.g., people)</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  detection <span class="ot">&lt;-</span> <span class="fu">llm_image_recognition</span>(</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">llm_model =</span> <span class="st">"qwen2.5vl:7b"</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">image =</span> img_path,</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">recognize_object =</span> <span class="st">"people"</span>,</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">backend =</span> <span class="st">'ellmer'</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sentiment/emotion</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  sentiment <span class="ot">&lt;-</span> <span class="fu">llm_image_sentiment</span>(</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">llm_model =</span> <span class="st">"qwen2.5vl:7b"</span>,</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">image =</span> img_path</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  <span class="co">#the new custom fuction for sentiment</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  customized <span class="ot">&lt;-</span> <span class="fu">llm_image_custom</span>(</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">llm_model =</span> <span class="st">"qwen2.5vl:7b"</span>,</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">image =</span> img_path,</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">backend =</span> <span class="st">"ellmer"</span>,</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">system_prompt =</span> <span class="st">"You are an expert classroom observer. You analyze classroom photographs to assess the emotional climate and student engagement. Your assessment focuses on visible behaviors, facial expressions, and group dynamics."</span>,</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">image_prompt =</span> <span class="st">"Describe the overall sentiment of the classroom and explain what visual cues support your conclusion."</span>,</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">example_df =</span> <span class="fu">data.frame</span>(</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>      <span class="at">classroom_sentiment =</span> <span class="st">"positive"</span>,</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>      <span class="at">engagement_level =</span> <span class="st">"high"</span>,</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>      <span class="at">sentiment_rationale =</span> <span class="st">"Students are smiling, interacting with each other, and appear attentive to the teacher. Desks are arranged for group work."</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Return combined tibble</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> img_path,</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>  <span class="at">image_classification =</span> classification<span class="sc">$</span>image_classification,</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>  <span class="at">primary_object =</span> classification<span class="sc">$</span>primary_object,</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>  <span class="at">secondary_object =</span> classification<span class="sc">$</span>secondary_object,</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>  <span class="at">image_description =</span> classification<span class="sc">$</span>image_description,</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>  <span class="at">image_colors =</span> classification<span class="sc">$</span>image_colors,</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>  <span class="at">image_proba_names =</span> <span class="fu">paste</span>(<span class="fu">unlist</span>(classification<span class="sc">$</span>image_proba_names), <span class="at">collapse =</span> <span class="st">", "</span>),</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>  <span class="at">image_proba_values =</span> <span class="fu">paste</span>(<span class="fu">unlist</span>(classification<span class="sc">$</span>image_proba_values), <span class="at">collapse =</span> <span class="st">", "</span>),</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>  <span class="at">object_recognized =</span> detection<span class="sc">$</span>object_recognized,</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>  <span class="at">object_count =</span> detection<span class="sc">$</span>object_count,</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>  <span class="at">object_description =</span> detection<span class="sc">$</span>object_description,</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>  <span class="at">object_location =</span> detection<span class="sc">$</span>object_location,</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>  <span class="at">classroom_sentiment =</span> customized<span class="sc">$</span>classroom_sentiment,</span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>  <span class="at">engagement_level =</span> customized<span class="sc">$</span>engagement_level,</span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>  <span class="at">sentiment_rationale =</span> customized<span class="sc">$</span>sentiment_rationale</span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now, we run the analyses:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply to all images and combine into one data frame</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>results_df <span class="ot">&lt;-</span> <span class="fu">map_dfr</span>(image_files, process_image)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View result</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(results_df)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Arrange columns in logical order and rename for clarity</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>results_clean <span class="ot">&lt;-</span> results_df <span class="sc">|&gt;</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    image_classification,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    image_description,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    primary_object,</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    secondary_object,</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    object_recognized,</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    object_count,</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    object_description,</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    image_proba_names,</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    image_proba_values,</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    classroom_sentiment,</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    engagement_level,</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    sentiment_rationale,</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Save to CSV (optional)</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(results_clean, <span class="st">"outputs/image_classification_detection_results.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="co"># View top images with the most people (if desired)</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>results_clean <span class="sc">|&gt;</span> </span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(object_count)) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
-<section id="summary" class="level3">
-<h3 class="anchored" data-anchor-id="summary">8.4.9 Summary</h3>
-<p>This case study illustrates how a frequency-based text analysis can be transformed into a communicative research product using Quarto. By shifting emphasis from computation to interpretation and accessibility, researchers can extend the reach and impact of computational educational research beyond static manuscripts.</p>
+<section id="results-and-discussion" class="level3">
+<h3 class="anchored" data-anchor-id="results-and-discussion">8.3.2.6 Results and Discussion:</h3>
+<p>The analysis of classroom photographs using the <code>{kuzco}</code> package yielded structured insights across three domains: instructional context (classification), observable features (recognition), and affective tone (sentiment). Below, we summarize preliminary findings from two sample images. Full results can be seen <a href="https://github.com/data-edu/computational-social-science-cookbook/blob/main/outputs/image_classification_detection_results.csv">here</a>.</p>
+<section id="rq1-variation-in-classroom-activities-across-instructional-moments" class="level4">
+<h4 class="anchored" data-anchor-id="rq1-variation-in-classroom-activities-across-instructional-moments">RQ1: Variation in Classroom Activities Across Instructional Moments</h4>
+<p>Classroom activity types were inferred using the <code>image_classification</code> and <code>image_description</code> columns generated by <code>llm_image_classification()</code>.</p>
+<p>Four images reflected teacher-led instruction (Images 1, 2, 3, and 7). Although <code>image_classification</code> labeled these scenes generically as <em>classroom</em>, the <code>image_description</code> column emphasized teacher-directed discourse, including phrases such as “a teacher is giving a lesson at the front of the room” (Image 1), “a classroom setting where a person is speaking to students” (Image 3), and “students seated in rows facing the front” (Image 7). These images showed whole-group instructional formats dominated by teacher explanation.</p>
+<p>Three images reflected collaborative or interactive activity (Images 0, 6, and 8). The <code>image_description</code> column explicitly referenced peer interaction behaviors, including “a group of students … sitting together… reading a book” (Image 0), “students raising their hands” (Image 6), and “students actively participating and showing enthusiasm” (Image 8). These entries also aligned with <code>primary_object</code> values centered on “students” rather than instructional tools or teacher presence.</p>
+<p>Two images depicted individual or independent work (Images 4 and 5). Evidence from <code>image_description</code> highlighted individual task engagement without peer or teacher interaction, such as “students are seated and reading from papers” (Image 4) and “students appear focused and are engaged in individual work” (Image 5).</p>
+<p>These findings indicate variability in instructional format across images, with teacher-led instruction most frequent (44%), followed by collaborative interaction (33%) and independent work (22%).</p>
 </section>
+<section id="rq2-group-size-and-use-of-instructional-materials" class="level4">
+<h4 class="anchored" data-anchor-id="rq2-group-size-and-use-of-instructional-materials">RQ2: Group Size and Use of Instructional Materials</h4>
+<p>Group size and material use were analyzed using <code>object_count</code>, <code>primary_object</code>, <code>secondary_object</code>, and <code>object_list</code> columns generated by <code>llm_image_recognition()</code>.</p>
+<p>The <code>object_count</code> column suggested observable group sizes ranging from 6 to 18 participants per image, with a median of 11. Teacher-led instruction was associated with larger visible groups (e.g., Images 1 and 3 showed 14–18 detected persons), while collaborative scenes tended to show smaller learning clusters (e.g., Images 0 and 8 with 6–8 persons), consistent with small-group activity structures.</p>
+<p>The <code>object_list</code> column indicated consistent use of text-based materials (e.g., “books,” “papers,” “notebooks”) across seven images (Images 0, 2, 4, 5, 6, 7, 8). Instructional displays such as “chalkboard,” “whiteboard,” or “projector screen” appeared in five images (Images 1, 2, 3, 6, 7), primarily during teacher-directed instruction. Only one image (Image 5) contained references to technology, where <code>object_list</code> included “computers” and <code>image_description</code> mentioned “students working at laptops.”</p>
 </section>
-<section id="benefits-of-web-based-communication" class="level2">
-<h2 class="anchored" data-anchor-id="benefits-of-web-based-communication">8.5 Benefits of Web-Based Communication</h2>
-<p>Communicating computational research through project websites offers several advantages:</p>
+<section id="rq3-emotional-tone-and-engagement-across-classroom-scenes" class="level4">
+<h4 class="anchored" data-anchor-id="rq3-emotional-tone-and-engagement-across-classroom-scenes">RQ3: Emotional Tone and Engagement Across Classroom Scenes</h4>
+<p>Emotional tone and behavioral participation were interpreted using the <code>classroom_sentiment</code>, <code>engagement_level</code>, and <code>sentiment_rationale</code> columns generated by <code>llm_image_sentiment()</code>.</p>
+<p>Sentiment was most often coded as neutral (<code>classroom_sentiment</code> = “neutral”; 4 images: 1, 2, 4, 5), followed by positive (3 images: 0, 3, 8) and moderately positive (2 images: 6, 7). However, student engagement varied independently of sentiment labels. The <code>engagement_level</code> column revealed a more nuanced pattern:</p>
 <ul>
-<li><strong>Transparency</strong>: Readers can inspect code, data, and assumptions.</li>
-<li><strong>Reproducibility</strong>: Analyses can be rerun and extended.</li>
-<li><strong>Flexibility</strong>: Content can be updated as methods or data evolve.</li>
-<li><strong>Pedagogical value</strong>: Websites serve as learning resources for students and practitioners.</li>
+<li>High engagement (<code>engagement_level</code> = “high”) was observed in Images 0, 3, and 8, all of which also had positive sentiment. The <code>sentiment_rationale</code> referenced overt behavioral participation such as “students… interacting” (Image 0) and “raising hands” (Image 3).</li>
+<li>Moderate engagement (<code>engagement_level</code> = “moderate”) appeared in four images (Images 4, 5, 6, 7), even when sentiment was neutral or moderately positive. Rationales included “students appear focused on their work” (Image 5) and “students raising their hands… paying attention” (Image 6).</li>
+<li>Low engagement (<code>engagement_level</code> = “low”) occurred in two images (Images 1 and 2), both of which were whole-class lecture scenes with passive student posture. Rationales noted “students appear disengaged; many do not make eye contact with the teacher.”</li>
 </ul>
-<p>These benefits complement, rather than replace, traditional academic publications.</p>
+<p>Together, these findings suggest that engagement was more sensitive to instructional structure than sentiment alone. Collaborative scenes showed the highest engagement, teacher-led instruction showed mixed engagement, and independent work produced moderate engagement with limited visible affect.</p>
 </section>
-<section id="ethical-and-responsible-communication" class="level2">
-<h2 class="anchored" data-anchor-id="ethical-and-responsible-communication">8.6 Ethical and Responsible Communication</h2>
-<p>When communicating computational analyses in education, researchers must attend to ethical considerations. These include protecting student privacy, avoiding deficit-oriented narratives, and clearly stating methodological limitations.</p>
-<p>Public-facing materials should avoid revealing identifiable information and should transparently acknowledge sources of bias or uncertainty. Responsible communication ensures that openness does not come at the expense of ethical research practice.</p>
-</section>
-<section id="summary-and-communication-checklist" class="level2">
-<h2 class="anchored" data-anchor-id="summary-and-communication-checklist">8.7 Summary and Communication Checklist</h2>
-<p>This chapter emphasized that communication is a methodological choice, not merely a presentation task. Computational educational research benefits from communication strategies that align with open science, reproducibility, and audience needs.</p>
-<p>A practical checklist for communicating computational research includes:</p>
-<ul>
-<li>Research questions align with data and methods</li>
-<li>Analytical decisions are documented transparently</li>
-<li>Code and data are accessible when possible</li>
-<li>Visualizations support interpretation rather than replace explanation</li>
-<li>Ethical considerations are explicitly addressed</li>
-<li>Communication formats match the intended audience</li>
-</ul>
-<p>Together, these practices support rigorous, responsible, and impactful computational educational research.</p>
+<section id="discussion" class="level4">
+<h4 class="anchored" data-anchor-id="discussion">Discussion</h4>
+<p>Across the nine images, instructional format (RQ1) and classroom structure (RQ2) appeared to shape student participation patterns (RQ3). Collaborative activity was consistently associated with smaller group sizes and higher behavioral engagement. Teacher-led instruction involved larger groups and produced more passive engagement patterns. Independent work reflected focused but emotionally neutral learning states. Sentiment alone provided limited insight; however, the combination of <strong><code>engagement_level</code></strong> and <strong>observed activity type</strong> offered a more reliable indicator of classroom interaction quality.</p>
 
 
+</section>
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1111,13 +1132,13 @@ genai-policy-analysis/
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter-7.html" class="pagination-link" aria-label="Image Data">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Image Data</span></span>
+      <a href="./chapter-7.html" class="pagination-link" aria-label="Local LLMs">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Local LLMs</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./conclusion.html" class="pagination-link" aria-label="Conclusion">
-        <span class="nav-page-text"><span class="chapter-title">Conclusion</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapter-9.html" class="pagination-link" aria-label="Communication">
+        <span class="nav-page-text"><span class="chapter-title">Communication</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
