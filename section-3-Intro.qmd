@@ -19,7 +19,7 @@ Cloud-based Large Language Models (LLMs) offer access to state-of-the-art genera
 The landscape of LLMs evolves quickly. As of 2025, the following providers represent the most common cloud-based options for educational data analysis.
 
 | Provider | Example Models | Access | R / HTTP Wrapper |
-|------------------|--------------------|------------------|------------------|
+|------------------|-------------------|------------------|------------------|
 | **OpenAI** | GPT-4o / GPT-5 | API key via [platform.openai.com](https://platform.openai.com) | `{httr2}`, `{openai}`, `{ellmer}` |
 | **Anthropic** | Claude 3 Opus · Claude 4 | API key via [console.anthropic.com](https://console.anthropic.com) | `{httr2}`, `{anthropic}`, `{ellmer}` |
 | **Google** | Gemini 2.5 · Gemini Ultra (2025) | [AI Studio](https://aistudio.google.com) | `{googleGenerativeAI}`, `{ellmer}` |

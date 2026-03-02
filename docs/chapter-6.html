@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -400,8 +435,57 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#chapter-6-positron-ai-assistant-and-data-bot" id="toc-chapter-6-positron-ai-assistant-and-data-bot" class="nav-link active" data-scroll-target="#chapter-6-positron-ai-assistant-and-data-bot">Chapter 6 Positron AI Assistant and Data Bot</a>
+  <ul class="collapse">
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">6.1 Overview</a></li>
+  <li><a href="#meet-your-new-teammate-positron-ai-assistant" id="toc-meet-your-new-teammate-positron-ai-assistant" class="nav-link" data-scroll-target="#meet-your-new-teammate-positron-ai-assistant">6.2 Meet Your New Teammate: Positron AI Assistant</a>
+  <ul class="collapse">
+  <li><a href="#what-can-it-do" id="toc-what-can-it-do" class="nav-link" data-scroll-target="#what-can-it-do">6.2.1 What Can It Do?</a></li>
+  <li><a href="#why-would-an-educational-researcher-want-this" id="toc-why-would-an-educational-researcher-want-this" class="nav-link" data-scroll-target="#why-would-an-educational-researcher-want-this">6.2.2 Why Would an Educational Researcher Want This?</a></li>
+  </ul></li>
+  <li><a href="#getting-started-with-your-new-teammate" id="toc-getting-started-with-your-new-teammate" class="nav-link" data-scroll-target="#getting-started-with-your-new-teammate">6.3 Getting Started with Your New Teammate</a>
+  <ul class="collapse">
+  <li><a href="#what-youll-need" id="toc-what-youll-need" class="nav-link" data-scroll-target="#what-youll-need">6.3.1 What You’ll Need</a></li>
+  <li><a href="#setting-things-up" id="toc-setting-things-up" class="nav-link" data-scroll-target="#setting-things-up">6.3.2 Setting Things Up</a></li>
+  <li><a href="#making-it-feel-right-for-you" id="toc-making-it-feel-right-for-you" class="nav-link" data-scroll-target="#making-it-feel-right-for-you">6.3.3 Making It Feel Right for You</a></li>
+  </ul></li>
+  <li><a href="#actually-using-the-ai-assistant" id="toc-actually-using-the-ai-assistant" class="nav-link" data-scroll-target="#actually-using-the-ai-assistant">6.4 Actually Using the AI Assistant</a>
+  <ul class="collapse">
+  <li><a href="#smart-code-completion" id="toc-smart-code-completion" class="nav-link" data-scroll-target="#smart-code-completion">6.4.1 Smart Code Completion</a></li>
+  <li><a href="#getting-code-explained" id="toc-getting-code-explained" class="nav-link" data-scroll-target="#getting-code-explained">6.4.2 Getting Code Explained</a></li>
+  <li><a href="#when-things-break" id="toc-when-things-break" class="nav-link" data-scroll-target="#when-things-break">6.4.3 When Things Break</a></li>
+  </ul></li>
+  <li><a href="#meet-the-data-bot-your-automation-buddy" id="toc-meet-the-data-bot-your-automation-buddy" class="nav-link" data-scroll-target="#meet-the-data-bot-your-automation-buddy">6.5 Meet the Data Bot: Your Automation Buddy</a>
+  <ul class="collapse">
+  <li><a href="#what-can-the-data-bot-handle" id="toc-what-can-the-data-bot-handle" class="nav-link" data-scroll-target="#what-can-the-data-bot-handle">6.5.1 What Can the Data Bot Handle?</a></li>
+  <li><a href="#example-never-write-import-code-again" id="toc-example-never-write-import-code-again" class="nav-link" data-scroll-target="#example-never-write-import-code-again">6.5.2 Example: Never Write Import Code Again</a></li>
+  <li><a href="#example-automatic-quality-checks" id="toc-example-automatic-quality-checks" class="nav-link" data-scroll-target="#example-automatic-quality-checks">6.5.3 Example: Automatic Quality Checks</a></li>
+  </ul></li>
+  <li><a href="#real-talk-using-these-tools-in-your-research" id="toc-real-talk-using-these-tools-in-your-research" class="nav-link" data-scroll-target="#real-talk-using-these-tools-in-your-research">6.6 Real Talk: Using These Tools in Your Research</a>
+  <ul class="collapse">
+  <li><a href="#a-concrete-example" id="toc-a-concrete-example" class="nav-link" data-scroll-target="#a-concrete-example">6.6.1 A Concrete Example</a></li>
+  <li><a href="#what-this-means-for-your-research" id="toc-what-this-means-for-your-research" class="nav-link" data-scroll-target="#what-this-means-for-your-research">6.6.2 What This Means for Your Research</a></li>
+  </ul></li>
+  <li><a href="#working-responsibly-with-ai-helpers" id="toc-working-responsibly-with-ai-helpers" class="nav-link" data-scroll-target="#working-responsibly-with-ai-helpers">6.7 Working Responsibly with AI Helpers</a>
+  <ul class="collapse">
+  <li><a href="#always-review-what-you-get" id="toc-always-review-what-you-get" class="nav-link" data-scroll-target="#always-review-what-you-get">6.7.1 Always Review What You Get</a></li>
+  <li><a href="#be-transparent" id="toc-be-transparent" class="nav-link" data-scroll-target="#be-transparent">6.7.2 Be Transparent</a></li>
+  <li><a href="#keep-things-reproducible" id="toc-keep-things-reproducible" class="nav-link" data-scroll-target="#keep-things-reproducible">6.7.3 Keep Things Reproducible</a></li>
+  </ul></li>
+  <li><a href="#wrapping-up" id="toc-wrapping-up" class="nav-link" data-scroll-target="#wrapping-up">6.8 Wrapping Up</a>
+  <ul class="collapse">
+  <li><a href="#key-points-to-remember" id="toc-key-points-to-remember" class="nav-link" data-scroll-target="#key-points-to-remember">Key Points to Remember</a></li>
+  <li><a href="#whats-next" id="toc-whats-next" class="nav-link" data-scroll-target="#whats-next">What’s Next?</a></li>
+  </ul></li>
+  <li><a href="#handy-links" id="toc-handy-links" class="nav-link" data-scroll-target="#handy-links">Handy Links</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -426,8 +510,283 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="chapter-6-positron-ai-assistant-and-data-bot" class="level1">
+<h1>Chapter 6 Positron AI Assistant and Data Bot</h1>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">6.1 Overview</h2>
+<p>Imagine having a knowledgeable colleague sitting right next to you while you work—someone who never gets tired, never judge when you forget a function name, and genuinely enjoys helping you figure out why your code isn’t behaving. That’s essentially what the Positron AI Assistant brings to your desk.</p>
+<p>In this chapter, we’re going to meet two incredibly helpful teammates: the <strong>AI Assistant</strong> and the <strong>Data Bot</strong>. Both live inside your Positron IDE, ready to jump in whenever you need them. The AI Assistant is like that friendly pair programmer who can explain what a chunk of code is doing, suggest a better way to write something, or help you track down that pesky bug. The Data Bot, on the other hand, is more like a tireless assistant who remembers all the repetitive tasks you have to do every time you get a new dataset—and happily handles them for you so you can focus on the actually interesting parts of your research.</p>
+<p>Whether you’re just starting out with R or you’ve been writing code for years, these tools can genuinely make your research life easier. Let’s get acquainted!</p>
+</section>
+<section id="meet-your-new-teammate-positron-ai-assistant" class="level2">
+<h2 class="anchored" data-anchor-id="meet-your-new-teammate-positron-ai-assistant">6.2 Meet Your New Teammate: Positron AI Assistant</h2>
+<p>Think of the AI Assistant as a well-read colleague who happens to know R inside and out. It can see what you’re working on—your open files, your project structure, the data you’re wrestling with—and offers help that’s actually relevant to your specific situation. It’s not just spitting out generic answers; it understands the context of your project.</p>
+<section id="what-can-it-do" class="level3">
+<h3 class="anchored" data-anchor-id="what-can-it-do">6.2.1 What Can It Do?</h3>
+<p>Here’s what this helpful teammate brings to the table:</p>
+<ul>
+<li><p><strong>Code Completion</strong>: Not just the basic autocomplete you might expect, but whole snippets that make sense for what you’re trying to do. Think of it as a conversation where you say “I want to…” and it finishes your sentence with working code.</p></li>
+<li><p><strong>Code Explanation</strong>: Ever looked at someone’s code and thought “what on earth is happening here?” Select any block, ask the AI Assistant, and it’ll translate that cryptic code into plain English.</p></li>
+<li><p><strong>Bug Detective</strong>: When something breaks (and let’s be honest, it happens to all of us), the AI Assistant doesn’t just shrug—it looks at your error and often knows exactly what went wrong and how to fix it.</p></li>
+<li><p><strong>Code Generation</strong>: Tell it what you want to accomplish in plain language—“I need to calculate the average score by group and handle the missing values”—and watch it write the R code for you.</p></li>
+<li><p><strong>Refactoring</strong>: Got some messy code that works but makes your eyes glaze over? The AI Assistant can clean it up, make it more readable, and even explain why the new version is better.</p></li>
+</ul>
+<p>[SCREENSHOT PLACEHOLDER: AI Assistant panel in Positron showing code suggestions]</p>
+</section>
+<section id="why-would-an-educational-researcher-want-this" class="level3">
+<h3 class="anchored" data-anchor-id="why-would-an-educational-researcher-want-this">6.2.2 Why Would an Educational Researcher Want This?</h3>
+<p>Great question! You might be thinking, “I’ve gotten along fine without AI help so far.” Here’s the thing—it’s not about replacing what you know. It’s about:</p>
+<ul>
+<li><p><strong>Saving time on the stuff that isn’t the interesting part of your research</strong>—we’ve all spent 20 minutes trying to remember exactly how to pivot a dataframe. The AI Assistant just does it.</p></li>
+<li><p><strong>Learning new tricks</strong>—it often suggests approaches you might not have considered, which is a nice way to pick up new R skills without explicitly studying.</p></li>
+<li><p><strong>Reducing frustration</strong>—there’s nothing more demoralizing than staring at an error message for an hour. The AI Assistant can often spot the issue in seconds.</p></li>
+<li><p><strong>Building confidence</strong>—if you’re newer to R, having a supportive “colleague” to double-check your work makes experimentation less intimidating.</p></li>
+</ul>
+<blockquote class="blockquote">
+<p><strong>A gentle reminder:</strong> The AI Assistant is a tool to work <em>with</em>, not a replacement for your expertise as a researcher. It’s great at generating code, but you’re the expert on your data and research questions. Always review what it generates—think of it as a first draft that needs your expert polish.</p>
+</blockquote>
+</section>
+</section>
+<section id="getting-started-with-your-new-teammate" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started-with-your-new-teammate">6.3 Getting Started with Your New Teammate</h2>
+<section id="what-youll-need" class="level3">
+<h3 class="anchored" data-anchor-id="what-youll-need">6.3.1 What You’ll Need</h3>
+<p>Before we dive in, make sure you have:</p>
+<ul>
+<li><strong>Positron</strong> installed (grab it from <a href="https://posit.co/download">posit.co/download</a> if you haven’t already—versions 2024.04 and later have the AI features)</li>
+<li>A <strong>Posit account</strong> (the free tier works fine for getting started)</li>
+<li><strong>R</strong> (version 4.0 or later) installed on your machine</li>
+</ul>
+</section>
+<section id="setting-things-up" class="level3">
+<h3 class="anchored" data-anchor-id="setting-things-up">6.3.2 Setting Things Up</h3>
+<p>Getting started is straightforward:</p>
+<ol type="1">
+<li><strong>Download and install Positron</strong> from the website</li>
+<li><strong>Open it up</strong> and sign in to your Posit account</li>
+<li><strong>Turn on the AI Assistant</strong> — you’ll find it in the View menu, or you can use a keyboard shortcut (look for the robot icon in the toolbar)</li>
+<li><strong>Start talking to it!</strong> You can type questions in the AI panel or highlight code and ask for help</li>
+</ol>
+<p>[SCREENSHOT PLACEHOLDER: Positron settings showing AI Assistant enable option]</p>
+</section>
+<section id="making-it-feel-right-for-you" class="level3">
+<h3 class="anchored" data-anchor-id="making-it-feel-right-for-you">6.3.3 Making It Feel Right for You</h3>
+<p>The AI Assistant can adapt to your style a bit. Poke around in the settings and you’ll find you can adjust:</p>
+<ul>
+<li>How detailed its responses are (brief and snappy vs.&nbsp;thorough explanations)</li>
+<li>Whether it prefers tidyverse-style code or base R</li>
+<li>If it should add comments to the code it writes</li>
+</ul>
+<p>Play with these settings until it feels comfortable for you. Everyone’s preferences are different!</p>
+<p>[SCREENSHOT PLACEHOLDER: AI Assistant settings panel]</p>
+</section>
+</section>
+<section id="actually-using-the-ai-assistant" class="level2">
+<h2 class="anchored" data-anchor-id="actually-using-the-ai-assistant">6.4 Actually Using the AI Assistant</h2>
+<p>Enough setup—let’s see this teammate in action!</p>
+<section id="smart-code-completion" class="level3">
+<h3 class="anchored" data-anchor-id="smart-code-completion">6.4.1 Smart Code Completion</h3>
+<p>Picture this: you’re analyzing student assessment data and you start typing:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You type this:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>student_data <span class="sc">|&gt;</span> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># You stop here, wondering what to type next...</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># The AI Assistant might suggest:</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># filter(!is.na(score)) |&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   group_by(grade) |&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   summarize(mean_score = mean(score, na.rm = TRUE))</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>That’s not just autocomplete—it’s understanding the pipeline you’re building and knowing where you’re headed. Pretty slick, right?</p>
+<p>[SCREENSHOT PLACEHOLDER: AI code completion suggestions in action]</p>
+</section>
+<section id="getting-code-explained" class="level3">
+<h3 class="anchored" data-anchor-id="getting-code-explained">6.4.2 Getting Code Explained</h3>
+<p>We’ve all been there: you find some code online (maybe in a tutorial or from a colleague), and it looks like hieroglyphics. Here’s what you do:</p>
+<ol type="1">
+<li>Highlight the confusing code</li>
+<li>Ask the AI Assistant something like “what does this do?”</li>
+<li>Get a friendly, plain-language explanation</li>
+</ol>
+<p>This is honestly one of my favorite features. It’s like having a patient friend who can explain anything code-related without making you feel silly for asking.</p>
+<p>[SCREENSHOT PLACEHOLDER: AI explaining a complex dplyr pipeline]</p>
+</section>
+<section id="when-things-break" class="level3">
+<h3 class="anchored" data-anchor-id="when-things-break">6.4.3 When Things Break</h3>
+<p>Oh, the joy of debugging. Here’s a common scenario:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You run this, and R throws an error</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(student_data<span class="sc">$</span>score)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Instead of spending precious research time hunting through Stack Overflow, show that error to the AI Assistant. It might say something like:</p>
+<blockquote class="blockquote">
+<p>“I see the issue! You’re trying to calculate a mean, but there are missing values in your data. Add <code>na.rm = TRUE</code> to ignore them, or decide whether those NAs should be handled differently. Want me to show you both options?”</p>
+</blockquote>
+<p>Helpful, right?</p>
+<p>[SCREENSHOT PLACEHOLDER: AI Assistant bug detection and fix suggestion]</p>
+</section>
+</section>
+<section id="meet-the-data-bot-your-automation-buddy" class="level2">
+<h2 class="anchored" data-anchor-id="meet-the-data-bot-your-automation-buddy">6.5 Meet the Data Bot: Your Automation Buddy</h2>
+<p>If the AI Assistant is your helpful colleague, think of the Data Bot as that super organized team member who remembered to set up all those recurring meetings and templates so everyone else doesn’t have to. It takes tedious, repetitive tasks and automates them away.</p>
+<section id="what-can-the-data-bot-handle" class="level3">
+<h3 class="anchored" data-anchor-id="what-can-the-data-bot-handle">6.5.1 What Can the Data Bot Handle?</h3>
+<p>A few examples:</p>
+<ul>
+<li><strong>Generating import templates</strong> — instead of writing “read.csv()” from scratch every time you get a new dataset, let the Data Bot create a reusable function</li>
+<li><strong>Building data cleaning pipelines</strong> — those steps you do every single time (convert text to lowercase, strip whitespace, handle missing values) can be automated</li>
+<li><strong>Creating report templates</strong> — if you generate similar reports quarterly, the Data Bot can build the skeleton for you</li>
+<li><strong>Setting up quality checks</strong> — automated tests that catch data problems before they become headaches</li>
+</ul>
+</section>
+<section id="example-never-write-import-code-again" class="level3">
+<h3 class="anchored" data-anchor-id="example-never-write-import-code-again">6.5.2 Example: Never Write Import Code Again</h3>
+<p>Every time you get a new CSV, do you find yourself typing the same import code? The Data Bot can create a smart template that remembers your preferences:</p>
+<p>[SCREENSHOT PLACEHOLDER: Data Bot generating import template]</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This template was created once, now you use it forever!</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>import_data <span class="ot">&lt;-</span> <span class="cf">function</span>(file_path) {</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>(</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">file =</span> <span class="fu">here</span>(<span class="st">"data"</span>, file_path),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">col_types =</span> <span class="fu">cols</span>(</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">id =</span> <span class="fu">col_character</span>(),</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">score =</span> <span class="fu">col_double</span>(),</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">grade =</span> <span class="fu">col_factor</span>(),</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">.default =</span> <span class="fu">col_character</span>()</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">na =</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">"NA"</span>, <span class="st">"N/A"</span>, <span class="st">"null"</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.character), str_squish))</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Now importing is one line:</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co"># student_data &lt;- import_data("student_scores.csv")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>See what happened? You wrote the function once, and now every future data import is one line. The Data Bot helped you think through what you needed once, and now you’re saved from doing it over and over.</p>
+</section>
+<section id="example-automatic-quality-checks" class="level3">
+<h3 class="anchored" data-anchor-id="example-automatic-quality-checks">6.5.3 Example: Automatic Quality Checks</h3>
+<p>Here’s another scenario: you get new survey data and you want to make sure it’s not obviously broken before you start analyzing. The Data Bot can generate checks that run automatically:</p>
+<p>[SCREENSHOT PLACEHOLDER: Data Bot generating validation checks]</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Auto-generated validation checks - run these on every new dataset</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>validate_student_data <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  checks <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">check_columns_exist =</span> <span class="cf">function</span>(d) {</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>      required <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"score"</span>, <span class="st">"grade"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>      missing <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(required, <span class="fu">names</span>(d))</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="fu">length</span>(missing) <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="fu">stop</span>(<span class="st">"Missing columns: "</span>, <span class="fu">paste</span>(missing, <span class="at">collapse =</span> <span class="st">", "</span>))</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">check_no_missing_id =</span> <span class="cf">function</span>(d) {</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="fu">any</span>(<span class="fu">is.na</span>(d<span class="sc">$</span>id))) <span class="fu">stop</span>(<span class="st">"Missing IDs found"</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">check_score_range =</span> <span class="cf">function</span>(d) {</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="fu">any</span>(d<span class="sc">$</span>score <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">|</span> d<span class="sc">$</span>score <span class="sc">&gt;</span> <span class="dv">100</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        <span class="fu">stop</span>(<span class="st">"Scores out of valid range (0-100)"</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (check <span class="cf">in</span> checks) {</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">check</span>(df)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">"All validation checks passed!"</span>)</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  <span class="cn">TRUE</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Now you’ve got a safety net. Every time new data arrives, just run <code>validate_student_data(your_new_data)</code> and you’ll know right away if something’s wrong.</p>
+</section>
+</section>
+<section id="real-talk-using-these-tools-in-your-research" class="level2">
+<h2 class="anchored" data-anchor-id="real-talk-using-these-tools-in-your-research">6.6 Real Talk: Using These Tools in Your Research</h2>
+<section id="a-concrete-example" class="level3">
+<h3 class="anchored" data-anchor-id="a-concrete-example">6.6.1 A Concrete Example</h3>
+<p>Let’s say you’re analyzing survey data from a 5-year professional development program. You’ve got responses from teachers, and you need to clean them, calculate response rates by demographic group, make some visualizations, and put together a report for stakeholders.</p>
+<p>Here’s how these tools might actually help:</p>
+<p><strong>Without AI help:</strong> You’d spend about 30 minutes just setting up the import code, a couple hours cleaning the data, an hour writing the analysis code, and another hour building a report template. That’s roughly 4.5 hours of work—before you even get to the interesting analysis.</p>
+<p><strong>With the AI Assistant and Data Bot:</strong> You’d spend maybe 5 minutes getting the import right (the AI Assistant helps you think through column types while the Data Bot saves the function). Another 30 minutes on cleaning—AI Assistant suggests efficient pipelines. About 15 minutes for analysis—the AI Assistant recommends appropriate statistical tests and helps construct the summaries. And 10 minutes for the report template.</p>
+<p><strong>Total: about an hour.</strong></p>
+<p>That’s not a typo. You’ve just gotten 3.5 hours of your time back—time you can spend actually looking at your results, thinking about what they mean for your research questions, or, you know, taking a coffee break.</p>
+<p>[SCREENSHOT PLACEHOLDER: Complete analysis workflow in Positron]</p>
+</section>
+<section id="what-this-means-for-your-research" class="level3">
+<h3 class="anchored" data-anchor-id="what-this-means-for-your-research">6.6.2 What This Means for Your Research</h3>
+<p>The real value isn’t just saving time (though that’s nice). It’s that these tools let you focus on what matters: the research itself. When you’re not stuck fighting with code, you can spend more mental energy on:</p>
+<ul>
+<li>Understanding your data deeply</li>
+<li>Choosing the right analytical approaches</li>
+<li>Thinking critically about what your findings mean</li>
+<li>Communicating results effectively to your audience</li>
+</ul>
+</section>
+</section>
+<section id="working-responsibly-with-ai-helpers" class="level2">
+<h2 class="anchored" data-anchor-id="working-responsibly-with-ai-helpers">6.7 Working Responsibly with AI Helpers</h2>
+<p>Here’s the thing—we’ve talked a lot about how great these tools are, but let’s be real about using them thoughtfully. They’re powerful, but they’re not magic, and they’re definitely not a substitute for your expertise as a researcher.</p>
+<section id="always-review-what-you-get" class="level3">
+<h3 class="anchored" data-anchor-id="always-review-what-you-get">6.7.1 Always Review What You Get</h3>
+<p>Treat AI-generated code like a first draft from a well-meaning but imperfect colleague. It might be mostly right, but it’s probably not perfect. Before you use any code it generates in actual research:</p>
+<ul>
+<li><strong>Test it on a small sample</strong> first—run the code on a subset of your data to make sure it does what you expect</li>
+<li><strong>Verify the results</strong> against something you know to be true, or compare with a manual calculation</li>
+<li><strong>Add your own comments</strong> explaining what the code is doing, especially if the logic is complex</li>
+</ul>
+</section>
+<section id="be-transparent" class="level3">
+<h3 class="anchored" data-anchor-id="be-transparent">6.7.2 Be Transparent</h3>
+<p>If you use AI tools in your research workflow, it’s good practice to be open about it. This doesn’t mean you have to apologize—just acknowledge it in your methods. Something like:</p>
+<blockquote class="blockquote">
+<p>“We used the Positron AI Assistant to help generate initial data processing code, which was then reviewed and validated by the authors.”</p>
+</blockquote>
+<p>Simple, honest, and it helps others understand your process.</p>
+</section>
+<section id="keep-things-reproducible" class="level3">
+<h3 class="anchored" data-anchor-id="keep-things-reproducible">6.7.3 Keep Things Reproducible</h3>
+<p>A few tips to make sure your work still holds up:</p>
+<ul>
+<li><strong>Note what version</strong> of the AI tools you used</li>
+<li><strong>Keep your human-written code</strong> as the authoritative version—don’t rely solely on what the AI generated</li>
+<li><strong>Use version control</strong> (like Git) to track changes, so you can always see the history of your work</li>
+</ul>
+</section>
+</section>
+<section id="wrapping-up" class="level2">
+<h2 class="anchored" data-anchor-id="wrapping-up">6.8 Wrapping Up</h2>
+<p>We’ve covered a lot of ground! Here’s the takeaway:</p>
+<p>The Positron AI Assistant and Data Bot are genuinely useful teammates in your research journey. They won’t replace your expertise—let’s be clear about that. What they <em>will</em> do is handle a lot of the tedious stuff that eats up your time, help you learn new R skills without formal study, and generally make computational research less frustrating and more enjoyable.</p>
+<p>Think of them as tools that amplify what you already bring to the table: your research questions, your domain expertise, your critical thinking. They handle the coding heavy lifting so you can focus on the parts that really need a human mind.</p>
+<section id="key-points-to-remember" class="level3">
+<h3 class="anchored" data-anchor-id="key-points-to-remember">Key Points to Remember</h3>
+<ul>
+<li>The AI Assistant offers real-time code help, explanations, and bug hunting</li>
+<li>The Data Bot automates repetitive data tasks, saving you from writing the same code over and over</li>
+<li>Always review and validate AI-generated code—it’s a starting point, not the final answer</li>
+<li>Being transparent about AI use builds trust with your readers</li>
+<li>These tools free you up to focus on what matters: your research</li>
+</ul>
+</section>
+<section id="whats-next" class="level3">
+<h3 class="anchored" data-anchor-id="whats-next">What’s Next?</h3>
+<p>In the next chapter, we’re going to explore another fascinating side of AI in research: <strong>Local LLMs</strong>. You’ll see how researchers can run powerful language models entirely on their own computers—perfect for working with sensitive data where privacy really matters. It’s a different approach from what we’ve covered here, and it opens up some really interesting possibilities for qualitative analysis.</p>
+<p>Ready to keep exploring? Let’s go!</p>
+<hr>
+</section>
+</section>
+<section id="handy-links" class="level2">
+<h2 class="anchored" data-anchor-id="handy-links">Handy Links</h2>
+<ul>
+<li><strong>Posit AI Assistant Docs</strong>: <a href="https://posit.co/products/ai-assistant">posit.co/products/ai-assistant</a></li>
+<li><strong>Positron IDE</strong>: <a href="https://posit.co/ide/docs">posit.co/ide/docs</a></li>
+<li><strong>R for Data Science</strong> (great book for learning more): <a href="https://r4ds.hadley.nz">r4ds.hadley.nz</a></li>
+</ul>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
