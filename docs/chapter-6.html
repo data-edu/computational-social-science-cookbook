@@ -622,7 +622,7 @@ The use of large language models (LLMs) in data analysis is rapidly increasing a
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># If 'university_policies' already exists (from Section 2), use it directly.</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Otherwise, safely fall back to reading the same CSV used in Section 2.</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">exists</span>(<span class="st">"university_policies"</span>)) {</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  university_policies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"University_GenAI_Policy_Stance.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  university_policies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/University_GenAI_Policy_Stance.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="st">"Stance"</span> <span class="sc">%in%</span> <span class="fu">names</span>(university_policies))</span>
