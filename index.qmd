@@ -3,7 +3,37 @@ title: "Preface"
 unnumbered: true
 ---
 
-# Preface
+:::{.content-visible when-format="html"}
+:::{.book-cover}
+![](cover.png){.book-cover-image}
+
+:::{.book-cover-kicker}
+Computational Social Science Cookbook
+:::
+
+:::{.book-cover-title}
+Computational Analysis of Educational Data
+:::
+
+:::{.book-cover-subtitle}
+A Field Guide Using R
+:::
+
+:::{.book-cover-meta}
+Wei Wang, Mete Akcaoglu, Joshua Rosenberg, Shaun Kellogg
+:::
+
+:::{.book-cover-meta}
+Methods, examples, and write-up templates for text, network, numeric, and LLM-based analysis.
+:::
+:::
+:::
+
+:::{.content-visible when-format="pdf"}
+![](cover.png){fig-align="center" width="5.8in"}
+
+\newpage
+:::
 
 Welcome to *Computational Analysis of Educational Data: A Field Guide Using R*!
 

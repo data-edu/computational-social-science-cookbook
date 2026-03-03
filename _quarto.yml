@@ -5,7 +5,8 @@ project:
 book:
   title: "Computational Analysis of Educational Data: A Field Guide Using R"
   author: "Wei Wang, Mete Akcaoglu, Joshua Rosenberg, Shaun Kellogg"
-  date: "January 12, 2026"
+  date: last-modified
+  date-format: "MMMM D, YYYY"
   
   chapters:
     - index.qmd
