@@ -1,5 +1,5 @@
 ---
-title: "LLMs Methods"
+title: "Cloud VS Local"
 ---
 
 ## 5.1 Why Large Language Models Matter in Educational Research
@@ -10,10 +10,10 @@ Large Language Models (LLMs) have changed how we analyze, generate, and interpre
 
 In educational research, that opens new possibilities:
 
-- Summarizing and coding open-ended reflections
-- Analyzing institutional policy documents
-- Drafting instructional scaffolds and rubrics
-- Connecting qualitative insights with quantitative findings
+-   Summarizing and coding open-ended reflections
+-   Analyzing institutional policy documents
+-   Drafting instructional scaffolds and rubrics
+-   Connecting qualitative insights with quantitative findings
 
 In short, LLMs expand your toolkit from pattern detection toward **context-aware meaning-making**.
 
@@ -63,7 +63,7 @@ content <- resp_body_json(resp)
 cat(content$choices[[1]]$message$content)
 ```
 
-> Core API pattern: authenticate -> send prompt -> parse response.
+> Core API pattern: authenticate -\> send prompt -\> parse response.
 
 ### Using `{ellmer}`: One Interface for Many Providers
 
@@ -179,7 +179,7 @@ LM Studio is a free cross-platform desktop app for running and managing local LL
 ### Main Features
 
 | Feature | Description |
-|--------------------------------------------------------|----------------|
+|------------------------------------------------------|------------------|
 | Local LLMs | Run models offline on your own machine |
 | Chat Interface | Simple prompt-based GUI |
 | Document Chat (RAG) | Offline "chat with your PDFs" |

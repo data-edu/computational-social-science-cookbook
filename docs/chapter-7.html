@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Local LLMs – Computational Analysis of Educational Data: A Field Guide Using R</title>
+<title>Local LLMs for Text – Computational Analysis of Educational Data: A Field Guide Using R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -287,7 +287,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./llms-intro.html">LLMs and Data Science</a></li><li class="breadcrumb-item"><a href="./chapter-7.html"><span class="chapter-title">Local LLMs</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./llms-intro.html">LLM Methods</a></li><li class="breadcrumb-item"><a href="./chapter-7.html"><span class="chapter-title">Local LLMs for Text</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -375,7 +375,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./llms-intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">LLMs and Data Science</span></a>
+ <span class="menu-text">LLM Methods</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -383,22 +383,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">LLMs Methods</span></a>
+  <a href="./chapter-5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cloud VS Local</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Positron AI Assistant and Data Bot</span></a>
+  <a href="./chapter-6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Assistant and Data Bot</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-7.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Local LLMs</span></a>
+  <a href="./chapter-7.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Local LLMs for Text</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Image Data</span></a>
+  <a href="./chapter-8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Local LLMs for Images</span></a>
   </div>
 </li>
       </ul>
@@ -466,9 +466,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./llms-intro.html">LLMs and Data Science</a></li><li class="breadcrumb-item"><a href="./chapter-7.html"><span class="chapter-title">Local LLMs</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./llms-intro.html">LLM Methods</a></li><li class="breadcrumb-item"><a href="./chapter-7.html"><span class="chapter-title">Local LLMs for Text</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Local LLMs</span></h1>
+<h1 class="title"><span class="chapter-title">Local LLMs for Text</span></h1>
 </div>
 
 
@@ -1065,8 +1065,8 @@ They independently rated whether the theme name, description, and illustrative e
 <table class="caption-top table">
 <colgroup>
 <col style="width: 28%">
-<col style="width: 26%">
-<col style="width: 45%">
+<col style="width: 27%">
+<col style="width: 43%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1477,7 +1477,7 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <col style="width: 23%">
 <col style="width: 23%">
 <col style="width: 23%">
-<col style="width: 29%">
+<col style="width: 28%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1593,7 +1593,7 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <h5 class="anchored" data-anchor-id="balancing-precision-and-recall">Balancing Precision and Recall</h5>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 26%">
+<col style="width: 27%">
 <col style="width: 36%">
 <col style="width: 36%">
 </colgroup>
@@ -2128,13 +2128,13 @@ bridging the measurable and the meaningful, the statistical and the semantic, th
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter-6.html" class="pagination-link" aria-label="Positron AI Assistant and Data Bot">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Positron AI Assistant and Data Bot</span></span>
+      <a href="./chapter-6.html" class="pagination-link" aria-label="Assistant and Data Bot">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Assistant and Data Bot</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter-8.html" class="pagination-link" aria-label="Image Data">
-        <span class="nav-page-text"><span class="chapter-title">Image Data</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapter-8.html" class="pagination-link" aria-label="Local LLMs for Images">
+        <span class="nav-page-text"><span class="chapter-title">Local LLMs for Images</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

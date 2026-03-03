@@ -31,6 +31,14 @@ The second most important aspect of this book that does not exist out in the wil
 
 6.  Provide a sample write up for Results
 
+### LLMs in computational analysis
+
+As this book developed, another major shift emerged in our own work: large language models (LLMs) became part of everyday computational analysis. We do not see LLMs as a replacement for the methods in this book (e.g., text mining, network analysis, or machine learning). Instead, we treat them as an additional methodological layer that can support coding, interpretation, synthesis, and communication.
+
+In practice, this means we use LLMs in at least three ways: as assistants for writing and debugging code, as tools for structured analysis workflows under researcher supervision, and as analytic partners for qualitative and multimodal data. Across all three uses, our approach remains the same as the rest of this field guide: start with a clear research question, make data and analytic decisions explicit, and validate outputs before drawing conclusions.
+
+Because LLM-assisted analysis introduces new opportunities and risks, we also emphasize responsible use throughout the book. We encourage readers to evaluate LLM-supported work through three core criteria: correctness, transparency, and reproducibility. In other words, LLMs can help us see more in the data, but they should never reduce the rigor of how we do research.
+
 ### **Who is this book for?**
 
 This book will be beginner-friendly but not for the absolute beginner. We will dedicate the initial chapters to take you to resources that will help you get started. But, to make sense of this book, you should have basic research design knowledge, basic statistical knowledge, and a basic understanding of R and RStudio. At the same time, this book will not be for experts or expertise. There are already many great resources that delve into the topics that we cover (e.g., Silge's book on using text data for machine learning).

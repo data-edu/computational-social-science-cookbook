@@ -1,1 +1,57 @@
 # Conclusion
+
+This book began with a simple idea: what we can study is shaped by what we can see as data. As educational researchers, we do not only begin with theory and then look for evidence; we also encounter new forms of evidence that reshape our questions, methods, and interpretations. Across the chapters, we have tried to make that process explicit, practical, and reproducible.
+
+From there, we worked through a field-guide approach to computational analysis in education. Rather than treating methods as abstract techniques, each chapter focused on concrete research workflows: what data to collect, how to prepare it, what questions are reasonable to ask, how to analyze it in R, and how to write up methods and results in ways that others can follow.
+
+## What this book contributes
+
+We see this guide as offering four connected contributions for educational and social science researchers.
+
+First, we aimed to provide an accessible on-ramp to computational work in R , with enough structure for beginners while still supporting applied research.
+
+Second, we showed how different computational methods answer different kinds of questions. Text methods help us identify themes and language patterns; network methods illuminate relationships and structures; numeric modeling supports prediction and explanation at scale.
+
+Third, it situates large language models (LLMs) as part of computational research practice. We introduced cloud and local pathways, then demonstrated local LLM workflows for both text and image analysis. The aim was not to present LLMs as a universal solution, but to show when and how they can be integrated responsibly.
+
+Fourth, we emphasized communication as method. Computational analysis is not complete when code runs; it is complete when decisions, evidence, and limitations are communicated clearly and ethically to the audiences that matter.
+
+## Methods are complementary, not competitive
+
+A core takeaway for us is that computational approaches are strongest when used together. Traditional NLP and statistical models provide transparency, standardization, and strong baselines. LLM-based workflows add semantic interpretation, synthesis, and flexibility for complex or multimodal data.
+
+In many projects, the most rigorous strategy is hybrid:
+
+-   use conventional methods to establish descriptive and inferential structure,
+-   use LLMs to support interpretation and synthesis,
+-   and then validate results through triangulation, human review, and clear documentation.
+
+This is especially important in educational settings, where data are often sensitive and interpretations carry real consequences for learners, educators, and institutions. In our view, method choice is always also an ethical choice.
+
+## Responsible use in educational research
+
+Throughout this book, we returned to three standards for responsible computational and AI-assisted research:
+
+-   **Correctness**: Are findings supported by evidence and checks?
+-   **Transparency**: Can readers see how conclusions were produced?
+-   **Reproducibility**: Can the analysis be rerun and audited?
+
+These standards apply to all methods, but they are particularly important when LLMs are involved. Whether we use cloud APIs, local models, or assistant tools in the IDE, our role as researchers remains central: define the question, evaluate outputs, document decisions, and make uncertainty visible.
+
+## A practical path forward
+
+If you are continuing after this book, we suggest building one small, complete study cycle:
+
+1.  Select one dataset and one focused research question.
+2.  Apply one core method (text, network, or numeric) in a fully reproducible script.
+3.  Add one LLM-assisted step where it genuinely improves workflow or interpretation.
+4.  Validate outputs with at least one independent check.
+5.  Publish the analysis as a transparent Quarto artifact with clear limitations.
+
+Repeating this cycle across projects builds both technical fluency and methodological judgment. This is the same iterative path we have followed in our own work.
+
+## Final reflection
+
+Computational educational research is not only about learning more tools. It is about learning how to ask better questions with new forms of evidence, while keeping rigor, ethics, and clarity at the center of the work.
+
+Our hope is that this field guide helps you do exactly that: design stronger studies, analyze richer data, communicate more openly, and contribute research that is both technically robust and educationally meaningful.

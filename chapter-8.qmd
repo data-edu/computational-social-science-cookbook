@@ -1,5 +1,5 @@
 ---
-title: "Image Data"
+title: " Local LLMs for Images"
 ---
 
 ```{r}
