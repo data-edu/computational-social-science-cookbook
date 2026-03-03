@@ -7,7 +7,6 @@ title: " Local LLMs for Images"
 options(warn = -1)
 ```
 
-# Chapter 8 Image Data with Local LLMs
 
 ## 8.1 Overview
 

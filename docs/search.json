@@ -535,17 +535,6 @@
     "href": "chapter-6.html",
     "title": "Assistant and Data Bot",
     "section": "",
-    "text": "Chapter 6 Positron AI Assistant and Data Bot",
-    "crumbs": [
-      "LLM Methods",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Assistant and Data Bot</span>"
-    ]
-  },
-  {
-    "objectID": "chapter-6.html#overview",
-    "href": "chapter-6.html#overview",
-    "title": "Assistant and Data Bot",
-    "section": "6.1 Overview",
     "text": "6.1 Overview\nImagine having a knowledgeable colleague sitting right next to you while you work—someone who never gets tired, never judge when you forget a function name, and genuinely enjoys helping you figure out why your code isn’t behaving. That’s essentially what the Positron AI Assistant brings to your desk.\nIn this chapter, we’re going to meet two incredibly helpful teammates: the AI Assistant and the Data Bot. Both live inside your Positron IDE, ready to jump in whenever you need them. The AI Assistant is like that friendly pair programmer who can explain what a chunk of code is doing, suggest a better way to write something, or help you track down that pesky bug. The Data Bot, on the other hand, is more like a tireless assistant who remembers all the repetitive tasks you have to do every time you get a new dataset—and happily handles them for you so you can focus on the actually interesting parts of your research.\nWhether you’re just starting out with R or you’ve been writing code for years, these tools can genuinely make your research life easier. Let’s get acquainted!",
     "crumbs": [
       "LLM Methods",
@@ -689,17 +678,6 @@
     "href": "chapter-8.html",
     "title": "Local LLMs for Images",
     "section": "",
-    "text": "Chapter 8 Image Data with Local LLMs",
-    "crumbs": [
-      "LLM Methods",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Local LLMs for Images</span>"
-    ]
-  },
-  {
-    "objectID": "chapter-8.html#overview",
-    "href": "chapter-8.html#overview",
-    "title": "Local LLMs for Images",
-    "section": "8.1 Overview",
     "text": "8.1 Overview\nIn this section, we will discuss how social scientists can move beyond traditional data types (e.g., text and numbers) and learn about capturing and analyzing images as data.\nUsing images as data, researchers can ask new questions. For example, how body language affect conversations or how physiological signals match feelings can help uncover insights that single‑mode studies miss. By integrating multimodal data, social scientists can broaden the depth and reach of their research beyond what conventional single‑mode analysis offers.",
     "crumbs": [
       "LLM Methods",

@@ -7,7 +7,6 @@ title: "Assistant and Data Bot"
 options(warn = -1)
 ```
 
-# Chapter 6 Positron AI Assistant and Data Bot
 
 ## 6.1 Overview
 
