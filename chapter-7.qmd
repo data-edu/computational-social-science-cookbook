@@ -115,7 +115,7 @@ content(response)
 ### 7.3.4 At a Glance: LM Studio Capabilities
 
 | Feature | What It Means for You |
-|-----------------------|-------------------------------------------------|
+|------------------------|------------------------------------------------|
 | Local LLMs | Run powerful AI models on your own machine—no internet needed |
 | Chat Interface | Easy, intuitive way to interact with your model |
 | Document Chat (RAG) | "Chat with your PDFs" while staying fully offline |
@@ -826,7 +826,7 @@ The cross-validation process compared two perspectives on the same corpus:\
 ##### Summary of Observed Patterns
 
 | Theme | LLM_Relative (%) | Verified_Relative (%) | Interpretation |
-|------------------|-----------------:|-----------------:|--------------------|
+|------------------|-----------------:|-----------------:|-------------------|
 | Academic Integrity / Plagiarism | 25.0 | 49.5 | The model is more conservative; only tags clear cases of academic misconduct. |
 | Faculty Autonomy & Syllabus Clarity | 23.0 | 56.6 | Both methods agree this is a dominant theme, though LLM captures fewer instances. |
 | Citation / Disclosure Requirements | 17.0 | 25.3 | Close alignment; both approaches identify similar occurrences. |

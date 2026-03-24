@@ -1,5 +1,5 @@
 ---
-title: "Assistant and Data Bot"
+title: "Positron Assistant and Databot"
 ---
 
 ```{r, eval = FALSE}
@@ -7,48 +7,49 @@ title: "Assistant and Data Bot"
 options(warn = -1)
 ```
 
-
 ## 6.1 Overview
 
-Imagine having a knowledgeable colleague sitting right next to you while you work—someone who never gets tired, never judge when you forget a function name, and genuinely enjoys helping you figure out why your code isn't behaving. That's essentially what the Positron AI Assistant brings to your desk. 
+Imagine having a knowledgeable colleague sitting right next to you while you work—someone who never gets tired, never judges when you forget a function name, and genuinely enjoys helping you figure out why your code isn't behaving. That's essentially what Positron Assistant brings to your desk.
 
-In this chapter, we're going to meet two incredibly helpful teammates: the **AI Assistant** and the **Data Bot**. Both live inside your Positron IDE, ready to jump in whenever you need them. The AI Assistant is like that friendly pair programmer who can explain what a chunk of code is doing, suggest a better way to write something, or help you track down that pesky bug. The Data Bot, on the other hand, is more like a tireless assistant who remembers all the repetitive tasks you have to do every time you get a new dataset—and happily handles them for you so you can focus on the actually interesting parts of your research.
+In this chapter, we're going to meet two helpful teammates: **Positron Assistant** and **Databot**. They live in the same ecosystem, but they do different jobs. Positron Assistant is your default coding copilot for chat, inline help, and code suggestions. Databot is an exploratory analysis agent that can accelerate early-stage EDA workflows.
+
+We'll treat Positron Assistant as the primary path for most readers and Databot as an optional extension, because Databot is currently in research preview.
 
 Whether you're just starting out with R or you've been writing code for years, these tools can genuinely make your research life easier. Let's get acquainted!
 
-## 6.2 Meet Your New Teammate: Positron AI Assistant
+## 6.2 Meet Your New Teammate: Positron Assistant
 
-Think of the AI Assistant as a well-read colleague who happens to know R inside and out. It can see what you're working on—your open files, your project structure, the data you're wrestling with—and offers help that's actually relevant to your specific situation. It's not just spitting out generic answers; it understands the context of your project.
+Think of Positron Assistant as a well-read colleague who happens to know R inside and out. It can use context from your project and your interactive workflow to provide more relevant help than generic chatbot responses.
 
 ### 6.2.1 What Can It Do?
 
 Here's what this helpful teammate brings to the table:
 
-- **Code Completion**: Not just the basic autocomplete you might expect, but whole snippets that make sense for what you're trying to do. Think of it as a conversation where you say "I want to..." and it finishes your sentence with working code.
+-   **Code Suggestions**: Not just basic autocomplete, but context-aware snippets that can help you move from intent to working code more quickly.
 
-- **Code Explanation**: Ever looked at someone's code and thought "what on earth is happening here?" Select any block, ask the AI Assistant, and it'll translate that cryptic code into plain English.
+-   **Code Explanation**: Ever looked at someone's code and thought "what on earth is happening here?" Select any block, ask Positron Assistant, and it will translate cryptic code into plain language.
 
-- **Bug Detective**: When something breaks (and let's be honest, it happens to all of us), the AI Assistant doesn't just shrug—it looks at your error and often knows exactly what went wrong and how to fix it.
+-   **Bug Detective**: When something breaks (and let's be honest, it happens to all of us), Positron Assistant can inspect the error and suggest fixes quickly.
 
-- **Code Generation**: Tell it what you want to accomplish in plain language—"I need to calculate the average score by group and handle the missing values"—and watch it write the R code for you.
+-   **Code Generation**: Tell it what you want to accomplish in plain language—"I need to calculate the average score by group and handle the missing values"—and watch it write the R code for you.
 
-- **Refactoring**: Got some messy code that works but makes your eyes glaze over? The AI Assistant can clean it up, make it more readable, and even explain why the new version is better.
+-   **Refactoring**: Got messy code that works but is hard to maintain? Positron Assistant can propose cleaner versions and explain the tradeoffs.
 
-[SCREENSHOT PLACEHOLDER: AI Assistant panel in Positron showing code suggestions]
+![](data/ch6_images/assistant-panel-overview.png)
 
 ### 6.2.2 Why Would an Educational Researcher Want This?
 
 Great question! You might be thinking, "I've gotten along fine without AI help so far." Here's the thing—it's not about replacing what you know. It's about:
 
-- **Saving time on the stuff that isn't the interesting part of your research**—we've all spent 20 minutes trying to remember exactly how to pivot a dataframe. The AI Assistant just does it.
+-   **Saving time on the stuff that isn't the interesting part of your research**—we've all spent 20 minutes trying to remember exactly how to pivot a dataframe. The AI Assistant just does it.
 
-- **Learning new tricks**—it often suggests approaches you might not have considered, which is a nice way to pick up new R skills without explicitly studying.
+-   **Learning new tricks**—it often suggests approaches you might not have considered, which is a nice way to pick up new R skills without explicitly studying.
 
-- **Reducing frustration**—there's nothing more demoralizing than staring at an error message for an hour. The AI Assistant can often spot the issue in seconds.
+-   **Reducing frustration**—there's nothing more demoralizing than staring at an error message for an hour. The AI Assistant can often spot the issue in seconds.
 
-- **Building confidence**—if you're newer to R, having a supportive "colleague" to double-check your work makes experimentation less intimidating.
+-   **Building confidence**—if you're newer to R, having a supportive "colleague" to double-check your work makes experimentation less intimidating.
 
-> **A gentle reminder:** The AI Assistant is a tool to work *with*, not a replacement for your expertise as a researcher. It's great at generating code, but you're the expert on your data and research questions. Always review what it generates—think of it as a first draft that needs your expert polish.
+> **A gentle reminder:** Positron Assistant is a tool to work *with*, not a replacement for your expertise as a researcher. It's great at generating code, but you're the expert on your data and research questions. Always review what it generates—treat it as a first draft that needs your expert polish.
 
 ## 6.3 Getting Started with Your New Teammate
 
@@ -56,71 +57,64 @@ Great question! You might be thinking, "I've gotten along fine without AI help s
 
 Before we dive in, make sure you have:
 
-- **Positron** installed (grab it from [posit.co/download](https://posit.co/download) if you haven't already—versions 2024.04 and later have the AI features)
-- A **Posit account** (the free tier works fine for getting started)
-- **R** (version 4.0 or later) installed on your machine
+-   **Positron** installed (use a current release; Positron Assistant documentation currently tracks the 2025.07+ generation of features)
+-   At least one configured **model provider** (for example, Anthropic, GitHub Copilot, OpenAI, Amazon Bedrock, or Snowflake Cortex)
+-   **R** (version 4.0 or later) installed on your machine
+
+You should also know your institution's guidance on external AI tools before using non-public data.
 
 ### 6.3.2 Setting Things Up
 
 Getting started is straightforward:
 
-1. **Download and install Positron** from the website
-2. **Open it up** and sign in to your Posit account
-3. **Turn on the AI Assistant** — you'll find it in the View menu, or you can use a keyboard shortcut (look for the robot icon in the toolbar)
-4. **Start talking to it!** You can type questions in the AI panel or highlight code and ask for help
+1.  **Download and install Positron** from the website
+2.  **Enable Positron Assistant** by turning on `positron.assistant.enable` in Settings
+3.  **Reload Positron** (restart or run `Developer: Reload Window`)
+4.  **Configure a provider** with `Positron Assistant: Configure Language Model Providers`
+5.  **Open chat** (robot icon or `Chat: Open Chat`) and start asking questions
 
-[SCREENSHOT PLACEHOLDER: Positron settings showing AI Assistant enable option]
+![](data/ch6_images/assistant-enable-setting.png)
 
 ### 6.3.3 Making It Feel Right for You
 
-The AI Assistant can adapt to your style a bit. Poke around in the settings and you'll find you can adjust:
+Positron Assistant can adapt to your style. In settings, you can adjust:
 
-- How detailed its responses are (brief and snappy vs. thorough explanations)
-- Whether it prefers tidyverse-style code or base R
-- If it should add comments to the code it writes
+-   How detailed responses should be (brief vs. thorough)
+-   Whether it prefers tidyverse-style code or base R
+-   Whether generated code should include comments
 
 Play with these settings until it feels comfortable for you. Everyone's preferences are different!
 
-[SCREENSHOT PLACEHOLDER: AI Assistant settings panel]
+![](data/ch6_images/assistant-preferences.png)
 
-## 6.4 Actually Using the AI Assistant
+### 6.3.4 Choosing a Provider for Research Work
+
+If you're working in educational research settings, choose providers with your workflow constraints in mind:
+
+-   **Compliance first**: If your institution restricts providers, follow that policy before convenience.
+-   **Cost awareness**: API-key providers are often usage-based; budget and monitor token usage.
+-   **Reproducibility**: Record provider + model name in your methods notes.
+-   **Stability**: Keep one default model for a project to reduce output variability.
+
+For most readers, a good starting strategy is simple: pick one approved provider, use one primary model for the project, and document those decisions.
+
+## 6.4 Actually Using Positron Assistant
 
 Enough setup—let's see this teammate in action!
 
-### 6.4.1 Smart Code Completion
-
-Picture this: you're analyzing student assessment data and you start typing:
-
-```{r, eval = FALSE}
-# You type this:
-library(dplyr)
-
-student_data |> 
-  # You stop here, wondering what to type next...
-  
-# The AI Assistant might suggest:
-# filter(!is.na(score)) |>
-#   group_by(grade) |>
-#   summarize(mean_score = mean(score, na.rm = TRUE))
-```
-
-That's not just autocomplete—it's understanding the pipeline you're building and knowing where you're headed. Pretty slick, right?
-
-[SCREENSHOT PLACEHOLDER: AI code completion suggestions in action]
-
-### 6.4.2 Getting Code Explained
+### 6.4.1 Getting Code Explained
 
 We've all been there: you find some code online (maybe in a tutorial or from a colleague), and it looks like hieroglyphics. Here's what you do:
 
-1. Highlight the confusing code
-2. Ask the AI Assistant something like "what does this do?"
-3. Get a friendly, plain-language explanation
+1.  Highlight the confusing code
+2.  Ask Positron Assistant something like "what does this do?"
+3.  Get a friendly, plain-language explanation
 
 This is honestly one of my favorite features. It's like having a patient friend who can explain anything code-related without making you feel silly for asking.
 
-[SCREENSHOT PLACEHOLDER: AI explaining a complex dplyr pipeline]
+![](data/ch6_images/assistant-code-explanation.png)
 
-### 6.4.3 When Things Break
+### 6.4.2 When Things Break
 
 Oh, the joy of debugging. Here's a common scenario:
 
@@ -129,32 +123,34 @@ Oh, the joy of debugging. Here's a common scenario:
 mean(student_data$score)
 ```
 
-Instead of spending precious research time hunting through Stack Overflow, show that error to the AI Assistant. It might say something like:
+Instead of spending precious research time hunting through Stack Overflow, show that error to Positron Assistant. It might say something like:
 
 > "I see the issue! You're trying to calculate a mean, but there are missing values in your data. Add `na.rm = TRUE` to ignore them, or decide whether those NAs should be handled differently. Want me to show you both options?"
 
 Helpful, right?
 
-[SCREENSHOT PLACEHOLDER: AI Assistant bug detection and fix suggestion]
+![](data/ch6_images/assistant-debug-suggestion.png)
 
-## 6.5 Meet the Data Bot: Your Automation Buddy
+## 6.5 Meet Databot (Experimental): Your EDA Accelerator
 
-If the AI Assistant is your helpful colleague, think of the Data Bot as that super organized team member who remembered to set up all those recurring meetings and templates so everyone else doesn't have to. It takes tedious, repetitive tasks and automates them away.
+If Positron Assistant is your coding colleague, Databot is your exploratory analysis accelerator. It is designed for rapid, iterative data exploration and can generate and run short analysis steps.
 
-### 6.5.1 What Can the Data Bot Handle?
+Databot is currently experimental (research preview), so treat it as an acceleration layer for exploration, not as an unreviewed source of final results.
+
+### 6.5.1 What Can Databot Handle?
 
 A few examples:
 
-- **Generating import templates** — instead of writing "read.csv()" from scratch every time you get a new dataset, let the Data Bot create a reusable function
-- **Building data cleaning pipelines** — those steps you do every single time (convert text to lowercase, strip whitespace, handle missing values) can be automated
-- **Creating report templates** — if you generate similar reports quarterly, the Data Bot can build the skeleton for you
-- **Setting up quality checks** — automated tests that catch data problems before they become headaches
+-   **Generating import templates** — instead of writing "read.csv()" from scratch every time you get a new dataset, let Databot create a reusable function
+-   **Building data cleaning pipelines** — those steps you do every single time (convert text to lowercase, strip whitespace, handle missing values) can be automated
+-   **Creating report templates** — if you generate similar reports quarterly, Databot can build the skeleton for you
+-   **Setting up quality checks** — automated tests that catch data problems before they become headaches
 
 ### 6.5.2 Example: Never Write Import Code Again
 
-Every time you get a new CSV, do you find yourself typing the same import code? The Data Bot can create a smart template that remembers your preferences:
+Every time you get a new CSV, do you find yourself typing the same import code? Databot can create a smart template that remembers your preferences:
 
-[SCREENSHOT PLACEHOLDER: Data Bot generating import template]
+![](data/ch6_images/databot-import-template.png)
 
 ``` r
 # This template was created once, now you use it forever!
@@ -179,13 +175,13 @@ import_data <- function(file_path) {
 # student_data <- import_data("student_scores.csv")
 ```
 
-See what happened? You wrote the function once, and now every future data import is one line. The Data Bot helped you think through what you needed once, and now you're saved from doing it over and over.
+See what happened? You wrote the function once, and now every future data import is one line. Databot helped you think through what you needed once, and now you're saved from doing it over and over.
 
 ### 6.5.3 Example: Automatic Quality Checks
 
-Here's another scenario: you get new survey data and you want to make sure it's not obviously broken before you start analyzing. The Data Bot can generate checks that run automatically:
+Here's another scenario: you get new survey data and you want to make sure it's not obviously broken before you start analyzing. Databot can generate checks that run automatically:
 
-[SCREENSHOT PLACEHOLDER: Data Bot generating validation checks]
+![](data/ch6_images/databot-validation-checks.png)
 
 ``` r
 # Auto-generated validation checks - run these on every new dataset
@@ -223,28 +219,27 @@ Now you've got a safety net. Every time new data arrives, just run `validate_stu
 
 ### 6.6.1 A Concrete Example
 
-Let's say you're analyzing survey data from a 5-year professional development program. You've got responses from teachers, and you need to clean them, calculate response rates by demographic group, make some visualizations, and put together a report for stakeholders.
+To keep this chapter reproducible, use the demo files from `data/ch6_demo/`: `student_scores.csv` and `teacher_survey.csv`.
 
-Here's how these tools might actually help:
+In this example workflow, you can:
 
-**Without AI help:** You'd spend about 30 minutes just setting up the import code, a couple hours cleaning the data, an hour writing the analysis code, and another hour building a report template. That's roughly 4.5 hours of work—before you even get to the interesting analysis.
+-   ask Databot to draft an import function for `student_scores.csv` (Section 6.5.2),
+-   ask Databot to generate validation checks for `teacher_survey.csv` (Section 6.5.3),
+-   use Positron Assistant to refine or explain the generated code,
+-   run the cleaned analysis pipeline and produce a quick plot for reporting.
 
-**With the AI Assistant and Data Bot:** You'd spend maybe 5 minutes getting the import right (the AI Assistant helps you think through column types while the Data Bot saves the function). Another 30 minutes on cleaning—AI Assistant suggests efficient pipelines. About 15 minutes for analysis—the AI Assistant recommends appropriate statistical tests and helps construct the summaries. And 10 minutes for the report template. 
+The screenshot below should show this end-to-end flow in one workspace view: editor code, Databot/Assistant output, Console results, and a plot. The goal is not to present final publication results, but to document a realistic AI-assisted analysis process from import to quality checks to exploratory output.
 
-**Total: about an hour.**
-
-That's not a typo. You've just gotten 3.5 hours of your time back—time you can spend actually looking at your results, thinking about what they mean for your research questions, or, you know, taking a coffee break.
-
-[SCREENSHOT PLACEHOLDER: Complete analysis workflow in Positron]
+![](data/ch6_images/complete-workflow-positron.png)
 
 ### 6.6.2 What This Means for Your Research
 
 The real value isn't just saving time (though that's nice). It's that these tools let you focus on what matters: the research itself. When you're not stuck fighting with code, you can spend more mental energy on:
 
-- Understanding your data deeply
-- Choosing the right analytical approaches
-- Thinking critically about what your findings mean
-- Communicating results effectively to your audience
+-   Understanding your data deeply
+-   Choosing the right analytical approaches
+-   Thinking critically about what your findings mean
+-   Communicating results effectively to your audience
 
 ## 6.7 Working Responsibly with AI Helpers
 
@@ -254,9 +249,9 @@ Here's the thing—we've talked a lot about how great these tools are, but let's
 
 Treat AI-generated code like a first draft from a well-meaning but imperfect colleague. It might be mostly right, but it's probably not perfect. Before you use any code it generates in actual research:
 
-- **Test it on a small sample** first—run the code on a subset of your data to make sure it does what you expect
-- **Verify the results** against something you know to be true, or compare with a manual calculation
-- **Add your own comments** explaining what the code is doing, especially if the logic is complex
+-   **Test it on a small sample** first—run the code on a subset of your data to make sure it does what you expect
+-   **Verify the results** against something you know to be true, or compare with a manual calculation
+-   **Add your own comments** explaining what the code is doing, especially if the logic is complex
 
 ### 6.7.2 Be Transparent
 
@@ -270,30 +265,40 @@ Simple, honest, and it helps others understand your process.
 
 A few tips to make sure your work still holds up:
 
-- **Note what version** of the AI tools you used
-- **Keep your human-written code** as the authoritative version—don't rely solely on what the AI generated
-- **Use version control** (like Git) to track changes, so you can always see the history of your work
+-   **Note what version** of the AI tools you used
+-   **Keep your human-written code** as the authoritative version—don't rely solely on what the AI generated
+-   **Use version control** (like Git) to track changes, so you can always see the history of your work
+
+### 6.7.4 Protect Data and Document AI Use
+
+For AI-assisted workflows, keep a short project log with:
+
+-   Positron version
+-   provider name (for example, Anthropic or GitHub Copilot)
+-   model name
+-   date/time of major AI-assisted runs
+-   what was AI-generated vs. researcher-edited
+
+Also remember the privacy boundary: Positron routes requests to your selected provider. Posit documents that it does not store your prompts and AI conversations, but your chosen provider may have its own data retention policy. Review provider terms before using sensitive data.
 
 ## 6.8 Wrapping Up
 
 We've covered a lot of ground! Here's the takeaway:
 
-The Positron AI Assistant and Data Bot are genuinely useful teammates in your research journey. They won't replace your expertise—let's be clear about that. What they *will* do is handle a lot of the tedious stuff that eats up your time, help you learn new R skills without formal study, and generally make computational research less frustrating and more enjoyable.
+Positron Assistant and Databot are genuinely useful teammates in your research journey. They won't replace your expertise—let's be clear about that. What they *will* do is handle repetitive coding work, support learning in context, and make computational research less frustrating.
 
 Think of them as tools that amplify what you already bring to the table: your research questions, your domain expertise, your critical thinking. They handle the coding heavy lifting so you can focus on the parts that really need a human mind.
 
 ### Key Points to Remember
 
-- The AI Assistant offers real-time code help, explanations, and bug hunting
-- The Data Bot automates repetitive data tasks, saving you from writing the same code over and over
-- Always review and validate AI-generated code—it's a starting point, not the final answer
-- Being transparent about AI use builds trust with your readers
-- These tools free you up to focus on what matters: your research
+-   Positron Assistant offers real-time code help, explanations, and debugging support
+-   Databot can accelerate exploratory analysis and repetitive scaffolding, but requires careful review
+-   Always review and validate AI-generated code—it's a starting point, not the final answer
+-   Being transparent about AI use builds trust with your readers
+-   These tools free you up to focus on what matters: your research
 
 ### What's Next?
 
 In the next chapter, we're going to explore another fascinating side of AI in research: **Local LLMs**. You'll see how researchers can run powerful language models entirely on their own computers—perfect for working with sensitive data where privacy really matters. It's a different approach from what we've covered here, and it opens up some really interesting possibilities for qualitative analysis.
 
 Ready to keep exploring? Let's go!
-
----
