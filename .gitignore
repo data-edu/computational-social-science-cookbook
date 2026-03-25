@@ -9,3 +9,8 @@ data/oulad-interactions-filtered.csv
 example-script.R
 
 **/*.quarto_ipynb
+
+# Local scratch and archived materials
+archive/
+_freeze/
+.RDataTmp
