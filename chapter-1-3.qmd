@@ -1,6 +1,5 @@
 ---
 title: "Tidyverse"
-format: html
 ---
 
 ```{r}

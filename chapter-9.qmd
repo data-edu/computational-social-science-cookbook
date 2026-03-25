@@ -1,8 +1,8 @@
 ---
-title: "Communication"
+title: "Communication Matters"
 ---
 
-## 9.1 Overview: Why Communication Matters
+## 9.1 Overview
 
 Computational approaches enable educational researchers to analyze increasingly complex and large-scale data. However, the value of these analyses ultimately depends on how clearly and responsibly findings are communicated. Communication is not a final step added after analysis—it is an integral part of making research meaningful, interpretable, and usable.
 

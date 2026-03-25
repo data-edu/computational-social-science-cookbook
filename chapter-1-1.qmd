@@ -1,6 +1,5 @@
 ---
 title: "Positron and RStudio"
-format: html
 ---
 
 You need an environment for writing and running R code. We're going to focus on **Positron**, Posit's newer IDE built on the foundation of VS Code. If you're already comfortable with RStudio, everything in this chapter applies there too—the fundamental concepts are identical, and the R code in this book works the same way in both.

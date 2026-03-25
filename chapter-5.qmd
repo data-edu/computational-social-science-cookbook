@@ -179,7 +179,7 @@ LM Studio is a free cross-platform desktop app for running and managing local LL
 ### Main Features
 
 | Feature | Description |
-|------------------------------------------------------|------------------|
+|-----------------------------------------------------|-------------------|
 | Local LLMs | Run models offline on your own machine |
 | Chat Interface | Simple prompt-based GUI |
 | Document Chat (RAG) | Offline "chat with your PDFs" |

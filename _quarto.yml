@@ -11,7 +11,7 @@ book:
   chapters:
     - index.qmd
 
-    - part: "Getting Started"
+    - part: section-1-Intro.qmd
       chapters:
         - chapter-1-1.qmd
         - chapter-1-2.qmd
@@ -23,7 +23,7 @@ book:
         - chapter-3.qmd
         - chapter-4.qmd
 
-    - part: llms-intro.qmd
+    - part: section-3-Intro.qmd
       chapters:
         - chapter-5.qmd
         - chapter-6.qmd
