@@ -106,7 +106,7 @@ The table above shows the number of students who passed (1) and didn't pass (0) 
 
 ![Rendered Quarto document showing code and output](rendered%20quarto.png)
 
-When you render this document, Quarto executes each code chunk in order, captures the output, and weaves it together with your explanatory text. The result is an HTML document where readers see your code, your results, and your interpretation all together. This makes your analysis reproducible—anyone with your data can re-run your Quarto file and get the same results.
+When you render this document, Quarto executes each code chunk in order, captures the output, and weaves it together with your explanatory text. The result is an HTML document where readers see your code, your results, and your interpretation all together. This makes your analysis reproducible in that anyone with your data can re-run your Quarto file and get the same results.
 
 **Key difference for beginners**: Think of R scripts as "just code" and Quarto as "code + explanation + output" in one document. Use scripts for behind-the-scenes work, Quarto for analysis you want to share or understand later.
 
@@ -253,4 +253,4 @@ Many programmers use both: Copilot for day-to-day coding, external LLMs when the
 
 AI suggestions aren't always correct. Always review code before accepting it, especially for data analysis where subtle errors can lead to wrong conclusions. Use AI tools to speed up your work, but verify that the code does what you think it does.
 
-Please see Section 1.4 for more information about the relationship between you, data, and LLMs.
+Please see LLM Methods section (intro) for more information about the relationship between you, data, and LLMs.
