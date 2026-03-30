@@ -2,13 +2,13 @@
 title: "Positron and RStudio"
 ---
 
-You need an environment for writing and running R code. We're going to focus on **Positron**, Posit's newer IDE built on the foundation of VS Code. If you're already comfortable with RStudio, everything in this chapter applies there too—the fundamental concepts are identical, and the R code in this book works the same way in both.
+You need an environment for writing and running R code. We're going to focus on **Positron**, Posit's newer IDE built on the foundation of VS Code. If you're already comfortable with RStudio, everything in this chapter applies there too. The fundamental concepts are identical, and the R code in this book works the same way in both.
 
 ## Why Positron?
 
-Positron represents where computational social science workflows are heading: multi-language support (R and Python in the same environment), modern editor features inherited from VS Code, and a more extensible architecture. If you're coming from VS Code, Positron will feel immediately familiar. If you're new to both, you're learning a tool that's designed for the future of data science.
+Positron represents where computational social science workflows are heading: multi-language support (R and Python in the same environment), modern editor features inherited from VS Code, and a more extensible architecture (i.e., plugins and extension). If you're coming from VS Code, Positron will feel immediately familiar. If you're new to both, you're learning a tool that's designed for the future of data science.
 
-That said, **RStudio remains great**. It's mature, widely documented, and has a loyal community. Some researchers prefer its more opinionated interface—everything you need is visible and organized for R-first workflows. If you're already using RStudio and prefer it, nothing in this book requires switching.
+That said, **RStudio remains great**. It's mature, widely documented, and has a loyal community. Some researchers prefer its more opinionated interface. Everything you need is visible and organized for R-first workflows. If you're already using RStudio and prefer it, nothing in this book requires switching.
 
 The instructions below work in both environments unless otherwise noted. When we say "Positron," assume the same applies to RStudio.
 
@@ -27,7 +27,7 @@ Both Positron and RStudio organize your workspace into four main areas (though t
 
 **Source/Editor Pane**: This is where you spend most of your time writing code. The editor provides syntax highlighting (different colors for functions, strings, and comments), autocomplete suggestions, and the ability to work with multiple files in tabs. You can split the pane to view two files side-by-side, and for Quarto documents, you can preview the rendered output alongside your code.
 
-**Console Pane**: When you run code, it executes here and displays results immediately. Press the up arrow to cycle through previously run commands—useful when you want to re-run or modify something. The prompt `>` means R is ready for input; a `+` means R is waiting for you to complete a command (often because you forgot a closing parenthesis). You can clear the console output with Cmd/Ctrl + L, though this doesn't delete your objects from memory.
+**Console Pane**: When you run code, it executes here and displays results immediately. Press the up arrow to cycle through previously run commands—useful when you want to re-run or modify something. The prompt `>` means R is ready for input; a `+` means R is waiting for you to complete a command (often because you forgot a closing parenthesis). You can clear the console output with Cmd/Ctrl + L, though this doesn't delete your objects from memory. Note that in the console pane, you have also **Terminal**. Terminal is different than the console in that the **Console runs R code and displays R output**, serving as your direct interface with the R language interpreter, while the **Terminal provides access to your computer's system shell** (bash on Mac/Linux, Command Prompt/PowerShell on Windows) where you can run system commands like file navigation, git version control, and package installation at the operating system level. In practical terms, you would use the Console for running R scripts, testing R functions, and viewing R output, whereas you would use the Terminal for navigating directories with `cd`, managing git repositories, installing system dependencies, and running command-line tools. Both are useful, but they serve fundamentally different purposes: the Console speaks R, while the Terminal speaks your operating system's language.
 
 **Environment/Variables Pane**: This shows every object currently loaded in R—datasets, variables, functions you've created. Click on a dataset name to open it in a spreadsheet-style viewer. The display also shows object types (data frame, list, numeric vector) and basic information like the number of rows and columns. You can remove objects using the broom icon, which clears your workspace—useful when starting fresh.
 
