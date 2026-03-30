@@ -39,15 +39,15 @@ Welcome to *Computational Analysis of Educational Data: A Field Guide Using R*!
 
 ### Why this book?
 
-Conventionally, as social scientists, we start the research process by generating research questions based on our previous knowledge and theories in the field. This is the conventional model of the order of operations in the process, and it is still the normative view of how it should work. However, it is also epistemologically possible that our observations of the world can guide our research questions. The process doesn’t always proceed in the orderly linear fashion suggested by the conventional model.
+Conventionally, as social scientists, we start the research process by generating research questions based on our previous knowledge and theories in the field. This is the normative view of how the research process should work. But we are limited in how we see the world: we don't know what we don't know. For example, someone who does not know that Twitter posts can be collected and analyzed as data to capture the state of the world will most likely not develop research questions about Twitter data. This reveals that it is also epistemologically possible for our observations of the world to guide our research questions or that discovering what can serve as data shapes what we can ask as research questions.
 
-We are limited in how we see the world: we don't know what we don't know. For example, for someone who does not know that Twitter posts can be collected and analyzed as data to capture the state of the world, studying Twitter data will most likely not become a topic for a research question. Once you start seeing what can be data in the world, it starts shaping our ideas of what is "researchable". Here is a simple model that we propose that shows the reciprocal nature of the research process, which is at the core of our aims in this book:
+In practice, the research process does not always proceed in the orderly, linear fashion suggested by the conventional model. Once you start seeing what can be data in the world, it shapes your ideas of what is "researchable." Here is a simple model that we propose showing the reciprocal nature of the research process, which is central to our aims in this book:
 
 ![Figure 1. Research - data relationship (Generated using Gemini Pro based on an earlier drawing by the authors)](data/researchCycle.png)
 
 We are writing this book because in the past few years what we described above has started happening for us. We have published work on Twitter data, Social Network analyses, natural language processing, and machine learning that was only possible after we learned what kind of data already existed around us. We thought other social scientists may benefit from a resource that not only tells them what is available as data but also guides them through concrete examples of going through this research journey along with us. We hope that along this journey you will develop your own research questions, and maybe even replicate some of the studies we imagined in this book.
 
-The second most important aspect of this book that does not exist out in the wild is the "field guide" process where we work through the research design and reporting process. To do that, for each new computational research method, we follow this process:
+A second distinctive feature of this book is the "field guide" process we use to work through research design and reporting. Although there are many books on R (or Positron), they usually cover the data science aspects of the work, leaving the academic writing and reporting to individuals. Although researchers are expert in writing up conventional methods or results, these emerging data analysis methods (thanks to new ways data has become available) require a new guidebook. For each computational research method, we follow this process:
 
 1.  Start with what makes good data for that analysis (and how to capture it)
 
@@ -70,6 +70,7 @@ In practice, this means we use LLMs in at least three ways: as assistants for wr
 Because LLM-assisted analysis introduces new opportunities and risks, we also emphasize responsible use throughout the book. We encourage readers to evaluate LLM-supported work through three core criteria: correctness, transparency, and reproducibility. In other words, LLMs can help us see more in the data, but they should never reduce the rigor of how we do research.
 
 ### Who is this book for?
+
 This book will be beginner-friendly but not for the absolute beginner. We will dedicate the initial chapters to take you to resources that will help you get started. But, to make sense of this book, you should have basic research design knowledge, basic statistical knowledge, and a basic understanding of R and RStudio. At the same time, this book will not be for experts or expertise. There are already many great resources that delve into the topics that we cover (e.g., Silge's book on using text data for machine learning).
 
 We imagine that this book can become a part of doctoral coursework for future researchers, opening the doors for new ways to look at the world for research and data. Likewise, senior and junior academics/researchers would benefit greatly from this book to help them expand their research agendas.
