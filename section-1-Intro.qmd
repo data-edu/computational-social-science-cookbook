@@ -24,3 +24,7 @@ This book follows a four-part progression:
 -   **Communication** focuses on sharing computational research transparently and reproducibly.
 
 Across all sections, we prioritize the same principles: methodological clarity, reproducibility, and responsible interpretation of results.
+
+## Additional Resources:
+
+-   R for Data Science: <https://r4ds.had.co.nz/> and R for Data Science (2e): <https://r4ds.hadley.nz/>
