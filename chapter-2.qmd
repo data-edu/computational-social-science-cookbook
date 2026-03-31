@@ -841,3 +841,29 @@ The topic modeling results suggest that universities are navigating a complex la
 #### References:
 
 Saldaña, J. (2021). Coding techniques for quantitative and mixed data. *The Routledge reviewer’s guide to mixed methods analysis*, 151-160.
+
+## **Read More to Learn More**
+
+Readers wishing to deepen their understanding of the text analysis methods used here can explore the following resources:
+
+-   **Text Mining and Topic Modeling**
+
+    -   Silge, J., & Robinson, D. (2017). *Text Mining with R: A Tidy Approach* (free online book; Chapters 2–3 on sentiment and 3–4 on topic modeling).
+
+    -   Blei, D. M., Ng, A. Y., & Jordan, M. I. (2003). *Latent Dirichlet Allocation* (foundational paper on LDA).
+
+-   **R‑Based Text Analysis**
+
+    -   CRAN documentation for `tidytext`, `topicmodels`, `dplyr`, and `ggplot2`, which together form the core toolkit used in this analysis.
+
+    -   Online tutorials titled “topic modeling with tidytext and LDA” or “word frequency and word clouds in R” for step‑by‑step implementation.
+
+-   **Sentiment and Lexicon‑Based Methods**
+
+    -   Liu, B. (2012). *Sentiment Analysis and Opinion Mining* (introductory overview of dictionary‑based and machine‑learning approaches).
+
+    -   Documentation for the Bing sentiment lexicon and VADER, which underpin the polarity‑score methods used here.
+
+-   **Practice‑Oriented Extensions**
+
+    -   Open‑source R notebooks or blog posts on “university policy text analysis,” “sentiment analysis of policy documents,” or “topic modeling of educational texts” to see closely related applied examples.
