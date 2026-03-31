@@ -1,5 +1,5 @@
 ---
-title: "Networks Data"
+title: "Network Data"
 ---
 
 ```{r}
@@ -361,55 +361,57 @@ cat("Density:", density, "Reciprocity:", recip, "\n")
 cat("Transitivity:", trans, "Diameter:", diam, "Mean Distance:", mean_d, "\n")
 ```
 
+A sample methods section of these analytical steps can be written as follows:\
+
+> To examine interaction patterns in the DLT discussions, directed social networks were constructed from edge-list data representing reply ties between participants and node-level attribute data containing participant identifiers and role information. The data were imported from separate edge and node files, cleaned with `janitor::clean_names()`, and merged into a `tbl_graph` object using `tidygraph`, with sender-to-receiver ties treated as directed relationships. This structure is appropriate for modeling conversational exchanges in which the direction of a reply indicates the flow of communication.
+>
+> Network structure was first explored through basic graph visualization and descriptive network properties. Layout-based plots were generated with `ggraph`, which is designed to visualize tidy network objects and supports node-level aesthetics such as role and degree-based size scaling. Overall network size was summarized using the number of nodes and edges, and degree centrality was calculated for all ties, in-ties, and out-ties to assess participant connectedness and directional prominence. Degree centralization was also computed to evaluate the extent to which the network was organized around highly connected actors.
+>
+> Additional structural measures were then calculated to characterize cohesion and reciprocity in the discussion networks. Node-level in-degree centrality was attached as a network attribute and visualized to highlight the most frequently addressed participants. Network density, reciprocity, transitivity, diameter, and mean geodesic distance were computed using standard graph-theoretic measures implemented in `igraph`. Density captured overall tie concentration, reciprocity indicated the extent to which ties were mutual, transitivity reflected clustering among connected actors, diameter summarized the longest shortest path, and mean distance represented average separation between nodes. The same procedures were repeated separately for DLT1 and DLT2 to support comparison across the two discussion networks.
+
 ### 3.3.4 Results and Discussion
 
 #### **RQ1: What is the overall structure of interaction in each cohort?**
 
--   **DLT1** consists of **445 nodes** (participants) and **2529 edges** (directed interactions).
--   **DLT2** has **492 nodes** and **2584 edges**.
--   Both networks are **large and sparse**:
-    -   *Density*: DLT1 = **0.013**, DLT2 = **0.011**
-    -   Interpretation: Only about 1–1.3% of all possible connections exist—typical for online discussion networks where not every participant interacts with every other.
--   Both networks are **multi-component** (several disconnected groups), but most participants are included in the main giant component.
--   The **diameter** (longest shortest path) is 8 for both cohorts, and the **average shortest path length** is about **3.03 (DLT1)** and **3.04 (DLT2)**, indicating that on average, any participant is just 3 steps away from any other in the largest group.
--   **Interpretation**: Information or discussion threads can reach most participants with only a few hops, but overall engagement is selective rather than comprehensive.
+The interaction networks in both cohorts were large but sparse, indicating that participation was widespread without being uniformly connected. DLT1 included 445 nodes and 2529 directed edges, while DLT2 included 492 nodes and 2584 directed edges. Network density was low in both cases, with DLT1 at 0.013 and DLT2 at 0.011, meaning that only about 1% to 1.3% of all possible ties were present.
+
+Both networks were multi-component, with several disconnected groups, although most participants were contained in the largest giant component. This pattern is typical of online discussion networks, where interaction tends to cluster within subgroups rather than extend evenly across all participants. Despite this fragmentation, both cohorts had a diameter of 8 and an average shortest path length of about 3.03 for DLT1 and 3.04 for DLT2, suggesting that participants within the main component were separated by only a few steps on average.
+
+Taken together, these results indicate that discussion and information could travel relatively quickly through the largest connected group, but engagement was selective rather than comprehensive across the full network.
 
 #### **RQ2: Who are the most central or influential actors?**
 
--   Centrality (degree, in-degree, out-degree) analyses show a **right-skewed distribution**: most participants have low centrality, but a small subset are highly connected.
--   In both DLT1 and DLT2, **facilitators** and a handful of highly active participants emerge as **hubs**—they initiate and/or receive a disproportionate number of interactions.
-    -   For DLT1, degree centralization (all): **0.64** (in: **1.06**, out: **0.23**)
-    -   For DLT2, degree centralization (all): **0.53** (in: **0.87**, out: **0.33**)
--   **Visualization**: Network plots with node size proportional to in-degree clearly highlight these central actors.
--   **Interpretation**: These key individuals (often facilitators) play critical roles in steering discussion, providing feedback, and potentially keeping less active members engaged.
+The centrality results show a strongly right-skewed pattern in both cohorts: most participants have low degree centrality, while a small number of actors are highly connected and occupy more influential positions in the discussion network. In directed networks, in-degree reflects how often others direct ties toward an actor, while out-degree reflects how actively that actor initiates ties; together, these measures help distinguish between actors who are sought out and those who are highly active in reaching others.
+
+In both DLT1 and DLT2, facilitators and a small set of especially active participants function as network hubs, receiving and/or initiating a disproportionate share of interactions. This pattern is consistent with the interpretation of high degree centrality as a sign of prominence, influence, or conversational activity in social networks. Degree centralization values further show that DLT1 is more centralized than DLT2, with all-ties centralization of 0.64 in DLT1 versus 0.53 in DLT2; in-degree centralization is also higher in DLT1 (1.06) than in DLT2 (0.87), while out-degree centralization is 0.23 in DLT1 and 0.33 in DLT2.
+
+Network visualizations that size nodes by in-degree make these central actors immediately visible, highlighting the limited number of participants who anchor communication in each cohort. Substantively, these individuals—often facilitators—likely played important roles in guiding discussion, responding to contributions, and sustaining engagement among less active members.
 
 #### **RQ3: Are ties reciprocated?**
 
--   **Reciprocity** (proportion of mutual connections):
-    -   DLT1: **0.20** (20% of ties are reciprocated)
-    -   DLT2: **0.25** (25% reciprocated)
--   **Interpretation**: Most interactions are one-way (e.g., a reply that does not receive a response), but a substantial fraction are mutual—possibly reflecting peer-to-peer conversations or ongoing exchanges. In online learning contexts, this suggests a mix of broadcasting (one-to-many) and genuine dialog (two-way).
+Reciprocity was moderate in both cohorts, indicating that some interactions were mutual but most were one-way. DLT1 had a reciprocity rate of 0.20, meaning 20% of ties were reciprocated, while DLT2 had a slightly higher rate of 0.25.
+
+This pattern suggests that the discussion networks combined broadcasting with dialogue. In other words, many replies or messages did not receive an immediate return tie, but a meaningful minority of relationships showed mutual exchange, which is consistent with a mix of one-to-many communication and peer-to-peer interaction in online learning settings. A reciprocity level in this range is often interpreted as evidence of selective engagement rather than fully symmetric conversation across the entire network.
 
 #### **RQ4: How cohesive are the networks?**
 
--   **Transitivity/Clustering coefficient** (probability that two connected nodes’ neighbors are also connected):
-    -   DLT1: **0.089**
-    -   DLT2: **0.125**
--   **Interpretation**: Triadic closure is low—there are few closed triangles, so close-knit groups (where “my friend is also your friend”) are rare. The network structure is more “hub-and-spoke” than “cliquish.”
--   **Diameter**: 8 for both, showing that even the furthest nodes can be reached in 8 steps.
--   **Mean distance**: \~3.0, so participants are relatively close to each other in the main component.
+The networks showed low transitivity, indicating limited triadic closure and relatively few closed triangles. DLT1 had a clustering coefficient of 0.089, and DLT2 had a slightly higher value of 0.125, suggesting that connected participants were only occasionally embedded in tightly knit local groups.
+
+Substantively, this means the networks were more hub-and-spoke than cliquish: participants were often linked through central actors rather than through dense clusters of mutually connected peers. This pattern is consistent with discussion spaces in which a few highly connected individuals connect otherwise separate participants, but close-knit subgroups remain limited.
+
+Despite the low clustering, both networks still had a diameter of 8, meaning that even the most distant participants in each network could be reached in eight steps. Their mean distances were about 3.0, which indicates that participants in the main component were relatively close to one another overall and that information could travel through the network in only a few hops.
 
 **Comparison Across Cohorts**
 
--   **DLT2 is slightly larger** (more participants and interactions), but the structural properties—density, centralization, reciprocity, clustering, and path lengths—are all quite similar.
--   Minor variations (e.g., higher reciprocity and clustering in DLT2) could reflect differences in facilitation style, cohort engagement, or participant composition.
--   **Interpretation**: Both cohorts exhibit classic patterns for large-scale online educational discussions—a small number of central actors drive most of the interaction, the networks are sparse but efficiently connected, and genuine dialogue is present but not universal.
+Overall, the two cohorts exhibited very similar interaction structures. DLT2 was slightly larger, with more participants and more interactions than DLT1, but the core network properties were largely comparable across the two groups. Both networks were sparse, centrally organized, and only moderately reciprocal, which is a common pattern in large online discussion networks where a small number of actors account for much of the activity.
+
+Minor differences suggest modest variation in how the discussions unfolded. DLT2 showed slightly higher reciprocity and clustering, which may reflect differences in facilitation style, participant composition, or the degree of peer-to-peer engagement in that cohort. Even so, both networks followed the same broad pattern: a handful of central actors drove most interactions, ties were efficient but not dense, and genuine dialogue occurred but was not universal
 
 **Educational Implications**
 
--   **For educators and instructional designers**: These findings suggest that a small group of highly active facilitators or students are critical to fostering interaction. Encouraging more distributed engagement (for example, through peer response requirements or rotating leadership) may enhance network cohesion and learning opportunities.
+These findings suggest that a small number of highly active facilitators or students play an outsized role in sustaining interaction within online discussion networks. For educators and instructional designers, this means that strategies such as required peer response, rotating discussion leadership, and structured prompts for back-and-forth exchange may help distribute participation more evenly and strengthen network cohesion.
 
--   **For researchers**: Understanding who occupies central positions and the overall structure of discussion networks can inform interventions to support isolated participants, promote reciprocity, and create more connected learning communities.
+For researchers, the results show the value of examining centrality, reciprocity, and cohesion together when studying online learning communities. Identifying who occupies central positions can help reveal which participants may be supporting dialogue, which may be isolated, and where targeted interventions could improve inclusion and engagement.
 
 **Summary:**
 
@@ -588,51 +590,55 @@ vader_ccss_summary <- vader_ccss |>
   count(sentiment)
 ```
 
+A sample methods section can be written for the steps above as follows:\
+
+> **Methods**
+>
+> Twitter data related to CCSS were imported from a CSV file containing sender, mentioned user(s), timestamp, and tweet text. The data were reshaped into a directed edge list, with the tweeting account treated as the sender and mentioned accounts treated as receivers. Tweets containing multiple mentions were separated so that each mention represented an individual directed tie, and tweets without mentions were excluded. A node list of unique actors was then constructed, and the resulting sender–receiver data were used to build a directed network.
+>
+> Network structure was examined by identifying weak and strong components, cliques of three or more actors, and communities using edge-betweenness clustering on an undirected version of the network. To assess actor prominence, in-degree, out-degree, closeness, and betweenness centrality were calculated at the node level. Actors with the highest out-degree were treated as key transmitters, those with the highest in-degree as key receivers, and actors high on both measures as highly central participants. The network was visualized using a force-directed layout, with node size mapped to out-degree.
+>
+> An optional sentiment analysis was conducted using VADER to summarize the emotional tone of tweet text. Compound sentiment scores were computed for each tweet and classified as positive, negative, or neutral using standard thresholds.
+
 ### 3.4.4 Results and Discussion
 
 #### **RQ1: Who are the “transmitters,” “transceivers,” and “transcenders” in the Common Core Twitter network?**
 
--   **Transmitters (high out-degree):** The user `SumayLu` stands out as the top transmitter, initiating 8 outgoing ties (mentions/retweets), followed by `DouglasHolt...` (5), `WEquilSchool` (3), `fluttbot` (3), and `JoeWEquil` (2). These users are the most active in broadcasting or mentioning others within the network.
+In the Common Core Twitter network, a small number of actors dominated communication. **Transmitters** were led by **SumayLu**, who initiated eight outgoing ties, followed by **DouglasHolt** with five, **WEquilSchool** with three, **fluttbot** with three, and **JoeWEquil** with two. These accounts were the most active in broadcasting, mentioning, or retweeting others within the network.
 
--   **Transceivers (high in-degree):** The most-mentioned users are `WEquilSchool` and `SumayLu` (in-degree = 3), `JoeWEquil` (2), `Tech4Learni...` (2), and `LASER_Insti...` (2). These individuals receive the most attention from other actors—potential focal points in conversations.
+The most prominent **transceivers** were **WEquilSchool** and **SumayLu**, each with an in-degree of three, followed by **JoeWEquil**, **Tech4Learni...**, and **LASER_Insti...**, each with an in-degree of two. These actors received the most attention from others and likely served as focal points in the conversation.
 
--   **Transcenders (high in-degree *and* out-degree):** Only two users—`WEquilSchool` (in-degree = 3, out-degree = 3) and `SumayLu` (in-degree = 3, out-degree = 8)—simultaneously act as hubs for both sending and receiving communication. These “bridging” actors may serve as key facilitators or connectors in the discourse.
+Only two users qualified as **transcenders**, meaning they were both highly active senders and frequent recipients of ties. **WEquilSchool** had an in-degree of three and an out-degree of three, while **SumayLu** had an in-degree of three and an out-degree of eight. These bridging actors appear to have played especially important roles in connecting and sustaining the discourse.
 
 #### **RQ2: What subgroups or factions exist in the network?**
 
--   **Component analysis** shows a **fragmented network**:
-    -   There are **14 weakly connected components**, the largest containing 14 users, and several small groups or dyads (many with just 2–3 members).
-    -   This fragmentation suggests limited overall cohesion, with multiple parallel or isolated conversations occurring.
--   **Clique analysis** reveals:
-    -   Four cliques (fully connected subgroups) of size 3 or 4—e.g., one 4-person clique involving nodes 3, 4, 5, and 6, and several overlapping 3-person cliques. This indicates pockets of tight-knit interaction, but such groups are rare relative to the size of the network.
--   **Community detection** using edge betweenness identifies 16 subgroups, generally aligning with the component structure. The largest subgroup has 10 members, with most others much smaller.
+Component analysis indicates that the Common Core Twitter network was highly fragmented. There were 14 weakly connected components, with the largest containing 14 users, and many additional components consisting of only two or three members. This pattern suggests limited overall cohesion and multiple parallel or isolated conversations rather than one fully integrated discussion space.
+
+Clique analysis identified four fully connected subgroups, each containing three or four actors. These included one four-person clique involving nodes 3, 4, 5, and 6, along with several overlapping three-person cliques. Such structures point to small pockets of tightly knit interaction, although they were rare relative to the overall size of the network.
+
+Community detection using edge betweenness identified 16 subgroups, broadly consistent with the component structure. The largest subgroup contained 10 members, while most of the remaining communities were much smaller. Taken together, these results suggest a network organized around several small, partially isolated clusters rather than a single cohesive conversation.
 
 #### **RQ3: What is the overall sentiment in the network?**
 
--   **VADER sentiment analysis** of tweet content yields:
-    -   An average sentiment score (`compound`) of **0.09** (slightly positive), indicating that, despite the policy controversy, the sampled tweets were, on balance, more positive than negative.
-    -   When tweets are classified into categories, a mix of *positive*, *neutral*, and *negative* tweets is observed, with positive tweets slightly outnumbering negatives.
-    -   This suggests the debate, at least in this time slice, included advocacy and constructive dialogue, not only criticism or negativity.
+VADER sentiment analysis of the tweet content produced an average compound score of 0.09, indicating a slightly positive overall sentiment. Although the broader policy context surrounding the Common Core is often contentious, the sampled tweets were, on balance, more positive than negative.
+
+When classifying individual tweets as positive, neutral, or negative, the distribution showed a mix of all three categories, with positive tweets slightly outnumbering negative ones. This pattern suggests that, at least during this period, the Twitter conversation included advocacy, supportive comments, and constructive dialogue, rather than being dominated by criticism or negativity.
 
 #### **RQ4: What other patterns of communication (e.g., centrality, clique formation, isolates) characterize this network?**
 
--   **Centrality Patterns:** The network displays a classic "star" structure in its largest component. Two users, `SumayLu` and `WEquilSchool`, stand out with high out-degree and in-degree centrality, respectively. Most other users have very low degree values (often 0 or 1), meaning they are peripheral, engaging in few interactions.
+The network exhibits a strongly centralized “star-like” structure within its largest component. Two users, **SumayLu** and **WEquilSchool**, emerge as central hubs, with high out-degree and in-degree centrality, respectively. The majority of other users have very low degree values, often 0 or 1, indicating that they are peripheral and engaged in few interactions.
 
--   **Clique Formation:** Clique analysis revealed **4 cliques** (fully connected subgroups) of size 3 or more, with one larger clique (size 4) and several overlapping smaller cliques. However, cliques are rare and limited in size—most communication occurs outside of dense subgroups.
+Clique analysis identified four fully connected subgroups of three or more users, including one 4-person clique and several 3-person cliques, some of which overlap. However, such tightly knit groups are relatively rare; most communication occurs outside of dense subgroups. The network contains 14 weak components, many of them very small, with several users appearing as isolates or embedded in isolated dyads and triads. These actors are disconnected from the main conversation or only weakly integrated.
 
--   **Isolates and Components:** The network has **14 weak components**—many of them tiny. Several users are **isolates** or part of isolated dyads and triads, meaning they are disconnected from the main conversation or only loosely connected. This points to a lack of broad, network-wide cohesion.
-
--   **Summary:** Communication in this network is characterized by strong centralization around a small number of users (hubs), a sparse and fragmented structure with many small, disconnected components, and numerous isolates.
+Overall, communication in this network is characterized by a small set of highly central users, sparse and fragmented connectivity, and a substantial number of isolates, which together suggest limited network-wide cohesion and a concentration of interaction around a few key accounts.
 
 #### **Discussion**
 
-This analysis of the Common Core Twitter conversation reveals a **sparse and fragmented network structure**. The debate is distributed across many small subgroups, with only one moderately sized component.
+This analysis of the Common Core Twitter conversation reveals a sparse and fragmented network, with debate distributed across many small subgroups and only one moderately sized connected component. Communication is anchored by a small number of key actors who act as broadcasters and focal points, while the majority of users occupy peripheral positions with minimal interaction.
 
--   **Key actors** serve as broadcasters and focal points, but most users are peripheral.
--   **Cliques and communities** are few and small, underscoring the lack of broad cohesion.
--   **Sentiment** is slightly positive on average, reflecting the presence of advocacy and promotional messaging.
+Tightly connected cliques and communities are few and small, reinforcing the absence of broad network-wide cohesion. At the same time, VADER sentiment scores indicate a slightly positive overall tone, suggesting that the sampled conversation includes advocacy, promotional messaging, and constructive dialogue more than unrelenting criticism.
 
-**Implications:** For researchers and practitioners, identifying and engaging “transcenders” is essential for bridging subgroups. Outreach should consider the network’s fragmentation—broader influence may require engaging multiple small groups individually rather than targeting a single “core.” Combining SNA with sentiment analysis gives a fuller picture: not just who is talking, but *how* and *with what tone*.
+For researchers and practitioners, this pattern highlights the importance of intentionally engaging transcendent actors—those who both send and receive many ties—as potential bridges across subgroups. The network’s fragmentation also implies that broad influence is unlikely to arise from a single central core; instead, effective outreach may require engaging multiple small clusters independently. Combining social network analysis with sentiment analysis provides a richer understanding of the conversation, revealing not only who is communicating but also how the debate is structured and how it feels to participants.
 
 **References**
 
@@ -641,3 +647,33 @@ This analysis of the Common Core Twitter conversation reveals a **sparse and fra
 -   Carolan, B.V. (2014). *Social Network Analysis and Education: Theory, Methods & Applications.* Sage.
 
 -   Silge, J., & Robinson, D. (2017). *Text Mining with R: A Tidy Approach*. O’Reilly.
+
+## **Read More to Learn More**
+
+For readers interested in exploring these methods further, the following resources are recommended:
+
+-   **Social Network Analysis Fundamentals**
+
+    -   Hanneman, R. A., & Riddle, M. (2005). *Introduction to Social Network Methods* (online textbook).
+
+    -   Wasserman, S., & Faust, K. (1994). *Social Network Analysis: Methods and Applications* (Chapters 1–8).
+
+-   **Network Analysis in R**
+
+    -   “Tidy Network Analysis in R” (Schoch, 2024) – a free, R‑centric guide to `igraph`, `tidygraph`, and `ggraph`.
+
+    -   `tidygraph` and `ggraph` package documentation (CRAN and tidyverse‑style vignettes).
+
+-   **Text Mining and Sentiment in R**
+
+    -   Silge, J., & Robinson, D. (2017). *Text Mining with R: A Tidy Approach* (free online book).
+
+    -   VADER documentation and the `vader` / `vaderR` package guides for sentiment analysis of short text.
+
+-   **Online Learning and Discussion Networks**
+
+    -   Articles on *network analysis of online discussions* (e.g., studies of MOOC forum networks or course‑level discussion networks) that connect SNA metrics to pedagogical questions.
+
+-   **Practical R Notebooks / Tutorials**
+
+    -   Online tutorials or GitHub repos titled “Network analysis in R”, “Twitter network analysis”, or “sentiment analysis with tidytext + VADER” to replicate and extend the exact workflow used here.
