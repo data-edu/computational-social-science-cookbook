@@ -452,6 +452,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#setting-things-up" id="toc-setting-things-up" class="nav-link" data-scroll-target="#setting-things-up">6.3.2 Setting Things Up</a></li>
   <li><a href="#making-it-feel-right-for-you" id="toc-making-it-feel-right-for-you" class="nav-link" data-scroll-target="#making-it-feel-right-for-you">6.3.3 Making It Feel Right for You</a></li>
   <li><a href="#choosing-a-provider-for-research-work" id="toc-choosing-a-provider-for-research-work" class="nav-link" data-scroll-target="#choosing-a-provider-for-research-work">6.3.4 Choosing a Provider for Research Work</a></li>
+  <li><a href="#optional-local-agent-setup-with-continue-lm-studio" id="toc-optional-local-agent-setup-with-continue-lm-studio" class="nav-link" data-scroll-target="#optional-local-agent-setup-with-continue-lm-studio">6.3.5 Optional: Local Agent Setup with Continue + LM Studio</a></li>
   </ul></li>
   <li><a href="#actually-using-positron-assistant" id="toc-actually-using-positron-assistant" class="nav-link" data-scroll-target="#actually-using-positron-assistant">6.4 Actually Using Positron Assistant</a>
   <ul class="collapse">
@@ -588,6 +589,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Stability</strong>: Keep one default model for a project to reduce output variability.</li>
 </ul>
 <p>For most readers, a good starting strategy is simple: pick one approved provider, use one primary model for the project, and document those decisions.</p>
+</section>
+<section id="optional-local-agent-setup-with-continue-lm-studio" class="level3">
+<h3 class="anchored" data-anchor-id="optional-local-agent-setup-with-continue-lm-studio">6.3.5 Optional: Local Agent Setup with Continue + LM Studio</h3>
+<p>If your project requires local execution, you can run an assistant workflow entirely on your own machine by combining Continue in Positron with a local model served from LM Studio. This path is especially useful when your workflow requires tighter data control.</p>
+<p>Below is a practical setup order that matches a real configuration process.</p>
+<ol type="1">
+<li><p><strong>Start in Positron and define local-model JSON settings first.</strong></p>
+<p>This ensures your assistant config already points to a local endpoint before you start testing.</p>
+<p><img src="data/ch6_images/Positron_LMstudio_JSON settings.png" class="img-fluid"></p></li>
+<li><p><strong>Set up LM Studio and confirm the local server is running.</strong></p>
+<p>Open LM Studio, load your target model, and verify the local API/server endpoint is active.</p>
+<p><img src="data/ch6_images/LMstudio—Positron set up.png" class="img-fluid"></p></li>
+<li><p><strong>Configure Continue in Positron to use the LM Studio endpoint.</strong></p>
+<p>Confirm provider/model mapping in Continue settings and ensure the selected model is the same one currently loaded in LM Studio.</p>
+<p><img src="data/ch6_images/Continue_LMstudio Settings.png" class="img-fluid"></p>
+<p>If your Continue workflow is YAML-based, configure the same endpoint and model there as well:</p>
+<p><img src="data/ch6_images/Continue—yml.png" class="img-fluid"></p></li>
+<li><p><strong>Run a quick in-IDE verification prompt.</strong></p>
+<p>Use a small, low-risk task first (for example, “Explain this dplyr pipeline” or “Draft a data cleaning function”) to verify response quality and latency.</p>
+<p><img src="data/ch6_images/Positron Assitant—LMstudio UI.png" class="img-fluid"></p></li>
+<li><p><strong>Run one concrete case example before using the workflow in research analysis.</strong></p>
+<p>This final check confirms that local agent behavior is stable enough for your chapter-level tasks.</p>
+<p><img src="data/ch6_images/Positron Assitant——LMstudio case example.png" class="img-fluid"></p></li>
+</ol>
+<p>In short, configure Positron first, confirm LM Studio second, wire Continue third, and only then move to examples. This sequence avoids most connection and model-mismatch errors.</p>
 </section>
 </section>
 <section id="actually-using-positron-assistant" class="level2">
