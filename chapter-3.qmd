@@ -9,6 +9,8 @@ options(warn = -1)
 
 ## 3.1 Overview
 
+<!-- JR: We need some citations here -- one starting point could be the influence in social networks short paper I wrote with Bret Staudt Willet, which cites some key pieces. I know Shaun has good citations to references we can include too - there is the book on SNA in education we should cite - Carolan (spelling?)? -->
+
 Social network analysis (SNA) is the process of investigating social structures through the use of networks and graph theory. It is a technique used to map and measure relationships and flows between people, groups, organizations, computers, or other information/knowledge processing entities. SNA can be a useful tool for understanding the team structures, for example, in an online classroom. It can be an additional layer of understanding the outcomes (or predictors) of certain instructional interventions. Used this way SNA can be used to identify patterns and trends in social networks, as well as to understand how these networks operate. Additionally, SNA can be used to predict future behavior in social networks, and to design interventions that aim to improve the functioning of these networks.
 
 ## 3.2 Accessing SNA Data
@@ -360,6 +362,8 @@ cat("Degree Centralization (all/in/out):", centr_all, centr_in, centr_out, "\n")
 cat("Density:", density, "Reciprocity:", recip, "\n")
 cat("Transitivity:", trans, "Diameter:", diam, "Mean Distance:", mean_d, "\n")
 ```
+
+<!-- JR: I feel using `cat()` is kind of weird and to be avoided - it... only makes sense in a report (in text)? I don't really think it's common. We should check throughout the book and change - just print the output and add a comment next to it or interpret it below. -->
 
 A sample methods section of these analytical steps can be written as follows:\
 

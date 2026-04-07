@@ -7,6 +7,8 @@ title: "Numeric Data"
 options(warn = -1)
 ```
 
+<!-- JR: Do we have abstracts in the other chapters? I think no - integrate the abstract into the overview or cut? -->
+
 ::: callout-note
 ## Abstract
 
@@ -14,6 +16,8 @@ This section reviews how to access data that is primarily numeric/quantitative i
 :::
 
 ## 4.1 Overview
+
+<!-- JR: Need citations for these -->
 
 In social science research, data is traditionally sourced from small-scale surveys, experiments, or qualitative studies. However, the rise of big data offers researchers opportunities to explore numeric and quantitative datasets of unprecedented scale and variety. This chapter discusses how to access and analyze large-scale datasets like international assessments (e.g., PISA, NAEP) and digital log-trace data (e.g., Open University Learning Analytics Dataset (OULAD)). These secondary data sources enable novel research questions and methods, particularly when paired with machine learning and statistical modeling approaches.
 

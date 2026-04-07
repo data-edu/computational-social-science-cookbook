@@ -7,22 +7,23 @@ title: "Local LLMs for Text"
 options(warn = -1)
 ```
 
-**Overview:**\
-Let's be honest: cloud-based AI tools like ChatGPT are amazing—but they can feel a bit nerve-wracking when you're working with sensitive research data. What if those student survey responses or interview transcripts accidentally went somewhere they shouldn't? What will your IRB (Institutional Review Board) say? These are totally valid concerns, and that's exactly where local LLMs come to the rescue.
+<!-- JR: The tone in this chatper is a bit different - "let's be honest" (I cut that), "What on earth is a local LLM" (too informal), "Great question!"(just a different style). Let's work to harmonize a bit. -->
 
-In this chapter, we're going to introduce you to **LM Studio**—a wonderful little application that lets you run powerful AI models right on your own computer. No internet required, no data leaving your machine, no worried glances from your compliance office. Just you, your data, and a really smart assistant that happens to live in your laptop. Sound intriguing? Let's dive in!
+<!-- JR: also, there are a lot of conjunctions here ("Here's the deal") -->
+
+**Overview:**\
+Cloud-based AI tools like ChatGPT can be amazing, but their use can feel a bit nerve-wracking when you're working with sensitive research data. What if those student survey responses or interview transcripts accidentally went somewhere they shouldn't? What will your IRB (Institutional Review Board) say? These are totally valid concerns, and that's exactly where local LLMs come to the rescue.
+
+In this chapter, we're going to introduce you to **LM Studio**—a wonderful application that lets you run powerful AI models on your own computer. No internet required, no data leaving your machine.
 
 ## 7.1 What on Earth is a Local LLM?
 
-Great question! You've probably heard of ChatGPT, Claude, or Gemini—all those cloud-based AI assistants that live "somewhere on the internet." Well, a **local LLM** is basically the same thing, except it runs 100% on your own computer. No data goes to the cloud. It's like having a brilliant research assistant who works offline in your office—everything stays within your four walls.
+**A local LLM** is basically the same as cloud-based models (think ChatGPT and others), except it runs 100% on your own computer. No data goes to the cloud. It's like having a brilliant research assistant who works offline in your office—everything stays within your four walls.
 
 **Why would you want this?**
 
-Here's the deal: when you're working with educational data, especially things like student responses, interview transcripts, or institutional documents, privacy isn't just a nice-to-have—it's often a hard requirement. Local LLMs let you tap into all that AI magic without:
-
--   Sending sensitive data to third-party servers
--   Worrying about whether your cloud provider's terms of service comply with your institution's rules
--   Crossing wires with IRB protocols
+Here's the deal: when you're working with educational data, especially things like student responses, interview transcripts, or institutional documents, privacy isn't just a nice-to-have—it's often a hard and legal (i.e. FERPA-related) requirement.
+<!-- JR: Define these different models briefly - what are Llama, Qwen, DeepSeek, Mistral? -->
 
 And here's the cool part: local LLMs are often built on open-source models (like Llama, Qwen, DeepSeek, or Mistral), which means you can download them for free and run them on your own machine. Pretty nifty, right?
 
@@ -43,7 +44,7 @@ Now for the fun part—what can these local powerhouses help you with? Quite a l
 -   **Document Q&A** — chat with your PDFs ("wait, what did participant #15 actually say about their learning experience?")
 -   **Integration with your existing workflow** — connect local LLMs to R, Python, or other tools you already use
 
-The best part? All of this happens on your machine, with zero privacy concerns.
+All of this happens on your machine, with zero privacy concerns.
 
 ## 7.3 Meet LM Studio: Your New Favorite Tool
 
@@ -57,7 +58,8 @@ Here's what makes LM Studio special:
 -   **API ready** — can serve models via a simple API for integration with R, Python, or other tools
 -   **Chat with Documents** — upload PDFs and chat with them entirely offline (yes, really!)
 
-**Key Points:** - **Supported Platforms:** macOS (Apple Silicon), Windows (x64/ARM64), and Linux (x64). - **System Requirements:** For best results, check the [System Requirements](https://lmstudio.ai/docs/system-requirements) page for recommended RAM, CPU/GPU, and storage.
+**Key Points:** - **Supported Platforms:** macOS (Apple Silicon), Windows (x64/ARM64), and Linux (x64).  
+- **System Requirements:** For best results, check the [System Requirements](https://lmstudio.ai/docs/system-requirements) page for recommended RAM, CPU/GPU, and storage.  
 
 ### 7.3.1 Getting LM Studio Up and Running
 
@@ -68,32 +70,11 @@ The good news? It's incredibly easy to get started:
 3.  **Download a model** — LM Studio makes it simple to browse and download popular models (Llama 3, Qwen, Mistral, etc.)
 4.  **Start chatting!** — use the built-in chat interface to try things out
 
-That's literally it. No configuration files, no environment variables, no mystery. If you've ever used a web-based AI chatbot, you'll feel right at home.
-
-Want to go deeper? LM Studio can also:
-
--   Enable API access so you can call the model from R or Python scripts
--   Let you attach documents for offline "chat with your PDFs" (researcher heaven!)
-
-**Where to learn more:**
-
--   [LM Studio Documentation](https://lmstudio.ai/docs/)
--   [Getting Started Guide](https://lmstudio.ai/docs/getting-started)
-
-### 7.3.2 What's Under the Hood
-
-Here's a quick tour of LM Studio's main features:
-
--   **Run local models** — Llama, Qwen, DeepSeek, Mistral, and many more, all running on your own hardware
--   **Simple chat interface** — type prompts and get responses, just like ChatGPT
--   **Offline document chat** — upload a PDF and ask it questions (RAG mode, for the tech-savvy)
--   **Model management** — download, organize, and switch between models with a few clicks
--   **API access** — serves models on OpenAI-compatible endpoints so R or Python can talk to it
--   **Community support** — active Discord and helpful docs if you get stuck
+That's literally it.
 
 ### 7.3.3 Connecting LM Studio to R
 
-One of the coolest things about LM Studio is that it exposes an **OpenAI-compatible API**. What does that mean in plain English? It means you can write R code that talks to your local model just like it would talk to ChatGPT—no fancy setup required.
+One of the nice features of LM Studio is that it exposes an **OpenAI-compatible API**. What does that mean in plain English? It means you can write R code that talks to your local model just like it would talk to ChatGPT—no fancy setup required.
 
 Here's a simple example:
 
@@ -169,7 +150,7 @@ head(policy_texts, 3)
 
 ### 7.4.3 Time to Let the Local LLM Do Its Thing
 
-Here's where the magic happens. We're going to send our policy texts to the local model running in LM Studio. The setup is straightforward—you'll need your `api_base` and `model_name` ready to go (we're using `openai/gpt-oss-20b` in this example, but you can swap in whatever model you prefer).
+We're going to send our policy texts to the local model running in LM Studio. The setup is straightforward—you'll need your `api_base` and `model_name` ready to go (we're using `openai/gpt-oss-20b` in this example, but you can swap in whatever model you prefer).
 
 ```{r}
 library(httr)
@@ -558,7 +539,9 @@ print(validation_data)
 print(validation_accuracy) 
 ```
 
-#### 7.4.5.2 Quantitative Cross-Validation (Comparing Theme Frequencies)
+<!-- JR: I think validation is better - cross-validation will make people think about the supervised machine learning technique  -->
+
+#### 7.4.5.2 Validation (Comparing Theme Frequencies)
 
 After obtaining the thematic results from LM Studio, researchers can test their reliability by **comparing them against traditional keyword-based validation**.\
 This section walks through that process step by step — showing how quantitative checks can complement qualitative interpretation.
@@ -755,9 +738,9 @@ cor(validation_compare$LLM_Relative,
 
 ```
 
-A correlation around r ≈ 0.7 is pretty solid—it means the LLM and keyword methods largely agree on which themes are most prevalent, even if they count things differently.
+A correlation around *r* ≈ 0.7 is pretty solid—it means the LLM and keyword methods largely agree on which themes are most prevalent, even if they count things differently.
 
-> A correlation around r ≈ 0.7 indicates a strong positive relationship —
+> A correlation around *r* ≈ 0.7 indicates a strong positive relationship —
 >
 > the model and the keyword method identify and rank themes in similar ways.
 
@@ -848,6 +831,8 @@ In other words, the LLM acts like an experienced qualitative researcher: it does
 ##### Quantitative Validation Conclusion
 
 Overall, the validation demonstrates that **LM Studio's local model captures the same conceptual contours** as human logic,but with tighter semantic precision. While keyword methods "count what appears," the LLM "counts what matters." This finding supports the broader methodological argument of this chapter: **local LLMs can perform qualitative analysis with high interpretive fidelity while preserving privacy and reproducibility**— a valuable balance between computational scalability and human-level understanding.
+
+<!-- JR: what does this mean? Who said this? Haha, I don't get it. -->
 
 > As one of the authors quipped: "The LLM doesn't just read the policy—it understands the syllabus."
 
@@ -978,8 +963,10 @@ The lessons from this section mark a transition from **computational text analys
 
 What we've done here with text is just the beginning. In Chapter 8, we'll explore how LLMs can analyze *images*—yes, photos!—opening up entirely new possibilities for educational research. Same privacy-focused approach, but now we're working with visual data.
 
+<!-- JR: what is meant by "collaboratively" below? -->
+
 > **In summary:**\
 > Section 2 taught us how to *count words*;\
-> This chapter showed us how machines can *understand meaning*—securely, locally, and collaboratively.\
+> This chapter showed us how machines can *better understand meaning*—securely, locally, and collaboratively.\
 > Together, they represent a powerful toolkit for computational research in education,\
 > bridging the measurable and the meaningful, the statistical and the semantic, the algorithmic and the human.

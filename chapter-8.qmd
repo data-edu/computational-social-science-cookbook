@@ -7,8 +7,9 @@ title: " Local LLMs for Images"
 options(warn = -1)
 ```
 
-
 ## 8.1 Overview
+
+<!-- Doesn't the SNA chapter also move beyond traditional data types? Reframe. And we need cites here of examples of image recognition work. -->
 
 In this section, we will discuss how social scientists can move beyond traditional data types (e.g., text and numbers) and learn about capturing and analyzing images as data.
 
@@ -22,7 +23,7 @@ Image data can come from the usual sources such as field photographs taken durin
 
 With the advent of Large-Language Models (LLMs) we can use their power to analyze images. In this section, we will focus on using one package that uses local LLMs (i.e., privacy) to analyze image files: [{kuzco}](https://github.com/frankiethull/kuzco).
 
-Kuzco is
+Kuzco is:
 
 > is a simple vision boilerplate built for ollama in R, on top of {ollamar} & {ellmer}. {kuzco} is designed as a computer vision assistant, giving local models guidance on classifying images and return structured data. The goal is to standardize outputs for image classification and use LLMs as an alternative option to keras or torch. {kuzco} currently supports: classification, recognition, sentiment, text extraction, alt-text creation, and **custom** computer vision tasks.
 

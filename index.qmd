@@ -39,6 +39,8 @@ Welcome to *Computational Analysis of Educational Data: A Field Guide Using R*!
 
 ### Why this book?
 
+<!-- JR: I think one big edit/concern I have is we need to move away from social science - we really are educational researchers and I worry about overstepping by claiming to be a social scientist, broadly, or to speak to all social sciences. So I think we reframe to be about educational researchers and computational analysis of educational research. And we then just have to define computational analyses as those including both data science and now the use of LLMS. -->
+
 Conventionally, as social scientists, we start the research process by generating research questions based on our previous knowledge and theories in the field. This is the normative view of how the research process should work. But we are limited in how we see the world: we don't know what we don't know. For example, someone who does not know that Twitter posts can be collected and analyzed as data to capture the state of the world will most likely not develop research questions about Twitter data. This reveals that it is also epistemologically possible for our observations of the world to guide our research questions or that discovering what can serve as data shapes what we can ask as research questions.
 
 In practice, the research process does not always proceed in the orderly, linear fashion suggested by the conventional model. Once you start seeing what can be data in the world, it shapes your ideas of what is "researchable." Here is a simple model that we propose showing the reciprocal nature of the research process, which is central to our aims in this book:

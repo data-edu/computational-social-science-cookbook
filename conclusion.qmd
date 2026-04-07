@@ -54,4 +54,4 @@ Repeating this cycle across projects builds both technical fluency and methodolo
 
 Computational educational research is not only about learning more tools. It is about learning how to ask better questions with new forms of evidence, while keeping rigor, ethics, and clarity at the center of the work.
 
-Our hope is that this field guide helps you do exactly that: design stronger studies, analyze richer data, communicate more openly, and contribute research that is both technically robust and educationally meaningful.
+Our hope is that this field guide helps you do that: design stronger studies, analyze richer data, communicate more openly, and contribute research that is both technically robust and educationally meaningful.

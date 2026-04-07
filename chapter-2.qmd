@@ -9,11 +9,16 @@ options(warn = -1)
 
 ## 2.1 Overview
 
-In social sciences, analyzing text data is usually considered the “job” of qualitative researchers. Traditionally, qualitative research involves identifying patterns in non-numeric data, and this pattern recognition is typically done manually. This process is time-intensive but can yield rich research results. Traditional methods for analyzing text data involve human coding and can include direct (e.g., books, online texts) or indirect sources (e.g., interview transcripts).
+<!-- JR: I feel we need citations for some of these - a qual book, for instances, and some examples of pattern recognition and examples of time-intensitivity and rich results. Lastly what traditional methods are. We need to support these claims. EDIT: I see we cite Saldana below - good - draw that out and cite that here in the overview! -->
+
+In many social science fields, analyzing text data is typically considered to be the work of qualitative researchers. Traditionally, qualitative research involves identifying patterns in non-numeric data, and this pattern recognition is typically done manually. This process is time-intensive but can yield rich research results. Traditional methods for analyzing text data involve human coding and can include direct (e.g., books, online texts) or indirect sources (e.g., interview transcripts).
 
 With the advent of new software, we can capture and analyze text data in ways that were previously not possible, such as web scraping, accessing social media APIs, or downloading large online documents. Given the increased (opportunities for collecting and) size of text data, analysis now can benefit from computational approaches (e.g., dictionary-based, frequency-based, machine learning) that go beyond manual coding. As we discussed on the front matter of the book, these computational methods allow social scientists to ask new types of research questions, expanding the scope and depth of possible insights.
 
 ::: callout-warning
+
+<!-- JR: This seems very general and like it belongs elsewhere - like in the intro. Cut or move? -->
+
 ## Disclaimer
 
 While resources are available that discuss these analysis methods in depth, this book aims to provide a practical guide for social scientists, using data they will likely encounter. Our goal is to present a "field guide" for guiding research projects through real-world examples.
@@ -38,11 +43,13 @@ In addition to text, web scraping can also be used to download other content typ
 
 #### Is Web Scraping Legal?
 
+<!-- JR: This is a little nuanced. The terms of service are just the terms that we have to follow to stay in a company's good graces - I don't think there is anything legal at play in most cases --- just getting booted from a platform. The answer here is to cite some sources on this, I think. -->
+
 Web scraping was common in the early days of the internet, but with the increasing value of data, legal norms have evolved. To avoid legal issues, check the “Terms of Service” for specific permissions on the website, often accessible via “robots.txt” files. Consult legal advice when in doubt.
 
 #### Reading a Web Page into R
 
-Once permissions are confirmed, the first step in web scraping is to download the webpage’s source code into R, typically using the `rvest` package by Hadley Wickham.
+Once permissions are confirmed, the first step in web scraping is to download the webpage’s source code into R. In R, a great package to do this is `rvest`.
 
 ```{r, eval = FALSE}
 # Install and load the rvest package
@@ -134,6 +141,8 @@ Web scraping is appropriate if:
 When feasible, consider alternatives like APIs or data-entry services (e.g., Amazon Mechanical Turk) for better efficiency and legal compliance.
 
 #### What is an API?
+
+<!-- JR: What does REST stand for? How is it different from other APIs? -->
 
 An Application Programming Interface (API) is a set of protocols that allows computers to communicate and exchange information. A common type is the REST API, where one machine sends a request, and another returns a response. APIs provide standardized access to data, services, and functionalities, making them essential in software development.
 
@@ -454,6 +463,8 @@ word_frequency
 ```
 
 #### Step 4: Create a Word Cloud
+
+<!-- JR: we may want to add a note that this is often not the most effective viz of counts of words - I believe a bar chart may often be easier, though these are fun. There are some sources on this; we used one in STEM 691 (I can't remember the title and am on the plane right now - the book by Clause Wilke). -->
 
 Generate a word cloud to visualize the frequency of words in a circular shape.
 

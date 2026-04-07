@@ -52,6 +52,12 @@ Notice the `.Rproj` file in your folder? That's your project file. Double-click 
 
 ## Essential Keyboard Shortcuts
 
+::: callout-tip
+## RStudio Keybindings in Positron
+
+If you're coming from RStudio and want to keep using familiar shortcuts, install the **RStudio Keymap** extension in Positron. Open the Extensions panel (View → Extensions), search for "RStudio Keymap," and click Install. This maps common RStudio shortcuts to their Positron equivalents so you don't have to retrain your muscle memory.
+:::
+
 Keyboard shortcuts can speed up your workflow considerably. You don't need to memorize them all at once—start with a few that feel natural, and others will follow as you get more comfortable.
 
 | Action                            | Windows/Linux      | macOS           |
@@ -69,11 +75,7 @@ The run command (Ctrl/Cmd + Enter) is the one you'll use most—it executes the 
 
 Positron and RStudio have slightly different shortcuts for a few operations, particularly around navigating panes and restarting R. To see the full list specific to your environment, go to Help → Keyboard Shortcuts or press Alt/Option + Shift + K.
 
-::: callout-tip
-## RStudio Keybindings in Positron
 
-If you're coming from RStudio and want to keep using familiar shortcuts, install the **RStudio Keymap** extension in Positron. Open the Extensions panel (View → Extensions), search for "RStudio Keymap," and click Install. This maps common RStudio shortcuts to their Positron equivalents so you don't have to retrain your muscle memory.
-:::
 
 ## Extensions and Customization
 

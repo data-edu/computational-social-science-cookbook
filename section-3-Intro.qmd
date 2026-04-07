@@ -2,6 +2,8 @@
 title: "LLM Methods"
 ---
 
+<!-- JR: I think the structure of the three different seection intros are pretty different; can we harmonize these three so they have the same format?  -->
+
 ### The (Responsible) Use of LLMs in Data Science
 
 As we integrate large language models into data analysis, our responsibilities as researchers evolve in important ways . There are three primary approaches to this integration:
