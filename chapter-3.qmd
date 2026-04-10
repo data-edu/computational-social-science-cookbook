@@ -9,9 +9,9 @@ options(warn = -1)
 
 ## 3.1 Overview
 
-<!-- JR: We need some citations here -- one starting point could be the influence in social networks short paper I wrote with Bret Staudt Willet, which cites some key pieces. I know Shaun has good citations to references we can include too - there is the book on SNA in education we should cite - Carolan (spelling?)? -->
+Social network analysis (SNA) is the process of investigating social structures through the use of networks and graph theory [@Wasserman1994SNA; @Borgatti2013SNA]. It maps and measures relationships and flows between people, groups, organizations, computers, or other information/knowledge processing entities — capturing not just individual attributes but the connections between them. In educational research, SNA has been applied to understand collaboration structures, examine the spread of information and influence, and evaluate the effects of instructional interventions on learner interactions [@Carolan2014SNA].
 
-Social network analysis (SNA) is the process of investigating social structures through the use of networks and graph theory. It is a technique used to map and measure relationships and flows between people, groups, organizations, computers, or other information/knowledge processing entities. SNA can be a useful tool for understanding the team structures, for example, in an online classroom. It can be an additional layer of understanding the outcomes (or predictors) of certain instructional interventions. Used this way SNA can be used to identify patterns and trends in social networks, as well as to understand how these networks operate. Additionally, SNA can be used to predict future behavior in social networks, and to design interventions that aim to improve the functioning of these networks.
+These applications range from analyzing face-to-face classroom dynamics to large-scale online learning environments. For example, @Kellogg2015MOOCEd examined discussion networks in a massively open online course, and @Rosenberg2021SocialInfluence explored how social influence models can be advanced within learning analytics contexts. Used this way, SNA can identify patterns and trends in how networks form and operate, predict future behavior, and inform the design of interventions that improve learning environments.
 
 ## 3.2 Accessing SNA Data
 

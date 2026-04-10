@@ -9,20 +9,10 @@ options(warn = -1)
 
 ## 2.1 Overview
 
-<!-- JR: I feel we need citations for some of these - a qual book, for instances, and some examples of pattern recognition and examples of time-intensitivity and rich results. Lastly what traditional methods are. We need to support these claims. EDIT: I see we cite Saldana below - good - draw that out and cite that here in the overview! -->
+In educational research, analyzing text data is typically considered the work of qualitative researchers. Traditionally, qualitative research involves identifying patterns in non-numeric data, and this pattern recognition is done manually [@Creswell2018Qualitative]. This process is time-intensive but can yield rich results — for example, through human coding of interview transcripts, policy documents, or classroom artifacts [@Saldana2021Coding].
 
-In many social science fields, analyzing text data is typically considered to be the work of qualitative researchers. Traditionally, qualitative research involves identifying patterns in non-numeric data, and this pattern recognition is typically done manually. This process is time-intensive but can yield rich research results. Traditional methods for analyzing text data involve human coding and can include direct (e.g., books, online texts) or indirect sources (e.g., interview transcripts).
+With the advent of new software, we can capture and analyze text data in ways that were previously not possible, such as web scraping, accessing social media APIs, or downloading large online documents. Given the increased scale and variety of available text data, analysis now benefits from computational approaches — including dictionary-based, frequency-based, and machine learning methods — that go beyond manual coding [@Silge2017TextMining; @Grimmer2022TextAsData]. These methods allow educational researchers to ask new types of research questions, expanding the scope and depth of possible insights. For example, @Rosenberg2021Twitter used computational text analysis to examine public sentiment about science education policy across thousands of social media posts — a scale of analysis not feasible through traditional qualitative methods.
 
-With the advent of new software, we can capture and analyze text data in ways that were previously not possible, such as web scraping, accessing social media APIs, or downloading large online documents. Given the increased (opportunities for collecting and) size of text data, analysis now can benefit from computational approaches (e.g., dictionary-based, frequency-based, machine learning) that go beyond manual coding. As we discussed on the front matter of the book, these computational methods allow social scientists to ask new types of research questions, expanding the scope and depth of possible insights.
-
-::: callout-warning
-
-<!-- JR: This seems very general and like it belongs elsewhere - like in the intro. Cut or move? -->
-
-## Disclaimer
-
-While resources are available that discuss these analysis methods in depth, this book aims to provide a practical guide for social scientists, using data they will likely encounter. Our goal is to present a "field guide" for guiding research projects through real-world examples.
-:::
 
 ## 2.2 Accessing Text Data
 

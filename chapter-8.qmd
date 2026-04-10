@@ -9,11 +9,9 @@ options(warn = -1)
 
 ## 8.1 Overview
 
-<!-- Doesn't the SNA chapter also move beyond traditional data types? Reframe. And we need cites here of examples of image recognition work. -->
+Images are an underused data source in educational research, yet they capture dimensions of learning environments — physical space, body language, classroom artifacts, and nonverbal interaction — that text and numeric data cannot [@Rose2016VisualMethodologies]. Treating images as data opens new research questions: How does body language shape classroom discourse? How do physiological signals correspond to engagement or affect during learning? Work by @DMello2017Engagement illustrates how multimodal signals, including visual data, can reveal aspects of the learning experience that single-mode studies miss.
 
-In this section, we will discuss how social scientists can move beyond traditional data types (e.g., text and numbers) and learn about capturing and analyzing images as data.
-
-Using images as data, researchers can ask new questions. For example, how body language affect conversations or how physiological signals match feelings can help uncover insights that single‑mode studies miss. By integrating multimodal data, social scientists can broaden the depth and reach of their research beyond what conventional single‑mode analysis offers.
+This chapter introduces how educational researchers can capture and analyze images using local large language models in R — combining the richness of visual data with the privacy protections that sensitive educational contexts require.
 
 ## 8.2 Images
 

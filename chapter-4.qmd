@@ -7,19 +7,10 @@ title: "Numeric Data"
 options(warn = -1)
 ```
 
-<!-- JR: Do we have abstracts in the other chapters? I think no - integrate the abstract into the overview or cut? -->
-
-::: callout-note
-## Abstract
-
-This section reviews how to access data that is primarily numeric/quantitative in nature, but from a different source and of a different nature than the data typically used by social scientists. Example datasets include international or large-scale assessments (e.g., PISA, NAEP, IPEDS) and data from digital technologies (e.g., log-trace data from the Open University Learning Analytics Dataset (OULAD)).
-:::
 
 ## 4.1 Overview
 
-<!-- JR: Need citations for these -->
-
-In social science research, data is traditionally sourced from small-scale surveys, experiments, or qualitative studies. However, the rise of big data offers researchers opportunities to explore numeric and quantitative datasets of unprecedented scale and variety. This chapter discusses how to access and analyze large-scale datasets like international assessments (e.g., PISA, NAEP) and digital log-trace data (e.g., Open University Learning Analytics Dataset (OULAD)). These secondary data sources enable novel research questions and methods, particularly when paired with machine learning and statistical modeling approaches.
+In educational research, data has traditionally been sourced from small-scale surveys, experiments, or qualitative studies. However, the rise of large-scale digital data offers researchers opportunities to explore numeric and quantitative datasets of unprecedented scale and variety [@Romero2010EDM; @Baker2014EDM]. This chapter discusses how to access and analyze two prominent examples: international assessments (e.g., PISA, TIMSS, NAEP) and digital log-trace data (e.g., the Open University Learning Analytics Dataset, OULAD; @Kuzilek2017OULAD). Studies such as @Teig2022PISA illustrate how large-scale assessment data can be used to investigate substantive educational questions at scale. These secondary data sources enable novel research questions and methods, particularly when paired with machine learning and statistical modeling approaches [@James2021ISLR].
 
 ## 4.2 Accessing Big Data (Broadening the Horizon)
 

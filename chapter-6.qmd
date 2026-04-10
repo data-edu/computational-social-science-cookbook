@@ -9,11 +9,11 @@ options(warn = -1)
 
 ## 6.1 Overview
 
-<!-- JR: Broken record, but we need to cite some sources/examples here, including the Nelson future of coding piece (the one that mentions LLMs, and other papers using LLMs for reserach - see ryan baker's work and others) -->
+The use of AI tools to assist with research coding and analysis has grown rapidly in educational research. Early comparisons of hand-coding and computer-assisted methods showed meaningful trade-offs between the two approaches [@Nelson2021FutureCoding], and recent work has demonstrated that large language models can perform qualitative coding with sufficient reliability for many research tasks — though with important caveats about where they work well and where they do not [@Than2025UpdatingCoding; @Liu2025GPT4Coding]. This chapter introduces two tools that bring LLM assistance directly into the R and Positron workflow, making these capabilities accessible without requiring researchers to leave their analysis environment.
 
-Imagine having a knowledgeable colleague sitting right next to you while you work—someone who never gets tired, never judges when you forget a function name, and genuinely enjoys helping you figure out why your code isn't behaving. That's essentially what Positron Assistant brings to your desk.
+Imagine having a knowledgeable colleague sitting right next to you while you work — someone who never gets tired, never judges when you forget a function name, and genuinely enjoys helping you figure out why your code isn't behaving. That's essentially what Positron Assistant brings to your desk.
 
-In this chapter, we're going to meet two helpful teammates: **Positron Assistant** and **Databot**. They live in the same ecosystem, but they do different jobs. Positron Assistant is your default coding copilot for chat, inline help, and code suggestions. Databot is an exploratory analysis agent that can accelerate early-stage EDA workflows.
+In this chapter, we're going to meet two AI-assisted tools: **Positron Assistant** and **Databot**. They live in the same ecosystem, but they do different jobs. Positron Assistant is your default coding copilot for chat, inline help, and code suggestions. Databot is an exploratory analysis agent that can accelerate early-stage EDA workflows.
 
 We'll treat Positron Assistant as the primary path for most readers and Databot as an optional extension, because Databot is currently in research preview.
 
