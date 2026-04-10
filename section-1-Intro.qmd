@@ -2,11 +2,9 @@
 title: "Getting Started"
 ---
 
-<!-- JR: We need to norm on terms here -- computational educational research? Social science background? What do we mean by these? -->
+If you are coming to computational educational research from a traditional research background, the technical setup can feel like the hardest part. This section is designed to lower that barrier and help you build a practical foundation before moving into method-heavy chapters [@Estrellado2020DataScience].
 
-If you are coming to computational educational research from a social science background, the technical setup can feel like the hardest part. This section is designed to lower that barrier and help you build a practical foundation before moving into method-heavy chapters.
-
-Think of this section as the minimum viable toolkit for the rest of the book. The goal is not to teach everything about R or Positron, but to give you enough structure to reproduce examples, adapt workflows, and work confidently with your own data.
+Think of this section as the minimum viable toolkit for the rest of the book. The goal is not to teach everything about R or Positron, but to give you enough structure to reproduce examples, adapt workflows, and work confidently with your own data [@Wickham2017R4DS; @Healy2018DataViz].
 
 The three chapters in this section establish that foundation. Specifically, they cover:
 
@@ -17,8 +15,6 @@ The three chapters in this section establish that foundation. Specifically, they
 By the end of this section, you should have a functioning analysis environment and a clear workflow for moving from data to interpretable output.
 
 ## How the Full Book Connects
-
-<!-- JR: confused -- is this section the first part? But there are 4 sections? I see three in the table of contents -->
 
 This book follows a four-part progression:
 

@@ -2,17 +2,17 @@
 title: "LLM Methods"
 ---
 
-<!-- JR: I think the structure of the three different seection intros are pretty different; can we harmonize these three so they have the same format?  -->
+## Overview
 
-### The (Responsible) Use of LLMs in Data Science
-
-As we integrate large language models into data analysis, our responsibilities as researchers evolve in important ways . There are three primary approaches to this integration:
+As educational researchers integrate large language models into data analysis workflows, our methodological responsibilities evolve in important ways [@Kasneci2023ChatGPT]. There are three primary approaches to this integration:
 
 -   first, using LLMs for code autocompletion and inline coding assistance, such as through integrated development environments like Positron;
 
 -   second, using LLMs to support the analysis process through complete code generation and supervised execution, such as with tools like Posit Databot; and
 
 -   third, deploying LLMs to directly analyze qualitative (e.g., text data).
+
+The third approach in particular raises questions about research integrity — including correctness, transparency, and reproducibility — that are worth examining carefully before treating LLM outputs as research evidence [@Bender2021StochasticParrots].
 
 ### The Responsible Use Framework
 

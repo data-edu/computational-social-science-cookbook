@@ -4,7 +4,7 @@ title: "Computational Methods"
 
 ## Overview
 
-This section introduces the core computational methods that form the basis of educational data analysis. Across the next three chapters, you will learn how to analyze **textual**, **relational**, and **numeric** data—three major forms of information that appear in learning environments, institutional records, and educational research projects.
+This section introduces the core computational methods that form the basis of educational data analysis [@Lang2017HandbookLA; @Baker2014EDM]. Across the next three chapters, you will learn how to analyze **textual**, **relational**, and **numeric** data — three major forms of information that appear in learning environments, institutional records, and educational research projects [@Silge2017TextMining; @Carolan2014SNA; @James2021ISLR].
 
 These chapters emphasize hands-on, transparent, and reproducible approaches using R. By engaging with real examples, you will gain practical experience in transforming raw educational data into interpretable results that inform theory and practice.
 
