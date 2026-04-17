@@ -77,7 +77,7 @@ str(pisa_data)
 ##### Comparison of Methods
 
 | Method | Advantages | Disadvantages |
-|------------------|----------------------------|--------------------------|
+|-------------------|----------------------------|--------------------------|
 | **Direct Download** | Full access to all raw data and documentation. | Requires manual processing and cleaning. |
 | **`OECD` Package** | Easy to use for downloading specific datasets. | Limited to OECD-published formats. |
 | **`EdSurvey` Package** | Supports advanced statistical analysis and weights. | Requires additional setup and dependencies. |
@@ -168,7 +168,7 @@ IPEDS provides several online tools for querying and visualizing data without re
 ##### Comparison of Methods
 
 | Method | Advantages | Disadvantages |
-|------------------|---------------------------|---------------------------|
+|-------------------|---------------------------|---------------------------|
 | **Direct Download** | Full access to raw data and documentation. | Requires manual data preparation and cleaning. |
 | **`ipeds` Package** | Automated access to specific components. | Limited flexibility for customized queries. |
 | **`tidycensus` Package** | Allows integration with Census and ACS data. | Requires API setup and advanced R skills. |
@@ -366,36 +366,15 @@ A sample methods section based on these analysis can be written as follows:
 
 #### Logistic Regression Model (RQ A)
 
-\<--! this whole write up needs to be redone to be academic writing, the results interpretation is written very casually. MA\>
+The logistic regression model predicted whether an institution achieved a high graduation rate (graduation rate \> 62%) from five institutional features. All predictors were statistically significant.
 
-The logistic regression model was fitted to predict whether a university achieves a "good" graduation rate (i.e., graduation rate \> 62%) based on several institutional features. The model output is summarized below:
+Total enrollment was positively associated with high graduation rates (*b* = 3.35e-05, *z* = 4.25, *p* \< .001), indicating that larger institutions were more likely to exceed the graduation rate threshold. Admission selectivity (percent admitted) was negatively associated with graduation outcomes (*b* = -0.014, *z* = -4.00, *p* \< .001), consistent with prior evidence that more selective institutions tend to enroll students with stronger prior academic preparation (Zong & Davis, 2022). Tuition and fees was the strongest predictor in the model (*b* = 6.95e-05, *z* = 14.00, *p* \< .001); institutions charging higher tuition were substantially more likely to achieve high graduation rates, a pattern that likely reflects broader institutional resource capacity rather than tuition level per se. The proportion of students receiving financial aid was negatively associated with graduation rates (*b* = -0.030, *z* = -5.24, *p* \< .001), consistent with research documenting that institutions serving higher proportions of financially vulnerable students face structural barriers to degree completion (Perna, 2010). Average instructional staff salary was positively associated with high graduation rates (*b* = 3.00e-05, *z* = 7.74, *p* \< .001), suggesting that faculty compensation, as a proxy for instructional quality and institutional investment, contributes to student success outcomes.
 
--   **Coefficients & Significance**:
-    -   **total_enroll**: Estimate = 3.35e-05, *z* = 4.251, p = 2.13e-05\
-        *Interpretation*: Simply put, bigger schools tend to graduate more students. It seems that larger institutions might have more structured support systems in place to keep students on track.
-    -   **pct_admitted**: Estimate = -1.407e-02, *z* = -3.997, p = 6.40e-05\
-        *Interpretation*: Here is a classic "selectivity" story. The more competitive a school is (admitting fewer students), the higher its graduation rate tends to be. This tells us that who you let in matters a lot for the final outcome.
-    -   **tuition_fees**: Estimate = 6.952e-05, *z* = 14.003, p \< 2e-16\
-        *Interpretation*: This is the heavy hitter. Schools that charge higher tuition—and presumably invest that money back into student support, faculty, and facilities—enjoy significantly better graduation outcomes. It's a strong signal that money matters, but it's likely *how that money is used* that makes the difference.
-    -   **percent_fin_aid**: Estimate = -2.960e-02, *z* = -5.237, p = 1.64e-07\
-        *Interpretation*: This one is a bit counter-intuitive at first glance. A higher percentage of students receiving aid is linked to *lower* graduation rates. But this doesn't mean financial aid is bad! It likely reflects the student population these institutions serve. Schools with more students needing aid often face systemic challenges—like balancing work and study—that can hinder timely graduation.
-    -   **avg_salary**: Estimate = 2.996e-05, *z* = 7.740, p = 9.91e-15\
-        *Interpretation*: You get what you pay for. Schools paying their faculty well are associated with higher graduation rates, suggesting that attracting and retaining talented instructors directly impacts student success.
--   **Model Fit Statistics**:
-    -   **Null Deviance**: 2277 (on 1706 degrees of freedom)
-    -   **Residual Deviance**: 1632 (on 1701 degrees of freedom)
-    -   **AIC**: 1644
-    -   *Note*: 3621 observations were deleted due to missing values.
-
-Overall, the regression model demonstrates that several institutional factors are statistically significant predictors of graduation rates. In particular, tuition fees and average staff salary have a strong positive effect, while admission selectivity and financial aid show negative associations.
+The full model showed substantial improvement over the null model (null deviance = 2277, df = 1706; residual deviance = 1632, df = 1701; AIC = 1644), indicating that the institutional features collectively accounted for meaningful variance in graduation performance.
 
 #### Supervised ML Workflow Results (RQ B)
 
-Using the tidymodels framework, we built a logistic regression model as part of a supervised machine learning workflow. The performance metric obtained is as follows:
-
--   **Accuracy**: 80.02%
-
-This tells us that based on just five or six simple institutional metrics, we can correctly classify whether a university is "high performing" or not with about **80% accuracy**. That's pretty powerful! It means these numbers aren't just random noise—they tell a consistent story about what makes a university tick.
+The logistic regression model fitted within the `tidymodels` supervised machine learning workflow achieved an overall classification accuracy of 80.02%. Based on five institutional predictors, the model correctly classified four out of five institutions as high- or low-performing on graduation rates, indicating that these features carry consistent and meaningful predictive signal with respect to graduation outcomes.
 
 #### Overall Discussion
 
@@ -558,6 +537,30 @@ final_fit |>
   theme_minimal() +
   labs(title = "Top 10 Important Features in Random Forest Model")
 ```
+
+A sample methods section based on these steps can be written as follows:
+
+> ### Methods
+>
+> **Data Source**
+>
+> Data were drawn from the Open University Learning Analytics Dataset (OULAD; Kuzilek et al., 2017), a publicly available dataset containing demographic information, virtual learning environment (VLE) interaction logs, and assessment records for students enrolled in Open University courses across multiple module presentations. OULAD has been widely used in learning analytics research to model student engagement and predict academic outcomes (e.g., Hlosta et al., 2017; Mubarak et al., 2020).
+>
+> **Outcome Variable**
+>
+> The outcome variable was a binary indicator of course result, coded as pass (1) or non-pass (0), derived from the student registration and outcome data provided in OULAD.
+>
+> **Feature Engineering**
+>
+> To simulate an early-warning scenario, VLE interaction data were restricted to the period prior to the 25th percentile of assessment submission dates within each module-presentation combination. From this temporally constrained interaction window, three summary features were computed for each student: total clicks (`sum_clicks`), mean clicks per session (`mean_clicks`), and standard deviation of clicks (`sd_clicks`). In addition, a linear regression was fitted to each student's click sequence over time, yielding an intercept and slope that capture the baseline level and temporal trend of engagement, respectively. These engineered features were joined with student demographic variables (disability status, gender, registration date, and course module) and a measure of prior academic performance (mean weighted assessment score).
+>
+> **Preprocessing**
+>
+> All nominal predictors were dummy-coded. Missing values were imputed using k-nearest neighbors (KNN) imputation. All numeric predictors were normalized to a mean of zero and standard deviation of one. Preprocessing was implemented via the `recipes` package within the `tidymodels` framework (Kuhn & Wickham, 2020).
+>
+> **Model Specification and Evaluation**
+>
+> A random forest classifier was fit using the `ranger` engine with impurity-based variable importance (Wright & Ziegler, 2017). Model performance was assessed using two complementary evaluation strategies. First, 4-fold cross-validation stratified by the outcome variable was used to estimate out-of-sample performance across multiple data partitions. Second, a held-out test set (33% of the sample, stratified by outcome) was used for final model evaluation. Performance was quantified using accuracy, sensitivity, specificity, positive predictive value (PPV), negative predictive value (NPV), and Cohen's Kappa. Variable importance was extracted from the final fitted model and visualized for the ten most influential predictors.
 
 ### 4.4.4 Results and Discussions
 
