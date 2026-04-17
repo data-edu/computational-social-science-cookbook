@@ -7,7 +7,6 @@ title: "Numeric Data"
 options(warn = -1)
 ```
 
-
 ## 4.1 Overview
 
 In educational research, data has traditionally been sourced from small-scale surveys, experiments, or qualitative studies. However, the rise of large-scale digital data offers researchers opportunities to explore numeric and quantitative datasets of unprecedented scale and variety [@Romero2010EDM; @Baker2014EDM]. This chapter discusses how to access and analyze two prominent examples: international assessments (e.g., PISA, TIMSS, NAEP) and digital log-trace data (e.g., the Open University Learning Analytics Dataset, OULAD; @Kuzilek2017OULAD). Studies such as @Teig2022PISA illustrate how large-scale assessment data can be used to investigate substantive educational questions at scale. These secondary data sources enable novel research questions and methods, particularly when paired with machine learning and statistical modeling approaches [@James2021ISLR].
@@ -78,7 +77,7 @@ str(pisa_data)
 ##### Comparison of Methods
 
 | Method | Advantages | Disadvantages |
-|----------------|-----------------------------|---------------------------|
+|------------------|----------------------------|--------------------------|
 | **Direct Download** | Full access to all raw data and documentation. | Requires manual processing and cleaning. |
 | **`OECD` Package** | Easy to use for downloading specific datasets. | Limited to OECD-published formats. |
 | **`EdSurvey` Package** | Supports advanced statistical analysis and weights. | Requires additional setup and dependencies. |
@@ -169,7 +168,7 @@ IPEDS provides several online tools for querying and visualizing data without re
 ##### Comparison of Methods
 
 | Method | Advantages | Disadvantages |
-|-----------------|----------------------------|----------------------------|
+|------------------|---------------------------|---------------------------|
 | **Direct Download** | Full access to raw data and documentation. | Requires manual data preparation and cleaning. |
 | **`ipeds` Package** | Automated access to specific components. | Limited flexibility for customized queries. |
 | **`tidycensus` Package** | Allows integration with Census and ACS data. | Requires API setup and advanced R skills. |
@@ -351,18 +350,32 @@ my_accuracy <- predictions |>
 my_accuracy
 ```
 
+A sample methods section based on these analysis can be written as follows:
+
+> ### Measures
+>
+> **Outcome variable.** Graduation performance was operationalized as a binary variable (good_grad_rate), coded 1 if an institution's overall graduation rate exceeded 62% and 0 otherwise. The threshold of 62% corresponds to the approximate median of the sample distribution and follow s the operationalization used by Zong and Davis (2022). 14 15 **Predictor variables.** Five institutional characteristics were included: (1) total student enrollment, (2) percent of applicants admitted, ( 3) tuition and fees for the 2021–22 academic year, (4) percent of full- time, first-time undergraduates receiving any form of financial aid, an d (5) average instructional staff salary equated to nine months of full -time employment. Variable names and definitions follow the IPEDS data dictionary (NCES, 2022).
+>
+> ### Analytical Approach
+>
+> Two complementary analytic strategies addressed the study's research questions. To examine which institutional factors are associated with high graduation rates (RQ A), we estimated a binary logistic regression model using the glm() function in R with a binomial link function. This approach yields coefficient estimates and significance tests for each predictor, supporting interpretation of the direction and magnitude of associations (Hosmer et al., 2013).
+>
+> To evaluate the predictive accuracy of the same institutional features (RQ B), we fit an equivalent logistic regression model within a supervised machine learning workflow using the tidymodels framework (Kuhn & Wickham, 2020). This pipeline integrated preprocessing via the recipes package and model specification via parsnip, producing a unified, reproducible workflow consistent with current best practices in applied machine learning (Silge & Kuhn, 2022). Model performance was evaluated using overall classification accuracy on the full dataset. All analyses were conducted in R (version 4.3.x).
+
 ### 4.3.4 Results and Discussions
 
 #### Logistic Regression Model (RQ A)
 
-The logistic regression model was fitted to predict whether a university achieves a "good" graduation rate (i.e., graduation rate > 62%) based on several institutional features. The model output is summarized below:
+\<--! this whole write up needs to be redone to be academic writing, the results interpretation is written very casually. MA\>
+
+The logistic regression model was fitted to predict whether a university achieves a "good" graduation rate (i.e., graduation rate \> 62%) based on several institutional features. The model output is summarized below:
 
 -   **Coefficients & Significance**:
     -   **total_enroll**: Estimate = 3.35e-05, *z* = 4.251, p = 2.13e-05\
         *Interpretation*: Simply put, bigger schools tend to graduate more students. It seems that larger institutions might have more structured support systems in place to keep students on track.
     -   **pct_admitted**: Estimate = -1.407e-02, *z* = -3.997, p = 6.40e-05\
         *Interpretation*: Here is a classic "selectivity" story. The more competitive a school is (admitting fewer students), the higher its graduation rate tends to be. This tells us that who you let in matters a lot for the final outcome.
-    -   **tuition_fees**: Estimate = 6.952e-05, *z* = 14.003, p < 2e-16\
+    -   **tuition_fees**: Estimate = 6.952e-05, *z* = 14.003, p \< 2e-16\
         *Interpretation*: This is the heavy hitter. Schools that charge higher tuition—and presumably invest that money back into student support, faculty, and facilities—enjoy significantly better graduation outcomes. It's a strong signal that money matters, but it's likely *how that money is used* that makes the difference.
     -   **percent_fin_aid**: Estimate = -2.960e-02, *z* = -5.237, p = 1.64e-07\
         *Interpretation*: This one is a bit counter-intuitive at first glance. A higher percentage of students receiving aid is linked to *lower* graduation rates. But this doesn't mean financial aid is bad! It likely reflects the student population these institutions serve. Schools with more students needing aid often face systemic challenges—like balancing work and study—that can hinder timely graduation.
@@ -553,17 +566,9 @@ final_fit |>
 *How accurately can a random forest model predict whether a student will pass a course using interactions data from OULAD?*
 
 **Response:**\
-Using 4-fold cross-validation, our random forest model yielded an average accuracy of approximately **67.0%** (mean accuracy from resamples: 0.670) with a Cohen's Kappa of **0.261**, suggesting moderate agreement beyond chance. When fitted on the entire training set and evaluated on the test set, the final model showed an accuracy of **66.5%** along with:
-- **Sensitivity:** 81.5% – indicating the model correctly identifies a high proportion of students who pass.
-- **Specificity:** 41.9% – suggesting that the model is less effective at correctly identifying students who do not pass.
-- **Positive Predictive Value (PPV):** 69.7%
-- **Negative Predictive Value (NPV):** 58.0%
+Using 4-fold cross-validation, our random forest model yielded an average accuracy of approximately **67.0%** (mean accuracy from resamples: 0.670) with a Cohen's Kappa of **0.261**, suggesting moderate agreement beyond chance. When fitted on the entire training set and evaluated on the test set, the final model showed an accuracy of **66.5%** along with: - **Sensitivity:** 81.5% – indicating the model correctly identifies a high proportion of students who pass. - **Specificity:** 41.9% – suggesting that the model is less effective at correctly identifying students who do not pass. - **Positive Predictive Value (PPV):** 69.7% - **Negative Predictive Value (NPV):** 58.0%
 
-The confusion matrix shows:
-- True Negatives (TN): 5439
-- False Negatives (FN): 1238
-- False Positives (FP): 2370
-- True Positives (TP): 1710
+The confusion matrix shows: - True Negatives (TN): 5439 - False Negatives (FN): 1238 - False Positives (FP): 2370 - True Positives (TP): 1710
 
 Overall, these metrics indicate that while the model performs well in detecting positive outcomes (high sensitivity), its lower specificity means that it tends to misclassify a relatively higher proportion of non-passing students. In plain English, our model is an **optimist**—it's great at spotting the winners, but it sometimes overlooks the stragglers. This is a crucial insight for educators: this tool is better used as an **early warning system for success** rather than a perfect detector of failure.
 
