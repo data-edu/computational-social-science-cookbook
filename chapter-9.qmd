@@ -25,6 +25,10 @@ Examples of education journals that publish computational and data-intensive wor
 
 While journal articles are essential for academic recognition, they often impose constraints on length, visualizations, and methodological detail. As a result, many computational decisions—such as preprocessing steps or parameter choices—may be summarized rather than fully documented.
 
+![](<data/ch9_images/Educational Researcher.png>)
+
+*Example of a traditional journal publication format.*
+
 ### 9.2.2 Preprints and Open Science Repositories
 
 Preprint servers allow researchers to share manuscripts publicly before or during the peer-review process. These platforms support rapid dissemination and open feedback.
@@ -36,6 +40,12 @@ Common platforms include:
 -   **Open Science Framework (OSF)**: <https://osf.io/>
 
 Preprints are particularly useful for computational research, where methods evolve quickly and early visibility can support collaboration. Researchers should always confirm that their target journals permit preprint posting.
+
+![](<data/ch9_images/arxiv.png>)
+
+![](<data/ch9_images/osf.png>)
+
+*Examples of preprint and open-science repository interfaces.*
 
 ### 9.2.3 Project Websites and Living Documents
 
@@ -49,6 +59,10 @@ A common workflow involves:
 
 This approach supports transparency, reproducibility, and incremental updates. Project websites are especially well suited for method demonstrations, teaching examples, and analyses involving multiple visualizations.
 
+![](<data/ch9_images/quarto .png>)
+
+*Example of a Quarto-based project website format.*
+
 ### 9.2.4 Open Data and Code Archives
 
 Dedicated repositories allow researchers to share datasets, analysis scripts, and documentation in citable form.
@@ -58,6 +72,10 @@ Popular platform such as:
 -   **Zenodo**: <https://zenodo.org/>
 
 These services issue persistent identifiers (DOIs), enabling datasets and code to be cited independently of articles. A common practice is to host active development on GitHub while archiving stable releases on Zenodo.
+
+![](<data/ch9_images/zenodo.png>)
+
+*Example of an open archive workflow with DOI support.*
 
 ## 9.3 Choosing an Appropriate Communication Strategy
 
@@ -149,24 +167,28 @@ This configuration enables navigation between pages and produces a static websit
 
 ### 9.4.5 Communicating the Analysis in a Quarto Document
 
-The core communication document (`frequency-analysis.qmd`) integrates narrative text with selected code and visual outputs. Rather than presenting all preprocessing steps, the document emphasizes interpretability and alignment with research questions.
+The core communication document (`frequency-analysis.qmd`) integrates brief narrative text with one clearly interpretable output. For this chapter, we keep the example intentionally simple and reuse the Chapter 2 frequency analysis idea.
 
-An excerpt from such a document is shown below:
+A minimal communication excerpt could look like this:
 
-### Research Context
+```{r, eval=FALSE}
+library(tidyverse)
+library(tidytext)
 
-As generative AI writing tools become more prevalent, universities have issued guidelines to clarify acceptable use in academic contexts. This analysis examines 100 publicly available GenAI policy documents from U.S. universities to identify prominent themes and institutional concerns.
+policies <- read_csv("data/University_GenAI_Policy_Stance.csv")
 
-### Research Questions
+top_terms <- policies |>
+  unnest_tokens(word, Stance) |>
+  anti_join(stop_words, by = "word") |>
+  count(word, sort = TRUE) |>
+  slice_head(n = 12)
+```
 
--   What words appear most frequently in university GenAI writing usage policies?
--   Which keywords reflect common concerns related to academic integrity and instructional responsibility?
+Then, in the communication page, we show one simple bar chart with short interpretation text.
 
-### Analytical Overview
+![](data/ch9_images/ch2-simple-frequency-example.png)
 
-Text data were tokenized, common stop words were removed, and word frequencies were calculated using R. Full preprocessing and analytical details are documented in Chapter 2.
-
-Figures such as word clouds and frequency bar charts are rendered directly within the document, allowing readers to view results alongside explanatory text.
+*Simple example output adapted from Chapter 2 text analysis for communication purposes.*
 
 ### 9.4.6 Presenting Results for Interpretation
 
@@ -181,6 +203,12 @@ Once rendered, the Quarto project can be published via GitHub Pages by hosting t
 Examples of publicly available Quarto projects can be found at:
 
 https://quarto.org/examples/
+
+![](<data/ch9_images/github repo codes.png>)
+
+![](<data/ch9_images/github page.png>)
+
+*Example of source repository and published GitHub Pages output.*
 
 ### 9.4.8 Why This Format Matters
 

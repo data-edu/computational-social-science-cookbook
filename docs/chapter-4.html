@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Numeric Data – Computational Analysis of Educational Data: A Field Guide Using R</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -55,7 +58,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -69,19 +91,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./chapter-3.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c5d1edeae8daa928b75dacbf79faf054.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-11fee6df74d16f60ec81aba117e88c52.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c5d1edeae8daa928b75dacbf79faf054.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-f4f10a9a6c3e61416c71969fa1cc4a3c.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8c5f71ffc66263598e920d495c8d238d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-f4f10a9a6c3e61416c71969fa1cc4a3c.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-252411cfd396b9afad8511f4e077726e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-02b580ac8026eae721de7dc387b49e5a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-252411cfd396b9afad8511f4e077726e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-8f25050054b56903b19a5fd755540369.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-8bb660cca24c858b63f21acee2baa371.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-8f25050054b56903b19a5fd755540369.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -485,22 +506,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Abstract
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This section reviews how to access data that is primarily numeric/quantitative in nature, but from a different source and of a different nature than the data typically used by social scientists. Example datasets include international or large-scale assessments (e.g., PISA, NAEP, IPEDS) and data from digital technologies (e.g., log-trace data from the Open University Learning Analytics Dataset (OULAD)).</p>
-</div>
-</div>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">4.1 Overview</h2>
-<p>In social science research, data is traditionally sourced from small-scale surveys, experiments, or qualitative studies. However, the rise of big data offers researchers opportunities to explore numeric and quantitative datasets of unprecedented scale and variety. This chapter discusses how to access and analyze large-scale datasets like international assessments (e.g., PISA, NAEP) and digital log-trace data (e.g., Open University Learning Analytics Dataset (OULAD)). These secondary data sources enable novel research questions and methods, particularly when paired with machine learning and statistical modeling approaches.</p>
+<p>In educational research, data has traditionally been sourced from small-scale surveys, experiments, or qualitative studies. However, the rise of large-scale digital data offers researchers opportunities to explore numeric and quantitative datasets of unprecedented scale and variety <span class="citation" data-cites="Romero2010EDM Baker2014EDM">(<a href="#ref-Romero2010EDM" role="doc-biblioref">Romero and Ventura 2010</a>; <a href="#ref-Baker2014EDM" role="doc-biblioref">Baker and Inventado 2014</a>)</span>. This chapter discusses how to access and analyze two prominent examples: international assessments (e.g., PISA, TIMSS, NAEP) and digital log-trace data (e.g., the Open University Learning Analytics Dataset, OULAD; <span class="citation" data-cites="Kuzilek2017OULAD">Kuzilek et al. (<a href="#ref-Kuzilek2017OULAD" role="doc-biblioref">2017</a>)</span>). Studies such as <span class="citation" data-cites="Teig2022PISA">Teig et al. (<a href="#ref-Teig2022PISA" role="doc-biblioref">2022</a>)</span> illustrate how large-scale assessment data can be used to investigate substantive educational questions at scale. These secondary data sources enable novel research questions and methods, particularly when paired with machine learning and statistical modeling approaches <span class="citation" data-cites="James2021ISLR">(<a href="#ref-James2021ISLR" role="doc-biblioref">James et al. 2021</a>)</span>.</p>
 </section>
 <section id="accessing-big-data-broadening-the-horizon" class="level2">
 <h2 class="anchored" data-anchor-id="accessing-big-data-broadening-the-horizon">4.2 Accessing Big Data (Broadening the Horizon)</h2>
@@ -571,9 +579,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h5 class="anchored" data-anchor-id="comparison-of-methods">Comparison of Methods</h5>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 22%">
-<col style="width: 40%">
-<col style="width: 37%">
+<col style="width: 26%">
+<col style="width: 38%">
+<col style="width: 35%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -695,9 +703,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h5 class="anchored" data-anchor-id="comparison-of-methods-1">Comparison of Methods</h5>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 23%">
-<col style="width: 38%">
-<col style="width: 38%">
+<col style="width: 26%">
+<col style="width: 36%">
+<col style="width: 36%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -868,7 +876,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="step-6-supervised-machine-learning-workflow" class="level4">
-<h4 class="anchored" data-anchor-id="step-6-supervised-machine-learning-workflow">Step 6: Supervised Machine Learning Workflow</h4>
+<h4 class="anchored">Step 6: Supervised Machine Learning Workflow</h4>
 <p>Use the <code>tidymodels</code> framework to build a machine learning model.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define recipe for the model (preprocessing steps)</span></span>
@@ -898,44 +906,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>my_accuracy</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>A sample methods section based on these analysis can be written as follows:</p>
+<blockquote class="blockquote">
+<h3 id="measures" class="anchored" data-anchor-id="step-6-supervised-machine-learning-workflow">Measures</h3>
+<p><strong>Outcome variable.</strong> Graduation performance was operationalized as a binary variable (good_grad_rate), coded 1 if an institution’s overall graduation rate exceeded 62% and 0 otherwise. The threshold of 62% corresponds to the approximate median of the sample distribution and follow s the operationalization used by Zong and Davis (2022). 14 15 <strong>Predictor variables.</strong> Five institutional characteristics were included: (1) total student enrollment, (2) percent of applicants admitted, ( 3) tuition and fees for the 2021–22 academic year, (4) percent of full- time, first-time undergraduates receiving any form of financial aid, an d (5) average instructional staff salary equated to nine months of full -time employment. Variable names and definitions follow the IPEDS data dictionary (NCES, 2022).</p>
+<h3 id="analytical-approach" class="anchored">Analytical Approach</h3>
+<p>Two complementary analytic strategies addressed the study’s research questions. To examine which institutional factors are associated with high graduation rates (RQ A), we estimated a binary logistic regression model using the glm() function in R with a binomial link function. This approach yields coefficient estimates and significance tests for each predictor, supporting interpretation of the direction and magnitude of associations (Hosmer et al., 2013).</p>
+<p>To evaluate the predictive accuracy of the same institutional features (RQ B), we fit an equivalent logistic regression model within a supervised machine learning workflow using the tidymodels framework (Kuhn &amp; Wickham, 2020). This pipeline integrated preprocessing via the recipes package and model specification via parsnip, producing a unified, reproducible workflow consistent with current best practices in applied machine learning (Silge &amp; Kuhn, 2022). Model performance was evaluated using overall classification accuracy on the full dataset. All analyses were conducted in R (version 4.3.x).</p>
+</blockquote>
 </section>
 </section>
 <section id="results-and-discussions" class="level3">
 <h3 class="anchored" data-anchor-id="results-and-discussions">4.3.4 Results and Discussions</h3>
 <section id="logistic-regression-model-rq-a" class="level4">
 <h4 class="anchored" data-anchor-id="logistic-regression-model-rq-a">Logistic Regression Model (RQ A)</h4>
-<p>The logistic regression model was fitted to predict whether a university achieves a “good” graduation rate (i.e., graduation rate &gt; 62%) based on several institutional features. The model output is summarized below:</p>
-<ul>
-<li><strong>Coefficients &amp; Significance</strong>:
-<ul>
-<li><strong>total_enroll</strong>: Estimate = 3.35e-05, <em>z</em> = 4.251, p = 2.13e-05<br>
-<em>Interpretation</em>: Simply put, bigger schools tend to graduate more students. It seems that larger institutions might have more structured support systems in place to keep students on track.</li>
-<li><strong>pct_admitted</strong>: Estimate = -1.407e-02, <em>z</em> = -3.997, p = 6.40e-05<br>
-<em>Interpretation</em>: Here is a classic “selectivity” story. The more competitive a school is (admitting fewer students), the higher its graduation rate tends to be. This tells us that who you let in matters a lot for the final outcome.</li>
-<li><strong>tuition_fees</strong>: Estimate = 6.952e-05, <em>z</em> = 14.003, p &lt; 2e-16<br>
-<em>Interpretation</em>: This is the heavy hitter. Schools that charge higher tuition—and presumably invest that money back into student support, faculty, and facilities—enjoy significantly better graduation outcomes. It’s a strong signal that money matters, but it’s likely <em>how that money is used</em> that makes the difference.</li>
-<li><strong>percent_fin_aid</strong>: Estimate = -2.960e-02, <em>z</em> = -5.237, p = 1.64e-07<br>
-<em>Interpretation</em>: This one is a bit counter-intuitive at first glance. A higher percentage of students receiving aid is linked to <em>lower</em> graduation rates. But this doesn’t mean financial aid is bad! It likely reflects the student population these institutions serve. Schools with more students needing aid often face systemic challenges—like balancing work and study—that can hinder timely graduation.</li>
-<li><strong>avg_salary</strong>: Estimate = 2.996e-05, <em>z</em> = 7.740, p = 9.91e-15<br>
-<em>Interpretation</em>: You get what you pay for. Schools paying their faculty well are associated with higher graduation rates, suggesting that attracting and retaining talented instructors directly impacts student success.</li>
-</ul></li>
-<li><strong>Model Fit Statistics</strong>:
-<ul>
-<li><strong>Null Deviance</strong>: 2277 (on 1706 degrees of freedom)</li>
-<li><strong>Residual Deviance</strong>: 1632 (on 1701 degrees of freedom)</li>
-<li><strong>AIC</strong>: 1644</li>
-<li><em>Note</em>: 3621 observations were deleted due to missing values.</li>
-</ul></li>
-</ul>
-<p>Overall, the regression model demonstrates that several institutional factors are statistically significant predictors of graduation rates. In particular, tuition fees and average staff salary have a strong positive effect, while admission selectivity and financial aid show negative associations.</p>
+<p>The logistic regression model predicted whether an institution achieved a high graduation rate (graduation rate &gt; 62%) from five institutional features. All predictors were statistically significant.</p>
+<p>Total enrollment was positively associated with high graduation rates (<em>b</em> = 3.35e-05, <em>z</em> = 4.25, <em>p</em> &lt; .001), indicating that larger institutions were more likely to exceed the graduation rate threshold. Admission selectivity (percent admitted) was negatively associated with graduation outcomes (<em>b</em> = -0.014, <em>z</em> = -4.00, <em>p</em> &lt; .001), consistent with prior evidence that more selective institutions tend to enroll students with stronger prior academic preparation (Zong &amp; Davis, 2022). Tuition and fees was the strongest predictor in the model (<em>b</em> = 6.95e-05, <em>z</em> = 14.00, <em>p</em> &lt; .001); institutions charging higher tuition were substantially more likely to achieve high graduation rates, a pattern that likely reflects broader institutional resource capacity rather than tuition level per se. The proportion of students receiving financial aid was negatively associated with graduation rates (<em>b</em> = -0.030, <em>z</em> = -5.24, <em>p</em> &lt; .001), consistent with research documenting that institutions serving higher proportions of financially vulnerable students face structural barriers to degree completion (Perna, 2010). Average instructional staff salary was positively associated with high graduation rates (<em>b</em> = 3.00e-05, <em>z</em> = 7.74, <em>p</em> &lt; .001), suggesting that faculty compensation, as a proxy for instructional quality and institutional investment, contributes to student success outcomes.</p>
+<p>The full model showed substantial improvement over the null model (null deviance = 2277, df = 1706; residual deviance = 1632, df = 1701; AIC = 1644), indicating that the institutional features collectively accounted for meaningful variance in graduation performance.</p>
 </section>
 <section id="supervised-ml-workflow-results-rq-b" class="level4">
 <h4 class="anchored" data-anchor-id="supervised-ml-workflow-results-rq-b">Supervised ML Workflow Results (RQ B)</h4>
-<p>Using the tidymodels framework, we built a logistic regression model as part of a supervised machine learning workflow. The performance metric obtained is as follows:</p>
-<ul>
-<li><strong>Accuracy</strong>: 80.02%</li>
-</ul>
-<p>This tells us that based on just five or six simple institutional metrics, we can correctly classify whether a university is “high performing” or not with about <strong>80% accuracy</strong>. That’s pretty powerful! It means these numbers aren’t just random noise—they tell a consistent story about what makes a university tick.</p>
+<p>The logistic regression model fitted within the <code>tidymodels</code> supervised machine learning workflow achieved an overall classification accuracy of 80.02%. Based on five institutional predictors, the model correctly classified four out of five institutions as high- or low-performing on graduation rates, indicating that these features carry consistent and meaningful predictive signal with respect to graduation outcomes.</p>
 </section>
 <section id="overall-discussion" class="level4">
 <h4 class="anchored" data-anchor-id="overall-discussion">Overall Discussion</h4>
@@ -1083,7 +1074,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="step-6-final-evaluation" class="level4">
-<h4 class="anchored" data-anchor-id="step-6-final-evaluation">Step 6: Final Evaluation</h4>
+<h4 class="anchored">Step 6: Final Evaluation</h4>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">20230712</span>)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>train_test_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(students_full, <span class="at">prop =</span> <span class="fl">0.67</span>, <span class="at">strata =</span> pass)</span>
@@ -1100,6 +1091,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Top 10 Important Features in Random Forest Model"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>A sample methods section based on these steps can be written as follows:</p>
+<blockquote class="blockquote">
+<h3 id="methods" class="anchored" data-anchor-id="step-6-final-evaluation">Methods</h3>
+<p><strong>Data Source</strong></p>
+<p>Data were drawn from the Open University Learning Analytics Dataset (OULAD; Kuzilek et al., 2017), a publicly available dataset containing demographic information, virtual learning environment (VLE) interaction logs, and assessment records for students enrolled in Open University courses across multiple module presentations. OULAD has been widely used in learning analytics research to model student engagement and predict academic outcomes (e.g., Hlosta et al., 2017; Mubarak et al., 2020).</p>
+<p><strong>Outcome Variable</strong></p>
+<p>The outcome variable was a binary indicator of course result, coded as pass (1) or non-pass (0), derived from the student registration and outcome data provided in OULAD.</p>
+<p><strong>Feature Engineering</strong></p>
+<p>To simulate an early-warning scenario, VLE interaction data were restricted to the period prior to the 25th percentile of assessment submission dates within each module-presentation combination. From this temporally constrained interaction window, three summary features were computed for each student: total clicks (<code>sum_clicks</code>), mean clicks per session (<code>mean_clicks</code>), and standard deviation of clicks (<code>sd_clicks</code>). In addition, a linear regression was fitted to each student’s click sequence over time, yielding an intercept and slope that capture the baseline level and temporal trend of engagement, respectively. These engineered features were joined with student demographic variables (disability status, gender, registration date, and course module) and a measure of prior academic performance (mean weighted assessment score).</p>
+<p><strong>Preprocessing</strong></p>
+<p>All nominal predictors were dummy-coded. Missing values were imputed using k-nearest neighbors (KNN) imputation. All numeric predictors were normalized to a mean of zero and standard deviation of one. Preprocessing was implemented via the <code>recipes</code> package within the <code>tidymodels</code> framework (Kuhn &amp; Wickham, 2020).</p>
+<p><strong>Model Specification and Evaluation</strong></p>
+<p>A random forest classifier was fit using the <code>ranger</code> engine with impurity-based variable importance (Wright &amp; Ziegler, 2017). Model performance was assessed using two complementary evaluation strategies. First, 4-fold cross-validation stratified by the outcome variable was used to estimate out-of-sample performance across multiple data partitions. Second, a held-out test set (33% of the sample, stratified by outcome) was used for final model evaluation. Performance was quantified using accuracy, sensitivity, specificity, positive predictive value (PPV), negative predictive value (NPV), and Cohen’s Kappa. Variable importance was extracted from the final fitted model and visualized for the ten most influential predictors.</p>
+</blockquote>
 </section>
 </section>
 <section id="results-and-discussions-1" class="level3">
@@ -1139,6 +1144,23 @@ The use of 4-fold cross-validation (via <code>vfold_cv</code>) allowed us to ass
 <p>In summary, while our model performs robustly across cross-validation folds and provides actionable insights into key predictive features, the lower specificity points to the need for further refinement. Future work might explore additional feature engineering, alternative model tuning, or combining models to better balance sensitivity and specificity, ultimately supporting timely interventions in educational settings.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Baker2014EDM" class="csl-entry" role="listitem">
+Baker, Ryan S., and Paul Salvador Inventado. 2014. <span>“Educational Data Mining and Learning Analytics.”</span> In <em>Learning Analytics: From Research to Practice</em>, edited by Johann Ari Larusson and Brandon White. Springer.
+</div>
+<div id="ref-James2021ISLR" class="csl-entry" role="listitem">
+James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. <em>An Introduction to Statistical Learning: With Applications in <span>R</span></em>. 2nd ed. Springer.
+</div>
+<div id="ref-Kuzilek2017OULAD" class="csl-entry" role="listitem">
+Kuzilek, Jakub, Martin Hlosta, and Zdenek Zdrahal. 2017. <span>“Open University Learning Analytics Dataset.”</span> <em>Scientific Data</em> 4: 170171.
+</div>
+<div id="ref-Romero2010EDM" class="csl-entry" role="listitem">
+Romero, Cristóbal, and Sebastián Ventura. 2010. <span>“Educational Data Mining: A Review of the State of the Art.”</span> <em><span>IEEE</span> Transactions on Systems, Man, and Cybernetics, Part <span>C</span></em> 40 (6): 601–18.
+</div>
+<div id="ref-Teig2022PISA" class="csl-entry" role="listitem">
+Teig, Nani, Ronny Scherer, and Rolf Vegar Olsen. 2022. <span>“A Systematic Review of Studies Investigating Science Teaching and Learning: Over Two Decades of <span>TIMSS</span> and <span>PISA</span>.”</span> <em>International Journal of Science Education</em> 44 (12): 2035–58.
+</div>
+</div>
 </section>
 </section>
 </section>

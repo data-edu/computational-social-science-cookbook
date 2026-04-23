@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Local LLMs for Text – Computational Analysis of Educational Data: A Field Guide Using R</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -69,19 +72,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./chapter-6.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c5d1edeae8daa928b75dacbf79faf054.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-11fee6df74d16f60ec81aba117e88c52.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c5d1edeae8daa928b75dacbf79faf054.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-f4f10a9a6c3e61416c71969fa1cc4a3c.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8c5f71ffc66263598e920d495c8d238d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-f4f10a9a6c3e61416c71969fa1cc4a3c.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-252411cfd396b9afad8511f4e077726e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-02b580ac8026eae721de7dc387b49e5a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-252411cfd396b9afad8511f4e077726e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-8f25050054b56903b19a5fd755540369.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-8bb660cca24c858b63f21acee2baa371.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-8f25050054b56903b19a5fd755540369.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -445,7 +447,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#meet-lm-studio-your-new-favorite-tool" id="toc-meet-lm-studio-your-new-favorite-tool" class="nav-link" data-scroll-target="#meet-lm-studio-your-new-favorite-tool">7.3 Meet LM Studio: Your New Favorite Tool</a>
   <ul class="collapse">
   <li><a href="#getting-lm-studio-up-and-running" id="toc-getting-lm-studio-up-and-running" class="nav-link" data-scroll-target="#getting-lm-studio-up-and-running">7.3.1 Getting LM Studio Up and Running</a></li>
-  <li><a href="#whats-under-the-hood" id="toc-whats-under-the-hood" class="nav-link" data-scroll-target="#whats-under-the-hood">7.3.2 What’s Under the Hood</a></li>
   <li><a href="#connecting-lm-studio-to-r" id="toc-connecting-lm-studio-to-r" class="nav-link" data-scroll-target="#connecting-lm-studio-to-r">7.3.3 Connecting LM Studio to R</a></li>
   <li><a href="#at-a-glance-lm-studio-capabilities" id="toc-at-a-glance-lm-studio-capabilities" class="nav-link" data-scroll-target="#at-a-glance-lm-studio-capabilities">7.3.4 At a Glance: LM Studio Capabilities</a></li>
   </ul></li>
@@ -485,19 +486,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<!-- JR: The tone in this chatper is a bit different - "let's be honest" (I cut that), "What on earth is a local LLM" (too informal), "Great question!"(just a different style). Let's work to harmonize a bit. -->
+<!-- JR: also, there are a lot of conjunctions here ("Here's the deal") -->
 <p><strong>Overview:</strong><br>
-Let’s be honest: cloud-based AI tools like ChatGPT are amazing—but they can feel a bit nerve-wracking when you’re working with sensitive research data. What if those student survey responses or interview transcripts accidentally went somewhere they shouldn’t? What will your IRB (Institutional Review Board) say? These are totally valid concerns, and that’s exactly where local LLMs come to the rescue.</p>
-<p>In this chapter, we’re going to introduce you to <strong>LM Studio</strong>—a wonderful little application that lets you run powerful AI models right on your own computer. No internet required, no data leaving your machine, no worried glances from your compliance office. Just you, your data, and a really smart assistant that happens to live in your laptop. Sound intriguing? Let’s dive in!</p>
+Cloud-based AI tools like ChatGPT can be amazing, but their use can feel a bit nerve-wracking when you’re working with sensitive research data. What if those student survey responses or interview transcripts accidentally went somewhere they shouldn’t? What will your IRB (Institutional Review Board) say? These are totally valid concerns, and that’s exactly where local LLMs come to the rescue.</p>
+<p>In this chapter, we’re going to introduce you to <strong>LM Studio</strong>—a wonderful application that lets you run powerful AI models on your own computer. No internet required, no data leaving your machine.</p>
 <section id="what-on-earth-is-a-local-llm" class="level2">
 <h2 class="anchored" data-anchor-id="what-on-earth-is-a-local-llm">7.1 What on Earth is a Local LLM?</h2>
-<p>Great question! You’ve probably heard of ChatGPT, Claude, or Gemini—all those cloud-based AI assistants that live “somewhere on the internet.” Well, a <strong>local LLM</strong> is basically the same thing, except it runs 100% on your own computer. No data goes to the cloud. It’s like having a brilliant research assistant who works offline in your office—everything stays within your four walls.</p>
+<p><strong>A local LLM</strong> is basically the same as cloud-based models (think ChatGPT and others), except it runs 100% on your own computer. No data goes to the cloud. It’s like having a brilliant research assistant who works offline in your office—everything stays within your four walls.</p>
 <p><strong>Why would you want this?</strong></p>
-<p>Here’s the deal: when you’re working with educational data, especially things like student responses, interview transcripts, or institutional documents, privacy isn’t just a nice-to-have—it’s often a hard requirement. Local LLMs let you tap into all that AI magic without:</p>
-<ul>
-<li>Sending sensitive data to third-party servers</li>
-<li>Worrying about whether your cloud provider’s terms of service comply with your institution’s rules</li>
-<li>Crossing wires with IRB protocols</li>
-</ul>
+<p>Here’s the deal: when you’re working with educational data, especially things like student responses, interview transcripts, or institutional documents, privacy isn’t just a nice-to-have—it’s often a hard and legal (i.e.&nbsp;FERPA-related) requirement. <!-- JR: Define these different models briefly - what are Llama, Qwen, DeepSeek, Mistral? --></p>
 <p>And here’s the cool part: local LLMs are often built on open-source models (like Llama, Qwen, DeepSeek, or Mistral), which means you can download them for free and run them on your own machine. Pretty nifty, right?</p>
 <p><strong>Key advantages of local LLMs:</strong></p>
 <ul>
@@ -517,7 +515,7 @@ Let’s be honest: cloud-based AI tools like ChatGPT are amazing—but they can 
 <li><strong>Document Q&amp;A</strong> — chat with your PDFs (“wait, what did participant #15 actually say about their learning experience?”)</li>
 <li><strong>Integration with your existing workflow</strong> — connect local LLMs to R, Python, or other tools you already use</li>
 </ul>
-<p>The best part? All of this happens on your machine, with zero privacy concerns.</p>
+<p>All of this happens on your machine, with zero privacy concerns.</p>
 </section>
 <section id="meet-lm-studio-your-new-favorite-tool" class="level2">
 <h2 class="anchored" data-anchor-id="meet-lm-studio-your-new-favorite-tool">7.3 Meet LM Studio: Your New Favorite Tool</h2>
@@ -530,7 +528,8 @@ Let’s be honest: cloud-based AI tools like ChatGPT are amazing—but they can 
 <li><strong>API ready</strong> — can serve models via a simple API for integration with R, Python, or other tools</li>
 <li><strong>Chat with Documents</strong> — upload PDFs and chat with them entirely offline (yes, really!)</li>
 </ul>
-<p><strong>Key Points:</strong> - <strong>Supported Platforms:</strong> macOS (Apple Silicon), Windows (x64/ARM64), and Linux (x64). - <strong>System Requirements:</strong> For best results, check the <a href="https://lmstudio.ai/docs/system-requirements">System Requirements</a> page for recommended RAM, CPU/GPU, and storage.</p>
+<p><strong>Key Points:</strong> - <strong>Supported Platforms:</strong> macOS (Apple Silicon), Windows (x64/ARM64), and Linux (x64).<br>
+- <strong>System Requirements:</strong> For best results, check the <a href="https://lmstudio.ai/docs/system-requirements">System Requirements</a> page for recommended RAM, CPU/GPU, and storage.</p>
 <section id="getting-lm-studio-up-and-running" class="level3">
 <h3 class="anchored" data-anchor-id="getting-lm-studio-up-and-running">7.3.1 Getting LM Studio Up and Running</h3>
 <p>The good news? It’s incredibly easy to get started:</p>
@@ -540,33 +539,11 @@ Let’s be honest: cloud-based AI tools like ChatGPT are amazing—but they can 
 <li><strong>Download a model</strong> — LM Studio makes it simple to browse and download popular models (Llama 3, Qwen, Mistral, etc.)</li>
 <li><strong>Start chatting!</strong> — use the built-in chat interface to try things out</li>
 </ol>
-<p>That’s literally it. No configuration files, no environment variables, no mystery. If you’ve ever used a web-based AI chatbot, you’ll feel right at home.</p>
-<p>Want to go deeper? LM Studio can also:</p>
-<ul>
-<li>Enable API access so you can call the model from R or Python scripts</li>
-<li>Let you attach documents for offline “chat with your PDFs” (researcher heaven!)</li>
-</ul>
-<p><strong>Where to learn more:</strong></p>
-<ul>
-<li><a href="https://lmstudio.ai/docs/">LM Studio Documentation</a></li>
-<li><a href="https://lmstudio.ai/docs/getting-started">Getting Started Guide</a></li>
-</ul>
-</section>
-<section id="whats-under-the-hood" class="level3">
-<h3 class="anchored" data-anchor-id="whats-under-the-hood">7.3.2 What’s Under the Hood</h3>
-<p>Here’s a quick tour of LM Studio’s main features:</p>
-<ul>
-<li><strong>Run local models</strong> — Llama, Qwen, DeepSeek, Mistral, and many more, all running on your own hardware</li>
-<li><strong>Simple chat interface</strong> — type prompts and get responses, just like ChatGPT</li>
-<li><strong>Offline document chat</strong> — upload a PDF and ask it questions (RAG mode, for the tech-savvy)</li>
-<li><strong>Model management</strong> — download, organize, and switch between models with a few clicks</li>
-<li><strong>API access</strong> — serves models on OpenAI-compatible endpoints so R or Python can talk to it</li>
-<li><strong>Community support</strong> — active Discord and helpful docs if you get stuck</li>
-</ul>
+<p>That’s literally it.</p>
 </section>
 <section id="connecting-lm-studio-to-r" class="level3">
 <h3 class="anchored" data-anchor-id="connecting-lm-studio-to-r">7.3.3 Connecting LM Studio to R</h3>
-<p>One of the coolest things about LM Studio is that it exposes an <strong>OpenAI-compatible API</strong>. What does that mean in plain English? It means you can write R code that talks to your local model just like it would talk to ChatGPT—no fancy setup required.</p>
+<p>One of the nice features of LM Studio is that it exposes an <strong>OpenAI-compatible API</strong>. What does that mean in plain English? It means you can write R code that talks to your local model just like it would talk to ChatGPT—no fancy setup required.</p>
 <p>Here’s a simple example:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr) </span>
@@ -670,7 +647,7 @@ Let’s be honest: cloud-based AI tools like ChatGPT are amazing—but they can 
 </section>
 <section id="time-to-let-the-local-llm-do-its-thing" class="level3">
 <h3 class="anchored" data-anchor-id="time-to-let-the-local-llm-do-its-thing">7.4.3 Time to Let the Local LLM Do Its Thing</h3>
-<p>Here’s where the magic happens. We’re going to send our policy texts to the local model running in LM Studio. The setup is straightforward—you’ll need your <code>api_base</code> and <code>model_name</code> ready to go (we’re using <code>openai/gpt-oss-20b</code> in this example, but you can swap in whatever model you prefer).</p>
+<p>We’re going to send our policy texts to the local model running in LM Studio. The setup is straightforward—you’ll need your <code>api_base</code> and <code>model_name</code> ready to go (we’re using <code>openai/gpt-oss-20b</code> in this example, but you can swap in whatever model you prefer).</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
@@ -1113,10 +1090,11 @@ Researchers may use a three-point scale (“Accurate,” “Partially Accurate,�
 <span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(validation_data)</span>
 <span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(validation_accuracy) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<!-- JR: I think validation is better - cross-validation will make people think about the supervised machine learning technique  -->
 </section>
 </section>
-<section id="quantitative-cross-validation-comparing-theme-frequencies" class="level4">
-<h4 class="anchored" data-anchor-id="quantitative-cross-validation-comparing-theme-frequencies">7.4.5.2 Quantitative Cross-Validation (Comparing Theme Frequencies)</h4>
+<section id="validation-comparing-theme-frequencies" class="level4">
+<h4 class="anchored" data-anchor-id="validation-comparing-theme-frequencies">7.4.5.2 Validation (Comparing Theme Frequencies)</h4>
 <p>After obtaining the thematic results from LM Studio, researchers can test their reliability by <strong>comparing them against traditional keyword-based validation</strong>.<br>
 This section walks through that process step by step — showing how quantitative checks can complement qualitative interpretation.</p>
 <section id="step-1-concept-and-rationale" class="level5">
@@ -1292,9 +1270,9 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ≈ 0.7</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>A correlation around r ≈ 0.7 is pretty solid—it means the LLM and keyword methods largely agree on which themes are most prevalent, even if they count things differently.</p>
+<p>A correlation around <em>r</em> ≈ 0.7 is pretty solid—it means the LLM and keyword methods largely agree on which themes are most prevalent, even if they count things differently.</p>
 <blockquote class="blockquote">
-<p>A correlation around r ≈ 0.7 indicates a strong positive relationship —</p>
+<p>A correlation around <em>r</em> ≈ 0.7 indicates a strong positive relationship —</p>
 <p>the model and the keyword method identify and rank themes in similar ways.</p>
 </blockquote>
 </section>
@@ -1518,6 +1496,7 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <section id="quantitative-validation-conclusion" class="level5">
 <h5 class="anchored" data-anchor-id="quantitative-validation-conclusion">Quantitative Validation Conclusion</h5>
 <p>Overall, the validation demonstrates that <strong>LM Studio’s local model captures the same conceptual contours</strong> as human logic,but with tighter semantic precision. While keyword methods “count what appears,” the LLM “counts what matters.” This finding supports the broader methodological argument of this chapter: <strong>local LLMs can perform qualitative analysis with high interpretive fidelity while preserving privacy and reproducibility</strong>— a valuable balance between computational scalability and human-level understanding.</p>
+<!-- JR: what does this mean? Who said this? Haha, I don't get it. -->
 <blockquote class="blockquote">
 <p>As one of the authors quipped: “The LLM doesn’t just read the policy—it understands the syllabus.”</p>
 </blockquote>
@@ -1652,10 +1631,11 @@ As we advised earlier, this is the perfect moment to step away, stretch, or play
 <h4 class="anchored" data-anchor-id="looking-ahead-from-analysis-to-collaboration">Looking Ahead: From Analysis to Collaboration</h4>
 <p>The lessons from this section mark a transition from <strong>computational text analysis</strong> to <strong>intelligent collaboration with models</strong>. The local LLM is not just a faster coding assistant; it is an emerging research partner capable of summarizing, classifying, and reasoning across multimodal data. In future research, this approach can be extended beyond text—exploring how LLMs may support the analysis of images, videos, surveys, and multimodal learning artifacts while maintaining the same principles of privacy, transparency, and reproducibility.</p>
 <p>What we’ve done here with text is just the beginning. In Chapter 8, we’ll explore how LLMs can analyze <em>images</em>—yes, photos!—opening up entirely new possibilities for educational research. Same privacy-focused approach, but now we’re working with visual data.</p>
+<!-- JR: what is meant by "collaboratively" below? -->
 <blockquote class="blockquote">
 <p><strong>In summary:</strong><br>
 Section 2 taught us how to <em>count words</em>;<br>
-This chapter showed us how machines can <em>understand meaning</em>—securely, locally, and collaboratively.<br>
+This chapter showed us how machines can <em>better understand meaning</em>—securely, locally, and collaboratively.<br>
 Together, they represent a powerful toolkit for computational research in education,<br>
 bridging the measurable and the meaningful, the statistical and the semantic, the algorithmic and the human.</p>
 </blockquote>

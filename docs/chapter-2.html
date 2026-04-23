@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Text Data – Computational Analysis of Educational Data: A Field Guide Using R</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -55,7 +58,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -69,19 +91,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./section-2-Intro.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c5d1edeae8daa928b75dacbf79faf054.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-11fee6df74d16f60ec81aba117e88c52.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c5d1edeae8daa928b75dacbf79faf054.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-f4f10a9a6c3e61416c71969fa1cc4a3c.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8c5f71ffc66263598e920d495c8d238d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-f4f10a9a6c3e61416c71969fa1cc4a3c.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-252411cfd396b9afad8511f4e077726e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-02b580ac8026eae721de7dc387b49e5a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-252411cfd396b9afad8511f4e077726e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-8f25050054b56903b19a5fd755540369.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-8bb660cca24c858b63f21acee2baa371.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-8f25050054b56903b19a5fd755540369.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -500,21 +521,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">2.1 Overview</h2>
-<p>In social sciences, analyzing text data is usually considered the “job” of qualitative researchers. Traditionally, qualitative research involves identifying patterns in non-numeric data, and this pattern recognition is typically done manually. This process is time-intensive but can yield rich research results. Traditional methods for analyzing text data involve human coding and can include direct (e.g., books, online texts) or indirect sources (e.g., interview transcripts).</p>
-<p>With the advent of new software, we can capture and analyze text data in ways that were previously not possible, such as web scraping, accessing social media APIs, or downloading large online documents. Given the increased (opportunities for collecting and) size of text data, analysis now can benefit from computational approaches (e.g., dictionary-based, frequency-based, machine learning) that go beyond manual coding. As we discussed on the front matter of the book, these computational methods allow social scientists to ask new types of research questions, expanding the scope and depth of possible insights.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Disclaimer
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>While resources are available that discuss these analysis methods in depth, this book aims to provide a practical guide for social scientists, using data they will likely encounter. Our goal is to present a “field guide” for guiding research projects through real-world examples.</p>
-</div>
-</div>
+<p>In educational research, analyzing text data is typically considered the work of qualitative researchers. Traditionally, qualitative research involves identifying patterns in non-numeric data, and this pattern recognition is done manually <span class="citation" data-cites="Creswell2018Qualitative">(<a href="#ref-Creswell2018Qualitative" role="doc-biblioref">Creswell and Poth 2018</a>)</span>. This process is time-intensive but can yield rich results — for example, through human coding of interview transcripts, policy documents, or classroom artifacts <span class="citation" data-cites="Saldana2021Coding">(<a href="#ref-Saldana2021Coding" role="doc-biblioref">Saldaña 2021</a>)</span>.</p>
+<p>With the advent of new software, we can capture and analyze text data in ways that were previously not possible, such as web scraping, accessing social media APIs, or downloading large online documents. Given the increased scale and variety of available text data, analysis now benefits from computational approaches — including dictionary-based, frequency-based, and machine learning methods — that go beyond manual coding <span class="citation" data-cites="Silge2017TextMining Grimmer2022TextAsData">(<a href="#ref-Silge2017TextMining" role="doc-biblioref">Silge and Robinson 2017</a>; <a href="#ref-Grimmer2022TextAsData" role="doc-biblioref">Grimmer et al. 2022</a>)</span>. These methods allow educational researchers to ask new types of research questions, expanding the scope and depth of possible insights. For example, <span class="citation" data-cites="Rosenberg2021Twitter">Rosenberg et al. (<a href="#ref-Rosenberg2021Twitter" role="doc-biblioref">2021</a>)</span> used computational text analysis to examine public sentiment about science education policy across thousands of social media posts — a scale of analysis not feasible through traditional qualitative methods.</p>
 </section>
 <section id="accessing-text-data" class="level2">
 <h2 class="anchored" data-anchor-id="accessing-text-data">2.2 Accessing Text Data</h2>
@@ -534,11 +542,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="is-web-scraping-legal" class="level4">
 <h4 class="anchored" data-anchor-id="is-web-scraping-legal">Is Web Scraping Legal?</h4>
+<!-- JR: This is a little nuanced. The terms of service are just the terms that we have to follow to stay in a company's good graces - I don't think there is anything legal at play in most cases --- just getting booted from a platform. The answer here is to cite some sources on this, I think. -->
 <p>Web scraping was common in the early days of the internet, but with the increasing value of data, legal norms have evolved. To avoid legal issues, check the “Terms of Service” for specific permissions on the website, often accessible via “robots.txt” files. Consult legal advice when in doubt.</p>
 </section>
 <section id="reading-a-web-page-into-r" class="level4">
 <h4 class="anchored" data-anchor-id="reading-a-web-page-into-r">Reading a Web Page into R</h4>
-<p>Once permissions are confirmed, the first step in web scraping is to download the webpage’s source code into R, typically using the <code>rvest</code> package by Hadley Wickham.</p>
+<p>Once permissions are confirmed, the first step in web scraping is to download the webpage’s source code into R. In R, a great package to do this is <code>rvest</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load the rvest package</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"rvest"</span>)</span>
@@ -618,6 +627,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="what-is-an-api" class="level4">
 <h4 class="anchored" data-anchor-id="what-is-an-api">What is an API?</h4>
+<!-- JR: What does REST stand for? How is it different from other APIs? -->
 <p>An Application Programming Interface (API) is a set of protocols that allows computers to communicate and exchange information. A common type is the REST API, where one machine sends a request, and another returns a response. APIs provide standardized access to data, services, and functionalities, making them essential in software development.</p>
 </section>
 <section id="when-to-use-an-api" class="level4">
@@ -942,6 +952,7 @@ If further analysis is needed, such as frequency-based analysis, split the text 
 </section>
 <section id="step-4-create-a-word-cloud" class="level4">
 <h4 class="anchored" data-anchor-id="step-4-create-a-word-cloud">Step 4: Create a Word Cloud</h4>
+<!-- JR: we may want to add a note that this is often not the most effective viz of counts of words - I believe a bar chart may often be easier, though these are fun. There are some sources on this; we used one in STEM 691 (I can't remember the title and am on the plane right now - the book by Clause Wilke). -->
 <p>Generate a word cloud to visualize the frequency of words in a circular shape.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create and display the GenAI usage Stance wordcloud</span></span>
@@ -1320,6 +1331,23 @@ The identified themes reflect both concerns and opportunities:</p>
 </ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Creswell2018Qualitative" class="csl-entry" role="listitem">
+Creswell, John W., and Cheryl N. Poth. 2018. <em>Qualitative Inquiry and Research Design: Choosing Among Five Approaches</em>. 4th ed. <span>SAGE</span> Publications.
+</div>
+<div id="ref-Grimmer2022TextAsData" class="csl-entry" role="listitem">
+Grimmer, Justin, Margaret E. Roberts, and Brandon M. Stewart. 2022. <em>Text as Data: A New Framework for Machine Learning and the Social Sciences</em>. Princeton University Press.
+</div>
+<div id="ref-Rosenberg2021Twitter" class="csl-entry" role="listitem">
+Rosenberg, Joshua M., Conrad Borchers, Elizabeth B. Dyer, Daniel Anderson, and Christian Fischer. 2021. <span>“Understanding Public Sentiment about Educational Reforms: The Next Generation Science Standards on <span>Twitter</span>.”</span> <em>AERA Open</em> 7: 23328584211024261.
+</div>
+<div id="ref-Saldana2021Coding" class="csl-entry" role="listitem">
+Saldaña, Johnny. 2021. <span>“Coding Techniques for Quantitative and Mixed Data.”</span> In <em>The Routledge Reviewer’s Guide to Mixed Methods Analysis</em>. Routledge.
+</div>
+<div id="ref-Silge2017TextMining" class="csl-entry" role="listitem">
+Silge, Julia, and David Robinson. 2017. <em>Text Mining with <span>R</span>: A Tidy Approach</em>. O’Reilly Media. <a href="https://www.tidytextmining.com/">https://www.tidytextmining.com/</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

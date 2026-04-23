@@ -2,15 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Wei Wang, Mete Akcaoglu, Joshua Rosenberg, Shaun Kellogg">
-<meta name="dcterms.date" content="2026-04-04">
+<meta name="dcterms.date" content="2026-04-23">
 
 <title>Computational Analysis of Educational Data: A Field Guide Using R</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -22,7 +25,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -35,19 +57,18 @@ ul.task-list li input[type="checkbox"] {
 <link href="./section-1-Intro.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c5d1edeae8daa928b75dacbf79faf054.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-11fee6df74d16f60ec81aba117e88c52.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c5d1edeae8daa928b75dacbf79faf054.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-f4f10a9a6c3e61416c71969fa1cc4a3c.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8c5f71ffc66263598e920d495c8d238d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-f4f10a9a6c3e61416c71969fa1cc4a3c.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-252411cfd396b9afad8511f4e077726e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-02b580ac8026eae721de7dc387b49e5a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-252411cfd396b9afad8511f4e077726e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-8f25050054b56903b19a5fd755540369.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-8bb660cca24c858b63f21acee2baa371.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-8f25050054b56903b19a5fd755540369.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -407,6 +428,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#why-this-book" id="toc-why-this-book" class="nav-link active" data-scroll-target="#why-this-book">Why this book?</a></li>
+  <li><a href="#what-we-mean-by-computational-methods" id="toc-what-we-mean-by-computational-methods" class="nav-link" data-scroll-target="#what-we-mean-by-computational-methods">What we mean by computational methods</a></li>
   <li><a href="#llms-in-computational-analysis" id="toc-llms-in-computational-analysis" class="nav-link" data-scroll-target="#llms-in-computational-analysis">LLMs in computational analysis</a></li>
   <li><a href="#this-book-vs.-the-ai-timeline" id="toc-this-book-vs.-the-ai-timeline" class="nav-link" data-scroll-target="#this-book-vs.-the-ai-timeline">This Book Vs. The AI Timeline</a></li>
   <li><a href="#who-is-this-book-for" id="toc-who-is-this-book-for" class="nav-link" data-scroll-target="#who-is-this-book-for">Who is this book for?</a></li>
@@ -437,7 +459,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 4, 2026</p>
+      <p class="date">April 23, 2026</p>
     </div>
   </div>
   
@@ -470,7 +492,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Welcome to <em>Computational Analysis of Educational Data: A Field Guide Using R</em>!</p>
 <section id="why-this-book" class="level3">
 <h3 class="anchored" data-anchor-id="why-this-book">Why this book?</h3>
-<p>Conventionally, as social scientists, we start the research process by generating research questions based on our previous knowledge and theories in the field. This is the normative view of how the research process should work. But we are limited in how we see the world: we don’t know what we don’t know. For example, someone who does not know that Twitter posts can be collected and analyzed as data to capture the state of the world will most likely not develop research questions about Twitter data. This reveals that it is also epistemologically possible for our observations of the world to guide our research questions or that discovering what can serve as data shapes what we can ask as research questions.</p>
+<p>Conventionally, as educational researchers, we start the research process by generating research questions based on our previous knowledge and theories in the field. This is the normative view of how the research process should work. But we are limited in how we see the world: we don’t know what we don’t know. For example, someone who does not know that social media posts can be collected and analyzed as data to capture the state of the world will most likely not develop research questions about such data. This reveals that it is also epistemologically possible for our observations of the world to guide our research questions — that discovering what can serve as data shapes what we can ask as research questions <span class="citation" data-cites="Salganik2019BitByBit">(<a href="#ref-Salganik2019BitByBit" role="doc-biblioref">Salganik 2019</a>)</span>.</p>
 <p>In practice, the research process does not always proceed in the orderly, linear fashion suggested by the conventional model. Once you start seeing what can be data in the world, it shapes your ideas of what is “researchable.” Here is a simple model that we propose showing the reciprocal nature of the research process, which is central to our aims in this book:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -478,7 +500,7 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>Figure 1. Research - data relationship (Generated using Gemini Pro based on an earlier drawing by the authors)</figcaption>
 </figure>
 </div>
-<p>We are writing this book because in the past few years what we described above has started happening for us. We have published work on Twitter data, Social Network analyses, natural language processing, and machine learning that was only possible after we learned what kind of data already existed around us. We thought other social scientists may benefit from a resource that not only tells them what is available as data but also guides them through concrete examples of going through this research journey along with us. We hope that along this journey you will develop your own research questions, and maybe even replicate some of the studies we imagined in this book.</p>
+<p>We are writing this book because in the past few years what we described above has started happening for us. We have published work on social media data, social network analysis, natural language processing, and machine learning that was only possible after we learned what kind of data already existed around us <span class="citation" data-cites="Estrellado2020DataScience">(<a href="#ref-Estrellado2020DataScience" role="doc-biblioref">Estrellado et al. 2020</a>)</span>. We thought other educational researchers may benefit from a resource that not only tells them what is available as data but also guides them through concrete examples of going through this research journey along with us. We hope that along this journey you will develop your own research questions, and maybe even replicate some of the studies we imagined in this book.</p>
 <p>A second distinctive feature of this book is the “field guide” process we use to work through research design and reporting. Although there are many books on R (or Positron), they usually cover the data science aspects of the work, leaving the academic writing and reporting to individuals. Although researchers are expert in writing up conventional methods or results, these emerging data analysis methods (thanks to new ways data has become available) require a new guidebook. For each computational research method, we follow this process:</p>
 <ol type="1">
 <li><p>Start with what makes good data for that analysis (and how to capture it)</p></li>
@@ -488,6 +510,11 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Provide a sample write up for Methods</p></li>
 <li><p>Provide a sample write up for Results</p></li>
 </ol>
+</section>
+<section id="what-we-mean-by-computational-methods" class="level3">
+<h3 class="anchored" data-anchor-id="what-we-mean-by-computational-methods">What we mean by computational methods</h3>
+<p>By <em>computational methods</em>, we mean research approaches that leverage the power of computing to collect, process, and analyze data at a scale or speed not possible through traditional means. This includes methods that fall under the umbrella of data science — such as text analysis, social network analysis, and machine learning — as well as the emerging use of generative AI and large language models as research tools <span class="citation" data-cites="Romero2010EDM Siemens2013LA Estrellado2020DataScience">(<a href="#ref-Romero2010EDM" role="doc-biblioref">Romero and Ventura 2010</a>; <a href="#ref-Siemens2013LA" role="doc-biblioref">Siemens 2013</a>; <a href="#ref-Estrellado2020DataScience" role="doc-biblioref">Estrellado et al. 2020</a>)</span>. These approaches are sometimes grouped under educational data science, learning analytics, or educational data mining, depending on the community and tradition <span class="citation" data-cites="Lang2017HandbookLA Krumm2018LA">(<a href="#ref-Lang2017HandbookLA" role="doc-biblioref">Lang et al. 2017</a>; <a href="#ref-Krumm2018LA" role="doc-biblioref">Krumm et al. 2018</a>)</span>.</p>
+<p>Computational social science <span class="citation" data-cites="Lazer2009CSS">(<a href="#ref-Lazer2009CSS" role="doc-biblioref">Lazer et al. 2009</a>)</span> is an ally field that has advanced many of the methods we draw on. But we focus specifically on educational research, where the data, questions, and stakes have distinctive features — among them, the prevalence of sensitive student data, the importance of equity and context in interpretation, and the goal of understanding, describing, predicting, and impacting learning and teaching.</p>
 </section>
 <section id="llms-in-computational-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="llms-in-computational-analysis">LLMs in computational analysis</h3>
@@ -519,6 +546,29 @@ ul.task-list li input[type="checkbox"] {
 <p>The book is organized around four sections. Within these sections, there are specific chapters, which serve as field guide “entries” or “cases”. While the section overviews (the first chapter within each section) introduce the techniques or methodologies used in the rest of the section’s chapters, the chapters are intended to address a specific, narrow case, where we provide a sample write-up for researchers in writing their research questions, methods, results (and discussions) sections based on the analyses.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Estrellado2020DataScience" class="csl-entry" role="listitem">
+Estrellado, Ryan A., Emily A. Freer, Jesse Mostipak, Joshua M. Rosenberg, and Isabella C. Velásquez. 2020. <em>Data Science in Education Using <span>R</span></em>. Routledge.
+</div>
+<div id="ref-Krumm2018LA" class="csl-entry" role="listitem">
+Krumm, Andrew, Barbara Means, and Marie Bienkowski. 2018. <em>Learning Analytics Goes to School: A Collaborative Approach to Improving Education</em>. Routledge.
+</div>
+<div id="ref-Lang2017HandbookLA" class="csl-entry" role="listitem">
+Lang, Charles, George Siemens, Alyssa Wise, and Dragan Gašević, eds. 2017. <em>Handbook of Learning Analytics</em>. Society for Learning Analytics Research (<span>SoLAR</span>).
+</div>
+<div id="ref-Lazer2009CSS" class="csl-entry" role="listitem">
+Lazer, David, Alex Pentland, Lada Adamic, et al. 2009. <span>“Computational Social Science.”</span> <em>Science</em> 323 (5915): 721–23.
+</div>
+<div id="ref-Romero2010EDM" class="csl-entry" role="listitem">
+Romero, Cristóbal, and Sebastián Ventura. 2010. <span>“Educational Data Mining: A Review of the State of the Art.”</span> <em><span>IEEE</span> Transactions on Systems, Man, and Cybernetics, Part <span>C</span></em> 40 (6): 601–18.
+</div>
+<div id="ref-Salganik2019BitByBit" class="csl-entry" role="listitem">
+Salganik, Matthew J. 2019. <em>Bit by Bit: Social Research in the Digital Age</em>. Princeton University Press.
+</div>
+<div id="ref-Siemens2013LA" class="csl-entry" role="listitem">
+Siemens, George. 2013. <span>“Learning Analytics: The Emergence of a Discipline.”</span> <em>American Behavioral Scientist</em> 57 (10): 1380–400.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

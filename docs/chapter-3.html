@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Network Data – Computational Analysis of Educational Data: A Field Guide Using R</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -55,7 +58,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -69,19 +91,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./chapter-2.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c5d1edeae8daa928b75dacbf79faf054.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-11fee6df74d16f60ec81aba117e88c52.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c5d1edeae8daa928b75dacbf79faf054.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-f4f10a9a6c3e61416c71969fa1cc4a3c.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8c5f71ffc66263598e920d495c8d238d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-f4f10a9a6c3e61416c71969fa1cc4a3c.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-252411cfd396b9afad8511f4e077726e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-02b580ac8026eae721de7dc387b49e5a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-252411cfd396b9afad8511f4e077726e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-8f25050054b56903b19a5fd755540369.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-8bb660cca24c858b63f21acee2baa371.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-8f25050054b56903b19a5fd755540369.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -495,7 +516,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">3.1 Overview</h2>
-<p>Social network analysis (SNA) is the process of investigating social structures through the use of networks and graph theory. It is a technique used to map and measure relationships and flows between people, groups, organizations, computers, or other information/knowledge processing entities. SNA can be a useful tool for understanding the team structures, for example, in an online classroom. It can be an additional layer of understanding the outcomes (or predictors) of certain instructional interventions. Used this way SNA can be used to identify patterns and trends in social networks, as well as to understand how these networks operate. Additionally, SNA can be used to predict future behavior in social networks, and to design interventions that aim to improve the functioning of these networks.</p>
+<p>Social network analysis (SNA) is the process of investigating social structures through the use of networks and graph theory <span class="citation" data-cites="Wasserman1994SNA Borgatti2013SNA">(<a href="#ref-Wasserman1994SNA" role="doc-biblioref">Wasserman and Faust 1994</a>; <a href="#ref-Borgatti2013SNA" role="doc-biblioref">Borgatti et al. 2013</a>)</span>. It maps and measures relationships and flows between people, groups, organizations, computers, or other information/knowledge processing entities — capturing not just individual attributes but the connections between them. In educational research, SNA has been applied to understand collaboration structures, examine the spread of information and influence, and evaluate the effects of instructional interventions on learner interactions <span class="citation" data-cites="Carolan2014SNA">(<a href="#ref-Carolan2014SNA" role="doc-biblioref">Carolan 2014</a>)</span>.</p>
+<p>These applications range from analyzing face-to-face classroom dynamics to large-scale online learning environments. For example, <span class="citation" data-cites="Kellogg2015MOOCEd">Kellogg and Edelmann (<a href="#ref-Kellogg2015MOOCEd" role="doc-biblioref">2015</a>)</span> examined discussion networks in a massively open online course, and <span class="citation" data-cites="Rosenberg2021SocialInfluence">Rosenberg and Staudt Willet (<a href="#ref-Rosenberg2021SocialInfluence" role="doc-biblioref">2021</a>)</span> explored how social influence models can be advanced within learning analytics contexts. Used this way, SNA can identify patterns and trends in how networks form and operate, predict future behavior, and inform the design of interventions that improve learning environments.</p>
 </section>
 <section id="accessing-sna-data" class="level2">
 <h2 class="anchored" data-anchor-id="accessing-sna-data">3.2 Accessing SNA Data</h2>
@@ -859,6 +881,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-73"><a href="#cb12-73" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Density:"</span>, density, <span class="st">"Reciprocity:"</span>, recip, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
 <span id="cb12-74"><a href="#cb12-74" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Transitivity:"</span>, trans, <span class="st">"Diameter:"</span>, diam, <span class="st">"Mean Distance:"</span>, mean_d, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<!-- JR: I feel using `cat()` is kind of weird and to be avoided - it... only makes sense in a report (in text)? I don't really think it's common. We should check throughout the book and change - just print the output and add a comment next to it or interpret it below. -->
 <p>A sample methods section of these analytical steps can be written as follows:<br>
 </p>
 <blockquote class="blockquote">
@@ -1154,6 +1177,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Borgatti2013SNA" class="csl-entry" role="listitem">
+Borgatti, Stephen P., Martin G. Everett, and Jeffrey C. Johnson. 2013. <em>Analyzing Social Networks</em>. <span>SAGE</span> Publications.
+</div>
+<div id="ref-Carolan2014SNA" class="csl-entry" role="listitem">
+Carolan, Brian V. 2014. <em>Social Network Analysis and Education: Theory, Methods and Applications</em>. <span>SAGE</span> Publications.
+</div>
+<div id="ref-Kellogg2015MOOCEd" class="csl-entry" role="listitem">
+Kellogg, Shaun, and Achim Edelmann. 2015. <span>“Massively Open Online Course for Educators (<span>MOOC-Ed</span>) Network Dataset.”</span> <em>British Journal of Educational Technology</em> 46 (5): 977–83.
+</div>
+<div id="ref-Rosenberg2021SocialInfluence" class="csl-entry" role="listitem">
+Rosenberg, Joshua M., and K. Bret Staudt Willet. 2021. <span>“Advancing Social Influence Models in Learning Analytics.”</span> <em>Proceedings of the <span>NetSciLA21</span> Workshop</em>. <a href="https://ceur-ws.org/Vol-2868/article_2.pdf">https://ceur-ws.org/Vol-2868/article_2.pdf</a>.
+</div>
+<div id="ref-Wasserman1994SNA" class="csl-entry" role="listitem">
+Wasserman, Stanley, and Katherine Faust. 1994. <em>Social Network Analysis: Methods and Applications</em>. Cambridge University Press.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

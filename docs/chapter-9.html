@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Communication Matters – Computational Analysis of Educational Data: A Field Guide Using R</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -55,7 +58,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -69,19 +91,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./chapter-8.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c5d1edeae8daa928b75dacbf79faf054.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-11fee6df74d16f60ec81aba117e88c52.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c5d1edeae8daa928b75dacbf79faf054.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-f4f10a9a6c3e61416c71969fa1cc4a3c.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8c5f71ffc66263598e920d495c8d238d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-f4f10a9a6c3e61416c71969fa1cc4a3c.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-252411cfd396b9afad8511f4e077726e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-02b580ac8026eae721de7dc387b49e5a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-252411cfd396b9afad8511f4e077726e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-8f25050054b56903b19a5fd755540369.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-8bb660cca24c858b63f21acee2baa371.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-8f25050054b56903b19a5fd755540369.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -456,9 +477,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#project-structure" id="toc-project-structure" class="nav-link" data-scroll-target="#project-structure">9.4.3 Project Structure</a></li>
   <li><a href="#website-configuration" id="toc-website-configuration" class="nav-link" data-scroll-target="#website-configuration">9.4.4 Website Configuration</a></li>
   <li><a href="#communicating-the-analysis-in-a-quarto-document" id="toc-communicating-the-analysis-in-a-quarto-document" class="nav-link" data-scroll-target="#communicating-the-analysis-in-a-quarto-document">9.4.5 Communicating the Analysis in a Quarto Document</a></li>
-  <li><a href="#research-context" id="toc-research-context" class="nav-link" data-scroll-target="#research-context">Research Context</a></li>
-  <li><a href="#research-questions" id="toc-research-questions" class="nav-link" data-scroll-target="#research-questions">Research Questions</a></li>
-  <li><a href="#analytical-overview" id="toc-analytical-overview" class="nav-link" data-scroll-target="#analytical-overview">Analytical Overview</a></li>
   <li><a href="#presenting-results-for-interpretation" id="toc-presenting-results-for-interpretation" class="nav-link" data-scroll-target="#presenting-results-for-interpretation">9.4.6 Presenting Results for Interpretation</a></li>
   <li><a href="#publishing-and-sharing" id="toc-publishing-and-sharing" class="nav-link" data-scroll-target="#publishing-and-sharing">9.4.7 Publishing and Sharing</a></li>
   <li><a href="#why-this-format-matters" id="toc-why-this-format-matters" class="nav-link" data-scroll-target="#why-this-format-matters">9.4.8 Why This Format Matters</a></li>
@@ -495,9 +513,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">9.1 Overview</h2>
-<p>Computational approaches enable educational researchers to analyze increasingly complex and large-scale data. However, the value of these analyses ultimately depends on how clearly and responsibly findings are communicated. Communication is not a final step added after analysis—it is an integral part of making research meaningful, interpretable, and usable.</p>
-<p>Poor communication can obscure otherwise rigorous analyses, while effective communication can extend the reach of research beyond academic journals to educators, designers, policymakers, and students. In computational educational research, communication also involves technical decisions about formats, platforms, and levels of transparency.</p>
-<p>In this chapter, we introduce common ways researchers communicate computational work, with particular attention to open, reproducible, and web-based approaches. We then demonstrate how a complete computational analysis—introduced earlier in this book—can be communicated using a Quarto-based project website.</p>
+<p>Computational approaches enable educational researchers to analyze increasingly complex and large-scale data. However, the value of these analyses ultimately depends on how clearly and responsibly findings are communicated <span class="citation" data-cites="Wilke2019DataViz">(<a href="#ref-Wilke2019DataViz" role="doc-biblioref">Wilke 2019</a>)</span>. Communication is not a final step added after analysis — it is an integral part of making research meaningful, interpretable, and usable <span class="citation" data-cites="Gopen1990ScienceWriting">(<a href="#ref-Gopen1990ScienceWriting" role="doc-biblioref">Gopen and Swan 1990</a>)</span>.</p>
+<p>Poor communication can obscure otherwise rigorous analyses, while effective communication can extend the reach of research beyond academic journals to educators, designers, policymakers, and students. In computational educational research, communication also involves technical decisions about formats, platforms, and levels of transparency <span class="citation" data-cites="Nosek2015OpenScience">(<a href="#ref-Nosek2015OpenScience" role="doc-biblioref">Nosek et al. 2015</a>)</span>.</p>
+<p>In this chapter, we introduce common ways researchers communicate computational work, with particular attention to open, reproducible, and web-based approaches <span class="citation" data-cites="Xie2018RMarkdown">(<a href="#ref-Xie2018RMarkdown" role="doc-biblioref">Xie et al. 2018</a>)</span>. We then demonstrate how a complete computational analysis — introduced earlier in this book — can be communicated using a Quarto-based project website.</p>
 </section>
 <section id="common-ways-to-communicate-computational-educational-research" class="level2">
 <h2 class="anchored" data-anchor-id="common-ways-to-communicate-computational-educational-research">9.2 Common Ways to Communicate Computational Educational Research</h2>
@@ -511,6 +529,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><em>Journal of Learning Analytics</em>: <a href="https://learning-analytics.info/" class="uri">https://learning-analytics.info/</a></li>
 </ul>
 <p>While journal articles are essential for academic recognition, they often impose constraints on length, visualizations, and methodological detail. As a result, many computational decisions—such as preprocessing steps or parameter choices—may be summarized rather than fully documented.</p>
+<p><img src="data/ch9_images/Educational Researcher.png" class="img-fluid"></p>
+<p><em>Example of a traditional journal publication format.</em></p>
 </section>
 <section id="preprints-and-open-science-repositories" class="level3">
 <h3 class="anchored" data-anchor-id="preprints-and-open-science-repositories">9.2.2 Preprints and Open Science Repositories</h3>
@@ -522,6 +542,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Open Science Framework (OSF)</strong>: <a href="https://osf.io/" class="uri">https://osf.io/</a></li>
 </ul>
 <p>Preprints are particularly useful for computational research, where methods evolve quickly and early visibility can support collaboration. Researchers should always confirm that their target journals permit preprint posting.</p>
+<p><img src="data/ch9_images/arxiv.png" class="img-fluid"></p>
+<p><img src="data/ch9_images/osf.png" class="img-fluid"></p>
+<p><em>Examples of preprint and open-science repository interfaces.</em></p>
 </section>
 <section id="project-websites-and-living-documents" class="level3">
 <h3 class="anchored" data-anchor-id="project-websites-and-living-documents">9.2.3 Project Websites and Living Documents</h3>
@@ -533,6 +556,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Authoring documents with <strong>Quarto</strong> (<a href="https://quarto.org/" class="uri">https://quarto.org/</a>)</li>
 </ul>
 <p>This approach supports transparency, reproducibility, and incremental updates. Project websites are especially well suited for method demonstrations, teaching examples, and analyses involving multiple visualizations.</p>
+<p><img src="data/ch9_images/quarto .png" class="img-fluid"></p>
+<p><em>Example of a Quarto-based project website format.</em></p>
 </section>
 <section id="open-data-and-code-archives" class="level3">
 <h3 class="anchored" data-anchor-id="open-data-and-code-archives">9.2.4 Open Data and Code Archives</h3>
@@ -542,6 +567,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Zenodo</strong>: <a href="https://zenodo.org/" class="uri">https://zenodo.org/</a></li>
 </ul>
 <p>These services issue persistent identifiers (DOIs), enabling datasets and code to be cited independently of articles. A common practice is to host active development on GitHub while archiving stable releases on Zenodo.</p>
+<p><img src="data/ch9_images/zenodo.png" class="img-fluid"></p>
+<p><em>Example of an open archive workflow with DOI support.</em></p>
 </section>
 </section>
 <section id="choosing-an-appropriate-communication-strategy" class="level2">
@@ -621,24 +648,23 @@ genai-policy-analysis/
 </section>
 <section id="communicating-the-analysis-in-a-quarto-document" class="level3">
 <h3 class="anchored" data-anchor-id="communicating-the-analysis-in-a-quarto-document">9.4.5 Communicating the Analysis in a Quarto Document</h3>
-<p>The core communication document (<code>frequency-analysis.qmd</code>) integrates narrative text with selected code and visual outputs. Rather than presenting all preprocessing steps, the document emphasizes interpretability and alignment with research questions.</p>
-<p>An excerpt from such a document is shown below:</p>
-</section>
-<section id="research-context" class="level3">
-<h3 class="anchored" data-anchor-id="research-context">Research Context</h3>
-<p>As generative AI writing tools become more prevalent, universities have issued guidelines to clarify acceptable use in academic contexts. This analysis examines 100 publicly available GenAI policy documents from U.S. universities to identify prominent themes and institutional concerns.</p>
-</section>
-<section id="research-questions" class="level3">
-<h3 class="anchored" data-anchor-id="research-questions">Research Questions</h3>
-<ul>
-<li>What words appear most frequently in university GenAI writing usage policies?</li>
-<li>Which keywords reflect common concerns related to academic integrity and instructional responsibility?</li>
-</ul>
-</section>
-<section id="analytical-overview" class="level3">
-<h3 class="anchored" data-anchor-id="analytical-overview">Analytical Overview</h3>
-<p>Text data were tokenized, common stop words were removed, and word frequencies were calculated using R. Full preprocessing and analytical details are documented in Chapter 2.</p>
-<p>Figures such as word clouds and frequency bar charts are rendered directly within the document, allowing readers to view results alongside explanatory text.</p>
+<p>The core communication document (<code>frequency-analysis.qmd</code>) integrates brief narrative text with one clearly interpretable output. For this chapter, we keep the example intentionally simple and reuse the Chapter 2 frequency analysis idea.</p>
+<p>A minimal communication excerpt could look like this:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>policies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/University_GenAI_Policy_Stance.csv"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>top_terms <span class="ot">&lt;-</span> policies <span class="sc">|&gt;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, Stance) <span class="sc">|&gt;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words, <span class="at">by =</span> <span class="st">"word"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">12</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Then, in the communication page, we show one simple bar chart with short interpretation text.</p>
+<p><img src="data/ch9_images/ch2-simple-frequency-example.png" class="img-fluid"></p>
+<p><em>Simple example output adapted from Chapter 2 text analysis for communication purposes.</em></p>
 </section>
 <section id="presenting-results-for-interpretation" class="level3">
 <h3 class="anchored" data-anchor-id="presenting-results-for-interpretation">9.4.6 Presenting Results for Interpretation</h3>
@@ -650,6 +676,9 @@ genai-policy-analysis/
 <p>Once rendered, the Quarto project can be published via GitHub Pages by hosting the repository on GitHub (https://github.com/). This process produces a stable, shareable URL that can be cited in manuscripts, course syllabi, or presentations.</p>
 <p>Examples of publicly available Quarto projects can be found at:</p>
 <p>https://quarto.org/examples/</p>
+<p><img src="data/ch9_images/github repo codes.png" class="img-fluid"></p>
+<p><img src="data/ch9_images/github page.png" class="img-fluid"></p>
+<p><em>Example of source repository and published GitHub Pages output.</em></p>
 </section>
 <section id="why-this-format-matters" class="level3">
 <h3 class="anchored" data-anchor-id="why-this-format-matters">9.4.8 Why This Format Matters</h3>
@@ -698,6 +727,20 @@ genai-policy-analysis/
 <p>Together, these practices support rigorous, responsible, and impactful computational educational research.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Gopen1990ScienceWriting" class="csl-entry" role="listitem">
+Gopen, George D., and Judith A. Swan. 1990. <span>“The Science of Scientific Writing.”</span> <em>American Scientist</em> 78 (6): 550–58.
+</div>
+<div id="ref-Nosek2015OpenScience" class="csl-entry" role="listitem">
+Nosek, Brian A., George Alter, George C. Banks, et al. 2015. <span>“Promoting an Open Research Culture.”</span> <em>Science</em> 348 (6242): 1422–25.
+</div>
+<div id="ref-Wilke2019DataViz" class="csl-entry" role="listitem">
+Wilke, Claus O. 2019. <em>Fundamentals of Data Visualization</em>. O’Reilly Media. <a href="https://clauswilke.com/dataviz/">https://clauswilke.com/dataviz/</a>.
+</div>
+<div id="ref-Xie2018RMarkdown" class="csl-entry" role="listitem">
+Xie, Yihui, J. J. Allaire, and Garrett Grolemund. 2018. <em><span>R</span> Markdown: The Definitive Guide</em>. Chapman; Hall/<span>CRC</span>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

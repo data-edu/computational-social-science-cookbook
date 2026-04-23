@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Positron Assistant and Databot – Computational Analysis of Educational Data: A Field Guide Using R</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -55,7 +58,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -69,19 +91,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./chapter-5.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c5d1edeae8daa928b75dacbf79faf054.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-11fee6df74d16f60ec81aba117e88c52.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c5d1edeae8daa928b75dacbf79faf054.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-f4f10a9a6c3e61416c71969fa1cc4a3c.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8c5f71ffc66263598e920d495c8d238d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-f4f10a9a6c3e61416c71969fa1cc4a3c.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-252411cfd396b9afad8511f4e077726e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-02b580ac8026eae721de7dc387b49e5a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-252411cfd396b9afad8511f4e077726e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-8f25050054b56903b19a5fd755540369.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-8bb660cca24c858b63f21acee2baa371.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-8f25050054b56903b19a5fd755540369.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -510,8 +531,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">6.1 Overview</h2>
-<p>Imagine having a knowledgeable colleague sitting right next to you while you work—someone who never gets tired, never judges when you forget a function name, and genuinely enjoys helping you figure out why your code isn’t behaving. That’s essentially what Positron Assistant brings to your desk.</p>
-<p>In this chapter, we’re going to meet two helpful teammates: <strong>Positron Assistant</strong> and <strong>Databot</strong>. They live in the same ecosystem, but they do different jobs. Positron Assistant is your default coding copilot for chat, inline help, and code suggestions. Databot is an exploratory analysis agent that can accelerate early-stage EDA workflows.</p>
+<p>The use of AI tools to assist with research coding and analysis has grown rapidly in educational research. Early comparisons of hand-coding and computer-assisted methods showed meaningful trade-offs between the two approaches <span class="citation" data-cites="Nelson2021FutureCoding">(<a href="#ref-Nelson2021FutureCoding" role="doc-biblioref">Nelson et al. 2021</a>)</span>, and recent work has demonstrated that large language models can perform qualitative coding with sufficient reliability for many research tasks — though with important caveats about where they work well and where they do not <span class="citation" data-cites="Than2025UpdatingCoding Liu2025GPT4Coding">(<a href="#ref-Than2025UpdatingCoding" role="doc-biblioref">Than et al. 2025</a>; <a href="#ref-Liu2025GPT4Coding" role="doc-biblioref">Liu et al. 2025</a>)</span>. This chapter introduces two tools that bring LLM assistance directly into the R and Positron workflow, making these capabilities accessible without requiring researchers to leave their analysis environment.</p>
+<p>Imagine having a knowledgeable colleague sitting right next to you while you work — someone who never gets tired, never judges when you forget a function name, and genuinely enjoys helping you figure out why your code isn’t behaving. That’s essentially what Positron Assistant brings to your desk.</p>
+<p>In this chapter, we’re going to meet two AI-assisted tools: <strong>Positron Assistant</strong> and <strong>Databot</strong>. They live in the same ecosystem, but they do different jobs. Positron Assistant is your default coding copilot for chat, inline help, and code suggestions. Databot is an exploratory analysis agent that can accelerate early-stage EDA workflows.</p>
 <p>We’ll treat Positron Assistant as the primary path for most readers and Databot as an optional extension, because Databot is currently in research preview.</p>
 <p>Whether you’re just starting out with R or you’ve been writing code for years, these tools can genuinely make your research life easier. Let’s get acquainted!</p>
 </section>
@@ -808,6 +830,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Ready to keep exploring? Let’s go!</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Liu2025GPT4Coding" class="csl-entry" role="listitem">
+Liu, Xuansheng, Andrés Felipe Zambrano, Ryan S. Baker, et al. 2025. <span>“Qualitative Coding with <span>GPT-4</span>: Where It Works Better.”</span> <em>Journal of Learning Analytics</em> 12 (1): 169–85.
+</div>
+<div id="ref-Nelson2021FutureCoding" class="csl-entry" role="listitem">
+Nelson, Laura K., Derek Burk, Miriam Knudsen, and Leslie McCall. 2021. <span>“The Future of Coding: A Comparison of Hand-Coding and Three Types of Computer-Assisted Text Analysis Methods.”</span> <em>Sociological Methods &amp; Research</em> 50 (1): 202–37.
+</div>
+<div id="ref-Than2025UpdatingCoding" class="csl-entry" role="listitem">
+Than, Nhu, Lizhou Fan, Tina Law, Laura K. Nelson, and Leslie McCall. 2025. <span>“Updating <span>‘the Future of Coding’</span>: Qualitative Coding with Generative Large Language Models.”</span> <em>Sociological Methods &amp; Research</em> 54 (3): 849–88.
+</div>
+</div>
 </section>
 </section>
 

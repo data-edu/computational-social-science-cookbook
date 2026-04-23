@@ -22,9 +22,9 @@ A core takeaway for us is that computational approaches are strongest when used 
 
 In many projects, the most rigorous strategy is hybrid:
 
--   use conventional methods to establish descriptive and inferential structure,
--   use LLMs to support interpretation and synthesis,
--   and then validate results through triangulation, human review, and clear documentation.
+- use conventional methods to establish descriptive and inferential structure,
+- use LLMs to support interpretation and synthesis,
+- and then validate results through triangulation, human review, and clear documentation.
 
 This is especially important in educational settings, where data are often sensitive and interpretations carry real consequences for learners, educators, and institutions. In our view, method choice is always also an ethical choice.
 
@@ -32,9 +32,9 @@ This is especially important in educational settings, where data are often sensi
 
 Throughout this book, we returned to three standards for responsible computational and AI-assisted research:
 
--   **Correctness**: Are findings supported by evidence and checks?
--   **Transparency**: Can readers see how conclusions were produced?
--   **Reproducibility**: Can the analysis be rerun and audited?
+- **Correctness**: Are findings supported by evidence and checks?
+- **Transparency**: Can readers see how conclusions were produced?
+- **Reproducibility**: Can the analysis be rerun and audited?
 
 These standards apply to all methods, but they are particularly important when LLMs are involved. Whether we use cloud APIs, local models, or assistant tools in the IDE, our role as researchers remains central: define the question, evaluate outputs, document decisions, and make uncertainty visible.
 
