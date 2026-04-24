@@ -19,7 +19,7 @@ Social Network Analysis (SNA) relies on relational data—information about **co
 
 ### 3.2.1 Types and Sources of SNA Data
 
-There are several common sources and structures for SNA data in educational and social science contexts:
+There are several common sources and structures for SNA data in educational research contexts:
 
 -   **Survey-based Network Data**: Collected via roster or name generator questions, e.g., “List the classmates you discuss assignments with.”
 -   **Behavioral/Observational Data**: Derived from logs of actual interactions, e.g., forum replies, emails, classroom seating.

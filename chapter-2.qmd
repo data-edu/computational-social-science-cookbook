@@ -308,7 +308,7 @@ PDF files are a valuable source of text data, often found in research publicatio
 
 ### 2.2.4 Survey, Discussions, etc.
 
-Surveys and discussion posts are valuable sources of text data in social science research, providing insights into participants' perspectives, opinions, and experiences. These data sources often come from open-ended survey responses, online discussion boards, or educational platforms. Extracting and preparing text data from these sources can reveal recurring themes, sentiment, and other patterns that support both quantitative and qualitative analysis. Below are key steps and code examples for processing text data from surveys and discussions in R.
+Surveys and discussion posts are valuable sources of text data in educational research, providing insights into participants' perspectives, opinions, and experiences. These data sources often come from open-ended survey responses, online discussion boards, or educational platforms. Extracting and preparing text data from these sources can reveal recurring themes, sentiment, and other patterns that support both quantitative and qualitative analysis. Below are key steps and code examples for processing text data from surveys and discussions in R.
 
 #### Key Steps for Processing Survey and Discussion Text Data
 
@@ -376,7 +376,7 @@ Surveys and discussion posts are valuable sources of text data in social science
 
 ## 2.3 Methods for Analyzing Text Data
 
-In the following section, we will provide a "recipe" for the social scientist interested in these new methods of analyzing text data to get you from the initial stages of getting the data to running the analyses and the write up. Often left out is also a research question that suits or requires a method. Since we have a data and method-centric approach here, we will backtrack and also provide a research question, so that you can model after it in your own work. Finally, we will provide a sample results and discussions section.
+In the following section, we will provide a "recipe" for the educational researcher interested in these new methods of analyzing text data to get you from the initial stages of getting the data to running the analyses and the write up. Often left out is also a research question that suits or requires a method. Since we have a data and method-centric approach here, we will backtrack and also provide a research question, so that you can model after it in your own work. Finally, we will provide a sample results and discussions section.
 
 ### 2.3.1 Frequency-Based Analysis
 

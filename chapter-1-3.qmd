@@ -11,7 +11,7 @@ The tidyverse is a collection of R packages designed for data science with a sha
 
 <!-- JR: I think we need to cite the book introducing tidyverse (Wickham's book - R for Data Science) -->
 
-Most computational social science workflows rely on tidyverse packages for data manipulation, visualization, and modeling. Learning this ecosystem means learning the tools your collaborators use, the examples you'll find online, and the approaches that scale from quick exploration to publication-ready analysis.
+Most computational educational research workflows rely on tidyverse packages for data manipulation, visualization, and modeling. Learning this ecosystem means learning the tools your collaborators use, the examples you'll find online, and the approaches that scale from quick exploration to publication-ready analysis.
 
 ## What's in the Tidyverse?
 
@@ -64,7 +64,7 @@ glimpse(students)
 
 The `glimpse()` function shows you the structure of your data: how many rows and columns, what type each column is (character, numeric, etc.), and the first few values. This dataset contains information about students (gender, age, region, disability status) along with their course performance (final_result, pass status, mean_weighted_score).
 
-This is the dataset we'll use in the examples below. It represents the kind of educational data you'll work with in computational social science: thousands of observations with both categorical and continuous variables.
+This is the dataset we'll use in the examples below. It represents the kind of educational data you'll work with in computational educational research: thousands of observations with both categorical and continuous variables.
 
 ## Essential dplyr Functions
 

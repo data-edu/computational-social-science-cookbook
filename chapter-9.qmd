@@ -198,17 +198,19 @@ Narrative text accompanying the visualization explains how these patterns relate
 
 ### 9.4.7 Publishing and Sharing
 
-Once rendered, the Quarto project can be published via GitHub Pages by hosting the repository on GitHub (https://github.com/). This process produces a stable, shareable URL that can be cited in manuscripts, course syllabi, or presentations.
+To make this concrete, we use the public `data-edu/tidyLPA` repository as an example communication workflow [@Rosenberg2018tidyLPA]:
 
-Examples of publicly available Quarto projects can be found at:
+<https://github.com/data-edu/tidyLPA>
 
-https://quarto.org/examples/
+In this workflow, the **source layer** is the GitHub repository (Quarto files, scripts, commit history, documentation), and the **public layer** is the rendered GitHub Pages site. Together, these two layers provide a stable, citable, and transparent communication artifact for computational educational research.
+
+<https://data-edu.github.io/tidyLPA>
 
 ![](<data/ch9_images/github repo codes.png>)
 
 ![](<data/ch9_images/github page.png>)
 
-*Example of source repository and published GitHub Pages output.*
+*Example of the `data-edu/tidyLPA` source repository and its published GitHub Pages output.*
 
 ### 9.4.8 Why This Format Matters
 

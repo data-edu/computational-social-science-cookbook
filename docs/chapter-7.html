@@ -442,9 +442,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#what-on-earth-is-a-local-llm" id="toc-what-on-earth-is-a-local-llm" class="nav-link active" data-scroll-target="#what-on-earth-is-a-local-llm">7.1 What on Earth is a Local LLM?</a></li>
-  <li><a href="#what-can-local-llms-actually-do" id="toc-what-can-local-llms-actually-do" class="nav-link" data-scroll-target="#what-can-local-llms-actually-do">7.2 What Can Local LLMs Actually Do?</a></li>
-  <li><a href="#meet-lm-studio-your-new-favorite-tool" id="toc-meet-lm-studio-your-new-favorite-tool" class="nav-link" data-scroll-target="#meet-lm-studio-your-new-favorite-tool">7.3 Meet LM Studio: Your New Favorite Tool</a>
+  <li><a href="#what-is-a-local-llm" id="toc-what-is-a-local-llm" class="nav-link active" data-scroll-target="#what-is-a-local-llm">7.1 What is a Local LLM?</a></li>
+  <li><a href="#what-can-local-llms-do-in-educational-research" id="toc-what-can-local-llms-do-in-educational-research" class="nav-link" data-scroll-target="#what-can-local-llms-do-in-educational-research">7.2 What Can Local LLMs Do in Educational Research?</a></li>
+  <li><a href="#lm-studio-as-a-local-model-environment" id="toc-lm-studio-as-a-local-model-environment" class="nav-link" data-scroll-target="#lm-studio-as-a-local-model-environment">7.3 LM Studio as a Local Model Environment</a>
   <ul class="collapse">
   <li><a href="#getting-lm-studio-up-and-running" id="toc-getting-lm-studio-up-and-running" class="nav-link" data-scroll-target="#getting-lm-studio-up-and-running">7.3.1 Getting LM Studio Up and Running</a></li>
   <li><a href="#connecting-lm-studio-to-r" id="toc-connecting-lm-studio-to-r" class="nav-link" data-scroll-target="#connecting-lm-studio-to-r">7.3.3 Connecting LM Studio to R</a></li>
@@ -452,7 +452,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#putting-it-all-together-a-real-example" id="toc-putting-it-all-together-a-real-example" class="nav-link" data-scroll-target="#putting-it-all-together-a-real-example">7.4 Putting It All Together: A Real Example</a>
   <ul class="collapse">
-  <li><a href="#what-were-trying-to-figure-out" id="toc-what-were-trying-to-figure-out" class="nav-link" data-scroll-target="#what-were-trying-to-figure-out">7.4.1 What We’re Trying to Figure Out</a></li>
+  <li><a href="#research-question" id="toc-research-question" class="nav-link" data-scroll-target="#research-question">7.4.1 Research Question</a></li>
   <li><a href="#the-data-were-working-with" id="toc-the-data-were-working-with" class="nav-link" data-scroll-target="#the-data-were-working-with">7.4.2 The Data We’re Working With</a></li>
   <li><a href="#time-to-let-the-local-llm-do-its-thing" id="toc-time-to-let-the-local-llm-do-its-thing" class="nav-link" data-scroll-target="#time-to-let-the-local-llm-do-its-thing">7.4.3 Time to Let the Local LLM Do Its Thing</a></li>
   <li><a href="#sample-output" id="toc-sample-output" class="nav-link" data-scroll-target="#sample-output">7.4.4 Sample Output</a></li>
@@ -486,17 +486,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<!-- JR: The tone in this chatper is a bit different - "let's be honest" (I cut that), "What on earth is a local LLM" (too informal), "Great question!"(just a different style). Let's work to harmonize a bit. -->
-<!-- JR: also, there are a lot of conjunctions here ("Here's the deal") -->
 <p><strong>Overview:</strong><br>
-Cloud-based AI tools like ChatGPT can be amazing, but their use can feel a bit nerve-wracking when you’re working with sensitive research data. What if those student survey responses or interview transcripts accidentally went somewhere they shouldn’t? What will your IRB (Institutional Review Board) say? These are totally valid concerns, and that’s exactly where local LLMs come to the rescue.</p>
-<p>In this chapter, we’re going to introduce you to <strong>LM Studio</strong>—a wonderful application that lets you run powerful AI models on your own computer. No internet required, no data leaving your machine.</p>
-<section id="what-on-earth-is-a-local-llm" class="level2">
-<h2 class="anchored" data-anchor-id="what-on-earth-is-a-local-llm">7.1 What on Earth is a Local LLM?</h2>
-<p><strong>A local LLM</strong> is basically the same as cloud-based models (think ChatGPT and others), except it runs 100% on your own computer. No data goes to the cloud. It’s like having a brilliant research assistant who works offline in your office—everything stays within your four walls.</p>
+Cloud-based AI tools are often effective for coding and analysis, but they may be difficult to use in projects involving sensitive educational data. In many settings, researchers must address institutional and regulatory requirements before sending text to external services. Local LLM workflows provide an alternative path: analysis remains on the researcher’s own machine while preserving the benefits of model-assisted interpretation.</p>
+<p>In this chapter, we introduce <strong>LM Studio</strong> as a practical interface for running local models and connecting them to R-based research workflows.</p>
+<section id="what-is-a-local-llm" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-local-llm">7.1 What is a Local LLM?</h2>
+<p><strong>A local LLM</strong> is a large language model that runs on local hardware rather than a remote provider API. In this setup, prompts, documents, and outputs can remain within the local environment.</p>
 <p><strong>Why would you want this?</strong></p>
-<p>Here’s the deal: when you’re working with educational data, especially things like student responses, interview transcripts, or institutional documents, privacy isn’t just a nice-to-have—it’s often a hard and legal (i.e.&nbsp;FERPA-related) requirement. <!-- JR: Define these different models briefly - what are Llama, Qwen, DeepSeek, Mistral? --></p>
-<p>And here’s the cool part: local LLMs are often built on open-source models (like Llama, Qwen, DeepSeek, or Mistral), which means you can download them for free and run them on your own machine. Pretty nifty, right?</p>
+<p>When working with student responses, interview transcripts, or institutional policy text, privacy is often a core requirement rather than a preference.</p>
+<p>Many local setups use open-weight model families such as <strong>Llama</strong>, <strong>Qwen</strong>, <strong>DeepSeek</strong>, and <strong>Mistral</strong>. These are model lineages with multiple size variants (for example, smaller models for faster local inference and larger models for richer reasoning), allowing researchers to balance speed, quality, and hardware limits.</p>
 <p><strong>Key advantages of local LLMs:</strong></p>
 <ul>
 <li><strong>Privacy by design</strong> — your data never leaves your computer</li>
@@ -505,9 +503,9 @@ Cloud-based AI tools like ChatGPT can be amazing, but their use can feel a bit n
 <li><strong>Free to use</strong> — open-source models mean no per-token costs</li>
 </ul>
 </section>
-<section id="what-can-local-llms-actually-do" class="level2">
-<h2 class="anchored" data-anchor-id="what-can-local-llms-actually-do">7.2 What Can Local LLMs Actually Do?</h2>
-<p>Now for the fun part—what can these local powerhouses help you with? Quite a lot, as it turns out:</p>
+<section id="what-can-local-llms-do-in-educational-research" class="level2">
+<h2 class="anchored" data-anchor-id="what-can-local-llms-do-in-educational-research">7.2 What Can Local LLMs Do in Educational Research?</h2>
+<p>In practice, local models can support several common research tasks:</p>
 <ul>
 <li><strong>Text analysis at scale</strong> — summarize, paraphrase, or dig into themes in open-ended survey responses, interview transcripts, or focus group data</li>
 <li><strong>Theme extraction</strong> — have the LLM identify key patterns in your qualitative data without manually coding everything</li>
@@ -515,35 +513,37 @@ Cloud-based AI tools like ChatGPT can be amazing, but their use can feel a bit n
 <li><strong>Document Q&amp;A</strong> — chat with your PDFs (“wait, what did participant #15 actually say about their learning experience?”)</li>
 <li><strong>Integration with your existing workflow</strong> — connect local LLMs to R, Python, or other tools you already use</li>
 </ul>
-<p>All of this happens on your machine, with zero privacy concerns.</p>
+<p>All of these tasks can be executed locally when the model and serving environment are configured on the researcher’s machine.</p>
 </section>
-<section id="meet-lm-studio-your-new-favorite-tool" class="level2">
-<h2 class="anchored" data-anchor-id="meet-lm-studio-your-new-favorite-tool">7.3 Meet LM Studio: Your New Favorite Tool</h2>
-<p>If local LLMs sound appealing, <strong>LM Studio</strong> is the application that makes them accessible. It’s a free, easy-to-use program that handles downloading, managing, and running local AI models. Think of it as an app store for AI models—but everything stays on your computer.</p>
-<p>Here’s what makes LM Studio special:</p>
+<section id="lm-studio-as-a-local-model-environment" class="level2">
+<h2 class="anchored" data-anchor-id="lm-studio-as-a-local-model-environment">7.3 LM Studio as a Local Model Environment</h2>
+<p><strong>LM Studio</strong> provides a practical interface for downloading, managing, and serving local models.</p>
+<p>Core capabilities of LM Studio include:</p>
 <ul>
 <li><strong>Cross-platform</strong> — works on Mac, Windows, and Linux</li>
-<li><strong>User-friendly</strong> — no command-line gymnastics required</li>
+<li><strong>User-friendly</strong> — no command-line setup required for standard use</li>
 <li><strong>Model variety</strong> — choose from Llama, Qwen, DeepSeek, Mistral, and many others</li>
 <li><strong>API ready</strong> — can serve models via a simple API for integration with R, Python, or other tools</li>
-<li><strong>Chat with Documents</strong> — upload PDFs and chat with them entirely offline (yes, really!)</li>
+<li><strong>Chat with Documents</strong> — upload PDFs and query them entirely offline</li>
 </ul>
-<p><strong>Key Points:</strong> - <strong>Supported Platforms:</strong> macOS (Apple Silicon), Windows (x64/ARM64), and Linux (x64).<br>
-- <strong>System Requirements:</strong> For best results, check the <a href="https://lmstudio.ai/docs/system-requirements">System Requirements</a> page for recommended RAM, CPU/GPU, and storage.</p>
+<p><strong>Key points:</strong></p>
+<ul>
+<li><strong>Supported platforms:</strong> macOS (Apple Silicon), Windows (x64/ARM64), and Linux (x64)</li>
+<li><strong>System requirements:</strong> for best results, review <a href="https://lmstudio.ai/docs/system-requirements">System Requirements</a> for recommended RAM, CPU/GPU, and storage</li>
+</ul>
 <section id="getting-lm-studio-up-and-running" class="level3">
 <h3 class="anchored" data-anchor-id="getting-lm-studio-up-and-running">7.3.1 Getting LM Studio Up and Running</h3>
-<p>The good news? It’s incredibly easy to get started:</p>
+<p>Setup is usually straightforward:</p>
 <ol type="1">
 <li><strong>Grab LM Studio</strong> from <a href="https://lmstudio.ai/download">lmstudio.ai/download</a> — pick the version for your operating system</li>
 <li><strong>Install and open it</strong> — just like any other app</li>
 <li><strong>Download a model</strong> — LM Studio makes it simple to browse and download popular models (Llama 3, Qwen, Mistral, etc.)</li>
-<li><strong>Start chatting!</strong> — use the built-in chat interface to try things out</li>
+<li><strong>Run a quick test prompt</strong> — verify that the model responds before integrating with R</li>
 </ol>
-<p>That’s literally it.</p>
 </section>
 <section id="connecting-lm-studio-to-r" class="level3">
 <h3 class="anchored" data-anchor-id="connecting-lm-studio-to-r">7.3.3 Connecting LM Studio to R</h3>
-<p>One of the nice features of LM Studio is that it exposes an <strong>OpenAI-compatible API</strong>. What does that mean in plain English? It means you can write R code that talks to your local model just like it would talk to ChatGPT—no fancy setup required.</p>
+<p>LM Studio exposes an <strong>OpenAI-compatible API</strong>, so R code can call a local model endpoint with a familiar request pattern.</p>
 <p>Here’s a simple example:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr) </span>
@@ -607,14 +607,14 @@ Cloud-based AI tools like ChatGPT can be amazing, but their use can feel a bit n
 </section>
 <section id="putting-it-all-together-a-real-example" class="level2">
 <h2 class="anchored" data-anchor-id="putting-it-all-together-a-real-example">7.4 Putting It All Together: A Real Example</h2>
-<p>Let’s walk through a concrete example to see local LLMs in action. We’re going to analyze those same university AI policy documents from Section 2—but this time, instead of traditional NLP techniques, we’ll use a local LLM to do the thematic analysis. This gives you a nice side-by-side comparison of both approaches.</p>
-<section id="what-were-trying-to-figure-out" class="level3">
-<h3 class="anchored" data-anchor-id="what-were-trying-to-figure-out">7.4.1 What We’re Trying to Figure Out</h3>
-<p>Our research question is straightforward:</p>
+<p>This section demonstrates a local LLM workflow using the same university AI policy corpus introduced in Chapter 2. Here, the emphasis is thematic analysis with a locally served model.</p>
+<section id="research-question" class="level3">
+<h3 class="anchored" data-anchor-id="research-question">7.4.1 Research Question</h3>
+<p>This section focuses on a single research question:</p>
 <ul>
 <li>What are the key themes in university AI policy statements?</li>
 </ul>
-<p>By using the same dataset we analyzed in Section 2, we can directly compare how a local LLM’s thematic analysis stacks up against traditional NLP methods. Pretty useful for understanding the strengths and limits of each approach!</p>
+<p>By using the same dataset from Chapter 2, we can compare local-LLM thematic outputs with conventional text-analysis baselines.</p>
 </section>
 <section id="the-data-were-working-with" class="level3">
 <h3 class="anchored" data-anchor-id="the-data-were-working-with">7.4.2 The Data We’re Working With</h3>
@@ -689,7 +689,7 @@ Cloud-based AI tools like ChatGPT can be amazing, but their use can feel a bit n
 </section>
 <section id="prompt-writing" class="level5">
 <h5 class="anchored" data-anchor-id="prompt-writing">Prompt writing</h5>
-<p>Next, we write our prompt. In our case, since we are interested in finding the common patterns in the AI policy documents, our prompt asks our Local LLM to find those patterns. What’s great here is we can ask it to create a data frame ready data for us. <em>(Normally, if you pasted the text into the LM Studio chat box, you would get a narrative answer).</em> Your prompt can specify how you want the data to be captured and reported.</p>
+<p>Next, we write the prompt template. Because our goal is thematic pattern detection in policy documents, the prompt requests structured outputs rather than a free-form narrative. This is important: prompt design can require the model to return table-ready fields that are easier to validate and compare.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ----- 1) Prompt Template -----</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>analysis_prompt_template <span class="ot">&lt;-</span> <span class="st">"</span></span>
@@ -890,10 +890,10 @@ Cloud-based AI tools like ChatGPT can be amazing, but their use can feel a bit n
 </section>
 <section id="practical-notes-on-running-local-models" class="level4">
 <h4 class="anchored" data-anchor-id="practical-notes-on-running-local-models">7.4.3.2 Practical Notes on Running Local Models</h4>
-<p>Running a local LLM inside LM Studio can feel magical: your computer becomes its own private AI research lab. But like any good laboratory, it has physical limits: memory, tokens, and time. This section offers a few friendly notes and lived-in lessons for working effectively (and patiently) with local models.</p>
-<section id="tokens-are-like-bites-of-pizza" class="level5">
-<h5 class="anchored" data-anchor-id="tokens-are-like-bites-of-pizza">Tokens Are Like Bites of Pizza</h5>
-<p>LM Studio may be a powerful local model playground, but it still has limits. Think of <strong>tokens</strong> as bites of pizza: your model can chew through a few generous slices, but handing it the <em>entire pizza</em> (for example, your full corpus of 99 policy statements) in one go will only lead to indigestion (also known as the dreaded “HTTP 400 Bad Request.”)</p>
+<p>Running a local LLM inside LM Studio provides strong data control, but local workflows still have practical limits: context window, memory, and runtime. This section summarizes operational guidelines for stable execution.</p>
+<section id="context-window-and-token-limits" class="level5">
+<h5 class="anchored" data-anchor-id="context-window-and-token-limits">Context Window and Token Limits</h5>
+<p>LM Studio supports substantial local inference, but each model has strict token limits. If prompt and response length exceed the context window, requests can fail (for example, HTTP 400 errors).</p>
 <p>Every model has a context window (often 8 k – 32 k tokens). Both your <em>prompt</em> and the <em>expected response</em> must fit inside this box.</p>
 <p>When in doubt:</p>
 <ul>
@@ -913,8 +913,8 @@ LM Studio runs fully on your own hardware; response time depends on CPU/GPU powe
 An 8-billion-parameter model will typically take a few seconds per completion; larger models may need minutes.</p></li>
 <li><p><strong>Mind your system memory.</strong><br>
 Keep background applications light and avoid running multiple models simultaneously. If you receive errors such as <em>“out of memory”</em> or <em>“process killed”</em>, reduce model size or close other sessions.</p></li>
-<li><p><strong>Pro tip from the authors:</strong><br>
-During long qualitative runs, go play a game of basketball, take a walk, or grab a coffee. The LLM will still be digesting its token pizza when you return.</p></li>
+<li><p><strong>Plan for asynchronous runs:</strong><br>
+During longer qualitative jobs, queue tasks in batches and review outputs between runs instead of waiting interactively for each completion.</p></li>
 </ul>
 </section>
 <section id="file-paths-caching-and-stability" class="level5">
@@ -1090,7 +1090,6 @@ Researchers may use a three-point scale (“Accurate,” “Partially Accurate,�
 <span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(validation_data)</span>
 <span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(validation_accuracy) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<!-- JR: I think validation is better - cross-validation will make people think about the supervised machine learning technique  -->
 </section>
 </section>
 <section id="validation-comparing-theme-frequencies" class="level4">
@@ -1230,7 +1229,6 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <section id="step-7-visualize-the-comparison" class="level5">
 <h5 class="anchored" data-anchor-id="step-7-visualize-the-comparison">Step 7: Visualize the Comparison</h5>
 <p>Finally, we visualize the relative frequencies from both methods.</p>
-<p>A picture is worth a thousand words, right?</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========================================</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 7 — Visualization</span></span>
@@ -1397,7 +1395,7 @@ This serves as a quantitative cross-check between two perspectives:</p>
 </section>
 <section id="interpreting-the-cross-validation-results" class="level5">
 <h5 class="anchored" data-anchor-id="interpreting-the-cross-validation-results">Interpreting the Cross-Validation Results</h5>
-<p>The cross-validation process compared two perspectives on the same corpus:<br>
+<p>The validation process compared two perspectives on the same corpus:<br>
 (1) the <strong>LM Studio semantic model output</strong> (<code>LLM_Relative</code>) and<br>
 (2) a <strong>keyword-based verification</strong> (<code>Verified_Relative</code>) drawn directly from the AI policy statements.</p>
 </section>
@@ -1496,14 +1494,10 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <section id="quantitative-validation-conclusion" class="level5">
 <h5 class="anchored" data-anchor-id="quantitative-validation-conclusion">Quantitative Validation Conclusion</h5>
 <p>Overall, the validation demonstrates that <strong>LM Studio’s local model captures the same conceptual contours</strong> as human logic,but with tighter semantic precision. While keyword methods “count what appears,” the LLM “counts what matters.” This finding supports the broader methodological argument of this chapter: <strong>local LLMs can perform qualitative analysis with high interpretive fidelity while preserving privacy and reproducibility</strong>— a valuable balance between computational scalability and human-level understanding.</p>
-<!-- JR: what does this mean? Who said this? Haha, I don't get it. -->
-<blockquote class="blockquote">
-<p>As one of the authors quipped: “The LLM doesn’t just read the policy—it understands the syllabus.”</p>
-</blockquote>
 </section>
 <section id="the-role-of-keyword-definitions-in-validation-accuracy" class="level5">
 <h5 class="anchored" data-anchor-id="the-role-of-keyword-definitions-in-validation-accuracy">The Role of Keyword Definitions in Validation Accuracy</h5>
-<p>The accuracy of the cross-validation results depends critically on how the <code>theme_keywords</code> list is defined. This list serves as the <strong>manual codebook</strong> that translates each thematic label into a set of lexical cues used to verify whether a statement in the corpus reflects that theme. In other words, while LM Studio interprets themes <em>semantically</em>, the keyword-based approach verifies them <em>literally</em>—and the way these keywords are chosen directly affects the outcome.</p>
+<p>The accuracy of the validation results depends critically on how the <code>theme_keywords</code> list is defined. This list serves as the <strong>manual codebook</strong> that translates each thematic label into a set of lexical cues used to verify whether a statement in the corpus reflects that theme. In other words, while LM Studio interprets themes <em>semantically</em>, the keyword-based approach verifies them <em>literally</em>—and the way these keywords are chosen directly affects the outcome.</p>
 </section>
 <section id="the-sensitivity-of-keyword-matching" class="level5">
 <h5 class="anchored" data-anchor-id="the-sensitivity-of-keyword-matching">The Sensitivity of Keyword Matching</h5>
@@ -1514,7 +1508,7 @@ This serves as a quantitative cross-check between two perspectives:</p>
 </div>
 <p>This set captures a wide range of common words such as <em>learning</em> and <em>assessment</em>, which appear frequently in almost all policy statements. As a result, the keyword-based validation counts nearly half of the corpus as related to pedagogy (≈ 50%), whereas the LM Studio model, which identifies themes only when the semantic context genuinely involves teaching design, reports a much lower frequency (≈ 8%). Here, the discrepancy arises not because the model “missed” something, but because the keywords were <strong>too general</strong>.</p>
 <p>When the same theme is redefined more precisely: the validated frequencies drop and begin to converge with the model’s estimates. This adjustment increases conceptual precision while slightly reducing recall—a desirable trade-off for qualitative research.</p>
-<p>The cool thing? You can iterate on this. Try different keyword sets, check how the correlation changes, and find what works best for your specific data.</p>
+<p>This process is iterative. Researchers can refine keyword sets, inspect how the correlation changes, and calibrate what works best for their specific corpus.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="st">"Pedagogical Integration &amp; Assessment Design"</span> <span class="ot">=</span> </span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"assignment design"</span>, <span class="st">"course design"</span>, <span class="st">"learning outcomes"</span>,</span>
@@ -1567,8 +1561,10 @@ This serves as a quantitative cross-check between two perspectives:</p>
 <h3 class="anchored" data-anchor-id="case-study-discussion">7.4.5.3 Case Study Discussion</h3>
 <p>The central research question guiding this case study was: <strong>Can a local LLM running through LM Studio accurately identify and summarize the key themes within university AI policy statements, while maintaining data privacy and interpretive reliability?</strong></p>
 <p>The analyses presented in this section—spanning semantic extraction, human validation, and keyword-based cross-verification—provide a strong, evidence-based answer: <strong>Yes, within its operational limits, a local LLM can perform thematic analysis with high conceptual accuracy and semantic coherence.</strong></p>
-<p>So, Did It Work?</p>
-<p>Here’s what we found:</p>
+<section id="did-the-workflow-perform-as-expected" class="level4">
+<h4 class="anchored" data-anchor-id="did-the-workflow-perform-as-expected">Did the Workflow Perform as Expected?</h4>
+<p>Key findings are summarized below:</p>
+</section>
 <section id="key-findings" class="level4">
 <h4 class="anchored" data-anchor-id="key-findings">Key Findings</h4>
 <ol type="1">
@@ -1576,7 +1572,7 @@ This serves as a quantitative cross-check between two perspectives:</p>
 The local LLM captured major thematic patterns consistent with those derived from human coding and keyword verification, particularly around <em>academic integrity</em>, <em>faculty autonomy</em>, and <em>disclosure requirements</em>.<br>
 Its lower raw frequencies reflect a more selective, meaning-oriented approach rather than literal word matching.</p></li>
 <li><p><strong>Interpretive Consistency:</strong><br>
-The cross-validation results (r ≈ 0.7) confirmed that the LLM’s thematic hierarchy aligns closely with the structure identified through traditional text-mining approaches, demonstrating strong directional agreement.</p></li>
+The validation results (r ≈ 0.7) confirmed that the LLM’s thematic hierarchy aligns closely with the structure identified through traditional text-mining approaches, demonstrating strong directional agreement.</p></li>
 <li><p><strong>Reliability Through Validation:</strong><br>
 Human reviewers judged all six LLM-generated themes to be conceptually sound and textually supported.<br>
 This validation indicates that locally deployed models, when carefully prompted and verified, can produce outputs of research-grade quality.</p></li>
@@ -1595,7 +1591,7 @@ This model of “computational privacy” offers a practical solution for studie
 <p>The analysis also revealed several caveats that future researchers should note:</p>
 <ul>
 <li>The model’s <strong>token window</strong> constrains how much text can be processed at once. Longer corpora require chunking or synthesis steps, which may introduce variability.</li>
-<li>The accuracy of cross-validation is <strong>sensitive to keyword definition</strong>, emphasizing the importance of transparent, well-constructed codebooks.</li>
+<li>The accuracy of validation is <strong>sensitive to keyword definition</strong>, emphasizing the importance of transparent, well-constructed codebooks.</li>
 <li>Response times and processing costs scale with model size; while small models run quickly, larger ones yield richer, more nuanced outputs.</li>
 </ul>
 <p>These limitations do not undermine the results but instead point toward a maturing workflow—one in which <strong>human interpretive oversight and local AI capabilities complement each other</strong>.</p>
@@ -1609,33 +1605,31 @@ This model of “computational privacy” offers a practical solution for studie
 <h4 class="anchored" data-anchor-id="from-tokens-to-meaning">From Tokens to Meaning</h4>
 <p>Traditional NLP methods, as explored in Section 2, rely heavily on token-level processing: word frequencies, co-occurrence patterns, and topic modeling through statistical clustering. These approaches excel at quantifying surface features of text but often struggle to capture the <em>intent</em> or <em>tone</em> embedded in policy language.</p>
 <p>In contrast, the local LLM used here reasons across sentences and paragraphs. It identifies not only recurring words such as <em>plagiarism</em> or <em>syllabus</em> but also the conceptual relationships that bind them—what the policy <em>means</em> rather than what it merely <em>says</em>. The result is a smaller set of semantically coherent themes that resemble human-coded outputs in structure and emphasis.</p>
-<p>The <strong>cross-validation exercise</strong> (Sections 7.4.5–7.4.5.3) confirmed this distinction empirically: the LLM produced lower absolute frequencies yet mirrored the same thematic hierarchy found by keyword verification (r ≈ 0.7). In short, the machine did not count more—it <em>understood better</em>.</p>
+<p>The <strong>validation exercise</strong> (Sections 7.4.5–7.4.5.3) confirmed this distinction empirically: the LLM produced lower absolute frequencies yet mirrored the same thematic hierarchy found by keyword verification (r ≈ 0.7). This pattern suggests greater semantic selectivity rather than simple lexical matching.</p>
 </section>
 <section id="complementarity-not-replacement" class="level4">
 <h4 class="anchored" data-anchor-id="complementarity-not-replacement">Complementarity, Not Replacement</h4>
 <p>Rather than viewing LLMs as replacements for traditional NLP, we should see them as complementary instruments in the researcher’s toolkit.<br>
 Conventional text mining offers transparency and replicability; LLMs contribute context, nuance, and synthesis. When combined, the two form a <strong>hybrid analytic ecology</strong>—where numbers inform narratives and narratives refine numbers.</p>
-<p>In Section 2, we learned how to <em>count words</em>—word frequencies, TF-IDF, topic models. Those techniques are fantastic for getting a bird’s-eye view of a corpus.</p>
+<p>In Chapter 2, we used token- and frequency-based approaches (including TF-IDF and topic modeling), which are strong baselines for corpus-level pattern detection.</p>
 <p>In this chapter, we took it a step further. We showed how a local LLM can actually <em>understand</em> what those words mean in context. It doesn’t just tally occurrences—it picks up on nuance, tone, and conceptual relationships.</p>
-<p>The cross-validation exercise made this crystal clear: the LLM was more selective than keyword counting, but the themes it found were conceptually sound and closely matched what human reviewers would identify.</p>
-<p>Use both! Let the traditional methods help you spot patterns, then let the LLM dig into what those patterns actually mean.</p>
+<p>The validation exercise reinforces this point: the LLM was more selective than keyword counting, but the resulting themes remained conceptually coherent and aligned with human review.</p>
+<p>A hybrid strategy is often strongest: use conventional methods to identify broad patterns, then use LLM workflows to synthesize and interpret semantic structure.</p>
 </section>
 <section id="privacy-and-practicality" class="level4">
 <h4 class="anchored" data-anchor-id="privacy-and-practicality">Privacy and Practicality</h4>
 <p>Equally important is the ethical and logistical dimension. By running entirely on a researcher’s own device, LM Studio ensures that no sensitive institutional data leaves the local environment. This design resolves many IRB-related concerns and allows experimentation in restricted research contexts where cloud-based AI services would be prohibited.</p>
-<p>The workflow does, however, require patience. Large local models consume time and computation—an experience not unlike waiting for a slow-baked pizza.<br>
-As we advised earlier, this is the perfect moment to step away, stretch, or play a quick game of basketball while the model “thinks.” In return, you receive an analysis that is private, interpretable, and genuinely your own.</p>
+<p>The workflow does, however, require patience. Larger local models consume more time and computational resources than cloud endpoints. The tradeoff is greater data control and local reproducibility.</p>
 <p>Yes, it requires a bit more patience (the model won’t respond instantly), but the tradeoff is often worth it—especially for sensitive educational data.</p>
 </section>
 <section id="looking-ahead-from-analysis-to-collaboration" class="level4">
 <h4 class="anchored" data-anchor-id="looking-ahead-from-analysis-to-collaboration">Looking Ahead: From Analysis to Collaboration</h4>
 <p>The lessons from this section mark a transition from <strong>computational text analysis</strong> to <strong>intelligent collaboration with models</strong>. The local LLM is not just a faster coding assistant; it is an emerging research partner capable of summarizing, classifying, and reasoning across multimodal data. In future research, this approach can be extended beyond text—exploring how LLMs may support the analysis of images, videos, surveys, and multimodal learning artifacts while maintaining the same principles of privacy, transparency, and reproducibility.</p>
 <p>What we’ve done here with text is just the beginning. In Chapter 8, we’ll explore how LLMs can analyze <em>images</em>—yes, photos!—opening up entirely new possibilities for educational research. Same privacy-focused approach, but now we’re working with visual data.</p>
-<!-- JR: what is meant by "collaboratively" below? -->
 <blockquote class="blockquote">
 <p><strong>In summary:</strong><br>
 Section 2 taught us how to <em>count words</em>;<br>
-This chapter showed us how machines can <em>better understand meaning</em>—securely, locally, and collaboratively.<br>
+This chapter showed how local models can support <em>meaning-focused analysis</em> with stronger privacy control.<br>
 Together, they represent a powerful toolkit for computational research in education,<br>
 bridging the measurable and the meaningful, the statistical and the semantic, the algorithmic and the human.</p>
 </blockquote>

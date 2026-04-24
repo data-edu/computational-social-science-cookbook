@@ -6,7 +6,7 @@ From there, we worked through a field-guide approach to computational analysis i
 
 ## What this book contributes
 
-We see this guide as offering four connected contributions for educational and social science researchers.
+We see this guide as offering four connected contributions for educational researchers.
 
 First, we aimed to provide an accessible on-ramp to computational work in R , with enough structure for beginners while still supporting applied research.
 

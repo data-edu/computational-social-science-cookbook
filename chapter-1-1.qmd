@@ -6,7 +6,7 @@ You need an environment for writing and running R code. We're going to focus on 
 
 ## Why Positron?
 
-Positron represents where computational social science workflows are heading: multi-language support (R and Python in the same environment), modern editor features inherited from VS Code, and a more extensible architecture (i.e., plugins and extension). If you're coming from VS Code, Positron will feel immediately familiar. If you're new to both, you're learning a tool that's designed for the future of data science.
+Positron represents where computational educational research workflows are heading: multi-language support (R and Python in the same environment), modern editor features inherited from VS Code, and a more extensible architecture (i.e., plugins and extension). If you're coming from VS Code, Positron will feel immediately familiar. If you're new to both, you're learning a tool that's designed for the future of data science.
 
 That said, **RStudio remains great**. It's mature, widely documented, and has a loyal community. Some researchers prefer its more opinionated interface. Everything you need is visible and organized for R-first workflows. If you're already using RStudio and prefer it, nothing in this book requires switching.
 
@@ -121,7 +121,7 @@ These features are there when you need them. For now, just know they exist—the
 
 ## Version Control with Git and GitHub
 
-Git is how computational social scientists version, share, and collaborate on their work. GitHub is the most popular platform for hosting Git repositories. If you've never used version control before, this section will get you set up with a workflow that integrates directly into your IDE.
+Git is how computational educational researchers version, share, and collaborate on their work. GitHub is the most popular platform for hosting Git repositories. If you've never used version control before, this section will get you set up with a workflow that integrates directly into your IDE.
 
 ### Why Git Matters
 
@@ -132,7 +132,7 @@ Without version control, you end up with files like `analysis_final.R`, `analysi
 -   Collaborate with others without emailing files back and forth
 -   Share your work publicly for transparency and reproducibility
 
-Most computational social science projects live in Git repositories, and employers expect researchers to be comfortable with basic version control.
+Most computational educational research projects live in Git repositories, and employers expect researchers to be comfortable with basic version control.
 
 ### Git Integration
 
