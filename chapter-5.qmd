@@ -1,5 +1,5 @@
 ---
-title: "Cloud VS Local"
+title: "Cloud vs Local LLMs"
 ---
 
 <!-- JR: do we need an overview like the other chapters? -->

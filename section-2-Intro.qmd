@@ -1,5 +1,5 @@
 ---
-title: "Computational Methods"
+title: "Data Science Methods"
 ---
 
 ## Overview
@@ -11,7 +11,7 @@ These chapters emphasize hands-on, transparent, and reproducible approaches usin
 ## The Analytical Scope of This Section
 
 | Chapter | Data Type | Analytical Focus | Example Research Question |
-|----------------|----------------|------------------|-----------------------|
+|-----------------|-----------------|-----------------|---------------------|
 | **Chapter 2** | Text Data (unstructured) | Natural language processing, tokenization, sentiment, topic modeling | “What themes emerge in student reflections or policy statements?” |
 | **Chapter 3** | Relational Data | Social network analysis: centrality, community detection, visualization | “How do students or instructors connect and collaborate in learning networks?” |
 | **Chapter 4** | Numeric / Big Data | Statistical modeling, regression, clustering, predictive analysis | “Which factors best predict academic outcomes or engagement?” |
@@ -86,10 +86,10 @@ Educational data often include sensitive or identifiable information.
 
 Responsible computational research requires attention to both ethical and methodological rigor.
 
--   **Privacy:** Remove or anonymize all personal identifiers.
--   **Transparency:** Keep analysis scripts in Quarto or R Markdown files for version control.
--   **Reproducibility:** Record package versions and parameters used in each analysis.
--   **Interpretability:** Combine quantitative patterns with contextual educational insight.
+- **Privacy:** Remove or anonymize all personal identifiers.
+- **Transparency:** Keep analysis scripts in Quarto or R Markdown files for version control.
+- **Reproducibility:** Record package versions and parameters used in each analysis.
+- **Interpretability:** Combine quantitative patterns with contextual educational insight.
 
 > ⚖️ Ethical and transparent practices ensure that computational results remain credible, interpretable, and usable for improving learning.
 
@@ -97,8 +97,8 @@ Responsible computational research requires attention to both ethical and method
 
 With the environment prepared and workflow established, you are ready to begin applying computational methods to real educational data:
 
--   **Chapter 2 — Text Analysis:** Working with unstructured language to uncover patterns in meaning and discourse.
--   **Chapter 3 — Network Analysis:** Examining connections and relationships among learners, instructors, or resources.
--   **Chapter 4 — Numeric and Big Data:** Exploring structured data to identify trends and predictors in education.
+- **Chapter 2 — Text Analysis:** Working with unstructured language to uncover patterns in meaning and discourse.
+- **Chapter 3 — Network Analysis:** Examining connections and relationships among learners, instructors, or resources.
+- **Chapter 4 — Numeric and Big Data:** Exploring structured data to identify trends and predictors in education.
 
 > The following chapter begins with text data, illustrating how natural language processing can transform qualitative information into structured, interpretable results.
