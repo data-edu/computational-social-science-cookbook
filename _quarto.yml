@@ -30,11 +30,11 @@ book:
         - chapter-7.qmd
         - chapter-8.qmd
 
-    - part: "Communication"
+    - part: "Communication and Conclusion"
       chapters:
         - chapter-9.qmd
+        - conclusion.qmd
 
-    - conclusion.qmd
     - references.qmd
 
 

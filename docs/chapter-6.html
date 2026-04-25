@@ -462,12 +462,12 @@ div.csl-indent {
    
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">6.1 Overview</a></li>
-  <li><a href="#meet-your-new-teammate-positron-assistant" id="toc-meet-your-new-teammate-positron-assistant" class="nav-link" data-scroll-target="#meet-your-new-teammate-positron-assistant">6.2 Meet Your New Teammate: Positron Assistant</a>
+  <li><a href="#positron-assistant-in-the-research-workflow" id="toc-positron-assistant-in-the-research-workflow" class="nav-link" data-scroll-target="#positron-assistant-in-the-research-workflow">6.2 Positron Assistant in the Research Workflow</a>
   <ul class="collapse">
   <li><a href="#what-can-it-do" id="toc-what-can-it-do" class="nav-link" data-scroll-target="#what-can-it-do">6.2.1 What Can It Do?</a></li>
   <li><a href="#why-would-an-educational-researcher-want-this" id="toc-why-would-an-educational-researcher-want-this" class="nav-link" data-scroll-target="#why-would-an-educational-researcher-want-this">6.2.2 Why Would an Educational Researcher Want This?</a></li>
   </ul></li>
-  <li><a href="#getting-started-with-your-new-teammate" id="toc-getting-started-with-your-new-teammate" class="nav-link" data-scroll-target="#getting-started-with-your-new-teammate">6.3 Getting Started with Your New Teammate</a>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">6.3 Getting Started</a>
   <ul class="collapse">
   <li><a href="#what-youll-need" id="toc-what-youll-need" class="nav-link" data-scroll-target="#what-youll-need">6.3.1 What You’ll Need</a></li>
   <li><a href="#setting-things-up" id="toc-setting-things-up" class="nav-link" data-scroll-target="#setting-things-up">6.3.2 Setting Things Up</a></li>
@@ -475,7 +475,7 @@ div.csl-indent {
   <li><a href="#choosing-a-provider-for-research-work" id="toc-choosing-a-provider-for-research-work" class="nav-link" data-scroll-target="#choosing-a-provider-for-research-work">6.3.4 Choosing a Provider for Research Work</a></li>
   <li><a href="#optional-local-agent-setup-with-continue-lm-studio" id="toc-optional-local-agent-setup-with-continue-lm-studio" class="nav-link" data-scroll-target="#optional-local-agent-setup-with-continue-lm-studio">6.3.5 Optional: Local Agent Setup with Continue + LM Studio</a></li>
   </ul></li>
-  <li><a href="#actually-using-positron-assistant" id="toc-actually-using-positron-assistant" class="nav-link" data-scroll-target="#actually-using-positron-assistant">6.4 Actually Using Positron Assistant</a>
+  <li><a href="#using-positron-assistant" id="toc-using-positron-assistant" class="nav-link" data-scroll-target="#using-positron-assistant">6.4 Using Positron Assistant</a>
   <ul class="collapse">
   <li><a href="#getting-code-explained" id="toc-getting-code-explained" class="nav-link" data-scroll-target="#getting-code-explained">6.4.1 Getting Code Explained</a></li>
   <li><a href="#when-things-break" id="toc-when-things-break" class="nav-link" data-scroll-target="#when-things-break">6.4.2 When Things Break</a></li>
@@ -486,7 +486,7 @@ div.csl-indent {
   <li><a href="#example-never-write-import-code-again" id="toc-example-never-write-import-code-again" class="nav-link" data-scroll-target="#example-never-write-import-code-again">6.5.2 Example: Never Write Import Code Again</a></li>
   <li><a href="#example-automatic-quality-checks" id="toc-example-automatic-quality-checks" class="nav-link" data-scroll-target="#example-automatic-quality-checks">6.5.3 Example: Automatic Quality Checks</a></li>
   </ul></li>
-  <li><a href="#real-talk-using-these-tools-in-your-research" id="toc-real-talk-using-these-tools-in-your-research" class="nav-link" data-scroll-target="#real-talk-using-these-tools-in-your-research">6.6 Real Talk: Using These Tools in Your Research</a>
+  <li><a href="#using-these-tools-in-research-practice" id="toc-using-these-tools-in-research-practice" class="nav-link" data-scroll-target="#using-these-tools-in-research-practice">6.6 Using These Tools in Research Practice</a>
   <ul class="collapse">
   <li><a href="#a-concrete-example" id="toc-a-concrete-example" class="nav-link" data-scroll-target="#a-concrete-example">6.6.1 A Concrete Example</a></li>
   <li><a href="#what-this-means-for-your-research" id="toc-what-this-means-for-your-research" class="nav-link" data-scroll-target="#what-this-means-for-your-research">6.6.2 What This Means for Your Research</a></li>
@@ -532,42 +532,41 @@ div.csl-indent {
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">6.1 Overview</h2>
 <p>The use of AI tools to assist with research coding and analysis has grown rapidly in educational research. Early comparisons of hand-coding and computer-assisted methods showed meaningful trade-offs between the two approaches <span class="citation" data-cites="Nelson2021FutureCoding">(<a href="#ref-Nelson2021FutureCoding" role="doc-biblioref">Nelson et al. 2021</a>)</span>, and recent work has demonstrated that large language models can perform qualitative coding with sufficient reliability for many research tasks — though with important caveats about where they work well and where they do not <span class="citation" data-cites="Than2025UpdatingCoding Liu2025GPT4Coding">(<a href="#ref-Than2025UpdatingCoding" role="doc-biblioref">Than et al. 2025</a>; <a href="#ref-Liu2025GPT4Coding" role="doc-biblioref">Liu et al. 2025</a>)</span>. This chapter introduces two tools that bring LLM assistance directly into the R and Positron workflow, making these capabilities accessible without requiring researchers to leave their analysis environment.</p>
-<p>Imagine having a knowledgeable colleague sitting right next to you while you work — someone who never gets tired, never judges when you forget a function name, and genuinely enjoys helping you figure out why your code isn’t behaving. That’s essentially what Positron Assistant brings to your desk.</p>
-<p>In this chapter, we’re going to meet two AI-assisted tools: <strong>Positron Assistant</strong> and <strong>Databot</strong>. They live in the same ecosystem, but they do different jobs. Positron Assistant is your default coding copilot for chat, inline help, and code suggestions. Databot is an exploratory analysis agent that can accelerate early-stage EDA workflows.</p>
-<p>We’ll treat Positron Assistant as the primary path for most readers and Databot as an optional extension, because Databot is currently in research preview.</p>
-<p>Whether you’re just starting out with R or you’ve been writing code for years, these tools can genuinely make your research life easier. Let’s get acquainted!</p>
+<p>Positron Assistant functions as an in-IDE research coding assistant: it can support drafting, debugging, and code interpretation without requiring researchers to move between multiple tools. In this chapter, we focus on two tools in the same ecosystem: <strong>Positron Assistant</strong> and <strong>Databot</strong>.</p>
+<p>Positron Assistant is the primary pathway in this chapter for chat, inline support, and code suggestions. Databot is presented as an optional exploratory extension, since it is currently in research preview.</p>
+<p>The chapter is written for readers with different levels of R experience, with emphasis on practical workflows that can be validated and documented.</p>
 </section>
-<section id="meet-your-new-teammate-positron-assistant" class="level2">
-<h2 class="anchored" data-anchor-id="meet-your-new-teammate-positron-assistant">6.2 Meet Your New Teammate: Positron Assistant</h2>
-<p>Think of Positron Assistant as a well-read colleague who happens to know R inside and out. It can use context from your project and your interactive workflow to provide more relevant help than generic chatbot responses.</p>
+<section id="positron-assistant-in-the-research-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="positron-assistant-in-the-research-workflow">6.2 Positron Assistant in the Research Workflow</h2>
+<p>Positron Assistant can use project and workflow context to provide more relevant support than generic chatbot responses.</p>
 <section id="what-can-it-do" class="level3">
 <h3 class="anchored" data-anchor-id="what-can-it-do">6.2.1 What Can It Do?</h3>
-<p>Here’s what this helpful teammate brings to the table:</p>
+<p>Core capabilities include:</p>
 <ul>
 <li><p><strong>Code Suggestions</strong>: Not just basic autocomplete, but context-aware snippets that can help you move from intent to working code more quickly.</p></li>
-<li><p><strong>Code Explanation</strong>: Ever looked at someone’s code and thought “what on earth is happening here?” Select any block, ask Positron Assistant, and it will translate cryptic code into plain language.</p></li>
-<li><p><strong>Bug Detective</strong>: When something breaks (and let’s be honest, it happens to all of us), Positron Assistant can inspect the error and suggest fixes quickly.</p></li>
-<li><p><strong>Code Generation</strong>: Tell it what you want to accomplish in plain language—“I need to calculate the average score by group and handle the missing values”—and watch it write the R code for you.</p></li>
-<li><p><strong>Refactoring</strong>: Got messy code that works but is hard to maintain? Positron Assistant can propose cleaner versions and explain the tradeoffs.</p></li>
+<li><p><strong>Code Explanation</strong>: Select a code block and request an explanation in plain language.</p></li>
+<li><p><strong>Bug Detection Support</strong>: When code fails, Positron Assistant can inspect errors and suggest fixes.</p></li>
+<li><p><strong>Code Generation</strong>: Provide a plain-language request (for example, grouped summaries with missing-value handling) to draft R code.</p></li>
+<li><p><strong>Refactoring</strong>: Propose cleaner versions of working code and explain tradeoffs.</p></li>
 </ul>
 <p><img src="data/ch6_images/assistant-panel-overview.png" class="img-fluid"></p>
 </section>
 <section id="why-would-an-educational-researcher-want-this" class="level3">
 <h3 class="anchored" data-anchor-id="why-would-an-educational-researcher-want-this">6.2.2 Why Would an Educational Researcher Want This?</h3>
-<p>Great question! You might be thinking, “I’ve gotten along fine without AI help so far.” Here’s the thing—it’s not about replacing what you know. It’s about:</p>
+<p>For educational researchers, the value is not replacement of expertise but support for routine analytical tasks:</p>
 <ul>
-<li><p><strong>Saving time on the stuff that isn’t the interesting part of your research</strong>—we’ve all spent 20 minutes trying to remember exactly how to pivot a dataframe. The AI Assistant just does it.</p></li>
-<li><p><strong>Learning new tricks</strong>—it often suggests approaches you might not have considered, which is a nice way to pick up new R skills without explicitly studying.</p></li>
-<li><p><strong>Reducing frustration</strong>—there’s nothing more demoralizing than staring at an error message for an hour. The AI Assistant can often spot the issue in seconds.</p></li>
-<li><p><strong>Building confidence</strong>—if you’re newer to R, having a supportive “colleague” to double-check your work makes experimentation less intimidating.</p></li>
+<li><p><strong>Saving time on repetitive tasks</strong> — for example, drafting common data-transformation patterns.</p></li>
+<li><p><strong>Learning new approaches</strong> — suggestions often expose analysts to alternative R workflows.</p></li>
+<li><p><strong>Reducing debugging overhead</strong> — error interpretation and fix suggestions are available in context.</p></li>
+<li><p><strong>Building confidence for newer R users</strong> — iterative feedback can lower the barrier to experimentation.</p></li>
 </ul>
 <blockquote class="blockquote">
 <p><strong>A gentle reminder:</strong> Positron Assistant is a tool to work <em>with</em>, not a replacement for your expertise as a researcher. It’s great at generating code, but you’re the expert on your data and research questions. Always review what it generates—treat it as a first draft that needs your expert polish.</p>
 </blockquote>
 </section>
 </section>
-<section id="getting-started-with-your-new-teammate" class="level2">
-<h2 class="anchored" data-anchor-id="getting-started-with-your-new-teammate">6.3 Getting Started with Your New Teammate</h2>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">6.3 Getting Started</h2>
 <section id="what-youll-need" class="level3">
 <h3 class="anchored" data-anchor-id="what-youll-need">6.3.1 What You’ll Need</h3>
 <p>Before we dive in, make sure you have:</p>
@@ -598,7 +597,7 @@ div.csl-indent {
 <li>Whether it prefers tidyverse-style code or base R</li>
 <li>Whether generated code should include comments</li>
 </ul>
-<p>Play with these settings until it feels comfortable for you. Everyone’s preferences are different!</p>
+<p>Tune these settings based on your workflow and project requirements.</p>
 <p><img src="data/ch6_images/assistant-preferences.png" class="img-fluid"></p>
 </section>
 <section id="choosing-a-provider-for-research-work" class="level3">
@@ -638,32 +637,32 @@ div.csl-indent {
 <p>In short, configure Positron first, confirm LM Studio second, wire Continue third, and only then move to examples. This sequence avoids most connection and model-mismatch errors.</p>
 </section>
 </section>
-<section id="actually-using-positron-assistant" class="level2">
-<h2 class="anchored" data-anchor-id="actually-using-positron-assistant">6.4 Actually Using Positron Assistant</h2>
-<p>Enough setup—let’s see this teammate in action!</p>
+<section id="using-positron-assistant" class="level2">
+<h2 class="anchored" data-anchor-id="using-positron-assistant">6.4 Using Positron Assistant</h2>
+<p>After setup, the following examples illustrate common usage patterns.</p>
 <section id="getting-code-explained" class="level3">
 <h3 class="anchored" data-anchor-id="getting-code-explained">6.4.1 Getting Code Explained</h3>
-<p>We’ve all been there: you find some code online (maybe in a tutorial or from a colleague), and it looks like hieroglyphics. Here’s what you do:</p>
+<p>Code explanation is useful when adapting snippets from tutorials, collaborators, or prior projects.</p>
 <ol type="1">
 <li>Highlight the confusing code</li>
-<li>Ask Positron Assistant something like “what does this do?”</li>
-<li>Get a friendly, plain-language explanation</li>
+<li>Ask Positron Assistant for a step-by-step explanation</li>
+<li>Review the plain-language interpretation</li>
 </ol>
-<p>This is honestly one of my favorite features. It’s like having a patient friend who can explain anything code-related without making you feel silly for asking.</p>
+<p>This feature is especially useful for onboarding new team members and documenting analysis logic.</p>
 <p><img src="data/ch6_images/assistant-code-explanation.png" class="img-fluid"></p>
 </section>
 <section id="when-things-break" class="level3">
 <h3 class="anchored" data-anchor-id="when-things-break">6.4.2 When Things Break</h3>
-<p>Oh, the joy of debugging. Here’s a common scenario:</p>
+<p>A common debugging scenario is shown below:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You run this, and R throws an error</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(student_data<span class="sc">$</span>score)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Instead of spending precious research time hunting through Stack Overflow, show that error to Positron Assistant. It might say something like:</p>
+<p>Instead of manually searching external forums first, pass the error to Positron Assistant for an initial diagnosis. A typical response might be:</p>
 <blockquote class="blockquote">
 <p>“I see the issue! You’re trying to calculate a mean, but there are missing values in your data. Add <code>na.rm = TRUE</code> to ignore them, or decide whether those NAs should be handled differently. Want me to show you both options?”</p>
 </blockquote>
-<p>Helpful, right?</p>
+<p>This response can be used as a starting point for verification.</p>
 <p><img src="data/ch6_images/assistant-debug-suggestion.png" class="img-fluid"></p>
 </section>
 </section>
@@ -673,7 +672,7 @@ div.csl-indent {
 <p>Databot is currently experimental (research preview), so treat it as an acceleration layer for exploration, not as an unreviewed source of final results.</p>
 <section id="what-can-databot-handle" class="level3">
 <h3 class="anchored" data-anchor-id="what-can-databot-handle">6.5.1 What Can Databot Handle?</h3>
-<p>A few examples:</p>
+<p>Example tasks include:</p>
 <ul>
 <li><strong>Generating import templates</strong> — instead of writing “read.csv()” from scratch every time you get a new dataset, let Databot create a reusable function</li>
 <li><strong>Building data cleaning pipelines</strong> — those steps you do every single time (convert text to lowercase, strip whitespace, handle missing values) can be automated</li>
@@ -683,7 +682,7 @@ div.csl-indent {
 </section>
 <section id="example-never-write-import-code-again" class="level3">
 <h3 class="anchored" data-anchor-id="example-never-write-import-code-again">6.5.2 Example: Never Write Import Code Again</h3>
-<p>Every time you get a new CSV, do you find yourself typing the same import code? Databot can create a smart template that remembers your preferences:</p>
+<p>Databot can generate reusable import templates for recurring file structures:</p>
 <p><img src="data/ch6_images/databot-import-template.png" class="img-fluid"></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This template was created once, now you use it forever!</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
@@ -705,11 +704,11 @@ div.csl-indent {
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Now importing is one line:</span></span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># student_data &lt;- import_data("student_scores.csv")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>See what happened? You wrote the function once, and now every future data import is one line. Databot helped you think through what you needed once, and now you’re saved from doing it over and over.</p>
+<p>The resulting function can reduce repeated setup work across similar datasets.</p>
 </section>
 <section id="example-automatic-quality-checks" class="level3">
 <h3 class="anchored" data-anchor-id="example-automatic-quality-checks">6.5.3 Example: Automatic Quality Checks</h3>
-<p>Here’s another scenario: you get new survey data and you want to make sure it’s not obviously broken before you start analyzing. Databot can generate checks that run automatically:</p>
+<p>For incoming survey datasets, Databot can draft validation checks before substantive analysis begins:</p>
 <p><img src="data/ch6_images/databot-validation-checks.png" class="img-fluid"></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Auto-generated validation checks - run these on every new dataset</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>validate_student_data <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
@@ -738,11 +737,11 @@ div.csl-indent {
 <span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">"All validation checks passed!"</span>)</span>
 <span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  <span class="cn">TRUE</span></span>
 <span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Now you’ve got a safety net. Every time new data arrives, just run <code>validate_student_data(your_new_data)</code> and you’ll know right away if something’s wrong.</p>
+<p>This creates a repeatable validation layer that can be applied whenever new data arrive.</p>
 </section>
 </section>
-<section id="real-talk-using-these-tools-in-your-research" class="level2">
-<h2 class="anchored" data-anchor-id="real-talk-using-these-tools-in-your-research">6.6 Real Talk: Using These Tools in Your Research</h2>
+<section id="using-these-tools-in-research-practice" class="level2">
+<h2 class="anchored" data-anchor-id="using-these-tools-in-research-practice">6.6 Using These Tools in Research Practice</h2>
 <section id="a-concrete-example" class="level3">
 <h3 class="anchored" data-anchor-id="a-concrete-example">6.6.1 A Concrete Example</h3>
 <p>To keep this chapter reproducible, use the demo files from <code>data/ch6_demo/</code>: <code>student_scores.csv</code> and <code>teacher_survey.csv</code>.</p>
@@ -758,7 +757,7 @@ div.csl-indent {
 </section>
 <section id="what-this-means-for-your-research" class="level3">
 <h3 class="anchored" data-anchor-id="what-this-means-for-your-research">6.6.2 What This Means for Your Research</h3>
-<p>The real value isn’t just saving time (though that’s nice). It’s that these tools let you focus on what matters: the research itself. When you’re not stuck fighting with code, you can spend more mental energy on:</p>
+<p>The key value is not only speed, but allocation of researcher attention. When routine coding demands are reduced, more effort can be directed toward:</p>
 <ul>
 <li>Understanding your data deeply</li>
 <li>Choosing the right analytical approaches</li>
@@ -769,7 +768,7 @@ div.csl-indent {
 </section>
 <section id="working-responsibly-with-ai-helpers" class="level2">
 <h2 class="anchored" data-anchor-id="working-responsibly-with-ai-helpers">6.7 Working Responsibly with AI Helpers</h2>
-<p>Here’s the thing—we’ve talked a lot about how great these tools are, but let’s be real about using them thoughtfully. They’re powerful, but they’re not magic, and they’re definitely not a substitute for your expertise as a researcher.</p>
+<p>These tools are useful, but they do not replace researcher judgment. Responsible use requires explicit verification and documentation.</p>
 <section id="always-review-what-you-get" class="level3">
 <h3 class="anchored" data-anchor-id="always-review-what-you-get">6.7.1 Always Review What You Get</h3>
 <p>Treat AI-generated code like a first draft from a well-meaning but imperfect colleague. It might be mostly right, but it’s probably not perfect. Before you use any code it generates in actual research:</p>
@@ -781,11 +780,11 @@ div.csl-indent {
 </section>
 <section id="be-transparent" class="level3">
 <h3 class="anchored" data-anchor-id="be-transparent">6.7.2 Be Transparent</h3>
-<p>If you use AI tools in your research workflow, it’s good practice to be open about it. This doesn’t mean you have to apologize—just acknowledge it in your methods. Something like:</p>
+<p>If AI tools are used in a research workflow, report that usage transparently in the methods section. For example:</p>
 <blockquote class="blockquote">
 <p>“We used the Positron AI Assistant to help generate initial data processing code, which was then reviewed and validated by the authors.”</p>
 </blockquote>
-<p>Simple, honest, and it helps others understand your process.</p>
+<p>This makes the analytic process easier for readers to evaluate and replicate.</p>
 </section>
 <section id="keep-things-reproducible" class="level3">
 <h3 class="anchored" data-anchor-id="keep-things-reproducible">6.7.3 Keep Things Reproducible</h3>
@@ -811,9 +810,9 @@ div.csl-indent {
 </section>
 <section id="wrapping-up" class="level2">
 <h2 class="anchored" data-anchor-id="wrapping-up">6.8 Wrapping Up</h2>
-<p>We’ve covered a lot of ground! Here’s the takeaway:</p>
-<p>Positron Assistant and Databot are genuinely useful teammates in your research journey. They won’t replace your expertise—let’s be clear about that. What they <em>will</em> do is handle repetitive coding work, support learning in context, and make computational research less frustrating.</p>
-<p>Think of them as tools that amplify what you already bring to the table: your research questions, your domain expertise, your critical thinking. They handle the coding heavy lifting so you can focus on the parts that really need a human mind.</p>
+<p>This chapter highlights a practical integration pattern:</p>
+<p>Positron Assistant and Databot can support repetitive coding tasks, contextual learning, and exploratory analysis. They do not replace domain expertise or methodological oversight.</p>
+<p>Used well, they amplify core researcher strengths: question design, contextual interpretation, and critical evaluation of evidence.</p>
 <section id="key-points-to-remember" class="level3">
 <h3 class="anchored" data-anchor-id="key-points-to-remember">Key Points to Remember</h3>
 <ul>
@@ -826,8 +825,7 @@ div.csl-indent {
 </section>
 <section id="whats-next" class="level3">
 <h3 class="anchored" data-anchor-id="whats-next">What’s Next?</h3>
-<p>In the next chapter, we’re going to explore another fascinating side of AI in research: <strong>Local LLMs</strong>. You’ll see how researchers can run powerful language models entirely on their own computers—perfect for working with sensitive data where privacy really matters. It’s a different approach from what we’ve covered here, and it opens up some really interesting possibilities for qualitative analysis.</p>
-<p>Ready to keep exploring? Let’s go!</p>
+<p>The next chapter extends this discussion to <strong>local LLM workflows for text analysis</strong>, with emphasis on privacy-preserving qualitative methods.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
