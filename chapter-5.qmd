@@ -2,8 +2,6 @@
 title: "Cloud vs Local LLMs"
 ---
 
-<!-- JR: do we need an overview like the other chapters? -->
-
 ## 5.1 Why Large Language Models Matter in Educational Research
 
 If you have ever looked at a pile of open-ended student responses and thought, "I know there is something important in here, but where do I even start?" - you are exactly the kind of researcher LLMs can help.

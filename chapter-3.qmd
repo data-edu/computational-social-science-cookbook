@@ -355,15 +355,26 @@ trans   <- transitivity(dlt2_network)
 diam    <- diameter(dlt2_network)
 mean_d  <- mean_distance(dlt2_network)
 
-# 8. Print summary statistics
-cat("DLT2 Network Stats:\n")
-cat("Nodes:", num_nodes, "Edges:", num_edges, "\n")
-cat("Degree Centralization (all/in/out):", centr_all, centr_in, centr_out, "\n")
-cat("Density:", density, "Reciprocity:", recip, "\n")
-cat("Transitivity:", trans, "Diameter:", diam, "Mean Distance:", mean_d, "\n")
-```
+# 8. Print summary statistics (structured output)
+dlt2_stats <- data.frame(
+  metric = c(
+    "Nodes", "Edges",
+    "Degree Centralization (all)",
+    "Degree Centralization (in)",
+    "Degree Centralization (out)",
+    "Density", "Reciprocity",
+    "Transitivity", "Diameter", "Mean Distance"
+  ),
+  value = c(
+    num_nodes, num_edges,
+    centr_all, centr_in, centr_out,
+    density, recip,
+    trans, diam, mean_d
+  )
+)
 
-<!-- JR: I feel using `cat()` is kind of weird and to be avoided - it... only makes sense in a report (in text)? I don't really think it's common. We should check throughout the book and change - just print the output and add a comment next to it or interpret it below. -->
+dlt2_stats
+```
 
 A sample methods section of these analytical steps can be written as follows:\
 

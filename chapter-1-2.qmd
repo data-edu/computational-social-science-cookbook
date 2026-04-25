@@ -2,8 +2,6 @@
 title: "R"
 ---
 
-<!-- JR: minor, here we use a conjunction ("we're") - do we do that elsewhere? Probably best to avoid as it is not formal  -->
-
 We are not going to teach you RStudio comprehensively because excellent resources already exist for that purpose. We particularly recommend [*R for Data Science*](https://r4ds.hadley.nz/), [*Data Science in Education Using R*](https://datascienceineducation.com/), the [RStudio primers](https://posit.co/resources/primers/), and [*Happy Git and GitHub for the useR*](https://happygitwithr.com/).
 
 Instead, this chapter covers just enough to reproduce our workflows and extend them to your own data science work. Think of this as the minimal viable setup for doing the work in this book.

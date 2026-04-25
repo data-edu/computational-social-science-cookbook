@@ -542,8 +542,7 @@ div.csl-indent {
 </section>
 <section id="is-web-scraping-legal" class="level4">
 <h4 class="anchored" data-anchor-id="is-web-scraping-legal">Is Web Scraping Legal?</h4>
-<!-- JR: This is a little nuanced. The terms of service are just the terms that we have to follow to stay in a company's good graces - I don't think there is anything legal at play in most cases --- just getting booted from a platform. The answer here is to cite some sources on this, I think. -->
-<p>Web scraping was common in the early days of the internet, but with the increasing value of data, legal norms have evolved. To avoid legal issues, check the “Terms of Service” for specific permissions on the website, often accessible via “robots.txt” files. Consult legal advice when in doubt.</p>
+<p>Web scraping is not governed by a single universal rule, so researchers should separate platform policy questions from legal and ethical risk assessment <span class="citation" data-cites="Salganik2019BitByBit">(<a href="#ref-Salganik2019BitByBit" role="doc-biblioref">Salganik 2019</a>)</span>. In practice, Terms of Service define platform-level permissions (for example, whether automated collection is allowed), while <code>robots.txt</code> provides crawler guidance; neither should be treated as a complete legal determination. Legal exposure depends on jurisdiction and context (for example, public vs.&nbsp;access-restricted content, personal data handling, and whether technical barriers are bypassed). For educational research, a practical standard is to document collection decisions, minimize personally identifiable data, and align scraping procedures with institutional review and data-governance requirements <span class="citation" data-cites="Salganik2019BitByBit">(<a href="#ref-Salganik2019BitByBit" role="doc-biblioref">Salganik 2019</a>)</span>.</p>
 </section>
 <section id="reading-a-web-page-into-r" class="level4">
 <h4 class="anchored" data-anchor-id="reading-a-web-page-into-r">Reading a Web Page into R</h4>
@@ -627,8 +626,7 @@ div.csl-indent {
 </section>
 <section id="what-is-an-api" class="level4">
 <h4 class="anchored" data-anchor-id="what-is-an-api">What is an API?</h4>
-<!-- JR: What does REST stand for? How is it different from other APIs? -->
-<p>An Application Programming Interface (API) is a set of protocols that allows computers to communicate and exchange information. A common type is the REST API, where one machine sends a request, and another returns a response. APIs provide standardized access to data, services, and functionalities, making them essential in software development.</p>
+<p>An Application Programming Interface (API) is a set of protocols that allows computers to communicate and exchange information. A common type is a <strong>REST</strong> API (Representational State Transfer), where clients make stateless HTTP requests (for example, <code>GET</code> and <code>POST</code>) to resource URLs and receive structured responses, often in JSON. APIs provide standardized access to data, services, and functionalities, making them essential in software development.</p>
 </section>
 <section id="when-to-use-an-api" class="level4">
 <h4 class="anchored" data-anchor-id="when-to-use-an-api">When to Use an API</h4>
@@ -968,8 +966,7 @@ If further analysis is needed, such as frequency-based analysis, split the text 
 </section>
 <section id="step-4-create-a-word-cloud" class="level4">
 <h4 class="anchored" data-anchor-id="step-4-create-a-word-cloud">Step 4: Create a Word Cloud</h4>
-<!-- JR: we may want to add a note that this is often not the most effective viz of counts of words - I believe a bar chart may often be easier, though these are fun. There are some sources on this; we used one in STEM 691 (I can't remember the title and am on the plane right now - the book by Clause Wilke). -->
-<p>Generate a word cloud to visualize the frequency of words in a circular shape.</p>
+<p>Generate a word cloud to visualize frequent words in an exploratory way. Word clouds are useful for quick pattern scanning, but they are less precise for comparing magnitudes across terms. For quantitative comparison, bar charts are usually more interpretable <span class="citation" data-cites="Wilke2019DataViz">(<a href="#ref-Wilke2019DataViz" role="doc-biblioref">Wilke 2019</a>)</span>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create and display the GenAI usage Stance wordcloud</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>) <span class="co"># For reproducibility</span></span>
@@ -1443,8 +1440,14 @@ Rosenberg, Joshua M., Conrad Borchers, Elizabeth B. Dyer, Daniel Anderson, and C
 <div id="ref-Saldana2021Coding" class="csl-entry" role="listitem">
 Saldaña, Johnny. 2021. <span>“Coding Techniques for Quantitative and Mixed Data.”</span> In <em>The Routledge Reviewer’s Guide to Mixed Methods Analysis</em>. Routledge.
 </div>
+<div id="ref-Salganik2019BitByBit" class="csl-entry" role="listitem">
+Salganik, Matthew J. 2019. <em>Bit by Bit: Social Research in the Digital Age</em>. Princeton University Press.
+</div>
 <div id="ref-Silge2017TextMining" class="csl-entry" role="listitem">
 Silge, Julia, and David Robinson. 2017. <em>Text Mining with <span>R</span>: A Tidy Approach</em>. O’Reilly Media. <a href="https://www.tidytextmining.com/">https://www.tidytextmining.com/</a>.
+</div>
+<div id="ref-Wilke2019DataViz" class="csl-entry" role="listitem">
+Wilke, Claus O. 2019. <em>Fundamentals of Data Visualization</em>. O’Reilly Media. <a href="https://clauswilke.com/dataviz/">https://clauswilke.com/dataviz/</a>.
 </div>
 </div>
 </section>
