@@ -51,17 +51,33 @@ Preprints are particularly useful for computational research, where methods evol
 
 Increasingly, computational researchers publish project websites that combine narrative, code, figures, and links to data. These sites allow authors to present analyses without the spatial constraints of traditional articles.
 
+As a concrete example, the workflow below uses the `data-edu/tidyLPA` project [@Rosenberg2018tidyLPA]:
+
+<https://github.com/data-edu/tidyLPA>
+
+<https://data-edu.github.io/tidyLPA>
+
 A common workflow involves:
 
 -   Hosting source files and code on **GitHub** (<https://github.com/>)
+
+    ![](<data/ch9_images/github repo codes.png>)
+
+    *Figure. `data-edu/tidyLPA` source repository on GitHub.*
+
 -   Publishing a static website using **GitHub Pages** (<https://pages.github.com/>)
+
+    ![](<data/ch9_images/github page.png>)
+
+    *Figure. `data-edu/tidyLPA` published GitHub Pages site.*
+
 -   Authoring documents with **Quarto** (<https://quarto.org/>)
 
 This approach supports transparency, reproducibility, and incremental updates. Project websites are especially well suited for method demonstrations, teaching examples, and analyses involving multiple visualizations.
 
 ![](<data/ch9_images/quarto .png>)
 
-*Example of a Quarto-based project website format.*
+*Figure. Simple example of a Quarto-based communication page.*
 
 ### 9.2.4 Open Data and Code Archives
 
@@ -198,19 +214,12 @@ Narrative text accompanying the visualization explains how these patterns relate
 
 ### 9.4.7 Publishing and Sharing
 
-To make this concrete, we use the public `data-edu/tidyLPA` repository as an example communication workflow [@Rosenberg2018tidyLPA]:
+For the GenAI policy case in this chapter, publishing follows the same two-layer model introduced in Section 9.2.3:
 
-<https://github.com/data-edu/tidyLPA>
+-   a **source layer** (repository with Quarto files, scripts, and documentation), and
+-   a **public layer** (rendered static site for readers).
 
-In this workflow, the **source layer** is the GitHub repository (Quarto files, scripts, commit history, documentation), and the **public layer** is the rendered GitHub Pages site. Together, these two layers provide a stable, citable, and transparent communication artifact for computational educational research.
-
-<https://data-edu.github.io/tidyLPA>
-
-![](<data/ch9_images/github repo codes.png>)
-
-![](<data/ch9_images/github page.png>)
-
-*Example of the `data-edu/tidyLPA` source repository and its published GitHub Pages output.*
+This separation supports both versioned development and stable public communication. The same pattern can be adapted to course projects, policy analyses, and larger collaborative studies.
 
 ### 9.4.8 Why This Format Matters
 

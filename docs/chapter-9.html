@@ -550,15 +550,22 @@ div.csl-indent {
 <section id="project-websites-and-living-documents" class="level3">
 <h3 class="anchored" data-anchor-id="project-websites-and-living-documents">9.2.3 Project Websites and Living Documents</h3>
 <p>Increasingly, computational researchers publish project websites that combine narrative, code, figures, and links to data. These sites allow authors to present analyses without the spatial constraints of traditional articles.</p>
+<p>As a concrete example, the workflow below uses the <code>data-edu/tidyLPA</code> project <span class="citation" data-cites="Rosenberg2018tidyLPA">(<a href="#ref-Rosenberg2018tidyLPA" role="doc-biblioref">Rosenberg et al. 2018</a>)</span>:</p>
+<p><a href="https://github.com/data-edu/tidyLPA" class="uri">https://github.com/data-edu/tidyLPA</a></p>
+<p><a href="https://data-edu.github.io/tidyLPA" class="uri">https://data-edu.github.io/tidyLPA</a></p>
 <p>A common workflow involves:</p>
 <ul>
-<li>Hosting source files and code on <strong>GitHub</strong> (<a href="https://github.com/" class="uri">https://github.com/</a>)</li>
-<li>Publishing a static website using <strong>GitHub Pages</strong> (<a href="https://pages.github.com/" class="uri">https://pages.github.com/</a>)</li>
-<li>Authoring documents with <strong>Quarto</strong> (<a href="https://quarto.org/" class="uri">https://quarto.org/</a>)</li>
+<li><p>Hosting source files and code on <strong>GitHub</strong> (<a href="https://github.com/" class="uri">https://github.com/</a>)</p>
+<p><img src="data/ch9_images/github repo codes.png" class="img-fluid"></p>
+<p><em>Figure. <code>data-edu/tidyLPA</code> source repository on GitHub.</em></p></li>
+<li><p>Publishing a static website using <strong>GitHub Pages</strong> (<a href="https://pages.github.com/" class="uri">https://pages.github.com/</a>)</p>
+<p><img src="data/ch9_images/github page.png" class="img-fluid"></p>
+<p><em>Figure. <code>data-edu/tidyLPA</code> published GitHub Pages site.</em></p></li>
+<li><p>Authoring documents with <strong>Quarto</strong> (<a href="https://quarto.org/" class="uri">https://quarto.org/</a>)</p></li>
 </ul>
 <p>This approach supports transparency, reproducibility, and incremental updates. Project websites are especially well suited for method demonstrations, teaching examples, and analyses involving multiple visualizations.</p>
 <p><img src="data/ch9_images/quarto .png" class="img-fluid"></p>
-<p><em>Example of a Quarto-based project website format.</em></p>
+<p><em>Figure. Simple example of a Quarto-based communication page.</em></p>
 </section>
 <section id="open-data-and-code-archives" class="level3">
 <h3 class="anchored" data-anchor-id="open-data-and-code-archives">9.2.4 Open Data and Code Archives</h3>
@@ -674,13 +681,12 @@ genai-policy-analysis/
 </section>
 <section id="publishing-and-sharing" class="level3">
 <h3 class="anchored" data-anchor-id="publishing-and-sharing">9.4.7 Publishing and Sharing</h3>
-<p>To make this concrete, we use the public <code>data-edu/tidyLPA</code> repository as an example communication workflow <span class="citation" data-cites="Rosenberg2018tidyLPA">(<a href="#ref-Rosenberg2018tidyLPA" role="doc-biblioref">Rosenberg et al. 2018</a>)</span>:</p>
-<p><a href="https://github.com/data-edu/tidyLPA" class="uri">https://github.com/data-edu/tidyLPA</a></p>
-<p>In this workflow, the <strong>source layer</strong> is the GitHub repository (Quarto files, scripts, commit history, documentation), and the <strong>public layer</strong> is the rendered GitHub Pages site. Together, these two layers provide a stable, citable, and transparent communication artifact for computational educational research.</p>
-<p><a href="https://data-edu.github.io/tidyLPA" class="uri">https://data-edu.github.io/tidyLPA</a></p>
-<p><img src="data/ch9_images/github repo codes.png" class="img-fluid"></p>
-<p><img src="data/ch9_images/github page.png" class="img-fluid"></p>
-<p><em>Example of the <code>data-edu/tidyLPA</code> source repository and its published GitHub Pages output.</em></p>
+<p>For the GenAI policy case in this chapter, publishing follows the same two-layer model introduced in Section 9.2.3:</p>
+<ul>
+<li>a <strong>source layer</strong> (repository with Quarto files, scripts, and documentation), and</li>
+<li>a <strong>public layer</strong> (rendered static site for readers).</li>
+</ul>
+<p>This separation supports both versioned development and stable public communication. The same pattern can be adapted to course projects, policy analyses, and larger collaborative studies.</p>
 </section>
 <section id="why-this-format-matters" class="level3">
 <h3 class="anchored" data-anchor-id="why-this-format-matters">9.4.8 Why This Format Matters</h3>
