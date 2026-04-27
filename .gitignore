@@ -14,3 +14,11 @@ example-script.R
 archive/
 _freeze/
 .RDataTmp
+
+# macOS metadata
+.DS_Store
+
+# Tools and stray artifacts
+bfg-1.14.0.jar
+wordcloud.html
+wordcloud.png

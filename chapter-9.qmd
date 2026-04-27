@@ -187,7 +187,8 @@ The core communication document (`frequency-analysis.qmd`) integrates brief narr
 
 A minimal communication excerpt could look like this:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 library(tidyverse)
 library(tidytext)
 

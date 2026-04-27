@@ -1,0 +1,14 @@
+---
+title: "Communication and Conclusion"
+---
+
+Computational analysis does not end when the code runs. How findings are communicated shapes whether they reach the audiences that matter and whether others can evaluate, reproduce, or build on the work.
+
+This section treats communication as a methodological choice, not an afterthought. The format in which results are shared — a journal article, a preprint, a project website, a living document — carries its own assumptions about accessibility, transparency, and reproducibility. Choosing a format is as much a part of the research design as choosing a statistical model or a sampling strategy.
+
+The two chapters in this section address different dimensions of that choice:
+
+- **Communication Matters** surveys the landscape of scholarly communication formats, from traditional journals to open-science platforms and Quarto-based project websites, and demonstrates how a complete computational analysis can be packaged for transparency and reuse.
+- **Conclusion** synthesizes the book's core contributions and offers a practical framework for continuing computational research in education.
+
+Across both chapters, the same principles that guided earlier sections remain central: methodological clarity, reproducibility, and responsible interpretation of results.

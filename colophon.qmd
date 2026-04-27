@@ -1,0 +1,22 @@
+---
+title: "Colophon"
+---
+
+This book was written in [Quarto](https://quarto.org/) and rendered to HTML and PDF. All analyses were conducted in R. The source code is available at the book's GitHub repository.
+
+The R session information below documents the computational environment used to produce this edition, including the R version, platform, and all packages loaded during rendering.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+cat("Build date:", format(Sys.Date(), "%B %d, %Y"), "\n")
+cat("Quarto version:", as.character(quarto::quarto_version()), "\n")
+```
+
+```{r}
+#| echo: false
+
+sessionInfo()
+```

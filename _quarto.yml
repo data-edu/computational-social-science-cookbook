@@ -30,15 +30,16 @@ book:
         - chapter-7.qmd
         - chapter-8.qmd
 
-    - part: "Communication and Conclusion"
+    - part: section-4-Intro.qmd
       chapters:
         - chapter-9.qmd
         - conclusion.qmd
 
+    - colophon.qmd
     - references.qmd
 
 
-bibliography: [references.bib, packages.bib]
+bibliography: references.bib
 
 format:
   html:

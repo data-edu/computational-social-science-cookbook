@@ -39,7 +39,8 @@ Web scraping is not governed by a single universal rule, so researchers should s
 
 Once permissions are confirmed, the first step in web scraping is to download the webpage’s source code into R. In R, a great package to do this is `rvest`.
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 # Install and load the rvest package
 install.packages("rvest")
 library(rvest)
@@ -47,7 +48,8 @@ library(rvest)
 
 To demonstrate, we will scrape a simple Wikipedia page. Static pages, which lack interactive elements like JavaScript, are simpler to scrape. You can view the page’s HTML source in your browser by selecting **Developer Tools \> View Source**.
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 # Load the webpage
 wikipedia_page <- read_html("https://en.wikipedia.org/wiki/World_Health_Organization_ranking_of_health_systems_in_2000")
 
@@ -61,7 +63,8 @@ The next challenge is extracting specific information from the HTML structure. H
 
 To isolate data sections within the HTML structure, identify the **XPath** or **CSS selectors**. For instance:
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 # Extract specific section using XPath
 section_of_wikipedia <- html_node(wikipedia_page, xpath='//*[@id="mw-content-text"]/div/table')
 head(section_of_wikipedia)
@@ -69,7 +72,8 @@ head(section_of_wikipedia)
 
 To convert the extracted section into a data frame, use `html_table()`:
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 # Convert the extracted data into a table
 health_rankings <- html_table(section_of_wikipedia)
 head(health_rankings[ , (1:2)])  # Display the first two columns
@@ -81,7 +85,8 @@ For more complex web pages, CSS selectors can be an alternative to XPath. Tools 
 
 For example, to scrape event information from Duke University’s main page:
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 # Load the webpage
 duke_page <- read_html("https://www.duke.edu")
 
@@ -96,7 +101,8 @@ For tasks involving interactive actions (e.g., filling search fields), use `RSel
 
 To set up Selenium, install the **Java SE Development Kit** and **Docker**. Then, start Selenium in R:
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 # Install and load RSelenium
 install.packages("RSelenium")
 library(RSelenium)
@@ -109,7 +115,8 @@ remDr$navigate("https://www.duke.edu")
 
 To automate data entry, identify the CSS selector for the search box and input the query:
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 # Find the search box element and enter a query
 search_box <- remDr$findElement(using = 'css selector', 'fieldset input')
 search_box$sendKeysToElement(list("data science", "\uE007"))  # "\uE007" represents Enter key
@@ -146,7 +153,8 @@ APIs are commonly used for:
 
 Reddit is a social media platform featuring a complex network of users and discussions, organized into "subreddits" by topic. RedditExtractoR, an R package, enables data extraction from Reddit to identify trends and analyze interactions.
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 # Install and load RedditExtractoR
 install.packages("RedditExtractoR")
 library(RedditExtractoR)
@@ -171,7 +179,8 @@ Audio transcripts are a rich source of text data, especially useful for capturin
 2.  **Import the Transcript into R**\
     Once the file is downloaded, you can load it into R for analysis. Depending on the file format (usually a `.txt` file with tab or comma delimiters), use `read.table()`, `read.csv()`, or functions from the `readr` package to load the data.
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
    # Load the transcript into R
    transcript_data <- read.table("path/to/your/zoom_transcript.txt", sep = "\t", header = TRUE)
 ```
@@ -184,7 +193,8 @@ Adjust the `sep` parameter based on the delimiter used in the transcript file (t
     -   **Remove Unwanted Characters**\
         Use `gsub()` to eliminate special characters and punctuation, keeping only alphanumeric characters and spaces.
 
-    ```{r, eval = FALSE}
+    ```{r}
+#| eval: false
          # Remove special characters
          transcript_data$text <- gsub("[^a-zA-Z0-9 ]", "", transcript_data$text)
     ```
@@ -192,7 +202,8 @@ Adjust the `sep` parameter based on the delimiter used in the transcript file (t
     -   **Convert Text to Lowercase**\
         Standardize text to lowercase for consistency in text analysis.
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
      # Convert text to lowercase
      transcript_data$text <- tolower(transcript_data$text)
 ```
@@ -213,7 +224,8 @@ PDF files are a valuable source of text data, often found in research publicatio
 1.  **Install and Load the `pdftools` Package**\
     Start by installing and loading the `pdftools` package, which is specifically designed for reading and extracting text from PDF files in R.
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
    install.packages("pdftools")
    library(pdftools)
 ```
@@ -221,28 +233,32 @@ PDF files are a valuable source of text data, often found in research publicatio
 2.  **Read the PDF as a Text File**\
     Use the `pdf_text()` function to read the PDF file into R as a text object. This function returns each page as a separate string in a character vector.
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
    txt <- pdf_text("path/to/your/file.pdf")
 ```
 
 3.  **Extract Text from a Specific Page**\
     To access a particular page from the PDF, specify the page number in the text vector. For example, to extract text from page 24:
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
    page_text <- txt[24]  # page 24
 ```
 
 4.  **Extract Rows into a List**\
     If the page contains a table or structured text, use the `scan()` function to read each row as a separate element in a list. The `textConnection()` function converts the page text for processing.
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
    rows <- scan(textConnection(page_text), what = "character", sep = "\n")
 ```
 
 5.  **Split Rows into Cells**\
     To further parse each row, split it into cells by specifying the delimiter, such as whitespace (using `"\\s+"`). This converts each row into a list of individual cells.
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
    row <- unlist(strsplit(rows[24], "\\s+"))  # Example with the 24th row
 ```
 
@@ -251,7 +267,8 @@ PDF files are a valuable source of text data, often found in research publicatio
 1.  **Download the PDF from the Web**\
     Use the `download.file()` function to download the PDF file from a specified URL. Set the mode to `"wb"` (write binary) to ensure the file is saved correctly.
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
    link <- paste0(
      "http://www.singstat.gov.sg/docs/",
      "default-source/default-document-library/",
@@ -265,21 +282,24 @@ PDF files are a valuable source of text data, often found in research publicatio
 2.  **Read the PDF as a Text File**\
     After downloading, read the PDF into R as a text object using the `pdf_text()` function from the `pdftools` package. Each page of the PDF will be stored as a string in a character vector.
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
    txt <- pdf_text("census2010_3.pdf")
 ```
 
 3.  **Extract Text from a Specific Page**\
     Access the desired page (e.g., page 24) by specifying the page number in the character vector.
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
    page_text <- txt[24]  # Page 24
 ```
 
 4.  **Extract Rows into a List**\
     Use the `scan()` function to split the page text into rows, with each row representing a line of text in the PDF. This creates a list where each line from the page is an element.
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
    rows <- scan(textConnection(page_text), what = "character", sep = "\n")
 ```
 
@@ -289,7 +309,8 @@ PDF files are a valuable source of text data, often found in research publicatio
     -   Convert the result to a vector with `unlist()`.
     -   If the third cell in the row is not empty, store the second cell as `name` and the third cell as `total`, converting it to a numeric format after removing commas.
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
    name <- c()
    total <- c()
 
@@ -311,7 +332,8 @@ Surveys and discussion posts are valuable sources of text data in educational re
 1.  **Load the Data**\
     Survey and discussion data are typically stored in spreadsheet formats like CSV. Begin by loading this data into R for processing. Here, `readr` is used for reading CSV files with `read_csv()`.
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
    # Install and load necessary packages
    install.packages("readr")
    library(readr)
@@ -323,7 +345,8 @@ Surveys and discussion posts are valuable sources of text data in educational re
 2.  **Extract Text Columns**\
     Identify and isolate the relevant text columns. For example, if the text data is in a column named "Response," you can create a new vector for analysis.
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
    # Extract text data from the specified column
    text_data <- survey_data$Response
 ```
@@ -334,7 +357,8 @@ Surveys and discussion posts are valuable sources of text data in educational re
     -   **Remove Unwanted Characters**\
         Use `gsub()` from base R to remove any non-alphanumeric characters, retaining only words and spaces.
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
      # Remove special characters
      text_data <- gsub("[^a-zA-Z0-9 ]", "", text_data)
 ```
@@ -342,7 +366,8 @@ Surveys and discussion posts are valuable sources of text data in educational re
 -   **Convert to Lowercase**\
     Standardize the text by converting all characters to lowercase.
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
      # Convert text to lowercase
      text_data <- tolower(text_data)
 ```
@@ -350,7 +375,8 @@ Surveys and discussion posts are valuable sources of text data in educational re
 -   **Remove Extra Whitespace**\
     Remove any extra whitespace that may be left after cleaning.
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
      # Remove extra spaces
      text_data <- gsub("\\s+", " ", text_data)
 ```
@@ -358,7 +384,8 @@ Surveys and discussion posts are valuable sources of text data in educational re
 4.  **Tokenization and Word Counting (Optional)**\
     If further analysis is needed, such as frequency-based analysis, split the text into individual words (tokenization) or count the occurrence of specific words. Here, `dplyr` is used to organize the word counts.
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
    # Install and load necessary packages
    install.packages("dplyr")
    library(dplyr)

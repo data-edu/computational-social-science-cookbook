@@ -45,14 +45,16 @@ You can install Ollama by downloading and installing the application from its pr
 
 After installing Ollama, you will then need to install ollamar and ellmer:
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 install.packages("ollamar")
 install.packages("ellmer")
 ```
 
 Once these are installed, install kuzco:
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 devtools::install_github("frankiethull/kuzco")
 ```
 
@@ -104,7 +106,8 @@ The structured outputs were imported into R for organization and thematic coding
 
 With the code below, we create a function to batch analyze images. First, since we aim to analyze images (i.e., batch) inside a folder, we define the folder and search and identify image files.
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 library(kuzco)
 library(ollamar)
 library(tibble)
@@ -121,7 +124,8 @@ image_files <- dir_ls(image_folder, regexp = "\\.(jpg|jpeg|png)$", recurse = FAL
 
 Next, to analyze these images in batch, we create a function. The first part of the function defines our model and backend. As of writing this book, `qwen2.5vl:7b` model worked most efficiently and reliably. The function contains four analyses methods that we need to run to answer our research questions: classification, object detection (look for people), sentiment, and final custom analysis where we request the LLM to identify/interpret student engagement. The function lets us capture the LLM analysis as a tibble.
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 # Function to classify and detect in one step
 process_image <- function(img_path) {
   # Classification
@@ -183,7 +187,8 @@ process_image <- function(img_path) {
 
 Now, we run the analyses:
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 
 # Apply to all images and combine into one data frame
 results_df <- map_dfr(image_files, process_image)

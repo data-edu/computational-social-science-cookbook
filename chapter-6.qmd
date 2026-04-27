@@ -2,7 +2,8 @@
 title: "Positron Assistant and Databot"
 ---
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 #| include: false
 options(warn = -1)
 ```
@@ -49,11 +50,11 @@ For educational researchers, the value is not replacement of expertise but suppo
 
 -   **Building confidence for newer R users** — iterative feedback can lower the barrier to experimentation.
 
-> **A gentle reminder:** Positron Assistant is a tool to work *with*, not a replacement for your expertise as a researcher. It's great at generating code, but you're the expert on your data and research questions. Always review what it generates—treat it as a first draft that needs your expert polish.
+> **A gentle reminder:** Positron Assistant is a tool to work *with*, not a replacement for your expertise as a researcher. It is great at generating code, but you are the expert on your data and research questions. Always review what it generates—treat it as a first draft that needs your expert polish.
 
 ## 6.3 Getting Started
 
-### 6.3.1 What You'll Need
+### 6.3.1 What You Will Need
 
 Before we dive in, make sure you have:
 
@@ -89,7 +90,7 @@ Tune these settings based on your workflow and project requirements.
 
 ### 6.3.4 Choosing a Provider for Research Work
 
-If you're working in educational research settings, choose providers with your workflow constraints in mind:
+If you are working in educational research settings, choose providers with your workflow constraints in mind:
 
 -   **Compliance first**: If your institution restricts providers, follow that policy before convenience.
 -   **Cost awareness**: API-key providers are often usage-based; budget and monitor token usage.
@@ -160,14 +161,16 @@ This feature is especially useful for onboarding new team members and documentin
 
 A common debugging scenario is shown below:
 
-```{r, eval = FALSE, error = TRUE}
+```{r}
+#| eval: false
+#| error: true
 # You run this, and R throws an error
 mean(student_data$score)
 ```
 
 Instead of manually searching external forums first, pass the error to Positron Assistant for an initial diagnosis. A typical response might be:
 
-> "I see the issue! You're trying to calculate a mean, but there are missing values in your data. Add `na.rm = TRUE` to ignore them, or decide whether those NAs should be handled differently. Want me to show you both options?"
+> "I see the issue! You are trying to calculate a mean, but there are missing values in your data. Add `na.rm = TRUE` to ignore them, or decide whether those NAs should be handled differently. Want me to show you both options?"
 
 This response can be used as a starting point for verification.
 
@@ -289,7 +292,7 @@ These tools are useful, but they do not replace researcher judgment. Responsible
 
 ### 6.7.1 Always Review What You Get
 
-Treat AI-generated code like a first draft from a well-meaning but imperfect colleague. It might be mostly right, but it's probably not perfect. Before you use any code it generates in actual research:
+Treat AI-generated code like a first draft from a well-meaning but imperfect colleague. It might be mostly right, but it is probably not perfect. Before you use any code it generates in actual research:
 
 -   **Test it on a small sample** first—run the code on a subset of your data to make sure it does what you expect
 -   **Verify the results** against something you know to be true, or compare with a manual calculation
@@ -308,7 +311,7 @@ This makes the analytic process easier for readers to evaluate and replicate.
 A few tips to make sure your work still holds up:
 
 -   **Note what version** of the AI tools you used
--   **Keep your human-written code** as the authoritative version—don't rely solely on what the AI generated
+-   **Keep your human-written code** as the authoritative version—do not rely solely on what the AI generated
 -   **Use version control** (like Git) to track changes, so you can always see the history of your work
 
 ### 6.7.4 Protect Data and Document AI Use
@@ -335,10 +338,10 @@ Used well, they amplify core researcher strengths: question design, contextual i
 
 -   Positron Assistant offers real-time code help, explanations, and debugging support
 -   Databot can accelerate exploratory analysis and repetitive scaffolding, but requires careful review
--   Always review and validate AI-generated code—it's a starting point, not the final answer
+-   Always review and validate AI-generated code—it is a starting point, not the final answer
 -   Being transparent about AI use builds trust with your readers
 -   These tools free you up to focus on what matters: your research
 
-### What's Next?
+### What is Next?
 
 The next chapter extends this discussion to **local LLM workflows for text analysis**, with emphasis on privacy-preserving qualitative methods.

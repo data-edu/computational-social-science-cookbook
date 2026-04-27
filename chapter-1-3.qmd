@@ -7,11 +7,11 @@ title: "Tidyverse"
 options(warn = -1)
 ```
 
-The tidyverse is a collection of R packages designed for data science with a shared philosophy: code should be readable, consistent, and focused on the data transformations you're actually trying to accomplish [@Wickham2017R4DS; @Wickham2019Tidyverse]. If you've struggled with base R's sometimes cryptic syntax, the tidyverse may feel like a relief.
+The tidyverse is a collection of R packages designed for data science with a shared philosophy: code should be readable, consistent, and focused on the data transformations you are actually trying to accomplish [@Wickham2017R4DS; @Wickham2019Tidyverse]. If you have struggled with base R's sometimes cryptic syntax, the tidyverse may feel like a relief.
 
-Most computational educational research workflows rely on tidyverse packages for data manipulation, visualization, and modeling. Learning this ecosystem means learning the tools your collaborators use, the examples you'll find online, and the approaches that scale from quick exploration to publication-ready analysis [@Wickham2017R4DS; @Wickham2019Tidyverse].
+Most computational educational research workflows rely on tidyverse packages for data manipulation, visualization, and modeling. Learning this ecosystem means learning the tools your collaborators use, the examples you will find online, and the approaches that scale from quick exploration to publication-ready analysis [@Wickham2017R4DS; @Wickham2019Tidyverse].
 
-## What's in the Tidyverse?
+## What is in the Tidyverse?
 
 The tidyverse is actually a meta-package that loads eight core packages when you run `library(tidyverse)`:
 
@@ -45,11 +45,11 @@ Loading (at the start of each session or script):
 library(tidyverse)
 ```
 
-When you load the tidyverse, you'll see a message listing which packages were attached and any conflicts (functions from tidyverse packages that mask base R functions). The conflicts are normal and intentional—tidyverse functions are generally preferable for data science work.
+When you load the tidyverse, you will see a message listing which packages were attached and any conflicts (functions from tidyverse packages that mask base R functions). The conflicts are normal and intentional—tidyverse functions are generally preferable for data science work.
 
 ## Working with Real Data
 
-Let's load actual data to see the tidyverse in action. We'll use student assessment data from the Open University Learning Analytics Dataset (OULAD), which contains information about student demographics and course outcomes.
+Let us load actual data to see the tidyverse in action. We will use student assessment data from the Open University Learning Analytics Dataset (OULAD), which contains information about student demographics and course outcomes.
 
 ```{r}
 #| label: load-data
@@ -62,11 +62,11 @@ glimpse(students)
 
 The `glimpse()` function shows you the structure of your data: how many rows and columns, what type each column is (character, numeric, etc.), and the first few values. This dataset contains information about students (gender, age, region, disability status) along with their course performance (final_result, pass status, mean_weighted_score).
 
-This is the dataset we'll use in the examples below. It represents the kind of educational data you'll work with in computational educational research: thousands of observations with both categorical and continuous variables.
+This is the dataset we will use in the examples below. It represents the kind of educational data you will work with in computational educational research: thousands of observations with both categorical and continuous variables.
 
 ## Essential dplyr Functions
 
-The dplyr package provides functions for the most common data manipulation tasks. Here are the ones you'll use repeatedly.
+The dplyr package provides functions for the most common data manipulation tasks. Here are the ones you will use repeatedly.
 
 ### filter() - Selecting Rows
 
@@ -227,7 +227,7 @@ The tidyverse introduced a distinctive style: piping operations together to crea
 
 R now has a native pipe operator `|>` (introduced in R 4.1), while the tidyverse originally used `%>%` from the magrittr package. They work almost identically for most purposes.
 
-Here's a concrete example using the dplyr functions we just learned:
+Here is a concrete example using the dplyr functions we just learned:
 
 ```{r}
 #| label: pipe-comparison
@@ -253,7 +253,7 @@ students |>
 
 The piped version reads like instructions: "Take students, *then* keep only those who passed, *then* group by gender, *then* calculate mean scores." Each step is on its own line, making it easy to follow the logic.
 
-We'll use the native pipe `|>` throughout this book because it's now built into R, but you'll encounter `%>%` in older code and documentation. For practical purposes, they're interchangeable in most tidyverse workflows.
+We will use the native pipe `|>` throughout this book because it is now built into R, but you will encounter `%>%` in older code and documentation. For practical purposes, they are interchangeable in most tidyverse workflows.
 
 **How to read it**: Think of `|>` as "then." The pipe takes the result from the left and passes it as the first argument to the function on the right.
 
@@ -429,7 +429,7 @@ students |>
   facet_wrap(~code_module)
 ```
 
-This creates a grid of small bar charts, one for each module. It's useful when you want to compare patterns across many categories.
+This creates a grid of small bar charts, one for each module. It is useful when you want to compare patterns across many categories.
 
 ```{r}
 #| label: fig-facet-grid
@@ -448,7 +448,7 @@ students |>
 
 You've now seen core tidyverse functions in action with real data. The seven dplyr functions covered here—`filter()`, `select()`, `mutate()`, `summarize()`, `group_by()`, `arrange()`, and `count()`—handle the majority of everyday data manipulation tasks. The ggplot2 visualizations—bar charts, histograms, boxplots, scatter plots, and faceting—cover most exploratory analysis needs.
 
-The subsequent chapters in this book use these functions extensively, and we'll introduce additional tidyverse capabilities as they become relevant. You'll continue learning by doing, working with real data and real research questions.
+The subsequent chapters in this book use these functions extensively, and we will introduce additional tidyverse capabilities as they become relevant. You will continue learning by doing, working with real data and real research questions.
 
 When you want to go deeper:
 
