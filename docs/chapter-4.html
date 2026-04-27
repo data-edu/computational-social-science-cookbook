@@ -426,7 +426,7 @@ div.csl-indent {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+            <a href="./section-4-Intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Communication and Conclusion</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -445,6 +445,11 @@ div.csl-indent {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./colophon.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Colophon</span></a>
+  </div>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
@@ -1183,7 +1188,7 @@ Number of Fisher Scoring iterations: 5</code></pre>
 <p><strong>Response:</strong><br>
 Using 4-fold cross-validation, our random forest model yielded an average accuracy of approximately <strong>67.0%</strong> (mean accuracy from resamples: 0.670) with a Cohen’s Kappa of <strong>0.261</strong>, suggesting moderate agreement beyond chance. When fitted on the entire training set and evaluated on the test set, the final model showed an accuracy of <strong>66.5%</strong> along with: - <strong>Sensitivity:</strong> 81.5% – indicating the model correctly identifies a high proportion of students who pass. - <strong>Specificity:</strong> 41.9% – suggesting that the model is less effective at correctly identifying students who do not pass. - <strong>Positive Predictive Value (PPV):</strong> 69.7% - <strong>Negative Predictive Value (NPV):</strong> 58.0%</p>
 <p>The confusion matrix shows: - True Negatives (TN): 5439 - False Negatives (FN): 1238 - False Positives (FP): 2370 - True Positives (TP): 1710</p>
-<p>Overall, these metrics indicate that while the model performs well in detecting positive outcomes (high sensitivity), its lower specificity means that it tends to misclassify a relatively higher proportion of non-passing students. In plain English, our model is an <strong>optimist</strong>—it’s great at spotting the winners, but it sometimes overlooks the stragglers. This is a crucial insight for educators: this tool is better used as an <strong>early warning system for success</strong> rather than a perfect detector of failure.</p>
+<p>Overall, these metrics indicate that while the model performs well in detecting positive outcomes (high sensitivity), its lower specificity means that it tends to misclassify a relatively higher proportion of non-passing students. In plain English, our model is an <strong>optimist</strong>—it is great at spotting the winners, but it sometimes overlooks the stragglers. This is a crucial insight for educators: this tool is better used as an <strong>early warning system for success</strong> rather than a perfect detector of failure.</p>
 </section>
 <section id="research-question-2-rq2" class="level4">
 <h4 class="anchored" data-anchor-id="research-question-2-rq2">Research Question 2 (RQ2):</h4>
@@ -1197,13 +1202,13 @@ The variable importance analysis, extracted from the final random forest model u
 <li><strong>date_registration:</strong> 652.15 – The registration date also plays a significant role.</li>
 <li>Other categorical variables (e.g., dummy-coded <code>disability</code>, <code>gender</code>, and <code>code_module</code> levels) generally show lower importance scores, with values typically under 80, indicating that while they do contribute, engagement and performance metrics dominate.</li>
 </ul>
-<p>These results suggest that both the <strong>intensity</strong> and the <strong>temporal trend</strong> of student interactions with the learning environment are critical in predicting whether a student will pass. Specifically, the <code>slope</code> (trend) is a fascinating finding—it tells us that it’s not just <em>how much</em> a student clicks, but <em>how their behavior changes</em> over time. A student whose engagement is increasing—even if they started slow—is often in a better position than one whose activity is tapering off.</p>
+<p>These results suggest that both the <strong>intensity</strong> and the <strong>temporal trend</strong> of student interactions with the learning environment are critical in predicting whether a student will pass. Specifically, the <code>slope</code> (trend) is a fascinating finding—it tells us that it is not just <em>how much</em> a student clicks, but <em>how their behavior changes</em> over time. A student whose engagement is increasing—even if they started slow—is often in a better position than one whose activity is tapering off.</p>
 </section>
 <section id="research-question-3-rq3" class="level4">
 <h4 class="anchored" data-anchor-id="research-question-3-rq3">Research Question 3 (RQ3):</h4>
 <p><em>How does the use of cross-validation impact the stability and generalizability of the random forest model on interactions data?</em></p>
 <p><strong>Response:</strong><br>
-The use of 4-fold cross-validation (via <code>vfold_cv</code>) allowed us to assess the model’s performance across multiple subsets of the data, mitigating the risk of overfitting. The resampling results are relatively consistent (with accuracy around 67%, sensitivity at 81.6%, and specificity around 43.2%), which supports the model’s robustness and generalizability. Although the final test set performance (accuracy of 66.5%) is slightly lower, the overall consistency of metrics across folds indicates that our model is stable when applied to unseen data. This consistency is key—it suggests that the patterns we’ve discovered aren’t just a fluke; they likely hold true for other student populations beyond this dataset.</p>
+The use of 4-fold cross-validation (via <code>vfold_cv</code>) allowed us to assess the model’s performance across multiple subsets of the data, mitigating the risk of overfitting. The resampling results are relatively consistent (with accuracy around 67%, sensitivity at 81.6%, and specificity around 43.2%), which supports the model’s robustness and generalizability. Although the final test set performance (accuracy of 66.5%) is slightly lower, the overall consistency of metrics across folds indicates that our model is stable when applied to unseen data. This consistency is key—it suggests that the patterns we have discovered are not just a fluke; they likely hold true for other student populations beyond this dataset.</p>
 </section>
 <section id="overall-discussion-1" class="level4">
 <h4 class="anchored" data-anchor-id="overall-discussion-1">Overall Discussion</h4>

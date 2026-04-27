@@ -407,7 +407,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+            <a href="./section-4-Intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Communication and Conclusion</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -426,6 +426,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./colophon.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Colophon</span></a>
+  </div>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
@@ -487,16 +492,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Instead, this chapter covers just enough to reproduce our workflows and extend them to your own data science work. Think of this as the minimal viable setup for doing the work in this book.</p>
 <section id="three-ways-to-write-r-code" class="level2">
 <h2 class="anchored" data-anchor-id="three-ways-to-write-r-code">Three Ways to Write R Code</h2>
-<p>Positron supports multiple file types for writing R code. You’ll encounter all three in data science work:</p>
+<p>Positron supports multiple file types for writing R code. You will encounter all three in data science work:</p>
 <section id="r-scripts-.r" class="level3">
 <h3 class="anchored" data-anchor-id="r-scripts-.r">R Scripts (.R)</h3>
-<p>Plain text files containing R code, executed line-by-line or all at once. Great for data processing pipelines, functions, and code you’ll reuse.</p>
+<p>Plain text files containing R code, executed line-by-line or all at once. Great for data processing pipelines, functions, and code you will reuse.</p>
 <p>Create one: File → New File → R Script</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is an R script</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Lines starting with # are comments</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"mydata.csv"</span>)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Here’s a more realistic example using student assessment data. Save this as <code>explore-data.R</code>:</p>
+<p>Here is a more realistic example using student assessment data. Save this as <code>explore-data.R</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Quick data exploration in an R script</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -517,11 +522,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="r-markdown-.rmd" class="level3">
 <h3 class="anchored" data-anchor-id="r-markdown-.rmd">R Markdown (.Rmd)</h3>
 <p>Documents that weave together narrative text (in Markdown) and code chunks. When you “knit” an R Markdown file, it executes the code and generates a formatted document (HTML, PDF, or Word).</p>
-<p>You should know R Markdown exists because you’ll encounter it in older resources and projects, but we’re not using it in this book.</p>
+<p>You should know R Markdown exists because you will encounter it in older resources and projects, but we are not using it in this book.</p>
 </section>
 <section id="quarto-.qmd" class="level3">
 <h3 class="anchored" data-anchor-id="quarto-.qmd">Quarto (.qmd)</h3>
-<p>Quarto is the successor to R Markdown, with better multi-language support (R, Python, Julia) and more consistent syntax. It’s what we’ll use throughout this book.</p>
+<p>Quarto is the successor to R Markdown, with better multi-language support (R, Python, Julia) and more consistent syntax. It is what we will use throughout this book.</p>
 <p>Create one: File → New File → Quarto Document</p>
 <p>The structure looks similar to R Markdown, but the rendering engine is more powerful:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
@@ -538,7 +543,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Click the “Render” button (or Ctrl/Cmd + Shift + K) to execute all code and generate your document.</p>
-<p>Here’s a more complete Quarto example analyzing student data:</p>
+<p>Here is a more complete Quarto example analyzing student data:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "OULAD Student Analysis"</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
@@ -546,7 +551,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Loading Data</span></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>First, we'll load the student assessment data from the Open University Learning Analytics Dataset:</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>First, we will load the student assessment data from the Open University Learning Analytics Dataset:</span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -555,7 +560,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pass Rates by Gender</span></span>
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>Let's examine how pass rates differ by gender:</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>Let us examine how pass rates differ by gender:</span>
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span></span>
@@ -564,7 +569,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> pass, <span class="at">values_from =</span> n)</span>
 <span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>The table above shows the number of students who passed (1) and didn't pass (0) for each gender. We can see that both groups have substantial representation in the dataset.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>The table above shows the number of students who passed (1) and did not pass (0) for each gender. We can see that both groups have substantial representation in the dataset.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="rendered quarto.png" class="img-fluid figure-img"></p>
@@ -580,12 +585,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Common options include:</p>
 <ul>
 <li><code>#| echo: false</code> — Hide the code, show only the output</li>
-<li><code>#| eval: false</code> — Show the code but don’t run it</li>
+<li><code>#| eval: false</code> — Show the code but do not run it</li>
 <li><code>#| warning: false</code> — Suppress warning messages</li>
 <li><code>#| message: false</code> — Suppress messages (like package loading notifications)</li>
 <li><code>#| fig-width: 8</code> and <code>#| fig-height: 6</code> — Control plot dimensions in inches</li>
 </ul>
-<p>Here’s an example showing how to hide code while displaying a plot:</p>
+<p>Here is an example showing how to hide code while displaying a plot:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
@@ -622,25 +627,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Console</strong>: Quick exploration, testing ideas, checking output. Code here disappears when you close Positron.</li>
 <li><strong>Source</strong> (scripts/Quarto): Code you want to keep, reproduce, or share. This is your permanent record.</li>
 </ul>
-<p>Here’s what this looks like in practice. Try this in the Console for a quick calculation:</p>
+<p>Here is what this looks like in practice. Try this in the Console for a quick calculation:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In Console - just exploring</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">85</span>, <span class="dv">92</span>, <span class="dv">78</span>, <span class="dv">95</span>, <span class="dv">88</span>))</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">87.6</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>That’s useful for a quick check, but if you want to preserve this process for later:</p>
+<p>That is useful for a quick check, but if you want to preserve this process for later:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In a script - keeping a record</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>test_scores <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">85</span>, <span class="dv">92</span>, <span class="dv">78</span>, <span class="dv">95</span>, <span class="dv">88</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>average_score <span class="ot">&lt;-</span> <span class="fu">mean</span>(test_scores)</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(average_score)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The second approach creates a record you can return to, modify, and share. If you later need to change the scores or calculate something else, the script preserves your workflow.</p>
-<p>Early on, you might type everything in the Console. That’s fine for learning! But as soon as you do something you want to remember, put it in a script or Quarto file.</p>
+<p>Early on, you might type everything in the Console. That is fine for learning! But as soon as you do something you want to remember, put it in a script or Quarto file.</p>
 </section>
 <section id="when-you-get-stuck" class="level2">
 <h2 class="anchored" data-anchor-id="when-you-get-stuck">When You Get Stuck</h2>
 <section id="reading-error-messages" class="level3">
 <h3 class="anchored" data-anchor-id="reading-error-messages">Reading Error Messages</h3>
-<p>When something goes wrong, R prints an error message in the Console (usually in red). These messages often look cryptic at first, but they’re trying to help:</p>
+<p>When something goes wrong, R prints an error message in the Console (usually in red). These messages often look cryptic at first, but they are trying to help:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Error <span class="cf">in</span> <span class="fu">mean</span>(x) <span class="sc">:</span> object <span class="st">'x'</span> not found</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This tells you exactly what went wrong: R couldn’t find an object called <code>x</code>. Either you misspelled it, or you haven’t created it yet.</p>
+<p>This tells you exactly what went wrong: R could not find an object called <code>x</code>. Either you misspelled it, or you have not created it yet.</p>
 </section>
 <section id="getting-help-on-functions" class="level3">
 <h3 class="anchored" data-anchor-id="getting-help-on-functions">Getting Help on Functions</h3>
@@ -651,7 +656,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="where-computational-social-scientists-get-help" class="level3">
 <h3 class="anchored" data-anchor-id="where-computational-social-scientists-get-help">Where Computational Social Scientists Get Help</h3>
-<p>When you’re truly stuck, the R community is helpful:</p>
+<p>When you are truly stuck, the R community is helpful:</p>
 <ul>
 <li><a href="https://community.rstudio.com/">RStudio Community</a>: Welcoming forum for all R questions</li>
 <li><a href="https://stackoverflow.com/questions/tagged/r">Stack Overflow</a>: Searchable archive of millions of questions</li>
@@ -660,30 +665,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="large-language-models-and-ai-tools-for-getting-unstuck" class="level3">
 <h3 class="anchored" data-anchor-id="large-language-models-and-ai-tools-for-getting-unstuck">Large Language Models and AI Tools for Getting Unstuck</h3>
-<p>In Section 3, we cover using large language models as part of a research workflow. But LLMs are also useful for getting unstuck when you’re learning and this is increasingly how working data scientists operate.</p>
+<p>In Section 3, we cover using large language models as part of a research workflow. But LLMs are also useful for getting unstuck when you are learning and this is increasingly how working data scientists operate.</p>
 <p>Two approaches work well:</p>
 <ol type="1">
 <li><p><strong>Ask LLMs directly</strong>: ChatGPT, Claude, or your preferred model can explain error messages, suggest debugging approaches, and clarify confusing documentation. Copy your error message, describe what you were trying to do, and ask for help.</p></li>
-<li><p><strong>Use AI tools directly in Positron</strong>: AI coding assistants can work inside your editor to suggest code completions, explain what existing code does, and generate boilerplate. We’ll cover how to set these up in the next section.</p></li>
+<li><p><strong>Use AI tools directly in Positron</strong>: AI coding assistants can work inside your editor to suggest code completions, explain what existing code does, and generate boilerplate. We will cover how to set these up in the next section.</p></li>
 </ol>
-<p>The best programmers don’t memorize every function—they know how to find answers quickly. LLMs have become part of that toolkit, alongside documentation, Stack Overflow, and experimentation. Use them when you’re stuck, but also pay attention to <em>why</em> solutions work. That’s how you build intuition.</p>
+<p>The best programmers do not memorize every function—they know how to find answers quickly. LLMs have become part of that toolkit, alongside documentation, Stack Overflow, and experimentation. Use them when you are stuck, but also pay attention to <em>why</em> solutions work. That is how you build intuition.</p>
 <section id="using-ai-tools-directly-in-positron" class="level4">
 <h4 class="anchored" data-anchor-id="using-ai-tools-directly-in-positron">Using AI Tools Directly in Positron</h4>
 <p>Positron, being built on VS Code, supports AI assistant extensions that can help you write code more efficiently and understand errors more quickly.</p>
 <section id="positron-assistant" class="level5">
 <h5 class="anchored" data-anchor-id="positron-assistant">Positron Assistant</h5>
 <p>Positron includes a built-in AI chat panel called Positron Assistant. You can open it from the sidebar (look for the chat icon) or with the keyboard shortcut Ctrl/Cmd + Shift + I. Positron Assistant is context-aware—it can see your open files, your console history, and the variables in your environment, so you can ask questions about your code without copying and pasting everything into an external tool.</p>
-<p>For example, if you’ve just loaded a dataset and aren’t sure how to reshape it, you can highlight the relevant code and ask the assistant to explain it, suggest next steps, or help you fix an error. You can also ask it to generate code from a plain-language description, like “make a bar chart of pass rates by gender.” The assistant will write code that fits the context of your current session, using the packages you’ve already loaded and the data you’re working with.</p>
-<p>Positron Assistant connects to a language model provider that you configure in your settings—options include Anthropic (Claude), OpenAI, and others. Some providers require a paid API key; check Positron’s documentation at <a href="https://positron.posit.co/" class="uri">https://positron.posit.co/</a> for current setup instructions. Because the assistant runs inside Positron rather than in a separate browser tab, it reduces the friction of switching between your code and a help tool, which makes it especially useful when you’re learning.</p>
+<p>For example, if you have just loaded a dataset and are not sure how to reshape it, you can highlight the relevant code and ask the assistant to explain it, suggest next steps, or help you fix an error. You can also ask it to generate code from a plain-language description, like “make a bar chart of pass rates by gender.” The assistant will write code that fits the context of your current session, using the packages you have already loaded and the data you are working with.</p>
+<p>Positron Assistant connects to a language model provider that you configure in your settings—options include Anthropic (Claude), OpenAI, and others. Some providers require a paid API key; check Positron’s documentation at <a href="https://positron.posit.co/" class="uri">https://positron.posit.co/</a> for current setup instructions. Because the assistant runs inside Positron rather than in a separate browser tab, it reduces the friction of switching between your code and a help tool, which makes it especially useful when you are learning.</p>
 <p><strong>When to Use Inline AI vs.&nbsp;External LLMs</strong></p>
 <p>Different tools excel at different tasks:</p>
 <ul>
 <li><strong>Inline AI (Copilot)</strong>: Quick code completions, writing repetitive code, remembering function syntax, generating common patterns</li>
 <li><strong>External LLMs (ChatGPT/Claude)</strong>: Complex explanations, understanding concepts, debugging logic errors, learning new approaches</li>
 </ul>
-<p>Many programmers use both: Copilot for day-to-day coding, external LLMs when they’re truly stuck or learning something new.</p>
+<p>Many programmers use both: Copilot for day-to-day coding, external LLMs when they are truly stuck or learning something new.</p>
 <p><strong>Important Caution</strong></p>
-<p>AI suggestions aren’t always correct. Always review code before accepting it, especially for data analysis where subtle errors can lead to wrong conclusions. Use AI tools to speed up your work, but verify that the code does what you think it does.</p>
+<p>AI suggestions are not always correct. Always review code before accepting it, especially for data analysis where subtle errors can lead to wrong conclusions. Use AI tools to speed up your work, but verify that the code does what you think it does.</p>
 <p>Please see LLM Methods section (intro) for more information about the relationship between you, data, and LLMs.</p>
 
 

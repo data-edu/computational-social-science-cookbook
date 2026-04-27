@@ -426,7 +426,7 @@ div.csl-indent {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+            <a href="./section-4-Intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Communication and Conclusion</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -447,6 +447,11 @@ div.csl-indent {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./colophon.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Colophon</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -461,7 +466,7 @@ div.csl-indent {
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#whats-in-the-tidyverse" id="toc-whats-in-the-tidyverse" class="nav-link active" data-scroll-target="#whats-in-the-tidyverse">What’s in the Tidyverse?</a></li>
+  <li><a href="#what-is-in-the-tidyverse" id="toc-what-is-in-the-tidyverse" class="nav-link active" data-scroll-target="#what-is-in-the-tidyverse">What is in the Tidyverse?</a></li>
   <li><a href="#installing-and-loading-the-tidyverse" id="toc-installing-and-loading-the-tidyverse" class="nav-link" data-scroll-target="#installing-and-loading-the-tidyverse">Installing and Loading the Tidyverse</a></li>
   <li><a href="#working-with-real-data" id="toc-working-with-real-data" class="nav-link" data-scroll-target="#working-with-real-data">Working with Real Data</a></li>
   <li><a href="#essential-dplyr-functions" id="toc-essential-dplyr-functions" class="nav-link" data-scroll-target="#essential-dplyr-functions">Essential dplyr Functions</a>
@@ -512,10 +517,10 @@ div.csl-indent {
 </header>
 
 
-<p>The tidyverse is a collection of R packages designed for data science with a shared philosophy: code should be readable, consistent, and focused on the data transformations you’re actually trying to accomplish <span class="citation" data-cites="Wickham2017R4DS Wickham2019Tidyverse">(<a href="#ref-Wickham2017R4DS" role="doc-biblioref">Wickham and Grolemund 2017</a>; <a href="#ref-Wickham2019Tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span>. If you’ve struggled with base R’s sometimes cryptic syntax, the tidyverse may feel like a relief.</p>
-<p>Most computational educational research workflows rely on tidyverse packages for data manipulation, visualization, and modeling. Learning this ecosystem means learning the tools your collaborators use, the examples you’ll find online, and the approaches that scale from quick exploration to publication-ready analysis <span class="citation" data-cites="Wickham2017R4DS Wickham2019Tidyverse">(<a href="#ref-Wickham2017R4DS" role="doc-biblioref">Wickham and Grolemund 2017</a>; <a href="#ref-Wickham2019Tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span>.</p>
-<section id="whats-in-the-tidyverse" class="level2">
-<h2 class="anchored" data-anchor-id="whats-in-the-tidyverse">What’s in the Tidyverse?</h2>
+<p>The tidyverse is a collection of R packages designed for data science with a shared philosophy: code should be readable, consistent, and focused on the data transformations you are actually trying to accomplish <span class="citation" data-cites="Wickham2017R4DS Wickham2019Tidyverse">(<a href="#ref-Wickham2017R4DS" role="doc-biblioref">Wickham and Grolemund 2017</a>; <a href="#ref-Wickham2019Tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span>. If you have struggled with base R’s sometimes cryptic syntax, the tidyverse may feel like a relief.</p>
+<p>Most computational educational research workflows rely on tidyverse packages for data manipulation, visualization, and modeling. Learning this ecosystem means learning the tools your collaborators use, the examples you will find online, and the approaches that scale from quick exploration to publication-ready analysis <span class="citation" data-cites="Wickham2017R4DS Wickham2019Tidyverse">(<a href="#ref-Wickham2017R4DS" role="doc-biblioref">Wickham and Grolemund 2017</a>; <a href="#ref-Wickham2019Tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span>.</p>
+<section id="what-is-in-the-tidyverse" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-in-the-tidyverse">What is in the Tidyverse?</h2>
 <p>The tidyverse is actually a meta-package that loads eight core packages when you run <code>library(tidyverse)</code>:</p>
 <ul>
 <li><strong>ggplot2</strong>: Data visualization with a grammar of graphics</li>
@@ -540,11 +545,11 @@ div.csl-indent {
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>When you load the tidyverse, you’ll see a message listing which packages were attached and any conflicts (functions from tidyverse packages that mask base R functions). The conflicts are normal and intentional—tidyverse functions are generally preferable for data science work.</p>
+<p>When you load the tidyverse, you will see a message listing which packages were attached and any conflicts (functions from tidyverse packages that mask base R functions). The conflicts are normal and intentional—tidyverse functions are generally preferable for data science work.</p>
 </section>
 <section id="working-with-real-data" class="level2">
 <h2 class="anchored" data-anchor-id="working-with-real-data">Working with Real Data</h2>
-<p>Let’s load actual data to see the tidyverse in action. We’ll use student assessment data from the Open University Learning Analytics Dataset (OULAD), which contains information about student demographics and course outcomes.</p>
+<p>Let us load actual data to see the tidyverse in action. We will use student assessment data from the Open University Learning Analytics Dataset (OULAD), which contains information about student demographics and course outcomes.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the data</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/oulad-students-and-assessments.csv"</span>)</span>
@@ -574,11 +579,11 @@ $ mean_weighted_score        &lt;dbl&gt; 780, 700, NA, 720, 690, 790, 700, 720, 
 </div>
 </div>
 <p>The <code>glimpse()</code> function shows you the structure of your data: how many rows and columns, what type each column is (character, numeric, etc.), and the first few values. This dataset contains information about students (gender, age, region, disability status) along with their course performance (final_result, pass status, mean_weighted_score).</p>
-<p>This is the dataset we’ll use in the examples below. It represents the kind of educational data you’ll work with in computational educational research: thousands of observations with both categorical and continuous variables.</p>
+<p>This is the dataset we will use in the examples below. It represents the kind of educational data you will work with in computational educational research: thousands of observations with both categorical and continuous variables.</p>
 </section>
 <section id="essential-dplyr-functions" class="level2">
 <h2 class="anchored" data-anchor-id="essential-dplyr-functions">Essential dplyr Functions</h2>
-<p>The dplyr package provides functions for the most common data manipulation tasks. Here are the ones you’ll use repeatedly.</p>
+<p>The dplyr package provides functions for the most common data manipulation tasks. Here are the ones you will use repeatedly.</p>
 <section id="filter---selecting-rows" class="level3">
 <h3 class="anchored" data-anchor-id="filter---selecting-rows">filter() - Selecting Rows</h3>
 <p>Use <code>filter()</code> to keep only rows that meet certain conditions:</p>
@@ -814,7 +819,7 @@ $ mean_weighted_score        &lt;dbl&gt; 780, 700, NA, 720, 690, 790, 700, 720, 
 <h2 class="anchored" data-anchor-id="the-pipe-operator-and">The Pipe Operator: <code>|&gt;</code> and <code>%&gt;%</code></h2>
 <p>The tidyverse introduced a distinctive style: piping operations together to create readable data transformation pipelines. Instead of nesting functions inside each other, you “pipe” the output of one function into the next.</p>
 <p>R now has a native pipe operator <code>|&gt;</code> (introduced in R 4.1), while the tidyverse originally used <code>%&gt;%</code> from the magrittr package. They work almost identically for most purposes.</p>
-<p>Here’s a concrete example using the dplyr functions we just learned:</p>
+<p>Here is a concrete example using the dplyr functions we just learned:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Without pipes (nested, hard to read)</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize</span>(</span>
@@ -840,7 +845,7 @@ $ mean_weighted_score        &lt;dbl&gt; 780, 700, NA, 720, 690, 790, 700, 720, 
 </div>
 </div>
 <p>The piped version reads like instructions: “Take students, <em>then</em> keep only those who passed, <em>then</em> group by gender, <em>then</em> calculate mean scores.” Each step is on its own line, making it easy to follow the logic.</p>
-<p>We’ll use the native pipe <code>|&gt;</code> throughout this book because it’s now built into R, but you’ll encounter <code>%&gt;%</code> in older code and documentation. For practical purposes, they’re interchangeable in most tidyverse workflows.</p>
+<p>We will use the native pipe <code>|&gt;</code> throughout this book because it is now built into R, but you will encounter <code>%&gt;%</code> in older code and documentation. For practical purposes, they are interchangeable in most tidyverse workflows.</p>
 <p><strong>How to read it</strong>: Think of <code>|&gt;</code> as “then.” The pipe takes the result from the left and passes it as the first argument to the function on the right.</p>
 </section>
 <section id="data-visualization-with-ggplot2" class="level2">
@@ -1098,7 +1103,7 @@ Figure&nbsp;4.11: Final results by course module
 </div>
 </div>
 </div>
-<p>This creates a grid of small bar charts, one for each module. It’s useful when you want to compare patterns across many categories.</p>
+<p>This creates a grid of small bar charts, one for each module. It is useful when you want to compare patterns across many categories.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Grid by two variables</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span></span>
@@ -1125,7 +1130,7 @@ Figure&nbsp;4.12: Score distributions by gender and disability status
 <section id="next-steps" class="level2">
 <h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
 <p>You’ve now seen core tidyverse functions in action with real data. The seven dplyr functions covered here—<code>filter()</code>, <code>select()</code>, <code>mutate()</code>, <code>summarize()</code>, <code>group_by()</code>, <code>arrange()</code>, and <code>count()</code>—handle the majority of everyday data manipulation tasks. The ggplot2 visualizations—bar charts, histograms, boxplots, scatter plots, and faceting—cover most exploratory analysis needs.</p>
-<p>The subsequent chapters in this book use these functions extensively, and we’ll introduce additional tidyverse capabilities as they become relevant. You’ll continue learning by doing, working with real data and real research questions.</p>
+<p>The subsequent chapters in this book use these functions extensively, and we will introduce additional tidyverse capabilities as they become relevant. You will continue learning by doing, working with real data and real research questions.</p>
 <p>When you want to go deeper:</p>
 <ul>
 <li><a href="https://r4ds.hadley.nz/"><em>R for Data Science (2e)</em></a>: The definitive guide to the tidyverse</li>
