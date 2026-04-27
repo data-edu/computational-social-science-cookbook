@@ -8,10 +8,10 @@ Large Language Models (LLMs) are now central to many research workflows in educa
 
 In educational research, this expands the range of feasible tasks:
 
--   Summarizing and coding open-ended reflections
--   Analyzing institutional policy documents
--   Drafting instructional scaffolds and rubrics
--   Connecting qualitative insights with quantitative findings
+- Summarizing and coding open-ended reflections
+- Analyzing institutional policy documents
+- Drafting instructional scaffolds and rubrics
+- Connecting qualitative insights with quantitative findings
 
 In short, LLMs extend the toolkit from pattern detection toward **context-aware meaning-making**, while still requiring careful validation, documentation, and methodological transparency.
 
@@ -69,10 +69,10 @@ The `{ellmer}` package (from the Posit ecosystem) gives you a unified interface 
 
 **Why researchers like `{ellmer}`**
 
--   Unified syntax for OpenAI, Anthropic, Gemini, and other APIs
--   Built-in streaming and function-calling support
--   Structured JSON output parsing for downstream R workflows
--   Compatible with both cloud and local OpenAI-style endpoints
+- Unified syntax for OpenAI, Anthropic, Gemini, and other APIs
+- Built-in streaming and function-calling support
+- Structured JSON output parsing for downstream R workflows
+- Compatible with both cloud and local OpenAI-style endpoints
 
 ### Installation and Setup
 
@@ -118,20 +118,20 @@ cat(result$choices[[1]]$message$content)
 
 ### Typical Educational Use Cases
 
--   Automated qualitative coding of survey or interview data
--   Summarizing student feedback at scale
--   Drafting analytic memos or interpretive summaries
--   Generating or evaluating teaching materials
--   Rapid prototyping for mixed-methods research designs
+- Automated qualitative coding of survey or interview data
+- Summarizing student feedback at scale
+- Drafting analytic memos or interpretive summaries
+- Generating or evaluating teaching materials
+- Rapid prototyping for mixed-methods research designs
 
 ### Reproducibility and Ethical Considerations
 
 Because cloud services change often, careful documentation is essential:
 
--   **Record** model name, version, and query date
--   **De-identify** any personal or institutional information before upload
--   **Monitor** API usage and costs (token-based billing)
--   **Disclose** clearly how LLMs assisted analysis or interpretation
+- **Record** model name, version, and query date
+- **De-identify** any personal or institutional information before upload
+- **Monitor** API usage and costs (token-based billing)
+- **Disclose** clearly how LLMs assisted analysis or interpretation
 
 > Responsible AI use means balancing convenience with privacy, transparency, and data stewardship.
 
@@ -153,10 +153,10 @@ Local LLMs are open or custom models executed on local hardware. They process te
 
 **Key Advantages**
 
--   Data never leaves your device
--   No API keys or internet required
--   Highly customizable and often cost-free
--   Enables fully offline reproducible analysis
+- Data never leaves your device
+- No API keys or internet required
+- Highly customizable and often cost-free
+- Enables fully offline reproducible analysis
 
 ### Getting Started with LM Studio
 
@@ -177,7 +177,7 @@ LM Studio is a free cross-platform desktop app for running and managing local LL
 ### Main Features
 
 | Feature | Description |
-|-----------------------------------------------------|-------------------|
+|---------------------------------------------------|--------------------|
 | Local LLMs | Run models offline on your own machine |
 | Chat Interface | Simple prompt-based GUI |
 | Document Chat (RAG) | Offline "chat with your PDFs" |
@@ -229,11 +229,11 @@ content(response)
 
 Before running LLM-based analyses, check the following:
 
--   ✅ Select your preferred model and platform
--   ✅ Configure API key (cloud) or local endpoint (LM Studio)
--   ✅ Test connectivity with a short prompt
--   ✅ Log model name, version, and date
--   ✅ De-identify data and store outputs securely
+- ✅ Select your preferred model and platform
+- ✅ Configure API key (cloud) or local endpoint (LM Studio)
+- ✅ Test connectivity with a short prompt
+- ✅ Log model name, version, and date
+- ✅ De-identify data and store outputs securely
 
 > This small checklist can save you from major reproducibility and compliance problems later.
 
@@ -257,5 +257,5 @@ Both cloud and local LLMs can support strong educational research. The right cho
 
 ### Looking Ahead
 
--   **Chapter 7** demonstrates thematic and qualitative text analysis with LM Studio, including end-to-end coding and synthesis.
--   **Chapter 8** extends this workflow to multimodal data (images), showing how AI can connect diverse forms of evidence in educational research.
+- **Chapter 7** demonstrates thematic and qualitative text analysis with LM Studio, including end-to-end coding and synthesis.
+- **Chapter 8** extends this workflow to multimodal data (images), showing how AI can connect diverse forms of evidence in educational research.

@@ -8,9 +8,9 @@ Think of this section as the minimum viable toolkit for the rest of the book. Th
 
 The three chapters in this section establish that foundation. Specifically, they cover:
 
--   **Positron and RStudio** introduces your working environment, project organization, and workflow habits that support reproducibility.
--   **R** covers core file types, execution patterns, and practical help-seeking strategies for common coding roadblocks.
--   **Tidyverse** builds the day-to-day data workflow vocabulary for reading, cleaning, transforming, and visualizing data in R.
+- **Positron and RStudio** introduces your working environment, project organization, and workflow habits that support reproducibility.
+- **R** covers core file types, execution patterns, and practical help-seeking strategies for common coding roadblocks.
+- **Tidyverse** builds the day-to-day data workflow vocabulary for reading, cleaning, transforming, and visualizing data in R.
 
 By the end of this section, you should have a functioning analysis environment and a clear workflow for moving from data to interpretable output.
 
@@ -18,13 +18,13 @@ By the end of this section, you should have a functioning analysis environment a
 
 This book follows a four-part progression:
 
--   **Getting Started** builds the technical and workflow baseline.
--   **Computational Methods** applies text, network, and numeric approaches to core research tasks.
--   **LLM Methods** introduces cloud/local LLM workflows and AI-assisted analysis with explicit attention to responsible use.
--   **Communication** focuses on sharing computational research transparently and reproducibly.
+- **Getting Started** builds the technical and workflow baseline.
+- **Computational Methods** applies text, network, and numeric approaches to core research tasks.
+- **LLM Methods** introduces cloud/local LLM workflows and AI-assisted analysis with explicit attention to responsible use.
+- **Communication** focuses on sharing computational research transparently and reproducibly.
 
 Across all sections, we prioritize the same principles: methodological clarity, reproducibility, and responsible interpretation of results.
 
 ## Additional Resources:
 
--   R for Data Science: <https://r4ds.had.co.nz/> and R for Data Science (2e): <https://r4ds.hadley.nz/>
+- R for Data Science: <https://r4ds.had.co.nz/> and R for Data Science (2e): <https://r4ds.hadley.nz/>
