@@ -244,7 +244,18 @@ When communicating computational analyses in education, researchers must attend 
 
 Public-facing materials should avoid revealing identifiable information and should transparently acknowledge sources of bias or uncertainty. Responsible communication ensures that openness does not come at the expense of ethical research practice.
 
-## 9.7 Summary and Communication Checklist
+## 9.7 Data Availability and Reproducibility Statement
+
+All executable workflows in this book are intended to be reproducible from repository materials. Core datasets used in chapter analyses are stored under `data/`, and rendered outputs are published under `docs/`.
+
+To support transparency, we distinguish between two types of examples:
+
+-   **Executable analysis workflows**: code and data that generate the chapter outputs.
+-   **Illustrative templates**: non-executed demonstration snippets included for pedagogical purposes (for example, generic network or scraping patterns).
+
+Reproducibility in this book is supported through versioned source files (`.qmd`), explicit data paths, and documented model/tool configurations in chapters that use LLM-assisted methods.
+
+## 9.8 Summary and Communication Checklist
 
 This chapter emphasized that communication is a methodological choice, not merely a presentation task. Computational educational research benefits from communication strategies that align with open science, reproducibility, and audience needs.
 

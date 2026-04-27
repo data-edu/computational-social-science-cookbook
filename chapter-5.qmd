@@ -2,20 +2,18 @@
 title: "Cloud vs Local LLMs"
 ---
 
-## 5.1 Why Large Language Models Matter in Educational Research
+## 5.1 Overview
 
-If you have ever looked at a pile of open-ended student responses and thought, "I know there is something important in here, but where do I even start?" - you are exactly the kind of researcher LLMs can help.
+Large Language Models (LLMs) are now central to many research workflows in education, especially where analysis depends on large volumes of natural language data [@Kasneci2023ChatGPT; @Liu2025GPT4Coding; @OpenAI2023GPT4]. Traditional NLP methods remain essential for transparent counting, comparison, and baseline modeling, but LLMs add complementary capabilities for context-sensitive synthesis, interpretation, and generation [@Than2025UpdatingCoding; @Nelson2021FutureCoding; @Bommasani2021FoundationModels].
 
-Large Language Models (LLMs) have changed how we analyze, generate, and interpret text. Traditional NLP workflows are still valuable, but they usually focus on counts and patterns at the word level. LLMs add something different: they can reason across context, meaning, and discourse.
-
-In educational research, that opens new possibilities:
+In educational research, this expands the range of feasible tasks:
 
 -   Summarizing and coding open-ended reflections
 -   Analyzing institutional policy documents
 -   Drafting instructional scaffolds and rubrics
 -   Connecting qualitative insights with quantitative findings
 
-In short, LLMs expand your toolkit from pattern detection toward **context-aware meaning-making**.
+In short, LLMs extend the toolkit from pattern detection toward **context-aware meaning-making**, while still requiring careful validation, documentation, and methodological transparency.
 
 ## 5.2 Cloud-Based LLMs: Capabilities and Setup
 

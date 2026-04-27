@@ -58,7 +58,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -442,7 +461,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#why-large-language-models-matter-in-educational-research" id="toc-why-large-language-models-matter-in-educational-research" class="nav-link active" data-scroll-target="#why-large-language-models-matter-in-educational-research">5.1 Why Large Language Models Matter in Educational Research</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">5.1 Overview</a></li>
   <li><a href="#cloud-based-llms-capabilities-and-setup" id="toc-cloud-based-llms-capabilities-and-setup" class="nav-link" data-scroll-target="#cloud-based-llms-capabilities-and-setup">5.2 Cloud-Based LLMs: Capabilities and Setup</a>
   <ul class="collapse">
   <li><a href="#overview-of-major-cloud-providers" id="toc-overview-of-major-cloud-providers" class="nav-link" data-scroll-target="#overview-of-major-cloud-providers">Overview of Major Cloud Providers</a></li>
@@ -494,18 +513,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="why-large-language-models-matter-in-educational-research" class="level2">
-<h2 class="anchored" data-anchor-id="why-large-language-models-matter-in-educational-research">5.1 Why Large Language Models Matter in Educational Research</h2>
-<p>If you have ever looked at a pile of open-ended student responses and thought, “I know there is something important in here, but where do I even start?” - you are exactly the kind of researcher LLMs can help.</p>
-<p>Large Language Models (LLMs) have changed how we analyze, generate, and interpret text. Traditional NLP workflows are still valuable, but they usually focus on counts and patterns at the word level. LLMs add something different: they can reason across context, meaning, and discourse.</p>
-<p>In educational research, that opens new possibilities:</p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">5.1 Overview</h2>
+<p>Large Language Models (LLMs) are now central to many research workflows in education, especially where analysis depends on large volumes of natural language data <span class="citation" data-cites="Kasneci2023ChatGPT Liu2025GPT4Coding OpenAI2023GPT4">(<a href="#ref-Kasneci2023ChatGPT" role="doc-biblioref">Kasneci et al. 2023</a>; <a href="#ref-Liu2025GPT4Coding" role="doc-biblioref">Liu et al. 2025</a>; <a href="#ref-OpenAI2023GPT4" role="doc-biblioref">OpenAI 2023</a>)</span>. Traditional NLP methods remain essential for transparent counting, comparison, and baseline modeling, but LLMs add complementary capabilities for context-sensitive synthesis, interpretation, and generation <span class="citation" data-cites="Than2025UpdatingCoding Nelson2021FutureCoding Bommasani2021FoundationModels">(<a href="#ref-Than2025UpdatingCoding" role="doc-biblioref">Than et al. 2025</a>; <a href="#ref-Nelson2021FutureCoding" role="doc-biblioref">Nelson et al. 2021</a>; <a href="#ref-Bommasani2021FoundationModels" role="doc-biblioref">Bommasani et al. 2021</a>)</span>.</p>
+<p>In educational research, this expands the range of feasible tasks:</p>
 <ul>
 <li>Summarizing and coding open-ended reflections</li>
 <li>Analyzing institutional policy documents</li>
 <li>Drafting instructional scaffolds and rubrics</li>
 <li>Connecting qualitative insights with quantitative findings</li>
 </ul>
-<p>In short, LLMs expand your toolkit from pattern detection toward <strong>context-aware meaning-making</strong>.</p>
+<p>In short, LLMs extend the toolkit from pattern detection toward <strong>context-aware meaning-making</strong>, while still requiring careful validation, documentation, and methodological transparency.</p>
 </section>
 <section id="cloud-based-llms-capabilities-and-setup" class="level2">
 <h2 class="anchored" data-anchor-id="cloud-based-llms-capabilities-and-setup">5.2 Cloud-Based LLMs: Capabilities and Setup</h2>
@@ -874,6 +892,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Bommasani2021FoundationModels" class="csl-entry" role="listitem">
+Bommasani, Rishi, Drew A. Hudson, Ehsan Adeli, et al. 2021. <span>“On the Opportunities and Risks of Foundation Models.”</span> <em>arXiv Preprint arXiv:2108.07258</em>. <a href="https://arxiv.org/abs/2108.07258">https://arxiv.org/abs/2108.07258</a>.
+</div>
+<div id="ref-Kasneci2023ChatGPT" class="csl-entry" role="listitem">
+Kasneci, Enkelejda, Kathrin Seßler, Stefan Küchemann, et al. 2023. <span>“<span>ChatGPT</span> for Good? <span>On</span> Opportunities and Challenges of Large Language Models for Education.”</span> <em>Learning and Individual Differences</em> 103: 102274.
+</div>
+<div id="ref-Liu2025GPT4Coding" class="csl-entry" role="listitem">
+Liu, Xuansheng, Andrés Felipe Zambrano, Ryan S. Baker, et al. 2025. <span>“Qualitative Coding with <span>GPT-4</span>: Where It Works Better.”</span> <em>Journal of Learning Analytics</em> 12 (1): 169–85.
+</div>
+<div id="ref-Nelson2021FutureCoding" class="csl-entry" role="listitem">
+Nelson, Laura K., Derek Burk, Miriam Knudsen, and Leslie McCall. 2021. <span>“The Future of Coding: A Comparison of Hand-Coding and Three Types of Computer-Assisted Text Analysis Methods.”</span> <em>Sociological Methods &amp; Research</em> 50 (1): 202–37.
+</div>
+<div id="ref-OpenAI2023GPT4" class="csl-entry" role="listitem">
+OpenAI. 2023. <span>“<span>GPT-4</span> Technical Report.”</span> <em>arXiv Preprint arXiv:2303.08774</em>. <a href="https://arxiv.org/abs/2303.08774">https://arxiv.org/abs/2303.08774</a>.
+</div>
+<div id="ref-Than2025UpdatingCoding" class="csl-entry" role="listitem">
+Than, Nhu, Lizhou Fan, Tina Law, Laura K. Nelson, and Leslie McCall. 2025. <span>“Updating <span>‘the Future of Coding’</span>: Qualitative Coding with Generative Large Language Models.”</span> <em>Sociological Methods &amp; Research</em> 54 (3): 849–88.
+</div>
+</div>
 </section>
 </section>
 

@@ -87,6 +87,14 @@ Instead of treating this as a disaster, we used it as a design principle. Keep t
 
 *Figure. A comic-style reflection of how this book evolved alongside rapid AI changes (generated with Gemini, based on the authors' storyline).*
 
+### Data and reproducibility note
+
+This book is designed to be reproducible with openly available project files and datasets. Most executable chapter workflows use data stored in the repository under `data/`, so readers can run analyses locally without relying on hidden inputs.
+
+Some snippets are intentionally included as illustrative templates (for example, showing a generic data-loading or network-construction pattern). These are pedagogical examples and are not part of the core executed analysis chain.
+
+For a formal data-availability and reproducibility statement, see Chapter 9.
+
 ### Who is this book for?
 
 This book will be beginner-friendly but not for the absolute beginner. We will dedicate the initial chapters to take you to resources that will help you get started. But, to make sense of this book, you should have basic research design knowledge, basic statistical knowledge, and a basic understanding of R and RStudio. At the same time, this book will not be for experts or expertise. There are already many great resources that delve into the topics that we cover (e.g., Silge's book on using text data for machine learning).
