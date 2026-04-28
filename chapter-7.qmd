@@ -92,7 +92,6 @@ content(response)
 
 ### 7.4.3 At a Glance: LM Studio Capabilities
 
-Table: Table 7.1. LM Studio capabilities for local research workflows.
 | Feature | What It Means for You |
 |------------------------|------------------------------------------------|
 | Local LLMs | Run powerful AI models on your own machine—no internet needed |
@@ -102,6 +101,8 @@ Table: Table 7.1. LM Studio capabilities for local research workflows.
 | API Access | Connect to R, Python, or other tools you already use |
 | MCP Integration | Advanced features for power users |
 | Community & Support | Helpful Discord community and solid documentation |
+
+: Table 7.1. LM Studio capabilities for local research workflows.
 
 ## 7.5 Putting It All Together: A Real Example
 
@@ -479,7 +480,6 @@ This result directly mirrors the traditional NLP analysis in Section 2, providin
 
 **Thematic Table**
 
-Table: Table 7.2. Sample thematic analysis output from local model on AI policy corpus.
 | Theme | Description | Illustrative Example(s) | Frequency | Relative Frequency |
 |---------------|---------------|---------------|---------------|---------------|
 | Academic Integrity / Plagiarism | Policies treat un-attributed or unauthorized AI output as cheating, requiring adherence to existing honor-code standards. | \- "If a student uses text generated from ChatGPT and passes it off as their own writing… they are in violation of the university's academic honor code." (Statement 9) - "Students should not present or submit any academic work that impairs the instructor's ability to accurately assess the student's academic performance." (Statement 2) | 13 | 25% |
@@ -506,7 +506,6 @@ Each theme was labeled as:
 
 ##### Example Validation Table
 
-Table: Table 7.3. Human validation judgments for LLM-generated themes.
 | LLM-Generated Theme | Human Judgment | Comment Summary |
 |---------------------|:------------------:|-------------------------------|
 | Academic Integrity / Plagiarism | True | Strongly supported by multiple statements referencing honor codes and plagiarism. |
@@ -750,11 +749,12 @@ A correlation around *r* ≈ 0.7 is pretty solid—it means the LLM and keyword 
 
 This quantitative validation highlights two complementary lenses:
 
-Table: Table 7.4. Comparison of keyword-based and LLM-based thematic validation approaches.
 | Approach | Focus | Strength | Limitation |
 |------------------|------------------|------------------|-------------------|
 | **Keyword-based Validation** | What is *said* | High recall, transparent rules | Literal, may overcount |
 | **LLM Semantic Analysis** | What is *meant* | Context-aware, concise, human-like reasoning | May undercount subtle mentions |
+
+: Table 7.2. Comparison of keyword-based and LLM-based thematic validation approaches.
 
 The LLM acts like a careful qualitative coder: it labels only when meaning is clear,
 
@@ -766,12 +766,13 @@ balancing interpretive depth with computational scalability.
 
 So what did we learn?
 
-Table: Table 7.5. Interpretive comparison of LLM and keyword validation results.
 | What the LLM Found | What Keywords Found | What This Tells Us |
 |-----------------------|-----------------------|--------------------------|
 | More conservative estimates | More liberal (counts everything) | The LLM is picky—it only tags when it truly understands the context |
 | Similar hierarchy | Similar hierarchy | Both methods agree on which themes are most common |
 | Complementary perspectives | Complementary perspectives | Different tools for different purposes |
+
+: Table 7.3. Interpretive comparison of LLM and keyword validation results.
 
 > As one co-author joked, "The LLM does not just read the policy—it understands the syllabus."
 
@@ -796,12 +797,13 @@ and aligns frequencies more closely with LLM estimates.
 
 Here is a quick guide:
 
-Table: Table 7.6. Keyword strategy trade-offs for precision and recall in validation.
 | Goal | Keyword Strategy | Result |
 |-------------------|-------------------------------|----------------------|
 | Be more precise | Use multi-word phrases ("academic integrity" instead of just "integrity") | Fewer but more accurate matches |
 | Be more thorough | Include synonyms and variants | More matches, some may be false positives |
 | Find the sweet spot | Mix specific and general terms | Balanced accuracy and recall |
+
+: Table 7.4. Keyword strategy trade-offs for precision and recall in validation.
 
 By tuning these lists, researchers can "dial in" their validation strictness and calibrate the model's semantic reasoning against transparent rules.
 
@@ -813,7 +815,6 @@ The validation process compared two perspectives on the same corpus:\
 
 ##### Summary of Observed Patterns
 
-Table: Table 7.7. Theme-level comparison of LLM-reported and keyword-verified frequencies.
 | Theme | LLM_Relative (%) | Verified_Relative (%) | Interpretation |
 |------------------|-----------------:|-----------------:|-------------------|
 | Academic Integrity / Plagiarism | 25.0 | 49.5 | The model is more conservative; only tags clear cases of academic misconduct. |
@@ -823,15 +824,18 @@ Table: Table 7.7. Theme-level comparison of LLM-reported and keyword-verified fr
 | Pedagogical Integration & Assessment Design | 8.0 | 50.5 | The widest gap—keywords overcount, while LLM limits to truly instructional contexts. |
 | Policy Evolution & Ongoing Review | 7.0 | 5.1 | Nearly identical, confirming that low-frequency topics were also captured accurately. |
 
+: Table 7.5. Theme-level comparison of LLM-reported and keyword-verified frequencies.
+
 ##### Interpretation
 
 This difference reflects **two complementary ways of understanding text**:
 
-Table: Table 7.8. Conceptual differences between literal keyword matching and semantic LLM analysis.
 | Approach | Focus | Strength | Limitation |
 |------------------|------------------|------------------|------------------|
 | Keyword-based Validation | What is *said* | High recall, transparent rules | Literal, may overcount |
 | LLM Semantic Analysis | What is *meant* | Context-aware, concise, human-like reasoning | May undercount subtle mentions |
+
+: Table 7.6. Conceptual differences between literal keyword matching and semantic LLM analysis.
 
 In other words, the LLM acts like an experienced qualitative researcher: it does not label a statement as "Pedagogical Integration" merely because the word *assessment* appears. Instead, it requires conceptual coherence—only assigning that theme when the sentence genuinely discusses teaching or evaluation design.
 
@@ -870,12 +874,13 @@ This process is iterative. Researchers can refine keyword sets, inspect how the 
 
 ##### Balancing Precision and Recall
 
-Table: Table 7.9. Practical guide to balancing precision and recall in keyword definitions.
 | Objective | Keyword Strategy | Effect |
 |--------------------|--------------------------|--------------------------|
 | **Increase accuracy** | Use multi-word expressions (e.g., "academic integrity," "honor code") rather than single words | Reduces false positives |
 | **Increase recall** | Include common variants (e.g., "cite," "citation," "credit," "acknowledge") | Captures more relevant instances |
 | **Balance both** | Combine general terms with specific phrases | Maximizes validity and interpretive robustness |
+
+: Table 7.7. Practical guide to balancing precision and recall in keyword definitions.
 
 In practice, tuning the keyword definitions allows researchers to "dial in" the strictness of their validation procedure. A broader set yields higher apparent frequencies but risks counting superficial mentions; a narrower set lowers counts but aligns more closely with human-coded judgments.
 
