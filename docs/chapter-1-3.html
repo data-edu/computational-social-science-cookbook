@@ -466,7 +466,8 @@ div.csl-indent {
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#what-is-in-the-tidyverse" id="toc-what-is-in-the-tidyverse" class="nav-link active" data-scroll-target="#what-is-in-the-tidyverse">What is in the Tidyverse?</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#what-is-in-the-tidyverse" id="toc-what-is-in-the-tidyverse" class="nav-link" data-scroll-target="#what-is-in-the-tidyverse">What is in the Tidyverse?</a></li>
   <li><a href="#installing-and-loading-the-tidyverse" id="toc-installing-and-loading-the-tidyverse" class="nav-link" data-scroll-target="#installing-and-loading-the-tidyverse">Installing and Loading the Tidyverse</a></li>
   <li><a href="#working-with-real-data" id="toc-working-with-real-data" class="nav-link" data-scroll-target="#working-with-real-data">Working with Real Data</a></li>
   <li><a href="#essential-dplyr-functions" id="toc-essential-dplyr-functions" class="nav-link" data-scroll-target="#essential-dplyr-functions">Essential dplyr Functions</a>
@@ -490,7 +491,7 @@ div.csl-indent {
   <li><a href="#improving-plots-with-labels-and-themes" id="toc-improving-plots-with-labels-and-themes" class="nav-link" data-scroll-target="#improving-plots-with-labels-and-themes">Improving Plots with Labels and Themes</a></li>
   <li><a href="#faceting---small-multiples" id="toc-faceting---small-multiples" class="nav-link" data-scroll-target="#faceting---small-multiples">Faceting - Small Multiples</a></li>
   </ul></li>
-  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -517,8 +518,11 @@ div.csl-indent {
 </header>
 
 
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <p>The tidyverse is a collection of R packages designed for data science with a shared philosophy: code should be readable, consistent, and focused on the data transformations you are actually trying to accomplish <span class="citation" data-cites="Wickham2017R4DS Wickham2019Tidyverse">(<a href="#ref-Wickham2017R4DS" role="doc-biblioref">Wickham and Grolemund 2017</a>; <a href="#ref-Wickham2019Tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span>. If you have struggled with base R’s sometimes cryptic syntax, the tidyverse may feel like a relief.</p>
 <p>Most computational educational research workflows rely on tidyverse packages for data manipulation, visualization, and modeling. Learning this ecosystem means learning the tools your collaborators use, the examples you will find online, and the approaches that scale from quick exploration to publication-ready analysis <span class="citation" data-cites="Wickham2017R4DS Wickham2019Tidyverse">(<a href="#ref-Wickham2017R4DS" role="doc-biblioref">Wickham and Grolemund 2017</a>; <a href="#ref-Wickham2019Tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span>.</p>
+</section>
 <section id="what-is-in-the-tidyverse" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-in-the-tidyverse">What is in the Tidyverse?</h2>
 <p>The tidyverse is actually a meta-package that loads eight core packages when you run <code>library(tidyverse)</code>:</p>
@@ -1127,8 +1131,8 @@ Figure&nbsp;4.12: Score distributions by gender and disability status
 <p><code>facet_grid()</code> creates a matrix of plots: rows for one variable (gender), columns for another (disability). This lets you see how score distributions vary across combinations of factors.</p>
 </section>
 </section>
-<section id="next-steps" class="level2">
-<h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
 <p>You’ve now seen core tidyverse functions in action with real data. The seven dplyr functions covered here—<code>filter()</code>, <code>select()</code>, <code>mutate()</code>, <code>summarize()</code>, <code>group_by()</code>, <code>arrange()</code>, and <code>count()</code>—handle the majority of everyday data manipulation tasks. The ggplot2 visualizations—bar charts, histograms, boxplots, scatter plots, and faceting—cover most exploratory analysis needs.</p>
 <p>The subsequent chapters in this book use these functions extensively, and we will introduce additional tidyverse capabilities as they become relevant. You will continue learning by doing, working with real data and real research questions.</p>
 <p>When you want to go deeper:</p>

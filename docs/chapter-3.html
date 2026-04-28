@@ -480,19 +480,19 @@ div.csl-indent {
   </ul></li>
   <li><a href="#network-management-measurement-in-social-network-analysis" id="toc-network-management-measurement-in-social-network-analysis" class="nav-link" data-scroll-target="#network-management-measurement-in-social-network-analysis">3.3 Network Management &amp; Measurement in Social Network Analysis</a>
   <ul class="collapse">
-  <li><a href="#purpose-case" id="toc-purpose-case" class="nav-link" data-scroll-target="#purpose-case">3.3.1 Purpose + Case</a></li>
+  <li><a href="#purpose-and-case" id="toc-purpose-and-case" class="nav-link" data-scroll-target="#purpose-and-case">3.3.1 Purpose and Case</a></li>
   <li><a href="#sample-research-questions" id="toc-sample-research-questions" class="nav-link" data-scroll-target="#sample-research-questions">3.3.2 Sample Research Questions</a></li>
   <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">3.3.3 Analysis</a></li>
   <li><a href="#results-and-discussion" id="toc-results-and-discussion" class="nav-link" data-scroll-target="#results-and-discussion">3.3.4 Results and Discussion</a></li>
   </ul></li>
   <li><a href="#case-study-hashtag-common-core" id="toc-case-study-hashtag-common-core" class="nav-link" data-scroll-target="#case-study-hashtag-common-core">3.4 Case Study: Hashtag Common Core</a>
   <ul class="collapse">
-  <li><a href="#purpose-case-1" id="toc-purpose-case-1" class="nav-link" data-scroll-target="#purpose-case-1">3.4.1 Purpose &amp; Case</a></li>
+  <li><a href="#purpose-and-case-1" id="toc-purpose-and-case-1" class="nav-link" data-scroll-target="#purpose-and-case-1">3.4.1 Purpose and Case</a></li>
   <li><a href="#sample-research-questions-1" id="toc-sample-research-questions-1" class="nav-link" data-scroll-target="#sample-research-questions-1">3.4.2 Sample Research Questions</a></li>
   <li><a href="#analysis-1" id="toc-analysis-1" class="nav-link" data-scroll-target="#analysis-1">3.4.3 Analysis</a></li>
   <li><a href="#results-and-discussion-1" id="toc-results-and-discussion-1" class="nav-link" data-scroll-target="#results-and-discussion-1">3.4.4 Results and Discussion</a></li>
   </ul></li>
-  <li><a href="#read-more-to-learn-more" id="toc-read-more-to-learn-more" class="nav-link" data-scroll-target="#read-more-to-learn-more"><strong>Read More to Learn More</strong></a></li>
+  <li><a href="#summary-1" id="toc-summary-1" class="nav-link" data-scroll-target="#summary-1">3.5 Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -670,8 +670,8 @@ div.csl-indent {
 </section>
 <section id="network-management-measurement-in-social-network-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="network-management-measurement-in-social-network-analysis">3.3 Network Management &amp; Measurement in Social Network Analysis</h2>
-<section id="purpose-case" class="level3">
-<h3 class="anchored" data-anchor-id="purpose-case">3.3.1 Purpose + Case</h3>
+<section id="purpose-and-case" class="level3">
+<h3 class="anchored" data-anchor-id="purpose-and-case">3.3.1 Purpose and Case</h3>
 <p><strong>Purpose:</strong> This section demonstrates how to manage, measure, and visualize large-scale discussion networks from online professional development settings. Through this real-world example, we guide readers in loading relational data, constructing a directed network, and conducting a suite of essential SNA measures. The focus is on classroom- and course-level online discussions, which are representative of many contemporary educational and research settings.</p>
 <p><strong>Case Study:</strong> The case data comes from two cohorts of an online professional development program (“DLT1” and “DLT2”). Each cohort’s discussion data includes (a) <strong>edge list</strong> data capturing who replied to whom, and (b) <strong>node/actor</strong> attributes describing roles (e.g., facilitator, expert). These data allow us to reconstruct and analyze the full structure of communication in two authentic online learning communities.</p>
 </section>
@@ -1098,8 +1098,8 @@ div.csl-indent {
 </section>
 <section id="case-study-hashtag-common-core" class="level2">
 <h2 class="anchored" data-anchor-id="case-study-hashtag-common-core">3.4 Case Study: Hashtag Common Core</h2>
-<section id="purpose-case-1" class="level3">
-<h3 class="anchored" data-anchor-id="purpose-case-1">3.4.1 Purpose &amp; Case</h3>
+<section id="purpose-and-case-1" class="level3">
+<h3 class="anchored" data-anchor-id="purpose-and-case-1">3.4.1 Purpose and Case</h3>
 <p>The purpose of this case study is to demonstrate the application of social network analysis (SNA) in a real-world policy context: the heated national debate over the Common Core State Standards (CCSS) as it played out on Twitter. Drawing on the work of Supovitz, Daly, del Fresno, and Kolouch, the #COMMONCORE Project provides a vivid example of how social media-enabled networks shape educational discourse and policy.</p>
 <p>This case focuses on: - Identifying <strong>key actors</strong> (“transmitters,” “transceivers,” and “transcenders”) and measuring their influence. - Detecting <strong>subgroups/factions</strong> within the conversation. - Exploring how <strong>sentiment</strong> about the Common Core varies across network positions. - Demonstrating <strong>network wrangling, visualization, and analysis</strong> using real tweet data.</p>
 <section id="data-source" class="level4">
@@ -1242,27 +1242,27 @@ div.csl-indent {
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cliques</span>(ccss_network, <span class="at">min =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
-+ 3/46 vertices, from 456ac4a:
++ 3/46 vertices, from 87da8cf:
 [1] 4 5 6
 
 [[2]]
-+ 3/46 vertices, from 456ac4a:
++ 3/46 vertices, from 87da8cf:
 [1] 39 40 41
 
 [[3]]
-+ 3/46 vertices, from 456ac4a:
++ 3/46 vertices, from 87da8cf:
 [1] 3 4 6
 
 [[4]]
-+ 4/46 vertices, from 456ac4a:
++ 4/46 vertices, from 87da8cf:
 [1] 3 4 5 6
 
 [[5]]
-+ 3/46 vertices, from 456ac4a:
++ 3/46 vertices, from 87da8cf:
 [1] 3 4 5
 
 [[6]]
-+ 3/46 vertices, from 456ac4a:
++ 3/46 vertices, from 87da8cf:
 [1] 3 5 6</code></pre>
 </div>
 </div>
@@ -1407,9 +1407,9 @@ div.csl-indent {
 </section>
 </section>
 </section>
-<section id="read-more-to-learn-more" class="level2">
-<h2 class="anchored" data-anchor-id="read-more-to-learn-more"><strong>Read More to Learn More</strong></h2>
-<p>For readers interested in exploring these methods further, the following resources are recommended:</p>
+<section id="summary-1" class="level2">
+<h2 class="anchored" data-anchor-id="summary-1">3.5 Summary</h2>
+<p>This chapter introduced social network analysis as a method for studying relational structures in educational settings. Through two case studies — a MOOC discussion network and a Twitter hashtag network — we demonstrated how to construct, measure, visualize, and interpret networks using R. For readers interested in exploring these methods further, the following resources are recommended:</p>
 <ul>
 <li><p><strong>Social Network Analysis Fundamentals</strong></p>
 <ul>
