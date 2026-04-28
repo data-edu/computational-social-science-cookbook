@@ -2,6 +2,8 @@
 title: "R"
 ---
 
+## Overview
+
 We are not going to teach you RStudio comprehensively because excellent resources already exist for that purpose. We particularly recommend [*R for Data Science*](https://r4ds.hadley.nz/), [*Data Science in Education Using R*](https://datascienceineducation.com/), the [RStudio primers](https://posit.co/resources/primers/), and [*Happy Git and GitHub for the useR*](https://happygitwithr.com/).
 
 Instead, this chapter covers just enough to reproduce our workflows and extend them to your own data science work. Think of this as the minimal viable setup for doing the work in this book.
@@ -215,6 +217,10 @@ When you are truly stuck, the R community is helpful:
 -   [Stack Overflow](https://stackoverflow.com/questions/tagged/r): Searchable archive of millions of questions
 
 Before asking a question, try searching for your error message. Someone has likely encountered it before. Of course, turning to AI can also help, as we describe next.
+
+## Summary
+
+This chapter covered the essential R skills needed to follow the workflows in this book: writing code in scripts, R Markdown, and Quarto documents; loading and inspecting data; computing basic summaries; producing simple visualizations; and reading error messages when things go wrong. These fundamentals carry through every subsequent chapter.
 
 ### Large Language Models and AI Tools for Getting Unstuck
 

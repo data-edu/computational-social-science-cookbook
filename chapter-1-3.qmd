@@ -7,6 +7,8 @@ title: "Tidyverse"
 options(warn = -1)
 ```
 
+## Overview
+
 The tidyverse is a collection of R packages designed for data science with a shared philosophy: code should be readable, consistent, and focused on the data transformations you are actually trying to accomplish [@Wickham2017R4DS; @Wickham2019Tidyverse]. If you have struggled with base R's sometimes cryptic syntax, the tidyverse may feel like a relief.
 
 Most computational educational research workflows rely on tidyverse packages for data manipulation, visualization, and modeling. Learning this ecosystem means learning the tools your collaborators use, the examples you will find online, and the approaches that scale from quick exploration to publication-ready analysis [@Wickham2017R4DS; @Wickham2019Tidyverse].
@@ -444,7 +446,7 @@ students |>
 
 `facet_grid()` creates a matrix of plots: rows for one variable (gender), columns for another (disability). This lets you see how score distributions vary across combinations of factors.
 
-## Next Steps
+## Summary
 
 You've now seen core tidyverse functions in action with real data. The seven dplyr functions covered here—`filter()`, `select()`, `mutate()`, `summarize()`, `group_by()`, `arrange()`, and `count()`—handle the majority of everyday data manipulation tasks. The ggplot2 visualizations—bar charts, histograms, boxplots, scatter plots, and faceting—cover most exploratory analysis needs.
 

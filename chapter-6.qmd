@@ -326,7 +326,7 @@ For AI-assisted workflows, keep a short project log with:
 
 Also remember the privacy boundary: Positron routes requests to your selected provider. Posit documents that it does not store your prompts and AI conversations, but your chosen provider may have its own data retention policy. Review provider terms before using sensitive data.
 
-## 6.8 Wrapping Up
+## 6.8 Summary
 
 This chapter highlights a practical integration pattern:
 

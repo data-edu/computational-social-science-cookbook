@@ -2,6 +2,8 @@
 title: "Positron and RStudio"
 ---
 
+## Overview
+
 You need an environment for writing and running R code. We are going to focus on **Positron**, Posit's newer IDE built on the foundation of VS Code. If you are already comfortable with RStudio, everything in this chapter applies there too. The fundamental concepts are identical, and the R code in this book works the same way in both.
 
 ## Why Positron?
@@ -237,7 +239,7 @@ Your IDE makes branch management visual. In Positron, the Source Control panel s
 
 For now, working on the main branch is sufficient. We will cover branching in more detail when you need it for collaboration or when your projects become more complex.
 
-## Going Further
+## Summary
 
 This chapter gave you a working environment. When you are ready to explore more:
 

@@ -533,7 +533,7 @@ The methods used above can be written up as follows:
 >
 > This frequency-based approach provided a straightforward descriptive summary of the policy corpus and helped identify the most salient vocabulary used in institutional GenAI guidance.
 
-### 2.3.1.4 Results and Discussions
+### 2.3.1.4 Results and Discussion
 
 -   **RQ1**: What are the most frequently mentioned words in university GenAI writing usage policies?\
     The results of the frequency analysis showed that keywords such as "assignment," "student," and "writing" were among the most commonly mentioned terms across AI policies at 100 universities. This emphasis reflects a focus on using AI tools to support student learning and enhance teaching content. The frequent mention of these words suggests that institutions are considering the role of AI in academic assignments and course design, indicating a strategic commitment to integrating AI within educational tasks and student interactions.
@@ -649,7 +649,7 @@ The methods used above can be written up as follows:
 >
 > This dictionary-based method provides a transparent and reproducible way to quantify sentiment in textual policy documents. It is particularly useful for exploratory analysis because it captures broad polarity patterns while remaining easy to interpret and replicate across documents.
 
-### 2.3.2.4 Results and Discussions
+### 2.3.2.4 Results and Discussion
 
 -   **RQ**: What is the dominant sentiment expressed in GenAI policy texts across universities, and is it primarily positive or negative?\
     The dictionary-based sentiment analysis reveals the prevailing sentiments in university policies on GenAI usage. Using the Bing lexicon to assign positive and negative scores, the density plot illustrates the distribution of sentiment scores across the 100 institutions.
@@ -806,7 +806,7 @@ The methods used above can be written up as follows:
 >
 > All analyses were conducted using **R version 4.x** within the **tidyverse** ecosystem. The following packages were utilized: *dplyr* for data manipulation, *tidytext* for tokenization and text processing, *topicmodels* for LDA modeling, and *ggplot2* for visualizations. The analysis was executed on a standard workstation environment to ensure reproducibility and computational efficiency.
 
-### 2.3.3.4 Results and Discussions
+### 2.3.3.4 Results and Discussion
 
 #### **Research Question 1:**
 
@@ -864,9 +864,9 @@ The topic modeling results suggest that universities are navigating a complex la
 
 Saldaña, J. (2021). Coding techniques for quantitative and mixed data. *The Routledge reviewer’s guide to mixed methods analysis*, 151-160.
 
-## **Read More to Learn More**
+## 2.4 Summary
 
-Readers wishing to deepen their understanding of the text analysis methods used here can explore the following resources:
+This chapter demonstrated three approaches to computational text analysis — frequency-based analysis, sentiment analysis, and topic modeling — each applied to GenAI usage guidelines from U.S. universities. Together, these methods illustrate how educational researchers can systematically analyze large text corpora using R. Readers wishing to deepen their understanding can explore the following resources:
 
 -   **Text Mining and Topic Modeling**
 

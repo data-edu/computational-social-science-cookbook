@@ -131,7 +131,7 @@ Accessing SNA data involves both careful **design** (in the case of surveys/obse
 
 ## 3.3 Network Management & Measurement in Social Network Analysis
 
-### 3.3.1 Purpose + Case
+### 3.3.1 Purpose and Case
 
 **Purpose:** This section demonstrates how to manage, measure, and visualize large-scale discussion networks from online professional development settings. Through this real-world example, we guide readers in loading relational data, constructing a directed network, and conducting a suite of essential SNA measures. The focus is on classroom- and course-level online discussions, which are representative of many contemporary educational and research settings.
 
@@ -440,7 +440,7 @@ This analysis is based on real-world data from online professional development c
 
 ## 3.4 Case Study: Hashtag Common Core
 
-### 3.4.1 Purpose & Case
+### 3.4.1 Purpose and Case
 
 The purpose of this case study is to demonstrate the application of social network analysis (SNA) in a real-world policy context: the heated national debate over the Common Core State Standards (CCSS) as it played out on Twitter. Drawing on the work of Supovitz, Daly, del Fresno, and Kolouch, the #COMMONCORE Project provides a vivid example of how social media-enabled networks shape educational discourse and policy.
 
@@ -663,9 +663,9 @@ For researchers and practitioners, this pattern highlights the importance of int
 
 -   Silge, J., & Robinson, D. (2017). *Text Mining with R: A Tidy Approach*. O’Reilly.
 
-## **Read More to Learn More**
+## 3.5 Summary
 
-For readers interested in exploring these methods further, the following resources are recommended:
+This chapter introduced social network analysis as a method for studying relational structures in educational settings. Through two case studies — a MOOC discussion network and a Twitter hashtag network — we demonstrated how to construct, measure, visualize, and interpret networks using R. For readers interested in exploring these methods further, the following resources are recommended:
 
 -   **Social Network Analysis Fundamentals**
 

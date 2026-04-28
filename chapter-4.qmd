@@ -213,7 +213,7 @@ str(student_vle)
 
 ## 4.3 Logistic Regression & Machine Learning
 
-### 4.3.1 Purpose + Case
+### 4.3.1 Purpose and Case
 
 #### Purpose
 
@@ -362,7 +362,7 @@ A sample methods section based on these analysis can be written as follows:
 >
 > To evaluate the predictive accuracy of the same institutional features (RQ B), we fit an equivalent logistic regression model within a supervised machine learning workflow using the tidymodels framework (Kuhn & Wickham, 2020). This pipeline integrated preprocessing via the recipes package and model specification via parsnip, producing a unified, reproducible workflow consistent with current best practices in applied machine learning (Silge & Kuhn, 2022). Model performance was evaluated using overall classification accuracy on the full dataset. All analyses were conducted in R (version 4.3.x).
 
-### 4.3.4 Results and Discussions
+### 4.3.4 Results and Discussion
 
 #### Logistic Regression Model (RQ A)
 
@@ -391,7 +391,7 @@ In summary, our analyses indicate that institutional factors, particularly tuiti
 
 In this section, we explore a more sophisticated supervised learning approach—Random Forests—to model student interaction data from the Open University Learning Analytics Dataset (OULAD).
 
-### 4.4.1 Purpose + Case
+### 4.4.1 Purpose and Case
 
 #### Purpose
 
@@ -562,7 +562,7 @@ A sample methods section based on these steps can be written as follows:
 >
 > A random forest classifier was fit using the `ranger` engine with impurity-based variable importance (Wright & Ziegler, 2017). Model performance was assessed using two complementary evaluation strategies. First, 4-fold cross-validation stratified by the outcome variable was used to estimate out-of-sample performance across multiple data partitions. Second, a held-out test set (33% of the sample, stratified by outcome) was used for final model evaluation. Performance was quantified using accuracy, sensitivity, specificity, positive predictive value (PPV), negative predictive value (NPV), and Cohen's Kappa. Variable importance was extracted from the final fitted model and visualized for the ten most influential predictors.
 
-### 4.4.4 Results and Discussions
+### 4.4.4 Results and Discussion
 
 #### Research Question 1 (RQ1):
 
@@ -604,3 +604,7 @@ The random forest model built on interactions data from OULAD demonstrates decen
 The variable importance analysis underscores that engagement-related features—especially **sum_clicks** and features capturing the trend in interactions (slope, mean_clicks)—are the most influential predictors. This insight implies that the **digital footprint** of student engagement in the virtual learning environment is critical for predicting academic outcomes. Every click tells a story; ignoring them means missing valuable signals.
 
 In summary, while our model performs robustly across cross-validation folds and provides actionable insights into key predictive features, the lower specificity points to the need for further refinement. Future work might explore additional feature engineering, alternative model tuning, or combining models to better balance sensitivity and specificity, ultimately supporting timely interventions in educational settings.
+
+## 4.5 Summary
+
+This chapter introduced machine learning as a tool for educational research through two case studies using the Open University Learning Analytics Dataset. Logistic regression provided an interpretable baseline for predicting student outcomes, while random forests captured more complex interaction patterns at the cost of interpretability. Both approaches demonstrated that student engagement metrics — particularly click activity and its trajectory over time — are strong predictors of course success. These methods extend the analytical toolkit introduced in earlier chapters by moving from descriptive and relational analyses toward predictive modeling.
