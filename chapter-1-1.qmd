@@ -70,7 +70,7 @@ Table: Table 1.1. Essential keyboard shortcuts in Positron and RStudio.
 | Save file                         | Ctrl + S           | Cmd + S         |
 | Find in file                      | Ctrl + F           | Cmd + F         |
 | Comment/uncomment code            | Ctrl + Shift + C   | Cmd + Shift + C |
-| Insert pipe operator (`|>`)       | Ctrl + Shift + M   | Cmd + Shift + M |
+| Insert pipe operator (`\|>`)      | Ctrl + Shift + M   | Cmd + Shift + M |
 | Insert assignment operator (`<-`) | Alt + -            | Option + -      |
 | Restart R session                 | Ctrl + Shift + F10 | Cmd + Shift + 0 |
 

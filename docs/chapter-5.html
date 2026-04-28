@@ -538,7 +538,7 @@ div.csl-indent {
 <section id="overview-of-major-cloud-providers" class="level3">
 <h3 class="anchored" data-anchor-id="overview-of-major-cloud-providers">Overview of Major Cloud Providers</h3>
 <p>The landscape moves fast. As of 2025, these are among the most common cloud options used in educational data analysis:</p>
-<p>Table: Table 5.1. Major cloud LLM providers and R access options. | Provider | Example Models | Access | R / HTTP Wrapper | |——————|——————-|——————|——————| | <strong>OpenAI</strong> | GPT-4o / GPT-5 | API key via <a href="https://platform.openai.com">platform.openai.com</a> | <code>{httr2}</code>, <code>{openai}</code>, <code>{ellmer}</code> | | <strong>Anthropic</strong> | Claude 3 Opus · Claude 4 | API key via <a href="https://console.anthropic.com">console.anthropic.com</a> | <code>{httr2}</code>, <code>{anthropic}</code>, <code>{ellmer}</code> | | <strong>Google</strong> | Gemini 2.5 · Gemini Ultra (2025) | <a href="https://aistudio.google.com">AI Studio</a> | <code>{googleGenerativeAI}</code>, <code>{ellmer}</code> | | <strong>Mistral AI</strong> | Mixtral 8×22B · Mistral 7B v0.3 | <a href="https://mistral.ai">mistral.ai</a> | HTTP via <code>{httr2}</code> | | <strong>DeepSeek</strong> | DeepSeek-V3.1 (MoE 128K ctx) | API via <a href="https://deepseek.ai">deepseek.ai</a> | HTTP via <code>{httr2}</code> |</p>
+<p>Table: Table 5.1. Major cloud LLM providers and R access options. | Provider | Example Models | Access | R / HTTP Wrapper | |————–|———————————–|—————————————————–|————————————–| | <strong>OpenAI</strong> | GPT-4o / GPT-5 | API key via <a href="https://platform.openai.com">platform.openai.com</a> | <code>{httr2}</code>, <code>{openai}</code>, <code>{ellmer}</code> | | <strong>Anthropic</strong>| Claude 3 Opus · Claude 4 | API key via <a href="https://console.anthropic.com">console.anthropic.com</a> | <code>{httr2}</code>, <code>{anthropic}</code>, <code>{ellmer}</code> | | <strong>Google</strong> | Gemini 2.5 · Gemini Ultra (2025) | <a href="https://aistudio.google.com">AI Studio</a> | <code>{googleGenerativeAI}</code>, <code>{ellmer}</code> | | <strong>Mistral AI</strong> | Mixtral 8x22B · Mistral 7B v0.3 | <a href="https://mistral.ai">mistral.ai</a> | HTTP via <code>{httr2}</code> | | <strong>DeepSeek</strong> | DeepSeek-V3.1 (MoE 128K ctx) | API via <a href="https://deepseek.ai">deepseek.ai</a> | HTTP via <code>{httr2}</code> |</p>
 <blockquote class="blockquote">
 <p>Tip: always verify model names, context limits, and pricing before you run a study. Providers update frequently, and those updates can affect reproducibility.</p>
 </blockquote>
@@ -681,7 +681,7 @@ div.csl-indent {
 </section>
 <section id="main-features" class="level3">
 <h3 class="anchored" data-anchor-id="main-features">Main Features</h3>
-<p>Table: Table 5.2. Core LM Studio features for local LLM workflows. | Feature | Description | |—————————————————|——————–| | Local LLMs | Run models offline on your own machine | | Chat Interface | Simple prompt-based GUI | | Document Chat (RAG) | Offline “chat with your PDFs” | | Model Management | Search, download, and switch models | | API Access | OpenAI-compatible REST endpoints | | Community Support | Active <a href="https://discord.gg/uwMphZmHqY">Discord</a> and docs |</p>
+<p>Table: Table 5.2. Core LM Studio features for local LLM workflows. | Feature | Description | |————————|——————————————-| | Local LLMs | Run models offline on your own machine | | Chat Interface | Simple prompt-based GUI | | Document Chat (RAG) | Offline “chat with your PDFs” | | Model Management | Search, download, and switch models | | API Access | OpenAI-compatible REST endpoints | | Community Support | Active <a href="https://discord.gg/uwMphZmHqY">Discord</a> and docs |</p>
 <hr>
 </section>
 <section id="calling-the-lm-studio-api-from-r" class="level3">
@@ -706,7 +706,7 @@ div.csl-indent {
 </section>
 <section id="cloud-vs.-local-llms-choosing-the-right-tool" class="level2">
 <h2 class="anchored" data-anchor-id="cloud-vs.-local-llms-choosing-the-right-tool">5.4 Cloud vs.&nbsp;Local LLMs: Choosing the Right Tool</h2>
-<p>Table: Table 5.3. Comparison of cloud and local LLM workflows. | Criterion | Cloud-based LLMs | Local LLMs | |————————|————————|————————| | <strong>Cost</strong> | Pay-per-token or subscription | Free (after hardware) | | <strong>Privacy</strong> | Data sent to provider | Data stays local | | <strong>Performance</strong> | Highest accuracy &amp; speed | Depends on hardware | | <strong>Maintenance</strong> | Automatic updates | Manual model management | | <strong>Customization</strong> | Limited fine-tuning | Fully modifiable | | <strong>Best for</strong> | Large public datasets or prototype analysis | Sensitive or regulated data |</p>
+<p>Table: Table 5.3. Comparison of cloud and local LLM workflows. | Criterion | Cloud-based LLMs | Local LLMs | |——————|——————————————|———————————-| | <strong>Cost</strong> | Pay-per-token or subscription | Free (after hardware) | | <strong>Privacy</strong> | Data sent to provider | Data stays local | | <strong>Performance</strong> | Highest accuracy and speed | Depends on hardware | | <strong>Maintenance</strong> | Automatic updates | Manual model management | | <strong>Customization</strong>| Limited fine-tuning | Fully modifiable | | <strong>Best for</strong> | Large public datasets or prototype analysis | Sensitive or regulated data |</p>
 <blockquote class="blockquote">
 <p>A common workflow is hybrid: prototype quickly in the cloud, then reproduce locally for privacy and auditability.</p>
 </blockquote>
@@ -728,7 +728,7 @@ div.csl-indent {
 <section id="summary-1" class="level2">
 <h2 class="anchored" data-anchor-id="summary-1">5.6 Summary</h2>
 <p>Both cloud and local LLMs can support strong educational research. The right choice depends on your project constraints.</p>
-<p>Table: Table 5.4. Recommended LLM environment by research use case. | Use Case | Cloud LLM | Local LLM | |—————————–|———–|———–| | Rapid prototyping | ✅ | ⚪ | | Large-scale text processing | ✅ | ⚪ | | Sensitive student data | ⚪ | ✅ | | Offline analysis | ⚪ | ✅ | | Long-term reproducibility | ⚪ | ✅ |</p>
+<p>Table: Table 5.4. Recommended LLM environment by research use case. | Use Case | Cloud LLM | Local LLM | |—————————-|———–|———–| | Rapid prototyping | Yes | No | | Large-scale text processing| Yes | No | | Sensitive student data | No | Yes | | Offline analysis | No | Yes | | Long-term reproducibility | No | Yes |</p>
 <blockquote class="blockquote">
 <p>In short: cloud LLMs excel at convenience and scale; local LLMs excel at privacy and control. Most research programs benefit from using both strategically.</p>
 </blockquote>
