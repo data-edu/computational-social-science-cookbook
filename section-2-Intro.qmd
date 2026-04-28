@@ -4,14 +4,14 @@ title: "Data Science Methods"
 
 ## Overview
 
-This section introduces the core computational methods that form the basis of educational data analysis [@Lang2017HandbookLA; @Baker2014EDM]. Across the next three chapters, you will learn how to analyze **textual**, **relational**, and **numeric** data — three major forms of information that appear in learning environments, institutional records, and educational research projects [@Silge2017TextMining; @Carolan2014SNA; @James2021ISLR].
+This section introduces the core data science methods that form the basis of educational data analysis [@Lang2017HandbookLA; @Baker2014EDM]. Across the next three chapters, you will learn how to analyze **textual**, **relational**, and **numeric** data — three major forms of information that appear in learning environments, institutional records, and educational research projects [@Silge2017TextMining; @Carolan2014SNA; @James2021ISLR].
 
 These chapters emphasize hands-on, transparent, and reproducible approaches using R. By engaging with real examples, you will gain practical experience in transforming raw educational data into interpretable results that inform theory and practice.
 
 ## The Analytical Scope of This Section
 
 | Chapter | Data Type | Analytical Focus | Example Research Question |
-|-----------------|-----------------|-----------------|---------------------|
+|-----------------|-----------------|-----------------|--------------------|
 | **Chapter 2** | Text Data (unstructured) | Natural language processing, tokenization, sentiment, topic modeling | “What themes emerge in student reflections or policy statements?” |
 | **Chapter 3** | Relational Data | Social network analysis: centrality, community detection, visualization | “How do students or instructors connect and collaborate in learning networks?” |
 | **Chapter 4** | Numeric / Big Data | Statistical modeling, regression, clustering, predictive analysis | “Which factors best predict academic outcomes or engagement?” |
