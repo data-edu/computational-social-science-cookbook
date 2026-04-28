@@ -62,6 +62,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -510,7 +511,7 @@ div.csl-indent {
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">8.1 Overview</h2>
-<p>Images are an underused data source in educational research, yet they capture dimensions of learning environments — physical space, body language, classroom artifacts, and nonverbal interaction — that text and numeric data cannot <span class="citation" data-cites="Rose2016VisualMethodologies">(<a href="#ref-Rose2016VisualMethodologies" role="doc-biblioref">Rose 2016</a>)</span>. Treating images as data opens new research questions: How does body language shape classroom discourse? How do physiological signals correspond to engagement or affect during learning? Work by <span class="citation" data-cites="DMello2017Engagement">D’Mello et al. (<a href="#ref-DMello2017Engagement" role="doc-biblioref">2017</a>)</span> illustrates how multimodal signals, including visual data, can reveal aspects of the learning experience that single-mode studies miss.</p>
+<p>Images are an underused data source in educational research, yet they capture dimensions of learning environments — physical space, body language, classroom artifacts, and nonverbal interaction — that text and numeric data cannot <span class="citation" data-cites="Rose2016VisualMethodologies">(<a href="references.html#ref-Rose2016VisualMethodologies" role="doc-biblioref">Rose, 2016</a>)</span>. Treating images as data opens new research questions: How does body language shape classroom discourse? How do physiological signals correspond to engagement or affect during learning? Work by <span class="citation" data-cites="DMello2017Engagement">D’Mello et al. (<a href="references.html#ref-DMello2017Engagement" role="doc-biblioref">2017</a>)</span> illustrates how multimodal signals, including visual data, can reveal aspects of the learning experience that single-mode studies miss.</p>
 <p>This chapter introduces how educational researchers can capture and analyze images using local large language models in R — combining the richness of visual data with the privacy protections that sensitive educational contexts require.</p>
 </section>
 <section id="images" class="level2">
@@ -589,8 +590,18 @@ div.csl-indent {
 </ul>
 <p>The structured outputs were imported into R for organization and thematic coding. Using both deductive categories (e.g., group size, task type) and inductive patterns (e.g., collaborative vs.&nbsp;passive positioning), the researcher examined how engagement varied across activities. Triangulation with field notes enhanced interpretive validity, and descriptive summaries were generated to visualize classroom dynamics over time.</p>
 <p><em>For the purpose of simplicity, we will only analyze nine photos from a <a href="https://github.com/data-edu/computational-social-science-cookbook/tree/main/data/s5_images">folder</a>. The process for batch analysis can be increased to more photos.</em></p>
-<p><img src="data/s5_images/primary-school-teacher-working-with-students-in-classroom-838559688.jpg" class="img-fluid" width="575"></p>
-<p><img src="data/s5_images/35320686-2551789306.jpg" class="img-fluid" width="576"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/s5_images/primary-school-teacher-working-with-students-in-classroom-838559688.jpg" class="img-fluid figure-img" width="575"></p>
+<figcaption>Figure 8.1. Classroom photo example for local LLM image analysis workflow.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/s5_images/35320686-2551789306.jpg" class="img-fluid figure-img" width="576"></p>
+<figcaption>Figure 8.2. Second classroom photo example for comparative image interpretation.</figcaption>
+</figure>
+</div>
 <p>With the code below, we create a function to batch analyze images. First, since we aim to analyze images (i.e., batch) inside a folder, we define the folder and search and identify image files.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kuzco)</span>
@@ -739,12 +750,12 @@ div.csl-indent {
 <p>This chapter introduced image analysis as a method for educational research, using the <code>{kuzco}</code> package to classify, recognize, and assess sentiment in classroom photographs through a local large language model. The case study demonstrated that LLM-based image processing can generate structured, interpretable data from visual sources — capturing dimensions of learning environments that text and numeric data alone cannot. As with the text-based workflows in Chapter 7, the local execution model ensures that sensitive visual data remain on the researcher’s own device.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
 <div id="ref-DMello2017Engagement" class="csl-entry" role="listitem">
-D’Mello, Sidney, Ed Dieterle, and Angela Duckworth. 2017. <span>“Advanced, Analytic, Automated (<span>AAA</span>) Measurement of Engagement During Learning.”</span> <em>Educational Psychologist</em> 52 (2): 104–23.
+D’Mello, S., Dieterle, E., &amp; Duckworth, A. (2017). Advanced, analytic, automated (<span>AAA</span>) measurement of engagement during learning. <em>Educational Psychologist</em>, <em>52</em>(2), 104–123.
 </div>
 <div id="ref-Rose2016VisualMethodologies" class="csl-entry" role="listitem">
-Rose, Gillian. 2016. <em>Visual Methodologies: An Introduction to Researching with Visual Materials</em>. 4th ed. <span>SAGE</span> Publications.
+Rose, G. (2016). <em>Visual methodologies: An introduction to researching with visual materials</em> (4th ed.). <span>SAGE</span> Publications.
 </div>
 </div>
 </section>

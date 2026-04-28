@@ -4,6 +4,16 @@ title: "Colophon"
 
 This book was written in [Quarto](https://quarto.org/) and rendered to HTML and PDF. All analyses were conducted in R. The source code is available at the book's GitHub repository.
 
+## About the Authors
+
+**Wei Wang** is a PhD student in Learning, Design, and Technology at the University of Tennessee, Knoxville. His research focuses on generative AI in education, educational data science, and evaluation methods. Website: <https://wwang93.github.io/Vino-Wang-Website/>
+
+**Mete Akcaoglu** is Professor of Instructional Technology and Department Chair of Leadership, Technology, and Human Development at Georgia Southern University. His research examines learning with technology, with emphasis on motivation, curiosity, game-based learning, and AI in education. Website: <https://meteakcaoglu.com/>
+
+**Joshua M. Rosenberg** is Haslam Family Professor and Associate Professor of STEM Education at the University of Tennessee, Knoxville. His research focuses on learning analytics, educational data science, and open, reproducible research in education. Website: <https://joshuamrosenberg.com/>
+
+**Shaun Kellogg** is Senior Director of the Office of Research and Promising Practices at the North Carolina Department of Public Instruction. His work focuses on evidence-based decision-making, research-practice partnerships, and the use of data to improve educational outcomes. Website: <https://www.dpi.nc.gov/blog/2025/09/17/how-ncdpis-office-research-promising-practices-turns-evidence-action>
+
 The R session information below documents the computational environment used to produce this edition, including the R version, platform, and all packages loaded during rendering.
 
 ```{r}

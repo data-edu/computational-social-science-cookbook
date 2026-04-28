@@ -25,13 +25,7 @@ That makes cloud models especially useful for rapid prototyping, large-scale tex
 
 The landscape moves fast. As of 2025, these are among the most common cloud options used in educational data analysis:
 
-| Provider | Example Models | Access | R / HTTP Wrapper |
-|------------------|-------------------|------------------|------------------|
-| **OpenAI** | GPT-4o / GPT-5 | API key via [platform.openai.com](https://platform.openai.com) | `{httr2}`, `{openai}`, `{ellmer}` |
-| **Anthropic** | Claude 3 Opus · Claude 4 | API key via [console.anthropic.com](https://console.anthropic.com) | `{httr2}`, `{anthropic}`, `{ellmer}` |
-| **Google** | Gemini 2.5 · Gemini Ultra (2025) | [AI Studio](https://aistudio.google.com) | `{googleGenerativeAI}`, `{ellmer}` |
-| **Mistral AI** | Mixtral 8×22B · Mistral 7B v0.3 | [mistral.ai](https://mistral.ai) | HTTP via `{httr2}` |
-| **DeepSeek** | DeepSeek-V3.1 (MoE 128K ctx) | API via [deepseek.ai](https://deepseek.ai) | HTTP via `{httr2}` |
+Table: Table 5.1. Major cloud LLM providers and R access options. \| Provider \| Example Models \| Access \| R / HTTP Wrapper \| \|------------------\|-------------------\|------------------\|------------------\| \| **OpenAI** \| GPT-4o / GPT-5 \| API key via [platform.openai.com](https://platform.openai.com) \| `{httr2}`, `{openai}`, `{ellmer}` \| \| **Anthropic** \| Claude 3 Opus · Claude 4 \| API key via [console.anthropic.com](https://console.anthropic.com) \| `{httr2}`, `{anthropic}`, `{ellmer}` \| \| **Google** \| Gemini 2.5 · Gemini Ultra (2025) \| [AI Studio](https://aistudio.google.com) \| `{googleGenerativeAI}`, `{ellmer}` \| \| **Mistral AI** \| Mixtral 8×22B · Mistral 7B v0.3 \| [mistral.ai](https://mistral.ai) \| HTTP via `{httr2}` \| \| **DeepSeek** \| DeepSeek-V3.1 (MoE 128K ctx) \| API via [deepseek.ai](https://deepseek.ai) \| HTTP via `{httr2}` \|
 
 > Tip: always verify model names, context limits, and pricing before you run a study. Providers update frequently, and those updates can affect reproducibility.
 
@@ -176,14 +170,7 @@ LM Studio is a free cross-platform desktop app for running and managing local LL
 
 ### Main Features
 
-| Feature | Description |
-|---------------------------------------------------|--------------------|
-| Local LLMs | Run models offline on your own machine |
-| Chat Interface | Simple prompt-based GUI |
-| Document Chat (RAG) | Offline "chat with your PDFs" |
-| Model Management | Search, download, and switch models |
-| API Access | OpenAI-compatible REST endpoints |
-| Community Support | Active [Discord](https://discord.gg/uwMphZmHqY) and docs |
+Table: Table 5.2. Core LM Studio features for local LLM workflows. \| Feature \| Description \| \|---------------------------------------------------\|--------------------\| \| Local LLMs \| Run models offline on your own machine \| \| Chat Interface \| Simple prompt-based GUI \| \| Document Chat (RAG) \| Offline "chat with your PDFs" \| \| Model Management \| Search, download, and switch models \| \| API Access \| OpenAI-compatible REST endpoints \| \| Community Support \| Active [Discord](https://discord.gg/uwMphZmHqY) and docs \|
 
 ------------------------------------------------------------------------
 
@@ -208,22 +195,11 @@ content(response)
 
 > Because requests stay local, sensitive data does not leave your environment.
 
-------------------------------------------------------------------------
-
 ## 5.4 Cloud vs. Local LLMs: Choosing the Right Tool
 
-| Criterion | Cloud-based LLMs | Local LLMs |
-|------------------------|------------------------|------------------------|
-| **Cost** | Pay-per-token or subscription | Free (after hardware) |
-| **Privacy** | Data sent to provider | Data stays local |
-| **Performance** | Highest accuracy & speed | Depends on hardware |
-| **Maintenance** | Automatic updates | Manual model management |
-| **Customization** | Limited fine-tuning | Fully modifiable |
-| **Best for** | Large public datasets or prototype analysis | Sensitive or regulated data |
+Table: Table 5.3. Comparison of cloud and local LLM workflows. \| Criterion \| Cloud-based LLMs \| Local LLMs \| \|------------------------\|------------------------\|------------------------\| \| **Cost** \| Pay-per-token or subscription \| Free (after hardware) \| \| **Privacy** \| Data sent to provider \| Data stays local \| \| **Performance** \| Highest accuracy & speed \| Depends on hardware \| \| **Maintenance** \| Automatic updates \| Manual model management \| \| **Customization** \| Limited fine-tuning \| Fully modifiable \| \| **Best for** \| Large public datasets or prototype analysis \| Sensitive or regulated data \|
 
 > A common workflow is hybrid: prototype quickly in the cloud, then reproduce locally for privacy and auditability.
-
-------------------------------------------------------------------------
 
 ## 5.5 Practical Setup Checklist
 
@@ -237,23 +213,13 @@ Before running LLM-based analyses, check the following:
 
 > This small checklist can save you from major reproducibility and compliance problems later.
 
-------------------------------------------------------------------------
-
 ## 5.6 Summary
 
 Both cloud and local LLMs can support strong educational research. The right choice depends on your project constraints.
 
-| Use Case                    | Cloud LLM | Local LLM |
-|-----------------------------|-----------|-----------|
-| Rapid prototyping           | ✅        | ⚪        |
-| Large-scale text processing | ✅        | ⚪        |
-| Sensitive student data      | ⚪        | ✅        |
-| Offline analysis            | ⚪        | ✅        |
-| Long-term reproducibility   | ⚪        | ✅        |
+Table: Table 5.4. Recommended LLM environment by research use case. \| Use Case \| Cloud LLM \| Local LLM \| \|-----------------------------\|-----------\|-----------\| \| Rapid prototyping \| ✅ \| ⚪ \| \| Large-scale text processing \| ✅ \| ⚪ \| \| Sensitive student data \| ⚪ \| ✅ \| \| Offline analysis \| ⚪ \| ✅ \| \| Long-term reproducibility \| ⚪ \| ✅ \|
 
 > In short: cloud LLMs excel at convenience and scale; local LLMs excel at privacy and control. Most research programs benefit from using both strategically.
-
-------------------------------------------------------------------------
 
 ### Looking Ahead
 

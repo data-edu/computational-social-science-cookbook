@@ -95,6 +95,14 @@ Some snippets are intentionally included as illustrative templates (for example,
 
 For a formal data-availability and reproducibility statement, see Chapter 9.
 
+### Funding and source acknowledgment
+
+Selected chapters in this book include materials adapted from resources developed as part of the Learning Analytics in STEM Education Research (LASER) Institute. The LASER Institute was supported by the National Science Foundation and contributed to the development of instructional materials, examples, and research-based approaches that informed portions of this work.
+
+We gratefully acknowledge the National Science Foundation's support for the LASER Institute and the contributions of the LASER Institute leadership team, instructors, scholars, and broader community. Any opinions, findings, conclusions, or recommendations expressed in this book are those of the authors and do not necessarily reflect the views of the National Science Foundation.
+
+To learn more about the LASER Institute, visit <https://fi.ncsu.edu/projects/laser-institute>.
+
 ### Who is this book for?
 
 This book will be beginner-friendly but not for the absolute beginner. We will dedicate the initial chapters to take you to resources that will help you get started. But, to make sense of this book, you should have basic research design knowledge, basic statistical knowledge, and a basic understanding of R and RStudio. At the same time, this book will not be for experts or expertise. There are already many great resources that delve into the topics that we cover (e.g., Silge's book on using text data for machine learning).

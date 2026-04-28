@@ -39,7 +39,7 @@ summary(students$mean_weighted_score)
 table(students$final_result)
 ```
 
-![R script open in Source pane](r%20script.png)
+![Figure 1.4. R script in the source pane with data-loading and summary commands.](r%20script.png)
 
 This script loads the tidyverse package (more on this in the next chapter), reads a CSV file, and produces quick summaries. You can run it line-by-line using Cmd/Ctrl + Enter, or run the entire script at once. The output appears in the Console, but the script itself is saved for later use.
 
@@ -106,7 +106,7 @@ students |>
 The table above shows the number of students who passed (1) and did not pass (0) for each gender. We can see that both groups have substantial representation in the dataset.
 ````
 
-![Rendered Quarto document showing code and output](rendered%20quarto.png)
+![Figure 1.5. Rendered Quarto document combining narrative, code, and output.](rendered%20quarto.png)
 
 When you render this document, Quarto executes each code chunk in order, captures the output, and weaves it together with your explanatory text. The result is an HTML document where readers see your code, your results, and your interpretation all together. This makes your analysis reproducible in that anyone with your data can re-run your Quarto file and get the same results.
 
@@ -141,7 +141,7 @@ students |>
 ```
 ````
 
-![Quarto document showing chunk options at top of code block](chunk%20options.png)
+![Figure 1.6. Quarto chunk options for controlling code visibility and execution output.](chunk%20options.png)
 
 When rendered, readers see the plot but not the code that created it. This is useful for final reports where you want to emphasize results rather than implementation details.
 

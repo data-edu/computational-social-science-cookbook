@@ -62,6 +62,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -519,9 +520,9 @@ div.csl-indent {
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">9.1 Overview</h2>
-<p>Computational approaches enable educational researchers to analyze increasingly complex and large-scale data. However, the value of these analyses ultimately depends on how clearly and responsibly findings are communicated <span class="citation" data-cites="Wilke2019DataViz">(<a href="#ref-Wilke2019DataViz" role="doc-biblioref">Wilke 2019</a>)</span>. Communication is not a final step added after analysis — it is an integral part of making research meaningful, interpretable, and usable <span class="citation" data-cites="Gopen1990ScienceWriting">(<a href="#ref-Gopen1990ScienceWriting" role="doc-biblioref">Gopen and Swan 1990</a>)</span>.</p>
-<p>Poor communication can obscure otherwise rigorous analyses, while effective communication can extend the reach of research beyond academic journals to educators, designers, policymakers, and students. In computational educational research, communication also involves technical decisions about formats, platforms, and levels of transparency <span class="citation" data-cites="Nosek2015OpenScience">(<a href="#ref-Nosek2015OpenScience" role="doc-biblioref">Nosek et al. 2015</a>)</span>.</p>
-<p>In this chapter, we introduce common ways researchers communicate computational work, with particular attention to open, reproducible, and web-based approaches <span class="citation" data-cites="Xie2018RMarkdown">(<a href="#ref-Xie2018RMarkdown" role="doc-biblioref">Xie et al. 2018</a>)</span>. We then demonstrate how a complete computational analysis — introduced earlier in this book — can be communicated using a Quarto-based project website.</p>
+<p>Computational approaches enable educational researchers to analyze increasingly complex and large-scale data. However, the value of these analyses ultimately depends on how clearly and responsibly findings are communicated <span class="citation" data-cites="Wilke2019DataViz">(<a href="references.html#ref-Wilke2019DataViz" role="doc-biblioref">Wilke, 2019</a>)</span>. Communication is not a final step added after analysis — it is an integral part of making research meaningful, interpretable, and usable <span class="citation" data-cites="Gopen1990ScienceWriting">(<a href="references.html#ref-Gopen1990ScienceWriting" role="doc-biblioref">Gopen &amp; Swan, 1990</a>)</span>.</p>
+<p>Poor communication can obscure otherwise rigorous analyses, while effective communication can extend the reach of research beyond academic journals to educators, designers, policymakers, and students. In computational educational research, communication also involves technical decisions about formats, platforms, and levels of transparency <span class="citation" data-cites="Nosek2015OpenScience">(<a href="references.html#ref-Nosek2015OpenScience" role="doc-biblioref">Nosek et al., 2015</a>)</span>.</p>
+<p>In this chapter, we introduce common ways researchers communicate computational work, with particular attention to open, reproducible, and web-based approaches <span class="citation" data-cites="Xie2018RMarkdown">(<a href="references.html#ref-Xie2018RMarkdown" role="doc-biblioref">Xie et al., 2018</a>)</span>. We then demonstrate how a complete computational analysis — introduced earlier in this book — can be communicated using a Quarto-based project website.</p>
 </section>
 <section id="common-ways-to-communicate-computational-educational-research" class="level2">
 <h2 class="anchored" data-anchor-id="common-ways-to-communicate-computational-educational-research">9.2 Common Ways to Communicate Computational Educational Research</h2>
@@ -535,7 +536,12 @@ div.csl-indent {
 <li><em>Journal of Learning Analytics</em>: <a href="https://learning-analytics.info/" class="uri">https://learning-analytics.info/</a></li>
 </ul>
 <p>While journal articles are essential for academic recognition, they often impose constraints on length, visualizations, and methodological detail. As a result, many computational decisions—such as preprocessing steps or parameter choices—may be summarized rather than fully documented.</p>
-<p><img src="data/ch9_images/Educational Researcher.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/ch9_images/Educational Researcher.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 9.1. Traditional journal publication interface for educational research.</figcaption>
+</figure>
+</div>
 <p><em>Example of a traditional journal publication format.</em></p>
 </section>
 <section id="preprints-and-open-science-repositories" class="level3">
@@ -548,28 +554,53 @@ div.csl-indent {
 <li><strong>Open Science Framework (OSF)</strong>: <a href="https://osf.io/" class="uri">https://osf.io/</a></li>
 </ul>
 <p>Preprints are particularly useful for computational research, where methods evolve quickly and early visibility can support collaboration. Researchers should always confirm that their target journals permit preprint posting.</p>
-<p><img src="data/ch9_images/arxiv.png" class="img-fluid"></p>
-<p><img src="data/ch9_images/osf.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/ch9_images/arxiv.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 9.2. arXiv preprint platform interface for rapid dissemination.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/ch9_images/osf.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 9.3. Open Science Framework interface for open project sharing.</figcaption>
+</figure>
+</div>
 <p><em>Examples of preprint and open-science repository interfaces.</em></p>
 </section>
 <section id="project-websites-and-living-documents" class="level3">
 <h3 class="anchored" data-anchor-id="project-websites-and-living-documents">9.2.3 Project Websites and Living Documents</h3>
 <p>Increasingly, computational researchers publish project websites that combine narrative, code, figures, and links to data. These sites allow authors to present analyses without the spatial constraints of traditional articles.</p>
-<p>As a concrete example, the workflow below uses the <code>data-edu/tidyLPA</code> project <span class="citation" data-cites="Rosenberg2018tidyLPA">(<a href="#ref-Rosenberg2018tidyLPA" role="doc-biblioref">Rosenberg et al. 2018</a>)</span>:</p>
+<p>As a concrete example, the workflow below uses the <code>data-edu/tidyLPA</code> project <span class="citation" data-cites="Rosenberg2018tidyLPA">(<a href="references.html#ref-Rosenberg2018tidyLPA" role="doc-biblioref">Rosenberg et al., 2018</a>)</span>:</p>
 <p><a href="https://github.com/data-edu/tidyLPA" class="uri">https://github.com/data-edu/tidyLPA</a></p>
 <p><a href="https://data-edu.github.io/tidyLPA" class="uri">https://data-edu.github.io/tidyLPA</a></p>
 <p>A common workflow involves:</p>
 <ul>
 <li><p>Hosting source files and code on <strong>GitHub</strong> (<a href="https://github.com/" class="uri">https://github.com/</a>)</p>
-<p><img src="data/ch9_images/github repo codes.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/ch9_images/github repo codes.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 9.4. GitHub repository view for source code and project files.</figcaption>
+</figure>
+</div>
 <p><em>Figure. <code>data-edu/tidyLPA</code> source repository on GitHub.</em></p></li>
 <li><p>Publishing a static website using <strong>GitHub Pages</strong> (<a href="https://pages.github.com/" class="uri">https://pages.github.com/</a>)</p>
-<p><img src="data/ch9_images/github page.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/ch9_images/github page.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 9.5. GitHub Pages site view for public project communication.</figcaption>
+</figure>
+</div>
 <p><em>Figure. <code>data-edu/tidyLPA</code> published GitHub Pages site.</em></p></li>
 <li><p>Authoring documents with <strong>Quarto</strong> (<a href="https://quarto.org/" class="uri">https://quarto.org/</a>)</p></li>
 </ul>
 <p>This approach supports transparency, reproducibility, and incremental updates. Project websites are especially well suited for method demonstrations, teaching examples, and analyses involving multiple visualizations.</p>
-<p><img src="data/ch9_images/quarto .png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/ch9_images/quarto .png" class="img-fluid figure-img"></p>
+<figcaption>Figure 9.6. Quarto-rendered web page example for research communication.</figcaption>
+</figure>
+</div>
 <p><em>Figure. Simple example of a Quarto-based communication page.</em></p>
 </section>
 <section id="open-data-and-code-archives" class="level3">
@@ -580,7 +611,12 @@ div.csl-indent {
 <li><strong>Zenodo</strong>: <a href="https://zenodo.org/" class="uri">https://zenodo.org/</a></li>
 </ul>
 <p>These services issue persistent identifiers (DOIs), enabling datasets and code to be cited independently of articles. A common practice is to host active development on GitHub while archiving stable releases on Zenodo.</p>
-<p><img src="data/ch9_images/zenodo.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/ch9_images/zenodo.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 9.7. Zenodo archive interface with DOI-based research outputs.</figcaption>
+</figure>
+</div>
 <p><em>Example of an open archive workflow with DOI support.</em></p>
 </section>
 </section>
@@ -676,7 +712,12 @@ genai-policy-analysis/
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">12</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Then, in the communication page, we show one simple bar chart with short interpretation text.</p>
-<p><img src="data/ch9_images/ch2-simple-frequency-example.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/ch9_images/ch2-simple-frequency-example.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 9.8. Simple frequency bar chart adapted from Chapter 2 policy analysis.</figcaption>
+</figure>
+</div>
 <p><em>Simple example output adapted from Chapter 2 text analysis for communication purposes.</em></p>
 </section>
 <section id="presenting-results-for-interpretation" class="level3">
@@ -750,21 +791,21 @@ genai-policy-analysis/
 <p>Together, these practices support rigorous, responsible, and impactful computational educational research.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
 <div id="ref-Gopen1990ScienceWriting" class="csl-entry" role="listitem">
-Gopen, George D., and Judith A. Swan. 1990. <span>“The Science of Scientific Writing.”</span> <em>American Scientist</em> 78 (6): 550–58.
+Gopen, G. D., &amp; Swan, J. A. (1990). The science of scientific writing. <em>American Scientist</em>, <em>78</em>(6), 550–558.
 </div>
 <div id="ref-Nosek2015OpenScience" class="csl-entry" role="listitem">
-Nosek, Brian A., George Alter, George C. Banks, et al. 2015. <span>“Promoting an Open Research Culture.”</span> <em>Science</em> 348 (6242): 1422–25.
+Nosek, B. A., Alter, G., Banks, G. C., Borsboom, D., Bowman, S. D., Breckler, S. J., Buck, S., Chambers, C. D., Chin, G., Christensen, G., Contestabile, M., Dafoe, A., Eich, E., Freese, J., Glennerster, R., Goroff, D., Green, D. P., Hesse, B., Humphreys, M., … Yarkoni, T. (2015). Promoting an open research culture. <em>Science</em>, <em>348</em>(6242), 1422–1425.
 </div>
 <div id="ref-Rosenberg2018tidyLPA" class="csl-entry" role="listitem">
-Rosenberg, Joshua M., Patrick N. Beymer, Daniel J. Anderson, Caspar J. van Lissa, and Jennifer A. Schmidt. 2018. <span>“tidyLPA: An <span>R</span> Package to Easily Carry Out Latent Profile Analysis (<span>LPA</span>) Using Open-Source or Commercial Software.”</span> <em>Journal of Open Source Software</em> 3 (30): 978. <a href="https://doi.org/10.21105/joss.00978">https://doi.org/10.21105/joss.00978</a>.
+Rosenberg, J. M., Beymer, P. N., Anderson, D. J., Lissa, C. J. van, &amp; Schmidt, J. A. (2018). tidyLPA: An <span>R</span> package to easily carry out latent profile analysis (<span>LPA</span>) using open-source or commercial software. <em>Journal of Open Source Software</em>, <em>3</em>(30), 978. <a href="https://doi.org/10.21105/joss.00978">https://doi.org/10.21105/joss.00978</a>
 </div>
 <div id="ref-Wilke2019DataViz" class="csl-entry" role="listitem">
-Wilke, Claus O. 2019. <em>Fundamentals of Data Visualization</em>. O’Reilly Media. <a href="https://clauswilke.com/dataviz/">https://clauswilke.com/dataviz/</a>.
+Wilke, C. O. (2019). <em>Fundamentals of data visualization</em>. O’Reilly Media. <a href="https://clauswilke.com/dataviz/">https://clauswilke.com/dataviz/</a>
 </div>
 <div id="ref-Xie2018RMarkdown" class="csl-entry" role="listitem">
-Xie, Yihui, J. J. Allaire, and Garrett Grolemund. 2018. <em><span>R</span> Markdown: The Definitive Guide</em>. Chapman; Hall/<span>CRC</span>.
+Xie, Y., Allaire, J. J., &amp; Grolemund, G. (2018). <em><span>R</span> markdown: The definitive guide</em>. Chapman; Hall/<span>CRC</span>.
 </div>
 </div>
 </section>

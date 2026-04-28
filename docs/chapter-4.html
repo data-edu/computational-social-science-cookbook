@@ -62,6 +62,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -514,7 +515,8 @@ div.csl-indent {
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">4.1 Overview</h2>
-<p>In educational research, data has traditionally been sourced from small-scale surveys, experiments, or qualitative studies. However, the rise of large-scale digital data offers researchers opportunities to explore numeric and quantitative datasets of unprecedented scale and variety <span class="citation" data-cites="Romero2010EDM Baker2014EDM">(<a href="#ref-Romero2010EDM" role="doc-biblioref">Romero and Ventura 2010</a>; <a href="#ref-Baker2014EDM" role="doc-biblioref">Baker and Inventado 2014</a>)</span>. This chapter discusses how to access and analyze two prominent examples: international assessments (e.g., PISA, TIMSS, NAEP) and digital log-trace data (e.g., the Open University Learning Analytics Dataset, OULAD; <span class="citation" data-cites="Kuzilek2017OULAD">Kuzilek et al. (<a href="#ref-Kuzilek2017OULAD" role="doc-biblioref">2017</a>)</span>). Studies such as <span class="citation" data-cites="Teig2022PISA">Teig et al. (<a href="#ref-Teig2022PISA" role="doc-biblioref">2022</a>)</span> illustrate how large-scale assessment data can be used to investigate substantive educational questions at scale. These secondary data sources enable novel research questions and methods, particularly when paired with machine learning and statistical modeling approaches <span class="citation" data-cites="James2021ISLR">(<a href="#ref-James2021ISLR" role="doc-biblioref">James et al. 2021</a>)</span>.</p>
+<p>In educational research, data has traditionally been sourced from small-scale surveys, experiments, or qualitative studies. However, the rise of large-scale digital data offers researchers opportunities to explore numeric and quantitative datasets of unprecedented scale and variety <span class="citation" data-cites="Romero2010EDM Baker2014EDM">(<a href="references.html#ref-Baker2014EDM" role="doc-biblioref">Baker &amp; Inventado, 2014</a>; <a href="references.html#ref-Romero2010EDM" role="doc-biblioref">Romero &amp; Ventura, 2010</a>)</span>. This chapter discusses how to access and analyze two prominent examples: international assessments (e.g., PISA, TIMSS, NAEP) and digital log-trace data (e.g., the Open University Learning Analytics Dataset, OULAD; <span class="citation" data-cites="Kuzilek2017OULAD">Kuzilek et al. (<a href="references.html#ref-Kuzilek2017OULAD" role="doc-biblioref">2017</a>)</span>). Studies such as <span class="citation" data-cites="Teig2022PISA">Teig et al. (<a href="references.html#ref-Teig2022PISA" role="doc-biblioref">2022</a>)</span> illustrate how large-scale assessment data can be used to investigate substantive educational questions at scale. These secondary data sources enable novel research questions and methods, particularly when paired with machine learning and statistical modeling approaches <span class="citation" data-cites="James2021ISLR">(<a href="references.html#ref-James2021ISLR" role="doc-biblioref">James et al., 2021</a>)</span>.</p>
+<p>Portions of this chapter adapt instructional and research resources developed through the NSF-supported Learning Analytics in STEM Education Research (LASER) Institute. See the Preface for the full acknowledgment and disclaimer.</p>
 </section>
 <section id="accessing-big-data-broadening-the-horizon" class="level2">
 <h2 class="anchored" data-anchor-id="accessing-big-data-broadening-the-horizon">4.2 Accessing Big Data (Broadening the Horizon)</h2>
@@ -583,37 +585,7 @@ div.csl-indent {
 </section>
 <section id="comparison-of-methods" class="level5">
 <h5 class="anchored" data-anchor-id="comparison-of-methods">Comparison of Methods</h5>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 26%">
-<col style="width: 38%">
-<col style="width: 35%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Method</th>
-<th>Advantages</th>
-<th>Disadvantages</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Direct Download</strong></td>
-<td>Full access to all raw data and documentation.</td>
-<td>Requires manual processing and cleaning.</td>
-</tr>
-<tr class="even">
-<td><strong><code>OECD</code> Package</strong></td>
-<td>Easy to use for downloading specific datasets.</td>
-<td>Limited to OECD-published formats.</td>
-</tr>
-<tr class="odd">
-<td><strong><code>EdSurvey</code> Package</strong></td>
-<td>Supports advanced statistical analysis and weights.</td>
-<td>Requires additional setup and dependencies.</td>
-</tr>
-</tbody>
-</table>
+<p>Table: Table 4.1. Comparison of methods for accessing PISA data. | Method | Advantages | Disadvantages | |——————-|—————————-|————————–| | <strong>Direct Download</strong> | Full access to all raw data and documentation. | Requires manual processing and cleaning. | | <strong><code>OECD</code> Package</strong> | Easy to use for downloading specific datasets. | Limited to OECD-published formats. | | <strong><code>EdSurvey</code> Package</strong> | Supports advanced statistical analysis and weights. | Requires additional setup and dependencies. |</p>
 </section>
 </section>
 <section id="accessing-ipeds-data" class="level4">
@@ -707,42 +679,7 @@ div.csl-indent {
 </section>
 <section id="comparison-of-methods-1" class="level5">
 <h5 class="anchored" data-anchor-id="comparison-of-methods-1">Comparison of Methods</h5>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 26%">
-<col style="width: 36%">
-<col style="width: 36%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Method</th>
-<th>Advantages</th>
-<th>Disadvantages</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Direct Download</strong></td>
-<td>Full access to raw data and documentation.</td>
-<td>Requires manual data preparation and cleaning.</td>
-</tr>
-<tr class="even">
-<td><strong><code>ipeds</code> Package</strong></td>
-<td>Automated access to specific components.</td>
-<td>Limited flexibility for customized queries.</td>
-</tr>
-<tr class="odd">
-<td><strong><code>tidycensus</code> Package</strong></td>
-<td>Allows integration with Census and ACS data.</td>
-<td>Requires API setup and advanced R skills.</td>
-</tr>
-<tr class="even">
-<td><strong>Online Tools</strong></td>
-<td>User-friendly and suitable for non-coders.</td>
-<td>Limited to predefined queries and exports.</td>
-</tr>
-</tbody>
-</table>
+<p>Table: Table 4.2. Comparison of methods for accessing IPEDS data. | Method | Advantages | Disadvantages | |——————-|—————————|—————————| | <strong>Direct Download</strong> | Full access to raw data and documentation. | Requires manual data preparation and cleaning. | | <strong><code>ipeds</code> Package</strong> | Automated access to specific components. | Limited flexibility for customized queries. | | <strong><code>tidycensus</code> Package</strong> | Allows integration with Census and ACS data. | Requires API setup and advanced R skills. | | <strong>Online Tools</strong> | User-friendly and suitable for non-coders. | Limited to predefined queries and exports. |</p>
 </section>
 </section>
 <section id="accessing-open-university-learning-analytics-dataset-oulad" class="level4">
@@ -1224,21 +1161,21 @@ The use of 4-fold cross-validation (via <code>vfold_cv</code>) allowed us to ass
 <p>This chapter introduced machine learning as a tool for educational research through two case studies using the Open University Learning Analytics Dataset. Logistic regression provided an interpretable baseline for predicting student outcomes, while random forests captured more complex interaction patterns at the cost of interpretability. Both approaches demonstrated that student engagement metrics — particularly click activity and its trajectory over time — are strong predictors of course success. These methods extend the analytical toolkit introduced in earlier chapters by moving from descriptive and relational analyses toward predictive modeling.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
 <div id="ref-Baker2014EDM" class="csl-entry" role="listitem">
-Baker, Ryan S., and Paul Salvador Inventado. 2014. <span>“Educational Data Mining and Learning Analytics.”</span> In <em>Learning Analytics: From Research to Practice</em>, edited by Johann Ari Larusson and Brandon White. Springer.
+Baker, R. S., &amp; Inventado, P. S. (2014). Educational data mining and learning analytics. In J. A. Larusson &amp; B. White (Eds.), <em>Learning analytics: From research to practice</em> (pp. 61–75). Springer.
 </div>
 <div id="ref-James2021ISLR" class="csl-entry" role="listitem">
-James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. <em>An Introduction to Statistical Learning: With Applications in <span>R</span></em>. 2nd ed. Springer.
+James, G., Witten, D., Hastie, T., &amp; Tibshirani, R. (2021). <em>An introduction to statistical learning: With applications in <span>R</span></em> (2nd ed.). Springer.
 </div>
 <div id="ref-Kuzilek2017OULAD" class="csl-entry" role="listitem">
-Kuzilek, Jakub, Martin Hlosta, and Zdenek Zdrahal. 2017. <span>“Open University Learning Analytics Dataset.”</span> <em>Scientific Data</em> 4: 170171.
+Kuzilek, J., Hlosta, M., &amp; Zdrahal, Z. (2017). Open university learning analytics dataset. <em>Scientific Data</em>, <em>4</em>, 170171.
 </div>
 <div id="ref-Romero2010EDM" class="csl-entry" role="listitem">
-Romero, Cristóbal, and Sebastián Ventura. 2010. <span>“Educational Data Mining: A Review of the State of the Art.”</span> <em><span>IEEE</span> Transactions on Systems, Man, and Cybernetics, Part <span>C</span></em> 40 (6): 601–18.
+Romero, C., &amp; Ventura, S. (2010). Educational data mining: A review of the state of the art. <em><span>IEEE</span> Transactions on Systems, Man, and Cybernetics, Part <span>C</span></em>, <em>40</em>(6), 601–618.
 </div>
 <div id="ref-Teig2022PISA" class="csl-entry" role="listitem">
-Teig, Nani, Ronny Scherer, and Rolf Vegar Olsen. 2022. <span>“A Systematic Review of Studies Investigating Science Teaching and Learning: Over Two Decades of <span>TIMSS</span> and <span>PISA</span>.”</span> <em>International Journal of Science Education</em> 44 (12): 2035–58.
+Teig, N., Scherer, R., &amp; Olsen, R. V. (2022). A systematic review of studies investigating science teaching and learning: Over two decades of <span>TIMSS</span> and <span>PISA</span>. <em>International Journal of Science Education</em>, <em>44</em>(12), 2035–2058.
 </div>
 </div>
 </section>

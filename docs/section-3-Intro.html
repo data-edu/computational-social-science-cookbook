@@ -27,6 +27,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -465,16 +466,16 @@ div.csl-indent {
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>As educational researchers integrate large language models into data analysis workflows, our methodological responsibilities evolve in important ways <span class="citation" data-cites="Kasneci2023ChatGPT">(<a href="#ref-Kasneci2023ChatGPT" role="doc-biblioref">Kasneci et al. 2023</a>)</span>. There are three primary approaches to this integration:</p>
+<p>As educational researchers integrate large language models into data analysis workflows, our methodological responsibilities evolve in important ways <span class="citation" data-cites="Kasneci2023ChatGPT">(<a href="references.html#ref-Kasneci2023ChatGPT" role="doc-biblioref">Kasneci et al., 2023</a>)</span>. There are three primary approaches to this integration:</p>
 <ul>
 <li><p>first, using LLMs for code autocompletion and inline coding assistance, such as through integrated development environments like Positron;</p></li>
 <li><p>second, using LLMs to support the analysis process through complete code generation and supervised execution, such as with tools like Posit Databot; and</p></li>
 <li><p>third, deploying LLMs to directly analyze qualitative (e.g., text data).</p></li>
 </ul>
-<p>The third approach in particular raises questions about research integrity — including correctness, transparency, and reproducibility — that are worth examining carefully before treating LLM outputs as research evidence <span class="citation" data-cites="Bender2021StochasticParrots">(<a href="#ref-Bender2021StochasticParrots" role="doc-biblioref">Bender et al. 2021</a>)</span>.</p>
+<p>The third approach in particular raises questions about research integrity — including correctness, transparency, and reproducibility — that are worth examining carefully before treating LLM outputs as research evidence <span class="citation" data-cites="Bender2021StochasticParrots">(<a href="references.html#ref-Bender2021StochasticParrots" role="doc-biblioref">Bender et al., 2021</a>)</span>.</p>
 <section id="the-responsible-use-framework" class="level3">
 <h3 class="anchored" data-anchor-id="the-responsible-use-framework">The Responsible Use Framework</h3>
-<p>The responsible use framework for LLMs in research, presented by Joe Cheng at R+AI Conference 2025 <span class="citation" data-cites="Cheng2025LLMResponsible">Cheng (<a href="#ref-Cheng2025LLMResponsible" role="doc-biblioref">2025</a>)</span> can be used as a practical evaluation tool centering on three essential criteria. <strong>Correctness</strong> refers to whether the LLM produces accurate and reliable results that can be verified and trusted. <strong>Transparency</strong> addresses whether the process and reasoning behind the AI’s outputs are visible and understandable to researchers, allowing them to inspect how conclusions were reached. <strong>Reproducibility</strong> concerns whether the same analysis can be repeated and yield consistent results, a foundational requirement of scientific research. These three categories align with broader responsible AI governance principles commonly found in organizational frameworks but are specifically tailored to the research context where verifiability and scientific rigor are key. For an LLM application in research to be considered responsibly used, it should ideally achieve “yes” answers across all three criteria, ensuring that the technology enhances rather than compromises research integrity.</p>
+<p>The responsible use framework for LLMs in research, presented by Joe Cheng at R+AI Conference 2025 <span class="citation" data-cites="Cheng2025LLMResponsible">Cheng (<a href="references.html#ref-Cheng2025LLMResponsible" role="doc-biblioref">2025</a>)</span> can be used as a practical evaluation tool centering on three essential criteria. <strong>Correctness</strong> refers to whether the LLM produces accurate and reliable results that can be verified and trusted. <strong>Transparency</strong> addresses whether the process and reasoning behind the AI’s outputs are visible and understandable to researchers, allowing them to inspect how conclusions were reached. <strong>Reproducibility</strong> concerns whether the same analysis can be repeated and yield consistent results, a foundational requirement of scientific research. These three categories align with broader responsible AI governance principles commonly found in organizational frameworks but are specifically tailored to the research context where verifiability and scientific rigor are key. For an LLM application in research to be considered responsibly used, it should ideally achieve “yes” answers across all three criteria, ensuring that the technology enhances rather than compromises research integrity.</p>
 </section>
 <section id="applying-the-responsible-use-framework" class="level3">
 <h3 class="anchored" data-anchor-id="applying-the-responsible-use-framework">Applying the Responsible Use Framework</h3>
@@ -486,15 +487,15 @@ div.csl-indent {
 <p>However, for the third type of usage where LLMs directly analyze data (as we do in Chapters 7 and 8), we can work toward achieving “yes” answers across all (or as many as possible) three framework criteria by requiring LLMs to produce evidence-based results. As we cover in Chapter 7, it is possible to use a local LLM that is connected to R/Positron. In this approach, the researcher has control over the data analysis over simply pasting text into an LLMs chatbox. For example, this can be done by structuring prompts to demand transparent, verifiable outputs, such as requiring the LLM to identify themes, provide verbatim quotes from the source data, report frequencies with counts and percentages, and present findings in standardized tabular formats. We transform the black box into a more transparent analytical tool. This approach ensures <strong>correctness</strong> by grounding every claim in specific textual evidence that researchers can verify, enhances <strong>transparency</strong> by making the analytical reasoning traceable through quoted examples and quantitative metrics, and improves <strong>reproducibility</strong> by standardizing the output format and maintaining clear documentation of the analytical process. When LLMs are constrained to cite their sources, quantify their observations, and structure their findings systematically, they shift from opaque pattern generators to accountable research assistants whose work can be validated against the original data. This methodology aligns with the recommendation for constrained use and micromanaged implementation, ensuring that LLMs remain within appropriate boundaries while still providing valuable analytical support for qualitative research.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
 <div id="ref-Bender2021StochasticParrots" class="csl-entry" role="listitem">
-Bender, Emily M., Timnit Gebru, Angelina McMillan-Major, and Shmargaret Shmitchell. 2021. <span>“On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?”</span> <em>Proceedings of the 2021 <span>ACM</span> Conference on Fairness, Accountability, and Transparency (<span>FAccT</span>)</em>, 610–23.
+Bender, E. M., Gebru, T., McMillan-Major, A., &amp; Shmitchell, S. (2021). On the dangers of stochastic parrots: Can language models be too big? <em>Proceedings of the 2021 <span>ACM</span> Conference on Fairness, Accountability, and Transparency (<span>FAccT</span>)</em>, 610–623.
 </div>
 <div id="ref-Cheng2025LLMResponsible" class="csl-entry" role="listitem">
-Cheng, Joe. 2025. <em>Harnessing the Power of LLMs for Responsible Data Science and Research</em>. Conference presentation at R+AI 2025.
+Cheng, J. (2025). <em>Harnessing the power of LLMs for responsible data science and research</em>. Conference presentation at R+AI 2025.
 </div>
 <div id="ref-Kasneci2023ChatGPT" class="csl-entry" role="listitem">
-Kasneci, Enkelejda, Kathrin Seßler, Stefan Küchemann, et al. 2023. <span>“<span>ChatGPT</span> for Good? <span>On</span> Opportunities and Challenges of Large Language Models for Education.”</span> <em>Learning and Individual Differences</em> 103: 102274.
+Kasneci, E., Seßler, K., Küchemann, S., Bannert, M., Dementieva, D., Fischer, F., Gasser, U., Groh, G., Günnemann, S., Hüllermeier, E., Krusche, S., Kutyniok, G., Michaeli, T., Nerdel, C., Pfeffer, J., Poquet, O., Sailer, M., Schmidt, A., Seidel, T., … Kasneci, G. (2023). <span>ChatGPT</span> for good? <span>On</span> opportunities and challenges of large language models for education. <em>Learning and Individual Differences</em>, <em>103</em>, 102274.
 </div>
 </div>
 </section>

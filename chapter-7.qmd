@@ -92,6 +92,7 @@ content(response)
 
 ### 7.4.3 At a Glance: LM Studio Capabilities
 
+Table: Table 7.1. LM Studio capabilities for local research workflows.
 | Feature | What It Means for You |
 |------------------------|------------------------------------------------|
 | Local LLMs | Run powerful AI models on your own machine—no internet needed |
@@ -478,6 +479,7 @@ This result directly mirrors the traditional NLP analysis in Section 2, providin
 
 **Thematic Table**
 
+Table: Table 7.2. Sample thematic analysis output from local model on AI policy corpus.
 | Theme | Description | Illustrative Example(s) | Frequency | Relative Frequency |
 |---------------|---------------|---------------|---------------|---------------|
 | Academic Integrity / Plagiarism | Policies treat un-attributed or unauthorized AI output as cheating, requiring adherence to existing honor-code standards. | \- "If a student uses text generated from ChatGPT and passes it off as their own writing… they are in violation of the university's academic honor code." (Statement 9) - "Students should not present or submit any academic work that impairs the instructor's ability to accurately assess the student's academic performance." (Statement 2) | 13 | 25% |
@@ -504,6 +506,7 @@ Each theme was labeled as:
 
 ##### Example Validation Table
 
+Table: Table 7.3. Human validation judgments for LLM-generated themes.
 | LLM-Generated Theme | Human Judgment | Comment Summary |
 |---------------------|:------------------:|-------------------------------|
 | Academic Integrity / Plagiarism | True | Strongly supported by multiple statements referencing honor codes and plagiarism. |
@@ -747,6 +750,7 @@ A correlation around *r* ≈ 0.7 is pretty solid—it means the LLM and keyword 
 
 This quantitative validation highlights two complementary lenses:
 
+Table: Table 7.4. Comparison of keyword-based and LLM-based thematic validation approaches.
 | Approach | Focus | Strength | Limitation |
 |------------------|------------------|------------------|-------------------|
 | **Keyword-based Validation** | What is *said* | High recall, transparent rules | Literal, may overcount |
@@ -762,6 +766,7 @@ balancing interpretive depth with computational scalability.
 
 So what did we learn?
 
+Table: Table 7.5. Interpretive comparison of LLM and keyword validation results.
 | What the LLM Found | What Keywords Found | What This Tells Us |
 |-----------------------|-----------------------|--------------------------|
 | More conservative estimates | More liberal (counts everything) | The LLM is picky—it only tags when it truly understands the context |
@@ -791,6 +796,7 @@ and aligns frequencies more closely with LLM estimates.
 
 Here is a quick guide:
 
+Table: Table 7.6. Keyword strategy trade-offs for precision and recall in validation.
 | Goal | Keyword Strategy | Result |
 |-------------------|-------------------------------|----------------------|
 | Be more precise | Use multi-word phrases ("academic integrity" instead of just "integrity") | Fewer but more accurate matches |
@@ -807,6 +813,7 @@ The validation process compared two perspectives on the same corpus:\
 
 ##### Summary of Observed Patterns
 
+Table: Table 7.7. Theme-level comparison of LLM-reported and keyword-verified frequencies.
 | Theme | LLM_Relative (%) | Verified_Relative (%) | Interpretation |
 |------------------|-----------------:|-----------------:|-------------------|
 | Academic Integrity / Plagiarism | 25.0 | 49.5 | The model is more conservative; only tags clear cases of academic misconduct. |
@@ -820,6 +827,7 @@ The validation process compared two perspectives on the same corpus:\
 
 This difference reflects **two complementary ways of understanding text**:
 
+Table: Table 7.8. Conceptual differences between literal keyword matching and semantic LLM analysis.
 | Approach | Focus | Strength | Limitation |
 |------------------|------------------|------------------|------------------|
 | Keyword-based Validation | What is *said* | High recall, transparent rules | Literal, may overcount |
@@ -862,6 +870,7 @@ This process is iterative. Researchers can refine keyword sets, inspect how the 
 
 ##### Balancing Precision and Recall
 
+Table: Table 7.9. Practical guide to balancing precision and recall in keyword definitions.
 | Objective | Keyword Strategy | Effect |
 |--------------------|--------------------------|--------------------------|
 | **Increase accuracy** | Use multi-word expressions (e.g., "academic integrity," "honor code") rather than single words | Reduces false positives |

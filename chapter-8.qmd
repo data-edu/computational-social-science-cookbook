@@ -100,9 +100,9 @@ The structured outputs were imported into R for organization and thematic coding
 
 *For the purpose of simplicity, we will only analyze nine photos from a [folder](https://github.com/data-edu/computational-social-science-cookbook/tree/main/data/s5_images). The process for batch analysis can be increased to more photos.*
 
-![](data/s5_images/primary-school-teacher-working-with-students-in-classroom-838559688.jpg){width="575"}
+![Figure 8.1. Classroom photo example for local LLM image analysis workflow.](data/s5_images/primary-school-teacher-working-with-students-in-classroom-838559688.jpg){width="575"}
 
-![](data/s5_images/35320686-2551789306.jpg){width="576"}
+![Figure 8.2. Second classroom photo example for comparative image interpretation.](data/s5_images/35320686-2551789306.jpg){width="576"}
 
 With the code below, we create a function to batch analyze images. First, since we aim to analyze images (i.e., batch) inside a folder, we define the folder and search and identify image files.
 

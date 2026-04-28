@@ -62,6 +62,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -536,7 +537,7 @@ div.csl-indent {
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">6.1 Overview</h2>
-<p>The use of AI tools to assist with research coding and analysis has grown rapidly in educational research. Early comparisons of hand-coding and computer-assisted methods showed meaningful trade-offs between the two approaches <span class="citation" data-cites="Nelson2021FutureCoding">(<a href="#ref-Nelson2021FutureCoding" role="doc-biblioref">Nelson et al. 2021</a>)</span>, and recent work has demonstrated that large language models can perform qualitative coding with sufficient reliability for many research tasks — though with important caveats about where they work well and where they do not <span class="citation" data-cites="Than2025UpdatingCoding Liu2025GPT4Coding">(<a href="#ref-Than2025UpdatingCoding" role="doc-biblioref">Than et al. 2025</a>; <a href="#ref-Liu2025GPT4Coding" role="doc-biblioref">Liu et al. 2025</a>)</span>. This chapter introduces two tools that bring LLM assistance directly into the R and Positron workflow, making these capabilities accessible without requiring researchers to leave their analysis environment.</p>
+<p>The use of AI tools to assist with research coding and analysis has grown rapidly in educational research. Early comparisons of hand-coding and computer-assisted methods showed meaningful trade-offs between the two approaches <span class="citation" data-cites="Nelson2021FutureCoding">(<a href="references.html#ref-Nelson2021FutureCoding" role="doc-biblioref">Nelson et al., 2021</a>)</span>, and recent work has demonstrated that large language models can perform qualitative coding with sufficient reliability for many research tasks — though with important caveats about where they work well and where they do not <span class="citation" data-cites="Than2025UpdatingCoding Liu2025GPT4Coding">(<a href="references.html#ref-Liu2025GPT4Coding" role="doc-biblioref">Liu et al., 2025</a>; <a href="references.html#ref-Than2025UpdatingCoding" role="doc-biblioref">Than et al., 2025</a>)</span>. This chapter introduces two tools that bring LLM assistance directly into the R and Positron workflow, making these capabilities accessible without requiring researchers to leave their analysis environment.</p>
 <p>Positron Assistant functions as an in-IDE research coding assistant: it can support drafting, debugging, and code interpretation without requiring researchers to move between multiple tools. In this chapter, we focus on two tools in the same ecosystem: <strong>Positron Assistant</strong> and <strong>Databot</strong>.</p>
 <p>Positron Assistant is the primary pathway in this chapter for chat, inline support, and code suggestions. Databot is presented as an optional exploratory extension, since it is currently in research preview.</p>
 <p>The chapter is written for readers with different levels of R experience, with emphasis on practical workflows that can be validated and documented.</p>
@@ -554,7 +555,12 @@ div.csl-indent {
 <li><p><strong>Code Generation</strong>: Provide a plain-language request (for example, grouped summaries with missing-value handling) to draft R code.</p></li>
 <li><p><strong>Refactoring</strong>: Propose cleaner versions of working code and explain tradeoffs.</p></li>
 </ul>
-<p><img src="data/ch6_images/assistant-panel-overview.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/ch6_images/assistant-panel-overview.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 6.1. Positron Assistant panel in the research coding workflow.</figcaption>
+</figure>
+</div>
 </section>
 <section id="why-would-an-educational-researcher-want-this" class="level3">
 <h3 class="anchored" data-anchor-id="why-would-an-educational-researcher-want-this">6.2.2 Why Would an Educational Researcher Want This?</h3>
@@ -592,7 +598,12 @@ div.csl-indent {
 <li><strong>Configure a provider</strong> with <code>Positron Assistant: Configure Language Model Providers</code></li>
 <li><strong>Open chat</strong> (robot icon or <code>Chat: Open Chat</code>) and start asking questions</li>
 </ol>
-<p><img src="data/ch6_images/assistant-enable-setting.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/ch6_images/assistant-enable-setting.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 6.2. Positron setting to enable Assistant in the IDE.</figcaption>
+</figure>
+</div>
 </section>
 <section id="making-it-feel-right-for-you" class="level3">
 <h3 class="anchored" data-anchor-id="making-it-feel-right-for-you">6.3.3 Making It Feel Right for You</h3>
@@ -603,7 +614,12 @@ div.csl-indent {
 <li>Whether generated code should include comments</li>
 </ul>
 <p>Tune these settings based on your workflow and project requirements.</p>
-<p><img src="data/ch6_images/assistant-preferences.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/ch6_images/assistant-preferences.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 6.3. Assistant preference options for response style and coding defaults.</figcaption>
+</figure>
+</div>
 </section>
 <section id="choosing-a-provider-for-research-work" class="level3">
 <h3 class="anchored" data-anchor-id="choosing-a-provider-for-research-work">6.3.4 Choosing a Provider for Research Work</h3>
@@ -623,21 +639,51 @@ div.csl-indent {
 <ol type="1">
 <li><p><strong>Start in Positron and define local-model JSON settings first.</strong></p>
 <p>This ensures your assistant config already points to a local endpoint before you start testing.</p>
-<p><img src="data/ch6_images/Positron_LMstudio_JSON settings.png" class="img-fluid"></p></li>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/ch6_images/Positron_LMstudio_JSON settings.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 6.4. Positron JSON settings for local LM Studio endpoint configuration.</figcaption>
+</figure>
+</div></li>
 <li><p><strong>Set up LM Studio and confirm the local server is running.</strong></p>
 <p>Open LM Studio, load your target model, and verify the local API/server endpoint is active.</p>
-<p><img src="data/ch6_images/LMstudio—Positron set up.png" class="img-fluid"></p></li>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/ch6_images/LMstudio—Positron set up.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 6.5. LM Studio local server setup for Positron integration.</figcaption>
+</figure>
+</div></li>
 <li><p><strong>Configure Continue in Positron to use the LM Studio endpoint.</strong></p>
 <p>Confirm provider/model mapping in Continue settings and ensure the selected model is the same one currently loaded in LM Studio.</p>
-<p><img src="data/ch6_images/Continue_LMstudio Settings.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/ch6_images/Continue_LMstudio Settings.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 6.6. Continue extension settings mapped to the LM Studio local model.</figcaption>
+</figure>
+</div>
 <p>If your Continue workflow is YAML-based, configure the same endpoint and model there as well:</p>
-<p><img src="data/ch6_images/Continue—yml.png" class="img-fluid"></p></li>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/ch6_images/Continue—yml.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 6.7. Continue YAML configuration for local model endpoint and provider mapping.</figcaption>
+</figure>
+</div></li>
 <li><p><strong>Run a quick in-IDE verification prompt.</strong></p>
 <p>Use a small, low-risk task first (for example, “Explain this dplyr pipeline” or “Draft a data cleaning function”) to verify response quality and latency.</p>
-<p><img src="data/ch6_images/Positron Assitant—LMstudio UI.png" class="img-fluid"></p></li>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/ch6_images/Positron Assitant—LMstudio UI.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 6.8. In-IDE verification prompt using Positron Assistant with LM Studio.</figcaption>
+</figure>
+</div></li>
 <li><p><strong>Run one concrete case example before using the workflow in research analysis.</strong></p>
 <p>This final check confirms that local agent behavior is stable enough for your chapter-level tasks.</p>
-<p><img src="data/ch6_images/Positron Assitant——LMstudio case example.png" class="img-fluid"></p></li>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/ch6_images/Positron Assitant——LMstudio case example.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 6.9. Case example response from Positron Assistant using a local model.</figcaption>
+</figure>
+</div></li>
 </ol>
 <p>In short, configure Positron first, confirm LM Studio second, wire Continue third, and only then move to examples. This sequence avoids most connection and model-mismatch errors.</p>
 </section>
@@ -654,7 +700,12 @@ div.csl-indent {
 <li>Review the plain-language interpretation</li>
 </ol>
 <p>This feature is especially useful for onboarding new team members and documenting analysis logic.</p>
-<p><img src="data/ch6_images/assistant-code-explanation.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/ch6_images/assistant-code-explanation.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 6.10. Assistant-generated plain-language explanation of selected code.</figcaption>
+</figure>
+</div>
 </section>
 <section id="when-things-break" class="level3">
 <h3 class="anchored" data-anchor-id="when-things-break">6.4.2 When Things Break</h3>
@@ -668,7 +719,12 @@ div.csl-indent {
 <p>“I see the issue! You are trying to calculate a mean, but there are missing values in your data. Add <code>na.rm = TRUE</code> to ignore them, or decide whether those NAs should be handled differently. Want me to show you both options?”</p>
 </blockquote>
 <p>This response can be used as a starting point for verification.</p>
-<p><img src="data/ch6_images/assistant-debug-suggestion.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/ch6_images/assistant-debug-suggestion.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 6.11. Assistant debugging suggestion for a code error in context.</figcaption>
+</figure>
+</div>
 </section>
 </section>
 <section id="meet-databot-experimental-your-eda-accelerator" class="level2">
@@ -688,7 +744,12 @@ div.csl-indent {
 <section id="example-never-write-import-code-again" class="level3">
 <h3 class="anchored" data-anchor-id="example-never-write-import-code-again">6.5.2 Example: Never Write Import Code Again</h3>
 <p>Databot can generate reusable import templates for recurring file structures:</p>
-<p><img src="data/ch6_images/databot-import-template.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/ch6_images/databot-import-template.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 6.12. Databot-generated reusable import template for recurring datasets.</figcaption>
+</figure>
+</div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This template was created once, now you use it forever!</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
@@ -714,7 +775,12 @@ div.csl-indent {
 <section id="example-automatic-quality-checks" class="level3">
 <h3 class="anchored" data-anchor-id="example-automatic-quality-checks">6.5.3 Example: Automatic Quality Checks</h3>
 <p>For incoming survey datasets, Databot can draft validation checks before substantive analysis begins:</p>
-<p><img src="data/ch6_images/databot-validation-checks.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/ch6_images/databot-validation-checks.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 6.13. Databot-generated data validation checks for incoming survey files.</figcaption>
+</figure>
+</div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Auto-generated validation checks - run these on every new dataset</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>validate_student_data <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  checks <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
@@ -758,7 +824,12 @@ div.csl-indent {
 <li>run the cleaned analysis pipeline and produce a quick plot for reporting.</li>
 </ul>
 <p>The screenshot below should show this end-to-end flow in one workspace view: editor code, Databot/Assistant output, Console results, and a plot. The goal is not to present final publication results, but to document a realistic AI-assisted analysis process from import to quality checks to exploratory output.</p>
-<p><img src="data/ch6_images/complete-workflow-positron.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/ch6_images/complete-workflow-positron.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 6.14. End-to-end AI-assisted workflow from import to validation and exploratory output.</figcaption>
+</figure>
+</div>
 </section>
 <section id="what-this-means-for-your-research" class="level3">
 <h3 class="anchored" data-anchor-id="what-this-means-for-your-research">6.6.2 What This Means for Your Research</h3>
@@ -833,15 +904,15 @@ div.csl-indent {
 <p>The next chapter extends this discussion to <strong>local LLM workflows for text analysis</strong>, with emphasis on privacy-preserving qualitative methods.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
 <div id="ref-Liu2025GPT4Coding" class="csl-entry" role="listitem">
-Liu, Xuansheng, Andrés Felipe Zambrano, Ryan S. Baker, et al. 2025. <span>“Qualitative Coding with <span>GPT-4</span>: Where It Works Better.”</span> <em>Journal of Learning Analytics</em> 12 (1): 169–85.
+Liu, X., Zambrano, A. F., Baker, R. S., Barany, A., Ocumpaugh, J., Zhang, J., &amp; Wei, Z. (2025). Qualitative coding with <span>GPT-4</span>: Where it works better. <em>Journal of Learning Analytics</em>, <em>12</em>(1), 169–185.
 </div>
 <div id="ref-Nelson2021FutureCoding" class="csl-entry" role="listitem">
-Nelson, Laura K., Derek Burk, Miriam Knudsen, and Leslie McCall. 2021. <span>“The Future of Coding: A Comparison of Hand-Coding and Three Types of Computer-Assisted Text Analysis Methods.”</span> <em>Sociological Methods &amp; Research</em> 50 (1): 202–37.
+Nelson, L. K., Burk, D., Knudsen, M., &amp; McCall, L. (2021). The future of coding: A comparison of hand-coding and three types of computer-assisted text analysis methods. <em>Sociological Methods &amp; Research</em>, <em>50</em>(1), 202–237.
 </div>
 <div id="ref-Than2025UpdatingCoding" class="csl-entry" role="listitem">
-Than, Nhu, Lizhou Fan, Tina Law, Laura K. Nelson, and Leslie McCall. 2025. <span>“Updating <span>‘the Future of Coding’</span>: Qualitative Coding with Generative Large Language Models.”</span> <em>Sociological Methods &amp; Research</em> 54 (3): 849–88.
+Than, N., Fan, L., Law, T., Nelson, L. K., &amp; McCall, L. (2025). Updating <span>“the future of coding”</span>: Qualitative coding with generative large language models. <em>Sociological Methods &amp; Research</em>, <em>54</em>(3), 849–888.
 </div>
 </div>
 </section>

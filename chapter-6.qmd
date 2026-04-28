@@ -36,7 +36,7 @@ Core capabilities include:
 
 -   **Refactoring**: Propose cleaner versions of working code and explain tradeoffs.
 
-![](data/ch6_images/assistant-panel-overview.png)
+![Figure 6.1. Positron Assistant panel in the research coding workflow.](data/ch6_images/assistant-panel-overview.png)
 
 ### 6.2.2 Why Would an Educational Researcher Want This?
 
@@ -74,7 +74,7 @@ Getting started is straightforward:
 4.  **Configure a provider** with `Positron Assistant: Configure Language Model Providers`
 5.  **Open chat** (robot icon or `Chat: Open Chat`) and start asking questions
 
-![](data/ch6_images/assistant-enable-setting.png)
+![Figure 6.2. Positron setting to enable Assistant in the IDE.](data/ch6_images/assistant-enable-setting.png)
 
 ### 6.3.3 Making It Feel Right for You
 
@@ -86,7 +86,7 @@ Positron Assistant can adapt to your style. In settings, you can adjust:
 
 Tune these settings based on your workflow and project requirements.
 
-![](data/ch6_images/assistant-preferences.png)
+![Figure 6.3. Assistant preference options for response style and coding defaults.](data/ch6_images/assistant-preferences.png)
 
 ### 6.3.4 Choosing a Provider for Research Work
 
@@ -109,35 +109,35 @@ Below is a practical setup order that matches a real configuration process.
 
     This ensures your assistant config already points to a local endpoint before you start testing.
 
-    ![](<data/ch6_images/Positron_LMstudio_JSON settings.png>)
+    ![Figure 6.4. Positron JSON settings for local LM Studio endpoint configuration.](<data/ch6_images/Positron_LMstudio_JSON settings.png>)
 
 2.  **Set up LM Studio and confirm the local server is running.**
 
     Open LM Studio, load your target model, and verify the local API/server endpoint is active.
 
-    ![](<data/ch6_images/LMstudio—Positron set up.png>)
+    ![Figure 6.5. LM Studio local server setup for Positron integration.](<data/ch6_images/LMstudio—Positron set up.png>)
 
 3.  **Configure Continue in Positron to use the LM Studio endpoint.**
 
     Confirm provider/model mapping in Continue settings and ensure the selected model is the same one currently loaded in LM Studio.
 
-    ![](<data/ch6_images/Continue_LMstudio Settings.png>)
+    ![Figure 6.6. Continue extension settings mapped to the LM Studio local model.](<data/ch6_images/Continue_LMstudio Settings.png>)
 
     If your Continue workflow is YAML-based, configure the same endpoint and model there as well:
 
-    ![](<data/ch6_images/Continue—yml.png>)
+    ![Figure 6.7. Continue YAML configuration for local model endpoint and provider mapping.](<data/ch6_images/Continue—yml.png>)
 
 4.  **Run a quick in-IDE verification prompt.**
 
     Use a small, low-risk task first (for example, "Explain this dplyr pipeline" or "Draft a data cleaning function") to verify response quality and latency.
 
-    ![](<data/ch6_images/Positron Assitant—LMstudio UI.png>)
+    ![Figure 6.8. In-IDE verification prompt using Positron Assistant with LM Studio.](<data/ch6_images/Positron Assitant—LMstudio UI.png>)
 
 5.  **Run one concrete case example before using the workflow in research analysis.**
 
     This final check confirms that local agent behavior is stable enough for your chapter-level tasks.
 
-    ![](<data/ch6_images/Positron Assitant——LMstudio case example.png>)
+    ![Figure 6.9. Case example response from Positron Assistant using a local model.](<data/ch6_images/Positron Assitant——LMstudio case example.png>)
 
 In short, configure Positron first, confirm LM Studio second, wire Continue third, and only then move to examples. This sequence avoids most connection and model-mismatch errors.
 
@@ -155,7 +155,7 @@ Code explanation is useful when adapting snippets from tutorials, collaborators,
 
 This feature is especially useful for onboarding new team members and documenting analysis logic.
 
-![](data/ch6_images/assistant-code-explanation.png)
+![Figure 6.10. Assistant-generated plain-language explanation of selected code.](data/ch6_images/assistant-code-explanation.png)
 
 ### 6.4.2 When Things Break
 
@@ -174,7 +174,7 @@ Instead of manually searching external forums first, pass the error to Positron 
 
 This response can be used as a starting point for verification.
 
-![](data/ch6_images/assistant-debug-suggestion.png)
+![Figure 6.11. Assistant debugging suggestion for a code error in context.](data/ch6_images/assistant-debug-suggestion.png)
 
 ## 6.5 Meet Databot (Experimental): Your EDA Accelerator
 
@@ -195,7 +195,7 @@ Example tasks include:
 
 Databot can generate reusable import templates for recurring file structures:
 
-![](data/ch6_images/databot-import-template.png)
+![Figure 6.12. Databot-generated reusable import template for recurring datasets.](data/ch6_images/databot-import-template.png)
 
 ``` r
 # This template was created once, now you use it forever!
@@ -226,7 +226,7 @@ The resulting function can reduce repeated setup work across similar datasets.
 
 For incoming survey datasets, Databot can draft validation checks before substantive analysis begins:
 
-![](data/ch6_images/databot-validation-checks.png)
+![Figure 6.13. Databot-generated data validation checks for incoming survey files.](data/ch6_images/databot-validation-checks.png)
 
 ``` r
 # Auto-generated validation checks - run these on every new dataset
@@ -275,7 +275,7 @@ In this example workflow, you can:
 
 The screenshot below should show this end-to-end flow in one workspace view: editor code, Databot/Assistant output, Console results, and a plot. The goal is not to present final publication results, but to document a realistic AI-assisted analysis process from import to quality checks to exploratory output.
 
-![](data/ch6_images/complete-workflow-positron.png)
+![Figure 6.14. End-to-end AI-assisted workflow from import to validation and exploratory output.](data/ch6_images/complete-workflow-positron.png)
 
 ### 6.6.2 What This Means for Your Research
 

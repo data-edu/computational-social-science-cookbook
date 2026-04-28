@@ -23,7 +23,7 @@ Both Positron and RStudio organize your workspace into four main areas (though t
 -   **Environment/Variables** (top-right): Shows the objects (data, functions, etc.) currently loaded in memory
 -   **Files/Plots/Help** (bottom-right): Navigate your project files, view visualizations, and access documentation
 
-![Positron Interface](data/positronIDE.png){width="648"}
+![Figure 1.1. Positron interface and four-pane layout.](data/positronIDE.png){width="648"}
 
 ### Understanding Each Pane
 
@@ -62,6 +62,7 @@ If you are coming from RStudio and want to keep using familiar shortcuts, instal
 
 Keyboard shortcuts can speed up your workflow considerably. You do not need to memorize them all at once—start with a few that feel natural, and others will follow as you get more comfortable.
 
+Table: Table 1.1. Essential keyboard shortcuts in Positron and RStudio.
 | Action                            | Windows/Linux      | macOS           |
 |-----------------------------------|--------------------|-----------------|
 | Run current line or selection     | Ctrl + Enter       | Cmd + Enter     |
@@ -95,7 +96,7 @@ While Positron comes with solid R support out of the box, these extensions can e
 
 To install an extension, search for it by name in the Extensions panel, click on it, and press Install. Most extensions work immediately without restarting Positron.
 
-![Extensions marketplace showing R-related extensions](positron%20r%20extensions.png)
+![Figure 1.2. Positron extensions marketplace for R workflows.](positron%20r%20extensions.png)
 
 ### RStudio's Approach
 
@@ -217,7 +218,7 @@ We will introduce Git commands as you need them throughout the book. For now, kn
 -   **Commit**: Save a snapshot of your changes with a descriptive message
 -   **Push**: Upload your commits to GitHub
 
-![Source Control panel showing staged changes](source%20control.png)
+![Figure 1.3. Source Control panel for Git operations.](source%20control.png)
 
 You can also use terminal commands (`git status`, `git add`, `git commit`, `git push`) if you prefer, but the IDE interface handles 90% of everyday tasks.
 

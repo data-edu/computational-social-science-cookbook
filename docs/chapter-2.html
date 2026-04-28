@@ -62,6 +62,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -526,8 +527,8 @@ div.csl-indent {
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">2.1 Overview</h2>
-<p>In educational research, analyzing text data is typically considered the work of qualitative researchers. Traditionally, qualitative research involves identifying patterns in non-numeric data, and this pattern recognition is done manually <span class="citation" data-cites="Creswell2018Qualitative">(<a href="#ref-Creswell2018Qualitative" role="doc-biblioref">Creswell and Poth 2018</a>)</span>. This process is time-intensive but can yield rich results — for example, through human coding of interview transcripts, policy documents, or classroom artifacts <span class="citation" data-cites="Saldana2021Coding">(<a href="#ref-Saldana2021Coding" role="doc-biblioref">Saldaña 2021</a>)</span>.</p>
-<p>With the advent of new software, we can capture and analyze text data in ways that were previously not possible, such as web scraping, accessing social media APIs, or downloading large online documents. Given the increased scale and variety of available text data, analysis now benefits from computational approaches — including dictionary-based, frequency-based, and machine learning methods — that go beyond manual coding <span class="citation" data-cites="Silge2017TextMining Grimmer2022TextAsData">(<a href="#ref-Silge2017TextMining" role="doc-biblioref">Silge and Robinson 2017</a>; <a href="#ref-Grimmer2022TextAsData" role="doc-biblioref">Grimmer et al. 2022</a>)</span>. These methods allow educational researchers to ask new types of research questions, expanding the scope and depth of possible insights. For example, <span class="citation" data-cites="Rosenberg2021Twitter">Rosenberg et al. (<a href="#ref-Rosenberg2021Twitter" role="doc-biblioref">2021</a>)</span> used computational text analysis to examine public sentiment about science education policy across thousands of social media posts — a scale of analysis not feasible through traditional qualitative methods.</p>
+<p>In educational research, analyzing text data is typically considered the work of qualitative researchers. Traditionally, qualitative research involves identifying patterns in non-numeric data, and this pattern recognition is done manually <span class="citation" data-cites="Creswell2018Qualitative">(<a href="references.html#ref-Creswell2018Qualitative" role="doc-biblioref">Creswell &amp; Poth, 2018</a>)</span>. This process is time-intensive but can yield rich results — for example, through human coding of interview transcripts, policy documents, or classroom artifacts <span class="citation" data-cites="Saldana2021Coding">(<a href="references.html#ref-Saldana2021Coding" role="doc-biblioref">Saldaña, 2021</a>)</span>.</p>
+<p>With the advent of new software, we can capture and analyze text data in ways that were previously not possible, such as web scraping, accessing social media APIs, or downloading large online documents. Given the increased scale and variety of available text data, analysis now benefits from computational approaches — including dictionary-based, frequency-based, and machine learning methods — that go beyond manual coding <span class="citation" data-cites="Silge2017TextMining Grimmer2022TextAsData">(<a href="references.html#ref-Grimmer2022TextAsData" role="doc-biblioref">Grimmer et al., 2022</a>; <a href="references.html#ref-Silge2017TextMining" role="doc-biblioref">Silge &amp; Robinson, 2017</a>)</span>. These methods allow educational researchers to ask new types of research questions, expanding the scope and depth of possible insights. For example, <span class="citation" data-cites="Rosenberg2021Twitter">Rosenberg et al. (<a href="references.html#ref-Rosenberg2021Twitter" role="doc-biblioref">2021</a>)</span> used computational text analysis to examine public sentiment about science education policy across thousands of social media posts — a scale of analysis not feasible through traditional qualitative methods.</p>
 </section>
 <section id="accessing-text-data" class="level2">
 <h2 class="anchored" data-anchor-id="accessing-text-data">2.2 Accessing Text Data</h2>
@@ -547,7 +548,7 @@ div.csl-indent {
 </section>
 <section id="is-web-scraping-legal" class="level4">
 <h4 class="anchored" data-anchor-id="is-web-scraping-legal">Is Web Scraping Legal?</h4>
-<p>Web scraping is not governed by a single universal rule, so researchers should separate platform policy questions from legal and ethical risk assessment <span class="citation" data-cites="Salganik2019BitByBit">(<a href="#ref-Salganik2019BitByBit" role="doc-biblioref">Salganik 2019</a>)</span>. In practice, Terms of Service define platform-level permissions (for example, whether automated collection is allowed), while <code>robots.txt</code> provides crawler guidance; neither should be treated as a complete legal determination. Legal exposure depends on jurisdiction and context (for example, public vs.&nbsp;access-restricted content, personal data handling, and whether technical barriers are bypassed). For educational research, a practical standard is to document collection decisions, minimize personally identifiable data, and align scraping procedures with institutional review and data-governance requirements <span class="citation" data-cites="Salganik2019BitByBit">(<a href="#ref-Salganik2019BitByBit" role="doc-biblioref">Salganik 2019</a>)</span>.</p>
+<p>Web scraping is not governed by a single universal rule, so researchers should separate platform policy questions from legal and ethical risk assessment <span class="citation" data-cites="Salganik2019BitByBit">(<a href="references.html#ref-Salganik2019BitByBit" role="doc-biblioref">Salganik, 2019</a>)</span>. In practice, Terms of Service define platform-level permissions (for example, whether automated collection is allowed), while <code>robots.txt</code> provides crawler guidance; neither should be treated as a complete legal determination. Legal exposure depends on jurisdiction and context (for example, public vs.&nbsp;access-restricted content, personal data handling, and whether technical barriers are bypassed). For educational research, a practical standard is to document collection decisions, minimize personally identifiable data, and align scraping procedures with institutional review and data-governance requirements <span class="citation" data-cites="Salganik2019BitByBit">(<a href="references.html#ref-Salganik2019BitByBit" role="doc-biblioref">Salganik, 2019</a>)</span>.</p>
 </section>
 <section id="reading-a-web-page-into-r" class="level4">
 <h4 class="anchored" data-anchor-id="reading-a-web-page-into-r">Reading a Web Page into R</h4>
@@ -971,7 +972,7 @@ If further analysis is needed, such as frequency-based analysis, split the text 
 </section>
 <section id="step-4-create-a-word-cloud" class="level4">
 <h4 class="anchored" data-anchor-id="step-4-create-a-word-cloud">Step 4: Create a Word Cloud</h4>
-<p>Generate a word cloud to visualize frequent words in an exploratory way. Word clouds are useful for quick pattern scanning, but they are less precise for comparing magnitudes across terms. For quantitative comparison, bar charts are usually more interpretable <span class="citation" data-cites="Wilke2019DataViz">(<a href="#ref-Wilke2019DataViz" role="doc-biblioref">Wilke 2019</a>)</span>.</p>
+<p>Generate a word cloud to visualize frequent words in an exploratory way. Word clouds are useful for quick pattern scanning, but they are less precise for comparing magnitudes across terms. For quantitative comparison, bar charts are usually more interpretable <span class="citation" data-cites="Wilke2019DataViz">(<a href="references.html#ref-Wilke2019DataViz" role="doc-biblioref">Wilke, 2019</a>)</span>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create and display the GenAI usage Stance wordcloud</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>) <span class="co"># For reproducibility</span></span>
@@ -1432,27 +1433,27 @@ The identified themes reflect both concerns and opportunities:</p>
 </ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
 <div id="ref-Creswell2018Qualitative" class="csl-entry" role="listitem">
-Creswell, John W., and Cheryl N. Poth. 2018. <em>Qualitative Inquiry and Research Design: Choosing Among Five Approaches</em>. 4th ed. <span>SAGE</span> Publications.
+Creswell, J. W., &amp; Poth, C. N. (2018). <em>Qualitative inquiry and research design: Choosing among five approaches</em> (4th ed.). <span>SAGE</span> Publications.
 </div>
 <div id="ref-Grimmer2022TextAsData" class="csl-entry" role="listitem">
-Grimmer, Justin, Margaret E. Roberts, and Brandon M. Stewart. 2022. <em>Text as Data: A New Framework for Machine Learning and the Social Sciences</em>. Princeton University Press.
+Grimmer, J., Roberts, M. E., &amp; Stewart, B. M. (2022). <em>Text as data: A new framework for machine learning and the social sciences</em>. Princeton University Press.
 </div>
 <div id="ref-Rosenberg2021Twitter" class="csl-entry" role="listitem">
-Rosenberg, Joshua M., Conrad Borchers, Elizabeth B. Dyer, Daniel Anderson, and Christian Fischer. 2021. <span>“Understanding Public Sentiment about Educational Reforms: The Next Generation Science Standards on <span>Twitter</span>.”</span> <em>AERA Open</em> 7: 23328584211024261.
+Rosenberg, J. M., Borchers, C., Dyer, E. B., Anderson, D., &amp; Fischer, C. (2021). Understanding public sentiment about educational reforms: The next generation science standards on <span>Twitter</span>. <em>AERA Open</em>, <em>7</em>, 23328584211024261.
 </div>
 <div id="ref-Saldana2021Coding" class="csl-entry" role="listitem">
-Saldaña, Johnny. 2021. <span>“Coding Techniques for Quantitative and Mixed Data.”</span> In <em>The Routledge Reviewer’s Guide to Mixed Methods Analysis</em>. Routledge.
+Saldaña, J. (2021). Coding techniques for quantitative and mixed data. In <em>The routledge reviewer’s guide to mixed methods analysis</em> (pp. 151–160). Routledge.
 </div>
 <div id="ref-Salganik2019BitByBit" class="csl-entry" role="listitem">
-Salganik, Matthew J. 2019. <em>Bit by Bit: Social Research in the Digital Age</em>. Princeton University Press.
+Salganik, M. J. (2019). <em>Bit by bit: Social research in the digital age</em>. Princeton University Press.
 </div>
 <div id="ref-Silge2017TextMining" class="csl-entry" role="listitem">
-Silge, Julia, and David Robinson. 2017. <em>Text Mining with <span>R</span>: A Tidy Approach</em>. O’Reilly Media. <a href="https://www.tidytextmining.com/">https://www.tidytextmining.com/</a>.
+Silge, J., &amp; Robinson, D. (2017). <em>Text mining with <span>R</span>: A tidy approach</em>. O’Reilly Media. <a href="https://www.tidytextmining.com/">https://www.tidytextmining.com/</a>
 </div>
 <div id="ref-Wilke2019DataViz" class="csl-entry" role="listitem">
-Wilke, Claus O. 2019. <em>Fundamentals of Data Visualization</em>. O’Reilly Media. <a href="https://clauswilke.com/dataviz/">https://clauswilke.com/dataviz/</a>.
+Wilke, C. O. (2019). <em>Fundamentals of data visualization</em>. O’Reilly Media. <a href="https://clauswilke.com/dataviz/">https://clauswilke.com/dataviz/</a>
 </div>
 </div>
 </section>

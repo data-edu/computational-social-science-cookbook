@@ -25,7 +25,7 @@ Examples of education journals that publish computational and data-intensive wor
 
 While journal articles are essential for academic recognition, they often impose constraints on length, visualizations, and methodological detail. As a result, many computational decisions—such as preprocessing steps or parameter choices—may be summarized rather than fully documented.
 
-![](<data/ch9_images/Educational Researcher.png>)
+![Figure 9.1. Traditional journal publication interface for educational research.](<data/ch9_images/Educational Researcher.png>)
 
 *Example of a traditional journal publication format.*
 
@@ -41,9 +41,9 @@ Common platforms include:
 
 Preprints are particularly useful for computational research, where methods evolve quickly and early visibility can support collaboration. Researchers should always confirm that their target journals permit preprint posting.
 
-![](<data/ch9_images/arxiv.png>)
+![Figure 9.2. arXiv preprint platform interface for rapid dissemination.](<data/ch9_images/arxiv.png>)
 
-![](<data/ch9_images/osf.png>)
+![Figure 9.3. Open Science Framework interface for open project sharing.](<data/ch9_images/osf.png>)
 
 *Examples of preprint and open-science repository interfaces.*
 
@@ -61,13 +61,13 @@ A common workflow involves:
 
 -   Hosting source files and code on **GitHub** (<https://github.com/>)
 
-    ![](<data/ch9_images/github repo codes.png>)
+    ![Figure 9.4. GitHub repository view for source code and project files.](<data/ch9_images/github repo codes.png>)
 
     *Figure. `data-edu/tidyLPA` source repository on GitHub.*
 
 -   Publishing a static website using **GitHub Pages** (<https://pages.github.com/>)
 
-    ![](<data/ch9_images/github page.png>)
+    ![Figure 9.5. GitHub Pages site view for public project communication.](<data/ch9_images/github page.png>)
 
     *Figure. `data-edu/tidyLPA` published GitHub Pages site.*
 
@@ -75,7 +75,7 @@ A common workflow involves:
 
 This approach supports transparency, reproducibility, and incremental updates. Project websites are especially well suited for method demonstrations, teaching examples, and analyses involving multiple visualizations.
 
-![](<data/ch9_images/quarto .png>)
+![Figure 9.6. Quarto-rendered web page example for research communication.](<data/ch9_images/quarto .png>)
 
 *Figure. Simple example of a Quarto-based communication page.*
 
@@ -89,7 +89,7 @@ Popular platform such as:
 
 These services issue persistent identifiers (DOIs), enabling datasets and code to be cited independently of articles. A common practice is to host active development on GitHub while archiving stable releases on Zenodo.
 
-![](<data/ch9_images/zenodo.png>)
+![Figure 9.7. Zenodo archive interface with DOI-based research outputs.](<data/ch9_images/zenodo.png>)
 
 *Example of an open archive workflow with DOI support.*
 
@@ -203,7 +203,7 @@ top_terms <- policies |>
 
 Then, in the communication page, we show one simple bar chart with short interpretation text.
 
-![](data/ch9_images/ch2-simple-frequency-example.png)
+![Figure 9.8. Simple frequency bar chart adapted from Chapter 2 policy analysis.](data/ch9_images/ch2-simple-frequency-example.png)
 
 *Simple example output adapted from Chapter 2 text analysis for communication purposes.*
 

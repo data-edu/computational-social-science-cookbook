@@ -11,6 +11,8 @@ options(warn = -1)
 
 In educational research, data has traditionally been sourced from small-scale surveys, experiments, or qualitative studies. However, the rise of large-scale digital data offers researchers opportunities to explore numeric and quantitative datasets of unprecedented scale and variety [@Romero2010EDM; @Baker2014EDM]. This chapter discusses how to access and analyze two prominent examples: international assessments (e.g., PISA, TIMSS, NAEP) and digital log-trace data (e.g., the Open University Learning Analytics Dataset, OULAD; @Kuzilek2017OULAD). Studies such as @Teig2022PISA illustrate how large-scale assessment data can be used to investigate substantive educational questions at scale. These secondary data sources enable novel research questions and methods, particularly when paired with machine learning and statistical modeling approaches [@James2021ISLR].
 
+Portions of this chapter adapt instructional and research resources developed through the NSF-supported Learning Analytics in STEM Education Research (LASER) Institute. See the Preface for the full acknowledgment and disclaimer.
+
 ## 4.2 Accessing Big Data (Broadening the Horizon)
 
 ### 4.2.1 Big Data
@@ -76,6 +78,7 @@ str(pisa_data)
 
 ##### Comparison of Methods
 
+Table: Table 4.1. Comparison of methods for accessing PISA data.
 | Method | Advantages | Disadvantages |
 |-------------------|----------------------------|--------------------------|
 | **Direct Download** | Full access to all raw data and documentation. | Requires manual processing and cleaning. |
@@ -167,6 +170,7 @@ IPEDS provides several online tools for querying and visualizing data without re
 
 ##### Comparison of Methods
 
+Table: Table 4.2. Comparison of methods for accessing IPEDS data.
 | Method | Advantages | Disadvantages |
 |-------------------|---------------------------|---------------------------|
 | **Direct Download** | Full access to raw data and documentation. | Requires manual data preparation and cleaning. |

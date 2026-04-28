@@ -13,6 +13,8 @@ Social network analysis (SNA) is the process of investigating social structures 
 
 These applications range from analyzing face-to-face classroom dynamics to large-scale online learning environments. For example, @Kellogg2015MOOCEd examined discussion networks in a massively open online course, and @Rosenberg2021SocialInfluence explored how social influence models can be advanced within learning analytics contexts. Used this way, SNA can identify patterns and trends in how networks form and operate, predict future behavior, and inform the design of interventions that improve learning environments.
 
+Portions of this chapter adapt instructional and research resources developed through the NSF-supported Learning Analytics in STEM Education Research (LASER) Institute. See the Preface for the full acknowledgment and disclaimer.
+
 ## 3.2 Accessing SNA Data
 
 Social Network Analysis (SNA) relies on relational data—information about **connections** (edges) between entities (nodes) such as students, teachers, or organizations. Compared to traditional survey or tabular data, SNA requires **pairwise relational information**. In education, this could include “who collaborates with whom,” “who talks to whom,” or digital traces of discussion and collaboration in online platforms.

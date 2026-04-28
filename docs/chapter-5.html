@@ -62,6 +62,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -520,7 +521,7 @@ div.csl-indent {
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">5.1 Overview</h2>
-<p>Large Language Models (LLMs) are now central to many research workflows in education, especially where analysis depends on large volumes of natural language data <span class="citation" data-cites="Kasneci2023ChatGPT Liu2025GPT4Coding OpenAI2023GPT4">(<a href="#ref-Kasneci2023ChatGPT" role="doc-biblioref">Kasneci et al. 2023</a>; <a href="#ref-Liu2025GPT4Coding" role="doc-biblioref">Liu et al. 2025</a>; <a href="#ref-OpenAI2023GPT4" role="doc-biblioref">OpenAI 2023</a>)</span>. Traditional NLP methods remain essential for transparent counting, comparison, and baseline modeling, but LLMs add complementary capabilities for context-sensitive synthesis, interpretation, and generation <span class="citation" data-cites="Than2025UpdatingCoding Nelson2021FutureCoding Bommasani2021FoundationModels">(<a href="#ref-Than2025UpdatingCoding" role="doc-biblioref">Than et al. 2025</a>; <a href="#ref-Nelson2021FutureCoding" role="doc-biblioref">Nelson et al. 2021</a>; <a href="#ref-Bommasani2021FoundationModels" role="doc-biblioref">Bommasani et al. 2021</a>)</span>.</p>
+<p>Large Language Models (LLMs) are now central to many research workflows in education, especially where analysis depends on large volumes of natural language data <span class="citation" data-cites="Kasneci2023ChatGPT Liu2025GPT4Coding OpenAI2023GPT4">(<a href="references.html#ref-Kasneci2023ChatGPT" role="doc-biblioref">Kasneci et al., 2023</a>; <a href="references.html#ref-Liu2025GPT4Coding" role="doc-biblioref">Liu et al., 2025</a>; <a href="references.html#ref-OpenAI2023GPT4" role="doc-biblioref">OpenAI, 2023</a>)</span>. Traditional NLP methods remain essential for transparent counting, comparison, and baseline modeling, but LLMs add complementary capabilities for context-sensitive synthesis, interpretation, and generation <span class="citation" data-cites="Than2025UpdatingCoding Nelson2021FutureCoding Bommasani2021FoundationModels">(<a href="references.html#ref-Bommasani2021FoundationModels" role="doc-biblioref">Bommasani et al., 2021</a>; <a href="references.html#ref-Nelson2021FutureCoding" role="doc-biblioref">Nelson et al., 2021</a>; <a href="references.html#ref-Than2025UpdatingCoding" role="doc-biblioref">Than et al., 2025</a>)</span>.</p>
 <p>In educational research, this expands the range of feasible tasks:</p>
 <ul>
 <li>Summarizing and coding open-ended reflections</li>
@@ -537,48 +538,7 @@ div.csl-indent {
 <section id="overview-of-major-cloud-providers" class="level3">
 <h3 class="anchored" data-anchor-id="overview-of-major-cloud-providers">Overview of Major Cloud Providers</h3>
 <p>The landscape moves fast. As of 2025, these are among the most common cloud options used in educational data analysis:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Provider</th>
-<th>Example Models</th>
-<th>Access</th>
-<th>R / HTTP Wrapper</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>OpenAI</strong></td>
-<td>GPT-4o / GPT-5</td>
-<td>API key via <a href="https://platform.openai.com">platform.openai.com</a></td>
-<td><code>{httr2}</code>, <code>{openai}</code>, <code>{ellmer}</code></td>
-</tr>
-<tr class="even">
-<td><strong>Anthropic</strong></td>
-<td>Claude 3 Opus · Claude 4</td>
-<td>API key via <a href="https://console.anthropic.com">console.anthropic.com</a></td>
-<td><code>{httr2}</code>, <code>{anthropic}</code>, <code>{ellmer}</code></td>
-</tr>
-<tr class="odd">
-<td><strong>Google</strong></td>
-<td>Gemini 2.5 · Gemini Ultra (2025)</td>
-<td><a href="https://aistudio.google.com">AI Studio</a></td>
-<td><code>{googleGenerativeAI}</code>, <code>{ellmer}</code></td>
-</tr>
-<tr class="even">
-<td><strong>Mistral AI</strong></td>
-<td>Mixtral 8×22B · Mistral 7B v0.3</td>
-<td><a href="https://mistral.ai">mistral.ai</a></td>
-<td>HTTP via <code>{httr2}</code></td>
-</tr>
-<tr class="odd">
-<td><strong>DeepSeek</strong></td>
-<td>DeepSeek-V3.1 (MoE 128K ctx)</td>
-<td>API via <a href="https://deepseek.ai">deepseek.ai</a></td>
-<td>HTTP via <code>{httr2}</code></td>
-</tr>
-</tbody>
-</table>
+<p>Table: Table 5.1. Major cloud LLM providers and R access options. | Provider | Example Models | Access | R / HTTP Wrapper | |——————|——————-|——————|——————| | <strong>OpenAI</strong> | GPT-4o / GPT-5 | API key via <a href="https://platform.openai.com">platform.openai.com</a> | <code>{httr2}</code>, <code>{openai}</code>, <code>{ellmer}</code> | | <strong>Anthropic</strong> | Claude 3 Opus · Claude 4 | API key via <a href="https://console.anthropic.com">console.anthropic.com</a> | <code>{httr2}</code>, <code>{anthropic}</code>, <code>{ellmer}</code> | | <strong>Google</strong> | Gemini 2.5 · Gemini Ultra (2025) | <a href="https://aistudio.google.com">AI Studio</a> | <code>{googleGenerativeAI}</code>, <code>{ellmer}</code> | | <strong>Mistral AI</strong> | Mixtral 8×22B · Mistral 7B v0.3 | <a href="https://mistral.ai">mistral.ai</a> | HTTP via <code>{httr2}</code> | | <strong>DeepSeek</strong> | DeepSeek-V3.1 (MoE 128K ctx) | API via <a href="https://deepseek.ai">deepseek.ai</a> | HTTP via <code>{httr2}</code> |</p>
 <blockquote class="blockquote">
 <p>Tip: always verify model names, context limits, and pricing before you run a study. Providers update frequently, and those updates can affect reproducibility.</p>
 </blockquote>
@@ -721,40 +681,7 @@ div.csl-indent {
 </section>
 <section id="main-features" class="level3">
 <h3 class="anchored" data-anchor-id="main-features">Main Features</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Feature</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Local LLMs</td>
-<td>Run models offline on your own machine</td>
-</tr>
-<tr class="even">
-<td>Chat Interface</td>
-<td>Simple prompt-based GUI</td>
-</tr>
-<tr class="odd">
-<td>Document Chat (RAG)</td>
-<td>Offline “chat with your PDFs”</td>
-</tr>
-<tr class="even">
-<td>Model Management</td>
-<td>Search, download, and switch models</td>
-</tr>
-<tr class="odd">
-<td>API Access</td>
-<td>OpenAI-compatible REST endpoints</td>
-</tr>
-<tr class="even">
-<td>Community Support</td>
-<td>Active <a href="https://discord.gg/uwMphZmHqY">Discord</a> and docs</td>
-</tr>
-</tbody>
-</table>
+<p>Table: Table 5.2. Core LM Studio features for local LLM workflows. | Feature | Description | |—————————————————|——————–| | Local LLMs | Run models offline on your own machine | | Chat Interface | Simple prompt-based GUI | | Document Chat (RAG) | Offline “chat with your PDFs” | | Model Management | Search, download, and switch models | | API Access | OpenAI-compatible REST endpoints | | Community Support | Active <a href="https://discord.gg/uwMphZmHqY">Discord</a> and docs |</p>
 <hr>
 </section>
 <section id="calling-the-lm-studio-api-from-r" class="level3">
@@ -775,61 +702,14 @@ div.csl-indent {
 <blockquote class="blockquote">
 <p>Because requests stay local, sensitive data does not leave your environment.</p>
 </blockquote>
-<hr>
 </section>
 </section>
 <section id="cloud-vs.-local-llms-choosing-the-right-tool" class="level2">
 <h2 class="anchored" data-anchor-id="cloud-vs.-local-llms-choosing-the-right-tool">5.4 Cloud vs.&nbsp;Local LLMs: Choosing the Right Tool</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Criterion</th>
-<th>Cloud-based LLMs</th>
-<th>Local LLMs</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Cost</strong></td>
-<td>Pay-per-token or subscription</td>
-<td>Free (after hardware)</td>
-</tr>
-<tr class="even">
-<td><strong>Privacy</strong></td>
-<td>Data sent to provider</td>
-<td>Data stays local</td>
-</tr>
-<tr class="odd">
-<td><strong>Performance</strong></td>
-<td>Highest accuracy &amp; speed</td>
-<td>Depends on hardware</td>
-</tr>
-<tr class="even">
-<td><strong>Maintenance</strong></td>
-<td>Automatic updates</td>
-<td>Manual model management</td>
-</tr>
-<tr class="odd">
-<td><strong>Customization</strong></td>
-<td>Limited fine-tuning</td>
-<td>Fully modifiable</td>
-</tr>
-<tr class="even">
-<td><strong>Best for</strong></td>
-<td>Large public datasets or prototype analysis</td>
-<td>Sensitive or regulated data</td>
-</tr>
-</tbody>
-</table>
+<p>Table: Table 5.3. Comparison of cloud and local LLM workflows. | Criterion | Cloud-based LLMs | Local LLMs | |————————|————————|————————| | <strong>Cost</strong> | Pay-per-token or subscription | Free (after hardware) | | <strong>Privacy</strong> | Data sent to provider | Data stays local | | <strong>Performance</strong> | Highest accuracy &amp; speed | Depends on hardware | | <strong>Maintenance</strong> | Automatic updates | Manual model management | | <strong>Customization</strong> | Limited fine-tuning | Fully modifiable | | <strong>Best for</strong> | Large public datasets or prototype analysis | Sensitive or regulated data |</p>
 <blockquote class="blockquote">
 <p>A common workflow is hybrid: prototype quickly in the cloud, then reproduce locally for privacy and auditability.</p>
 </blockquote>
-<hr>
 </section>
 <section id="practical-setup-checklist" class="level2">
 <h2 class="anchored" data-anchor-id="practical-setup-checklist">5.5 Practical Setup Checklist</h2>
@@ -844,51 +724,14 @@ div.csl-indent {
 <blockquote class="blockquote">
 <p>This small checklist can save you from major reproducibility and compliance problems later.</p>
 </blockquote>
-<hr>
 </section>
 <section id="summary-1" class="level2">
 <h2 class="anchored" data-anchor-id="summary-1">5.6 Summary</h2>
 <p>Both cloud and local LLMs can support strong educational research. The right choice depends on your project constraints.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Use Case</th>
-<th>Cloud LLM</th>
-<th>Local LLM</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Rapid prototyping</td>
-<td>✅</td>
-<td>⚪</td>
-</tr>
-<tr class="even">
-<td>Large-scale text processing</td>
-<td>✅</td>
-<td>⚪</td>
-</tr>
-<tr class="odd">
-<td>Sensitive student data</td>
-<td>⚪</td>
-<td>✅</td>
-</tr>
-<tr class="even">
-<td>Offline analysis</td>
-<td>⚪</td>
-<td>✅</td>
-</tr>
-<tr class="odd">
-<td>Long-term reproducibility</td>
-<td>⚪</td>
-<td>✅</td>
-</tr>
-</tbody>
-</table>
+<p>Table: Table 5.4. Recommended LLM environment by research use case. | Use Case | Cloud LLM | Local LLM | |—————————–|———–|———–| | Rapid prototyping | ✅ | ⚪ | | Large-scale text processing | ✅ | ⚪ | | Sensitive student data | ⚪ | ✅ | | Offline analysis | ⚪ | ✅ | | Long-term reproducibility | ⚪ | ✅ |</p>
 <blockquote class="blockquote">
 <p>In short: cloud LLMs excel at convenience and scale; local LLMs excel at privacy and control. Most research programs benefit from using both strategically.</p>
 </blockquote>
-<hr>
 <section id="looking-ahead" class="level3">
 <h3 class="anchored" data-anchor-id="looking-ahead">Looking Ahead</h3>
 <ul>
@@ -897,24 +740,24 @@ div.csl-indent {
 </ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
 <div id="ref-Bommasani2021FoundationModels" class="csl-entry" role="listitem">
-Bommasani, Rishi, Drew A. Hudson, Ehsan Adeli, et al. 2021. <span>“On the Opportunities and Risks of Foundation Models.”</span> <em>arXiv Preprint arXiv:2108.07258</em>. <a href="https://arxiv.org/abs/2108.07258">https://arxiv.org/abs/2108.07258</a>.
+Bommasani, R., Hudson, D. A., Adeli, E., Altman, R., Arora, S., Arx, S. von, Bernstein, M. S., Bohg, J., Bosselut, A., Brunskill, E., Brynjolfsson, E., Buch, S., Card, D., Castellon, R., Chatterji, N., Chen, A., Creel, K., Davis, J. Q., Demszky, D., … Liang, P. (2021). On the opportunities and risks of foundation models. <em>arXiv Preprint arXiv:2108.07258</em>. <a href="https://arxiv.org/abs/2108.07258">https://arxiv.org/abs/2108.07258</a>
 </div>
 <div id="ref-Kasneci2023ChatGPT" class="csl-entry" role="listitem">
-Kasneci, Enkelejda, Kathrin Seßler, Stefan Küchemann, et al. 2023. <span>“<span>ChatGPT</span> for Good? <span>On</span> Opportunities and Challenges of Large Language Models for Education.”</span> <em>Learning and Individual Differences</em> 103: 102274.
+Kasneci, E., Seßler, K., Küchemann, S., Bannert, M., Dementieva, D., Fischer, F., Gasser, U., Groh, G., Günnemann, S., Hüllermeier, E., Krusche, S., Kutyniok, G., Michaeli, T., Nerdel, C., Pfeffer, J., Poquet, O., Sailer, M., Schmidt, A., Seidel, T., … Kasneci, G. (2023). <span>ChatGPT</span> for good? <span>On</span> opportunities and challenges of large language models for education. <em>Learning and Individual Differences</em>, <em>103</em>, 102274.
 </div>
 <div id="ref-Liu2025GPT4Coding" class="csl-entry" role="listitem">
-Liu, Xuansheng, Andrés Felipe Zambrano, Ryan S. Baker, et al. 2025. <span>“Qualitative Coding with <span>GPT-4</span>: Where It Works Better.”</span> <em>Journal of Learning Analytics</em> 12 (1): 169–85.
+Liu, X., Zambrano, A. F., Baker, R. S., Barany, A., Ocumpaugh, J., Zhang, J., &amp; Wei, Z. (2025). Qualitative coding with <span>GPT-4</span>: Where it works better. <em>Journal of Learning Analytics</em>, <em>12</em>(1), 169–185.
 </div>
 <div id="ref-Nelson2021FutureCoding" class="csl-entry" role="listitem">
-Nelson, Laura K., Derek Burk, Miriam Knudsen, and Leslie McCall. 2021. <span>“The Future of Coding: A Comparison of Hand-Coding and Three Types of Computer-Assisted Text Analysis Methods.”</span> <em>Sociological Methods &amp; Research</em> 50 (1): 202–37.
+Nelson, L. K., Burk, D., Knudsen, M., &amp; McCall, L. (2021). The future of coding: A comparison of hand-coding and three types of computer-assisted text analysis methods. <em>Sociological Methods &amp; Research</em>, <em>50</em>(1), 202–237.
 </div>
 <div id="ref-OpenAI2023GPT4" class="csl-entry" role="listitem">
-OpenAI. 2023. <span>“<span>GPT-4</span> Technical Report.”</span> <em>arXiv Preprint arXiv:2303.08774</em>. <a href="https://arxiv.org/abs/2303.08774">https://arxiv.org/abs/2303.08774</a>.
+OpenAI. (2023). <span>GPT-4</span> technical report. <em>arXiv Preprint arXiv:2303.08774</em>. <a href="https://arxiv.org/abs/2303.08774">https://arxiv.org/abs/2303.08774</a>
 </div>
 <div id="ref-Than2025UpdatingCoding" class="csl-entry" role="listitem">
-Than, Nhu, Lizhou Fan, Tina Law, Laura K. Nelson, and Leslie McCall. 2025. <span>“Updating <span>‘the Future of Coding’</span>: Qualitative Coding with Generative Large Language Models.”</span> <em>Sociological Methods &amp; Research</em> 54 (3): 849–88.
+Than, N., Fan, L., Law, T., Nelson, L. K., &amp; McCall, L. (2025). Updating <span>“the future of coding”</span>: Qualitative coding with generative large language models. <em>Sociological Methods &amp; Research</em>, <em>54</em>(3), 849–888.
 </div>
 </div>
 </section>
