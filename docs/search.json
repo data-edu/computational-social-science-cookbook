@@ -24,7 +24,7 @@
     "href": "section-1-Intro.html#how-the-full-book-connects",
     "title": "Getting Started",
     "section": "",
-    "text": "Getting Started builds the technical and workflow baseline.\nComputational Methods applies text, network, and numeric approaches to core research tasks.\nLLM Methods introduces cloud/local LLM workflows and AI-assisted analysis with explicit attention to responsible use.\nCommunication focuses on sharing computational research transparently and reproducibly.",
+    "text": "Getting Started builds the technical and workflow baseline.\nData Science Methods applies text, network, and numeric approaches to core research tasks.\nLLM Methods introduces cloud/local LLM workflows and AI-assisted analysis with explicit attention to responsible use.\nCommunication focuses on sharing computational research transparently and reproducibly.",
     "crumbs": [
       "Getting Started"
     ]
@@ -286,7 +286,7 @@
     "href": "section-2-Intro.html",
     "title": "Data Science Methods",
     "section": "",
-    "text": "Overview\nThis section introduces the core computational methods that form the basis of educational data analysis (Baker & Inventado, 2014; Lang et al., 2017). Across the next three chapters, you will learn how to analyze textual, relational, and numeric data — three major forms of information that appear in learning environments, institutional records, and educational research projects (Carolan, 2014; James et al., 2021; Silge & Robinson, 2017).\nThese chapters emphasize hands-on, transparent, and reproducible approaches using R. By engaging with real examples, you will gain practical experience in transforming raw educational data into interpretable results that inform theory and practice.",
+    "text": "Overview\nThis section introduces the core data science methods that form the basis of educational data analysis (Baker & Inventado, 2014; Lang et al., 2017). Across the next three chapters, you will learn how to analyze textual, relational, and numeric data — three major forms of information that appear in learning environments, institutional records, and educational research projects (Carolan, 2014; James et al., 2021; Silge & Robinson, 2017).\nThese chapters emphasize hands-on, transparent, and reproducible approaches using R. By engaging with real examples, you will gain practical experience in transforming raw educational data into interpretable results that inform theory and practice.",
     "crumbs": [
       "Data Science Methods"
     ]
