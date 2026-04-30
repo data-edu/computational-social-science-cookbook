@@ -83,7 +83,7 @@ The comic below captures that very real author experience: every time we felt "f
 
 Instead of treating this as a disaster, we used it as a design principle. Keep the foundations (text, network, numeric methods), integrate new AI workflows where they are genuinely useful, and make responsible use explicit at every step.
 
-![](data/Book written Story by Gemini.png){fig-align="center"}
+![](data/Book%20written%20Story%20by%20Gemini.png){fig-align="center"}
 
 *Figure. A comic-style reflection of how this book evolved alongside rapid AI changes (generated with Gemini, based on the authors' storyline).*
 
