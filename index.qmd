@@ -93,7 +93,7 @@ This book is designed to be reproducible with openly available project files and
 
 Some snippets are intentionally included as illustrative templates (for example, showing a generic data-loading or network-construction pattern). These are pedagogical examples and are not part of the core executed analysis chain.
 
-For a formal data-availability and reproducibility statement, see Chapter 9.
+For a formal data-availability and reproducibility statement, see Chapter 11.
 
 ### Funding and source acknowledgment
 
