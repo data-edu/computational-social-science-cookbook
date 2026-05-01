@@ -2,6 +2,26 @@
 
 This repository contains the source for a Quarto book on computational methods for educational research.
 
+## Book at a glance
+
+This book is a practical field guide for educational researchers who want to run computational analyses in R with reproducible workflows. It combines method explanation, runnable code, and communication guidance for publishing transparent results.
+
+The current structure includes four parts:
+
+- Getting Started: environment setup, R workflow basics, and tidyverse foundations
+- Data Science Methods: text, network, and numeric data analysis workflows
+- LLM Methods: cloud/local LLM setup and applications for text and image workflows
+- Communication and Conclusion: reporting, open dissemination, and reproducibility practices
+
+## Main chapter topics
+
+- Chapter 1-3: Positron/RStudio setup, R workflow fundamentals, and tidyverse essentials
+- Chapter 4: Text data methods (tokenization, frequency, sentiment, and topic modeling)
+- Chapter 5: Network data methods using social network analysis workflows
+- Chapter 6: Numeric data methods and modeling workflows with educational datasets
+- Chapter 7-10: LLM environments and applied LLM workflows for educational research tasks
+- Chapter 11 + back matter: communication strategies, conclusion, colophon, and full references
+
 ## What this project is
 
 - A multi-chapter Quarto book (`.qmd`) built with R
@@ -76,3 +96,4 @@ Typical publish flow:
 
 - No dedicated unit test suite is configured; render checks are the main validation.
 - Internal/private review notes should stay local and not be committed.
+- AI assistant config files are intentionally not required in this repository.
