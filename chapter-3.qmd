@@ -7,13 +7,13 @@ title: "Tidyverse"
 options(warn = -1)
 ```
 
-## Overview
+## 3.1 Overview
 
 The tidyverse is a collection of R packages designed for data science with a shared philosophy: code should be readable, consistent, and focused on the data transformations you are actually trying to accomplish [@Wickham2017R4DS; @Wickham2019Tidyverse]. If you have struggled with base R's sometimes cryptic syntax, the tidyverse may feel like a relief.
 
 Most computational educational research workflows rely on tidyverse packages for data manipulation, visualization, and modeling. Learning this ecosystem means learning the tools your collaborators use, the examples you will find online, and the approaches that scale from quick exploration to publication-ready analysis [@Wickham2017R4DS; @Wickham2019Tidyverse].
 
-## What is in the Tidyverse?
+## 3.2 What is in the Tidyverse?
 
 The tidyverse is actually a meta-package that loads eight core packages when you run `library(tidyverse)`:
 
@@ -28,7 +28,7 @@ The tidyverse is actually a meta-package that loads eight core packages when you
 
 Most of the work we do in this chapter relies heavily on `dplyr` and `ggplot2`, with the others playing supporting roles as needed.
 
-## Installing and Loading the Tidyverse
+## 3.3 Installing and Loading the Tidyverse
 
 You install packages like any others in R.
 
@@ -49,7 +49,7 @@ library(tidyverse)
 
 When you load the tidyverse, you will see a message listing which packages were attached and any conflicts (functions from tidyverse packages that mask base R functions). The conflicts are normal and intentional—tidyverse functions are generally preferable for data science work.
 
-## Working with Real Data
+## 3.4 Working with Real Data
 
 Let us load actual data to see the tidyverse in action. We will use student assessment data from the Open University Learning Analytics Dataset (OULAD), which contains information about student demographics and course outcomes.
 
@@ -66,11 +66,11 @@ The `glimpse()` function shows you the structure of your data: how many rows and
 
 This is the dataset we will use in the examples below. It represents the kind of educational data you will work with in computational educational research: thousands of observations with both categorical and continuous variables.
 
-## Essential dplyr Functions
+## 3.5 Essential dplyr Functions
 
 The dplyr package provides functions for the most common data manipulation tasks. Here are the ones you will use repeatedly.
 
-### filter() - Selecting Rows
+### 3.5.1 filter() - Selecting Rows
 
 Use `filter()` to keep only rows that meet certain conditions:
 
@@ -91,7 +91,7 @@ good_outcomes <- students |>
 
 This gives us 22,333 passed students from the original 32,593. Use `==` for equality tests, `>` and `<` for comparisons, and combine conditions with commas (AND) or `|` (OR).
 
-### select() - Choosing Columns
+### 3.5.2 select() - Choosing Columns
 
 Use `select()` to pick which columns to keep or remove:
 
@@ -112,7 +112,7 @@ student_demographics <- students |>
 
 The `select()` function is useful when you have many columns but only need a few for analysis. Helper functions like `starts_with()`, `ends_with()`, and `contains()` make it easy to select groups of related columns.
 
-### mutate() - Creating or Modifying Columns
+### 3.5.3 mutate() - Creating or Modifying Columns
 
 Use `mutate()` to add new columns or change existing ones:
 
@@ -139,7 +139,7 @@ students <- students |>
 
 The `case_when()` function inside `mutate()` handles conditional logic: if mean_weighted_score is over 800, assign "High"; if over 650, assign "Medium"; otherwise (TRUE), assign "Low".
 
-### summarize() - Calculating Summaries
+### 3.5.4 summarize() - Calculating Summaries
 
 Use `summarize()` to collapse your data into summary statistics:
 
@@ -156,7 +156,7 @@ students |>
 
 The `na.rm = TRUE` argument tells R to ignore missing values when calculating means. The `n()` function counts the number of rows.
 
-### group_by() - Operations by Group
+### 3.5.5 group_by() - Operations by Group
 
 Use `group_by()` before `summarize()` to calculate statistics for each group separately:
 
@@ -181,7 +181,7 @@ students |>
 
 After `group_by()`, subsequent operations happen separately for each group. This is one of the most powerful patterns in data analysis: split your data into groups, apply a function to each group, then combine the results.
 
-### arrange() - Sorting Rows
+### 3.5.6 arrange() - Sorting Rows
 
 Use `arrange()` to reorder rows:
 
@@ -202,7 +202,7 @@ students |>
 
 This is useful when you want to see the highest or lowest values, or when you need data in a particular order for plotting or reporting.
 
-### count() - Quick Frequency Tables
+### 3.5.7 count() - Quick Frequency Tables
 
 Use `count()` as a shortcut for `group_by()` + `summarize(n = n())`:
 
@@ -223,7 +223,7 @@ students |>
 
 The `count()` function is perfect for quickly understanding the distribution of categorical variables.
 
-## The Pipe Operator: `|>` and `%>%`
+## 3.6 The Pipe Operator: `|>` and `%>%`
 
 The tidyverse introduced a distinctive style: piping operations together to create readable data transformation pipelines. Instead of nesting functions inside each other, you "pipe" the output of one function into the next.
 
@@ -259,11 +259,11 @@ We will use the native pipe `|>` throughout this book because it is now built in
 
 **How to read it**: Think of `|>` as "then." The pipe takes the result from the left and passes it as the first argument to the function on the right.
 
-## Data Visualization with ggplot2
+## 3.7 Data Visualization with ggplot2
 
 The ggplot2 package uses a "grammar of graphics" approach where you build plots in layers. You start with your data, specify how variables map to visual properties (x-axis, y-axis, colors), then add geometric objects like points, bars, or lines.
 
-### Basic Structure
+### 3.7.1 Basic Structure
 
 Every ggplot follows this template:
 
@@ -276,7 +276,7 @@ ggplot(data = DATA, aes(x = X_VAR, y = Y_VAR)) +
 
 The `aes()` function (short for "aesthetics") maps your data columns to visual properties. The `geom_` functions specify what kind of plot to draw.
 
-### Bar Charts - Categorical Data
+### 3.7.2 Bar Charts - Categorical Data
 
 Use `geom_bar()` to visualize counts of categorical variables:
 
@@ -313,7 +313,7 @@ students |>
 
 Setting `position = "dodge"` puts bars next to each other instead of stacking them, making it easier to compare counts directly.
 
-### Histograms - Distributions
+### 3.7.3 Histograms - Distributions
 
 Use `geom_histogram()` to see the distribution of continuous variables:
 
@@ -340,7 +340,7 @@ students |>
 
 Using `position = "identity"` overlays the histograms, and `alpha = 0.5` makes them semi-transparent so you can see both distributions.
 
-### Boxplots - Comparing Distributions
+### 3.7.4 Boxplots - Comparing Distributions
 
 Use `geom_boxplot()` to compare distributions across groups:
 
@@ -368,7 +368,7 @@ students |>
 
 Adding `fill` colors each boxplot by the category, making them easier to distinguish.
 
-### Scatter Plots - Relationships
+### 3.7.5 Scatter Plots - Relationships
 
 Use `geom_point()` to explore relationships between two continuous variables:
 
@@ -397,7 +397,7 @@ students |>
 
 Adding `geom_smooth(method = "lm")` fits a linear model and displays the trend line with a confidence band, making patterns easier to see.
 
-### Improving Plots with Labels and Themes
+### 3.7.6 Improving Plots with Labels and Themes
 
 Good plots need clear labels:
 
@@ -417,7 +417,7 @@ students |>
 
 The `labs()` function adds titles and axis labels. The `theme_minimal()` function applies a clean, simple theme. Other themes include `theme_bw()`, `theme_classic()`, and `theme_light()`.
 
-### Faceting - Small Multiples
+### 3.7.7 Faceting - Small Multiples
 
 Use faceting to create separate plots for different groups:
 
@@ -446,7 +446,7 @@ students |>
 
 `facet_grid()` creates a matrix of plots: rows for one variable (gender), columns for another (disability). This lets you see how score distributions vary across combinations of factors.
 
-## Summary
+## 3.8 Summary
 
 You've now seen core tidyverse functions in action with real data. The seven dplyr functions covered here—`filter()`, `select()`, `mutate()`, `summarize()`, `group_by()`, `arrange()`, and `count()`—handle the majority of everyday data manipulation tasks. The ggplot2 visualizations—bar charts, histograms, boxplots, scatter plots, and faceting—cover most exploratory analysis needs.
 

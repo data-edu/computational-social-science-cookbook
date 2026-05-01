@@ -2,17 +2,17 @@
 title: "R"
 ---
 
-## Overview
+## 2.1 Overview
 
 We are not going to teach you RStudio comprehensively because excellent resources already exist for that purpose. We particularly recommend [*R for Data Science*](https://r4ds.hadley.nz/), [*Data Science in Education Using R*](https://datascienceineducation.com/), the [RStudio primers](https://posit.co/resources/primers/), and [*Happy Git and GitHub for the useR*](https://happygitwithr.com/).
 
 Instead, this chapter covers just enough to reproduce our workflows and extend them to your own data science work. Think of this as the minimal viable setup for doing the work in this book.
 
-## Three Ways to Write R Code
+## 2.2 Three Ways to Write R Code
 
 Positron supports multiple file types for writing R code. You will encounter all three in data science work:
 
-### R Scripts (.R)
+### 2.2.1 R Scripts (.R)
 
 Plain text files containing R code, executed line-by-line or all at once. Great for data processing pipelines, functions, and code you will reuse.
 
@@ -43,13 +43,13 @@ table(students$final_result)
 
 This script loads the tidyverse package (more on this in the next chapter), reads a CSV file, and produces quick summaries. You can run it line-by-line using Cmd/Ctrl + Enter, or run the entire script at once. The output appears in the Console, but the script itself is saved for later use.
 
-### R Markdown (.Rmd)
+### 2.2.2 R Markdown (.Rmd)
 
 Documents that weave together narrative text (in Markdown) and code chunks. When you "knit" an R Markdown file, it executes the code and generates a formatted document (HTML, PDF, or Word).
 
 You should know R Markdown exists because you will encounter it in older resources and projects, but we are not using it in this book.
 
-### Quarto (.qmd)
+### 2.2.3 Quarto (.qmd)
 
 Quarto is the successor to R Markdown, with better multi-language support (R, Python, Julia) and more consistent syntax. It is what we will use throughout this book.
 
@@ -112,7 +112,7 @@ When you render this document, Quarto executes each code chunk in order, capture
 
 **Key difference for beginners**: Think of R scripts as "just code" and Quarto as "code + explanation + output" in one document. Use scripts for behind-the-scenes work, Quarto for analysis you want to share or understand later.
 
-### Controlling Chunk Behavior with Options
+### 2.2.4 Controlling Chunk Behavior with Options
 
 Quarto lets you control what appears in your rendered document using chunk options. These are specified at the top of each code chunk using `#|` syntax.
 
@@ -158,7 +158,7 @@ execute:
 
 Individual chunks can override global settings. For more options, see the [Quarto documentation on execution options](https://quarto.org/docs/computations/execution-options.html).
 
-## Console vs. Source: Exploration vs. Preservation
+## 2.3 Console vs. Source: Exploration vs. Preservation
 
 A common pattern in data science work:
 
@@ -186,9 +186,9 @@ The second approach creates a record you can return to, modify, and share. If yo
 
 Early on, you might type everything in the Console. That is fine for learning! But as soon as you do something you want to remember, put it in a script or Quarto file.
 
-## When You Get Stuck
+## 2.4 When You Get Stuck
 
-### Reading Error Messages
+### 2.4.1 Reading Error Messages
 
 When something goes wrong, R prints an error message in the Console (usually in red). These messages often look cryptic at first, but they are trying to help:
 
@@ -198,7 +198,7 @@ Error in mean(x) : object 'x' not found
 
 This tells you exactly what went wrong: R could not find an object called `x`. Either you misspelled it, or you have not created it yet.
 
-### Getting Help on Functions
+### 2.4.2 Getting Help on Functions
 
 R has built-in documentation for every function:
 
@@ -209,7 +209,7 @@ R has built-in documentation for every function:
 
 Help files include descriptions, arguments, examples, and related functions.
 
-### Where Computational Social Scientists Get Help
+### 2.4.3 Where Computational Social Scientists Get Help
 
 When you are truly stuck, the R community is helpful:
 
@@ -218,11 +218,11 @@ When you are truly stuck, the R community is helpful:
 
 Before asking a question, try searching for your error message. Someone has likely encountered it before. Of course, turning to AI can also help, as we describe next.
 
-## Summary
+## 2.5 Summary
 
 This chapter covered the essential R skills needed to follow the workflows in this book: writing code in scripts, R Markdown, and Quarto documents; loading and inspecting data; computing basic summaries; producing simple visualizations; and reading error messages when things go wrong. These fundamentals carry through every subsequent chapter.
 
-### Large Language Models and AI Tools for Getting Unstuck
+### 2.5.1 Large Language Models and AI Tools for Getting Unstuck
 
 In Section 3, we cover using large language models as part of a research workflow. But LLMs are also useful for getting unstuck when you are learning and this is increasingly how working data scientists operate.
 
@@ -234,7 +234,7 @@ Two approaches work well:
 
 The best programmers do not memorize every function—they know how to find answers quickly. LLMs have become part of that toolkit, alongside documentation, Stack Overflow, and experimentation. Use them when you are stuck, but also pay attention to *why* solutions work. That is how you build intuition.
 
-#### Using AI Tools Directly in Positron
+#### 2.5.1.1 Using AI Tools Directly in Positron
 
 Positron, being built on VS Code, supports AI assistant extensions that can help you write code more efficiently and understand errors more quickly.
 

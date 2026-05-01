@@ -2,11 +2,11 @@
 title: "Positron and RStudio"
 ---
 
-## Overview
+## 1.1 Overview
 
 You need an environment for writing and running R code. We are going to focus on **Positron**, Posit's newer IDE built on the foundation of VS Code. If you are already comfortable with RStudio, everything in this chapter applies there too. The fundamental concepts are identical, and the R code in this book works the same way in both.
 
-## Why Positron?
+## 1.2 Why Positron?
 
 Positron represents where computational educational research workflows are heading: multi-language support (R and Python in the same environment), modern editor features inherited from VS Code, and a more extensible architecture (i.e., plugins and extension). If you are coming from VS Code, Positron will feel immediately familiar. If you are new to both, you are learning a tool that is designed for the future of data science.
 
@@ -14,7 +14,7 @@ That said, **RStudio remains great**. It is mature, widely documented, and has a
 
 The instructions below work in both environments unless otherwise noted. When we say "Positron," assume the same applies to RStudio.
 
-## The Four Essential Panes
+## 1.3 The Four Essential Panes
 
 Both Positron and RStudio organize your workspace into four main areas (though the layout is customizable):
 
@@ -25,7 +25,7 @@ Both Positron and RStudio organize your workspace into four main areas (though t
 
 ![Figure 1.1. Positron interface and four-pane layout.](data/positronIDE.png){width="648"}
 
-### Understanding Each Pane
+### 1.3.1 Understanding Each Pane
 
 **Source/Editor Pane**: This is where you spend most of your time writing code. The editor provides syntax highlighting (different colors for functions, strings, and comments), autocomplete suggestions, and the ability to work with multiple files in tabs. You can split the pane to view two files side-by-side, and for Quarto documents, you can preview the rendered output alongside your code.
 
@@ -37,7 +37,7 @@ Both Positron and RStudio organize your workspace into four main areas (though t
 
 The defaults work fine for now. As you get comfortable, you might adjust panel sizes or move things around, but the essential logic stays the same: code on the left, context on the right.
 
-## R Projects
+## 1.4 R Projects
 
 **Always work in an R Project.** This is the single most important RStudio habit for reproducibility.
 
@@ -52,10 +52,10 @@ To create a new project:
 
 Notice the `.Rproj` file in your folder? That is your project file. Double-click it to open Positron or RStudio with the correct working directory already set.
 
-## Essential Keyboard Shortcuts
+## 1.5 Essential Keyboard Shortcuts
 
 ::: callout-tip
-## RStudio Keybindings in Positron
+## 1.6 RStudio Keybindings in Positron
 
 If you are coming from RStudio and want to keep using familiar shortcuts, install the **RStudio Keymap** extension in Positron. Open the Extensions panel (View → Extensions), search for "RStudio Keymap," and click Install. This maps common RStudio shortcuts to their Positron equivalents so you do not have to retrain your muscle memory.
 :::
@@ -81,13 +81,13 @@ Positron and RStudio have slightly different shortcuts for a few operations, par
 
 
 
-## Extensions and Customization
+## 1.7 Extensions and Customization
 
 Positron is built on VS Code, which means most VS Code extensions work in Positron. This gives you access to a large ecosystem of tools beyond what is built into the base IDE.
 
 To access extensions, open the Extensions panel—usually visible in the left sidebar, or accessible via View → Extensions. From there, you can search for extensions by name or browse categories.
 
-### Useful Extensions for R Work
+### 1.7.1 Useful Extensions for R Work
 
 While Positron comes with solid R support out of the box, these extensions can enhance your workflow:
 
@@ -99,15 +99,15 @@ To install an extension, search for it by name in the Extensions panel, click on
 
 ![Figure 1.2. Positron extensions marketplace for R workflows.](positron%20r%20extensions.png)
 
-### RStudio's Approach
+### 1.7.2 RStudio's Approach
 
 RStudio uses "addins" instead of extensions. These are R packages that add functionality to the IDE interface. The ecosystem is smaller than VS Code's, but focused specifically on R workflows. If you are using RStudio, you can find addins through the Addins menu once you have installed packages that provide them.
 
-### Customization
+### 1.7.3 Customization
 
 Both Positron and RStudio let you customize themes, font size, and panel arrangements. The defaults work well to start, but if you find yourself squinting at text or want a different color scheme, explore Preferences/Settings → Appearance. Changes are a matter of personal preference rather than workflow improvement, so do not feel pressure to customize immediately.
 
-## What Makes Positron Stand Out
+## 1.8 What Makes Positron Stand Out
 
 Beyond the basics, Positron offers several features that become valuable as your projects grow in complexity:
 
@@ -123,11 +123,11 @@ Beyond the basics, Positron offers several features that become valuable as your
 
 These features are there when you need them. For now, just know they exist—they are part of why Positron represents where these tools are heading.
 
-## Version Control with Git and GitHub
+## 1.9 Version Control with Git and GitHub
 
 Git is how computational educational researchers version, share, and collaborate on their work. GitHub is the most popular platform for hosting Git repositories. If you've never used version control before, this section will get you set up with a workflow that integrates directly into your IDE.
 
-### Why Git Matters
+### 1.9.1 Why Git Matters
 
 Without version control, you end up with files like `analysis_final.R`, `analysis_final2.R`, `analysis_ACTUALLY_final.R`. Git tracks every change you make, so you can:
 
@@ -138,7 +138,7 @@ Without version control, you end up with files like `analysis_final.R`, `analysi
 
 Most computational educational research projects live in Git repositories, and employers expect researchers to be comfortable with basic version control.
 
-### Git Integration
+### 1.9.2 Git Integration
 
 Once Git is configured, you will see version control features built into your environment:
 
@@ -147,18 +147,18 @@ Once Git is configured, you will see version control features built into your en
 
 Either way, you can stage changes, write commit messages, and push to GitHub without leaving your editor. This is far friendlier than memorizing terminal commands.
 
-### Setting Up Git and GitHub: The Path of Least Resistance
+### 1.9.3 Setting Up Git and GitHub: The Path of Least Resistance
 
 Git authentication is notoriously confusing. We are going to use an R-native approach that minimizes pain: **Personal Access Tokens (PAT) via the `usethis` package**. This keeps you in familiar territory and works reliably for the kind of work you will do in this book.
 
-#### Step 1: Install Required Packages
+#### 1.9.3.1 Step 1: Install Required Packages
 
 ``` r
 install.packages("usethis")
 install.packages("gitcreds")
 ```
 
-#### Step 2: Configure Your Git Identity
+#### 1.9.3.2 Step 2: Configure Your Git Identity
 
 Tell Git who you are (one-time setup):
 
@@ -171,7 +171,7 @@ usethis::use_git_config(
 
 **Important**: Use the same email address you will use (or already use) for your GitHub account.
 
-#### Step 3: Create a GitHub Personal Access Token
+#### 1.9.3.3 Step 3: Create a GitHub Personal Access Token
 
 ``` r
 usethis::create_github_token()
@@ -187,7 +187,7 @@ This opens GitHub in your browser. You will need to:
 
 The token looks like: `ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
 
-#### Step 4: Store Your Token in R
+#### 1.9.3.4 Step 4: Store Your Token in R
 
 ``` r
 gitcreds::gitcreds_set()
@@ -195,7 +195,7 @@ gitcreds::gitcreds_set()
 
 When prompted, paste your token and press Enter. R stores it securely for future use.
 
-#### Step 5: Verify Everything Worked
+#### 1.9.3.5 Step 5: Verify Everything Worked
 
 ``` r
 usethis::git_sitrep()
@@ -205,13 +205,13 @@ This diagnostic report should show: - Your name and email - "Personal access tok
 
 If so, you are all set. If not, see troubleshooting below.
 
-### Alternative: SSH Keys (For the Long Haul)
+### 1.9.4 Alternative: SSH Keys (For the Long Haul)
 
 SSH keys can be convenient—set them up once and never think about authentication again. But they are more complex to configure initially.
 
 Interested? See [Happy Git with R, Chapters 10-12](https://happygitwithr.com/ssh-keys.html). For now, the PAT method will serve you well.
 
-### Using Git in Practice
+### 1.9.5 Using Git in Practice
 
 We will introduce Git commands as you need them throughout the book. For now, know that your IDE gives you a graphical interface for the most common operations:
 
@@ -225,7 +225,7 @@ You can also use terminal commands (`git status`, `git add`, `git commit`, `git 
 
 The key habit: commit often with clear messages ("Add data cleaning script" rather than "changes"), and push regularly so your work is backed up and others can see your progress.
 
-#### A Brief Note on Branches
+#### 1.9.5.1 A Brief Note on Branches
 
 So far we've discussed the basic workflow on a single branch (usually called `main`). Branches let you create parallel versions of your code for experimentation or collaboration without affecting your main work.
 
@@ -241,7 +241,7 @@ Your IDE makes branch management visual. In Positron, the Source Control panel s
 
 For now, working on the main branch is sufficient. We will cover branching in more detail when you need it for collaboration or when your projects become more complex.
 
-## Summary
+## 1.10 Summary
 
 This chapter gave you a working environment. When you are ready to explore more:
 
