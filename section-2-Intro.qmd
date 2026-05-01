@@ -11,10 +11,10 @@ These chapters emphasize hands-on, transparent, and reproducible approaches usin
 ## The Analytical Scope of This Section
 
 | Chapter | Data Type | Analytical Focus | Example Research Question |
-|-----------------|-----------------|-----------------|--------------------|
-| **Chapter 2** | Text Data (unstructured) | Natural language processing, tokenization, sentiment, topic modeling | “What themes emerge in student reflections or policy statements?” |
-| **Chapter 3** | Relational Data | Social network analysis: centrality, community detection, visualization | “How do students or instructors connect and collaborate in learning networks?” |
-| **Chapter 4** | Numeric / Big Data | Statistical modeling, regression, clustering, predictive analysis | “Which factors best predict academic outcomes or engagement?” |
+|------------------|------------------|------------------|--------------------|
+| **Chapter 4** | Text Data (unstructured) | Natural language processing, tokenization, sentiment, topic modeling | “What themes emerge in student reflections or policy statements?” |
+| **Chapter 5** | Relational Data | Social network analysis: centrality, community detection, visualization | “How do students or instructors connect and collaborate in learning networks?” |
+| **Chapter 6** | Numeric / Big Data | Statistical modeling, regression, clustering, predictive analysis | “Which factors best predict academic outcomes or engagement?” |
 
 > 📚 These three perspectives together illustrate how computational techniques can capture different dimensions of learning—language, interaction, and measurement.
 
@@ -97,8 +97,8 @@ Responsible computational research requires attention to both ethical and method
 
 With the environment prepared and workflow established, you are ready to begin applying computational methods to real educational data:
 
-- **Chapter 2 — Text Analysis:** Working with unstructured language to uncover patterns in meaning and discourse.
-- **Chapter 3 — Network Analysis:** Examining connections and relationships among learners, instructors, or resources.
-- **Chapter 4 — Numeric and Big Data:** Exploring structured data to identify trends and predictors in education.
+- **Chapter 4 — Text Analysis:** Working with unstructured language to uncover patterns in meaning and discourse.
+- **Chapter 5 — Network Analysis:** Examining connections and relationships among learners, instructors, or resources.
+- **Chapter 6 — Numeric and Big Data:** Exploring structured data to identify trends and predictors in education.
 
 > The following chapter begins with text data, illustrating how natural language processing can transform qualitative information into structured, interpretable results.

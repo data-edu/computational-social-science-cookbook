@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Wei Wang, Mete Akcaoglu, Joshua Rosenberg, Shaun Kellogg">
-<meta name="dcterms.date" content="2026-04-28">
+<meta name="dcterms.date" content="2026-05-01">
 
 <title>Computational Analysis of Educational Data: A Field Guide Using R</title>
 <style>
@@ -319,17 +319,17 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-1-1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Positron and RStudio</span></a>
+  <a href="./chapter-1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Positron and RStudio</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-1-2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">R</span></a>
+  <a href="./chapter-2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-1-3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tidyverse</span></a>
+  <a href="./chapter-3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tidyverse</span></a>
   </div>
 </li>
       </ul>
@@ -345,17 +345,17 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Text Data</span></a>
+  <a href="./chapter-4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Text Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Network Data</span></a>
+  <a href="./chapter-5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Network Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Numeric Data</span></a>
+  <a href="./chapter-6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Numeric Data</span></a>
   </div>
 </li>
       </ul>
@@ -371,22 +371,22 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cloud vs Local LLMs</span></a>
+  <a href="./chapter-7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cloud vs Local LLMs</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Positron Assistant and Databot</span></a>
+  <a href="./chapter-8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Positron Assistant and Databot</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Local LLMs for Text</span></a>
+  <a href="./chapter-9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Local LLMs for Text</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Local LLMs for Images</span></a>
+  <a href="./chapter-10.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Local LLMs for Images</span></a>
   </div>
 </li>
       </ul>
@@ -402,7 +402,7 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Communication Matters</span></a>
+  <a href="./chapter-11.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Communication Matters</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -467,7 +467,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 28, 2026</p>
+      <p class="date">May 1, 2026</p>
     </div>
   </div>
   
@@ -521,8 +521,8 @@ div.csl-indent {
 </section>
 <section id="what-we-mean-by-computational-methods" class="level3">
 <h3 class="anchored" data-anchor-id="what-we-mean-by-computational-methods">What we mean by computational methods</h3>
-<p>By <em>computational methods</em>, we mean research approaches that leverage the power of computing to collect, process, and analyze data at a scale or speed not possible through traditional means. This includes methods that fall under the umbrella of data science — such as text analysis, social network analysis, and machine learning — as well as the emerging use of generative AI and large language models as research tools <span class="citation" data-cites="Romero2010EDM Siemens2013LA Estrellado2020DataScience">(<a href="references.html#ref-Estrellado2020DataScience" role="doc-biblioref">Estrellado et al., 2020</a>; <a href="references.html#ref-Romero2010EDM" role="doc-biblioref">Romero &amp; Ventura, 2010</a>; <a href="references.html#ref-Siemens2013LA" role="doc-biblioref">Siemens, 2013</a>)</span>. These approaches are sometimes grouped under educational data science, learning analytics, or educational data mining, depending on the community and tradition <span class="citation" data-cites="Lang2017HandbookLA Krumm2018LA">(<a href="references.html#ref-Krumm2018LA" role="doc-biblioref">Krumm et al., 2018</a>; <a href="references.html#ref-Lang2017HandbookLA" role="doc-biblioref">Lang et al., 2017</a>)</span>.</p>
-<p>Computational social science <span class="citation" data-cites="Lazer2009CSS">(<a href="references.html#ref-Lazer2009CSS" role="doc-biblioref">Lazer et al., 2009</a>)</span> is an ally field that has advanced many of the methods we draw on. But we focus specifically on educational research, where the data, questions, and stakes have distinctive features — among them, the prevalence of sensitive student data, the importance of equity and context in interpretation, and the goal of understanding, describing, predicting, and impacting learning and teaching.</p>
+<p>By <em>computational methods</em>, we mean research approaches that leverage the power of computing to collect, process, and analyze data at a scale or speed not possible through traditional means. This includes methods that fall under the umbrella of data science — such as text analysis, social network analysis, and machine learning — as well as the emerging use of generative AI and large language models as research tools <span class="citation" data-cites="Romero2010EDM Romero2020EDM Siemens2013LA Estrellado2020DataScience">(<a href="references.html#ref-Estrellado2020DataScience" role="doc-biblioref">Estrellado et al., 2020</a>; <a href="references.html#ref-Romero2010EDM" role="doc-biblioref">Romero &amp; Ventura, 2010</a>, <a href="references.html#ref-Romero2020EDM" role="doc-biblioref">2020</a>; <a href="references.html#ref-Siemens2013LA" role="doc-biblioref">Siemens, 2013</a>)</span>. These approaches are sometimes grouped under educational data science, learning analytics, or educational data mining, depending on the community and tradition <span class="citation" data-cites="Lang2022HandbookLA Krumm2018LA">(<a href="references.html#ref-Krumm2018LA" role="doc-biblioref">Krumm et al., 2018</a>; <a href="references.html#ref-Lang2022HandbookLA" role="doc-biblioref">Lang et al., 2022</a>)</span>.</p>
+<p>Computational social science is an ally field that has advanced many of the methods we draw on <span class="citation" data-cites="Lazer2009CSS">(<a href="references.html#ref-Lazer2009CSS" role="doc-biblioref">Lazer et al., 2009</a>)</span>. But we focus specifically on educational research, where the data, questions, and stakes have distinctive features — among them, the prevalence of sensitive student data, the importance of equity and context in interpretation, and the goal of understanding, describing, predicting, and impacting learning and teaching.</p>
 </section>
 <section id="llms-in-computational-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="llms-in-computational-analysis">LLMs in computational analysis</h3>
@@ -573,14 +573,17 @@ Estrellado, R. A., Freer, E. A., Mostipak, J., Rosenberg, J. M., &amp; Velásque
 <div id="ref-Krumm2018LA" class="csl-entry" role="listitem">
 Krumm, A., Means, B., &amp; Bienkowski, M. (2018). <em>Learning analytics goes to school: A collaborative approach to improving education</em>. Routledge.
 </div>
-<div id="ref-Lang2017HandbookLA" class="csl-entry" role="listitem">
-Lang, C., Siemens, G., Wise, A., &amp; Gašević, D. (Eds.). (2017). <em>Handbook of learning analytics</em>. Society for Learning Analytics Research (<span>SoLAR</span>).
+<div id="ref-Lang2022HandbookLA" class="csl-entry" role="listitem">
+Lang, C., Siemens, G., Wise, A. F., Gašević, D., &amp; Merceron, A. (Eds.). (2022). <em>The handbook of learning analytics</em> (2nd ed.). Society for Learning Analytics Research (<span>SoLAR</span>). <a href="https://doi.org/10.18608/hla22">https://doi.org/10.18608/hla22</a>
 </div>
 <div id="ref-Lazer2009CSS" class="csl-entry" role="listitem">
 Lazer, D., Pentland, A., Adamic, L., Aral, S., Barabási, A.-L., Brewer, D., Christakis, N., Contractor, N., Fowler, J., Gutmann, M., Jebara, T., King, G., Macy, M., Roy, D., &amp; Van Alstyne, M. (2009). Computational social science. <em>Science</em>, <em>323</em>(5915), 721–723.
 </div>
 <div id="ref-Romero2010EDM" class="csl-entry" role="listitem">
 Romero, C., &amp; Ventura, S. (2010). Educational data mining: A review of the state of the art. <em><span>IEEE</span> Transactions on Systems, Man, and Cybernetics, Part <span>C</span></em>, <em>40</em>(6), 601–618.
+</div>
+<div id="ref-Romero2020EDM" class="csl-entry" role="listitem">
+Romero, C., &amp; Ventura, S. (2020). Educational data mining and learning analytics: An updated survey. <em><span>WIREs</span> Data Mining and Knowledge Discovery</em>, <em>10</em>(3), e1355. <a href="https://doi.org/10.1002/widm.1355">https://doi.org/10.1002/widm.1355</a>
 </div>
 <div id="ref-Salganik2019BitByBit" class="csl-entry" role="listitem">
 Salganik, M. J. (2019). <em>Bit by bit: Social research in the digital age</em>. Princeton University Press.

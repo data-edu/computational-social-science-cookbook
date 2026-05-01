@@ -1,267 +1,347 @@
 ---
-title: " Local LLMs for Images"
+title: "Positron Assistant and Databot"
 ---
 
 ```{r}
+#| eval: false
 #| include: false
 options(warn = -1)
 ```
 
 ## 8.1 Overview
 
-Images are an underused data source in educational research, yet they capture dimensions of learning environments — physical space, body language, classroom artifacts, and nonverbal interaction — that text and numeric data cannot [@Rose2016VisualMethodologies]. Treating images as data opens new research questions: How does body language shape classroom discourse? How do physiological signals correspond to engagement or affect during learning? Work by @DMello2017Engagement illustrates how multimodal signals, including visual data, can reveal aspects of the learning experience that single-mode studies miss.
+The use of AI tools to assist with research coding and analysis has grown rapidly in educational research. Early comparisons of hand-coding and computer-assisted methods showed meaningful trade-offs between the two approaches [@Nelson2021FutureCoding], and recent work has demonstrated that large language models can perform qualitative coding with sufficient reliability for many research tasks — though with important caveats about where they work well and where they do not [@Than2025UpdatingCoding; @Liu2025GPT4Coding]. This chapter introduces two tools that bring LLM assistance directly into the R and Positron workflow, making these capabilities accessible without requiring researchers to leave their analysis environment.
 
-This chapter introduces how educational researchers can capture and analyze images using local large language models in R — combining the richness of visual data with the privacy protections that sensitive educational contexts require.
+Positron Assistant functions as an in-IDE research coding assistant: it can support drafting, debugging, and code interpretation without requiring researchers to move between multiple tools. In this chapter, we focus on two tools in the same ecosystem: **Positron Assistant** and **Databot**.
 
-## 8.2 Images
+Positron Assistant is the primary pathway in this chapter for chat, inline support, and code suggestions. Databot is presented as an optional exploratory extension, since it is currently in research preview.
 
-Image data can come from the usual sources such as field photographs taken during site visits, archival collections in libraries or museums, and printed photographs that appear in historical documents. Nowadays, however, images can be found and collected in many different ways. For example, social media platforms like Instagram, Facebook, and TikTok are rich with user‑generated photos; online photo repositories such as Flickr, Unsplash, and Wikimedia Commons host millions of images that are freely accessible; news outlets regularly publish photographs to accompany stories; satellite imagery from NASA or ESA provides large‑scale visual data; and everyday smartphone cameras capture images that can be shared in research settings. Please note that although we cover some prominent ways, this is by no means an exhaustive list. Therefore, please refer to the additional resources section at the end of the section to dive deeper.
+The chapter is written for readers with different levels of R experience, with emphasis on practical workflows that can be validated and documented.
 
-## 8.3 Analyzing Images
+## 8.2 Positron Assistant in the Research Workflow
 
-With the advent of Large-Language Models (LLMs) we can use their power to analyze images. In this section, we will focus on using one package that uses local LLMs (i.e., privacy) to analyze image files: [{kuzco}](https://github.com/frankiethull/kuzco).
+Positron Assistant can use project and workflow context to provide more relevant support than generic chatbot responses.
 
-Kuzco is:
+### 8.2.1 What Can It Do?
 
-> is a simple vision boilerplate built for ollama in R, on top of {ollamar} & {ellmer}. {kuzco} is designed as a computer vision assistant, giving local models guidance on classifying images and return structured data. The goal is to standardize outputs for image classification and use LLMs as an alternative option to keras or torch. {kuzco} currently supports: classification, recognition, sentiment, text extraction, alt-text creation, and **custom** computer vision tasks.
+Core capabilities include:
 
-### 8.3.1. Setting Up Kuzco
+- **Code Suggestions**: Not just basic autocomplete, but context-aware snippets that can help you move from intent to working code more quickly.
 
-To use kuzco, you need to, first, install Ollama (a software that allows pulling and running local LLMs) and ollamar & ellmer packages.
+- **Code Explanation**: Select a code block and request an explanation in plain language.
 
-You can install Ollama by downloading and installing the application from its provider's website. Basically the steps are:
+- **Bug Detection Support**: When code fails, Positron Assistant can inspect errors and suggest fixes.
 
-1.  Download and install the [Ollama](https://ollama.com/) app.
+- **Code Generation**: Provide a plain-language request (for example, grouped summaries with missing-value handling) to draft R code.
 
--   [macOS](https://ollama.com/download/Ollama-darwin.zip)
+- **Refactoring**: Propose cleaner versions of working code and explain tradeoffs.
 
--   [Windows preview](https://ollama.com/download/OllamaSetup.exe)
+![Figure 8.1. Positron Assistant panel in the research coding workflow.](data/ch6_images/assistant-panel-overview.png)
 
--   Linux: `curl -fsSL https://ollama.com/install.sh | sh`
+### 8.2.2 Why Would an Educational Researcher Want This?
 
--   [Docker image](https://hub.docker.com/r/ollama/ollama)
+For educational researchers, the value is not replacement of expertise but support for routine analytical tasks:
 
-2.  Open/launch the Ollama app to start the local server.
+- **Saving time on repetitive tasks** — for example, drafting common data-transformation patterns.
 
-After installing Ollama, you will then need to install ollamar and ellmer:
+- **Learning new approaches** — suggestions often expose analysts to alternative R workflows.
+
+- **Reducing debugging overhead** — error interpretation and fix suggestions are available in context.
+
+- **Building confidence for newer R users** — iterative feedback can lower the barrier to experimentation.
+
+> **A gentle reminder:** Positron Assistant is a tool to work *with*, not a replacement for your expertise as a researcher. It is great at generating code, but you are the expert on your data and research questions. Always review what it generates—treat it as a first draft that needs your expert polish.
+
+## 8.3 Getting Started
+
+### 8.3.1 What You Will Need
+
+Before we dive in, make sure you have:
+
+- **Positron** installed (use a current release; Positron Assistant documentation currently tracks the 2025.07+ generation of features)
+- At least one configured **model provider** (for example, Anthropic, GitHub Copilot, OpenAI, Amazon Bedrock, or Snowflake Cortex)
+- **R** (version 4.0 or later) installed on your machine
+
+You should also know your institution's guidance on external AI tools before using non-public data.
+
+### 8.3.2 Setting Things Up
+
+Getting started is straightforward:
+
+1.  **Download and install Positron** from the website
+2.  **Enable Positron Assistant** by turning on `positron.assistant.enable` in Settings
+3.  **Reload Positron** (restart or run `Developer: Reload Window`)
+4.  **Configure a provider** with `Positron Assistant: Configure Language Model Providers`
+5.  **Open chat** (robot icon or `Chat: Open Chat`) and start asking questions
+
+![Figure 8.2. Positron setting to enable Assistant in the IDE.](data/ch6_images/assistant-enable-setting.png)
+
+### 8.3.3 Making It Feel Right for You
+
+Positron Assistant can adapt to your style. In settings, you can adjust:
+
+- How detailed responses should be (brief vs. thorough)
+- Whether it prefers tidyverse-style code or base R
+- Whether generated code should include comments
+
+Tune these settings based on your workflow and project requirements.
+
+![Figure 8.3. Assistant preference options for response style and coding defaults.](data/ch6_images/assistant-preferences.png)
+
+### 8.3.4 Choosing a Provider for Research Work
+
+If you are working in educational research settings, choose providers with your workflow constraints in mind:
+
+- **Compliance first**: If your institution restricts providers, follow that policy before convenience.
+- **Cost awareness**: API-key providers are often usage-based; budget and monitor token usage.
+- **Reproducibility**: Record provider + model name in your methods notes.
+- **Stability**: Keep one default model for a project to reduce output variability.
+
+For most readers, a good starting strategy is simple: pick one approved provider, use one primary model for the project, and document those decisions.
+
+### 8.3.5 Optional: Local Agent Setup with Continue + LM Studio
+
+If your project requires local execution, you can run an assistant workflow entirely on your own machine by combining Continue in Positron with a local model served from LM Studio. This path is especially useful when your workflow requires tighter data control.
+
+Below is a practical setup order that matches a real configuration process.
+
+1.  **Start in Positron and define local-model JSON settings first.**
+
+    This ensures your assistant config already points to a local endpoint before you start testing.
+
+    ![Figure 8.4. Positron JSON settings for local LM Studio endpoint configuration.](data/ch6_images/Positron_LMstudio_JSON%20settings.png)
+
+2.  **Set up LM Studio and confirm the local server is running.**
+
+    Open LM Studio, load your target model, and verify the local API/server endpoint is active.
+
+    ![Figure 8.5. LM Studio local server setup for Positron integration.](data/ch6_images/LMstudio—Positron%20set%20up.png)
+
+3.  **Configure Continue in Positron to use the LM Studio endpoint.**
+
+    Confirm provider/model mapping in Continue settings and ensure the selected model is the same one currently loaded in LM Studio.
+
+    ![Figure 8.6. Continue extension settings mapped to the LM Studio local model.](data/ch6_images/Continue_LMstudio%20Settings.png)
+
+    If your Continue workflow is YAML-based, configure the same endpoint and model there as well:
+
+    ![Figure 8.7. Continue YAML configuration for local model endpoint and provider mapping.](data/ch6_images/Continue—yml.png)
+
+4.  **Run a quick in-IDE verification prompt.**
+
+    Use a small, low-risk task first (for example, "Explain this dplyr pipeline" or "Draft a data cleaning function") to verify response quality and latency.
+
+    ![Figure 8.8. In-IDE verification prompt using Positron Assistant with LM Studio.](data/ch6_images/Positron%20Assitant—LMstudio%20UI.png)
+
+5.  **Run one concrete case example before using the workflow in research analysis.**
+
+    This final check confirms that local agent behavior is stable enough for your chapter-level tasks.
+
+    ![Figure 8.9. Case example response from Positron Assistant using a local model.](data/ch6_images/Positron%20Assitant——LMstudio%20case%20example.png)
+
+In short, configure Positron first, confirm LM Studio second, wire Continue third, and only then move to examples. This sequence avoids most connection and model-mismatch errors.
+
+## 8.4 Using Positron Assistant
+
+After setup, the following examples illustrate common usage patterns.
+
+### 8.4.1 Getting Code Explained
+
+Code explanation is useful when adapting snippets from tutorials, collaborators, or prior projects.
+
+1.  Highlight the confusing code
+2.  Ask Positron Assistant for a step-by-step explanation
+3.  Review the plain-language interpretation
+
+This feature is especially useful for onboarding new team members and documenting analysis logic.
+
+![Figure 8.10. Assistant-generated plain-language explanation of selected code.](data/ch6_images/assistant-code-explanation.png)
+
+### 8.4.2 When Things Break
+
+A common debugging scenario is shown below:
 
 ```{r}
 #| eval: false
-install.packages("ollamar")
-install.packages("ellmer")
+#| error: true
+# You run this, and R throws an error
+mean(student_data$score)
 ```
 
-Once these are installed, install kuzco:
+Instead of manually searching external forums first, pass the error to Positron Assistant for an initial diagnosis. A typical response might be:
 
-```{r}
-#| eval: false
-devtools::install_github("frankiethull/kuzco")
+> "I see the issue! You are trying to calculate a mean, but there are missing values in your data. Add `na.rm = TRUE` to ignore them, or decide whether those NAs should be handled differently. Want me to show you both options?"
+
+This response can be used as a starting point for verification.
+
+![Figure 8.11. Assistant debugging suggestion for a code error in context.](data/ch6_images/assistant-debug-suggestion.png)
+
+## 8.5 Meet Databot (Experimental): Your EDA Accelerator
+
+If Positron Assistant is your coding colleague, Databot is your exploratory analysis accelerator. It is designed for rapid, iterative data exploration and can generate and run short analysis steps.
+
+Databot is currently experimental (research preview), so treat it as an acceleration layer for exploration, not as an unreviewed source of final results.
+
+### 8.5.1 What Can Databot Handle?
+
+Example tasks include:
+
+- **Generating import templates** — instead of writing "read.csv()" from scratch every time you get a new dataset, let Databot create a reusable function
+- **Building data cleaning pipelines** — those steps you do every single time (convert text to lowercase, strip whitespace, handle missing values) can be automated
+- **Creating report templates** — if you generate similar reports quarterly, Databot can build the skeleton for you
+- **Setting up quality checks** — automated tests that catch data problems before they become headaches
+
+### 8.5.2 Example: Never Write Import Code Again
+
+Databot can generate reusable import templates for recurring file structures:
+
+![Figure 8.12. Databot-generated reusable import template for recurring datasets.](data/ch6_images/databot-import-template.png)
+
+``` r
+# This template was created once, now you use it forever!
+library(readr)
+library(here)
+
+import_data <- function(file_path) {
+  read_csv(
+    file = here("data", file_path),
+    col_types = cols(
+      id = col_character(),
+      score = col_double(),
+      grade = col_factor(),
+      .default = col_character()
+    ),
+    na = c("", "NA", "N/A", "null")
+  ) |>
+  mutate(across(where(is.character), str_squish))
+}
+
+# Now importing is one line:
+# student_data <- import_data("student_scores.csv")
 ```
 
-## 8.3.2 Image Classification
+The resulting function can reduce repeated setup work across similar datasets.
 
-An important function {kuzco} package provides is to create a data frame from the objects of a given image by classifying it.
+### 8.5.3 Example: Automatic Quality Checks
 
-### Case Study: Analyzing Classroom Photographs with Kuzco to Explore Student Engagement
+For incoming survey datasets, Databot can draft validation checks before substantive analysis begins:
 
-#### 8.3.2.1 Purpose
+![Figure 8.13. Databot-generated data validation checks for incoming survey files.](data/ch6_images/databot-validation-checks.png)
 
-In a study on student engagement during collaborative science instruction, a researcher used a series of classroom photographs to better understand how students participated in different types of learning activities. Rather than relying solely on manual observation and field notes, the researcher applied the `{kuzco}` R package to process and interpret visual data. Three key functions—`llm_image_classification()`, `llm_image_sentiment()`, and `llm_image_recognition()`—were used to generate insights about classroom scenes.
-
-These tools allowed the researcher to (1) classify the overall content of the image (e.g., lab work, discussion, presentation), (2) recognize and count key objects or people in the frame (e.g., students, materials, whiteboards), and (3) estimate the emotional tone of the scene based on posture and facial cues. This approach enabled a more systematic and scalable analysis of classroom engagement, providing structured outputs that could be interpreted alongside observational data and interview responses.
-
-### 8.3.2.2 Research Questions
-
-To investigate the nature of a classroom discourse, in this study, our research questions are:
-
--   **RQ1:** How do classroom activities, as categorized through image classification, vary across different phases of science instruction?
--   **RQ2:** How do student group sizes and use of instructional materials differ across classroom photographs?
--   **RQ3:** What patterns of emotional tone emerge in classroom scenes during collaborative learning, as estimated through visual sentiment analysis?
-
-### 8.3.2.3 Methods
-
-This study used visual data from middle school science classrooms to explore patterns of student interaction, task engagement, and classroom atmosphere across different instructional moments. The analysis was supported by large language model (LLM)-based image processing tools from the `{kuzco}` R package, allowing for efficient classification, recognition, and sentiment estimation without advanced machine learning expertise.
-
-### 8.3.2.4 Data Source
-
-The dataset consisted of 48 photographs taken during four 7th-grade science lessons, each lasting approximately 60 minutes. Photos were captured every 5–7 minutes by a stationary camera positioned at the back of the room to minimize disruption. All images were de-identified prior to analysis to protect student privacy. Each photo represented a naturally occurring moment of group-based learning and was accompanied by a brief instructional context log maintained by the classroom observer.
-
-### 8.3.2.5 Data Analysis
-
-Images were processed using the following `{kuzco}` functions:
-
--   **`llm_image_classification()`**: Generated scene-level labels and narrative summaries (e.g., "students engaged in group discussion around lab materials").
-
--   **`llm_image_recognition()`**: Identified and counted key visual entities such as students, desks, instructional materials, and gestures
-
--   **`llm_image_sentiment()`**: Estimated the emotional tone of each scene (e.g., positive, neutral, frustrated), with particular attention to student posture and interaction dynamics.
-
-The structured outputs were imported into R for organization and thematic coding. Using both deductive categories (e.g., group size, task type) and inductive patterns (e.g., collaborative vs. passive positioning), the researcher examined how engagement varied across activities. Triangulation with field notes enhanced interpretive validity, and descriptive summaries were generated to visualize classroom dynamics over time.
-
-*For the purpose of simplicity, we will only analyze nine photos from a [folder](https://github.com/data-edu/computational-social-science-cookbook/tree/main/data/s5_images). The process for batch analysis can be increased to more photos.*
-
-![Figure 8.1. Classroom photo example for local LLM image analysis workflow.](data/s5_images/primary-school-teacher-working-with-students-in-classroom-838559688.jpg){width="575"}
-
-![Figure 8.2. Second classroom photo example for comparative image interpretation.](data/s5_images/35320686-2551789306.jpg){width="576"}
-
-With the code below, we create a function to batch analyze images. First, since we aim to analyze images (i.e., batch) inside a folder, we define the folder and search and identify image files.
-
-```{r}
-#| eval: false
-library(kuzco)
-library(ollamar)
-library(tibble)
-library(purrr)
-library(dplyr)
-library(fs)
-
-# Set your image folder path
-image_folder <- "data/s5_images"
-
-# List images (adjust pattern as needed)
-image_files <- dir_ls(image_folder, regexp = "\\.(jpg|jpeg|png)$", recurse = FALSE)
-```
-
-Next, to analyze these images in batch, we create a function. The first part of the function defines our model and backend. As of writing this book, `qwen2.5vl:7b` model worked most efficiently and reliably. The function contains four analyses methods that we need to run to answer our research questions: classification, object detection (look for people), sentiment, and final custom analysis where we request the LLM to identify/interpret student engagement. The function lets us capture the LLM analysis as a tibble.
-
-```{r}
-#| eval: false
-# Function to classify and detect in one step
-process_image <- function(img_path) {
-  # Classification
-  classification <- llm_image_classification(
-    llm_model = "qwen2.5vl:7b",
-    image = img_path,
-    backend = 'ellmer'
+``` r
+# Auto-generated validation checks - run these on every new dataset
+validate_student_data <- function(df) {
+  checks <- list(
+    check_columns_exist = function(d) {
+      required <- c("id", "score", "grade")
+      missing <- setdiff(required, names(d))
+      if (length(missing) > 0) stop("Missing columns: ", paste(missing, collapse = ", "))
+      TRUE
+    },
+    check_no_missing_id = function(d) {
+      if (any(is.na(d$id))) stop("Missing IDs found")
+      TRUE
+    },
+    check_score_range = function(d) {
+      if (any(d$score < 0 | d$score > 100, na.rm = TRUE)) {
+        stop("Scores out of valid range (0-100)")
+      }
+      TRUE
+    }
   )
   
-  # Object detection (e.g., people)
-  detection <- llm_image_recognition(
-    llm_model = "qwen2.5vl:7b",
-    image = img_path,
-    recognize_object = "people",
-    backend = 'ellmer'
-  )
-  
-  # Sentiment/emotion
-  sentiment <- llm_image_sentiment(
-    llm_model = "qwen2.5vl:7b",
-    image = img_path
-  )
-  
-  #the new custom fuction for sentiment
-  customized <- llm_image_custom(
-    llm_model = "qwen2.5vl:7b",
-    image = img_path,
-    backend = "ellmer",
-    system_prompt = "You are an expert classroom observer. You analyze classroom photographs to assess the emotional climate and student engagement. Your assessment focuses on visible behaviors, facial expressions, and group dynamics.",
-    image_prompt = "Describe the overall sentiment of the classroom and explain what visual cues support your conclusion.",
-    example_df = data.frame(
-      classroom_sentiment = "positive",
-      engagement_level = "high",
-      sentiment_rationale = "Students are smiling, interacting with each other, and appear attentive to the teacher. Desks are arranged for group work."
-    )
-  )
-  
-  # Return combined tibble
-  tibble::tibble(
-  file = img_path,
-  image_classification = classification$image_classification,
-  primary_object = classification$primary_object,
-  secondary_object = classification$secondary_object,
-  image_description = classification$image_description,
-  image_colors = classification$image_colors,
-  image_proba_names = paste(unlist(classification$image_proba_names), collapse = ", "),
-  image_proba_values = paste(unlist(classification$image_proba_values), collapse = ", "),
-  object_recognized = detection$object_recognized,
-  object_count = detection$object_count,
-  object_description = detection$object_description,
-  object_location = detection$object_location,
-  classroom_sentiment = customized$classroom_sentiment,
-  engagement_level = customized$engagement_level,
-  sentiment_rationale = customized$sentiment_rationale
-)
-
+  for (check in checks) {
+    check(df)
+  }
+  message("All validation checks passed!")
+  TRUE
 }
 ```
 
-Now, we run the analyses:
+This creates a repeatable validation layer that can be applied whenever new data arrive.
 
-```{r}
-#| eval: false
+## 8.6 Using These Tools in Research Practice
 
-# Apply to all images and combine into one data frame
-results_df <- map_dfr(image_files, process_image)
+### 8.6.1 A Concrete Example
 
-# View result
-print(results_df)
+To keep this chapter reproducible, use the demo files from `data/ch6_demo/`: `student_scores.csv` and `teacher_survey.csv`.
 
+In this example workflow, you can:
 
-# Arrange columns in logical order and rename for clarity
-results_clean <- results_df |>
-  select(
-    image_classification,
-    image_description,
-    primary_object,
-    secondary_object,
-    object_recognized,
-    object_count,
-    object_description,
-    image_proba_names,
-    image_proba_values,
-    classroom_sentiment,
-    engagement_level,
-    sentiment_rationale,
-  )
+- ask Databot to draft an import function for `student_scores.csv` (Section 6.5.2),
+- ask Databot to generate validation checks for `teacher_survey.csv` (Section 6.5.3),
+- use Positron Assistant to refine or explain the generated code,
+- run the cleaned analysis pipeline and produce a quick plot for reporting.
 
-# Save to CSV (optional)
-write.csv(results_clean, "outputs/image_classification_detection_results.csv", row.names = FALSE)
+The screenshot below should show this end-to-end flow in one workspace view: editor code, Databot/Assistant output, Console results, and a plot. The goal is not to present final publication results, but to document a realistic AI-assisted analysis process from import to quality checks to exploratory output.
 
-# View top images with the most people (if desired)
-results_clean |> 
-  arrange(desc(object_count)) %>% head(5)
-```
+![Figure 8.14. End-to-end AI-assisted workflow from import to validation and exploratory output.](data/ch6_images/complete-workflow-positron.png)
 
-### 8.3.2.6 Results and Discussion:
+### 8.6.2 What This Means for Your Research
 
-The analysis of classroom photographs using the `{kuzco}` package yielded structured insights across three domains: instructional context (classification), observable features (recognition), and affective tone (sentiment). Below, we summarize preliminary findings from two sample images. Full results can be seen [here](https://github.com/data-edu/computational-social-science-cookbook/blob/main/outputs/image_classification_detection_results.csv).
+The key value is not only speed, but allocation of researcher attention. When routine coding demands are reduced, more effort can be directed toward:
 
-#### RQ1: Variation in Classroom Activities Across Instructional Moments
+- Understanding your data deeply
+- Choosing the right analytical approaches
+- Thinking critically about what your findings mean
+- Communicating results effectively to your audience
 
-Classroom activity types were inferred using the `image_classification` and `image_description` columns generated by `llm_image_classification()`.
+## 8.7 Working Responsibly with AI Helpers
 
-Four images reflected teacher-led instruction (Images 1, 2, 3, and 7). Although `image_classification` labeled these scenes generically as *classroom*, the `image_description` column emphasized teacher-directed discourse, including phrases such as “a teacher is giving a lesson at the front of the room” (Image 1), “a classroom setting where a person is speaking to students” (Image 3), and “students seated in rows facing the front” (Image 7). These images showed whole-group instructional formats dominated by teacher explanation.
+These tools are useful, but they do not replace researcher judgment. Responsible use requires explicit verification and documentation.
 
-Three images reflected collaborative or interactive activity (Images 0, 6, and 8). The `image_description` column explicitly referenced peer interaction behaviors, including “a group of students … sitting together… reading a book” (Image 0), “students raising their hands” (Image 6), and “students actively participating and showing enthusiasm” (Image 8). These entries also aligned with `primary_object` values centered on “students” rather than instructional tools or teacher presence.
+### 8.7.1 Always Review What You Get
 
-Two images depicted individual or independent work (Images 4 and 5). Evidence from `image_description` highlighted individual task engagement without peer or teacher interaction, such as “students are seated and reading from papers” (Image 4) and “students appear focused and are engaged in individual work” (Image 5).
+Treat AI-generated code like a first draft from a well-meaning but imperfect colleague. It might be mostly right, but it is probably not perfect. Before you use any code it generates in actual research:
 
-These findings indicate variability in instructional format across images, with teacher-led instruction most frequent (44%), followed by collaborative interaction (33%) and independent work (22%).
+- **Test it on a small sample** first—run the code on a subset of your data to make sure it does what you expect
+- **Verify the results** against something you know to be true, or compare with a manual calculation
+- **Add your own comments** explaining what the code is doing, especially if the logic is complex
 
-#### RQ2: Group Size and Use of Instructional Materials
+### 8.7.2 Be Transparent
 
-Group size and material use were analyzed using `object_count`, `primary_object`, `secondary_object`, and `object_list` columns generated by `llm_image_recognition()`.
+If AI tools are used in a research workflow, report that usage transparently in the methods section. For example:
 
-The `object_count` column suggested observable group sizes ranging from 6 to 18 participants per image, with a median of 11. Teacher-led instruction was associated with larger visible groups (e.g., Images 1 and 3 showed 14–18 detected persons), while collaborative scenes tended to show smaller learning clusters (e.g., Images 0 and 8 with 6–8 persons), consistent with small-group activity structures.
+> "We used the Positron AI Assistant to help generate initial data processing code, which was then reviewed and validated by the authors."
 
-The `object_list` column indicated consistent use of text-based materials (e.g., “books,” “papers,” “notebooks”) across seven images (Images 0, 2, 4, 5, 6, 7, 8). Instructional displays such as “chalkboard,” “whiteboard,” or “projector screen” appeared in five images (Images 1, 2, 3, 6, 7), primarily during teacher-directed instruction. Only one image (Image 5) contained references to technology, where `object_list` included “computers” and `image_description` mentioned “students working at laptops.”
+This makes the analytic process easier for readers to evaluate and replicate.
 
-#### RQ3: Emotional Tone and Engagement Across Classroom Scenes
+### 8.7.3 Keep Things Reproducible
 
-Emotional tone and behavioral participation were interpreted using the `classroom_sentiment`, `engagement_level`, and `sentiment_rationale` columns generated by `llm_image_sentiment()`.
+A few tips to make sure your work still holds up:
 
-Sentiment was most often coded as neutral (`classroom_sentiment` = “neutral”; 4 images: 1, 2, 4, 5), followed by positive (3 images: 0, 3, 8) and moderately positive (2 images: 6, 7). However, student engagement varied independently of sentiment labels. The `engagement_level` column revealed a more nuanced pattern:
+- **Note what version** of the AI tools you used
+- **Keep your human-written code** as the authoritative version—do not rely solely on what the AI generated
+- **Use version control** (like Git) to track changes, so you can always see the history of your work
 
--   High engagement (`engagement_level` = “high”) was observed in Images 0, 3, and 8, all of which also had positive sentiment. The `sentiment_rationale` referenced overt behavioral participation such as “students… interacting” (Image 0) and “raising hands” (Image 3).
--   Moderate engagement (`engagement_level` = “moderate”) appeared in four images (Images 4, 5, 6, 7), even when sentiment was neutral or moderately positive. Rationales included “students appear focused on their work” (Image 5) and “students raising their hands… paying attention” (Image 6).
--   Low engagement (`engagement_level` = “low”) occurred in two images (Images 1 and 2), both of which were whole-class lecture scenes with passive student posture. Rationales noted “students appear disengaged; many do not make eye contact with the teacher.”
+### 8.7.4 Protect Data and Document AI Use
 
-Together, these findings suggest that engagement was more sensitive to instructional structure than sentiment alone. Collaborative scenes showed the highest engagement, teacher-led instruction showed mixed engagement, and independent work produced moderate engagement with limited visible affect.
+For AI-assisted workflows, keep a short project log with:
 
-#### Discussion
+- Positron version
+- provider name (for example, Anthropic or GitHub Copilot)
+- model name
+- date/time of major AI-assisted runs
+- what was AI-generated vs. researcher-edited
 
-Across the nine images, instructional format (RQ1) and classroom structure (RQ2) appeared to shape student participation patterns (RQ3). Collaborative activity was consistently associated with smaller group sizes and higher behavioral engagement. Teacher-led instruction involved larger groups and produced more passive engagement patterns. Independent work reflected focused but emotionally neutral learning states. Sentiment alone provided limited insight; however, the combination of **`engagement_level`** and **observed activity type** offered a more reliable indicator of classroom interaction quality.
+Also remember the privacy boundary: Positron routes requests to your selected provider. Posit documents that it does not store your prompts and AI conversations, but your chosen provider may have its own data retention policy. Review provider terms before using sensitive data.
 
-## 8.4 Summary
+## 8.8 Summary
 
-This chapter introduced image analysis as a method for educational research, using the `{kuzco}` package to classify, recognize, and assess sentiment in classroom photographs through a local large language model. The case study demonstrated that LLM-based image processing can generate structured, interpretable data from visual sources — capturing dimensions of learning environments that text and numeric data alone cannot. As with the text-based workflows in Chapter 7, the local execution model ensures that sensitive visual data remain on the researcher's own device.
+This chapter highlights a practical integration pattern:
+
+Positron Assistant and Databot can support repetitive coding tasks, contextual learning, and exploratory analysis. They do not replace domain expertise or methodological oversight.
+
+Used well, they amplify core researcher strengths: question design, contextual interpretation, and critical evaluation of evidence.
+
+### Key Points to Remember
+
+- Positron Assistant offers real-time code help, explanations, and debugging support
+- Databot can accelerate exploratory analysis and repetitive scaffolding, but requires careful review
+- Always review and validate AI-generated code—it is a starting point, not the final answer
+- Being transparent about AI use builds trust with your readers
+- These tools free you up to focus on what matters: your research
+
+### What is Next?
+
+The next chapter extends this discussion to **local LLM workflows for text analysis**, with emphasis on privacy-preserving qualitative methods.

@@ -13,26 +13,26 @@ book:
 
     - part: section-1-Intro.qmd
       chapters:
-        - chapter-1-1.qmd
-        - chapter-1-2.qmd
-        - chapter-1-3.qmd
+        - chapter-1.qmd
+        - chapter-2.qmd
+        - chapter-3.qmd
 
     - part: section-2-Intro.qmd
       chapters:
-        - chapter-2.qmd
-        - chapter-3.qmd
         - chapter-4.qmd
+        - chapter-5.qmd
+        - chapter-6.qmd
 
     - part: section-3-Intro.qmd
       chapters:
-        - chapter-5.qmd
-        - chapter-6.qmd
         - chapter-7.qmd
         - chapter-8.qmd
+        - chapter-9.qmd
+        - chapter-10.qmd
 
     - part: section-4-Intro.qmd
       chapters:
-        - chapter-9.qmd
+        - chapter-11.qmd
         - conclusion.qmd
 
     - colophon.qmd
