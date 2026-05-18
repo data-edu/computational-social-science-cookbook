@@ -20,13 +20,12 @@ Peer-reviewed journal articles remain the dominant mode of scholarly communicati
 
 Examples of education journals that publish computational and data-intensive work include:
 
--   *Educational Researcher*: <https://journals.sagepub.com/home/edr>
--   *Journal of Learning Analytics*: <https://learning-analytics.info/>
+- *Educational Researcher*: <https://journals.sagepub.com/home/edr>
+- *Journal of Learning Analytics*: <https://learning-analytics.info/>
 
 While journal articles are essential for academic recognition, they often impose constraints on length, visualizations, and methodological detail. As a result, many computational decisions—such as preprocessing steps or parameter choices—may be summarized rather than fully documented.
 
-![Figure 11.1. Traditional journal publication interface for educational research.](<data/ch9_images/Educational Researcher.png>)
-
+![Figure 11.1. Traditional journal publication interface for educational research.](data/ch9_images/Educational%20Researcher.png)
 
 ### 11.2.2 Preprints and Open Science Repositories
 
@@ -34,16 +33,15 @@ Preprint servers allow researchers to share manuscripts publicly before or durin
 
 Common platforms include:
 
--   **arXiv**: <https://arxiv.org/>
--   **PsyArXiv**: <https://psyarxiv.com/>
--   **Open Science Framework (OSF)**: <https://osf.io/>
+- **arXiv**: <https://arxiv.org/>
+- **PsyArXiv**: <https://psyarxiv.com/>
+- **Open Science Framework (OSF)**: <https://osf.io/>
 
 Preprints are particularly useful for computational research, where methods evolve quickly and early visibility can support collaboration. Researchers should always confirm that their target journals permit preprint posting.
 
-![Figure 11.2. arXiv preprint platform interface for rapid dissemination.](<data/ch9_images/arxiv.png>)
+![Figure 11.2. arXiv preprint platform interface for rapid dissemination.](data/ch9_images/arxiv.png)
 
-![Figure 11.3. Open Science Framework interface for open project sharing.](<data/ch9_images/osf.png>)
-
+![Figure 11.3. Open Science Framework interface for open project sharing.](data/ch9_images/osf.png)
 
 ### 11.2.3 Project Websites and Living Documents
 
@@ -57,22 +55,19 @@ As a concrete example, the workflow below uses the `data-edu/tidyLPA` project [@
 
 A common workflow involves:
 
--   Hosting source files and code on **GitHub** (<https://github.com/>)
+- Hosting source files and code on **GitHub** (<https://github.com/>)
 
-    ![Figure 11.4. GitHub repository view for source code and project files.](<data/ch9_images/github repo codes.png>)
+  ![Figure 11.4. GitHub repository view for source code and project files.](data/ch9_images/github%20repo%20codes.png)
 
+- Publishing a static website using **GitHub Pages** (<https://pages.github.com/>)
 
--   Publishing a static website using **GitHub Pages** (<https://pages.github.com/>)
+  ![Figure 11.5. GitHub Pages site view for public project communication.](data/ch9_images/github%20page.png)
 
-    ![Figure 11.5. GitHub Pages site view for public project communication.](<data/ch9_images/github page.png>)
-
-
--   Authoring documents with **Quarto** (<https://quarto.org/>)
+- Authoring documents with **Quarto** (<https://quarto.org/>)
 
 This approach supports transparency, reproducibility, and incremental updates. Project websites are especially well suited for method demonstrations, teaching examples, and analyses involving multiple visualizations.
 
-![Figure 11.6. Quarto-rendered web page example for research communication.](<data/ch9_images/quarto .png>)
-
+![Figure 11.6. Quarto-rendered web page example for research communication.](data/ch9_images/quarto%20.png)
 
 ### 11.2.4 Open Data and Code Archives
 
@@ -80,12 +75,11 @@ Dedicated repositories allow researchers to share datasets, analysis scripts, an
 
 Popular platform such as:
 
--   **Zenodo**: <https://zenodo.org/>
+- **Zenodo**: <https://zenodo.org/>
 
 These services issue persistent identifiers (DOIs), enabling datasets and code to be cited independently of articles. A common practice is to host active development on GitHub while archiving stable releases on Zenodo.
 
-![Figure 11.7. Zenodo archive interface with DOI-based research outputs.](<data/ch9_images/zenodo.png>)
-
+![Figure 11.7. Zenodo archive interface with DOI-based research outputs.](data/ch9_images/zenodo.png)
 
 ## 11.3 Choosing an Appropriate Communication Strategy
 
@@ -93,10 +87,10 @@ No single communication method is optimal for all projects. Researchers should c
 
 For example:
 
--   Journal articles are essential for scholarly recognition.
--   Preprints support rapid and open dissemination.
--   Project websites allow rich, transparent presentation of computational workflows.
--   Data repositories ensure long-term access and citability.
+- Journal articles are essential for scholarly recognition.
+- Preprints support rapid and open dissemination.
+- Project websites allow rich, transparent presentation of computational workflows.
+- Data repositories ensure long-term access and citability.
 
 In practice, many projects use **multiple complementary channels**, such as a journal article accompanied by a public website and an archived dataset.
 
@@ -112,10 +106,10 @@ Traditional journal articles often summarize computational workflows due to spac
 
 For the GenAI policy analysis, a communication-oriented artifact should allow readers to:
 
--   understand the research context and questions,
--   inspect analytical decisions at a high level,
--   view results alongside interpretation,
--   and access code and data when appropriate.
+- understand the research context and questions,
+- inspect analytical decisions at a high level,
+- view results alongside interpretation,
+- and access code and data when appropriate.
 
 Quarto (<https://quarto.org/>) provides a flexible framework for producing such artifacts, enabling researchers to write plain-text documents that render into polished websites.
 
@@ -123,10 +117,10 @@ Quarto (<https://quarto.org/>) provides a flexible framework for producing such 
 
 In this example, the analysis is communicated as a Quarto-based project website hosted via GitHub Pages (<https://pages.github.com/>). The website includes:
 
--   a landing page describing the research context,
--   a dedicated analysis page summarizing methods and findings,
--   embedded figures generated from R,
--   and links to data and code repositories.
+- a landing page describing the research context,
+- a dedicated analysis page summarizing methods and findings,
+- embedded figures generated from R,
+- and links to data and code repositories.
 
 This format supports transparency and reproducibility while remaining accessible to readers without advanced programming backgrounds.
 
@@ -154,8 +148,6 @@ genai-policy-analysis/
 ```
 
 This organization separates communication documents from raw data and supports reuse and extension.
-
-------------------------------------------------------------------------
 
 ### 11.4.4 Website Configuration
 
@@ -199,7 +191,6 @@ Then, in the communication page, we show one simple bar chart with short interpr
 
 ![Figure 11.8. Simple frequency bar chart adapted from Chapter 2 policy analysis.](data/ch9_images/ch2-simple-frequency-example.png)
 
-
 ### 11.4.6 Presenting Results for Interpretation
 
 Instead of emphasizing technical implementation, the website focuses on interpretive clarity. For example, a bar chart displaying the most frequent terms highlights the prominence of words such as *assignment*, *student*, and *writing*, emphasizing institutional attention to coursework and academic expectations.
@@ -210,8 +201,8 @@ Narrative text accompanying the visualization explains how these patterns relate
 
 For the GenAI policy case in this chapter, publishing follows the same two-layer model introduced in Section 9.2.3:
 
--   a **source layer** (repository with Quarto files, scripts, and documentation), and
--   a **public layer** (rendered static site for readers).
+- a **source layer** (repository with Quarto files, scripts, and documentation), and
+- a **public layer** (rendered static site for readers).
 
 This separation supports both versioned development and stable public communication. The same pattern can be adapted to course projects, policy analyses, and larger collaborative studies.
 
@@ -219,10 +210,10 @@ This separation supports both versioned development and stable public communicat
 
 Communicating the GenAI policy analysis as a web-based artifact offers several advantages:
 
--   Readers can engage with results at their own pace.
--   Methods and assumptions are documented transparently.
--   The analysis can be updated as policies evolve.
--   The artifact supports both research dissemination and teaching.
+- Readers can engage with results at their own pace.
+- Methods and assumptions are documented transparently.
+- The analysis can be updated as policies evolve.
+- The artifact supports both research dissemination and teaching.
 
 Importantly, this approach complements rather than replaces traditional publications. A journal article may present the core findings, while a project website provides extended documentation and resources.
 
@@ -234,10 +225,10 @@ This case study illustrates how a frequency-based text analysis can be transform
 
 Communicating computational research through project websites offers several advantages:
 
--   **Transparency**: Readers can inspect code, data, and assumptions.
--   **Reproducibility**: Analyses can be rerun and extended.
--   **Flexibility**: Content can be updated as methods or data evolve.
--   **Pedagogical value**: Websites serve as learning resources for students and practitioners.
+- **Transparency**: Readers can inspect code, data, and assumptions.
+- **Reproducibility**: Analyses can be rerun and extended.
+- **Flexibility**: Content can be updated as methods or data evolve.
+- **Pedagogical value**: Websites serve as learning resources for students and practitioners.
 
 These benefits complement, rather than replace, traditional academic publications.
 
@@ -253,8 +244,8 @@ All executable workflows in this book are intended to be reproducible from repos
 
 To support transparency, we distinguish between two types of examples:
 
--   **Executable analysis workflows**: code and data that generate the chapter outputs.
--   **Illustrative templates**: non-executed demonstration snippets included for pedagogical purposes (for example, generic network or scraping patterns).
+- **Executable analysis workflows**: code and data that generate the chapter outputs.
+- **Illustrative templates**: non-executed demonstration snippets included for pedagogical purposes (for example, generic network or scraping patterns).
 
 Reproducibility in this book is supported through versioned source files (`.qmd`), explicit data paths, and documented model/tool configurations in chapters that use LLM-assisted methods.
 
@@ -264,11 +255,11 @@ This chapter emphasized that communication is a methodological choice, not merel
 
 A practical checklist for communicating computational research includes:
 
--   Research questions align with data and methods
--   Analytical decisions are documented transparently
--   Code and data are accessible when possible
--   Visualizations support interpretation rather than replace explanation
--   Ethical considerations are explicitly addressed
--   Communication formats match the intended audience
+- Research questions align with data and methods
+- Analytical decisions are documented transparently
+- Code and data are accessible when possible
+- Visualizations support interpretation rather than replace explanation
+- Ethical considerations are explicitly addressed
+- Communication formats match the intended audience
 
 Together, these practices support rigorous, responsible, and impactful computational educational research.

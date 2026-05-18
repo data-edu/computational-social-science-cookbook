@@ -50,7 +50,7 @@ To demonstrate, we will scrape a simple Wikipedia page. Static pages, which lack
 ```{r}
 #| eval: false
 # Load the webpage
-wikipedia_page <- read_html("https://en.wikipedia.org/wiki/World_Health_Organization_ranking_of_health_systems_in_2000")
+wikipedia_page <- read_html("https://en.wikipedia.org")
 
 # Verify that the webpage loaded successfully
 wikipedia_page
@@ -628,9 +628,9 @@ density_plot <- ggplot(sentiment_scores, aes(x = sentiment_score, fill = sentime
   ) +
   theme_minimal() +
   theme(
-    plot.title = element_text(face = "bold", size = 20),
+    plot.title = element_text(face = "bold", size = 14),
     axis.text = element_text(size = 14),
-    axis.title = element_text(face = "bold", size = 16),
+    axis.title = element_text(face = "bold", size = 14),
     plot.caption = element_text(size = 12)
   )
 

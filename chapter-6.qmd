@@ -276,8 +276,12 @@ ipeds <- ipeds |>
     pct_admitted = drvadm2022_percent_admitted_total, # Admission percentage
     tuition_fees = drvic2022_tuition_and_fees_2021_22, # Tuition fees
     grad_rate = drvgr2022_graduation_rate_total_cohort, # Graduation rate
-    percent_fin_aid = sfa2122_percent_of_full_time_first_time_undergraduates_awarded_any_financial_aid, # Financial aid
-    avg_salary = drvhr2022_average_salary_equated_to_9_months_of_full_time_instructional_staff_all_ranks # Staff salary
+    # Financial aid
+    percent_fin_aid = 
+      sfa2122_percent_of_full_time_first_time_undergraduates_awarded_any_financial_aid, 
+    # Staff salary
+    avg_salary = 
+      drvhr2022_average_salary_equated_to_9_months_of_full_time_instructional_staff_all_ranks 
   ) |>
   filter(!is.na(grad_rate)) |> # Remove rows with missing graduation rates
   mutate(

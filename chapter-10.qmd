@@ -33,13 +33,13 @@ You can install Ollama by downloading and installing the application from its pr
 
 1.  Download and install the [Ollama](https://ollama.com/) app.
 
--   [macOS](https://ollama.com/download/Ollama-darwin.zip)
+- [macOS](https://ollama.com/download/Ollama-darwin.zip)
 
--   [Windows preview](https://ollama.com/download/OllamaSetup.exe)
+- [Windows preview](https://ollama.com/download/OllamaSetup.exe)
 
--   Linux: `curl -fsSL https://ollama.com/install.sh | sh`
+- Linux: `curl -fsSL https://ollama.com/install.sh | sh`
 
--   [Docker image](https://hub.docker.com/r/ollama/ollama)
+- [Docker image](https://hub.docker.com/r/ollama/ollama)
 
 2.  Open/launch the Ollama app to start the local server.
 
@@ -74,9 +74,9 @@ These tools allowed the researcher to (1) classify the overall content of the im
 
 To investigate the nature of a classroom discourse, in this study, our research questions are:
 
--   **RQ1:** How do classroom activities, as categorized through image classification, vary across different phases of science instruction?
--   **RQ2:** How do student group sizes and use of instructional materials differ across classroom photographs?
--   **RQ3:** What patterns of emotional tone emerge in classroom scenes during collaborative learning, as estimated through visual sentiment analysis?
+- **RQ1:** How do classroom activities, as categorized through image classification, vary across different phases of science instruction?
+- **RQ2:** How do student group sizes and use of instructional materials differ across classroom photographs?
+- **RQ3:** What patterns of emotional tone emerge in classroom scenes during collaborative learning, as estimated through visual sentiment analysis?
 
 ### 10.3.2.3 Methods
 
@@ -90,11 +90,11 @@ The dataset consisted of 48 photographs taken during four 7th-grade science less
 
 Images were processed using the following `{kuzco}` functions:
 
--   **`llm_image_classification()`**: Generated scene-level labels and narrative summaries (e.g., "students engaged in group discussion around lab materials").
+- **`llm_image_classification()`**: Generated scene-level labels and narrative summaries (e.g., "students engaged in group discussion around lab materials").
 
--   **`llm_image_recognition()`**: Identified and counted key visual entities such as students, desks, instructional materials, and gestures
+- **`llm_image_recognition()`**: Identified and counted key visual entities such as students, desks, instructional materials, and gestures
 
--   **`llm_image_sentiment()`**: Estimated the emotional tone of each scene (e.g., positive, neutral, frustrated), with particular attention to student posture and interaction dynamics.
+- **`llm_image_sentiment()`**: Estimated the emotional tone of each scene (e.g., positive, neutral, frustrated), with particular attention to student posture and interaction dynamics.
 
 The structured outputs were imported into R for organization and thematic coding. Using both deductive categories (e.g., group size, task type) and inductive patterns (e.g., collaborative vs. passive positioning), the researcher examined how engagement varied across activities. Triangulation with field notes enhanced interpretive validity, and descriptive summaries were generated to visualize classroom dynamics over time.
 
@@ -252,9 +252,9 @@ Emotional tone and behavioral participation were interpreted using the `classroo
 
 Sentiment was most often coded as neutral (`classroom_sentiment` = “neutral”; 4 images: 1, 2, 4, 5), followed by positive (3 images: 0, 3, 8) and moderately positive (2 images: 6, 7). However, student engagement varied independently of sentiment labels. The `engagement_level` column revealed a more nuanced pattern:
 
--   High engagement (`engagement_level` = “high”) was observed in Images 0, 3, and 8, all of which also had positive sentiment. The `sentiment_rationale` referenced overt behavioral participation such as “students… interacting” (Image 0) and “raising hands” (Image 3).
--   Moderate engagement (`engagement_level` = “moderate”) appeared in four images (Images 4, 5, 6, 7), even when sentiment was neutral or moderately positive. Rationales included “students appear focused on their work” (Image 5) and “students raising their hands… paying attention” (Image 6).
--   Low engagement (`engagement_level` = “low”) occurred in two images (Images 1 and 2), both of which were whole-class lecture scenes with passive student posture. Rationales noted “students appear disengaged; many do not make eye contact with the teacher.”
+- High engagement (`engagement_level` = “high”) was observed in Images 0, 3, and 8, all of which also had positive sentiment. The `sentiment_rationale` referenced overt behavioral participation such as “students… interacting” (Image 0) and “raising hands” (Image 3).
+- Moderate engagement (`engagement_level` = “moderate”) appeared in four images (Images 4, 5, 6, 7), even when sentiment was neutral or moderately positive. Rationales included “students appear focused on their work” (Image 5) and “students raising their hands… paying attention” (Image 6).
+- Low engagement (`engagement_level` = “low”) occurred in two images (Images 1 and 2), both of which were whole-class lecture scenes with passive student posture. Rationales noted “students appear disengaged; many do not make eye contact with the teacher.”
 
 Together, these findings suggest that engagement was more sensitive to instructional structure than sentiment alone. Collaborative scenes showed the highest engagement, teacher-led instruction showed mixed engagement, and independent work produced moderate engagement with limited visible affect.
 

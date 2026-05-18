@@ -441,7 +441,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./conclusion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Conclusion</span></a>
+  <a href="./chapter-12.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Conclusion</span></a>
   </div>
 </li>
       </ul>
@@ -843,15 +843,19 @@ div.csl-indent {
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">pct_admitted =</span> drvadm2022_percent_admitted_total, <span class="co"># Admission percentage</span></span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">tuition_fees =</span> drvic2022_tuition_and_fees_2021_22, <span class="co"># Tuition fees</span></span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">grad_rate =</span> drvgr2022_graduation_rate_total_cohort, <span class="co"># Graduation rate</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">percent_fin_aid =</span> sfa2122_percent_of_full_time_first_time_undergraduates_awarded_any_financial_aid, <span class="co"># Financial aid</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_salary =</span> drvhr2022_average_salary_equated_to_9_months_of_full_time_instructional_staff_all_ranks <span class="co"># Staff salary</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(grad_rate)) <span class="sc">|&gt;</span> <span class="co"># Remove rows with missing graduation rates</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create binary dependent variable for high graduation rates (median split or threshold)</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">good_grad_rate =</span> <span class="fu">if_else</span>(grad_rate <span class="sc">&gt;</span> <span class="dv">62</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">good_grad_rate =</span> <span class="fu">as.factor</span>(good_grad_rate) <span class="co"># Convert to factor for classification</span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Financial aid</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">percent_fin_aid =</span> </span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>      sfa2122_percent_of_full_time_first_time_undergraduates_awarded_any_financial_aid, </span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Staff salary</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_salary =</span> </span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>      drvhr2022_average_salary_equated_to_9_months_of_full_time_instructional_staff_all_ranks </span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(grad_rate)) <span class="sc">|&gt;</span> <span class="co"># Remove rows with missing graduation rates</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create binary dependent variable for high graduation rates (median split or threshold)</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">good_grad_rate =</span> <span class="fu">if_else</span>(grad_rate <span class="sc">&gt;</span> <span class="dv">62</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">good_grad_rate =</span> <span class="fu">as.factor</span>(good_grad_rate) <span class="co"># Convert to factor for classification</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="step-4-exploratory-data-analysis-eda" class="level4">

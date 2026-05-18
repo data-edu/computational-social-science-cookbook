@@ -33,7 +33,7 @@ book:
     - part: section-4-Intro.qmd
       chapters:
         - chapter-11.qmd
-        - conclusion.qmd
+        - chapter-12.qmd
 
     - colophon.qmd
     - references.qmd

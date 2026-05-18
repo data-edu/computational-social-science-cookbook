@@ -11,7 +11,7 @@ These chapters emphasize hands-on, transparent, and reproducible approaches usin
 ## The Analytical Scope of This Section
 
 | Chapter | Data Type | Analytical Focus | Example Research Question |
-|------------------|------------------|------------------|--------------------|
+|------------------|------------------|------------------|-------------------|
 | **Chapter 4** | Text Data (unstructured) | Natural language processing, tokenization, sentiment, topic modeling | “What themes emerge in student reflections or policy statements?” |
 | **Chapter 5** | Relational Data | Social network analysis: centrality, community detection, visualization | “How do students or instructors connect and collaborate in learning networks?” |
 | **Chapter 6** | Numeric / Big Data | Statistical modeling, regression, clustering, predictive analysis | “Which factors best predict academic outcomes or engagement?” |
