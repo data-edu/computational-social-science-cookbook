@@ -62,29 +62,33 @@ format:
 
 
   pdf:
-    documentclass: scrreprt          # Use the KOMA-Script report class (better typography)
+    documentclass: scrbook           # Book class supports recto chapter starts and front/main matter
+    classoption:
+      - openright                    # Start chapters on odd-numbered/right-hand pages
+      - twoside                      # Use facing-page layout for print production
     pdf-engine: xelatex              # Use XeLaTeX for Unicode and font flexibility
     number-sections: false           # Disable section numbering
     toc-depth: 2                     # Table of contents depth
+    papersize: custom
+    geometry:
+      - paperwidth=168mm             # Trim width plus 6mm crop area on each side
+      - paperheight=246mm            # Trim height plus 6mm crop area on each side
+      - layoutwidth=156mm            # CRC trim width
+      - layoutheight=234mm           # CRC trim height
+      - layouthoffset=6mm
+      - layoutvoffset=6mm
+      - inner=18mm
+      - outer=14mm
+      - top=18mm
+      - bottom=20mm
+      - showcrop                     # Draw crop marks at the trim box
     code-block:
       wrap: "auto"                   # Enable automatic line wrapping in code blocks
     code-block-bg: "#f9f9f9"         # Light gray background for code blocks
     code-block-border-left: "#cccccc" # Subtle left border for code blocks
 
     include-in-header:
-      text: |
-        % --- Improve code block formatting in PDF output ---
-        \usepackage{fvextra}        % Enhanced verbatim environments (fixes line wrapping issues)
-        \DefineVerbatimEnvironment{Highlighting}{Verbatim}{
-          breaklines=true,          % Automatically wrap long lines
-          breakanywhere=true,       % Allow breaks anywhere (not just at spaces)
-          showtabs=false,           % Do not show tab characters
-          showspaces=false,         % Do not mark spaces
-          obeytabs=true,            % Keep indentation consistent with R source
-          commandchars=\\\{\},      % Allow syntax highlighting commands
-          breaksymbolleft={},       % Disable line-break symbols on the left
-        }
-        \fvset{breaksymbol={}}      % Remove the “↩” (carriage return) symbol completely
+      - styles/pdf-preamble.tex
 
 editor: visual
 

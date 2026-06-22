@@ -1,0 +1,31 @@
+% PDF-only production settings for the CRC print route.
+
+% Improve code block formatting when fvextra is available. If the local
+% TeX installation lacks fvextra, keep Pandoc's default Highlighting setup.
+\IfFileExists{fvextra.sty}{%
+  \usepackage{fvextra}
+  \DefineVerbatimEnvironment{Highlighting}{Verbatim}{
+    breaklines=true,
+    breakanywhere=true,
+    showtabs=false,
+    showspaces=false,
+    obeytabs=true,
+    commandchars=\\\{\},
+    breaksymbolleft={},
+  }
+  \fvset{breaksymbol={}}
+}{}
+
+% Use Roman numerals for prelim pages, then switch to Arabic page numbers
+% when the first book part begins.
+\usepackage{etoolbox}
+\AtBeginDocument{\frontmatter}
+
+\newif\ifcssmainmatterstarted
+\pretocmd{\part}{%
+  \ifcssmainmatterstarted\else
+    \cleardoublepage
+    \mainmatter
+    \cssmainmatterstartedtrue
+  \fi
+}{}{}
