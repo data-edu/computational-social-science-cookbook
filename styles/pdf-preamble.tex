@@ -16,6 +16,13 @@
   \fvset{breaksymbol={}}
 }{}
 
+% Captions already include publisher-style figure numbers in the source
+% files, e.g. "Figure 4.1." and "Table 4.1."; do not add LaTeX's
+% automatic "Figure N:" or "Table N:" prefix.
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty,labelsep=none}
+\captionsetup[table]{labelformat=empty,labelsep=none}
+
 % Use Roman numerals for prelim pages, then switch to Arabic page numbers
 % when the first book part begins.
 \usepackage{etoolbox}

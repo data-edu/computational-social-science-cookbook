@@ -43,7 +43,7 @@ Conventionally, as educational researchers, we start the research process by gen
 
 In practice, the research process does not always proceed in the orderly, linear fashion suggested by the conventional model. Once you start seeing what can be data in the world, it shapes your ideas of what is "researchable." Here is a simple model that we propose showing the reciprocal nature of the research process, which is central to our aims in this book:
 
-![Figure 1. Research - data relationship (Generated using Gemini Pro based on an earlier drawing by the authors)](data/researchCycle.png)
+![Figure P.1. Research-data relationship (Generated using Gemini Pro based on an earlier drawing by the authors)](data/researchCycle.png)
 
 We are writing this book because in the past few years what we described above has started happening for us. We have published work on social media data, social network analysis, natural language processing, and machine learning that was only possible after we learned what kind of data already existed around us [@Estrellado2020DataScience]. We thought other educational researchers may benefit from a resource that not only tells them what is available as data but also guides them through concrete examples of going through this research journey along with us. We hope that along this journey you will develop your own research questions, and maybe even replicate some of the studies we imagined in this book.
 
