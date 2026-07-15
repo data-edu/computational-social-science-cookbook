@@ -1,6 +1,12 @@
 ---
 title: "Cloud vs Local LLMs"
+execute:
+  freeze: false
 ---
+
+```{=latex}
+\raggedbottom
+```
 
 ## 7.1 Overview
 
@@ -25,15 +31,24 @@ That makes cloud models especially useful for rapid prototyping, large-scale tex
 
 The landscape moves fast. As of 2025, these are among the most common cloud options used in educational data analysis:
 
+```{=latex}
+\begingroup
+\small
+```
+
 | Provider | Example Models | Access | R / HTTP Wrapper |
 |----------------|----------------|------------------------|-----------------|
 | **OpenAI** | GPT-4o / GPT-5 | API key via [platform.openai.com](https://platform.openai.com) | `{httr2}`, `{openai}`, `{ellmer}` |
 | **Anthropic** | Claude 3 Opus · Claude 4 | API key via [console.anthropic.com](https://console.anthropic.com) | `{httr2}`, `{anthropic}`, `{ellmer}` |
-| **Google** | Gemini 2.5 · Gemini Ultra (2025) | [AI Studio](https://aistudio.google.com) | `{googleGenerativeAI}`, `{ellmer}` |
+| **Google** | Gemini 2.5 · Gemini Ultra (2025) | [AI Studio](https://aistudio.google.com) | `\texttt{\{google\allowbreak GenerativeAI\}}`{=latex}[`{googleGenerativeAI}`]{.content-visible when-format="html"}, `{ellmer}` |
 | **Mistral AI** | Mixtral 8x22B · Mistral 7B v0.3 | [mistral.ai](https://mistral.ai) | HTTP via `{httr2}` |
 | **DeepSeek** | DeepSeek-V3.1 (MoE 128K ctx) | API via [deepseek.ai](https://deepseek.ai) | HTTP via `{httr2}` |
 
 : Table 7.1. Major cloud LLM providers and R access options.
+
+```{=latex}
+\endgroup
+```
 
 > Tip: always verify model names, context limits, and pricing before you run a study. Providers update frequently, and those updates can affect reproducibility.
 
@@ -45,16 +60,26 @@ Here is a minimal example using the OpenAI API with `{httr2}`. The same pattern 
 library(httr2)
 library(jsonlite)
 
-resp <- request("https://api.openai.com/v1/chat/completions") |>
+api_key <- Sys.getenv("OPENAI_API_KEY")
+base_url <- "https://api.openai.com"
+endpoint <- paste0(base_url, "/v1/chat/completions")
+
+resp <- request(endpoint) |>
   req_headers(
-    "Authorization" = paste("Bearer", Sys.getenv("OPENAI_API_KEY")),
+    "Authorization" = paste("Bearer", api_key),
     "Content-Type"  = "application/json"
   ) |>
   req_body_json(list(
     model = "gpt-4o-mini",
     messages = list(
-      list(role = "system", content = "You are an assistant helping with educational data analysis."),
-      list(role = "user",   content = "Summarize these student reflections in three themes.")
+      list(
+        role = "system",
+        content = "You analyze educational data."
+      ),
+      list(
+        role = "user",
+        content = "Find three themes."
+      )
     )
   )) |>
   req_perform()
@@ -102,13 +127,16 @@ responses <- c(
   "I struggled with data visualization."
 )
 
-prompt <- paste("Cluster these reflections into 3 short themes:\n-",
+prompt <- paste("Cluster into 3 short themes:\n-",
                 paste(responses, collapse = "\n- "))
 
 result <- llm_chat_complete(
   chat,
   messages = list(
-    list(role = "system", content = "You are an assistant helping analyze educational reflections."),
+    list(
+      role = "system",
+      content = "You analyze educational reflections."
+    ),
     list(role = "user",   content = prompt)
   )
 )
@@ -197,11 +225,14 @@ LM Studio provides an OpenAI-compatible API, so your R code can look very simila
 library(httr)
 library(jsonlite)
 
-prompt <- "Summarize the following open-ended survey responses: ..."
+prompt <- paste("Summarize open-ended survey",
+                "responses: ...")
+
+request_body <- list(prompt = prompt, max_tokens = 200)
 
 response <- POST(
   url  = "http://localhost:1234/v1/completions",
-  body = toJSON(list(prompt = prompt, max_tokens = 200), auto_unbox = TRUE),
+  body = toJSON(request_body, auto_unbox = TRUE),
   encode = "json"
 )
 
@@ -209,6 +240,10 @@ content(response)
 ```
 
 > Because requests stay local, sensitive data does not leave your environment.
+
+```{=latex}
+\Needspace{0.36\textheight}
+```
 
 ## 7.4 Cloud vs. Local LLMs: Choosing the Right Tool
 
@@ -229,13 +264,17 @@ content(response)
 
 Before running LLM-based analyses, check the following:
 
-- ✅ Select your preferred model and platform
-- ✅ Configure API key (cloud) or local endpoint (LM Studio)
-- ✅ Test connectivity with a short prompt
-- ✅ Log model name, version, and date
-- ✅ De-identify data and store outputs securely
+- Select your preferred model and platform
+- Configure API key (cloud) or local endpoint (LM Studio)
+- Test connectivity with a short prompt
+- Log model name, version, and date
+- De-identify data and store outputs securely
 
 > This small checklist can save you from major reproducibility and compliance problems later.
+
+```{=latex}
+\Needspace{0.46\textheight}
+```
 
 ## 7.6 Summary
 
@@ -255,5 +294,10 @@ Both cloud and local LLMs can support strong educational research. The right cho
 
 ### Looking Ahead
 
-- **Chapter 7** demonstrates thematic and qualitative text analysis with LM Studio, including end-to-end coding and synthesis.
-- **Chapter 8** extends this workflow to multimodal data (images), showing how AI can connect diverse forms of evidence in educational research.
+- **Chapter 9** demonstrates thematic and qualitative text analysis with LM Studio, including end-to-end coding and synthesis.
+- **Chapter 10** extends this workflow to multimodal data (images), showing how AI can connect diverse forms of evidence in educational research.
+
+```{=latex}
+\clearpage
+\flushbottom
+```

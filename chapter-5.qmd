@@ -1,10 +1,18 @@
 ---
 title: "Network Data"
+execute:
+  freeze: false
 ---
+
+```{=latex}
+\raggedbottom
+```
 
 ```{r}
 #| include: false
-options(warn = -1)
+pdf_output <- knitr::is_latex_output()
+output_width <- if (pdf_output) 58 else 80
+options(warn = -1, width = output_width)
 ```
 
 ## 5.1 Overview
@@ -58,9 +66,12 @@ Many educational datasets now come from online discussion forums, MOOCs, or LMS 
 ```{r}
 #| label: mooc-network-example
 #| eval: false
-# Suppose you have a data frame with columns: from_user, to_user
+# Example data with from_user and to_user columns
 mooc_edges <- read.csv("data/mooc_discussion_edges.csv")
-g_mooc <- graph_from_data_frame(mooc_edges, directed = TRUE)
+g_mooc <- graph_from_data_frame(
+  mooc_edges,
+  directed = TRUE
+)
 plot(g_mooc, main = "MOOC Discussion Network")
 ```
 
@@ -91,7 +102,9 @@ You can also load additional data about each node (student, teacher, etc.) to en
 #| eval: false
 node_attributes <- read.csv("data/friendship_nodes.csv")
 # Add attributes to igraph object
-V(g)$gender <- node_attributes$gender[match(V(g)$name, node_attributes$name)]
+V(g)$gender <- node_attributes$gender[
+  match(V(g)$name, node_attributes$name)
+]
 ```
 
 ### 5.2.6 Further Examples
@@ -152,8 +165,11 @@ Accessing SNA data involves both careful **design** (in the case of surveys/obse
 
 ```{r}
 #| label: load-libraries-dlt
+#| message: false
 # Install and load necessary libraries
-# install.packages(c("tidygraph", "ggraph", "readr", "janitor"))
+# install.packages(c(
+#   "tidygraph", "ggraph", "readr", "janitor"
+# ))
 library(tidygraph)
 library(ggraph)
 library(readr)
@@ -168,6 +184,7 @@ Load Edges and Node Attributes for DLT1:
 
 ```{r}
 #| label: import-data-dlt1
+#| message: false
 # Load edge list (who replied to whom)
 dlt1_ties <- read_csv("data/dlt1-edges.csv", 
   col_types = cols(Sender = col_character(), 
@@ -185,15 +202,26 @@ dlt1_actors <- read_csv("data/dlt1-nodes.csv",
                    connect = col_character())) |> 
   clean_names()
 
-head(dlt1_ties)
-head(dlt1_actors)
+dlt1_ties |>
+  select(
+    sender, receiver, timestamp,
+    discussion_category, comment_id
+  ) |>
+  slice_head(n = 4)
+
+dlt1_actors |>
+  select(
+    uid, facilitator, role1,
+    gender, expert, connect
+  ) |>
+  slice_head(n = 4)
 ```
 
 #### Step 3: Construct and Explore the Network
 
 ```{r}
 #| label: construct-network-dlt1
-# Build the directed network graph (nodes: uid, edges: sender->receiver)
+# Build the directed network graph.
 dlt1_network <- tbl_graph(
   edges = dlt1_ties,
   nodes = dlt1_actors,
@@ -202,7 +230,13 @@ dlt1_network <- tbl_graph(
 )
 
 # Overview of the network
-dlt1_network
+tibble::tibble(
+  nodes = gorder(dlt1_network),
+  edges = gsize(dlt1_network),
+  components = igraph::components(
+    as.igraph(dlt1_network)
+  )$no
+)
 ```
 
 #### Step 4: Basic Visualization
@@ -215,7 +249,9 @@ autograph(dlt1_network)
 # Custom visualization with colors and centrality
 ggraph(dlt1_network, layout = "fr") +
   geom_edge_link(alpha = .2) +
-  geom_node_point(aes(color = role1, size = local_size())) +
+  geom_node_point(
+    aes(color = role1, size = local_size())
+  ) +
   theme_graph() +
   theme(text = element_text(family = "sans"))
 ```
@@ -280,7 +316,7 @@ ggraph(dlt1_network, layout = "fr") +
 # Clustering (transitivity/global)
 transitivity(dlt1_network)      
 
-# Network diameter (longest shortest path) & average distance
+# Network diameter and average distance
 diameter(dlt1_network)          
 mean_distance(dlt1_network)     
 ```
@@ -289,6 +325,7 @@ mean_distance(dlt1_network)
 
 ```{r}
 #| label: analysis-dlt2
+#| message: false
 # 1. Load the DLT2 edge and node data
 dlt2_ties <- read_csv("data/dlt2-edges.csv", 
   col_types = cols(Sender = col_character(), 
@@ -304,7 +341,10 @@ dlt2_actors <- read_csv("data/dlt2-nodes.csv",
                    expert = col_character(), 
                    connect = col_character())) |> 
   clean_names()
+```
 
+```{r}
+#| label: construct-dlt2
 # 2. Construct the directed network
 dlt2_network <- tbl_graph(
   edges = dlt2_ties,
@@ -321,24 +361,49 @@ num_edges <- gsize(dlt2_network)
 deg_all <- centr_degree(dlt2_network, mode = "all")$res
 deg_in  <- centr_degree(dlt2_network, mode = "in")$res
 deg_out <- centr_degree(dlt2_network, mode = "out")$res
+```
 
+```{=latex}
+\Needspace{0.25\textheight}
+```
+
+```{r}
+#| label: centralize-dlt2
 # Centralization values
-centr_all <- centr_degree(dlt2_network, mode = "all")$centralization
-centr_in  <- centr_degree(dlt2_network, mode = "in")$centralization
-centr_out <- centr_degree(dlt2_network, mode = "out")$centralization
+get_centralization <- function(mode) {
+  centr_degree(
+    dlt2_network,
+    mode = mode
+  )$centralization
+}
+centr_all <- get_centralization("all")
+centr_in <- get_centralization("in")
+centr_out <- get_centralization("out")
 
 # 5. Attach centrality as a node attribute
 dlt2_network <- dlt2_network |>
   activate(nodes) |>
   mutate(in_degree = centrality_degree(mode = "in"))
+```
 
+```{r}
+#| label: visualize-dlt2-roles
+#| fig-pos: "H"
+#| fig-width: 6.5
+#| fig-height: 3
+#| out-width: "90%"
 # 6. Visualize the network
 ggraph(dlt2_network, layout = "fr") +
   geom_edge_link(alpha = .2) +
-  geom_node_point(aes(color = role, size = local_size())) +
+  geom_node_point(
+    aes(color = role, size = local_size())
+  ) +
   theme_graph() +
   theme(text = element_text(family = "sans"))
+```
 
+```{r}
+#| label: measure-dlt2-cohesion
 # 7. Density, reciprocity, clustering, distances
 density <- edge_density(dlt2_network)
 recip   <- reciprocity(dlt2_network)
@@ -349,14 +414,24 @@ dlt2_network <- dlt2_network |>
 
 ggraph(dlt2_network, layout = "fr") +
   geom_node_point(aes(size = in_degree)) +
-  geom_edge_link(aes(color = reciprocated), alpha = .2) +
+  geom_edge_link(
+    aes(color = reciprocated),
+    alpha = .2
+  ) +
   theme_graph() +
   theme(text = element_text(family = "sans"))
 
 trans   <- transitivity(dlt2_network)
 diam    <- diameter(dlt2_network)
 mean_d  <- mean_distance(dlt2_network)
+```
 
+```{=latex}
+\Needspace{0.38\textheight}
+```
+
+```{r}
+#| label: summarize-dlt2
 # 8. Print summary statistics (structured output)
 dlt2_stats <- data.frame(
   metric = c(
@@ -374,8 +449,15 @@ dlt2_stats <- data.frame(
     trans, diam, mean_d
   )
 )
+```
 
-dlt2_stats
+```{=latex}
+\Needspace{0.25\textheight}
+```
+
+```{r}
+#| label: print-dlt2-summary
+print(dlt2_stats, row.names = FALSE, digits = 3)
 ```
 
 A sample methods section of these analytical steps can be written as follows:\
@@ -465,50 +547,73 @@ Data was collected from Twitter’s public API using keywords/hashtags related t
 
 ```{r}
 #| label: load-libraries-ccss
+#| message: false
 library(tidyverse) 
 library(tidygraph) 
 library(ggraph) 
 library(skimr) 
 library(igraph) 
 library(tidytext) 
-library(vader)
 ```
 
 #### Step 2: Data Import and Wrangling
 
 ```{r}
 #| label: data-wrangling-ccss
-# Import tweet data (edgelist format: sender, receiver, timestamp, text)
-ccss_tweets <- read_csv("data/ccss-tweets.csv")
+#| message: false
+# Import tweet data in edgelist format.
+ccss_path <- "data/ccss-tweets.csv"
+ccss_tweets <- read_csv(ccss_path)
 
-# Prepare the edgelist (extract sender, mentioned users, and tweet text)
+# Keep sender, mentioned users, timestamp, and text.
 ties_1 <- ccss_tweets |>
-  relocate(sender = screen_name, target = mentions_screen_name) |>
+  relocate(
+    sender = screen_name,
+    target = mentions_screen_name
+  ) |>
   select(sender, target, created_at, text)
 
 # Unnest receiver to handle multiple mentions per tweet
 ties_2 <- ties_1 |>
-  unnest_tokens(input = target,
-                output = receiver,
-                to_lower = FALSE) |>
+  unnest_tokens(
+    input = target,
+    output = receiver,
+    to_lower = FALSE
+  ) |>
   relocate(sender, receiver)
 
-# Remove tweets without mentions to focus on direct connections
+# Drop tweets without mentions.
 ties <- ties_2 |>
   drop_na(receiver)
+```
 
+```{r}
+#| label: build-ccss-network
 # Build nodelist
 actors <- ties |>
   select(sender, receiver) |>
-  pivot_longer(cols = c(sender, receiver), names_to = "role", values_to = "actors") |>
+  pivot_longer(
+    cols = c(sender, receiver),
+    names_to = "role",
+    values_to = "actors"
+  ) |>
   select(actors) |>
   distinct()
 
 # Create Network Object
-ccss_network <- tbl_graph(edges = ties,
-                          nodes = actors,
-                          directed = TRUE)
-ccss_network
+ccss_network <- tbl_graph(
+  edges = ties,
+  nodes = actors,
+  directed = TRUE
+)
+
+tibble::tibble(
+  nodes = gorder(ccss_network),
+  edges = gsize(ccss_network),
+  components = igraph::components(
+    as.igraph(ccss_network)
+  )$no
+)
 ```
 
 #### Step 4: Network Structure – Components, Cliques, and Communities
@@ -519,29 +624,38 @@ ccss_network
 #| label: component-analysis-ccss
 ccss_network <- ccss_network |>
   activate(nodes) |>
-  mutate(weak_component = group_components(type = "weak"),
-         strong_component = group_components(type = "strong"))
+  mutate(
+    weak_component = group_components(type = "weak"),
+    strong_component = group_components(type = "strong")
+  )
 
 # View component sizes
 ccss_network |>
   as_tibble() |>
   group_by(weak_component) |>
   summarise(size = n()) |>
-  arrange(desc(size))
+  arrange(desc(size)) |>
+  slice_head(n = 6)
 ```
 
 -   **Cliques** Identify fully connected subgroups (if any):
 
 ```{r}
 #| label: clique-analysis-ccss
-clique_num(ccss_network)
-cliques(ccss_network, min = 3)
+ccss_cliques <- cliques(ccss_network, min = 3)
+length(ccss_cliques)
+head(ccss_cliques, n = 3)
 ```
 
 -   **Communities** Detect densely connected communities using edge betweenness:
 
+```{=latex}
+\Needspace{0.25\textheight}
+```
+
 ```{r}
 #| label: community-detection-ccss
+#| message: false
 ccss_network <- ccss_network |>
   morph(to_undirected) |>
   activate(nodes) |>
@@ -552,13 +666,15 @@ ccss_network |>
   as_tibble() |>
   group_by(sub_group) |>
   summarise(size = n()) |>
-  arrange(desc(size))
+  arrange(desc(size)) |>
+  slice_head(n = 6)
 ```
 
 #### Step 5: Egocentric Analysis – Centrality & Key Actors
 
 ```{r}
 #| label: centrality-ccss
+#| message: false
 ccss_network <- ccss_network |>
   activate(nodes) |>
   mutate(
@@ -568,14 +684,37 @@ ccss_network <- ccss_network |>
     closeness = centrality_closeness(),
     betweenness = centrality_betweenness()
   )
+```
 
-# Identify top actors by out_degree (transmitters), in_degree (transceivers), and both (transcenders)
-top_transmitters <- ccss_network |> as_tibble() |> arrange(desc(out_degree)) |> head(5)
-top_transceivers <- ccss_network |> as_tibble() |> arrange(desc(in_degree)) |> head(5)
+```{=latex}
+\Needspace{0.25\textheight}
+```
 
-# Transcenders: high in-degree AND out-degree (using top 10% threshold)
-top_transcenders <- ccss_network |> as_tibble() |>
-  filter(out_degree > quantile(out_degree, 0.9) & in_degree > quantile(in_degree, 0.9))
+```{r}
+#| label: identify-top-actors-ccss
+# Identify top actors by out_degree (transmitters),
+# in_degree (transceivers), and both (transcenders)
+top_transmitters <- ccss_network |>
+  as_tibble() |>
+  arrange(desc(out_degree)) |>
+  slice_head(n = 5)
+
+top_transceivers <- ccss_network |>
+  as_tibble() |>
+  arrange(desc(in_degree)) |>
+  slice_head(n = 5)
+```
+
+```{r}
+#| label: identify-transcenders-ccss
+# Transcenders: high in-degree and out-degree,
+# using the top 10% threshold for each metric.
+top_transcenders <- ccss_network |>
+  as_tibble() |>
+  filter(
+    out_degree > quantile(out_degree, 0.9),
+    in_degree > quantile(in_degree, 0.9)
+  )
 ```
 
 #### Step 6: Visualize the Network
@@ -583,7 +722,9 @@ top_transcenders <- ccss_network |> as_tibble() |>
 ```{r}
 #| label: visualize-ccss
 ggraph(ccss_network, layout = "fr") +
-  geom_node_point(aes(size = out_degree, color = out_degree)) +
+  geom_node_point(
+    aes(size = out_degree, color = out_degree)
+  ) +
   geom_edge_link(alpha = .2) +
   theme_graph() +
   theme(text = element_text(family = "sans"))
@@ -694,3 +835,8 @@ This chapter introduced social network analysis as a method for studying relatio
 -   **Practical R Notebooks / Tutorials**
 
     -   Online tutorials or GitHub repos titled “Network analysis in R”, “Twitter network analysis”, or “sentiment analysis with tidytext + VADER” to replicate and extend the exact workflow used here.
+
+```{=latex}
+\clearpage
+\flushbottom
+```

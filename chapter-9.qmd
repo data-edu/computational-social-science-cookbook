@@ -1,10 +1,18 @@
 ---
 title: "Local LLMs for Text"
+execute:
+  freeze: false
 ---
+
+```{=latex}
+\raggedbottom
+```
 
 ```{r}
 #| include: false
-options(warn = -1)
+pdf_output <- knitr::is_latex_output()
+output_width <- if (pdf_output) 58 else 80
+options(warn = -1, width = output_width)
 ```
 
 ## 9.1 Overview
@@ -80,14 +88,20 @@ Here is a simple example:
 library(httr) 
 library(jsonlite)
 
-prompt <- "Summarize the following open-ended survey responses: ..."
+prompt <- paste(
+  "Summarize the following open-ended survey responses:",
+  "..."
+)
 
-response <- POST( url = "http://localhost:1234/v1/completions", 
-                   body = toJSON(list( prompt = prompt,
-                                       max_tokens = 200 ),
-                                 auto_unbox = TRUE),
-                   encode = "json") 
-content(response) 
+response <- POST(
+  url = "http://localhost:1234/v1/completions",
+  body = toJSON(
+    list(prompt = prompt, max_tokens = 200),
+    auto_unbox = TRUE
+  ),
+  encode = "json"
+)
+content(response)
 ```
 
 ### 9.4.3 At a Glance: LM Studio Capabilities
@@ -129,10 +143,13 @@ library(dplyr)
 library(stringr)
 library(readr)
 
-# If 'university_policies' already exists (from Section 2), use it directly.
-# Otherwise, safely fall back to reading the same CSV used in Section 2.
+# Use 'university_policies' if it already exists.
+# Otherwise, read the same CSV used in Section 2.
 if (!exists("university_policies")) {
-  university_policies <- read_csv("data/University_GenAI_Policy_Stance.csv", show_col_types = FALSE)
+  university_policies <- read_csv(
+    "data/University_GenAI_Policy_Stance.csv",
+    show_col_types = FALSE
+  )
 }
 
 stopifnot("Stance" %in% names(university_policies))
@@ -143,8 +160,21 @@ policy_texts <- university_policies$Stance %>%
   na.omit()
 
 length(policy_texts)
-head(policy_texts, 3)
+```
 
+```{=latex}
+\Needspace{0.22\textheight}
+```
+
+```{r}
+policy_preview <- head(policy_texts, 3) %>%
+  str_trunc(width = 48)
+preview_lines <- paste0(
+  seq_along(policy_preview),
+  ". ",
+  policy_preview
+)
+cat(preview_lines, sep = "\n")
 ```
 
 ### 9.5.3 Time to Let the Local LLM Do Its Thing
@@ -157,8 +187,7 @@ library(jsonlite)
 library(glue)
 library(stringr)
 
-# Use global parameters defined earlier
-# api_base and model_name should already be set in Section 6 setup:
+# Use the connection parameters defined earlier.
 api_base <- "http://127.0.0.1:1234/v1"
 model_name <- "openai/gpt-oss-20b"
 
@@ -173,8 +202,8 @@ Before running large jobs, it is good practice to confirm that LM Studio is resp
 library(httr)
 library(jsonlite)
 
-api_base <- "http://127.0.0.1:1234/v1"   # replace with your LM Studio endpoint
-model_name <- "openai/gpt-oss-20b"       # adjust to your chosen model
+api_base <- "http://127.0.0.1:1234/v1"
+model_name <- "openai/gpt-oss-20b"
 
 res <- POST(
   url = paste0(api_base, "/chat/completions"),
@@ -182,8 +211,14 @@ res <- POST(
   body = toJSON(list(
     model = model_name,
     messages = list(
-      list(role = "system", content = "You are a helpful assistant."),
-      list(role = "user", content = "Please reply with 'pong'")
+      list(
+        role = "system",
+        content = "You are a helpful assistant."
+      ),
+      list(
+        role = "user",
+        content = "Please reply with 'pong'"
+      )
     )
   ), auto_unbox = TRUE)
 )
@@ -198,10 +233,32 @@ cat(content(res)$choices[[1]]$message$content)
 Next, we write the prompt template. Because our goal is thematic pattern detection in policy documents, the prompt requests structured outputs rather than a free-form narrative. This is important: prompt design can require the model to return table-ready fields that are easier to validate and compare.
 
 ```{r}
-# ----- 1) Prompt Template -----
-analysis_prompt_template <- "
-You are analyzing official university AI policy statements.
-Your task is to identify 3–5 key themes across the statements and report them in the exact format below.
+# ----- 1) Prompt template -----
+table_header <- paste0(
+  "| Theme | Description | Illustrative Example(s) | ",
+  "Frequency | Relative Frequency |"
+)
+theme_row_1 <- paste0(
+  "| [Theme 1] | [Description] | - \\\"[Quote]\\\" | ",
+  "[n] | [p]% |"
+)
+theme_row_2 <- paste0(
+  "| [Theme 2] | [Description] | - \\\"[Quote]\\\" | ",
+  "[n] | [p]% |"
+)
+```
+
+```{=latex}
+\Needspace{0.55\textheight}
+```
+
+```{r}
+prompt_instructions <- "
+You are analyzing official university AI policy
+statements.
+Your task is to identify 3–5 key themes across
+the statements
+and report them in the exact format below.
 
 **INPUT DATA:**
 - **Number of Statements:** {n_items}
@@ -214,20 +271,39 @@ Your task is to identify 3–5 key themes across the statements and report them 
    a) Provide a concise theme name.
    b) Provide a 1–2 sentence description.
    c) Provide one short verbatim example quote.
-   d) Provide an integer Frequency (count of statements mentioning it).
-   e) Provide Relative Frequency as a whole-number percentage.
-3) Write a 3–5 sentence **Summary of Responses** synthesizing the most important insights.
+   d) Provide an integer Frequency
+      (count of statements mentioning it).
+   e) Provide Relative Frequency as a whole-number
+      percentage.
+3) Write a 3–5 sentence **Summary of Responses**
+   synthesizing
+   the most important insights.
+"
+```
+
+```{=latex}
+\Needspace{0.30\textheight}
+```
+
+```{r}
+prompt_output_format <- "
 4) Output strictly in the following format:
 
 **Summary of Responses**
 [3–5 sentence narrative summary goes here.]
 
 **Thematic Table**
-| Theme | Description | Illustrative Example(s) | Frequency | Relative Frequency |
+{table_header}
 |---|---|---|---|---|
-| [Theme 1] | [Description] | - \"[Quote]\" | [n] | [p]% |
-| [Theme 2] | [Description] | - \"[Quote]\" | [n] | [p]% |
+{theme_row_1}
+{theme_row_2}
 "
+
+analysis_prompt_template <- paste(
+  prompt_instructions,
+  prompt_output_format,
+  sep = "\n"
+)
 ```
 
 ##### Chunks!
@@ -241,9 +317,10 @@ Practically, chunk size should follow natural meaning units, such as paragraphs,
 A good rule of thumb: for policy documents, chunks of 10-20 items tend to work well. That gives the model enough context to find meaningful patterns without overwhelming it.
 
 ```{r}
-# ----- 2) Chunk the corpus to stay within model context window -----
+# ----- 2) Chunk the corpus -----
 CHUNK_SIZE <- 15
-chunks <- split(policy_texts, ceiling(seq_along(policy_texts) / CHUNK_SIZE))
+chunk_ids <- ceiling(seq_along(policy_texts) / CHUNK_SIZE)
+chunks <- split(policy_texts, chunk_ids)
 
 ```
 
@@ -262,15 +339,23 @@ In essence, this helper encapsulates the logic of prompt dispatch and result ret
 ```{r}
 #| eval: false
 
-# ----- 3) Helper function: call LM Studio (chat/completions endpoint) -----
+# ----- 3) Call LM Studio -----
 call_lmstudio <- function(prompt, max_tokens = 1000) {
   res <- httr::POST(
     url = paste0(api_base, "/chat/completions"),
-    httr::add_headers("Content-Type" = "application/json"),
+    httr::add_headers(
+      "Content-Type" = "application/json"
+    ),
     body = jsonlite::toJSON(list(
       model = model_name,
       messages = list(
-        list(role = "system", content = "You are an expert qualitative research analyst."),
+        list(
+          role = "system",
+          content = paste(
+            "You are an expert qualitative",
+            "research analyst."
+          )
+        ),
         list(role = "user", content = prompt)
       ),
       temperature = 0.2,
@@ -296,28 +381,39 @@ Think of it like this: first, we get multiple perspectives from looking at piece
 
 # ----- 4) Run thematic analysis per chunk -----
 chunk_outputs <- lapply(chunks, function(vec) {
-  items_block <- paste(sprintf("%d. %s", seq_along(vec), vec), collapse = "\n")
+  numbered_items <- sprintf("%d. %s", seq_along(vec), vec)
+  items_block <- paste(numbered_items, collapse = "\n")
   final_prompt <- glue(analysis_prompt_template,
                        n_items = length(vec),
                        items   = items_block)
   call_lmstudio(final_prompt)
 })
+```
 
-# ----- 5) Merge all chunk-level analyses into a meta-synthesis -----
+```{=latex}
+\Needspace{0.42\textheight}
+```
+
+```{r}
+#| eval: false
+# ----- 5) Merge chunk-level analyses -----
 meta_prompt <- "
-You will synthesize multiple chunk-level thematic analyses of the same corpus of university AI policies.
-Unify and deduplicate themes across chunks, and output a single consolidated section in the exact format below:
+You will synthesize multiple chunk-level thematic
+analyses of
+the same corpus of university AI policies.
+Unify and deduplicate themes across chunks,
+and output a single
+consolidated section in the exact format below:
 
 **Summary of Responses**
 [3–5 sentence narrative summary.]
 
 **Thematic Table**
-| Theme | Description | Illustrative Example(s) | Frequency | Relative Frequency |
+{table_header}
 |---|---|---|---|---|
-| [Unified Theme 1] | [Description] | - \"[Quote]\" | [n] | [p]% |
-| [Unified Theme 2] | [Description] | - \"[Quote]\" | [n] | [p]% |
+{theme_row_1}
+{theme_row_2}
 "
-
 ```
 
 ##### Synthesizing and Final LLM Analysis
@@ -333,16 +429,27 @@ To keep things manageable, we combine the chunk results in pairs, do a synthesis
 ```{r}
 #| eval: false
 # Pairwise synthesis to reduce token usage
-pairs <- split(chunk_outputs, ceiling(seq_along(chunk_outputs) / 2))
+pair_ids <- ceiling(seq_along(chunk_outputs) / 2)
+pairs <- split(chunk_outputs, pair_ids)
 
 pair_outputs <- lapply(pairs, function(group) {
   meta_input <- paste(group, collapse = "\n\n---\n\n")
-  call_lmstudio(paste(meta_prompt, meta_input, sep = "\n\n"))
+  combined_prompt <- paste(
+    meta_prompt,
+    meta_input,
+    sep = "\n\n"
+  )
+  call_lmstudio(combined_prompt)
 })
 
 # Now you have fewer intermediate syntheses
-final_meta_input <- paste(pair_outputs, collapse = "\n\n---\n\n")
-meta_output <- call_lmstudio(paste(meta_prompt, final_meta_input, sep = "\n\n"))
+final_meta_input <- paste(
+  pair_outputs,
+  collapse = "\n\n---\n\n"
+)
+meta_output <- call_lmstudio(
+  paste(meta_prompt, final_meta_input, sep = "\n\n")
+)
 cat(meta_output)
 
 #saveRDS(meta_output, "outputs/meta_output_saved.rds")
@@ -354,6 +461,7 @@ saveRDS(meta_output, "outputs/meta_output_saved.rds")
 This code takes the saved meta-analysis from LM Studio and turns it into a clean, usable table in R. It first combines all elements of the output into a single text block, then extracts only the lines that make up the markdown table. Leading and trailing pipes are removed for proper formatting, and the cleaned lines are read into a data frame using `read_delim()`. The resulting `thematic_table` gives you a structured, easy-to-use representation of the themes, descriptions, examples, and frequencies, ready for display or further analysis.
 
 ```{r}
+#| output: false
 library(stringr)
 library(readr)
 
@@ -362,26 +470,38 @@ meta_output <- tryCatch(
   readRDS("outputs/meta_output_saved.rds"),
   error = function(e) NULL
 )
+```
 
+```{=latex}
+\Needspace{0.40\textheight}
+```
+
+```{r}
+#| output: false
 if (is.null(meta_output)) {
-  thematic_table <- read_csv("outputs/lmstudio_thematic_table.csv", show_col_types = FALSE)
+  thematic_table <- read_csv(
+    "outputs/lmstudio_thematic_table.csv",
+    show_col_types = FALSE
+  )
 } else {
   # --- Combine all elements into one long text block ---
   meta_output_text <- paste(meta_output, collapse = "\n")
 
   # --- Extract markdown table rows ---
-  table_lines <- str_subset(strsplit(meta_output_text, "\n")[[1]], "^\\|")
+  output_lines <- strsplit(meta_output_text, "\n")[[1]]
+  table_lines <- str_subset(output_lines, "^\\|")
 
   # --- Clean leading/trailing pipes ---
   table_text <- gsub("^\\||\\|$", "", table_lines)
 
   # --- Convert to DataFrame ---
-  thematic_table <- read_delim(I(table_text), delim = "|", trim_ws = TRUE, show_col_types = FALSE)
+  thematic_table <- read_delim(
+    I(table_text),
+    delim = "|",
+    trim_ws = TRUE,
+    show_col_types = FALSE
+  )
 }
-
-# --- Display result ---
-print(thematic_table)
-
 ```
 
 #### 9.5.3.1 Saving and Exporting Results
@@ -393,34 +513,50 @@ Once you have a good analysis, you will want to save it in multiple formats—so
 ```{r}
 #| eval: false
 # --- View output in the console ---
-cat(substr(meta_output, 1, 1000))  # Preview the first 1000 characters
+# Preview the first 1000 characters
+cat(substr(meta_output, 1, 1000))
 # or simply
 cat(meta_output)
 
 # --- Save the full result as a text or Markdown file ---
-writeLines(meta_output, "outputs/lmstudio_meta_output.txt")
-writeLines(meta_output, "outputs/lmstudio_meta_output.md")
+meta_text <- "outputs/lmstudio_meta_output.txt"
+meta_md <- "outputs/lmstudio_meta_output.md"
+writeLines(meta_output, meta_text)
+writeLines(meta_output, meta_md)
+```
 
+```{=latex}
+\Needspace{0.42\textheight}
+```
 
+```{r}
+#| eval: false
 # --- Extract and save the Thematic Table as CSV ---
 library(stringr)
 library(readr)
 
 # Extract only the markdown table lines (beginning with |)
-table_lines <- str_subset(strsplit(meta_output, "\n")[[1]], "^\\|")
+output_lines <- strsplit(meta_output, "\n")[[1]]
+table_lines <- str_subset(output_lines, "^\\|")
 table_text  <- gsub("^\\||\\|$", "", table_lines)
 
 # Convert to data frame
-thematic_table <- read_delim(I(table_text), delim = "|", trim_ws = TRUE, show_col_types = FALSE)
+thematic_table <- read_delim(
+  I(table_text),
+  delim = "|",
+  trim_ws = TRUE,
+  show_col_types = FALSE
+)
 
 # Save to CSV for further analysis or visualization
-write_csv(thematic_table, "outputs/lmstudio_thematic_table.csv")
-# Save the full output as a Markdown file for easy sharing 
-writeLines(meta_output, "outputs/lmstudio_meta_output_full.md")
+table_csv <- "outputs/lmstudio_thematic_table.csv"
+write_csv(thematic_table, table_csv)
+# Save the full output as Markdown for easy sharing
+meta_markdown <- "outputs/lmstudio_meta_output_full.md"
+writeLines(meta_output, meta_markdown)
 
 # Optional: check where the file was saved
 getwd()
-
 ```
 
 #### 9.5.3.2 Practical Notes on Running Local Models
@@ -480,14 +616,28 @@ This result directly mirrors the traditional NLP analysis in Section 2, providin
 
 **Thematic Table**
 
-| Theme | Description | Illustrative Example(s) | Frequency | Relative Frequency |
-|---------------|---------------|---------------|---------------|---------------|
-| Academic Integrity / Plagiarism | Policies treat un-attributed or unauthorized AI output as cheating, requiring adherence to existing honor-code standards. | \- "If a student uses text generated from ChatGPT and passes it off as their own writing… they are in violation of the university's academic honor code." (Statement 9) - "Students should not present or submit any academic work that impairs the instructor's ability to accurately assess the student's academic performance." (Statement 2) | 13 | 25% |
-| Faculty Autonomy & Syllabus Clarity | Instructors are empowered to set, communicate, and enforce AI-use rules within their courses, often via the syllabus or early course materials. | \- "Different faculty will have different expectations about whether and how students can use AI tools, so being transparent about your expectations is essential." (Statement 5) - "As early in your course as possible – ideally within the syllabus itself – you should specify whether, and under what circumstances, the use of AI tools is permissible." (Statement 7) | 12 | 23% |
-| Citation / Disclosure Requirements | Students must explicitly credit AI-generated content or document their interactions to avoid plagiarism. | \- "Under BU's guidelines… students must give credit to them whenever they are used… include an appendix detailing the entire exchange with an LLM." (Statement 4) - "You must cite your use of these tools appropriately. Not doing so violates the HBS Honor Code." (Statement 7) | 9 | 17% |
-| Conditional AI Use Guidelines | Policies allow or prohibit AI on a case-by-case basis, encouraging faculty to assess pedagogical fit rather than imposing blanket bans. | \- "Instead of forbidding its use, however, we might investigate which questions AI poses for us as teachers and for our students as learners." (Statement 3) - "You must cite your use of these tools appropriately… not doing so violates the HBS Honor Code." (Statement 7) | 11 | 21% |
-| Pedagogical Integration & Assessment Design | Emphasis on designing assignments that preserve skill development while leveraging AI benefits, and on re-thinking assessment strategies. | \- "Propose alternative assignments or assessments if there is the chance that students might use the tool to misrepresent the output from ChatGPT as their own." (Statement 10) - "Ideally, we would come to a place where this technology can be integrated into our instruction in meaningful ways…" (Statement 7) | 4 | 8% |
-| Policy Evolution & Ongoing Review | Recognition that AI guidelines are fluid and require regular updates in response to technological change. | \- "Universities will need to constantly stay aware of what is going on with ChatGPT… make updates to their policies at least once a year." (Statement 13) | 3 | 6% |
+| Theme | Count | Relative (%) |
+|---|---:|---:|
+| Academic Integrity / Plagiarism | 13 | 25% |
+| Faculty Autonomy & Syllabus Clarity | 12 | 23% |
+| Citation / Disclosure Requirements | 9 | 17% |
+| Conditional AI Use Guidelines | 11 | 21% |
+| Pedagogical Integration & Assessment Design | 4 | 8% |
+| Policy Evolution & Ongoing Review | 3 | 6% |
+
+**Theme descriptions and illustrative examples**
+
+**Academic Integrity / Plagiarism.** Policies treat unattributed or unauthorized AI output as cheating, requiring adherence to existing honor-code standards. Illustrative excerpts: "If a student uses text generated from ChatGPT and passes it off as their own writing… they are in violation of the university's academic honor code" (Statement 9); "Students should not present or submit any academic work that impairs the instructor's ability to accurately assess the student's academic performance" (Statement 2).
+
+**Faculty Autonomy & Syllabus Clarity.** Instructors are empowered to set, communicate, and enforce AI-use rules within their courses, often via the syllabus or early course materials. Illustrative excerpts: "Different faculty will have different expectations about whether and how students can use AI tools, so being transparent about your expectations is essential" (Statement 5); "As early in your course as possible—ideally within the syllabus itself—you should specify whether, and under what circumstances, the use of AI tools is permissible" (Statement 7).
+
+**Citation / Disclosure Requirements.** Students must explicitly credit AI-generated content or document their interactions to avoid plagiarism. Illustrative excerpts: "Under BU's guidelines… students must give credit to them whenever they are used… include an appendix detailing the entire exchange with an LLM" (Statement 4); "You must cite your use of these tools appropriately. Not doing so violates the HBS Honor Code" (Statement 7).
+
+**Conditional AI Use Guidelines.** Policies allow or prohibit AI on a case-by-case basis, encouraging faculty to assess pedagogical fit rather than imposing blanket bans. Illustrative excerpts: "Instead of forbidding its use, however, we might investigate which questions AI poses for us as teachers and for our students as learners" (Statement 3); "You must cite your use of these tools appropriately… not doing so violates the HBS Honor Code" (Statement 7).
+
+**Pedagogical Integration & Assessment Design.** The theme emphasizes assignments that preserve skill development while leveraging AI benefits and rethinking assessment strategies. Illustrative excerpts: "Propose alternative assignments or assessments if there is the chance that students might use the tool to misrepresent the output from ChatGPT as their own" (Statement 10); "Ideally, we would come to a place where this technology can be integrated into our instruction in meaningful ways" (Statement 7).
+
+**Policy Evolution & Ongoing Review.** AI guidelines are fluid and require regular updates in response to technological change. An illustrative excerpt is: "Universities will need to constantly stay aware of what is going on with ChatGPT… make updates to their policies at least once a year" (Statement 13).
 
 ### 9.5.5 Human Validation (Assessing the Accuracy of LM Studio's Thematic Extraction)
 
@@ -526,21 +676,50 @@ Researchers can document their manual judgments in R and compute simple metrics.
 
 Here is what that looks like:
 
+```{=latex}
+\Needspace{0.34\textheight}
+```
+
 ```{r}
 library(dplyr)
 
-# Example: human evaluation of LM Studio themes
+validation_themes <- c(
+  "Academic Integrity / Plagiarism",
+  "Faculty Autonomy & Syllabus Clarity",
+  "Citation / Disclosure Requirements",
+  "Conditional AI Use Guidelines",
+  "Pedagogical Integration & Assessment Design",
+  "Policy Evolution & Ongoing Review"
+)
+validation_comments <- c(
+  "Clearly defined theme",
+  "Matches source texts precisely",
+  "Accurate and well-evidenced",
+  "Appropriate scope",
+  "Valid pedagogical dimension",
+  "Reflects iterative policy development"
+)
+```
 
-validation_data <- tibble::tibble( Theme = c("Academic Integrity / Plagiarism", "Faculty Autonomy & Syllabus Clarity", "Citation / Disclosure Requirements", "Conditional AI Use Guidelines", "Pedagogical Integration & Assessment Design", "Policy Evolution & Ongoing Review"), Human_Judgment = c(TRUE, TRUE, TRUE, TRUE, TRUE, TRUE), Comment = c("Clearly defined theme", "Matches source texts precisely", "Accurate and well-evidenced", "Appropriate scope", "Valid pedagogical dimension", "Accurately reflects iterative nature of policies") )
+```{r}
+#| output: false
+validation_data <- tibble::tibble(
+  Theme = validation_themes,
+  Human_Judgment = rep(
+    TRUE,
+    length(validation_themes)
+  ),
+  Comment = validation_comments
+)
 
-# Calculate proportion of themes rated TRUE
+validation_accuracy <- mean(
+  validation_data$Human_Judgment
+)
 
-validation_accuracy <- mean(validation_data$Human_Judgment)
-
-sprintf("Validation Accuracy: %.1f%%", 100 * validation_accuracy)
-
-print(validation_data)
-print(validation_accuracy) 
+sprintf(
+  "Validation Accuracy: %.1f%%",
+  100 * validation_accuracy
+)
 ```
 
 #### 9.5.5.2 Validation (Comparing Theme Frequencies)
@@ -578,7 +757,10 @@ library(tidyr)
 policies <- university_policies %>%
   mutate(Stance = as.character(Stance))
 
-llm_table <- read_csv("outputs/lmstudio_thematic_table.csv", show_col_types = FALSE)
+llm_table <- read_csv(
+  "outputs/lmstudio_thematic_table.csv",
+  show_col_types = FALSE
+)
 ```
 
 > Here, policies contains the raw text statements, and llm_table includes the theme frequencies produced by the LLM.
@@ -597,12 +779,29 @@ For each theme, pick some representative words. This is your "codebook":
 # ========================================
 
 theme_keywords <- list(
-  "Academic Integrity / Plagiarism" = c("plagiarism", "honor code", "academic integrity", "cheating"),
-  "Faculty Autonomy & Syllabus Clarity" = c("syllabus", "faculty", "instructor", "autonomy", "course policy"),
-  "Citation / Disclosure Requirements" = c("cite", "citation", "disclose", "acknowledge", "appendix"),
-  "Conditional AI Use Guidelines" = c("case by case", "permission", "approval", "allowed", "not permitted"),
-  "Pedagogical Integration & Assessment Design" = c("assignment", "assessment", "learning", "instruction", "pedagog"),
-  "Policy Evolution & Ongoing Review" = c("update", "revise", "review", "change", "evolve")
+  "Academic Integrity / Plagiarism" = c(
+    "plagiarism", "honor code",
+    "academic integrity", "cheating"
+  ),
+  "Faculty Autonomy & Syllabus Clarity" = c(
+    "syllabus", "faculty", "instructor",
+    "autonomy", "course policy"
+  ),
+  "Citation / Disclosure Requirements" = c(
+    "cite", "citation", "disclose",
+    "acknowledge", "appendix"
+  ),
+  "Conditional AI Use Guidelines" = c(
+    "case by case", "permission", "approval",
+    "allowed", "not permitted"
+  ),
+  "Pedagogical Integration & Assessment Design" = c(
+    "assignment", "assessment", "learning",
+    "instruction", "pedagog"
+  ),
+  "Policy Evolution & Ongoing Review" = c(
+    "update", "revise", "review", "change", "evolve"
+  )
 )
 
 ```
@@ -642,15 +841,23 @@ Run the keyword check for each theme:
 # Step 5 — Apply validation across the corpus
 # ========================================
 
-validation_results <- lapply(names(theme_keywords), function(theme) {
+theme_names <- names(theme_keywords)
+validation_results <- lapply(
+  theme_names,
+  function(theme) {
   keywords <- theme_keywords[[theme]]
-  matches <- sapply(policies$Stance, count_theme_mentions, keywords = keywords)
-  tibble(
-    Theme = theme,
-    Verified_Frequency = sum(matches),
-    Verified_Relative = round(100 * mean(matches), 1)
+  matches <- sapply(
+    policies$Stance,
+    count_theme_mentions,
+    keywords = keywords
   )
-}) %>% bind_rows()
+    tibble(
+      Theme = theme,
+      Verified_Frequency = sum(matches),
+      Verified_Relative = round(100 * mean(matches), 1)
+    )
+  }
+) %>% bind_rows()
 
 ```
 
@@ -658,7 +865,7 @@ validation_results <- lapply(names(theme_keywords), function(theme) {
 
 ##### Step 6: Merge with LLM Results
 
-To compare both approaches side by side, we merge the keyword-verified counts with the LLM-reported frequencies.
+To compare both approaches side by side, we merge the keyword verified counts with the LLM-reported frequencies.
 
 Now let us see how the two methods stack up:
 
@@ -675,12 +882,18 @@ validation_compare <- llm_table %>%
   ) %>%
   left_join(validation_results, by = "Theme") %>%
   mutate(
-    LLM_Frequency      = as.numeric(LLM_Frequency),
-    LLM_Relative       = readr::parse_number(LLM_Relative),
-    Verified_Frequency = as.numeric(Verified_Frequency),
-    Verified_Relative  = as.numeric(Verified_Relative),
-    Freq_Diff          = Verified_Frequency - LLM_Frequency,
-    Rel_Diff           = Verified_Relative - LLM_Relative
+    LLM_Frequency = as.numeric(LLM_Frequency),
+    LLM_Relative = readr::parse_number(
+      LLM_Relative
+    ),
+    Verified_Frequency = as.numeric(
+      Verified_Frequency
+    ),
+    Verified_Relative = as.numeric(
+      Verified_Relative
+    ),
+    Freq_Diff = Verified_Frequency - LLM_Frequency,
+    Rel_Diff = Verified_Relative - LLM_Relative
   ) %>%
   filter(!is.na(Theme), Theme != "", Theme != "---")
 
@@ -695,26 +908,31 @@ validation_compare <- llm_table %>%
 Finally, we visualize the relative frequencies from both methods.
 
 ```{r}
+#| fig-width: 6
+#| fig-height: 3.2
+#| out-width: "88%"
+#| fig-align: center
 # ========================================
 # Step 7 — Visualization
 # ========================================
 
 validation_compare_long <- validation_compare %>%
   select(Theme, LLM_Relative, Verified_Relative) %>%
-  pivot_longer(-Theme, names_to = "Source", values_to = "Relative_Frequency")
+  pivot_longer(
+    -Theme,
+    names_to = "Source",
+    values_to = "Relative_Frequency"
+  )
 
 ggplot(validation_compare_long, aes(
   x = reorder(Theme, Relative_Frequency),
   y = Relative_Frequency,
   fill = Source)) +
-  geom_bar(stat = "identity", position = "dodge") +
+  geom_col(position = "dodge") +
   coord_flip() +
-  scale_fill_manual(values = c("LLM_Relative" = "#FF6F61", "Verified_Relative" = "#00BFC4")) +
   labs(
-    title = "Cross-Method Validation of LM Studio Theme Frequencies",
     x = "Theme",
-    y = "Relative Frequency (%)",
-    caption = "Comparison between LM Studio-reported and keyword-verified frequencies"
+    y = "Relative Frequency (%)"
   ) +
   theme_minimal()
 
@@ -785,8 +1003,11 @@ For example:
 
 ```{r}
 "Pedagogical Integration & Assessment Design" =
-  c("assignment design", "course design", "learning outcomes",
-    "assessment method", "rubric", "instructional_strategy")
+  c(
+    "assignment design", "course design",
+    "learning outcomes", "assessment method",
+    "rubric", "instructional_strategy"
+  )
 
 ```
 
@@ -814,16 +1035,16 @@ The validation process compared two perspectives on the same corpus:\
 
 ##### Summary of Observed Patterns
 
-| Theme | LLM_Relative (%) | Verified_Relative (%) | Interpretation |
-|------------------|-----------------:|-----------------:|-------------------|
-| Academic Integrity / Plagiarism | 25.0 | 49.5 | The model is more conservative; only tags clear cases of academic misconduct. |
-| Faculty Autonomy & Syllabus Clarity | 23.0 | 56.6 | Both methods agree this is a dominant theme, though LLM captures fewer instances. |
-| Citation / Disclosure Requirements | 17.0 | 25.3 | Close alignment; both approaches identify similar occurrences. |
-| Conditional AI Use Guidelines | 21.0 | 14.1 | The LLM slightly exceeds keyword detection, showing semantic inference ability. |
-| Pedagogical Integration & Assessment Design | 8.0 | 50.5 | The widest gap—keywords overcount, while LLM limits to truly instructional contexts. |
-| Policy Evolution & Ongoing Review | 7.0 | 5.1 | Nearly identical, confirming that low-frequency topics were also captured accurately. |
+| Theme | LLM (%) | Keyword (%) |
+|------------------|-----------------:|-----------------:|
+| Academic Integrity / Plagiarism | 25.0 | 49.5 |
+| Faculty Autonomy & Syllabus Clarity | 23.0 | 56.6 |
+| Citation / Disclosure Requirements | 17.0 | 25.3 |
+| Conditional AI Use Guidelines | 21.0 | 14.1 |
+| Pedagogical Integration & Assessment Design | 8.0 | 50.5 |
+| Policy Evolution & Ongoing Review | 7.0 | 5.1 |
 
-: Table 9.5. Theme-level comparison of LLM-reported and keyword-verified frequencies.
+: Table 9.5. Theme-level comparison of LLM-reported and keyword verified frequencies.
 
 ##### Interpretation
 
@@ -853,7 +1074,11 @@ For instance, consider the theme:
 ```{r}
 #| eval: false
 "Pedagogical Integration & Assessment Design" = 
-  c("assignment", "assessment", "learning", "instruction", "pedagog")
+  c(
+    "assignment", "assessment",
+    "learning",
+    "instruction", "pedagog"
+  )
 ```
 
 This set captures a wide range of common words such as *learning* and *assessment*, which appear frequently in almost all policy statements. As a result, the keyword-based validation counts nearly half of the corpus as related to pedagogy (≈ 50%), whereas the LM Studio model, which identifies themes only when the semantic context genuinely involves teaching design, reports a much lower frequency (≈ 8%). Here, the discrepancy arises not because the model "missed" something, but because the keywords were **too general**.
@@ -865,9 +1090,16 @@ This process is iterative. Researchers can refine keyword sets, inspect how the 
 ```{r}
 #| eval: false
 "Pedagogical Integration & Assessment Design" = 
-  c("assignment design", "course design", "learning outcomes",
-    "assessment method", "rubric", "instructional strategy")
+  c(
+    "assignment design", "course design",
+    "learning outcomes", "assessment method",
+    "rubric", "instructional strategy"
+  )
 
+```
+
+```{=latex}
+\Needspace{0.35\textheight}
 ```
 
 ##### Balancing Precision and Recall
@@ -943,7 +1175,7 @@ Traditional NLP methods, as explored in Section 2, rely heavily on token-level p
 
 In contrast, the local LLM used here reasons across sentences and paragraphs. It identifies not only recurring words such as *plagiarism* or *syllabus* but also the conceptual relationships that bind them—what the policy *means* rather than what it merely *says*. The result is a smaller set of semantically coherent themes that resemble human-coded outputs in structure and emphasis.
 
-The **validation exercise** (Sections 7.5.5–7.5.5.3) confirmed this distinction empirically: the LLM produced lower absolute frequencies yet mirrored the same thematic hierarchy found by keyword verification (r ≈ 0.7). This pattern suggests greater semantic selectivity rather than simple lexical matching.
+The **validation exercise** (Sections 9.5.5–9.5.5.3) confirmed this distinction empirically: the LLM produced lower absolute frequencies yet mirrored the same thematic hierarchy found by keyword verification (r ≈ 0.7). This pattern suggests greater semantic selectivity rather than simple lexical matching.
 
 #### Complementarity, Not Replacement
 
@@ -970,7 +1202,7 @@ Yes, it requires a bit more patience (the model will not respond instantly), but
 
 The lessons from this section mark a transition from **computational text analysis** to **intelligent collaboration with models**. The local LLM is not just a faster coding assistant; it is an emerging research partner capable of summarizing, classifying, and reasoning across multimodal data. In future research, this approach can be extended beyond text—exploring how LLMs may support the analysis of images, videos, surveys, and multimodal learning artifacts while maintaining the same principles of privacy, transparency, and reproducibility.
 
-What we have done here with text is just the beginning. In Chapter 8, we will explore how LLMs can analyze *images*—yes, photos!—opening up entirely new possibilities for educational research. Same privacy-focused approach, but now we are working with visual data.
+What we have done here with text is just the beginning. In Chapter 10, we will explore how LLMs can analyze *images*—yes, photos!—opening up entirely new possibilities for educational research. Same privacy-focused approach, but now we are working with visual data.
 
 > **In summary:**\
 > Section 2 taught us how to *count words*;\
@@ -981,3 +1213,8 @@ What we have done here with text is just the beginning. In Chapter 8, we will ex
 ## 9.6 Summary
 
 This chapter demonstrated how a local large language model, running entirely within LM Studio, can conduct thematic analysis of educational policy texts while preserving data privacy and methodological transparency. The validation exercise confirmed that LLM-generated themes align with human-coded patterns, though with greater semantic selectivity than keyword-based methods. Local LLMs complement rather than replace the frequency-based approaches introduced in Chapter 4, offering a hybrid analytical strategy that bridges quantitative pattern detection with qualitative interpretation.
+
+```{=latex}
+\clearpage
+\flushbottom
+```

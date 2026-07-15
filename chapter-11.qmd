@@ -57,23 +57,23 @@ A common workflow involves:
 
 - Hosting source files and code on **GitHub** (<https://github.com/>)
 
-  ![Figure 11.4. GitHub repository view for source code and project files.](data/ch9_images/github%20repo%20codes.png)
+  ![Figure 11.4. GitHub repository view for source code and project files.](data/ch9_images/github%20repo%20codes.png){width="82%"}
 
 - Publishing a static website using **GitHub Pages** (<https://pages.github.com/>)
 
-  ![Figure 11.5. GitHub Pages site view for public project communication.](data/ch9_images/github%20page.png)
+  ![Figure 11.5. GitHub Pages site view for public project communication.](data/ch9_images/github%20page.png){width="82%"}
 
 - Authoring documents with **Quarto** (<https://quarto.org/>)
 
 This approach supports transparency, reproducibility, and incremental updates. Project websites are especially well suited for method demonstrations, teaching examples, and analyses involving multiple visualizations.
 
-![Figure 11.6. Quarto-rendered web page example for research communication.](data/ch9_images/quarto%20.png)
+![Figure 11.6. Quarto-rendered web page example for research communication.](data/ch9_images/quarto%20.png){width="88%"}
 
 ### 11.2.4 Open Data and Code Archives
 
 Dedicated repositories allow researchers to share datasets, analysis scripts, and documentation in citable form.
 
-Popular platform such as:
+Popular platforms include:
 
 - **Zenodo**: <https://zenodo.org/>
 
@@ -128,22 +128,14 @@ This format supports transparency and reproducibility while remaining accessible
 
 A minimal project structure for communicating the GenAI policy analysis is shown below:
 
-```         
-
+``` text
 genai-policy-analysis/
-
 ├── _quarto.yml
-
 ├── index.qmd
-
 ├── analysis/
-
-│ └── frequency-analysis.qmd
-
+│   └── frequency-analysis.qmd
 ├── data/
-
-│ └── University_GenAI_Policy_Stance.csv
-
+│   └── University_GenAI_Policy_Stance.csv
 └── README.md
 ```
 
@@ -178,7 +170,10 @@ A minimal communication excerpt could look like this:
 library(tidyverse)
 library(tidytext)
 
-policies <- read_csv("data/University_GenAI_Policy_Stance.csv")
+policy_file <- file.path(
+  "data", "University_GenAI_Policy_Stance.csv"
+)
+policies <- read_csv(policy_file)
 
 top_terms <- policies |>
   unnest_tokens(word, Stance) |>
@@ -187,9 +182,9 @@ top_terms <- policies |>
   slice_head(n = 12)
 ```
 
-Then, in the communication page, we show one simple bar chart with short interpretation text.
+![Figure 11.8. Simple frequency bar chart adapted from Chapter 2 policy analysis.](data/ch9_images/ch2-simple-frequency-example.png){width="70%" fig-pos="H"}
 
-![Figure 11.8. Simple frequency bar chart adapted from Chapter 2 policy analysis.](data/ch9_images/ch2-simple-frequency-example.png)
+The communication page pairs this chart with a short interpretation.
 
 ### 11.4.6 Presenting Results for Interpretation
 
@@ -251,15 +246,4 @@ Reproducibility in this book is supported through versioned source files (`.qmd`
 
 ## 11.8 Summary
 
-This chapter emphasized that communication is a methodological choice, not merely a presentation task. Computational educational research benefits from communication strategies that align with open science, reproducibility, and audience needs.
-
-A practical checklist for communicating computational research includes:
-
-- Research questions align with data and methods
-- Analytical decisions are documented transparently
-- Code and data are accessible when possible
-- Visualizations support interpretation rather than replace explanation
-- Ethical considerations are explicitly addressed
-- Communication formats match the intended audience
-
-Together, these practices support rigorous, responsible, and impactful computational educational research.
+Communication is a methodological choice. Rigorous computational educational research aligns questions, data, and methods; documents analytical decisions; provides code and data when possible; uses visualizations to support interpretation; addresses ethical considerations; and matches the communication format to its intended audience.

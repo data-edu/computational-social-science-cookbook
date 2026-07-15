@@ -1,10 +1,18 @@
 ---
 title: "Text Data"
+execute:
+  freeze: false
 ---
+
+```{=latex}
+\raggedbottom
+```
 
 ```{r}
 #| include: false
-options(warn = -1)
+pdf_output <- knitr::is_latex_output()
+output_width <- if (pdf_output) 58 else 80
+options(warn = -1, width = output_width)
 ```
 
 ## 4.1 Overview
@@ -65,7 +73,10 @@ To isolate data sections within the HTML structure, identify the **XPath** or **
 ```{r}
 #| eval: false
 # Extract specific section using XPath
-section_of_wikipedia <- html_node(wikipedia_page, xpath='//*[@id="mw-content-text"]/div/table')
+section_of_wikipedia <- html_node(
+  wikipedia_page,
+  xpath = '//*[@id="mw-content-text"]/div/table'
+)
 head(section_of_wikipedia)
 ```
 
@@ -75,7 +86,8 @@ To convert the extracted section into a data frame, use `html_table()`:
 #| eval: false
 # Convert the extracted data into a table
 health_rankings <- html_table(section_of_wikipedia)
-head(health_rankings[ , (1:2)])  # Display the first two columns
+# Display the first two columns
+head(health_rankings[, 1:2])
 ```
 
 #### Parsing with CSS Selectors
@@ -90,7 +102,10 @@ For example, to scrape event information from Duke University’s main page:
 duke_page <- read_html("https://www.duke.edu")
 
 # Extract event information using CSS selector
-duke_events <- html_nodes(duke_page, css="li:nth-child(1) .epsilon")
+duke_events <- html_nodes(
+  duke_page,
+  css = "li:nth-child(1) .epsilon"
+)
 html_text(duke_events)
 ```
 
@@ -114,11 +129,20 @@ remDr$navigate("https://www.duke.edu")
 
 To automate data entry, identify the CSS selector for the search box and input the query:
 
+```{=latex}
+\Needspace{0.18\textheight}
+```
+
 ```{r}
 #| eval: false
 # Find the search box element and enter a query
-search_box <- remDr$findElement(using = 'css selector', 'fieldset input')
-search_box$sendKeysToElement(list("data science", "\uE007"))  # "\uE007" represents Enter key
+search_box <- remDr$findElement(
+  using = "css selector",
+  value = "fieldset input"
+)
+search_box$sendKeysToElement(
+  list("data science", "\uE007")
+) # Enter key
 ```
 
 #### Web Scraping within a Loop
@@ -159,7 +183,11 @@ install.packages("RedditExtractoR")
 library(RedditExtractoR)
 
 # Access data from the GenAI subreddit
-GenAI_reddit <- find_thread_urls(subreddit = "GenAI", sort_by = "new", period = "day")
+GenAI_reddit <- find_thread_urls(
+  subreddit = "GenAI",
+  sort_by = "new",
+  period = "day"
+)
 view(GenAI_reddit)
 ```
 
@@ -181,7 +209,11 @@ Audio transcripts are a rich source of text data, especially useful for capturin
 ```{r}
 #| eval: false
    # Load the transcript into R
-   transcript_data <- read.table("path/to/your/zoom_transcript.txt", sep = "\t", header = TRUE)
+   transcript_data <- read.table(
+     "path/to/your/zoom_transcript.txt",
+     sep = "\t",
+     header = TRUE
+   )
 ```
 
 Adjust the `sep` parameter based on the delimiter used in the transcript file (typically `\t` for tab-delimited files).
@@ -195,7 +227,11 @@ Adjust the `sep` parameter based on the delimiter used in the transcript file (t
     ```{r}
     #| eval: false
          # Remove special characters
-         transcript_data$text <- gsub("[^a-zA-Z0-9 ]", "", transcript_data$text)
+         pattern <- "[^a-zA-Z0-9 ]"
+         clean_text <- gsub(
+           pattern, "", transcript_data$text
+         )
+         transcript_data$text <- clean_text
     ```
 
     - **Convert Text to Lowercase**\
@@ -248,9 +284,17 @@ PDF files are a valuable source of text data, often found in research publicatio
 4.  **Extract Rows into a List**\
     If the page contains a table or structured text, use the `scan()` function to read each row as a separate element in a list. The `textConnection()` function converts the page text for processing.
 
+```{=latex}
+\Needspace{0.17\textheight}
+```
+
 ```{r}
 #| eval: false
-   rows <- scan(textConnection(page_text), what = "character", sep = "\n")
+   rows <- scan(
+     textConnection(page_text),
+     what = "character",
+     sep = "\n"
+   )
 ```
 
 5.  **Split Rows into Cells**\
@@ -258,7 +302,11 @@ PDF files are a valuable source of text data, often found in research publicatio
 
 ```{r}
 #| eval: false
-   row <- unlist(strsplit(rows[24], "\\s+"))  # Example with the 24th row
+   # Example with the 24th row
+   row <- unlist(strsplit(
+     rows[24],
+     "\\s+"
+   ))
 ```
 
 #### Steps for Downloading and Extracting Text from PDF Files
@@ -299,7 +347,11 @@ PDF files are a valuable source of text data, often found in research publicatio
 
 ```{r}
 #| eval: false
-   rows <- scan(textConnection(page_text), what = "character", sep = "\n")
+   rows <- scan(
+     textConnection(page_text),
+     what = "character",
+     sep = "\n"
+   )
 ```
 
 5.  **Loop Through Rows and Extract Data**\
@@ -317,7 +369,8 @@ PDF files are a valuable source of text data, often found in research publicatio
      row <- unlist(strsplit(rows[i], "\\s+"))
      if (!is.na(row[3])) {
        name <- c(name, row[2])
-       total <- c(total, as.numeric(gsub(",", "", row[3])))
+       value <- gsub(",", "", row[3])
+       total <- c(total, as.numeric(value))
      }
    }
 ```
@@ -433,8 +486,12 @@ Install and load libraries for data processing, visualization, and word cloud ge
 
 ```{r}
 #| label: load-libraries-frequency
+#| message: false
 # Install necessary packages if not already installed
-# install.packages(c("tibble", "dplyr", "tidytext", "ggplot2", "viridis", "tm", "wordcloud", "wordcloud2", "webshot"))
+# install.packages(c(
+#   "tibble", "dplyr", "tidytext", "ggplot2", "viridis",
+#   "tm", "wordcloud", "wordcloud2", "webshot"
+# ))
 
 # Load libraries
 library(readr)
@@ -455,23 +512,33 @@ Read the CSV file containing policy texts from the top 100 universities.
 
 ```{r}
 #| label: load-data-frequency
+#| message: false
 # Load the dataset
-university_policies <- read_csv("data/University_GenAI_Policy_Stance.csv")
+policy_path <- "data/University_GenAI_Policy_Stance.csv"
+university_policies <- read_csv(policy_path)
 ```
 
 #### Step 3: Tokenize Text and Count Word Frequency
 
 Process the text data by tokenizing words, removing stop words, and counting word occurrences.
 
+```{=latex}
+\Needspace{0.34\textheight}
+```
+
 ```{r}
 #| label: tokenize-frequency
-# Tokenize text, remove stop words, and count word frequencies
+#| message: false
+# Tokenize, remove stop words, and count words
 word_frequency <- university_policies |>
-  unnest_tokens(word, Stance) |> # Tokenize the 'Stance' column
-  anti_join(stop_words) |>       # Remove common stop words
-  count(word, sort = TRUE)        # Count and sort words by frequency
+  # Tokenize the 'Stance' column
+  unnest_tokens(word, Stance) |>
+  # Remove common stop words
+  anti_join(stop_words) |>
+  # Count and sort words by frequency
+  count(word, sort = TRUE)
 
-word_frequency
+print(word_frequency, n = 6, width = output_width)
 ```
 
 #### Step 4: Create a Word Cloud
@@ -504,7 +571,10 @@ top_words <- word_frequency |>
   slice(1:12)
 
 # Generate the bar chart
-policy_word_chart <- ggplot(top_words, aes(x = reorder(word, n), y = n, fill = word)) +
+policy_word_chart <- ggplot(
+  top_words,
+  aes(x = reorder(word, n), y = n, fill = word)
+) +
   geom_bar(stat = "identity") +
   coord_flip() +
   theme_minimal() +
@@ -516,7 +586,12 @@ policy_word_chart <- ggplot(top_words, aes(x = reorder(word, n), y = n, fill = w
     fill = "Word"
   ) +
   scale_fill_viridis(discrete = TRUE) +
-  geom_text(aes(label = n), vjust = 0.5, hjust = -0.1, size = 3)
+  geom_text(
+    aes(label = n),
+    vjust = 0.5,
+    hjust = -0.1,
+    size = 3
+  )
 
 # Print the bar chart
 print(policy_word_chart)
@@ -562,8 +637,11 @@ First, install and load the required packages for text processing and visualizat
 
 ```{r}
 #| label: load-libraries-dictionary
+#| message: false
 # Install necessary packages if not already installed
-# install.packages(c("tidytext", "tidyverse", "dplyr", "ggplot2", "tidyr"))
+# install.packages(c(
+#   "tidytext", "tidyverse", "dplyr", "ggplot2", "tidyr"
+# ))
 
 # Load libraries
 library(tidytext)
@@ -579,16 +657,21 @@ Load the GenAI policy stance data from a CSV file. We use the same data as in Se
 
 ```{r}
 #| label: load-data-dictionary
+#| message: false
 # Load the dataset
-university_policies <- read_csv("data/University_GenAI_Policy_Stance.csv")
+policy_path <- "data/University_GenAI_Policy_Stance.csv"
+university_policies <- read_csv(policy_path)
 
-# Tokenize text, remove stop words, and count word frequencies
+# Tokenize, remove stop words, and count words
 word_frequency <- university_policies |>
-  unnest_tokens(word, Stance) |> # Tokenize the 'Stance' column
-  anti_join(stop_words) |>       # Remove common stop words
-  count(word, sort = TRUE)        # Count and sort words by frequency
+  # Tokenize the 'Stance' column
+  unnest_tokens(word, Stance) |>
+  # Remove common stop words
+  anti_join(stop_words) |>
+  # Count and sort words by frequency
+  count(word, sort = TRUE)
 
-word_frequency
+print(word_frequency, n = 6, width = output_width)
 ```
 
 #### Step 3: Tokenize Text Data and Apply Sentiment Dictionary
@@ -597,13 +680,20 @@ Tokenize the policy text data to separate individual words. Then, use the Bing s
 
 ```{r}
 #| label: sentiment-analysis
-# Tokenize 'Stance' column and apply Bing sentiment dictionary
+#| message: false
+# Apply the Bing dictionary to policy words
 sentiment_scores <- word_frequency |>
-  inner_join(get_sentiments("bing")) |> # Join with Bing sentiment lexicon
-  pivot_wider(names_from = sentiment, values_from = n, values_fill = 0) |>
-  mutate(sentiment_score = positive - negative) # Calculate net sentiment score
+  # Join with Bing sentiment lexicon
+  inner_join(get_sentiments("bing")) |>
+  pivot_wider(
+    names_from = sentiment,
+    values_from = n,
+    values_fill = 0
+  ) |>
+  # Calculate net sentiment score
+  mutate(sentiment_score = positive - negative)
 
-sentiment_scores
+print(sentiment_scores, n = 6, width = output_width)
 ```
 
 #### Step 4: Create a Density Plot for Sentiment Distribution
@@ -613,7 +703,10 @@ Visualize the distribution of sentiment scores with a density plot, showing the 
 ```{r}
 #| label: sentiment-density-plot
 # Generate a density plot of sentiment scores
-density_plot <- ggplot(sentiment_scores, aes(x = sentiment_score, fill = sentiment_score > 0)) +
+density_plot <- ggplot(
+  sentiment_scores,
+  aes(x = sentiment_score, fill = sentiment_score > 0)
+) +
   geom_density(alpha = 0.5) +
   scale_fill_manual(
     values = c("red", "green"),
@@ -621,7 +714,7 @@ density_plot <- ggplot(sentiment_scores, aes(x = sentiment_score, fill = sentime
     labels = c("Negative", "Positive")
   ) +
   labs(
-    title = "Density Plot of University AI Policy Sentiment",
+    title = "University AI Policy Sentiment",
     x = "Sentiment Score",
     y = "Density",
     caption = "Source: University Policy Text"
@@ -678,8 +771,11 @@ Install and load the required libraries for text processing and topic modeling.
 
 ```{r}
 #| label: load-libraries-clustering
+#| message: false
 # Install necessary packages
-# install.packages(c("dplyr", "tidytext", "topicmodels", "ggplot2"))
+# install.packages(c(
+#   "dplyr", "tidytext", "topicmodels", "ggplot2"
+# ))
 
 # Load libraries
 library(dplyr)
@@ -694,11 +790,13 @@ Load the data and create a document-term matrix (DTM) for topic modeling.
 
 ```{r}
 #| label: prepare-data-clustering
+#| message: false
 # Load the dataset
-university_policies <- read_csv("data/University_GenAI_Policy_Stance.csv")
+policy_path <- "data/University_GenAI_Policy_Stance.csv"
+university_policies <- read_csv(policy_path)
 
-# Tokenize text data and count word frequencies by document (university)
-# We add a unique ID for each policy to treat it as a document
+# Count word frequencies by document.
+# We add a unique ID for each policy.
 university_policies <- university_policies |>
   mutate(policy_id = row_number())
 
@@ -709,7 +807,11 @@ word_counts <- university_policies |>
 
 # Create Document-Term Matrix
 gpt_dtm <- word_counts |>
-  cast_dtm(document = policy_id, term = word, value = n)
+  cast_dtm(
+    document = policy_id,
+    term = word,
+    value = n
+  )
 
 gpt_dtm
 ```
@@ -721,13 +823,25 @@ gpt_dtm
 k_values <- c(2, 3, 4, 5)
 
 # Initialize a data frame to store perplexities
-perplexities <- data.frame(k = integer(), perplexity = numeric())
+perplexities <- data.frame(
+  k = integer(),
+  perplexity = numeric()
+)
 
 # Calculate perplexity for each k
 for (k in k_values) {
-  lda_model <- LDA(gpt_dtm, k = k, control = list(seed = 1234))  # Fit LDA model
-  perplexity_score <- perplexity(lda_model, gpt_dtm)            # Calculate perplexity
-  perplexities <- rbind(perplexities, data.frame(k = k, perplexity = perplexity_score))
+  # Fit LDA model
+  lda_model <- LDA(
+    gpt_dtm,
+    k = k,
+    control = list(seed = 1234)
+  )
+  # Calculate perplexity
+  perplexity_score <- perplexity(lda_model, gpt_dtm)
+  perplexities <- rbind(
+    perplexities,
+    data.frame(k = k, perplexity = perplexity_score)
+  )
 }
 
 # Plot perplexity vs number of topics
@@ -749,12 +863,16 @@ Fit an LDA model with `k = 3` topics.
 ```{r}
 #| label: fit-lda
 # Fit the LDA model
-lda_model <- LDA(gpt_dtm, k = 3, control = list(seed = 1234))
+lda_model <- LDA(
+  gpt_dtm,
+  k = 3,
+  control = list(seed = 1234)
+)
 
 # View model results
 gpt_policy_topics_k3 <- tidy(lda_model, matrix = "beta")
 
-print(gpt_policy_topics_k3)
+print(gpt_policy_topics_k3, n = 6, width = output_width)
 ```
 
 #### Step 4: Visualize Topics
@@ -772,7 +890,9 @@ gpt_policy_ap_top_terms_k3 <- gpt_policy_topics_k3 |>
 
 gpt_policy_ap_top_terms_k3 |>
   mutate(term = reorder_within(term, beta, topic)) |>
-  ggplot(aes(beta, term, fill = factor(topic))) +
+  ggplot(
+    aes(beta, term, fill = factor(topic))
+  ) +
   geom_col(show.legend = FALSE) +
   facet_wrap(~ topic, scales = "free") +
   scale_y_reordered() +
@@ -795,11 +915,11 @@ The methods used above can be written up as follows:
 >
 > **Topic Modeling Procedure**
 >
-> Latent Dirichlet Allocation (LDA) was employed to identify latent themes within the policy texts (Blei et al., 2003), implemented via the *topicmodels* package (Grün & Hornik, 2011). To determine the optimal number of topics, a range of models with k=2,3,4,k=2,3,4, and 55 topics was fitted, and each model’s **perplexity score**—a standard measure of model fit in probabilistic topic modeling—was computed. A line plot of perplexity values against topic numbers was used to identify the point of diminishing returns. The model with three topics (k=3k=3) exhibited a balanced trade-off between interpretability and model fit and was selected for further analysis.
+> Latent Dirichlet Allocation (LDA) was employed to identify latent themes within the policy texts (Blei et al., 2003), implemented via the *topicmodels* package (Grün & Hornik, 2011). To determine the optimal number of topics, a range of models with $k = 2, 3, 4,$ and $5$ topics was fitted, and each model’s **perplexity score**—a standard measure of model fit in probabilistic topic modeling—was computed. A line plot of perplexity values against topic numbers was used to identify the point of diminishing returns. The model with three topics ($k = 3$) exhibited a balanced trade-off between interpretability and model fit and was selected for further analysis.
 >
 > **Model Fitting and Interpretation**
 >
-> An LDA model with k=3k=3 topics was fitted using a fixed random seed to ensure replicability. The resulting topic-term probabilities (ββ) were extracted and organized to identify the most representative words for each topic. The top ten terms per topic were visualized using *ggplot2*, allowing for intuitive comparison of thematic content across topics. This visualization facilitated qualitative interpretation of the emergent themes and enabled labeling based on the semantic coherence of high-probability terms.
+> An LDA model with $k = 3$ topics was fitted using a fixed random seed to ensure replicability. The resulting topic-term probabilities ($\beta$) were extracted and organized to identify the most representative words for each topic. The top ten terms per topic were visualized using *ggplot2*, allowing for intuitive comparison of thematic content across topics. This visualization facilitated qualitative interpretation of the emergent themes and enabled labeling based on the semantic coherence of high-probability terms.
 >
 > **Computational Environment**
 >
@@ -888,3 +1008,8 @@ This chapter demonstrated three approaches to computational text analysis — fr
 - **Practice‑Oriented Extensions**
 
   - Open‑source R notebooks or blog posts on “university policy text analysis,” “sentiment analysis of policy documents,” or “topic modeling of educational texts” to see closely related applied examples.
+
+```{=latex}
+\clearpage
+\flushbottom
+```

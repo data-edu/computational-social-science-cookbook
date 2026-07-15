@@ -1,8 +1,10 @@
 ---
 title: "Colophon"
+execute:
+  freeze: false
 ---
 
-This book was written in [Quarto](https://quarto.org/) and rendered to HTML and PDF. All analyses were conducted in R. The source code is available at the book's GitHub repository.
+This book was written in [Quarto](https://quarto.org/), analyzed with R, and rendered to HTML and PDF with XeLaTeX. Source files, data paths, package declarations, and version history are available in the book's [GitHub repository](https://github.com/data-edu/computational-social-science-cookbook).
 
 ## About the Authors
 
@@ -14,19 +16,50 @@ This book was written in [Quarto](https://quarto.org/) and rendered to HTML and 
 
 **Shaun Kellogg** is Senior Director of the Office of Research and Promising Practices at the North Carolina Department of Public Instruction. His work focuses on evidence-based decision-making, research-practice partnerships, and the use of data to improve educational outcomes. Website: <https://www.dpi.nc.gov/blog/2025/09/17/how-ncdpis-office-research-promising-practices-turns-evidence-action>
 
-The R session information below documents the computational environment used to produce this edition, including the R version, platform, and all packages loaded during rendering.
+:::: {.content-visible when-format="html"}
+
+## Reproducibility Details
+
+The build metadata below records the environment used for the current HTML edition.
 
 ```{r}
 #| echo: false
 #| message: false
 #| warning: false
 
-cat("Build date:", format(Sys.Date(), "%B %d, %Y"), "\n")
-cat("Quarto version:", as.character(quarto::quarto_version()), "\n")
+if (knitr::is_html_output()) {
+  build_date <- format(Sys.Date(), "%B %d, %Y")
+  quarto_version_file <- file.path(
+    dirname(Sys.getenv("QUARTO_BIN_PATH")),
+    "share",
+    "version"
+  )
+  quarto_version <- if (file.exists(quarto_version_file)) {
+    readLines(quarto_version_file, n = 1)
+  } else {
+    "Unavailable"
+  }
+  cat("Build date:", build_date, "\n")
+  cat("Quarto version:", quarto_version, "\n")
+}
 ```
+
+::: {.callout-note collapse="true"}
+## Full R session information
 
 ```{r}
 #| echo: false
+#| message: false
+#| warning: false
 
-sessionInfo()
+if (knitr::is_html_output()) {
+  print(sessionInfo())
+}
 ```
+:::
+
+::::
+
+::: {.content-visible when-format="pdf"}
+Production details and source history for this edition are maintained in the repository.
+:::

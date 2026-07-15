@@ -1,11 +1,18 @@
 ---
 title: "Positron Assistant and Databot"
+execute:
+  freeze: false
 ---
 
+```{=latex}
+\raggedbottom
+```
+
 ```{r}
-#| eval: false
 #| include: false
-options(warn = -1)
+pdf_output <- knitr::is_latex_output()
+output_width <- if (pdf_output) 58 else 80
+options(warn = -1, width = output_width)
 ```
 
 ## 8.1 Overview
@@ -69,7 +76,8 @@ You should also know your institution's guidance on external AI tools before usi
 Getting started is straightforward:
 
 1.  **Download and install Positron** from the website
-2.  **Enable Positron Assistant** by turning on `positron.assistant.enable` in Settings
+2.  **Enable Positron Assistant** in Settings.
+    - Setting: `positron.assistant.enable`
 3.  **Reload Positron** (restart or run `Developer: Reload Window`)
 4.  **Configure a provider** with `Positron Assistant: Configure Language Model Providers`
 5.  **Open chat** (robot icon or `Chat: Open Chat`) and start asking questions
@@ -174,7 +182,7 @@ Instead of manually searching external forums first, pass the error to Positron 
 
 This response can be used as a starting point for verification.
 
-![Figure 8.11. Assistant debugging suggestion for a code error in context.](data/ch6_images/assistant-debug-suggestion.png)
+![Figure 8.11. Assistant debugging suggestion for a code error in context.](data/ch6_images/assistant-debug-suggestion.png){width=72%}
 
 ## 8.5 Meet Databot (Experimental): Your EDA Accelerator
 
@@ -195,7 +203,11 @@ Example tasks include:
 
 Databot can generate reusable import templates for recurring file structures:
 
-![Figure 8.12. Databot-generated reusable import template for recurring datasets.](data/ch6_images/databot-import-template.png)
+![Figure 8.12. Databot-generated reusable import template for recurring datasets.](data/ch6_images/databot-import-template.png){width=72%}
+
+```{=latex}
+\Needspace{0.55\textheight}
+```
 
 ``` r
 # This template was created once, now you use it forever!
@@ -226,35 +238,18 @@ The resulting function can reduce repeated setup work across similar datasets.
 
 For incoming survey datasets, Databot can draft validation checks before substantive analysis begins:
 
-![Figure 8.13. Databot-generated data validation checks for incoming survey files.](data/ch6_images/databot-validation-checks.png)
+![Figure 8.13. Databot-generated data validation checks for incoming survey files.](data/ch6_images/databot-validation-checks.png){width=72%}
 
 ``` r
-# Auto-generated validation checks - run these on every new dataset
 validate_student_data <- function(df) {
-  checks <- list(
-    check_columns_exist = function(d) {
-      required <- c("id", "score", "grade")
-      missing <- setdiff(required, names(d))
-      if (length(missing) > 0) stop("Missing columns: ", paste(missing, collapse = ", "))
-      TRUE
-    },
-    check_no_missing_id = function(d) {
-      if (any(is.na(d$id))) stop("Missing IDs found")
-      TRUE
-    },
-    check_score_range = function(d) {
-      if (any(d$score < 0 | d$score > 100, na.rm = TRUE)) {
-        stop("Scores out of valid range (0-100)")
-      }
-      TRUE
-    }
-  )
-  
-  for (check in checks) {
-    check(df)
-  }
+  required <- c("id", "score", "grade")
+  missing <- setdiff(required, names(df))
+  details <- paste(missing, collapse = ", ")
+  if (length(missing) > 0) stop("Missing: ", details)
+  if (anyNA(df$id)) stop("Missing IDs found")
+  bad_score <- df$score < 0 | df$score > 100
+  if (any(bad_score, na.rm = TRUE)) stop("Out of range")
   message("All validation checks passed!")
-  TRUE
 }
 ```
 
@@ -268,8 +263,8 @@ To keep this chapter reproducible, use the demo files from `data/ch6_demo/`: `st
 
 In this example workflow, you can:
 
-- ask Databot to draft an import function for `student_scores.csv` (Section 6.5.2),
-- ask Databot to generate validation checks for `teacher_survey.csv` (Section 6.5.3),
+- ask Databot to draft an import function for `student_scores.csv` (Section 8.5.2),
+- ask Databot to generate validation checks for `teacher_survey.csv` (Section 8.5.3),
 - use Positron Assistant to refine or explain the generated code,
 - run the cleaned analysis pipeline and produce a quick plot for reporting.
 
@@ -342,6 +337,9 @@ Used well, they amplify core researcher strengths: question design, contextual i
 - Being transparent about AI use builds trust with your readers
 - These tools free you up to focus on what matters: your research
 
-### What is Next?
-
 The next chapter extends this discussion to **local LLM workflows for text analysis**, with emphasis on privacy-preserving qualitative methods.
+
+```{=latex}
+\clearpage
+\flushbottom
+```

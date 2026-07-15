@@ -8,11 +8,11 @@ From there, we worked through a field-guide approach to computational analysis i
 
 We see this guide as offering four connected contributions for educational researchers.
 
-First, we aimed to provide an accessible on-ramp to computational work in R , with enough structure for beginners while still supporting applied research.
+First, we aimed to provide an accessible on-ramp to computational work in R, with enough structure for beginners while still supporting applied research.
 
 Second, we showed how different computational methods answer different kinds of questions. Text methods help us identify themes and language patterns; network methods illuminate relationships and structures; numeric modeling supports prediction and explanation at scale.
 
-Third, it situates large language models (LLMs) as part of computational research practice. We introduced cloud and local pathways, then demonstrated local LLM workflows for both text and image analysis. The aim was not to present LLMs as a universal solution, but to show when and how they can be integrated responsibly.
+Third, we situated large language models (LLMs) as part of computational research practice. We introduced cloud and local pathways, then demonstrated local LLM workflows for both text and image analysis. The aim was not to present LLMs as a universal solution, but to show when and how they can be integrated responsibly.
 
 Fourth, we emphasized communication as method. Computational analysis is not complete when code runs; it is complete when decisions, evidence, and limitations are communicated clearly and ethically to the audiences that matter.
 

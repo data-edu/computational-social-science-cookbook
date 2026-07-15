@@ -1,10 +1,31 @@
 ---
 title: "Tidyverse"
+execute:
+  freeze: false
 ---
+
+```{=latex}
+\raggedbottom
+```
 
 ```{r}
 #| include: false
-options(warn = -1)
+pdf_output <- knitr::is_latex_output()
+options(
+  warn = -1,
+  width = if (pdf_output) 60 else 80
+)
+glimpse_width <- if (pdf_output) 55 else 80
+
+if (pdf_output) {
+  knitr::opts_chunk$set(
+    fig.width = 6.6,
+    fig.height = 2.7,
+    fig.align = "center",
+    fig.pos = "H",
+    out.width = "85%"
+  )
+}
 ```
 
 ## 3.1 Overview
@@ -55,11 +76,13 @@ Let us load actual data to see the tidyverse in action. We will use student asse
 
 ```{r}
 #| label: load-data
-# Read the data
-students <- read_csv("data/oulad-students-and-assessments.csv")
+#| message: false
+student_file <- "data/oulad-students-and-assessments.csv"
+students <- read_csv(student_file)
 
-# Take a quick look
-glimpse(students)
+students |>
+  select(gender, final_result, mean_weighted_score) |>
+  glimpse(width = glimpse_width)
 ```
 
 The `glimpse()` function shows you the structure of your data: how many rows and columns, what type each column is (character, numeric, etc.), and the first few values. This dataset contains information about students (gender, age, region, disability status) along with their course performance (final_result, pass status, mean_weighted_score).
@@ -173,10 +196,13 @@ students |>
 
 ```{r}
 #| label: group-by-multiple
+#| message: false
 # Multiple grouping variables
 students |>
   group_by(gender, disability) |>
-  summarize(mean_score = mean(mean_weighted_score, na.rm = TRUE))
+  summarize(
+    mean_score = mean(mean_weighted_score, na.rm = TRUE)
+  )
 ```
 
 After `group_by()`, subsequent operations happen separately for each group. This is one of the most powerful patterns in data analysis: split your data into groups, apply a function to each group, then combine the results.
@@ -187,17 +213,31 @@ Use `arrange()` to reorder rows:
 
 ```{r}
 #| label: arrange-examples
+arrange_vars <- students |>
+  transmute(id = id_student, result = final_result,
+            score = mean_weighted_score)
+
 # Sort by score (ascending by default)
-students |>
-  arrange(mean_weighted_score)
+arrange_vars |>
+  arrange(score) |>
+  slice_head(n = 3)
 
 # Sort descending
-students |>
-  arrange(desc(mean_weighted_score))
+arrange_vars |>
+  arrange(desc(score)) |>
+  slice_head(n = 3)
+```
 
+```{=latex}
+\Needspace{0.25\textheight}
+```
+
+```{r}
+#| label: arrange-multiple
 # Multiple sort keys
-students |>
-  arrange(gender, desc(mean_weighted_score))
+arrange_vars |>
+  arrange(result, desc(score)) |>
+  slice_head(n = 3)
 ```
 
 This is useful when you want to see the highest or lowest values, or when you need data in a particular order for plotting or reporting.
@@ -240,7 +280,10 @@ summarize(
     filter(students, pass == 1),
     gender
   ),
-  mean_score = mean(mean_weighted_score, na.rm = TRUE)
+  mean_score = mean(
+    mean_weighted_score,
+    na.rm = TRUE
+  )
 )
 ```
 
@@ -250,7 +293,12 @@ summarize(
 students |>
   filter(pass == 1) |>
   group_by(gender) |>
-  summarize(mean_score = mean(mean_weighted_score, na.rm = TRUE))
+  summarize(
+    mean_score = mean(
+      mean_weighted_score,
+      na.rm = TRUE
+    )
+  )
 ```
 
 The piped version reads like instructions: "Take students, *then* keep only those who passed, *then* group by gender, *then* calculate mean scores." Each step is on its own line, making it easy to follow the logic.
@@ -320,6 +368,8 @@ Use `geom_histogram()` to see the distribution of continuous variables:
 ```{r}
 #| label: plot-histogram
 #| fig-cap: "Figure 3.4. Distribution of mean weighted scores"
+#| fig-height: 2.4
+#| out-width: "82%"
 # Distribution of scores
 students |>
   ggplot(aes(x = mean_weighted_score)) +
@@ -334,8 +384,15 @@ The `binwidth` argument controls how wide each bar is. Smaller values show more 
 # Separate distributions by group
 students |>
   filter(!is.na(mean_weighted_score)) |>
-  ggplot(aes(x = mean_weighted_score, fill = factor(pass))) +
-  geom_histogram(binwidth = 50, position = "identity", alpha = 0.5)
+  ggplot(aes(
+    x = mean_weighted_score,
+    fill = factor(pass)
+  )) +
+  geom_histogram(
+    binwidth = 50,
+    position = "identity",
+    alpha = 0.5
+  )
 ```
 
 Using `position = "identity"` overlays the histograms, and `alpha = 0.5` makes them semi-transparent so you can see both distributions.
@@ -348,9 +405,10 @@ Use `geom_boxplot()` to compare distributions across groups:
 #| label: plot-boxplot
 #| fig-cap: "Figure 3.6. Score distributions by final result"
 # Scores by final result
-students |>
-  filter(!is.na(mean_weighted_score)) |>
-  ggplot(aes(x = final_result, y = mean_weighted_score)) +
+boxplot_data <- students |>
+  select(result = final_result, score = mean_weighted_score)
+
+ggplot(boxplot_data, aes(result, score)) +
   geom_boxplot()
 ```
 
@@ -360,9 +418,7 @@ Boxplots show the median (middle line), quartiles (box edges), and outliers (ind
 #| label: plot-boxplot-color
 #| fig-cap: "Figure 3.7. Score distributions by final result with color"
 # With colors
-students |>
-  filter(!is.na(mean_weighted_score)) |>
-  ggplot(aes(x = final_result, y = mean_weighted_score, fill = final_result)) +
+ggplot(boxplot_data, aes(result, score, fill = result)) +
   geom_boxplot()
 ```
 
@@ -375,10 +431,17 @@ Use `geom_point()` to explore relationships between two continuous variables:
 ```{r}
 #| label: plot-scatter
 #| fig-cap: "Figure 3.8. Registration timing versus mean weighted scores"
+#| fig-height: 2.4
+#| out-width: "82%"
 # Registration timing vs. scores
-students |>
+scatter_data <- students |>
   filter(!is.na(mean_weighted_score)) |>
-  ggplot(aes(x = date_registration, y = mean_weighted_score)) +
+  select(date_registration, mean_weighted_score)
+
+ggplot(
+  scatter_data,
+  aes(date_registration, mean_weighted_score)
+) +
   geom_point(alpha = 0.3)
 ```
 
@@ -387,10 +450,14 @@ The `alpha` parameter makes points semi-transparent, which helps when many point
 ```{r}
 #| label: plot-scatter-smooth
 #| fig-cap: "Figure 3.9. Registration timing versus scores with trend line"
+#| fig-height: 2.4
+#| out-width: "82%"
+#| message: false
 # Add a trend line
-students |>
-  filter(!is.na(mean_weighted_score)) |>
-  ggplot(aes(x = date_registration, y = mean_weighted_score)) +
+ggplot(
+  scatter_data,
+  aes(date_registration, mean_weighted_score)
+) +
   geom_point(alpha = 0.3) +
   geom_smooth(method = "lm")
 ```
@@ -424,11 +491,13 @@ Use faceting to create separate plots for different groups:
 ```{r}
 #| label: plot-facet-wrap
 #| fig-cap: "Figure 3.11. Final results by course module"
-# Separate plot for each course module
+#| fig-height: 3.4
+#| out-width: "88%"
 students |>
   ggplot(aes(x = final_result)) +
   geom_bar() +
-  facet_wrap(~code_module)
+  facet_wrap(~code_module) +
+  scale_x_discrete(labels = abbreviate)
 ```
 
 This creates a grid of small bar charts, one for each module. It is useful when you want to compare patterns across many categories.
@@ -436,6 +505,8 @@ This creates a grid of small bar charts, one for each module. It is useful when 
 ```{r}
 #| label: plot-facet-grid
 #| fig-cap: "Figure 3.12. Score distributions by gender and disability status"
+#| fig-height: 3.0
+#| out-width: "86%"
 # Grid by two variables
 students |>
   filter(!is.na(mean_weighted_score)) |>
@@ -459,3 +530,8 @@ When you want to go deeper:
 - [RStudio Cheatsheets](https://posit.co/resources/cheatsheets/): Visual quick references for dplyr, ggplot2, and more
 
 The tidyverse community is large and welcoming. When you get stuck, someone has likely asked your question before.
+
+```{=latex}
+\clearpage
+\flushbottom
+```

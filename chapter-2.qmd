@@ -2,6 +2,10 @@
 title: "R"
 ---
 
+```{=latex}
+\raggedbottom
+```
+
 ## 2.1 Overview
 
 We are not going to teach you RStudio comprehensively because excellent resources already exist for that purpose. We particularly recommend [*R for Data Science*](https://r4ds.hadley.nz/), [*Data Science in Education Using R*](https://datascienceineducation.com/), the [RStudio primers](https://posit.co/resources/primers/), and [*Happy Git and GitHub for the useR*](https://happygitwithr.com/).
@@ -28,18 +32,15 @@ summary(data)
 Here is a more realistic example using student assessment data. Save this as `explore-data.R`:
 
 ``` r
-# Example: Quick data exploration in an R script
 library(tidyverse)
-
-# Read the data
-students <- read_csv("data/oulad-students-and-assessments.csv")
-
-# Quick summaries
+students <- read_csv(
+  "data/oulad-students-and-assessments.csv"
+)
 summary(students$mean_weighted_score)
 table(students$final_result)
 ```
 
-![Figure 2.1. R script in the source pane with data-loading and summary commands.](r%20script.png)
+![Figure 2.1. R script in the source pane with data-loading and summary commands.](r%20script.png){width="74%" fig-pos="H"}
 
 This script loads the tidyverse package (more on this in the next chapter), reads a CSV file, and produces quick summaries. You can run it line-by-line using Cmd/Ctrl + Enter, or run the entire script at once. The output appears in the Console, but the script itself is saved for later use.
 
@@ -62,14 +63,8 @@ The structure looks similar to R Markdown, but the rendering engine is more powe
 title: "My Analysis"
 format: html
 ---
-
-## Introduction
-
-This is regular text.
 ```{{r}}
-# This is a code chunk
-x <- 1:10
-mean(x)
+mean(1:10)
 ```
 ````
 
@@ -82,31 +77,23 @@ Here is a more complete Quarto example analyzing student data:
 title: "OULAD Student Analysis"
 format: html
 ---
-
 ## Loading Data
-
-First, we will load the student assessment data from the Open University Learning Analytics Dataset:
-
 ```{{r}}
 library(tidyverse)
-students <- read_csv("data/oulad-students-and-assessments.csv")
+students <- read_csv(
+  "data/oulad-students-and-assessments.csv"
+)
 ```
-
 ## Pass Rates by Gender
-
-Let us examine how pass rates differ by gender:
-
 ```{{r}}
 students |>
-  group_by(gender, pass) |>
-  count() |>
-  pivot_wider(names_from = pass, values_from = n)
+  count(gender, pass)
 ```
 
-The table above shows the number of students who passed (1) and did not pass (0) for each gender. We can see that both groups have substantial representation in the dataset.
+The table summarizes pass outcomes for each gender.
 ````
 
-![Figure 2.2. Rendered Quarto document combining narrative, code, and output.](rendered%20quarto.png)
+![Figure 2.2. Rendered Quarto document combining narrative, code, and output.](rendered%20quarto.png){width="68%" fig-pos="H"}
 
 When you render this document, Quarto executes each code chunk in order, captures the output, and weaves it together with your explanatory text. The result is an HTML document where readers see your code, your results, and your interpretation all together. This makes your analysis reproducible in that anyone with your data can re-run your Quarto file and get the same results.
 
@@ -132,16 +119,13 @@ Here is an example showing how to hide code while displaying a plot:
 #| message: false
 
 library(tidyverse)
-students <- read_csv("data/oulad-students-and-assessments.csv")
-
-students |>
-  ggplot(aes(x = final_result)) +
+ggplot(students, aes(x = final_result)) +
   geom_bar() +
   labs(title = "Distribution of Final Results")
 ```
 ````
 
-![Figure 2.3. Quarto chunk options for controlling code visibility and execution output.](chunk%20options.png)
+![Figure 2.3. Quarto chunk options for controlling code visibility and execution output.](chunk%20options.png){width="70%" fig-pos="H"}
 
 When rendered, readers see the plot but not the code that created it. This is useful for final reports where you want to emphasize results rather than implementation details.
 
@@ -204,7 +188,8 @@ R has built-in documentation for every function:
 
 ``` r
 ?mean           # Opens help for the mean() function
-??regression    # Searches all help files for "regression"
+# Search all help files for "regression"
+??regression
 ```
 
 Help files include descriptions, arguments, examples, and related functions.
@@ -259,4 +244,13 @@ Many programmers use both: Copilot for day-to-day coding, external LLMs when the
 
 AI suggestions are not always correct. Always review code before accepting it, especially for data analysis where subtle errors can lead to wrong conclusions. Use AI tools to speed up your work, but verify that the code does what you think it does.
 
+```{=latex}
+\enlargethispage{3\baselineskip}
+```
+
 Please see LLM Methods section (intro) for more information about the relationship between you, data, and LLMs.
+
+```{=latex}
+\clearpage
+\flushbottom
+```

@@ -2,6 +2,10 @@
 title: "LLM Methods"
 ---
 
+```{=latex}
+\raggedbottom
+```
+
 ## Overview
 
 As educational researchers integrate large language models into data analysis workflows, our methodological responsibilities evolve in important ways [@Kasneci2023ChatGPT]. There are three primary approaches to this integration:
