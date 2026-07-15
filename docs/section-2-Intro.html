@@ -501,7 +501,7 @@ div.csl-indent {
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>This section introduces the core data science methods that form the basis of educational data analysis <span class="citation" data-cites="Lang2017HandbookLA Baker2014EDM">(<a href="references.html#ref-Baker2014EDM" role="doc-biblioref">Baker &amp; Inventado, 2014</a>; <a href="references.html#ref-Lang2017HandbookLA" role="doc-biblioref"><strong>Lang2017HandbookLA?</strong></a>)</span>. Across the next three chapters, you will learn how to analyze <strong>textual</strong>, <strong>relational</strong>, and <strong>numeric</strong> data — three major forms of information that appear in learning environments, institutional records, and educational research projects <span class="citation" data-cites="Silge2017TextMining Carolan2014SNA James2021ISLR">(<a href="references.html#ref-Carolan2014SNA" role="doc-biblioref">Carolan, 2014</a>; <a href="references.html#ref-James2021ISLR" role="doc-biblioref">James et al., 2021</a>; <a href="references.html#ref-Silge2017TextMining" role="doc-biblioref">Silge &amp; Robinson, 2017</a>)</span>.</p>
+<p>This section introduces the core data science methods that form the basis of educational data analysis <span class="citation" data-cites="Lang2022HandbookLA Baker2014EDM">(<a href="references.html#ref-Baker2014EDM" role="doc-biblioref">Baker &amp; Inventado, 2014</a>; <a href="references.html#ref-Lang2022HandbookLA" role="doc-biblioref">Lang et al., 2022</a>)</span>. Across the next three chapters, you will learn how to analyze <strong>textual</strong>, <strong>relational</strong>, and <strong>numeric</strong> data — three major forms of information that appear in learning environments, institutional records, and educational research projects <span class="citation" data-cites="Silge2017TextMining Carolan2014SNA James2021ISLR">(<a href="references.html#ref-Carolan2014SNA" role="doc-biblioref">Carolan, 2014</a>; <a href="references.html#ref-James2021ISLR" role="doc-biblioref">James et al., 2021</a>; <a href="references.html#ref-Silge2017TextMining" role="doc-biblioref">Silge &amp; Robinson, 2017</a>)</span>.</p>
 <p>These chapters emphasize hands-on, transparent, and reproducible approaches using R. By engaging with real examples, you will gain practical experience in transforming raw educational data into interpretable results that inform theory and practice.</p>
 </section>
 <section id="the-analytical-scope-of-this-section" class="level2">
@@ -589,10 +589,13 @@ div.csl-indent {
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/example.csv"</span>)</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>cleaned <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), str_squish)) <span class="sc">|&gt;</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cleaned)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">everything</span>(),</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    str_squish</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">|&gt;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cleaned)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <blockquote class="blockquote">
 <p>🧩 This five-step workflow—load, clean, transform, analyze, interpret—appears throughout all chapters in this section.</p>
 </blockquote>
@@ -633,6 +636,9 @@ Carolan, B. V. (2014). <em>Social network analysis and education: Theory, method
 </div>
 <div id="ref-James2021ISLR" class="csl-entry" role="listitem">
 James, G., Witten, D., Hastie, T., &amp; Tibshirani, R. (2021). <em>An introduction to statistical learning: With applications in <span>R</span></em> (2nd ed.). Springer.
+</div>
+<div id="ref-Lang2022HandbookLA" class="csl-entry" role="listitem">
+Lang, C., Siemens, G., Wise, A. F., Gašević, D., &amp; Merceron, A. (Eds.). (2022). <em>The handbook of learning analytics</em> (2nd ed.). Society for Learning Analytics Research (<span>SoLAR</span>). <a href="https://doi.org/10.18608/hla22">https://doi.org/10.18608/hla22</a>
 </div>
 <div id="ref-Silge2017TextMining" class="csl-entry" role="listitem">
 Silge, J., &amp; Robinson, D. (2017). <em>Text mining with <span>R</span>: A tidy approach</em>. O’Reilly Media. <a href="https://www.tidytextmining.com/">https://www.tidytextmining.com/</a>
