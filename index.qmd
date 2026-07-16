@@ -30,7 +30,7 @@ Methods, examples, and write-up templates for text, network, numeric, and LLM-ba
 :::::::::
 
 ::: {.content-visible when-format="pdf"}
-![](cover.png){fig-align="center" width="5.8in"}
+![](cover.png){fig-align="center" height="5.7in"}
 
 \newpage
 :::

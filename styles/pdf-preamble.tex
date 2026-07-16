@@ -27,16 +27,24 @@
 \captionsetup[figure]{labelformat=empty,labelsep=none}
 \captionsetup[table]{labelformat=empty,labelsep=none}
 
-% Use Roman numerals for prelim pages, then switch to Arabic page numbers
-% when the first book part begins.
+% Keep the title, contents, and complete Preface in Roman-numbered front
+% matter. Quarto's book template calls \mainmatter before index.qmd, so hold
+% that automatic switch until KOMA-Script has opened the first Part page.
 \usepackage{etoolbox}
+\makeatletter
+\let\cssoriginalmainmatter\mainmatter
+\renewcommand*{\mainmatter}{}
 \AtBeginDocument{\frontmatter}
-
 \newif\ifcssmainmatterstarted
-\pretocmd{\part}{%
-  \ifcssmainmatterstarted\else
-    \cleardoublepage
-    \mainmatter
-    \cssmainmatterstartedtrue
-  \fi
-}{}{}
+\newcommand*{\cssstartmainmatter}[1]{%
+  \ifstrequal{#1}{part}{%
+    \ifcssmainmatterstarted\else
+      \global\@mainmattertrue
+      \pagenumbering{arabic}%
+      \global\let\mainmatter\cssoriginalmainmatter
+      \global\cssmainmatterstartedtrue
+    \fi
+  }{}%
+}
+\AddtoDoHook{heading/postinit}{\cssstartmainmatter}
+\makeatother
