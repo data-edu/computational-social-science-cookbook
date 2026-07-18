@@ -547,6 +547,7 @@ Generate a word cloud to visualize frequent words in an exploratory way. Word cl
 
 ```{r}
 #| label: wordcloud-frequency
+#| fig-cap: "Figure 4.1. Word cloud of frequent terms in university generative AI policies"
 # Create and display the GenAI usage Stance wordcloud
 set.seed(1234) # For reproducibility
 wordcloud(
@@ -566,6 +567,7 @@ Select the top 12 most frequent words and create a bar chart to visualize the di
 
 ```{r}
 #| label: bar-chart-frequency
+#| fig-cap: "Figure 4.2. Twelve most frequent terms in university generative AI policies"
 # Select the top 12 words
 top_words <- word_frequency |>
   slice(1:12)
@@ -702,6 +704,7 @@ Visualize the distribution of sentiment scores with a density plot, showing the 
 
 ```{r}
 #| label: sentiment-density-plot
+#| fig-cap: "Figure 4.3. Distribution of sentiment scores in university generative AI policies"
 # Generate a density plot of sentiment scores
 density_plot <- ggplot(
   sentiment_scores,
@@ -881,6 +884,7 @@ Extract the top terms for each topic and visualize them.
 
 ```{r}
 #| label: visualize-lda
+#| fig-cap: "Figure 4.4. Top terms associated with the three-topic LDA model of university generative AI policies"
 # Visualizing top terms for each topic
 gpt_policy_ap_top_terms_k3 <- gpt_policy_topics_k3 |>
   group_by(topic) |>

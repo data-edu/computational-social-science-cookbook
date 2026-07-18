@@ -118,6 +118,7 @@ V(g)$gender <- node_attributes$gender[
 
         ```{r}
         #| label: sample-network
+        #| fig-cap: "Figure 5.1. Randomly generated sample network"
         library(igraph)
         g_sample <- sample_gnp(n = 10, p = 0.3)
         plot(g_sample, main = "Random Sample Network")
@@ -243,6 +244,9 @@ tibble::tibble(
 
 ```{r}
 #| label: visualize-network-dlt1
+#| fig-cap:
+#|   - "Figure 5.2. DLT1 discussion network shown with the default stress layout"
+#|   - "Figure 5.3. DLT1 discussion network with nodes differentiated by participant role and sized by local network size"
 # Quick overview plot (stress layout by default)
 autograph(dlt1_network)
 
@@ -279,6 +283,12 @@ centr_degree(dlt1_network, mode = "out")$centralization
 
 ```{r}
 #| label: node-centrality-dlt1
+#| fig-cap: "Figure 5.4. DLT1 discussion network with nodes sized by in-degree centrality"
+#| fig-pos: "H"
+#| fig-width: 6.5
+#| fig-height: 5.4
+#| out-width: "90%"
+#| fig-align: center
 # Add in-degree centrality as node attribute
 dlt1_network <- dlt1_network |>
   activate(nodes) |>
@@ -289,13 +299,18 @@ ggraph(dlt1_network, layout = "fr") +
   geom_edge_link(alpha = .2) +
   geom_node_point(aes(size = in_degree, color = role1)) +
   theme_graph() +
-  theme(text = element_text(family = "sans"))
+  theme(
+    text = element_text(family = "sans"),
+    legend.title = element_text(size = 8),
+    legend.text = element_text(size = 7)
+  )
 ```
 
 #### Step 7: Network Density, Reciprocity, Clustering, Distance
 
 ```{r}
 #| label: network-stats-dlt1
+#| fig-cap: "Figure 5.5. DLT1 discussion network highlighting reciprocated ties"
 # Density
 edge_density(dlt1_network)      
 
@@ -392,6 +407,7 @@ dlt2_network <- dlt2_network |>
 #| fig-width: 6.5
 #| fig-height: 3
 #| out-width: "90%"
+#| fig-cap: "Figure 5.6. DLT2 discussion network with nodes differentiated by participant role and sized by local network size"
 # 6. Visualize the network
 ggraph(dlt2_network, layout = "fr") +
   geom_edge_link(alpha = .2) +
@@ -404,6 +420,7 @@ ggraph(dlt2_network, layout = "fr") +
 
 ```{r}
 #| label: measure-dlt2-cohesion
+#| fig-cap: "Figure 5.7. DLT2 discussion network highlighting reciprocated ties"
 # 7. Density, reciprocity, clustering, distances
 density <- edge_density(dlt2_network)
 recip   <- reciprocity(dlt2_network)
@@ -721,6 +738,7 @@ top_transcenders <- ccss_network |>
 
 ```{r}
 #| label: visualize-ccss
+#| fig-cap: "Figure 5.8. Common Core Twitter network with node size and shading encoded by out-degree centrality"
 ggraph(ccss_network, layout = "fr") +
   geom_node_point(
     aes(size = out_degree, color = out_degree)

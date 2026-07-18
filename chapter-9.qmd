@@ -912,6 +912,7 @@ Finally, we visualize the relative frequencies from both methods.
 #| fig-height: 3.2
 #| out-width: "88%"
 #| fig-align: center
+#| fig-cap: "Figure 9.1. Relative frequencies of local LLM themes and keyword-verified matches"
 # ========================================
 # Step 7 — Visualization
 # ========================================

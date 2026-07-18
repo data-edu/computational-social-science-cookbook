@@ -344,6 +344,7 @@ Visualize the distribution of the graduation rate.
 #| fig-width: 6
 #| fig-height: 2.5
 #| out-width: "82%"
+#| fig-cap: "Figure 6.1. Distribution of graduation rates among institutions in the IPEDS sample"
 # Plot a histogram of graduation rates
 ipeds |>
   ggplot(aes(x = grad_rate)) +
@@ -778,6 +779,7 @@ collect_metrics(final_fit)
 #| fig-pos: "htbp"
 #| fig-width: 6
 #| fig-height: 2.8
+#| fig-cap: "Figure 6.2. Random forest variable importance for predicting student pass status"
 # Variable Importance Plot
 importance_data <- final_fit |>
   extract_workflow() |> 
