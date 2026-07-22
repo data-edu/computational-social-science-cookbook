@@ -17,6 +17,11 @@ _freeze/
 
 # macOS metadata
 .DS_Store
+._*
+
+# Private/local submission materials
+AERA2027/
+Submission_Package_Draft/
 
 # Tools and stray artifacts
 bfg-1.14.0.jar

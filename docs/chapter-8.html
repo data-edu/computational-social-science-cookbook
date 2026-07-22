@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -96,14 +96,14 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-f4f10a9a6c3e61416c71969fa1cc4a3c.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8c5f71ffc66263598e920d495c8d238d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-f4f10a9a6c3e61416c71969fa1cc4a3c.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-f39d10f5920f159d9f30bf9424730905.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-f1fd7db7f7a98bdf2cbf0645e017117c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-f39d10f5920f159d9f30bf9424730905.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8f25050054b56903b19a5fd755540369.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-8bb660cca24c858b63f21acee2baa371.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-8f25050054b56903b19a5fd755540369.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f7a1643c513ae8c4ffa1643c9c957e45.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-233a7a583cbfe502f1ac975ddf36b0ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-f7a1643c513ae8c4ffa1643c9c957e45.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -507,7 +507,6 @@ div.csl-indent {
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">8.8 Summary</a>
   <ul class="collapse">
   <li><a href="#key-points-to-remember" id="toc-key-points-to-remember" class="nav-link" data-scroll-target="#key-points-to-remember">Key Points to Remember</a></li>
-  <li><a href="#what-is-next" id="toc-what-is-next" class="nav-link" data-scroll-target="#what-is-next">What is Next?</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -593,7 +592,10 @@ div.csl-indent {
 <p>Getting started is straightforward:</p>
 <ol type="1">
 <li><strong>Download and install Positron</strong> from the website</li>
-<li><strong>Enable Positron Assistant</strong> by turning on <code>positron.assistant.enable</code> in Settings</li>
+<li><strong>Enable Positron Assistant</strong> in Settings.
+<ul>
+<li>Setting: <code>positron.assistant.enable</code></li>
+</ul></li>
 <li><strong>Reload Positron</strong> (restart or run <code>Developer: Reload Window</code>)</li>
 <li><strong>Configure a provider</strong> with <code>Positron Assistant: Configure Language Model Providers</code></li>
 <li><strong>Open chat</strong> (robot icon or <code>Chat: Open Chat</code>) and start asking questions</li>
@@ -721,7 +723,7 @@ div.csl-indent {
 <p>This response can be used as a starting point for verification.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="data/ch6_images/assistant-debug-suggestion.png" class="img-fluid figure-img"></p>
+<p><img src="data/ch6_images/assistant-debug-suggestion.png" class="img-fluid figure-img" style="width:72.0%"></p>
 <figcaption>Figure 8.11. Assistant debugging suggestion for a code error in context.</figcaption>
 </figure>
 </div>
@@ -746,7 +748,7 @@ div.csl-indent {
 <p>Databot can generate reusable import templates for recurring file structures:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="data/ch6_images/databot-import-template.png" class="img-fluid figure-img"></p>
+<p><img src="data/ch6_images/databot-import-template.png" class="img-fluid figure-img" style="width:72.0%"></p>
 <figcaption>Figure 8.12. Databot-generated reusable import template for recurring datasets.</figcaption>
 </figure>
 </div>
@@ -777,37 +779,20 @@ div.csl-indent {
 <p>For incoming survey datasets, Databot can draft validation checks before substantive analysis begins:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="data/ch6_images/databot-validation-checks.png" class="img-fluid figure-img"></p>
+<p><img src="data/ch6_images/databot-validation-checks.png" class="img-fluid figure-img" style="width:72.0%"></p>
 <figcaption>Figure 8.13. Databot-generated data validation checks for incoming survey files.</figcaption>
 </figure>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Auto-generated validation checks - run these on every new dataset</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>validate_student_data <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  checks <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">check_columns_exist =</span> <span class="cf">function</span>(d) {</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>      required <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"score"</span>, <span class="st">"grade"</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>      missing <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(required, <span class="fu">names</span>(d))</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="fu">length</span>(missing) <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="fu">stop</span>(<span class="st">"Missing columns: "</span>, <span class="fu">paste</span>(missing, <span class="at">collapse =</span> <span class="st">", "</span>))</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">check_no_missing_id =</span> <span class="cf">function</span>(d) {</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="fu">any</span>(<span class="fu">is.na</span>(d<span class="sc">$</span>id))) <span class="fu">stop</span>(<span class="st">"Missing IDs found"</span>)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">check_score_range =</span> <span class="cf">function</span>(d) {</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="fu">any</span>(d<span class="sc">$</span>score <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">|</span> d<span class="sc">$</span>score <span class="sc">&gt;</span> <span class="dv">100</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) {</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="fu">stop</span>(<span class="st">"Scores out of valid range (0-100)"</span>)</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (check <span class="cf">in</span> checks) {</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">check</span>(df)</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">"All validation checks passed!"</span>)</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  <span class="cn">TRUE</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>validate_student_data <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  required <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"score"</span>, <span class="st">"grade"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  missing <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(required, <span class="fu">names</span>(df))</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  details <span class="ot">&lt;-</span> <span class="fu">paste</span>(missing, <span class="at">collapse =</span> <span class="st">", "</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(missing) <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="fu">stop</span>(<span class="st">"Missing: "</span>, details)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">anyNA</span>(df<span class="sc">$</span>id)) <span class="fu">stop</span>(<span class="st">"Missing IDs found"</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  bad_score <span class="ot">&lt;-</span> df<span class="sc">$</span>score <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">|</span> df<span class="sc">$</span>score <span class="sc">&gt;</span> <span class="dv">100</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">any</span>(bad_score, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="fu">stop</span>(<span class="st">"Out of range"</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">"All validation checks passed!"</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This creates a repeatable validation layer that can be applied whenever new data arrive.</p>
 </section>
 </section>
@@ -818,8 +803,8 @@ div.csl-indent {
 <p>To keep this chapter reproducible, use the demo files from <code>data/ch6_demo/</code>: <code>student_scores.csv</code> and <code>teacher_survey.csv</code>.</p>
 <p>In this example workflow, you can:</p>
 <ul>
-<li>ask Databot to draft an import function for <code>student_scores.csv</code> (Section 6.5.2),</li>
-<li>ask Databot to generate validation checks for <code>teacher_survey.csv</code> (Section 6.5.3),</li>
+<li>ask Databot to draft an import function for <code>student_scores.csv</code> (Section 8.5.2),</li>
+<li>ask Databot to generate validation checks for <code>teacher_survey.csv</code> (Section 8.5.3),</li>
 <li>use Positron Assistant to refine or explain the generated code,</li>
 <li>run the cleaned analysis pipeline and produce a quick plot for reporting.</li>
 </ul>
@@ -898,9 +883,6 @@ div.csl-indent {
 <li>Being transparent about AI use builds trust with your readers</li>
 <li>These tools free you up to focus on what matters: your research</li>
 </ul>
-</section>
-<section id="what-is-next" class="level3">
-<h3 class="anchored" data-anchor-id="what-is-next">What is Next?</h3>
 <p>The next chapter extends this discussion to <strong>local LLM workflows for text analysis</strong>, with emphasis on privacy-preserving qualitative methods.</p>
 
 

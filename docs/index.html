@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Wei Wang, Mete Akcaoglu, Joshua Rosenberg, Shaun Kellogg">
-<meta name="dcterms.date" content="2026-05-18">
+<meta name="dcterms.date" content="2026-07-20">
 
 <title>Computational Analysis of Educational Data: A Field Guide Using R</title>
 <style>
@@ -62,14 +62,14 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-f4f10a9a6c3e61416c71969fa1cc4a3c.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8c5f71ffc66263598e920d495c8d238d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-f4f10a9a6c3e61416c71969fa1cc4a3c.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-f39d10f5920f159d9f30bf9424730905.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-f1fd7db7f7a98bdf2cbf0645e017117c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-f39d10f5920f159d9f30bf9424730905.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8f25050054b56903b19a5fd755540369.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-8bb660cca24c858b63f21acee2baa371.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-8f25050054b56903b19a5fd755540369.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f7a1643c513ae8c4ffa1643c9c957e45.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-233a7a583cbfe502f1ac975ddf36b0ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-f7a1643c513ae8c4ffa1643c9c957e45.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -467,7 +467,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 18, 2026</p>
+      <p class="date">July 20, 2026</p>
     </div>
   </div>
   
@@ -504,8 +504,8 @@ div.csl-indent {
 <p>In practice, the research process does not always proceed in the orderly, linear fashion suggested by the conventional model. Once you start seeing what can be data in the world, it shapes your ideas of what is “researchable.” Here is a simple model that we propose showing the reciprocal nature of the research process, which is central to our aims in this book:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="data/researchCycle.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 1. Research - data relationship (Generated using Gemini Pro based on an earlier drawing by the authors)</figcaption>
+<p><img src="data/research-data-relationship-editable.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Figure P.1. Reciprocal relationship between research ideas and available data.</figcaption>
 </figure>
 </div>
 <p>We are writing this book because in the past few years what we described above has started happening for us. We have published work on social media data, social network analysis, natural language processing, and machine learning that was only possible after we learned what kind of data already existed around us <span class="citation" data-cites="Estrellado2020DataScience">(<a href="references.html#ref-Estrellado2020DataScience" role="doc-biblioref">Estrellado et al., 2020</a>)</span>. We thought other educational researchers may benefit from a resource that not only tells them what is available as data but also guides them through concrete examples of going through this research journey along with us. We hope that along this journey you will develop your own research questions, and maybe even replicate some of the studies we imagined in this book.</p>
@@ -537,10 +537,10 @@ div.csl-indent {
 <p>Instead of treating this as a disaster, we used it as a design principle. Keep the foundations (text, network, numeric methods), integrate new AI workflows where they are genuinely useful, and make responsible use explicit at every step.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="data/Book written Story by Gemini.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="data/educational-research-tech-battle.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Figure P.2. A comic-style reflection of how this book evolved alongside rapid AI changes.</figcaption>
 </figure>
 </div>
-<p><em>Figure. A comic-style reflection of how this book evolved alongside rapid AI changes (generated with Gemini, based on the authors’ storyline).</em></p>
 </section>
 <section id="data-and-reproducibility-note" class="level3">
 <h3 class="anchored" data-anchor-id="data-and-reproducibility-note">Data and reproducibility note</h3>
