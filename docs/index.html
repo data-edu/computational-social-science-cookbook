@@ -2,22 +2,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Wei Wang, Mete Akcaoglu, Joshua Rosenberg, Shaun Kellogg">
-<meta name="dcterms.date" content="2026-07-20">
+<meta name="dcterms.date" content="2026-09-29">
 
 <title>Computational Analysis of Educational Data: A Field Guide Using R</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -62,14 +65,14 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-f39d10f5920f159d9f30bf9424730905.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-f1fd7db7f7a98bdf2cbf0645e017117c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-f39d10f5920f159d9f30bf9424730905.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-26bdab033f33a064b7b2a071feea0014.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b3ec7d41b5d1d231405cce0a32e90171.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-26bdab033f33a064b7b2a071feea0014.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f7a1643c513ae8c4ffa1643c9c957e45.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-233a7a583cbfe502f1ac975ddf36b0ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-f7a1643c513ae8c4ffa1643c9c957e45.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-32a5216ca76e36ee97a8587516e11dfc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-c0f7d80d6fca762536ec721e4807085d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-32a5216ca76e36ee97a8587516e11dfc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -467,7 +470,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 20, 2026</p>
+      <p class="date">September 29, 2026</p>
     </div>
   </div>
   
@@ -512,7 +515,7 @@ div.csl-indent {
 <p>A second distinctive feature of this book is the “field guide” process we use to work through research design and reporting. Although there are many books on R (or Positron), they usually cover the data science aspects of the work, leaving the academic writing and reporting to individuals. Although researchers are expert in writing up conventional methods or results, these emerging data analysis methods (thanks to new ways data has become available) require a new guidebook. For each computational research method, we follow this process:</p>
 <ol type="1">
 <li><p>Start with what makes good data for that analysis (and how to capture it)</p></li>
-<li><p>See what the data looks like (what it **has to **have, and what it can have)</p></li>
+<li><p>See what the data looks like (what it <strong>has to</strong> have, and what it can have)</p></li>
 <li><p>Formulate sample research questions based on the resources provided by the data and the type of analysis.</p></li>
 <li><p>Go through the analyses in R</p></li>
 <li><p>Provide a sample write up for Methods</p></li>
@@ -541,6 +544,7 @@ div.csl-indent {
 <figcaption>Figure P.2. A comic-style reflection of how this book evolved alongside rapid AI changes.</figcaption>
 </figure>
 </div>
+<p>The examples in this edition retain the model names and settings used when they were written. We will maintain corrections and updated setup instructions in the online edition as the software changes.</p>
 </section>
 <section id="data-and-reproducibility-note" class="level3">
 <h3 class="anchored" data-anchor-id="data-and-reproducibility-note">Data and reproducibility note</h3>
@@ -559,7 +563,7 @@ div.csl-indent {
 <p>This book will be beginner-friendly but not for the absolute beginner. We will dedicate the initial chapters to take you to resources that will help you get started. But, to make sense of this book, you should have basic research design knowledge, basic statistical knowledge, and a basic understanding of R and RStudio. At the same time, this book will not be for experts or expertise. There are already many great resources that delve into the topics that we cover (e.g., Silge’s book on using text data for machine learning).</p>
 <p>We imagine that this book can become a part of doctoral coursework for future researchers, opening the doors for new ways to look at the world for research and data. Likewise, senior and junior academics/researchers would benefit greatly from this book to help them expand their research agendas.</p>
 <p>For researchers like ourselves, we think this book can serve as a fun summer reading to rejuvenate and get excited about new research. At the same time, we also envision this book as a guidebook to keep on the side and frequently refer to, as researchers write up their work using these new methods.</p>
-<p>This book will provide new ways to look at the world and formulate RQs. It will guide through the research process for each new method (including, friendly data organization tips, template for writing up and sharing this. We hope that you join us in this journey and this work will help open up new doors/embark on a journey of using computational research methods.</p>
+<p>We hope this book helps you develop research questions you might not otherwise have considered. For each method, we work through the research process, from organizing data to writing up and sharing the results.</p>
 </section>
 <section id="organization-of-the-book" class="level3">
 <h3 class="anchored" data-anchor-id="organization-of-the-book">Organization of the Book</h3>

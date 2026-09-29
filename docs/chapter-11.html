@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -96,14 +99,14 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-f39d10f5920f159d9f30bf9424730905.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-f1fd7db7f7a98bdf2cbf0645e017117c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-f39d10f5920f159d9f30bf9424730905.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-26bdab033f33a064b7b2a071feea0014.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b3ec7d41b5d1d231405cce0a32e90171.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-26bdab033f33a064b7b2a071feea0014.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f7a1643c513ae8c4ffa1643c9c957e45.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-233a7a583cbfe502f1ac975ddf36b0ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-f7a1643c513ae8c4ffa1643c9c957e45.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-32a5216ca76e36ee97a8587516e11dfc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-c0f7d80d6fca762536ec721e4807085d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-32a5216ca76e36ee97a8587516e11dfc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -629,7 +632,7 @@ div.csl-indent {
 <section id="case-study-communicating-a-text-analysis-with-quarto" class="level2">
 <h2 class="anchored" data-anchor-id="case-study-communicating-a-text-analysis-with-quarto">11.4 Case Study: Communicating a Text Analysis with Quarto</h2>
 <p>In earlier chapters, this book introduced frequency-based text analysis as a method for exploring patterns in large collections of educational texts. In this section, we shift focus from <em>conducting</em> analysis to <em>communicating</em> it. Specifically, we demonstrate how an existing computational study can be shared as a public, reproducible, and accessible research artifact using Quarto.</p>
-<p>The case study draws on the frequency-based analysis of generative AI (GenAI) usage guidelines from 100 U.S. universities presented in Chapter 2. Rather than reproducing the analytical steps, the goal here is to illustrate how such work can be communicated effectively to a broader audience through a project website.</p>
+<p>The case study draws on the frequency-based analysis of generative AI (GenAI) usage guidelines from 100 U.S. universities presented in Chapter 4. Rather than reproducing the analytical steps, the goal here is to illustrate how such work can be communicated effectively to a broader audience through a project website.</p>
 <section id="from-analysis-to-communication" class="level3">
 <h3 class="anchored" data-anchor-id="from-analysis-to-communication">11.4.1 From Analysis to Communication</h3>
 <p>Traditional journal articles often summarize computational workflows due to space limitations. In contrast, web-based formats allow researchers to present narrative explanations, code, visualizations, and documentation in a single, integrated environment.</p>
@@ -682,7 +685,7 @@ div.csl-indent {
 </section>
 <section id="communicating-the-analysis-in-a-quarto-document" class="level3">
 <h3 class="anchored" data-anchor-id="communicating-the-analysis-in-a-quarto-document">11.4.5 Communicating the Analysis in a Quarto Document</h3>
-<p>The core communication document (<code>frequency-analysis.qmd</code>) integrates brief narrative text with one clearly interpretable output. For this chapter, we keep the example intentionally simple and reuse the Chapter 2 frequency analysis idea.</p>
+<p>The core communication document (<code>frequency-analysis.qmd</code>) integrates brief narrative text with one clearly interpretable output. For this chapter, we keep the example intentionally simple and reuse the Chapter 4 frequency analysis idea.</p>
 <p>A minimal communication excerpt could look like this:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -702,7 +705,7 @@ div.csl-indent {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="data/ch9_images/ch2-simple-frequency-example.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>Figure 11.8. Simple frequency bar chart adapted from Chapter 2 policy analysis.</figcaption>
+<figcaption>Figure 11.8. Simple frequency bar chart adapted from Chapter 4 policy analysis.</figcaption>
 </figure>
 </div>
 <p>The communication page pairs this chart with a short interpretation.</p>
@@ -714,7 +717,7 @@ div.csl-indent {
 </section>
 <section id="publishing-and-sharing" class="level3">
 <h3 class="anchored" data-anchor-id="publishing-and-sharing">11.4.7 Publishing and Sharing</h3>
-<p>For the GenAI policy case in this chapter, publishing follows the same two-layer model introduced in Section 9.2.3:</p>
+<p>For the GenAI policy case in this chapter, publishing follows the same two-layer model introduced in Section 11.2.3:</p>
 <ul>
 <li>a <strong>source layer</strong> (repository with Quarto files, scripts, and documentation), and</li>
 <li>a <strong>public layer</strong> (rendered static site for readers).</li>

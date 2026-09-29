@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -76,14 +79,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-f39d10f5920f159d9f30bf9424730905.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-f1fd7db7f7a98bdf2cbf0645e017117c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-f39d10f5920f159d9f30bf9424730905.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-26bdab033f33a064b7b2a071feea0014.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b3ec7d41b5d1d231405cce0a32e90171.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-26bdab033f33a064b7b2a071feea0014.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f7a1643c513ae8c4ffa1643c9c957e45.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-233a7a583cbfe502f1ac975ddf36b0ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-f7a1643c513ae8c4ffa1643c9c957e45.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-32a5216ca76e36ee97a8587516e11dfc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-c0f7d80d6fca762536ec721e4807085d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-32a5216ca76e36ee97a8587516e11dfc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -623,14 +626,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="putting-it-all-together-a-real-example" class="level2">
 <h2 class="anchored" data-anchor-id="putting-it-all-together-a-real-example">9.5 Putting It All Together: A Real Example</h2>
-<p>This section demonstrates a local LLM workflow using the same university AI policy corpus introduced in Chapter 2. Here, the emphasis is thematic analysis with a locally served model.</p>
+<p>This section demonstrates a local LLM workflow using the same university AI policy corpus introduced in Chapter 4. Here, the emphasis is thematic analysis with a locally served model.</p>
 <section id="research-question" class="level3">
 <h3 class="anchored" data-anchor-id="research-question">9.5.1 Research Question</h3>
 <p>This section focuses on a single research question:</p>
 <ul>
 <li>What are the key themes in university AI policy statements?</li>
 </ul>
-<p>By using the same dataset from Chapter 2, we can compare local-LLM thematic outputs with conventional text-analysis baselines.</p>
+<p>By using the same dataset from Chapter 4, we can compare local-LLM thematic outputs with conventional text-analysis baselines.</p>
 </section>
 <section id="the-data-we-are-working-with" class="level3">
 <h3 class="anchored" data-anchor-id="the-data-we-are-working-with">9.5.2 The Data We Are Working With</h3>
@@ -811,12 +814,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="connecting-to-lm-studio" class="level5">
 <h5 class="anchored" data-anchor-id="connecting-to-lm-studio">Connecting to LM Studio</h5>
 <p>Once our data is prepared, our next step is to pass it to LM Studio. Using our function below, we send our text data to LM Studio server.</p>
-<p>What is key here is that we specify the model name, a “system” role defining the model’s expertise (in this case, <em>qualitative research analyst</em>), and the “user” role containing the analysis prompt. The parameters <code>temperature = 0.2</code> constrain randomness to produce consistent, analytic responses, while <code>max_tokens</code> limits the response length.</p>
+<p>We specify the model name, a “system” role defining the model’s expertise (in this case, <em>qualitative research analyst</em>), and a “user” role containing the analysis prompt. Setting <code>temperature = 0.2</code> reduces sampling randomness, while <code>max_tokens</code> limits the generated response.</p>
 <ul>
-<li><p><strong>Temperature</strong> controls randomness: a low value (0.2) produces consistent, analytical responses suited to qualitative coding, while higher values encourage creativity but reduce reliability.</p></li>
-<li><p><strong>Max tokens</strong> limits response length. Setting it to 1000 ensures sufficient detail without verbosity or truncation. Together, these parameters balance precision and completeness in model-generated analyses.</p></li>
+<li><p><strong>Temperature</strong> controls sampling randomness. A low value (0.2) reduces variation, but repeated runs can still differ. Higher values allow more varied responses.</p></li>
+<li><p><strong>Max tokens</strong> sets an output-token budget. With a budget of 1000, a response may still end before a table or explanation is complete, so check each output for truncation.</p></li>
 </ul>
-<p>In essence, this helper encapsulates the logic of prompt dispatch and result retrieval, ensuring each call to the LLM is standardized and repeatable. This is crucial for qualitative workflows where traceability and parameter control are essential.</p>
+<p>This helper standardizes how prompts are sent and responses are retrieved. Keeping track of these parameters helps document the workflow, but does not guarantee identical results across runs.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ----- 3) Call LM Studio -----</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>call_lmstudio <span class="ot">&lt;-</span> <span class="cf">function</span>(prompt, <span class="at">max_tokens =</span> <span class="dv">1000</span>) {</span>
@@ -887,7 +890,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h5 class="anchored" data-anchor-id="synthesizing-and-final-llm-analysis">Synthesizing and Final LLM Analysis</h5>
 <p>We are now back in R synthesizing our data (and manage token limits efficiently).</p>
 <p>The <code>chunk_outputs</code> are split into smaller <em>pairs</em>, each containing two analyses. Each pair is merged and passed through <code>call_lmstudio()</code> using the same <code>meta_prompt</code>, producing intermediate syntheses (<code>pair_outputs</code>). These summaries are then combined into a single consolidated input (<code>final_meta_input</code>) for a final call to <code>call_lmstudio()</code>, yielding the comprehensive meta-analysis (<code>meta_output</code>).</p>
-<p>This iterative merging reduces token usage, preserves coherence, and ensures that the final synthesis integrates all thematic insights without exceeding model constraints. With <code>saveRDS(meta_output, "outputs/meta_output_saved.rds")</code> we save our analysis so that in the future, we can just start from there to pick things back up.</p>
+<p>This iterative merging reduces the amount of text passed between stages. Check each synthesis for missing or altered themes, and make sure each request fits the loaded context window. With <code>saveRDS(meta_output, "outputs/meta_output_saved.rds")</code>, we save the analysis so that we can return to it later.</p>
 <p>To keep things manageable, we combine the chunk results in pairs, do a synthesis step for each pair, and then do one final synthesis to get our grand unified theme set. This keeps the model from getting overwhelmed while still giving us a comprehensive result.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pairwise synthesis to reduce token usage</span></span>
@@ -1010,15 +1013,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="context-window-and-token-limits" class="level5">
 <h5 class="anchored" data-anchor-id="context-window-and-token-limits">Context Window and Token Limits</h5>
 <p>LM Studio supports substantial local inference, but each model has strict token limits. If prompt and response length exceed the context window, requests can fail (for example, HTTP 400 errors).</p>
-<p>Every model has a context window (often 8 k – 32 k tokens). Both your <em>prompt</em> and the <em>expected response</em> must fit inside this box.</p>
+<p>Each model has a context window, and the window available in LM Studio also depends on its loading settings. Both the prompt and the generated response must fit within that limit.</p>
 <p>When in doubt:</p>
 <ul>
 <li><p><strong>Feed your model smaller slices.</strong><br>
-Reduce <code>CHUNK_SIZE</code> or truncate long texts (for instance, use only the first 400–500 characters of each document).</p></li>
+Reduce <code>CHUNK_SIZE</code> before truncating documents. If you omit part of a document, record the omission and consider how it changes the material being analyzed.</p></li>
 <li><p><strong>Adjust your <code>max_tokens</code> parameter.</strong><br>
-Fewer output tokens make for shorter, faster, and safer runs.</p></li>
+A lower output-token limit caps response length, but may leave a table or explanation incomplete.</p></li>
 <li><p><strong>Monitor your total prompt length.</strong><br>
-Before sending a request, check <code>nchar(prompt)</code>: if it returns more than 20 000 characters, you are probably over the limit.</p></li>
+<code>nchar(prompt)</code> can flag large requests, but characters are not tokens. Check the token budget against the loaded context window and leave room for the response.</p></li>
 </ul>
 </section>
 <section id="computing-resources-and-patience" class="level5">
@@ -1098,12 +1101,12 @@ This result directly mirrors the traditional NLP analysis in Section 2, providin
 </tbody>
 </table>
 <p><strong>Theme descriptions and illustrative examples</strong></p>
-<p><strong>Academic Integrity / Plagiarism.</strong> Policies treat unattributed or unauthorized AI output as cheating, requiring adherence to existing honor-code standards. Illustrative excerpts: “If a student uses text generated from ChatGPT and passes it off as their own writing… they are in violation of the university’s academic honor code” (Statement 9); “Students should not present or submit any academic work that impairs the instructor’s ability to accurately assess the student’s academic performance” (Statement 2).</p>
-<p><strong>Faculty Autonomy &amp; Syllabus Clarity.</strong> Instructors are empowered to set, communicate, and enforce AI-use rules within their courses, often via the syllabus or early course materials. Illustrative excerpts: “Different faculty will have different expectations about whether and how students can use AI tools, so being transparent about your expectations is essential” (Statement 5); “As early in your course as possible—ideally within the syllabus itself—you should specify whether, and under what circumstances, the use of AI tools is permissible” (Statement 7).</p>
-<p><strong>Citation / Disclosure Requirements.</strong> Students must explicitly credit AI-generated content or document their interactions to avoid plagiarism. Illustrative excerpts: “Under BU’s guidelines… students must give credit to them whenever they are used… include an appendix detailing the entire exchange with an LLM” (Statement 4); “You must cite your use of these tools appropriately. Not doing so violates the HBS Honor Code” (Statement 7).</p>
-<p><strong>Conditional AI Use Guidelines.</strong> Policies allow or prohibit AI on a case-by-case basis, encouraging faculty to assess pedagogical fit rather than imposing blanket bans. Illustrative excerpts: “Instead of forbidding its use, however, we might investigate which questions AI poses for us as teachers and for our students as learners” (Statement 3); “You must cite your use of these tools appropriately… not doing so violates the HBS Honor Code” (Statement 7).</p>
-<p><strong>Pedagogical Integration &amp; Assessment Design.</strong> The theme emphasizes assignments that preserve skill development while leveraging AI benefits and rethinking assessment strategies. Illustrative excerpts: “Propose alternative assignments or assessments if there is the chance that students might use the tool to misrepresent the output from ChatGPT as their own” (Statement 10); “Ideally, we would come to a place where this technology can be integrated into our instruction in meaningful ways” (Statement 7).</p>
-<p><strong>Policy Evolution &amp; Ongoing Review.</strong> AI guidelines are fluid and require regular updates in response to technological change. An illustrative excerpt is: “Universities will need to constantly stay aware of what is going on with ChatGPT… make updates to their policies at least once a year” (Statement 13).</p>
+<p><strong>Academic Integrity / Plagiarism.</strong> Policies treat unattributed or unauthorized AI output as cheating, requiring adherence to existing honor-code standards. Illustrative excerpts: “If a student uses text generated from ChatGPT and passes it off as their own writing… they are in violation of the university’s academic honor code” (Statement 9); “Students should not present or submit any academic work that impairs the instructor’s ability to accurately assess the student’s academic performance” (Statement 32).</p>
+<p><strong>Faculty Autonomy &amp; Syllabus Clarity.</strong> Instructors are empowered to set, communicate, and enforce AI-use rules within their courses, often via the syllabus or early course materials. Illustrative excerpts: “Different faculty will have different expectations about whether and how students can use AI tools, so being transparent about your expectations is essential” (Statement 5); “As early in your course as possible—ideally within the syllabus itself—you should specify whether, and under what circumstances, the use of AI tools is permissible” (Statement 19).</p>
+<p><strong>Citation / Disclosure Requirements.</strong> Students must explicitly credit AI-generated content or document their interactions to avoid plagiarism. Illustrative excerpts: “Under BU’s guidelines… students must give credit to them whenever they are used… include an appendix detailing the entire exchange with an LLM” (Statement 4); “You must cite your use of these tools appropriately. Not doing so violates the HBS Honor Code” (Statement 37).</p>
+<p><strong>Conditional AI Use Guidelines.</strong> Policies allow or prohibit AI on a case-by-case basis, encouraging faculty to assess pedagogical fit rather than imposing blanket bans. Illustrative excerpts: “Instead of forbidding its use, however, we might investigate which questions AI poses for us as teachers and for our students as learners” (Statement 33); “You must cite your use of these tools appropriately… not doing so violates the HBS Honor Code” (Statement 37).</p>
+<p><strong>Pedagogical Integration &amp; Assessment Design.</strong> The theme emphasizes assignments that preserve skill development while leveraging AI benefits and rethinking assessment strategies. Illustrative excerpts: “Propose alternative assignments or assessments if there is the chance that students might use the tool to misrepresent the output from ChatGPT as their own” (Statement 40); “Ideally, we would come to a place where this technology can be integrated into our instruction in meaningful ways” (Statement 52).</p>
+<p><strong>Policy Evolution &amp; Ongoing Review.</strong> AI guidelines are fluid and require regular updates in response to technological change. An illustrative excerpt is: “Universities will need to constantly stay aware of what is going on with ChatGPT… make updates to their policies at least once a year” (Statement 58).</p>
 </section>
 <section id="human-validation-assessing-the-accuracy-of-lm-studios-thematic-extraction" class="level3">
 <h3 class="anchored" data-anchor-id="human-validation-assessing-the-accuracy-of-lm-studios-thematic-extraction">9.5.5 Human Validation (Assessing the Accuracy of LM Studio’s Thematic Extraction)</h3>
@@ -1439,10 +1442,10 @@ This serves as a quantitative cross-check between two perspectives:</p>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ≈ 0.7</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>A correlation around <em>r</em> ≈ 0.7 is pretty solid—it means the LLM and keyword methods largely agree on which themes are most prevalent, even if they count things differently.</p>
+<p>The two sets of reported theme proportions have a Pearson correlation of <em>r</em> ≈ 0.4053. This is a moderate positive association; it does not establish agreement in the frequency estimates.</p>
 <blockquote class="blockquote">
-<p>A correlation around <em>r</em> ≈ 0.7 indicates a strong positive relationship —</p>
-<p>the model and the keyword method identify and rank themes in similar ways.</p>
+<p>A correlation of <em>r</em> ≈ 0.4053 indicates a moderate positive relationship.</p>
+<p>The model and the keyword method still report different theme proportions.</p>
 </blockquote>
 </section>
 <section id="step-9-interpretation-and-reflection" class="level5">
@@ -1615,7 +1618,7 @@ This serves as a quantitative cross-check between two perspectives:</p>
 </tr>
 <tr class="even">
 <td>Policy Evolution &amp; Ongoing Review</td>
-<td style="text-align: right;">7.0</td>
+<td style="text-align: right;">6.0</td>
 <td style="text-align: right;">5.1</td>
 </tr>
 </tbody>
@@ -1746,7 +1749,7 @@ This serves as a quantitative cross-check between two perspectives:</p>
 The local LLM captured major thematic patterns consistent with those derived from human coding and keyword verification, particularly around <em>academic integrity</em>, <em>faculty autonomy</em>, and <em>disclosure requirements</em>.<br>
 Its lower raw frequencies reflect a more selective, meaning-oriented approach rather than literal word matching.</p></li>
 <li><p><strong>Interpretive Consistency:</strong><br>
-The validation results (r ≈ 0.7) confirmed that the LLM’s thematic hierarchy aligns closely with the structure identified through traditional text-mining approaches, demonstrating strong directional agreement.</p></li>
+The reported correlation (r ≈ 0.4053) indicates a moderate positive association between the LLM and keyword-based theme proportions.</p></li>
 <li><p><strong>Reliability Through Validation:</strong><br>
 Human reviewers judged all six LLM-generated themes to be conceptually sound and textually supported.<br>
 This validation indicates that locally deployed models, when carefully prompted and verified, can produce outputs of research-grade quality.</p></li>
@@ -1779,13 +1782,13 @@ This model of “computational privacy” offers a practical solution for studie
 <h4 class="anchored" data-anchor-id="from-tokens-to-meaning">From Tokens to Meaning</h4>
 <p>Traditional NLP methods, as explored in Section 2, rely heavily on token-level processing: word frequencies, co-occurrence patterns, and topic modeling through statistical clustering. These approaches excel at quantifying surface features of text but often struggle to capture the <em>intent</em> or <em>tone</em> embedded in policy language.</p>
 <p>In contrast, the local LLM used here reasons across sentences and paragraphs. It identifies not only recurring words such as <em>plagiarism</em> or <em>syllabus</em> but also the conceptual relationships that bind them—what the policy <em>means</em> rather than what it merely <em>says</em>. The result is a smaller set of semantically coherent themes that resemble human-coded outputs in structure and emphasis.</p>
-<p>The <strong>validation exercise</strong> (Sections 9.5.5–9.5.5.3) confirmed this distinction empirically: the LLM produced lower absolute frequencies yet mirrored the same thematic hierarchy found by keyword verification (r ≈ 0.7). This pattern suggests greater semantic selectivity rather than simple lexical matching.</p>
+<p>The <strong>validation exercise</strong> (Sections 9.5.5–9.5.5.3) found a moderate positive association between the two sets of reported theme proportions (r ≈ 0.4053). This association alone does not establish greater semantic selectivity.</p>
 </section>
 <section id="complementarity-not-replacement" class="level4">
 <h4 class="anchored" data-anchor-id="complementarity-not-replacement">Complementarity, Not Replacement</h4>
 <p>Rather than viewing LLMs as replacements for traditional NLP, we should see them as complementary instruments in the researcher’s toolkit.<br>
 Conventional text mining offers transparency and replicability; LLMs contribute context, nuance, and synthesis. When combined, the two form a <strong>hybrid analytic ecology</strong>—where numbers inform narratives and narratives refine numbers.</p>
-<p>In Chapter 2, we used token- and frequency-based approaches (including TF-IDF and topic modeling), which are strong baselines for corpus-level pattern detection.</p>
+<p>In Chapter 4, we used token- and frequency-based approaches (including TF-IDF and topic modeling), which are strong baselines for corpus-level pattern detection.</p>
 <p>In this chapter, we took it a step further. We showed how a local LLM can actually <em>understand</em> what those words mean in context. It does not just tally occurrences—it picks up on nuance, tone, and conceptual relationships.</p>
 <p>The validation exercise reinforces this point: the LLM was more selective than keyword counting, but the resulting themes remained conceptually coherent and aligned with human review.</p>
 <p>A hybrid strategy is often strongest: use conventional methods to identify broad patterns, then use LLM workflows to synthesize and interpret semantic structure.</p>

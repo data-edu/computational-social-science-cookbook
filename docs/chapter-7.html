@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -96,14 +99,14 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-f39d10f5920f159d9f30bf9424730905.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-f1fd7db7f7a98bdf2cbf0645e017117c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-f39d10f5920f159d9f30bf9424730905.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-26bdab033f33a064b7b2a071feea0014.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b3ec7d41b5d1d231405cce0a32e90171.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-26bdab033f33a064b7b2a071feea0014.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f7a1643c513ae8c4ffa1643c9c957e45.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-233a7a583cbfe502f1ac975ddf36b0ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-f7a1643c513ae8c4ffa1643c9c957e45.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-32a5216ca76e36ee97a8587516e11dfc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-c0f7d80d6fca762536ec721e4807085d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-32a5216ca76e36ee97a8587516e11dfc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -537,7 +540,7 @@ div.csl-indent {
 <p>That makes cloud models especially useful for rapid prototyping, large-scale text processing, and exploratory analysis.</p>
 <section id="overview-of-major-cloud-providers" class="level3">
 <h3 class="anchored" data-anchor-id="overview-of-major-cloud-providers">Overview of Major Cloud Providers</h3>
-<p>The landscape moves fast. As of 2025, these are among the most common cloud options used in educational data analysis:</p>
+<p>Table 7.1 lists examples of cloud models and ways to call them from R. The model names were checked in September 2026; availability and access requirements may change.</p>
 <table class="caption-top table">
 <caption>Table 7.1. Major cloud LLM providers and R access options.</caption>
 <thead>
@@ -551,31 +554,31 @@ div.csl-indent {
 <tbody>
 <tr class="odd">
 <td><strong>OpenAI</strong></td>
-<td>GPT-4o / GPT-5</td>
+<td><a href="https://developers.openai.com/api/docs/models">GPT-6 family</a></td>
 <td>API key via <a href="https://platform.openai.com">platform.openai.com</a></td>
 <td><code>{httr2}</code>, <code>{openai}</code>, <code>{ellmer}</code></td>
 </tr>
 <tr class="even">
 <td><strong>Anthropic</strong></td>
-<td>Claude 3 Opus · Claude 4</td>
+<td><a href="https://platform.claude.com/docs/en/models/overview">Claude Opus 5.5 / Sonnet 5.5</a></td>
 <td>API key via <a href="https://console.anthropic.com">console.anthropic.com</a></td>
 <td><code>{httr2}</code>, <code>{anthropic}</code>, <code>{ellmer}</code></td>
 </tr>
 <tr class="odd">
 <td><strong>Google</strong></td>
-<td>Gemini 2.5 · Gemini Ultra (2025)</td>
+<td><a href="https://ai.google.dev/gemini-api/docs/models">Gemini 3.8 Flash</a></td>
 <td><a href="https://aistudio.google.com">AI Studio</a></td>
 <td><span><code>{googleGenerativeAI}</code></span>, <code>{ellmer}</code></td>
 </tr>
 <tr class="even">
 <td><strong>Mistral AI</strong></td>
-<td>Mixtral 8x22B · Mistral 7B v0.3</td>
+<td><a href="https://docs.mistral.ai/models">Mistral Medium 3.5 / Small 4</a></td>
 <td><a href="https://mistral.ai">mistral.ai</a></td>
 <td>HTTP via <code>{httr2}</code></td>
 </tr>
 <tr class="odd">
 <td><strong>DeepSeek</strong></td>
-<td>DeepSeek-V3.1 (MoE 128K ctx)</td>
+<td><a href="https://api-docs.deepseek.com/">DeepSeek Flash / V4 Pro</a></td>
 <td>API via <a href="https://deepseek.ai">deepseek.ai</a></td>
 <td>HTTP via <code>{httr2}</code></td>
 </tr>
@@ -587,7 +590,7 @@ div.csl-indent {
 </section>
 <section id="connecting-to-a-cloud-api-from-r" class="level3">
 <h3 class="anchored" data-anchor-id="connecting-to-a-cloud-api-from-r">Connecting to a Cloud API from R</h3>
-<p>Here is a minimal example using the OpenAI API with <code>{httr2}</code>. The same pattern applies to most HTTP-based providers.</p>
+<p>Here is a minimal example using the OpenAI API with <code>{httr2}</code>. The same request-and-response pattern applies to many HTTP-based providers. The code retains the model used for this example. Before switching models, check the provider documentation for supported endpoints and parameters.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr2)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -634,6 +637,7 @@ div.csl-indent {
 </section>
 <section id="installation-and-setup" class="level3">
 <h3 class="anchored" data-anchor-id="installation-and-setup">Installation and Setup</h3>
+<p>The current <code>{ellmer}</code> interface uses <code>chat_openai()</code> to create an OpenAI chat and the chat object’s <code>$chat()</code> method to send a prompt. The <code>llm_chat()</code> and <code>llm_chat_complete()</code> calls retained in the two examples below do not match that interface and need adapting before use. See the <a href="https://ellmer.tidyverse.org/reference/index.html">package reference</a> for the current API.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ellmer"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ellmer)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -671,7 +675,7 @@ div.csl-indent {
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(result<span class="sc">$</span>choices[[<span class="dv">1</span>]]<span class="sc">$</span>message<span class="sc">$</span>content)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <blockquote class="blockquote">
-<p>Nice bonus: you can usually switch models by changing only <code>provider =</code> and <code>model =</code>.</p>
+<p>When switching providers or models, check the connection function and supported arguments in the package documentation.</p>
 </blockquote>
 </section>
 <section id="typical-educational-use-cases" class="level3">
@@ -705,22 +709,22 @@ div.csl-indent {
 </section>
 <section id="local-llms-privacy-preserving-and-offline-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="local-llms-privacy-preserving-and-offline-analysis">7.3 Local LLMs: Privacy-Preserving and Offline Analysis</h2>
-<p>Cloud models are convenient, but they can raise real concerns around <strong>privacy, cost, and IRB compliance</strong>. Local LLMs address these concerns by running directly on your machine.</p>
+<p>Cloud models are convenient, but they can raise concerns around <strong>privacy, cost, and IRB compliance</strong>. Running a model locally can reduce the need to send data to a provider, though the research still needs appropriate data protection and institutional approval.</p>
 <section id="what-are-local-llms" class="level3">
 <h3 class="anchored" data-anchor-id="what-are-local-llms">What Are Local LLMs?</h3>
-<p>Local LLMs are open or custom models executed on local hardware. They process text without sending data to external servers, giving you full data sovereignty.</p>
-<p><strong>Common open-source families:</strong> Llama 3, Qwen, DeepSeek, Mistral, gpt-oss.</p>
+<p>Local LLMs run on local hardware. When the model and supporting tools are configured for local processing, prompts and responses can stay on your machine.</p>
+<p><strong>Examples of model families with downloadable weights:</strong> Llama, Qwen, DeepSeek, Mistral, gpt-oss. Licenses and hardware requirements vary by model.</p>
 <p><strong>Key Advantages</strong></p>
 <ul>
-<li>Data never leaves your device</li>
-<li>No API keys or internet required</li>
-<li>Highly customizable and often cost-free</li>
-<li>Enables fully offline reproducible analysis</li>
+<li>Keep data on your device when using local models and tools</li>
+<li>Run offline after downloading the software and model files</li>
+<li>Avoid per-request API charges, while accounting for hardware and licensing costs</li>
+<li>Retain model files and settings to help others repeat the analysis</li>
 </ul>
 </section>
 <section id="getting-started-with-lm-studio" class="level3">
 <h3 class="anchored" data-anchor-id="getting-started-with-lm-studio">Getting Started with LM Studio</h3>
-<p>LM Studio is a free cross-platform desktop app for running and managing local LLMs. It gives you a GUI for downloading models, testing prompts, and (optionally) exposing a REST API for automation.</p>
+<p>LM Studio is a cross-platform desktop app for running and managing local LLMs. It gives you a GUI for downloading models, testing prompts, and (optionally) exposing a REST API for automation. Local inference can run offline once the required files are downloaded; model searches, downloads, and updates require a connection. See the <a href="https://lmstudio.ai/docs/app/offline">offline-use documentation</a>.</p>
 <p><strong>Supported Platforms:</strong> macOS (Apple Silicon), Windows (x64/ARM64), Linux (x64)</p>
 <p><strong>Docs:</strong> <a href="https://lmstudio.ai/docs/">lmstudio.ai/docs</a></p>
 </section>
@@ -791,7 +795,7 @@ div.csl-indent {
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="fu">content</span>(response)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <blockquote class="blockquote">
-<p>Because requests stay local, sensitive data does not leave your environment.</p>
+<p>This example sends requests to a local endpoint. Check that the selected model and any connected tools also run locally before using sensitive data.</p>
 </blockquote>
 </section>
 </section>
@@ -814,38 +818,38 @@ div.csl-indent {
 <tbody>
 <tr class="odd">
 <td><strong>Cost</strong></td>
-<td>Pay-per-token or subscription</td>
-<td>Free (after hardware)</td>
+<td>Usage or subscription charges</td>
+<td>Hardware, energy, and any licensing costs</td>
 </tr>
 <tr class="even">
 <td><strong>Privacy</strong></td>
-<td>Data sent to provider</td>
-<td>Data stays local</td>
+<td>Data sent to provider; terms vary</td>
+<td>Data can stay local; check connected tools</td>
 </tr>
 <tr class="odd">
 <td><strong>Performance</strong></td>
-<td>Highest accuracy and speed</td>
-<td>Depends on hardware</td>
+<td>Depends on model, task, and service</td>
+<td>Depends on model, task, and hardware</td>
 </tr>
 <tr class="even">
 <td><strong>Maintenance</strong></td>
-<td>Automatic updates</td>
-<td>Manual model management</td>
+<td>Provider manages service; versions may change</td>
+<td>User manages software and model files</td>
 </tr>
 <tr class="odd">
 <td><strong>Customization</strong></td>
-<td>Limited fine-tuning</td>
-<td>Fully modifiable</td>
+<td>Depends on provider and model</td>
+<td>Depends on model, license, and hardware</td>
 </tr>
 <tr class="even">
-<td><strong>Best for</strong></td>
-<td>Large public datasets or prototype analysis</td>
-<td>Sensitive or regulated data</td>
+<td><strong>Useful when</strong></td>
+<td>Managed infrastructure suits the task and data</td>
+<td>Local control or offline access is needed</td>
 </tr>
 </tbody>
 </table>
 <blockquote class="blockquote">
-<p>A common workflow is hybrid: prototype quickly in the cloud, then reproduce locally for privacy and auditability.</p>
+<p>If you move a workflow from a cloud model to a local model, evaluate the local model on the same task. Different models may produce different results.</p>
 </blockquote>
 </section>
 <section id="practical-setup-checklist" class="level2">
@@ -867,6 +871,11 @@ div.csl-indent {
 <p>Both cloud and local LLMs can support strong educational research. The right choice depends on your project constraints.</p>
 <table class="caption-top table">
 <caption>Table 7.4. Recommended LLM environment by research use case.</caption>
+<colgroup>
+<col style="width: 56%">
+<col style="width: 21%">
+<col style="width: 21%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Use Case</th>
@@ -877,33 +886,33 @@ div.csl-indent {
 <tbody>
 <tr class="odd">
 <td>Rapid prototyping</td>
-<td>Yes</td>
-<td>No</td>
+<td>Available</td>
+<td>Available after setup</td>
 </tr>
 <tr class="even">
 <td>Large-scale text processing</td>
-<td>Yes</td>
-<td>No</td>
+<td>Check service capacity and cost</td>
+<td>Check hardware capacity</td>
 </tr>
 <tr class="odd">
 <td>Sensitive student data</td>
-<td>No</td>
-<td>Yes</td>
+<td>Check approvals and provider terms</td>
+<td>Check local security and approvals</td>
 </tr>
 <tr class="even">
 <td>Offline analysis</td>
-<td>No</td>
-<td>Yes</td>
+<td>Requires network access</td>
+<td>Available after setup</td>
 </tr>
 <tr class="odd">
 <td>Long-term reproducibility</td>
-<td>No</td>
-<td>Yes</td>
+<td>Record versions, settings, and outputs</td>
+<td>Also retain model files; results may still vary</td>
 </tr>
 </tbody>
 </table>
 <blockquote class="blockquote">
-<p>In short: cloud LLMs excel at convenience and scale; local LLMs excel at privacy and control. Most research programs benefit from using both strategically.</p>
+<p>Choose an environment based on the task, the data you are allowed to use, and the resources available to you.</p>
 </blockquote>
 <section id="looking-ahead" class="level3">
 <h3 class="anchored" data-anchor-id="looking-ahead">Looking Ahead</h3>
@@ -930,7 +939,7 @@ Nelson, L. K., Burk, D., Knudsen, M., &amp; McCall, L. (2021). The future of cod
 OpenAI. (2023). <span>GPT-4</span> technical report. <em>arXiv Preprint arXiv:2303.08774</em>. <a href="https://arxiv.org/abs/2303.08774">https://arxiv.org/abs/2303.08774</a>
 </div>
 <div id="ref-Than2025UpdatingCoding" class="csl-entry" role="listitem">
-Than, N., Fan, L., Law, T., Nelson, L. K., &amp; McCall, L. (2025). Updating <span>“the future of coding”</span>: Qualitative coding with generative large language models. <em>Sociological Methods &amp; Research</em>. <a href="https://doi.org/10.1177/00491241251339188">https://doi.org/10.1177/00491241251339188</a>
+Than, N., Fan, L., Law, T., Nelson, L. K., &amp; McCall, L. (2025). Updating <span>“the future of coding”</span>: Qualitative coding with generative large language models. <em>Sociological Methods &amp; Research</em>, <em>54</em>(3), 849–888. <a href="https://doi.org/10.1177/00491241251339188">https://doi.org/10.1177/00491241251339188</a>
 </div>
 </div>
 </section>

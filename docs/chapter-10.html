@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -96,14 +99,14 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-f39d10f5920f159d9f30bf9424730905.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-f1fd7db7f7a98bdf2cbf0645e017117c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-f39d10f5920f159d9f30bf9424730905.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-26bdab033f33a064b7b2a071feea0014.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b3ec7d41b5d1d231405cce0a32e90171.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-26bdab033f33a064b7b2a071feea0014.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f7a1643c513ae8c4ffa1643c9c957e45.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-233a7a583cbfe502f1ac975ddf36b0ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-f7a1643c513ae8c4ffa1643c9c957e45.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-32a5216ca76e36ee97a8587516e11dfc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-c0f7d80d6fca762536ec721e4807085d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-32a5216ca76e36ee97a8587516e11dfc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -620,7 +623,7 @@ div.csl-indent {
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">recurse =</span> <span class="cn">FALSE</span></span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Next, to analyze these images in batch, we create a function. The first part of the function defines our model and backend. As of writing this book, <code>qwen2.5vl:7b</code> model worked most efficiently and reliably. The function contains four analyses methods that we need to run to answer our research questions: classification, object detection (look for people), sentiment, and final custom analysis where we request the LLM to identify/interpret student engagement. The function lets us capture the LLM analysis as a tibble.</p>
+<p>Next, to analyze these images in batch, we create a function. The first part of the function defines our model and backend. We use <code>qwen2.5vl:7b</code> in this example. The function contains four analysis methods that we need to run to answer our research questions: classification, object detection (look for people), sentiment, and final custom analysis where we request the LLM to identify/interpret student engagement. The function lets us capture the LLM analysis as a tibble.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to classify and detect in one step</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>process_image <span class="ot">&lt;-</span> <span class="cf">function</span>(img_path) {</span>
@@ -764,13 +767,13 @@ div.csl-indent {
 </section>
 <section id="rq2-group-size-and-use-of-instructional-materials" class="level4">
 <h4 class="anchored" data-anchor-id="rq2-group-size-and-use-of-instructional-materials">RQ2: Group Size and Use of Instructional Materials</h4>
-<p>Group size and material use were analyzed using <code>object_count</code>, <code>primary_object</code>, <code>secondary_object</code>, and <code>object_list</code> columns generated by <code>llm_image_recognition()</code>.</p>
+<p>The code obtains <code>object_count</code> from <code>llm_image_recognition()</code> and <code>primary_object</code> and <code>secondary_object</code> from <code>llm_image_classification()</code>.</p>
 <p>The <code>object_count</code> column suggested observable group sizes ranging from 6 to 18 participants per image, with a median of 11. Teacher-led instruction was associated with larger visible groups (e.g., Images 1 and 3 showed 14–18 detected persons), while collaborative scenes tended to show smaller learning clusters (e.g., Images 0 and 8 with 6–8 persons), consistent with small-group activity structures.</p>
 <p>The <code>object_list</code> column indicated consistent use of text-based materials (e.g., “books,” “papers,” “notebooks”) across seven images (Images 0, 2, 4, 5, 6, 7, 8). Instructional displays such as “chalkboard,” “whiteboard,” or “projector screen” appeared in five images (Images 1, 2, 3, 6, 7), primarily during teacher-directed instruction. Only one image (Image 5) contained references to technology, where <code>object_list</code> included “computers” and <code>image_description</code> mentioned “students working at laptops.”</p>
 </section>
 <section id="rq3-emotional-tone-and-engagement-across-classroom-scenes" class="level4">
 <h4 class="anchored" data-anchor-id="rq3-emotional-tone-and-engagement-across-classroom-scenes">RQ3: Emotional Tone and Engagement Across Classroom Scenes</h4>
-<p>Emotional tone and behavioral participation were interpreted using the <code>classroom_sentiment</code>, <code>engagement_level</code>, and <code>sentiment_rationale</code> columns generated by <code>llm_image_sentiment()</code>.</p>
+<p>Emotional tone and behavioral participation were interpreted using the <code>classroom_sentiment</code>, <code>engagement_level</code>, and <code>sentiment_rationale</code> columns generated by <code>llm_image_custom()</code>.</p>
 <p>Sentiment was most often coded as neutral (<code>classroom_sentiment</code> = “neutral”; 4 images: 1, 2, 4, 5), followed by positive (3 images: 0, 3, 8) and moderately positive (2 images: 6, 7). However, student engagement varied independently of sentiment labels. The <code>engagement_level</code> column revealed a more nuanced pattern:</p>
 <ul>
 <li>High engagement (<code>engagement_level</code> = “high”) was observed in Images 0, 3, and 8, all of which also had positive sentiment. The <code>sentiment_rationale</code> referenced overt behavioral participation such as “students… interacting” (Image 0) and “raising hands” (Image 3).</li>

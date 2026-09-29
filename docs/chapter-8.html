@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -96,14 +99,14 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-f39d10f5920f159d9f30bf9424730905.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-f1fd7db7f7a98bdf2cbf0645e017117c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-f39d10f5920f159d9f30bf9424730905.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-26bdab033f33a064b7b2a071feea0014.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b3ec7d41b5d1d231405cce0a32e90171.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-26bdab033f33a064b7b2a071feea0014.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f7a1643c513ae8c4ffa1643c9c957e45.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-233a7a583cbfe502f1ac975ddf36b0ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-f7a1643c513ae8c4ffa1643c9c957e45.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-32a5216ca76e36ee97a8587516e11dfc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-c0f7d80d6fca762536ec721e4807085d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-32a5216ca76e36ee97a8587516e11dfc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -484,9 +487,9 @@ div.csl-indent {
   <li><a href="#using-positron-assistant" id="toc-using-positron-assistant" class="nav-link" data-scroll-target="#using-positron-assistant">8.4 Using Positron Assistant</a>
   <ul class="collapse">
   <li><a href="#getting-code-explained" id="toc-getting-code-explained" class="nav-link" data-scroll-target="#getting-code-explained">8.4.1 Getting Code Explained</a></li>
-  <li><a href="#when-things-break" id="toc-when-things-break" class="nav-link" data-scroll-target="#when-things-break">8.4.2 When Things Break</a></li>
+  <li><a href="#checking-an-unexpected-result" id="toc-checking-an-unexpected-result" class="nav-link" data-scroll-target="#checking-an-unexpected-result">8.4.2 Checking an Unexpected Result</a></li>
   </ul></li>
-  <li><a href="#meet-databot-experimental-your-eda-accelerator" id="toc-meet-databot-experimental-your-eda-accelerator" class="nav-link" data-scroll-target="#meet-databot-experimental-your-eda-accelerator">8.5 Meet Databot (Experimental): Your EDA Accelerator</a>
+  <li><a href="#databot-examples-of-assisted-exploration" id="toc-databot-examples-of-assisted-exploration" class="nav-link" data-scroll-target="#databot-examples-of-assisted-exploration">8.5 Databot: Examples of Assisted Exploration</a>
   <ul class="collapse">
   <li><a href="#what-can-databot-handle" id="toc-what-can-databot-handle" class="nav-link" data-scroll-target="#what-can-databot-handle">8.5.1 What Can Databot Handle?</a></li>
   <li><a href="#example-never-write-import-code-again" id="toc-example-never-write-import-code-again" class="nav-link" data-scroll-target="#example-never-write-import-code-again">8.5.2 Example: Never Write Import Code Again</a></li>
@@ -538,7 +541,7 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="overview">8.1 Overview</h2>
 <p>The use of AI tools to assist with research coding and analysis has grown rapidly in educational research. Early comparisons of hand-coding and computer-assisted methods showed meaningful trade-offs between the two approaches <span class="citation" data-cites="Nelson2021FutureCoding">(<a href="references.html#ref-Nelson2021FutureCoding" role="doc-biblioref">Nelson et al., 2021</a>)</span>, and recent work has demonstrated that large language models can perform qualitative coding with sufficient reliability for many research tasks — though with important caveats about where they work well and where they do not <span class="citation" data-cites="Than2025UpdatingCoding Liu2025GPT4Coding">(<a href="references.html#ref-Liu2025GPT4Coding" role="doc-biblioref">Liu et al., 2025</a>; <a href="references.html#ref-Than2025UpdatingCoding" role="doc-biblioref">Than et al., 2025</a>)</span>. This chapter introduces two tools that bring LLM assistance directly into the R and Positron workflow, making these capabilities accessible without requiring researchers to leave their analysis environment.</p>
 <p>Positron Assistant functions as an in-IDE research coding assistant: it can support drafting, debugging, and code interpretation without requiring researchers to move between multiple tools. In this chapter, we focus on two tools in the same ecosystem: <strong>Positron Assistant</strong> and <strong>Databot</strong>.</p>
-<p>Positron Assistant is the primary pathway in this chapter for chat, inline support, and code suggestions. Databot is presented as an optional exploratory extension, since it is currently in research preview.</p>
+<p>The examples in this chapter use Positron Assistant for chat and code suggestions, and Databot for exploratory analysis. As of September 2026, Posit has deprecated Databot in favor of Posit Assistant. We retain the examples and screenshots to show the workflow; readers setting up a new environment should consult the <a href="https://docs.posit.co/posit-ai/user/faq/">current Posit documentation</a>.</p>
 <p>The chapter is written for readers with different levels of R experience, with emphasis on practical workflows that can be validated and documented.</p>
 </section>
 <section id="positron-assistant-in-the-research-workflow" class="level2">
@@ -581,9 +584,9 @@ div.csl-indent {
 <h3 class="anchored" data-anchor-id="what-you-will-need">8.3.1 What You Will Need</h3>
 <p>Before we dive in, make sure you have:</p>
 <ul>
-<li><strong>Positron</strong> installed (use a current release; Positron Assistant documentation currently tracks the 2025.07+ generation of features)</li>
+<li><strong>Positron</strong> installed (menus and assistant setup may differ from the versions shown here; check the current documentation)</li>
 <li>At least one configured <strong>model provider</strong> (for example, Anthropic, GitHub Copilot, OpenAI, Amazon Bedrock, or Snowflake Cortex)</li>
-<li><strong>R</strong> (version 4.0 or later) installed on your machine</li>
+<li><strong>R</strong> (version 4.1 or later, for the native <code>|&gt;</code> pipe used below) installed on your machine</li>
 </ul>
 <p>You should also know your institution’s guidance on external AI tools before using non-public data.</p>
 </section>
@@ -609,17 +612,17 @@ div.csl-indent {
 </section>
 <section id="making-it-feel-right-for-you" class="level3">
 <h3 class="anchored" data-anchor-id="making-it-feel-right-for-you">8.3.3 Making It Feel Right for You</h3>
-<p>Positron Assistant can adapt to your style. In settings, you can adjust:</p>
+<p>Figure 8.3 shows the global model preference setting. You can state preferences for the generated response in your prompt, including:</p>
 <ul>
 <li>How detailed responses should be (brief vs.&nbsp;thorough)</li>
-<li>Whether it prefers tidyverse-style code or base R</li>
+<li>Whether to use tidyverse-style code or base R</li>
 <li>Whether generated code should include comments</li>
 </ul>
-<p>Tune these settings based on your workflow and project requirements.</p>
+<p>Choose a model suited to your work, and include these instructions when asking it for help.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="data/ch6_images/assistant-preferences.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 8.3. Assistant preference options for response style and coding defaults.</figcaption>
+<figcaption>Figure 8.3. Global model preference setting in Positron Assistant.</figcaption>
 </figure>
 </div>
 </section>
@@ -637,10 +640,10 @@ div.csl-indent {
 <section id="optional-local-agent-setup-with-continue-lm-studio" class="level3">
 <h3 class="anchored" data-anchor-id="optional-local-agent-setup-with-continue-lm-studio">8.3.5 Optional: Local Agent Setup with Continue + LM Studio</h3>
 <p>If your project requires local execution, you can run an assistant workflow entirely on your own machine by combining Continue in Positron with a local model served from LM Studio. This path is especially useful when your workflow requires tighter data control.</p>
-<p>Below is a practical setup order that matches a real configuration process.</p>
+<p>The screenshots below show local-model settings in Positron and the separate configuration used by Continue.</p>
 <ol type="1">
-<li><p><strong>Start in Positron and define local-model JSON settings first.</strong></p>
-<p>This ensures your assistant config already points to a local endpoint before you start testing.</p>
+<li><p><strong>Distinguish the Positron and Continue settings.</strong></p>
+<p>Figure 8.4 shows local-model JSON settings in Positron. Continue uses a separate configuration file, shown in Figure 8.5.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="data/ch6_images/Positron_LMstudio_JSON settings.png" class="img-fluid figure-img"></p>
@@ -648,46 +651,46 @@ div.csl-indent {
 </figure>
 </div></li>
 <li><p><strong>Set up LM Studio and confirm the local server is running.</strong></p>
-<p>Open LM Studio, load your target model, and verify the local API/server endpoint is active.</p>
+<p>Open LM Studio, load your target model, and verify that its local API endpoint is active. Figure 8.5 shows the Continue client configuration for that endpoint; check the server status in LM Studio itself.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="data/ch6_images/LMstudio—Positron set up.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 8.5. LM Studio local server setup for Positron integration.</figcaption>
+<figcaption>Figure 8.5. Continue configuration for an LM Studio endpoint in Positron.</figcaption>
 </figure>
 </div></li>
 <li><p><strong>Configure Continue in Positron to use the LM Studio endpoint.</strong></p>
-<p>Confirm provider/model mapping in Continue settings and ensure the selected model is the same one currently loaded in LM Studio.</p>
+<p>Find the Continue extension in Positron (Figure 8.6), then configure it to use the LM Studio endpoint. Figure 8.5 shows the client settings. Check that the model name matches the model loaded in LM Studio.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="data/ch6_images/Continue_LMstudio Settings.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 8.6. Continue extension settings mapped to the LM Studio local model.</figcaption>
+<figcaption>Figure 8.6. Continue extension page in Positron.</figcaption>
 </figure>
 </div>
-<p>If your Continue workflow is YAML-based, configure the same endpoint and model there as well:</p>
+<p>Figure 8.7 shows an alternative YAML configuration using Ollama-hosted models. For the LM Studio workflow described here, use the configuration in Figure 8.5.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="data/ch6_images/Continue—yml.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 8.7. Continue YAML configuration for local model endpoint and provider mapping.</figcaption>
+<figcaption>Figure 8.7. Alternative Continue YAML configuration using Ollama-hosted models.</figcaption>
 </figure>
 </div></li>
 <li><p><strong>Run a quick in-IDE verification prompt.</strong></p>
-<p>Use a small, low-risk task first (for example, “Explain this dplyr pipeline” or “Draft a data cleaning function”) to verify response quality and latency.</p>
+<p>Start with a simple prompt to check that the model responds, as in Figure 8.8. Then try a small R task, such as “Explain this dplyr pipeline,” and inspect the response for accuracy and latency.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="data/ch6_images/Positron Assitant—LMstudio UI.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 8.8. In-IDE verification prompt using Positron Assistant with LM Studio.</figcaption>
+<figcaption>Figure 8.8. Basic response check in Continue with a model served by LM Studio.</figcaption>
 </figure>
 </div></li>
 <li><p><strong>Run one concrete case example before using the workflow in research analysis.</strong></p>
-<p>This final check confirms that local agent behavior is stable enough for your chapter-level tasks.</p>
+<p>Review the proposed edits, run the suggested tests, and inspect the results before using the workflow in research analysis.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="data/ch6_images/Positron Assitant——LMstudio case example.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 8.9. Case example response from Positron Assistant using a local model.</figcaption>
+<figcaption>Figure 8.9. Continue proposing edits and test examples for an R script using a local model.</figcaption>
 </figure>
 </div></li>
 </ol>
-<p>In short, configure Positron first, confirm LM Studio second, wire Continue third, and only then move to examples. This sequence avoids most connection and model-mismatch errors.</p>
+<p>Before testing, check that the endpoint and model in Continue match the server you intend to use.</p>
 </section>
 </section>
 <section id="using-positron-assistant" class="level2">
@@ -709,30 +712,30 @@ div.csl-indent {
 </figure>
 </div>
 </section>
-<section id="when-things-break" class="level3">
-<h3 class="anchored" data-anchor-id="when-things-break">8.4.2 When Things Break</h3>
-<p>A common debugging scenario is shown below:</p>
+<section id="checking-an-unexpected-result" class="level3">
+<h3 class="anchored" data-anchor-id="checking-an-unexpected-result">8.4.2 Checking an Unexpected Result</h3>
+<p>When a numeric score variable contains missing values, the call below returns <code>NA</code>. Missing values alone do not cause <code>mean()</code> to raise an error.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You run this, and R throws an error</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(student_data<span class="sc">$</span>score)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Instead of manually searching external forums first, pass the error to Positron Assistant for an initial diagnosis. A typical response might be:</p>
+<p>Ask Positron Assistant to explain the missing-value result. A response might suggest:</p>
 <blockquote class="blockquote">
-<p>“I see the issue! You are trying to calculate a mean, but there are missing values in your data. Add <code>na.rm = TRUE</code> to ignore them, or decide whether those NAs should be handled differently. Want me to show you both options?”</p>
+<p>“Check for missing values in the score variable. If excluding them is appropriate for your analysis, use <code>na.rm = TRUE</code>; otherwise, decide how they should be handled before calculating the mean.”</p>
 </blockquote>
-<p>This response can be used as a starting point for verification.</p>
+<p>Check the data before applying the suggestion, and document how missing scores are handled.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="data/ch6_images/assistant-debug-suggestion.png" class="img-fluid figure-img" style="width:72.0%"></p>
-<figcaption>Figure 8.11. Assistant debugging suggestion for a code error in context.</figcaption>
+<figcaption>Figure 8.11. Assistant suggestion for investigating a missing-value result.</figcaption>
 </figure>
 </div>
 </section>
 </section>
-<section id="meet-databot-experimental-your-eda-accelerator" class="level2">
-<h2 class="anchored" data-anchor-id="meet-databot-experimental-your-eda-accelerator">8.5 Meet Databot (Experimental): Your EDA Accelerator</h2>
-<p>If Positron Assistant is your coding colleague, Databot is your exploratory analysis accelerator. It is designed for rapid, iterative data exploration and can generate and run short analysis steps.</p>
-<p>Databot is currently experimental (research preview), so treat it as an acceleration layer for exploration, not as an unreviewed source of final results.</p>
+<section id="databot-examples-of-assisted-exploration" class="level2">
+<h2 class="anchored" data-anchor-id="databot-examples-of-assisted-exploration">8.5 Databot: Examples of Assisted Exploration</h2>
+<p>Databot was designed for iterative data exploration, with the ability to generate and run short analysis steps. The examples below show import templates and data checks from that workflow.</p>
+<p>Databot has since been deprecated in favor of Posit Assistant. The same need to inspect and test generated code applies when using its successor.</p>
 <section id="what-can-databot-handle" class="level3">
 <h3 class="anchored" data-anchor-id="what-can-databot-handle">8.5.1 What Can Databot Handle?</h3>
 <p>Example tasks include:</p>
@@ -801,12 +804,12 @@ div.csl-indent {
 <section id="a-concrete-example" class="level3">
 <h3 class="anchored" data-anchor-id="a-concrete-example">8.6.1 A Concrete Example</h3>
 <p>To keep this chapter reproducible, use the demo files from <code>data/ch6_demo/</code>: <code>student_scores.csv</code> and <code>teacher_survey.csv</code>.</p>
-<p>In this example workflow, you can:</p>
+<p>The workflow illustrated here has four steps:</p>
 <ul>
-<li>ask Databot to draft an import function for <code>student_scores.csv</code> (Section 8.5.2),</li>
-<li>ask Databot to generate validation checks for <code>teacher_survey.csv</code> (Section 8.5.3),</li>
-<li>use Positron Assistant to refine or explain the generated code,</li>
-<li>run the cleaned analysis pipeline and produce a quick plot for reporting.</li>
+<li>Databot drafts an import function for <code>student_scores.csv</code> (Section 8.5.2).</li>
+<li>Databot generates validation checks for <code>teacher_survey.csv</code> (Section 8.5.3).</li>
+<li>Positron Assistant helps refine or explain the generated code.</li>
+<li>The researcher checks the code, runs the analysis, and inspects the resulting plot.</li>
 </ul>
 <p>The screenshot below should show this end-to-end flow in one workspace view: editor code, Databot/Assistant output, Console results, and a plot. The goal is not to present final publication results, but to document a realistic AI-assisted analysis process from import to quality checks to exploratory output.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -872,13 +875,13 @@ div.csl-indent {
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">8.8 Summary</h2>
 <p>This chapter highlights a practical integration pattern:</p>
-<p>Positron Assistant and Databot can support repetitive coding tasks, contextual learning, and exploratory analysis. They do not replace domain expertise or methodological oversight.</p>
+<p>The Positron Assistant and Databot examples show how coding assistants can help with repetitive tasks, code explanations, and exploratory analysis. These tasks still require domain expertise and methodological oversight.</p>
 <p>Used well, they amplify core researcher strengths: question design, contextual interpretation, and critical evaluation of evidence.</p>
 <section id="key-points-to-remember" class="level3">
 <h3 class="anchored" data-anchor-id="key-points-to-remember">Key Points to Remember</h3>
 <ul>
 <li>Positron Assistant offers real-time code help, explanations, and debugging support</li>
-<li>Databot can accelerate exploratory analysis and repetitive scaffolding, but requires careful review</li>
+<li>The Databot examples illustrate exploratory workflows; use current Posit Assistant documentation for new setups</li>
 <li>Always review and validate AI-generated code—it is a starting point, not the final answer</li>
 <li>Being transparent about AI use builds trust with your readers</li>
 <li>These tools free you up to focus on what matters: your research</li>
@@ -894,7 +897,7 @@ Liu, X., Zambrano, A. F., Baker, R. S., Barany, A., Ocumpaugh, J., Zhang, J., Pa
 Nelson, L. K., Burk, D., Knudsen, M., &amp; McCall, L. (2021). The future of coding: A comparison of hand-coding and three types of computer-assisted text analysis methods. <em>Sociological Methods &amp; Research</em>, <em>50</em>(1), 202–237.
 </div>
 <div id="ref-Than2025UpdatingCoding" class="csl-entry" role="listitem">
-Than, N., Fan, L., Law, T., Nelson, L. K., &amp; McCall, L. (2025). Updating <span>“the future of coding”</span>: Qualitative coding with generative large language models. <em>Sociological Methods &amp; Research</em>. <a href="https://doi.org/10.1177/00491241251339188">https://doi.org/10.1177/00491241251339188</a>
+Than, N., Fan, L., Law, T., Nelson, L. K., &amp; McCall, L. (2025). Updating <span>“the future of coding”</span>: Qualitative coding with generative large language models. <em>Sociological Methods &amp; Research</em>, <em>54</em>(3), 849–888. <a href="https://doi.org/10.1177/00491241251339188">https://doi.org/10.1177/00491241251339188</a>
 </div>
 </div>
 </section>

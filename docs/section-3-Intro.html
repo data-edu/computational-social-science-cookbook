@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -61,14 +64,14 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-f39d10f5920f159d9f30bf9424730905.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-f1fd7db7f7a98bdf2cbf0645e017117c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-f39d10f5920f159d9f30bf9424730905.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-26bdab033f33a064b7b2a071feea0014.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b3ec7d41b5d1d231405cce0a32e90171.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-26bdab033f33a064b7b2a071feea0014.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f7a1643c513ae8c4ffa1643c9c957e45.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-233a7a583cbfe502f1ac975ddf36b0ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-f7a1643c513ae8c4ffa1643c9c957e45.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-32a5216ca76e36ee97a8587516e11dfc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-c0f7d80d6fca762536ec721e4807085d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-32a5216ca76e36ee97a8587516e11dfc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -469,7 +472,7 @@ div.csl-indent {
 <p>As educational researchers integrate large language models into data analysis workflows, our methodological responsibilities evolve in important ways <span class="citation" data-cites="Kasneci2023ChatGPT">(<a href="references.html#ref-Kasneci2023ChatGPT" role="doc-biblioref">Kasneci et al., 2023</a>)</span>. There are three primary approaches to this integration:</p>
 <ul>
 <li><p>first, using LLMs for code autocompletion and inline coding assistance, such as through integrated development environments like Positron;</p></li>
-<li><p>second, using LLMs to support the analysis process through complete code generation and supervised execution, such as with tools like Posit Databot; and</p></li>
+<li><p>second, using LLMs to support the analysis process through complete code generation and supervised execution, such as the Databot workflows illustrated in Chapter 8; and</p></li>
 <li><p>third, deploying LLMs to directly analyze qualitative (e.g., text data).</p></li>
 </ul>
 <p>The third approach in particular raises questions about research integrity — including correctness, transparency, and reproducibility — that are worth examining carefully before treating LLM outputs as research evidence <span class="citation" data-cites="Bender2021StochasticParrots">(<a href="references.html#ref-Bender2021StochasticParrots" role="doc-biblioref">Bender et al., 2021</a>)</span>.</p>
@@ -479,12 +482,12 @@ div.csl-indent {
 </section>
 <section id="applying-the-responsible-use-framework" class="level3">
 <h3 class="anchored" data-anchor-id="applying-the-responsible-use-framework">Applying the Responsible Use Framework</h3>
-<p>When we examine the first two usage types (e.g., code autocomplete and code generation) through the responsible usage framework, we find more encouraging alignment with the three essential criteria of correctness, transparency, and reproducibility . Code-generating and code-assisting LLMs produce verifiable output that researchers can inspect, test, and validate before execution, ensuring correctness through human review. The process maintains transparency because the generated code itself is visible and interpretable, allowing researchers to understand exactly what analytical steps are being performed. Reproducibility is achieved because the same code can be run multiple times on the same data to yield consistent results, and the code can be shared alongside research findings.</p>
+<p>When we examine the first two usage types (e.g., code autocomplete and code generation) through the responsible usage framework, we find more encouraging alignment with the three essential criteria of correctness, transparency, and reproducibility. Code-generating and code-assisting LLMs produce verifiable output that researchers can inspect, test, and validate before using the results. Human review and testing help identify errors, but do not guarantee correctness. The process maintains transparency because the generated code itself is visible and interpretable, allowing researchers to understand exactly what analytical steps are being performed. Sharing the code, data, software versions, and relevant settings allows others to check whether the analysis yields consistent results.</p>
 <p>In contrast, the third approach where LLMs directly analyze qualitative or text data within a black box that is the LLM may raise critical questions about research integrity. Using LLMs for this purpose present inherent challenges against these principles: they are notorious for generating convincing but incorrect answers, operate as black boxes with limited transparency, and lack reproducibility due to their non-deterministic nature. When we apply this framework to direct text analysis by LLMs, significant concerns may emerge: we cannot guarantee correctness, the process lacks transparency, and reproducibility remains uncertain at best.</p>
 </section>
 <section id="achieving-responsible-usage-through-evidence-based-results" class="level3">
 <h3 class="anchored" data-anchor-id="achieving-responsible-usage-through-evidence-based-results">Achieving Responsible Usage Through Evidence-Based Results</h3>
-<p>However, for the third type of usage where LLMs directly analyze data (as we do in Chapters 9 and 10), we can work toward achieving “yes” answers across all (or as many as possible) three framework criteria by requiring LLMs to produce evidence-based results. As we cover in Chapter 9, it is possible to use a local LLM that is connected to R/Positron. In this approach, the researcher has control over the data analysis over simply pasting text into an LLMs chatbox. For example, this can be done by structuring prompts to demand transparent, verifiable outputs, such as requiring the LLM to identify themes, provide verbatim quotes from the source data, report frequencies with counts and percentages, and present findings in standardized tabular formats. We transform the black box into a more transparent analytical tool. This approach ensures <strong>correctness</strong> by grounding every claim in specific textual evidence that researchers can verify, enhances <strong>transparency</strong> by making the analytical reasoning traceable through quoted examples and quantitative metrics, and improves <strong>reproducibility</strong> by standardizing the output format and maintaining clear documentation of the analytical process. When LLMs are constrained to cite their sources, quantify their observations, and structure their findings systematically, they shift from opaque pattern generators to accountable research assistants whose work can be validated against the original data. This methodology aligns with the recommendation for constrained use and micromanaged implementation, ensuring that LLMs remain within appropriate boundaries while still providing valuable analytical support for qualitative research.</p>
+<p>However, for the third type of usage where LLMs directly analyze data (as we do in Chapters 9 and 10), we can work toward achieving “yes” answers across all (or as many as possible) three framework criteria by requiring LLMs to produce evidence-based results. As we cover in Chapter 9, it is possible to use a local LLM that is connected to R/Positron. In this approach, the researcher has control over the data analysis over simply pasting text into an LLMs chatbox. For example, this can be done by structuring prompts to demand transparent, verifiable outputs, such as requiring the LLM to identify themes, provide verbatim quotes from the source data, report frequencies with counts and percentages, and present findings in standardized tabular formats. We transform the black box into a more transparent analytical tool. This approach supports checks of <strong>correctness</strong> by asking for textual evidence that researchers can compare with the source. Quoted examples and counts make claims easier to inspect, supporting <strong>transparency</strong>. Standardized formats and documentation help researchers assess <strong>reproducibility</strong>, but do not guarantee that a repeated model call will return the same result. When LLMs are constrained to cite their sources, quantify their observations, and structure their findings systematically, they shift from opaque pattern generators to accountable research assistants whose work can be validated against the original data. This methodology aligns with the recommendation for constrained use and micromanaged implementation, with the aim of keeping LLM use within appropriate boundaries for qualitative research.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">

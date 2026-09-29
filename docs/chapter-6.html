@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -96,14 +99,14 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-f39d10f5920f159d9f30bf9424730905.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-f1fd7db7f7a98bdf2cbf0645e017117c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-f39d10f5920f159d9f30bf9424730905.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-26bdab033f33a064b7b2a071feea0014.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b3ec7d41b5d1d231405cce0a32e90171.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-26bdab033f33a064b7b2a071feea0014.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f7a1643c513ae8c4ffa1643c9c957e45.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-233a7a583cbfe502f1ac975ddf36b0ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-f7a1643c513ae8c4ffa1643c9c957e45.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-32a5216ca76e36ee97a8587516e11dfc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-c0f7d80d6fca762536ec721e4807085d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-32a5216ca76e36ee97a8587516e11dfc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -622,7 +625,7 @@ div.csl-indent {
 <section id="accessing-ipeds-data" class="level4">
 <h4 class="anchored" data-anchor-id="accessing-ipeds-data">Accessing IPEDS Data</h4>
 <p>The Integrated Postsecondary Education Data System (IPEDS) is a comprehensive source of data on U.S. colleges, universities, and technical and vocational institutions. It provides data on enrollments, completions, graduation rates, faculty, finances, and more. Researchers and policymakers widely use IPEDS data to analyze trends in higher education.</p>
-<p>There are several ways to access IPEDS data, depending on the user’s needs and technical proficiency.</p>
+<p>There are several ways to access IPEDS data, depending on the user’s needs and technical proficiency. The options below also include ACS data that can provide geographic context.</p>
 <section id="direct-download-from-the-nces-website" class="level5">
 <h5 class="anchored" data-anchor-id="direct-download-from-the-nces-website">1. Direct Download from the NCES Website</h5>
 <p>The most straightforward way to access IPEDS data is by downloading it directly from the National Center for Education Statistics (NCES) website.</p>
@@ -660,15 +663,16 @@ div.csl-indent {
 </section>
 <section id="using-the-tidycensus-r-package" class="level5">
 <h5 class="anchored" data-anchor-id="using-the-tidycensus-r-package">3. Using the <code>tidycensus</code> R Package</h5>
-<p>The <code>tidycensus</code> package, while primarily designed for Census data, can access specific IPEDS data linked to educational institutions.</p>
+<p>The <code>tidycensus</code> package retrieves Census and American Community Survey (ACS) data. These data can provide geographic context for a study using IPEDS, but they are not institution-level IPEDS records.</p>
 <ul>
 <li><strong>Steps to Use the <code>tidycensus</code> Package:</strong>
 <ol type="1">
 <li>Install and load the <code>tidycensus</code> package.</li>
 <li>Set up a Census API key to access the data.</li>
-<li>Query IPEDS data for specific institution-level information.</li>
+<li>Query ACS estimates for geographic areas.</li>
 </ol></li>
 </ul>
+<p>The example below requests the number of males aged three and over who are enrolled in school, by Census place. It does not retrieve institutional enrollment from IPEDS.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load the tidycensus package</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("tidycensus")</span></span>
@@ -711,7 +715,7 @@ div.csl-indent {
 <section id="comparison-of-methods-1" class="level5">
 <h5 class="anchored" data-anchor-id="comparison-of-methods-1">Comparison of Methods</h5>
 <table class="caption-top table">
-<caption>Table 6.2. Comparison of methods for accessing IPEDS data.</caption>
+<caption>Table 6.2. Comparison of methods for accessing IPEDS data and related geographic context.</caption>
 <colgroup>
 <col style="width: 26%">
 <col style="width: 36%">
@@ -737,8 +741,8 @@ div.csl-indent {
 </tr>
 <tr class="odd">
 <td><strong><code>tidycensus</code> Package</strong></td>
-<td>Allows integration with Census and ACS data.</td>
-<td>Requires API setup and advanced R skills.</td>
+<td>Provides Census and ACS context for geographic areas.</td>
+<td>Does not retrieve institution-level IPEDS records; requires API setup.</td>
 </tr>
 <tr class="even">
 <td><strong>Online Tools</strong></td>
@@ -1010,9 +1014,10 @@ div.csl-indent {
 <h3 id="measures" class="anchored" data-anchor-id="step-6-supervised-machine-learning-workflow">Measures</h3>
 <p><strong>Outcome variable.</strong> Graduation performance was operationalized as a binary variable (<code>good_grad_rate</code>), coded 1 if an institution’s overall graduation rate exceeded 62% and 0 otherwise. The threshold corresponds to the approximate median of the sample distribution and follows the operationalization used by Zong and Davis (2022).</p>
 <p><strong>Predictor variables.</strong> Five institutional characteristics were included: (1) total student enrollment, (2) percent of applicants admitted, (3) tuition and fees for the 2021–22 academic year, (4) percent of full-time, first-time undergraduates receiving any form of financial aid, and (5) average instructional staff salary equated to nine months of full-time employment. Variable names and definitions follow the IPEDS data dictionary (NCES, 2022).</p>
+<p><strong>Analytic sample.</strong> The source file contains 5,988 institution records. Of these, 5,328 have a graduation rate. The fitted model uses 1,707 complete records; the remaining 3,621 records with a graduation rate have at least one missing predictor and are omitted from the fit.</p>
 <h3 id="analytical-approach" class="anchored">Analytical Approach</h3>
-<p>Two complementary analytic strategies addressed the study’s research questions. To examine which institutional factors are associated with high graduation rates (RQ A), we estimated a binary logistic regression model using the glm() function in R with a binomial link function. This approach yields coefficient estimates and significance tests for each predictor, supporting interpretation of the direction and magnitude of associations (Hosmer et al., 2013).</p>
-<p>To evaluate the predictive accuracy of the same institutional features (RQ B), we fit an equivalent logistic regression model within a supervised machine learning workflow using the tidymodels framework (Kuhn &amp; Wickham, 2020). This pipeline integrated preprocessing via the recipes package and model specification via parsnip, producing a unified, reproducible workflow consistent with current best practices in applied machine learning (Silge &amp; Kuhn, 2022). Model performance was evaluated using overall classification accuracy on the full dataset. All analyses were conducted in R (version 4.3.x).</p>
+<p>We fitted the same logistic regression model through two R interfaces. To examine which institutional factors are associated with high graduation rates (RQ A), we estimated a binary logistic regression model using the glm() function in R with a binomial family and logit link. This approach yields coefficient estimates and significance tests for each predictor, supporting interpretation of the direction and magnitude of associations (Hosmer et al., 2013).</p>
+<p>To report classification accuracy for the same institutional features (RQ B), we fit an equivalent logistic regression model within a supervised machine learning workflow using the tidymodels framework (Kuhn &amp; Wickham, 2020). This pipeline connected the recipe and model specification through recipes, parsnip, and workflows (Silge &amp; Kuhn, 2022). We calculated training accuracy on the same complete records used to fit the model. This is apparent accuracy, not an estimate of performance on new institutions; no separate test set or resampling was used in this example. All analyses were conducted in R (version 4.3.x).</p>
 </blockquote>
 </section>
 </section>
@@ -1026,23 +1031,23 @@ div.csl-indent {
 </section>
 <section id="supervised-ml-workflow-results-rq-b" class="level4">
 <h4 class="anchored" data-anchor-id="supervised-ml-workflow-results-rq-b">Supervised ML Workflow Results (RQ B)</h4>
-<p>The logistic regression model fitted within the <code>tidymodels</code> supervised machine learning workflow achieved an overall classification accuracy of 80.02%. Based on five institutional predictors, the model correctly classified four out of five institutions as high- or low-performing on graduation rates, indicating that these features carry consistent and meaningful predictive signal with respect to graduation outcomes.</p>
+<p>The logistic regression model fitted within the <code>tidymodels</code> supervised machine learning workflow achieved a training accuracy of 80.02%. It correctly classified about four out of five complete records using the same data on which it was fitted. This describes fit to the current sample; it does not establish predictive accuracy for new institutions.</p>
 </section>
 <section id="overall-discussion" class="level4">
 <h4 class="anchored" data-anchor-id="overall-discussion">Overall Discussion</h4>
 <ul>
 <li><strong>Similarities between Approaches</strong>:
 <ul>
-<li>Both the traditional logistic regression and the tidymodels workflow identified key predictors that influence graduation rates, such as total enrollment, admission percentage, tuition fees, financial aid percentage, and average staff salary.</li>
-<li>Each approach provides valuable insights: the regression model offers detailed coefficient estimates and significance levels, while the tidymodels workflow emphasizes predictive accuracy.</li>
+<li>Both the traditional logistic regression and the tidymodels workflow fit the same relationship between graduation-rate category and total enrollment, admission percentage, tuition fees, financial aid percentage, and average staff salary.</li>
+<li>The two interfaces present different summaries of that model: coefficient estimates and significance levels from the regression output, and training accuracy from the workflow.</li>
 </ul></li>
 <li><strong>Differences between Approaches</strong>:
 <ul>
-<li><strong>Interpretability vs.&nbsp;Predictive Performance</strong>: The logistic regression output delivers interpretability through its coefficients and p-values, allowing us to understand the direction and magnitude of the relationships. In contrast, the supervised ML workflow focuses on achieving a robust predictive performance, evidenced by an 80% accuracy.</li>
-<li><strong>Handling of Data</strong>: The traditional regression model summarizes the relationship between variables, whereas the ML workflow integrates data pre-processing, modeling, and validation into a cohesive framework.</li>
+<li><strong>Interpretability vs.&nbsp;Predictive Performance</strong>: Coefficients describe associations, while training accuracy summarizes classification within the fitted sample. Estimating performance on new institutions would require a separate evaluation.</li>
+<li><strong>Handling of Data</strong>: The direct regression call specifies the model, whereas the ML workflow connects the recipe and model in a reusable framework. The workflow shown here does not include independent validation.</li>
 </ul></li>
 </ul>
-<p>In summary, our analyses indicate that institutional factors, particularly tuition fees and staff salaries, play a significant role in predicting graduation outcomes. The supervised ML approach, with an accuracy of around 80%, confirms the model’s practical utility in classifying institutions based on graduation performance. Both methods complement each other, providing a comprehensive understanding of the underlying dynamics that drive graduation rates in higher education.</p>
+<p>The fitted model shows associations between institutional characteristics and graduation-rate category in this sample. The two interfaces demonstrate how to report coefficients and training accuracy for the same model. Its practical predictive performance remains to be evaluated on data not used for fitting.</p>
 </section>
 </section>
 </section>
@@ -1348,7 +1353,7 @@ div.csl-indent {
 <p><strong>Data Source</strong></p>
 <p>Data were drawn from the Open University Learning Analytics Dataset (OULAD; Kuzilek et al., 2017), a publicly available dataset containing demographic information, virtual learning environment (VLE) interaction logs, and assessment records for students enrolled in Open University courses across multiple module presentations. OULAD has been widely used in learning analytics research to model student engagement and predict academic outcomes (e.g., Hlosta et al., 2017; Mubarak et al., 2020).</p>
 <p><strong>Outcome Variable</strong></p>
-<p>The outcome variable was a binary indicator of course result, coded as pass (1) or non-pass (0), derived from the student registration and outcome data provided in OULAD.</p>
+<p>The outcome variable was the supplied binary <code>pass</code> indicator. In this file, 1 corresponds to <code>final_result</code> equal to <code>Pass</code>; 0 includes <code>Distinction</code>, <code>Fail</code>, and <code>Withdrawn</code>. The factor levels are ordered 0, then 1, so the metrics below use 0 as the positive class by default.</p>
 <p><strong>Feature Engineering</strong></p>
 <p>To simulate an early-warning scenario, VLE interaction data were restricted to the period prior to the 25th percentile of assessment submission dates within each module-presentation combination. From this temporally constrained interaction window, three summary features were computed for each student: total clicks (<code>sum_clicks</code>), mean clicks per session (<code>mean_clicks</code>), and standard deviation of clicks (<code>sd_clicks</code>). In addition, a linear regression was fitted to each student’s click sequence over time, yielding an intercept and slope that capture the baseline level and temporal trend of engagement, respectively. These engineered features were joined with student demographic variables (disability status, gender, registration date, and course module) and a measure of prior academic performance (mean weighted assessment score).</p>
 <p><strong>Preprocessing</strong></p>
@@ -1366,19 +1371,19 @@ div.csl-indent {
 <p><strong>Response:</strong><br>
 Using 4-fold cross-validation, our random forest model yielded an average accuracy of approximately <strong>67.4%</strong> (mean accuracy from resamples: 0.674) with a Cohen’s Kappa of <strong>0.270</strong>, suggesting moderate agreement beyond chance. When fitted on the entire training set and evaluated on the test set, the final model showed an accuracy of <strong>66.4%</strong>, along with:</p>
 <ul>
-<li><strong>Sensitivity:</strong> 82.1%, indicating that the model correctly identifies a high proportion of students who pass.</li>
-<li><strong>Specificity:</strong> 40.9%, suggesting that the model is less effective at correctly identifying students who do not pass.</li>
-<li><strong>Positive Predictive Value (PPV):</strong> 69.4%.</li>
-<li><strong>Negative Predictive Value (NPV):</strong> 58.2%.</li>
+<li><strong>Sensitivity:</strong> 82.1% of records in class 0 were correctly classified as 0.</li>
+<li><strong>Specificity:</strong> 40.9% of records in class 1 were correctly classified as 1.</li>
+<li><strong>Positive Predictive Value (PPV):</strong> 69.4% of predictions of class 0 were correct.</li>
+<li><strong>Negative Predictive Value (NPV):</strong> 58.2% of predictions of class 1 were correct.</li>
 </ul>
-<p>The confusion matrix showed the same pattern: most passing students were identified correctly, while non-passing students were more difficult to classify.</p>
-<p>Overall, these metrics indicate that while the model performs well in detecting positive outcomes (high sensitivity), its lower specificity means that it tends to misclassify a relatively higher proportion of non-passing students. In plain English, our model is an <strong>optimist</strong>—it is great at spotting the winners, but it sometimes overlooks the stragglers. This is a crucial insight for educators: this tool is better used as an <strong>early warning system for success</strong> rather than a perfect detector of failure.</p>
+<p>These metrics show that the model identified a larger share of class 0 than of class 1.</p>
+<p>The class definitions matter here. Class 0 combines Distinction, Fail, and Withdrawn, while class 1 contains the Pass category. High sensitivity therefore does not mean that the model identifies a high proportion of students who pass. These results need to be interpreted using the supplied outcome coding.</p>
 </section>
 <section id="research-question-2-rq2" class="level4">
 <h4 class="anchored" data-anchor-id="research-question-2-rq2">Research Question 2 (RQ2):</h4>
 <p><em>Which interaction-based features are most important in predicting student outcomes?</em></p>
 <p><strong>Response:</strong><br>
-The variable importance analysis, extracted from the final random forest model using the <code>vip()</code> function, highlights the following key predictors (with their respective importance scores):</p>
+The variable importance analysis extracts impurity-based importance from the fitted <code>ranger</code> model and plots it with <code>ggplot2</code>. The following are selected predictors and their importance scores:</p>
 <ul>
 <li><strong>sum_clicks:</strong> 1062.49 – This is the most influential feature, indicating that the total number of clicks (i.e., student engagement) in the VLE is a strong predictor of student success. In other words, “showing up” digitally matters just as much as showing up in person.</li>
 <li><strong>mean_weighted_score:</strong> 838.06 – Reflecting academic performance as measured by weighted assessment scores. Past performance is usually a strong predictor of future success, and this confirms it.</li>
@@ -1396,7 +1401,7 @@ The use of 4-fold cross-validation (via <code>vfold_cv</code>) allowed us to ass
 </section>
 <section id="overall-discussion-1" class="level4">
 <h4 class="anchored" data-anchor-id="overall-discussion-1">Overall Discussion</h4>
-<p>The random forest model built on interactions data from OULAD demonstrates decent predictive performance with an accuracy of approximately 66.4–67.4% and high sensitivity (around 82.1%), indicating strong capability in identifying students who will pass the course. However, the relatively low specificity (around 40.9%) suggests that there is room for improvement in correctly classifying students who are at risk of not passing.</p>
+<p>The random forest model built on interactions data from OULAD achieved an accuracy of approximately 66.4–67.4% across the reported evaluations. In the test set, it identified 82.1% of class 0 records and 40.9% of class 1 records. This difference describes performance for the supplied categories; it should not be read as better detection of students who pass than of students who are at risk of not passing.</p>
 <p>The variable importance analysis underscores that engagement-related features—especially <strong>sum_clicks</strong> and features capturing the trend in interactions (slope, mean_clicks)—are the most influential predictors. This insight implies that the <strong>digital footprint</strong> of student engagement in the virtual learning environment is critical for predicting academic outcomes. Every click tells a story; ignoring them means missing valuable signals.</p>
 <p>In summary, while our model performs robustly across cross-validation folds and provides actionable insights into key predictive features, the lower specificity points to the need for further refinement. Future work might explore additional feature engineering, alternative model tuning, or combining models to better balance sensitivity and specificity, ultimately supporting timely interventions in educational settings.</p>
 </section>
@@ -1404,7 +1409,7 @@ The use of 4-fold cross-validation (via <code>vfold_cv</code>) allowed us to ass
 </section>
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">6.5 Summary</h2>
-<p>This chapter introduced machine learning as a tool for educational research through two case studies using the Open University Learning Analytics Dataset. Logistic regression provided an interpretable baseline for predicting student outcomes, while random forests captured more complex interaction patterns at the cost of interpretability. Both approaches demonstrated that student engagement metrics — particularly click activity and its trajectory over time — are strong predictors of course success. These methods extend the analytical toolkit introduced in earlier chapters by moving from descriptive and relational analyses toward predictive modeling.</p>
+<p>This chapter introduced machine learning as a tool for educational research through two case studies. The IPEDS example used logistic regression to examine institutional graduation-rate categories and report training accuracy. The OULAD example used a random forest with student and interaction features and evaluated it through cross-validation and a test split. Together, the examples extend the analytical toolkit introduced in earlier chapters from descriptive and relational analyses to model fitting and evaluation.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">

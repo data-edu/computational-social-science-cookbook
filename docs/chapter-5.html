@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -96,14 +99,14 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-f39d10f5920f159d9f30bf9424730905.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-f1fd7db7f7a98bdf2cbf0645e017117c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-f39d10f5920f159d9f30bf9424730905.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-26bdab033f33a064b7b2a071feea0014.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b3ec7d41b5d1d231405cce0a32e90171.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-26bdab033f33a064b7b2a071feea0014.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f7a1643c513ae8c4ffa1643c9c957e45.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-233a7a583cbfe502f1ac975ddf36b0ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-f7a1643c513ae8c4ffa1643c9c957e45.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-32a5216ca76e36ee97a8587516e11dfc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-c0f7d80d6fca762536ec721e4807085d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-32a5216ca76e36ee97a8587516e11dfc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -1068,7 +1071,7 @@ div.csl-indent {
 <blockquote class="blockquote">
 <p>To examine interaction patterns in the DLT discussions, directed social networks were constructed from edge-list data representing reply ties between participants and node-level attribute data containing participant identifiers and role information. The data were imported from separate edge and node files, cleaned with <code>janitor::clean_names()</code>, and merged into a <code>tbl_graph</code> object using <code>tidygraph</code>, with sender-to-receiver ties treated as directed relationships. This structure is appropriate for modeling conversational exchanges in which the direction of a reply indicates the flow of communication.</p>
 <p>Network structure was first explored through basic graph visualization and descriptive network properties. Layout-based plots were generated with <code>ggraph</code>, which is designed to visualize tidy network objects and supports node-level aesthetics such as role and degree-based size scaling. Overall network size was summarized using the number of nodes and edges, and degree centrality was calculated for all ties, in-ties, and out-ties to assess participant connectedness and directional prominence. Degree centralization was also computed to evaluate the extent to which the network was organized around highly connected actors.</p>
-<p>Additional structural measures were then calculated to characterize cohesion and reciprocity in the discussion networks. Node-level in-degree centrality was attached as a network attribute and visualized to highlight the most frequently addressed participants. Network density, reciprocity, transitivity, diameter, and mean geodesic distance were computed using standard graph-theoretic measures implemented in <code>igraph</code>. Density captured overall tie concentration, reciprocity indicated the extent to which ties were mutual, transitivity reflected clustering among connected actors, diameter summarized the longest shortest path, and mean distance represented average separation between nodes. The same procedures were repeated separately for DLT1 and DLT2 to support comparison across the two discussion networks.</p>
+<p>Additional structural measures were then calculated to characterize cohesion and reciprocity in the discussion networks. Node-level in-degree centrality was attached as a network attribute and visualized to highlight the most frequently addressed participants. Network density, reciprocity, transitivity, diameter, and mean geodesic distance were computed using standard graph-theoretic measures implemented in <code>igraph</code>. Density captured overall tie concentration, reciprocity indicated the extent to which ties were mutual, and transitivity reflected clustering among connected actors. Diameter and mean distance summarized directed shortest paths among reachable ordered pairs of nodes, excluding unreachable pairs. The same procedures were repeated separately for DLT1 and DLT2 to support comparison across the two discussion networks.</p>
 </blockquote>
 </section>
 </section>
@@ -1077,8 +1080,8 @@ div.csl-indent {
 <section id="rq1-what-is-the-overall-structure-of-interaction-in-each-cohort" class="level4">
 <h4 class="anchored" data-anchor-id="rq1-what-is-the-overall-structure-of-interaction-in-each-cohort"><strong>RQ1: What is the overall structure of interaction in each cohort?</strong></h4>
 <p>The interaction networks in both cohorts were large but sparse, indicating that participation was widespread without being uniformly connected. DLT1 included 445 nodes and 2529 directed edges, while DLT2 included 492 nodes and 2584 directed edges. Network density was low in both cases, with DLT1 at 0.013 and DLT2 at 0.011, meaning that only about 1% to 1.3% of all possible ties were present.</p>
-<p>Both networks were multi-component, with several disconnected groups, although most participants were contained in the largest giant component. This pattern is typical of online discussion networks, where interaction tends to cluster within subgroups rather than extend evenly across all participants. Despite this fragmentation, both cohorts had a diameter of 8 and an average shortest path length of about 3.03 for DLT1 and 3.04 for DLT2, suggesting that participants within the main component were separated by only a few steps on average.</p>
-<p>Taken together, these results indicate that discussion and information could travel relatively quickly through the largest connected group, but engagement was selective rather than comprehensive across the full network.</p>
+<p>Both networks were multi-component, with several disconnected groups, although most participants were contained in the largest giant component. This pattern is typical of online discussion networks, where interaction tends to cluster within subgroups rather than extend evenly across all participants. Among reachable ordered pairs of nodes, both cohorts had a maximum shortest path length of 8 and an average of about 3.03 for DLT1 and 3.04 for DLT2. These calculations follow edge direction and exclude unreachable pairs; they are not restricted to the largest component.</p>
+<p>These results describe short paths between reachable participants, alongside disconnected groups. Path length measures steps through the network, not the time information takes to travel.</p>
 </section>
 <section id="rq2-who-are-the-most-central-or-influential-actors" class="level4">
 <h4 class="anchored" data-anchor-id="rq2-who-are-the-most-central-or-influential-actors"><strong>RQ2: Who are the most central or influential actors?</strong></h4>
@@ -1095,7 +1098,7 @@ div.csl-indent {
 <h4 class="anchored" data-anchor-id="rq4-how-cohesive-are-the-networks"><strong>RQ4: How cohesive are the networks?</strong></h4>
 <p>The networks showed low transitivity, indicating limited triadic closure and relatively few closed triangles. DLT1 had a clustering coefficient of 0.089, and DLT2 had a slightly higher value of 0.125, suggesting that connected participants were only occasionally embedded in tightly knit local groups.</p>
 <p>Substantively, this means the networks were more hub-and-spoke than cliquish: participants were often linked through central actors rather than through dense clusters of mutually connected peers. This pattern is consistent with discussion spaces in which a few highly connected individuals connect otherwise separate participants, but close-knit subgroups remain limited.</p>
-<p>Despite the low clustering, both networks still had a diameter of 8, meaning that even the most distant participants in each network could be reached in eight steps. Their mean distances were about 3.0, which indicates that participants in the main component were relatively close to one another overall and that information could travel through the network in only a few hops.</p>
+<p>Despite the low clustering, the longest finite directed shortest path in each network was 8 steps, and the mean was about 3.0. These values describe reachable ordered pairs of nodes. They do not mean that every participant can reach every other participant, since unreachable pairs are excluded.</p>
 <p><strong>Comparison Across Cohorts</strong></p>
 <p>Overall, the two cohorts exhibited very similar interaction structures. DLT2 was slightly larger, with more participants and more interactions than DLT1, but the core network properties were largely comparable across the two groups. Both networks were sparse, centrally organized, and only moderately reciprocal, which is a common pattern in large online discussion networks where a small number of actors account for much of the activity.</p>
 <p>Minor differences suggest modest variation in how the discussions unfolded. DLT2 showed slightly higher reciprocity and clustering, which may reflect differences in facilitation style, participant composition, or the degree of peer-to-peer engagement in that cohort. Even so, both networks followed the same broad pattern: a handful of central actors drove most interactions, ties were efficient but not dense, and genuine dialogue occurred but was not universal</p>
@@ -1393,7 +1396,7 @@ div.csl-indent {
 <section id="rq2-what-subgroups-or-factions-exist-in-the-network" class="level4">
 <h4 class="anchored" data-anchor-id="rq2-what-subgroups-or-factions-exist-in-the-network"><strong>RQ2: What subgroups or factions exist in the network?</strong></h4>
 <p>Component analysis indicates that the Common Core Twitter network was highly fragmented. There were 14 weakly connected components, with the largest containing 14 users, and many additional components consisting of only two or three members. This pattern suggests limited overall cohesion and multiple parallel or isolated conversations rather than one fully integrated discussion space.</p>
-<p>Clique analysis identified four fully connected subgroups, each containing three or four actors. These included one four-person clique involving nodes 3, 4, 5, and 6, along with several overlapping three-person cliques. Such structures point to small pockets of tightly knit interaction, although they were rare relative to the overall size of the network.</p>
+<p>Clique analysis identified six fully connected subgroups: five three-person cliques and one four-person clique. The four-person clique involved nodes 3, 4, 5, and 6 and contained four of the three-person cliques, which are counted separately. Such structures point to small pockets of tightly knit interaction, although they were rare relative to the overall size of the network.</p>
 <p>Community detection using edge betweenness identified 16 subgroups, broadly consistent with the component structure. The largest subgroup contained 10 members, while most of the remaining communities were much smaller. Taken together, these results suggest a network organized around several small, partially isolated clusters rather than a single cohesive conversation.</p>
 </section>
 <section id="rq3-what-is-the-overall-sentiment-in-the-network" class="level4">
@@ -1404,7 +1407,7 @@ div.csl-indent {
 <section id="rq4-what-other-patterns-of-communication-e.g.-centrality-clique-formation-isolates-characterize-this-network" class="level4">
 <h4 class="anchored" data-anchor-id="rq4-what-other-patterns-of-communication-e.g.-centrality-clique-formation-isolates-characterize-this-network"><strong>RQ4: What other patterns of communication (e.g., centrality, clique formation, isolates) characterize this network?</strong></h4>
 <p>The network exhibits a strongly centralized “star-like” structure within its largest component. Two users, <strong>SumayLu</strong> and <strong>WEquilSchool</strong>, emerge as central hubs, with high out-degree and in-degree centrality, respectively. The majority of other users have very low degree values, often 0 or 1, indicating that they are peripheral and engaged in few interactions.</p>
-<p>Clique analysis identified four fully connected subgroups of three or more users, including one 4-person clique and several 3-person cliques, some of which overlap. However, such tightly knit groups are relatively rare; most communication occurs outside of dense subgroups. The network contains 14 weak components, many of them very small, with several users appearing as isolates or embedded in isolated dyads and triads. These actors are disconnected from the main conversation or only weakly integrated.</p>
+<p>Clique analysis identified six fully connected subgroups of three or more users: one 4-person clique and five 3-person cliques, some of which overlap. However, such tightly knit groups are relatively rare; most communication occurs outside of dense subgroups. The network contains 14 weak components, many of them very small, with several users appearing as isolates or embedded in isolated dyads and triads. These actors are disconnected from the main conversation or only weakly integrated.</p>
 <p>Overall, communication in this network is characterized by a small set of highly central users, sparse and fragmented connectivity, and a substantial number of isolates, which together suggest limited network-wide cohesion and a concentration of interaction around a few key accounts.</p>
 </section>
 <section id="discussion" class="level4">

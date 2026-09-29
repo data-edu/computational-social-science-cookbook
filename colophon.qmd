@@ -20,7 +20,7 @@ This book was written in [Quarto](https://quarto.org/), analyzed with R, and ren
 
 ## Reproducibility Details
 
-The build metadata below records the environment used for the current HTML edition.
+This text-only update was rendered on September 29, 2026 with Quarto 1.10.18. The analysis outputs, build metadata, and R session information below are retained from the earlier edition.
 
 ```{r}
 #| echo: false
