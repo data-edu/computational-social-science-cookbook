@@ -85,7 +85,7 @@ students |>
   glimpse(width = glimpse_width)
 ```
 
-The `glimpse()` function shows you the structure of your data: how many rows and columns, what type each column is (character, numeric, etc.), and the first few values. This dataset contains information about students (gender, age, region, disability status) along with their course performance (final_result, pass status, mean_weighted_score).
+The `glimpse()` function shows you the structure of your data: how many rows and columns, what type each column is (character, numeric, etc.), and the first few values. This dataset contains information about students (gender, age, region, disability status) along with their course performance (final_result, pass status, mean_weighted_score). Each row represents a student in a particular module and presentation, so one student can appear in more than one row.
 
 This is the dataset we will use in the examples below. It represents the kind of educational data you will work with in computational educational research: thousands of observations with both categorical and continuous variables.
 
@@ -112,7 +112,7 @@ good_outcomes <- students |>
   filter(pass == 1 | mean_weighted_score > 800)
 ```
 
-This gives us 22,333 passed students from the original 32,593. Use `==` for equality tests, `>` and `<` for comparisons, and combine conditions with commas (AND) or `|` (OR).
+The first filter gives us 12,361 records with `pass == 1` from the original 32,593. In the supplied file, these are records whose `final_result` is exactly `Pass`. Use `==` for equality tests, `>` and `<` for comparisons, and combine conditions with commas (AND) or `|` (OR).
 
 ### 3.5.2 select() - Choosing Columns
 
@@ -177,7 +177,7 @@ students |>
   )
 ```
 
-The `na.rm = TRUE` argument tells R to ignore missing values when calculating means. The `n()` function counts the number of rows.
+The `na.rm = TRUE` argument tells R to ignore missing values when calculating means. The `n()` function counts the number of rows. Here, `n_students` therefore counts student-module-presentation records, not distinct students.
 
 ### 3.5.5 group_by() - Operations by Group
 
@@ -337,7 +337,7 @@ students |>
   geom_bar()
 ```
 
-This automatically counts how many students have each final result (Pass, Fail, Distinction, Withdrawn) and displays the counts as bars.
+This automatically counts how many student-module-presentation records have each final result (Pass, Fail, Distinction, Withdrawn) and displays the counts as bars.
 
 ```{r}
 #| label: plot-bar-stacked

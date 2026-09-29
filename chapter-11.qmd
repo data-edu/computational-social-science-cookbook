@@ -98,7 +98,7 @@ In practice, many projects use **multiple complementary channels**, such as a jo
 
 In earlier chapters, this book introduced frequency-based text analysis as a method for exploring patterns in large collections of educational texts. In this section, we shift focus from *conducting* analysis to *communicating* it. Specifically, we demonstrate how an existing computational study can be shared as a public, reproducible, and accessible research artifact using Quarto.
 
-The case study draws on the frequency-based analysis of generative AI (GenAI) usage guidelines from 100 U.S. universities presented in Chapter 2. Rather than reproducing the analytical steps, the goal here is to illustrate how such work can be communicated effectively to a broader audience through a project website.
+The case study draws on the frequency-based analysis of generative AI (GenAI) usage guidelines from 100 U.S. universities presented in Chapter 4. Rather than reproducing the analytical steps, the goal here is to illustrate how such work can be communicated effectively to a broader audience through a project website.
 
 ### 11.4.1 From Analysis to Communication
 
@@ -161,7 +161,7 @@ This configuration enables navigation between pages and produces a static websit
 
 ### 11.4.5 Communicating the Analysis in a Quarto Document
 
-The core communication document (`frequency-analysis.qmd`) integrates brief narrative text with one clearly interpretable output. For this chapter, we keep the example intentionally simple and reuse the Chapter 2 frequency analysis idea.
+The core communication document (`frequency-analysis.qmd`) integrates brief narrative text with one clearly interpretable output. For this chapter, we keep the example intentionally simple and reuse the Chapter 4 frequency analysis idea.
 
 A minimal communication excerpt could look like this:
 
@@ -182,7 +182,7 @@ top_terms <- policies |>
   slice_head(n = 12)
 ```
 
-![Figure 11.8. Simple frequency bar chart adapted from Chapter 2 policy analysis.](data/ch9_images/ch2-simple-frequency-example.png){width="70%" fig-pos="H"}
+![Figure 11.8. Simple frequency bar chart adapted from Chapter 4 policy analysis.](data/ch9_images/ch2-simple-frequency-example.png){width="70%" fig-pos="H"}
 
 The communication page pairs this chart with a short interpretation.
 
@@ -194,7 +194,7 @@ Narrative text accompanying the visualization explains how these patterns relate
 
 ### 11.4.7 Publishing and Sharing
 
-For the GenAI policy case in this chapter, publishing follows the same two-layer model introduced in Section 9.2.3:
+For the GenAI policy case in this chapter, publishing follows the same two-layer model introduced in Section 11.2.3:
 
 - a **source layer** (repository with Quarto files, scripts, and documentation), and
 - a **public layer** (rendered static site for readers).

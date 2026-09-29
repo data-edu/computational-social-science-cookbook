@@ -120,7 +120,7 @@ content(response)
 
 ## 9.5 Putting It All Together: A Real Example
 
-This section demonstrates a local LLM workflow using the same university AI policy corpus introduced in Chapter 2. Here, the emphasis is thematic analysis with a locally served model.
+This section demonstrates a local LLM workflow using the same university AI policy corpus introduced in Chapter 4. Here, the emphasis is thematic analysis with a locally served model.
 
 ### 9.5.1 Research Question
 
@@ -128,7 +128,7 @@ This section focuses on a single research question:
 
 - What are the key themes in university AI policy statements?
 
-By using the same dataset from Chapter 2, we can compare local-LLM thematic outputs with conventional text-analysis baselines.
+By using the same dataset from Chapter 4, we can compare local-LLM thematic outputs with conventional text-analysis baselines.
 
 ### 9.5.2 The Data We Are Working With
 
@@ -328,13 +328,13 @@ chunks <- split(policy_texts, chunk_ids)
 
 Once our data is prepared, our next step is to pass it to LM Studio. Using our function below, we send our text data to LM Studio server.
 
-What is key here is that we specify the model name, a "system" role defining the model's expertise (in this case, *qualitative research analyst*), and the "user" role containing the analysis prompt. The parameters `temperature = 0.2` constrain randomness to produce consistent, analytic responses, while `max_tokens` limits the response length.
+We specify the model name, a "system" role defining the model's expertise (in this case, *qualitative research analyst*), and a "user" role containing the analysis prompt. Setting `temperature = 0.2` reduces sampling randomness, while `max_tokens` limits the generated response.
 
-- **Temperature** controls randomness: a low value (0.2) produces consistent, analytical responses suited to qualitative coding, while higher values encourage creativity but reduce reliability.
+- **Temperature** controls sampling randomness. A low value (0.2) reduces variation, but repeated runs can still differ. Higher values allow more varied responses.
 
-- **Max tokens** limits response length. Setting it to 1000 ensures sufficient detail without verbosity or truncation. Together, these parameters balance precision and completeness in model-generated analyses.
+- **Max tokens** sets an output-token budget. With a budget of 1000, a response may still end before a table or explanation is complete, so check each output for truncation.
 
-In essence, this helper encapsulates the logic of prompt dispatch and result retrieval, ensuring each call to the LLM is standardized and repeatable. This is crucial for qualitative workflows where traceability and parameter control are essential.
+This helper standardizes how prompts are sent and responses are retrieved. Keeping track of these parameters helps document the workflow, but does not guarantee identical results across runs.
 
 ```{r}
 #| eval: false
@@ -422,7 +422,7 @@ We are now back in R synthesizing our data (and manage token limits efficiently)
 
 The `chunk_outputs` are split into smaller *pairs*, each containing two analyses. Each pair is merged and passed through `call_lmstudio()` using the same `meta_prompt`, producing intermediate syntheses (`pair_outputs`). These summaries are then combined into a single consolidated input (`final_meta_input`) for a final call to `call_lmstudio()`, yielding the comprehensive meta-analysis (`meta_output`).
 
-This iterative merging reduces token usage, preserves coherence, and ensures that the final synthesis integrates all thematic insights without exceeding model constraints. With `saveRDS(meta_output, "outputs/meta_output_saved.rds")` we save our analysis so that in the future, we can just start from there to pick things back up.
+This iterative merging reduces the amount of text passed between stages. Check each synthesis for missing or altered themes, and make sure each request fits the loaded context window. With `saveRDS(meta_output, "outputs/meta_output_saved.rds")`, we save the analysis so that we can return to it later.
 
 To keep things manageable, we combine the chunk results in pairs, do a synthesis step for each pair, and then do one final synthesis to get our grand unified theme set. This keeps the model from getting overwhelmed while still giving us a comprehensive result.
 
@@ -567,18 +567,18 @@ Running a local LLM inside LM Studio provides strong data control, but local wor
 
 LM Studio supports substantial local inference, but each model has strict token limits. If prompt and response length exceed the context window, requests can fail (for example, HTTP 400 errors).
 
-Every model has a context window (often 8 k – 32 k tokens). Both your *prompt* and the *expected response* must fit inside this box.
+Each model has a context window, and the window available in LM Studio also depends on its loading settings. Both the prompt and the generated response must fit within that limit.
 
 When in doubt:
 
 - **Feed your model smaller slices.**\
-  Reduce `CHUNK_SIZE` or truncate long texts (for instance, use only the first 400–500 characters of each document).
+  Reduce `CHUNK_SIZE` before truncating documents. If you omit part of a document, record the omission and consider how it changes the material being analyzed.
 
 - **Adjust your `max_tokens` parameter.**\
-  Fewer output tokens make for shorter, faster, and safer runs.
+  A lower output-token limit caps response length, but may leave a table or explanation incomplete.
 
 - **Monitor your total prompt length.**\
-  Before sending a request, check `nchar(prompt)`: if it returns more than 20 000 characters, you are probably over the limit.
+  `nchar(prompt)` can flag large requests, but characters are not tokens. Check the token budget against the loaded context window and leave room for the response.
 
 ##### Computing Resources and Patience
 
@@ -627,17 +627,17 @@ This result directly mirrors the traditional NLP analysis in Section 2, providin
 
 **Theme descriptions and illustrative examples**
 
-**Academic Integrity / Plagiarism.** Policies treat unattributed or unauthorized AI output as cheating, requiring adherence to existing honor-code standards. Illustrative excerpts: "If a student uses text generated from ChatGPT and passes it off as their own writing… they are in violation of the university's academic honor code" (Statement 9); "Students should not present or submit any academic work that impairs the instructor's ability to accurately assess the student's academic performance" (Statement 2).
+**Academic Integrity / Plagiarism.** Policies treat unattributed or unauthorized AI output as cheating, requiring adherence to existing honor-code standards. Illustrative excerpts: "If a student uses text generated from ChatGPT and passes it off as their own writing… they are in violation of the university's academic honor code" (Statement 9); "Students should not present or submit any academic work that impairs the instructor's ability to accurately assess the student's academic performance" (Statement 32).
 
-**Faculty Autonomy & Syllabus Clarity.** Instructors are empowered to set, communicate, and enforce AI-use rules within their courses, often via the syllabus or early course materials. Illustrative excerpts: "Different faculty will have different expectations about whether and how students can use AI tools, so being transparent about your expectations is essential" (Statement 5); "As early in your course as possible—ideally within the syllabus itself—you should specify whether, and under what circumstances, the use of AI tools is permissible" (Statement 7).
+**Faculty Autonomy & Syllabus Clarity.** Instructors are empowered to set, communicate, and enforce AI-use rules within their courses, often via the syllabus or early course materials. Illustrative excerpts: "Different faculty will have different expectations about whether and how students can use AI tools, so being transparent about your expectations is essential" (Statement 5); "As early in your course as possible—ideally within the syllabus itself—you should specify whether, and under what circumstances, the use of AI tools is permissible" (Statement 19).
 
-**Citation / Disclosure Requirements.** Students must explicitly credit AI-generated content or document their interactions to avoid plagiarism. Illustrative excerpts: "Under BU's guidelines… students must give credit to them whenever they are used… include an appendix detailing the entire exchange with an LLM" (Statement 4); "You must cite your use of these tools appropriately. Not doing so violates the HBS Honor Code" (Statement 7).
+**Citation / Disclosure Requirements.** Students must explicitly credit AI-generated content or document their interactions to avoid plagiarism. Illustrative excerpts: "Under BU's guidelines… students must give credit to them whenever they are used… include an appendix detailing the entire exchange with an LLM" (Statement 4); "You must cite your use of these tools appropriately. Not doing so violates the HBS Honor Code" (Statement 37).
 
-**Conditional AI Use Guidelines.** Policies allow or prohibit AI on a case-by-case basis, encouraging faculty to assess pedagogical fit rather than imposing blanket bans. Illustrative excerpts: "Instead of forbidding its use, however, we might investigate which questions AI poses for us as teachers and for our students as learners" (Statement 3); "You must cite your use of these tools appropriately… not doing so violates the HBS Honor Code" (Statement 7).
+**Conditional AI Use Guidelines.** Policies allow or prohibit AI on a case-by-case basis, encouraging faculty to assess pedagogical fit rather than imposing blanket bans. Illustrative excerpts: "Instead of forbidding its use, however, we might investigate which questions AI poses for us as teachers and for our students as learners" (Statement 33); "You must cite your use of these tools appropriately… not doing so violates the HBS Honor Code" (Statement 37).
 
-**Pedagogical Integration & Assessment Design.** The theme emphasizes assignments that preserve skill development while leveraging AI benefits and rethinking assessment strategies. Illustrative excerpts: "Propose alternative assignments or assessments if there is the chance that students might use the tool to misrepresent the output from ChatGPT as their own" (Statement 10); "Ideally, we would come to a place where this technology can be integrated into our instruction in meaningful ways" (Statement 7).
+**Pedagogical Integration & Assessment Design.** The theme emphasizes assignments that preserve skill development while leveraging AI benefits and rethinking assessment strategies. Illustrative excerpts: "Propose alternative assignments or assessments if there is the chance that students might use the tool to misrepresent the output from ChatGPT as their own" (Statement 40); "Ideally, we would come to a place where this technology can be integrated into our instruction in meaningful ways" (Statement 52).
 
-**Policy Evolution & Ongoing Review.** AI guidelines are fluid and require regular updates in response to technological change. An illustrative excerpt is: "Universities will need to constantly stay aware of what is going on with ChatGPT… make updates to their policies at least once a year" (Statement 13).
+**Policy Evolution & Ongoing Review.** AI guidelines are fluid and require regular updates in response to technological change. An illustrative excerpt is: "Universities will need to constantly stay aware of what is going on with ChatGPT… make updates to their policies at least once a year" (Statement 58).
 
 ### 9.5.5 Human Validation (Assessing the Accuracy of LM Studio's Thematic Extraction)
 
@@ -957,11 +957,11 @@ cor(validation_compare$LLM_Relative,
 
 ```
 
-A correlation around *r* ≈ 0.7 is pretty solid—it means the LLM and keyword methods largely agree on which themes are most prevalent, even if they count things differently.
+The two sets of reported theme proportions have a Pearson correlation of *r* ≈ 0.4053. This is a moderate positive association; it does not establish agreement in the frequency estimates.
 
-> A correlation around *r* ≈ 0.7 indicates a strong positive relationship —
+> A correlation of *r* ≈ 0.4053 indicates a moderate positive relationship.
 >
-> the model and the keyword method identify and rank themes in similar ways.
+> The model and the keyword method still report different theme proportions.
 
 ##### Step 9: Interpretation and Reflection
 
@@ -1043,7 +1043,7 @@ The validation process compared two perspectives on the same corpus:\
 | Citation / Disclosure Requirements | 17.0 | 25.3 |
 | Conditional AI Use Guidelines | 21.0 | 14.1 |
 | Pedagogical Integration & Assessment Design | 8.0 | 50.5 |
-| Policy Evolution & Ongoing Review | 7.0 | 5.1 |
+| Policy Evolution & Ongoing Review | 6.0 | 5.1 |
 
 : Table 9.5. Theme-level comparison of LLM-reported and keyword verified frequencies.
 
@@ -1138,7 +1138,7 @@ Key findings are summarized below:
     Its lower raw frequencies reflect a more selective, meaning-oriented approach rather than literal word matching.
 
 2.  **Interpretive Consistency:**\
-    The validation results (r ≈ 0.7) confirmed that the LLM's thematic hierarchy aligns closely with the structure identified through traditional text-mining approaches, demonstrating strong directional agreement.
+    The reported correlation (r ≈ 0.4053) indicates a moderate positive association between the LLM and keyword-based theme proportions.
 
 3.  **Reliability Through Validation:**\
     Human reviewers judged all six LLM-generated themes to be conceptually sound and textually supported.\
@@ -1176,14 +1176,14 @@ Traditional NLP methods, as explored in Section 2, rely heavily on token-level p
 
 In contrast, the local LLM used here reasons across sentences and paragraphs. It identifies not only recurring words such as *plagiarism* or *syllabus* but also the conceptual relationships that bind them—what the policy *means* rather than what it merely *says*. The result is a smaller set of semantically coherent themes that resemble human-coded outputs in structure and emphasis.
 
-The **validation exercise** (Sections 9.5.5–9.5.5.3) confirmed this distinction empirically: the LLM produced lower absolute frequencies yet mirrored the same thematic hierarchy found by keyword verification (r ≈ 0.7). This pattern suggests greater semantic selectivity rather than simple lexical matching.
+The **validation exercise** (Sections 9.5.5–9.5.5.3) found a moderate positive association between the two sets of reported theme proportions (r ≈ 0.4053). This association alone does not establish greater semantic selectivity.
 
 #### Complementarity, Not Replacement
 
 Rather than viewing LLMs as replacements for traditional NLP, we should see them as complementary instruments in the researcher's toolkit.\
 Conventional text mining offers transparency and replicability; LLMs contribute context, nuance, and synthesis. When combined, the two form a **hybrid analytic ecology**—where numbers inform narratives and narratives refine numbers.
 
-In Chapter 2, we used token- and frequency-based approaches (including TF-IDF and topic modeling), which are strong baselines for corpus-level pattern detection.
+In Chapter 4, we used token- and frequency-based approaches (including TF-IDF and topic modeling), which are strong baselines for corpus-level pattern detection.
 
 In this chapter, we took it a step further. We showed how a local LLM can actually *understand* what those words mean in context. It does not just tally occurrences—it picks up on nuance, tone, and conceptual relationships.
 

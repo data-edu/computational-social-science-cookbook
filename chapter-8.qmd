@@ -21,7 +21,7 @@ The use of AI tools to assist with research coding and analysis has grown rapidl
 
 Positron Assistant functions as an in-IDE research coding assistant: it can support drafting, debugging, and code interpretation without requiring researchers to move between multiple tools. In this chapter, we focus on two tools in the same ecosystem: **Positron Assistant** and **Databot**.
 
-Positron Assistant is the primary pathway in this chapter for chat, inline support, and code suggestions. Databot is presented as an optional exploratory extension, since it is currently in research preview.
+The examples in this chapter use Positron Assistant for chat and code suggestions, and Databot for exploratory analysis. As of September 2026, Posit has deprecated Databot in favor of Posit Assistant. We retain the examples and screenshots to show the workflow; readers setting up a new environment should consult the [current Posit documentation](https://docs.posit.co/posit-ai/user/faq/).
 
 The chapter is written for readers with different levels of R experience, with emphasis on practical workflows that can be validated and documented.
 
@@ -65,9 +65,9 @@ For educational researchers, the value is not replacement of expertise but suppo
 
 Before we dive in, make sure you have:
 
-- **Positron** installed (use a current release; Positron Assistant documentation currently tracks the 2025.07+ generation of features)
+- **Positron** installed (menus and assistant setup may differ from the versions shown here; check the current documentation)
 - At least one configured **model provider** (for example, Anthropic, GitHub Copilot, OpenAI, Amazon Bedrock, or Snowflake Cortex)
-- **R** (version 4.0 or later) installed on your machine
+- **R** (version 4.1 or later, for the native `|>` pipe used below) installed on your machine
 
 You should also know your institution's guidance on external AI tools before using non-public data.
 
@@ -86,15 +86,15 @@ Getting started is straightforward:
 
 ### 8.3.3 Making It Feel Right for You
 
-Positron Assistant can adapt to your style. In settings, you can adjust:
+Figure 8.3 shows the global model preference setting. You can state preferences for the generated response in your prompt, including:
 
 - How detailed responses should be (brief vs. thorough)
-- Whether it prefers tidyverse-style code or base R
+- Whether to use tidyverse-style code or base R
 - Whether generated code should include comments
 
-Tune these settings based on your workflow and project requirements.
+Choose a model suited to your work, and include these instructions when asking it for help.
 
-![Figure 8.3. Assistant preference options for response style and coding defaults.](data/ch6_images/assistant-preferences.png)
+![Figure 8.3. Global model preference setting in Positron Assistant.](data/ch6_images/assistant-preferences.png)
 
 ### 8.3.4 Choosing a Provider for Research Work
 
@@ -111,43 +111,43 @@ For most readers, a good starting strategy is simple: pick one approved provider
 
 If your project requires local execution, you can run an assistant workflow entirely on your own machine by combining Continue in Positron with a local model served from LM Studio. This path is especially useful when your workflow requires tighter data control.
 
-Below is a practical setup order that matches a real configuration process.
+The screenshots below show local-model settings in Positron and the separate configuration used by Continue.
 
-1.  **Start in Positron and define local-model JSON settings first.**
+1.  **Distinguish the Positron and Continue settings.**
 
-    This ensures your assistant config already points to a local endpoint before you start testing.
+    Figure 8.4 shows local-model JSON settings in Positron. Continue uses a separate configuration file, shown in Figure 8.5.
 
     ![Figure 8.4. Positron JSON settings for local LM Studio endpoint configuration.](data/ch6_images/Positron_LMstudio_JSON%20settings.png)
 
 2.  **Set up LM Studio and confirm the local server is running.**
 
-    Open LM Studio, load your target model, and verify the local API/server endpoint is active.
+    Open LM Studio, load your target model, and verify that its local API endpoint is active. Figure 8.5 shows the Continue client configuration for that endpoint; check the server status in LM Studio itself.
 
-    ![Figure 8.5. LM Studio local server setup for Positron integration.](data/ch6_images/LMstudio—Positron%20set%20up.png)
+    ![Figure 8.5. Continue configuration for an LM Studio endpoint in Positron.](data/ch6_images/LMstudio—Positron%20set%20up.png)
 
 3.  **Configure Continue in Positron to use the LM Studio endpoint.**
 
-    Confirm provider/model mapping in Continue settings and ensure the selected model is the same one currently loaded in LM Studio.
+    Find the Continue extension in Positron (Figure 8.6), then configure it to use the LM Studio endpoint. Figure 8.5 shows the client settings. Check that the model name matches the model loaded in LM Studio.
 
-    ![Figure 8.6. Continue extension settings mapped to the LM Studio local model.](data/ch6_images/Continue_LMstudio%20Settings.png)
+    ![Figure 8.6. Continue extension page in Positron.](data/ch6_images/Continue_LMstudio%20Settings.png)
 
-    If your Continue workflow is YAML-based, configure the same endpoint and model there as well:
+    Figure 8.7 shows an alternative YAML configuration using Ollama-hosted models. For the LM Studio workflow described here, use the configuration in Figure 8.5.
 
-    ![Figure 8.7. Continue YAML configuration for local model endpoint and provider mapping.](data/ch6_images/Continue—yml.png)
+    ![Figure 8.7. Alternative Continue YAML configuration using Ollama-hosted models.](data/ch6_images/Continue—yml.png)
 
 4.  **Run a quick in-IDE verification prompt.**
 
-    Use a small, low-risk task first (for example, "Explain this dplyr pipeline" or "Draft a data cleaning function") to verify response quality and latency.
+    Start with a simple prompt to check that the model responds, as in Figure 8.8. Then try a small R task, such as "Explain this dplyr pipeline," and inspect the response for accuracy and latency.
 
-    ![Figure 8.8. In-IDE verification prompt using Positron Assistant with LM Studio.](data/ch6_images/Positron%20Assitant—LMstudio%20UI.png)
+    ![Figure 8.8. Basic response check in Continue with a model served by LM Studio.](data/ch6_images/Positron%20Assitant—LMstudio%20UI.png)
 
 5.  **Run one concrete case example before using the workflow in research analysis.**
 
-    This final check confirms that local agent behavior is stable enough for your chapter-level tasks.
+    Review the proposed edits, run the suggested tests, and inspect the results before using the workflow in research analysis.
 
-    ![Figure 8.9. Case example response from Positron Assistant using a local model.](data/ch6_images/Positron%20Assitant——LMstudio%20case%20example.png)
+    ![Figure 8.9. Continue proposing edits and test examples for an R script using a local model.](data/ch6_images/Positron%20Assitant——LMstudio%20case%20example.png)
 
-In short, configure Positron first, confirm LM Studio second, wire Continue third, and only then move to examples. This sequence avoids most connection and model-mismatch errors.
+Before testing, check that the endpoint and model in Continue match the server you intend to use.
 
 ## 8.4 Using Positron Assistant
 
@@ -165,9 +165,9 @@ This feature is especially useful for onboarding new team members and documentin
 
 ![Figure 8.10. Assistant-generated plain-language explanation of selected code.](data/ch6_images/assistant-code-explanation.png)
 
-### 8.4.2 When Things Break
+### 8.4.2 Checking an Unexpected Result
 
-A common debugging scenario is shown below:
+When a numeric score variable contains missing values, the call below returns `NA`. Missing values alone do not cause `mean()` to raise an error.
 
 ```{r}
 #| eval: false
@@ -176,19 +176,19 @@ A common debugging scenario is shown below:
 mean(student_data$score)
 ```
 
-Instead of manually searching external forums first, pass the error to Positron Assistant for an initial diagnosis. A typical response might be:
+Ask Positron Assistant to explain the missing-value result. A response might suggest:
 
-> "I see the issue! You are trying to calculate a mean, but there are missing values in your data. Add `na.rm = TRUE` to ignore them, or decide whether those NAs should be handled differently. Want me to show you both options?"
+> "Check for missing values in the score variable. If excluding them is appropriate for your analysis, use `na.rm = TRUE`; otherwise, decide how they should be handled before calculating the mean."
 
-This response can be used as a starting point for verification.
+Check the data before applying the suggestion, and document how missing scores are handled.
 
-![Figure 8.11. Assistant debugging suggestion for a code error in context.](data/ch6_images/assistant-debug-suggestion.png){width=72%}
+![Figure 8.11. Assistant suggestion for investigating a missing-value result.](data/ch6_images/assistant-debug-suggestion.png){width=72%}
 
-## 8.5 Meet Databot (Experimental): Your EDA Accelerator
+## 8.5 Databot: Examples of Assisted Exploration
 
-If Positron Assistant is your coding colleague, Databot is your exploratory analysis accelerator. It is designed for rapid, iterative data exploration and can generate and run short analysis steps.
+Databot was designed for iterative data exploration, with the ability to generate and run short analysis steps. The examples below show import templates and data checks from that workflow.
 
-Databot is currently experimental (research preview), so treat it as an acceleration layer for exploration, not as an unreviewed source of final results.
+Databot has since been deprecated in favor of Posit Assistant. The same need to inspect and test generated code applies when using its successor.
 
 ### 8.5.1 What Can Databot Handle?
 
@@ -261,12 +261,12 @@ This creates a repeatable validation layer that can be applied whenever new data
 
 To keep this chapter reproducible, use the demo files from `data/ch6_demo/`: `student_scores.csv` and `teacher_survey.csv`.
 
-In this example workflow, you can:
+The workflow illustrated here has four steps:
 
-- ask Databot to draft an import function for `student_scores.csv` (Section 8.5.2),
-- ask Databot to generate validation checks for `teacher_survey.csv` (Section 8.5.3),
-- use Positron Assistant to refine or explain the generated code,
-- run the cleaned analysis pipeline and produce a quick plot for reporting.
+- Databot drafts an import function for `student_scores.csv` (Section 8.5.2).
+- Databot generates validation checks for `teacher_survey.csv` (Section 8.5.3).
+- Positron Assistant helps refine or explain the generated code.
+- The researcher checks the code, runs the analysis, and inspects the resulting plot.
 
 The screenshot below should show this end-to-end flow in one workspace view: editor code, Databot/Assistant output, Console results, and a plot. The goal is not to present final publication results, but to document a realistic AI-assisted analysis process from import to quality checks to exploratory output.
 
@@ -325,14 +325,14 @@ Also remember the privacy boundary: Positron routes requests to your selected pr
 
 This chapter highlights a practical integration pattern:
 
-Positron Assistant and Databot can support repetitive coding tasks, contextual learning, and exploratory analysis. They do not replace domain expertise or methodological oversight.
+The Positron Assistant and Databot examples show how coding assistants can help with repetitive tasks, code explanations, and exploratory analysis. These tasks still require domain expertise and methodological oversight.
 
 Used well, they amplify core researcher strengths: question design, contextual interpretation, and critical evaluation of evidence.
 
 ### Key Points to Remember
 
 - Positron Assistant offers real-time code help, explanations, and debugging support
-- Databot can accelerate exploratory analysis and repetitive scaffolding, but requires careful review
+- The Databot examples illustrate exploratory workflows; use current Posit Assistant documentation for new setups
 - Always review and validate AI-generated code—it is a starting point, not the final answer
 - Being transparent about AI use builds trust with your readers
 - These tools free you up to focus on what matters: your research

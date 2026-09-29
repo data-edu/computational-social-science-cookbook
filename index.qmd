@@ -51,7 +51,7 @@ A second distinctive feature of this book is the "field guide" process we use to
 
 1.  Start with what makes good data for that analysis (and how to capture it)
 
-2.  See what the data looks like (what it \*\*has to \*\*have, and what it can have)
+2.  See what the data looks like (what it **has to** have, and what it can have)
 
 3.  Formulate sample research questions based on the resources provided by the data and the type of analysis.
 
@@ -85,6 +85,8 @@ Instead of treating this as a disaster, we used it as a design principle. Keep t
 
 ![Figure P.2. A comic-style reflection of how this book evolved alongside rapid AI changes.](data/educational-research-tech-battle.png){fig-align="center" fig-pos="H" width="100%"}
 
+The examples in this edition retain the model names and settings used when they were written. We will maintain corrections and updated setup instructions in the online edition as the software changes.
+
 ### Data and reproducibility note
 
 This book is designed to be reproducible with openly available project files and datasets. Most executable chapter workflows use data stored in the repository under `data/`, so readers can run analyses locally without relying on hidden inputs.
@@ -109,7 +111,7 @@ We imagine that this book can become a part of doctoral coursework for future re
 
 For researchers like ourselves, we think this book can serve as a fun summer reading to rejuvenate and get excited about new research. At the same time, we also envision this book as a guidebook to keep on the side and frequently refer to, as researchers write up their work using these new methods.
 
-This book will provide new ways to look at the world and formulate RQs. It will guide through the research process for each new method (including, friendly data organization tips, template for writing up and sharing this. We hope that you join us in this journey and this work will help open up new doors/embark on a journey of using computational research methods.
+We hope this book helps you develop research questions you might not otherwise have considered. For each method, we work through the research process, from organizing data to writing up and sharing the results.
 
 ### Organization of the Book
 

@@ -518,6 +518,8 @@ policy_path <- "data/University_GenAI_Policy_Stance.csv"
 university_policies <- read_csv(policy_path)
 ```
 
+The CSV supplied with this example contains 99 text records, which are read by the code above.
+
 #### Step 3: Tokenize Text and Count Word Frequency
 
 Process the text data by tokenizing words, removing stop words, and counting word occurrences.

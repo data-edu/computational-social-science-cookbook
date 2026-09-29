@@ -20,7 +20,7 @@ The current structure includes four parts:
 - Chapter 5: Network data methods using social network analysis workflows
 - Chapter 6: Numeric data methods and modeling workflows with educational datasets
 - Chapter 7-10: LLM environments and applied LLM workflows for educational research tasks
-- Chapter 11 + back matter: communication strategies, conclusion, colophon, and full references
+- Chapters 11-12 + back matter: communication strategies, conclusion, colophon, and full references
 
 ## What this project is
 
@@ -34,7 +34,8 @@ The current structure includes four parts:
 - `chapter-*.qmd` - chapter source files
 - `section-*-Intro.qmd` - part introduction pages
 - `index.qmd` - preface/front page
-- `conclusion.qmd`, `colophon.qmd`, `references.qmd` - back matter
+- `chapter-12.qmd` - conclusion
+- `colophon.qmd`, `references.qmd` - back matter
 - `references.bib`, `apa.csl` - bibliography and citation style
 - `data/` - source datasets and static images used in chapters
 - `styles/` - custom theme/style overrides
