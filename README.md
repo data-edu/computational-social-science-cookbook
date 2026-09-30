@@ -92,9 +92,3 @@ Typical publish flow:
 2. Run `quarto render`
 3. Commit source + updated `docs/`
 4. Push to `main`
-
-## Notes for collaborators
-
-- No dedicated unit test suite is configured; render checks are the main validation.
-- Internal/private review notes should stay local and not be committed.
-- AI assistant config files are intentionally not required in this repository.
