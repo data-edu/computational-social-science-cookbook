@@ -107,3 +107,6 @@ knitr:
   
   
   
+
+filters:
+  - filters/production-figures.lua
